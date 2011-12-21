@@ -1,22 +1,24 @@
-.. XiVO documentation master file, created by
-   sphinx-quickstart on Wed Dec 21 16:36:18 2011.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. XiVO-doc Documentation master file.
 
-Welcome to XiVO's documentation!
-================================
-
-Contents:
+###################################
+Welcome to XiVO-doc's Documentation
+###################################
 
 .. toctree::
    :maxdepth: 2
-
-
+   
+   introduction.rst
+   installation_config.rst
+   telephony.rst
+   xivoclient.rst
+   provisioning.rst
+   system_admin.rst
+   develop.rst
+   
+   
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
-
