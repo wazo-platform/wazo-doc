@@ -1,0 +1,6 @@
+.. _xivoclient
+
+
+***********
+XiVO client
+***********
