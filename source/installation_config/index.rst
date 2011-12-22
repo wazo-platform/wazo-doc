@@ -1,6 +1,3 @@
-.. _installation_config
-
-
 ******************************
 Installation And Configuration
 ******************************

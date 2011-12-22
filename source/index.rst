@@ -8,7 +8,7 @@ Welcome to XiVO-doc's Documentation
    :maxdepth: 2
    
    introduction.rst
-   installation_config.rst
+   Installation And Configuration <installation_config/index>
    Telephony <telephony/index>
    xivoclient.rst
    provisioning.rst
