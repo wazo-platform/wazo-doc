@@ -10,7 +10,7 @@ Welcome to XiVO-doc's Documentation
    introduction.rst
    Installation And Configuration <installation_config/index>
    Telephony <telephony/index>
-   xivoclient.rst
+   XiVO client <xivoclient/index>
    provisioning.rst
    system_admin.rst
    develop.rst
