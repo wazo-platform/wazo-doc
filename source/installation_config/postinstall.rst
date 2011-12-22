@@ -1,9 +1,14 @@
 .. postinstall:
 
+.. index::
+   single:post installation
+
 =======================
 Post Installation Steps
 =======================
 
+
+.. index:: VOIP, network interfaces
 
 Configuring Network Interfaces
 ------------------------------
@@ -11,6 +16,9 @@ Configuring Network Interfaces
 You **must** configure your network interfaces directly from the XiVO web interface via the 
 *Configuration / Network / Interfaces* page.
 
+.. index::
+   single:DHCP
+   
 The Voip interface is used by the DHCP server and the provisioning server.
 
 How-to
@@ -59,6 +67,9 @@ To reconfigure the given network interface with the new information, you click o
       :figclass: align-center
 
       Apply after modify interface
+
+.. index::
+   single:VLAN
 
 Adding a VLAN interface
 ^^^^^^^^^^^^^^^^^^^^^^^
