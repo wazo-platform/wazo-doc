@@ -8,5 +8,4 @@ XiVO client
 Xlets
 =====
 
-Contact
--------
+:doc:`xlets/contact/index`
