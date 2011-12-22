@@ -24,6 +24,7 @@ Quick Reference
 
 * http://docutils.sourceforge.net/docs/user/rst/cheatsheet.txt
 * http://docutils.sourceforge.net/docs/user/rst/quickref.html
+* http://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html
 
 
 [1] easy_install in in package python-setuptools : ``sudo apt-get install python-setuptools``

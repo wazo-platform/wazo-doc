@@ -10,7 +10,7 @@ It **does not** cover the IPBX configuration.
 .. toctree::
    :maxdepth: 2
 
-   installsytem
+   installsystem
    Configuration Wizard <configuration_wizard/index>
    postinstall
    upgrade
