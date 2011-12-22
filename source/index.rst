@@ -1,8 +1,8 @@
 .. XiVO-doc Documentation master file.
 
-###################################
-Welcome to XiVO-doc's Documentation
-###################################
+#####################################
+Welcome to XiVO Project Documentation
+#####################################
 
 .. toctree::
    :maxdepth: 2
