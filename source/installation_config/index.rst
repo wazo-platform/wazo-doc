@@ -1,3 +1,5 @@
+.. _installationandconfiguration:
+
 ******************************
 Installation And Configuration
 ******************************
@@ -8,15 +10,8 @@ It **does not** cover the IPBX configuration.
 .. toctree::
    :maxdepth: 2
 
+   installsytem
    Configuration Wizard <configuration_wizard/index>
+   postinstall
+   upgrade
 
-
-
-Installing The System
-=====================
-
-
-
-
-Post Installation Configuration
-===============================
