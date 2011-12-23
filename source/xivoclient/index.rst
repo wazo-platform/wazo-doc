@@ -1,4 +1,4 @@
-.. _xivoclient
+.. _xivoclient:
 
 
 ***********

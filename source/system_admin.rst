@@ -1,4 +1,4 @@
-.. _system_admin
+.. _system_admin:
 
 
 *************************

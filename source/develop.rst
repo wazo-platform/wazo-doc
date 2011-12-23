@@ -1,4 +1,4 @@
-.. _develop
+.. _develop:
 
 *******
 Develop
