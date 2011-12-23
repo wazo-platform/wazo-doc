@@ -9,8 +9,10 @@ Upgrading to 1.2 from a previous version is not supported right now.
 
 To upgrade from a prior 1.2 version, you need to use aptitude :
 
- ``aptitude update``
- ``aptitude full-upgrade``
+::
+
+ aptitude update
+ aptitude full-upgrade
 
 
 To Beta 2
