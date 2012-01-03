@@ -30,14 +30,25 @@ confgen
 ctid
 ----
 
+.. _log-files:
+
 Log Files
 ========= 
+Many XiVO services use the syslog's '/var/log/daemon.log' file to log events.
+
+This log file's configuration is located at '/etc/logrotate.d/rsyslog'
+
+The default configuration for all services using this file is the following
+
+* File location: '/var/log/daemon.log'
+* Rotation frequence: Weekly
+* Number of archived files: 4
 
 agid
 ----
-Default configuration
+The agid log files are sent to the system's syslog.
 
-* File location: '/var/log/daemon.log'
+See :ref:`log-files` above for global configuration info.
 
 asterisk
 --------
@@ -56,15 +67,15 @@ Default configuration
 
 provd
 -----
-Default configuration
+Provd logs are send to the system's syslog.
 
-* File location: '/var/log/daemon.log'
+See :ref:`log-files` above for global configuration info.
 
 sysconfd
 --------
-Default configuration
+Sysconfd logs are send to the system's syslog.
 
-* File location: '/var/log/daemon.log'
+See :ref:`log-files` above for global configuration info.
 
 web-interface
 -------------
