@@ -27,7 +27,7 @@ We are also working on a fully `Open XiVO Hardware`_.
    Telephony <telephony/index>
    XiVO client <xivoclient/index>
    provisioning.rst
-   system_admin.rst
+   System And Administration <system_admin/index>
    develop.rst
    
    
