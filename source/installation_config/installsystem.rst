@@ -1,5 +1,3 @@
-.. installsystem:
-
 =====================
 Installing The System
 =====================

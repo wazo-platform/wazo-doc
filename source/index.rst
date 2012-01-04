@@ -4,15 +4,15 @@
 Welcome to XiVO Project Documentation
 #####################################
 
-XiVO is an application suite developed by 
-Avencall_ Group, based on several free existant components including Asterisk_, and our own developments 
+XiVO is an application suite developed by
+Avencall_ Group, based on several free existant components including Asterisk_, and our own developments
 to provide communication services (IPBX, Unified Messenging ....) to the entreprise world.
 
 .. _Avencall: http://www.avencall.com/ 
 .. _Asterisk: http://www.asterisk.org/ 
 
 
-XiVO is `free software`_. Most of its distinctive components, and XiVO as a whole, are distributed under the *GPLv3 license*. 
+XiVO is `free software`_. Most of its distinctive components, and XiVO as a whole, are distributed under the *GPLv3 license*.
 We are also working on a fully `Open XiVO Hardware`_.
 
 .. _free software: http://www.gnu.org/philosophy/free-sw.html
@@ -29,7 +29,6 @@ We are also working on a fully `Open XiVO Hardware`_.
    provisioning.rst
    System And Administration <system_admin/index>
    develop.rst
-   
    
 
 You may also check `XiVO blog`_ and `XiVO wiki`_ for more information.

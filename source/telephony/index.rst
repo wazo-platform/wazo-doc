@@ -1,5 +1,3 @@
-.. _telephony:
-
 *********
 Telephony
 *********

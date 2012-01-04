@@ -1,5 +1,3 @@
-.. _installationandconfiguration:
-
 ******************************
 Installation And Configuration
 ******************************

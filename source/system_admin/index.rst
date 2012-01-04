@@ -1,6 +1,3 @@
-.. _system_admin:
-
-
 *************************
 System And Administration
 *************************
@@ -30,8 +27,6 @@ confgen
 ctid
 ----
 
-.. _log-files:
-
 Log Files
 ========= 
 Many XiVO services use the syslog's '/var/log/daemon.log' file to log events.
@@ -48,7 +43,7 @@ agid
 ----
 The agid log files are sent to the system's syslog.
 
-See :ref:`log-files` above for global configuration info.
+See `log files`_ above for global configuration info.
 
 asterisk
 --------
@@ -69,13 +64,13 @@ provd
 -----
 Provd logs are send to the system's syslog.
 
-See :ref:`log-files` above for global configuration info.
+See `log files`_ above for global configuration info.
 
 sysconfd
 --------
 Sysconfd logs are send to the system's syslog.
 
-See :ref:`log-files` above for global configuration info.
+See `log files`_ above for global configuration info.
 
 web-interface
 -------------

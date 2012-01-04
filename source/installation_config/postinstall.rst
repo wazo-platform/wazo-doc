@@ -1,5 +1,3 @@
-.. postinstall:
-
 .. index::
    single:post installation
 
@@ -13,7 +11,7 @@ Post Installation Steps
 Configuring Network Interfaces
 ------------------------------
 
-You **must** configure your network interfaces directly from the XiVO web interface via the 
+You **must** configure your network interfaces directly from the XiVO web interface via the
 *Configuration / Network / Interfaces* page.
 
 .. index::
@@ -26,7 +24,7 @@ How-to
 
 You can only have one VoIP interface, which is eth0 by default. This interface is configured during the wizard.
 
-The DHCP server and provisioning server, among other, use information from the VoIP interface in its configuration. 
+The DHCP server and provisioning server, among other, use information from the VoIP interface in its configuration.
 For example, the DHCP server will only listen on the VoIP interface per default.
 
 To change this interface, you must either create a new one or edit an existing one and change its type to VoIP.
@@ -54,9 +52,9 @@ In our case, since we want to configure this interface with static information (
 .. image:: images/netiface_edit_physical_filled.png
  
 Configure physical interface
- 
- 
-Note that since our ''eth0'' network interface already has a default gateway, 
+
+
+Note that since our ''eth0'' network interface already has a default gateway,
 we do not enter information in the ''Default gateway'' field for our ''eth1'' interface.
 
 Once we click on ''Save'', the XiVO will put the ''Apply network configuration'' button in bold.
@@ -95,7 +93,7 @@ and we get to this page:
       Adding a new virtual interface
 
 In our case, since we want to configure this interface with static information:
- 
+
 .. figure:: images/netiface_add_virtual_filled.png
       :figclass: align-center
 
