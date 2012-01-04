@@ -20,7 +20,7 @@ We are also working on a fully `Open XiVO Hardware`_.
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    
    introduction.rst
    Installation And Configuration <installation_config/index>
