@@ -79,9 +79,22 @@ See :ref:`log-files` above for global configuration info.
 
 web-interface
 -------------
+The web-interface's log file is managed by logrotate.
+
+It's configuration file is '/etc/logrotate.d/pf-xivo-web-interface'
+
+Default configuration
+
+* Rotation frequence: Daily
+* Number of archived files: 21
+* File location: /var/log/pf-xivo-web-interface/\*.log
 
 xivo-confgend
 -------------
+The xivo-confgend daemon output is sent to the file specified with the --logfile parameter when launched with twistd.
+
+The file location can be changed in '/etc/init.d/xivo-confgen'. Search the line begining with 'logfile=/var/log/xivo-confgend.log' and change it to your liking.
+
 Default configuration
 
 * File location: '/var/log/xivo-confgend.log'
