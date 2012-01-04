@@ -28,8 +28,8 @@ We are also working on a fully `Open XiVO Hardware`_.
    XiVO client <xivoclient/index>
    provisioning.rst
    System And Administration <system_admin/index>
-   develop.rst
-   
+   developers.rst
+
 
 You may also check `XiVO blog`_ and `XiVO wiki`_ for more information.
 
