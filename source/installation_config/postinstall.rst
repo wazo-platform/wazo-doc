@@ -1,15 +1,15 @@
 .. index::
    single:post installation
 
-=======================
+***********************
 Post Installation Steps
-=======================
+***********************
 
 
 .. index:: VOIP, network interfaces
 
 Configuring Network Interfaces
-------------------------------
+==============================
 
 You **must** configure your network interfaces directly from the XiVO web interface via the
 *Configuration / Network / Interfaces* page.
@@ -20,7 +20,7 @@ You **must** configure your network interfaces directly from the XiVO web interf
 The Voip interface is used by the DHCP server and the provisioning server.
 
 How-to
-^^^^^^
+------
 
 You can only have one VoIP interface, which is eth0 by default. This interface is configured during the wizard.
 
@@ -31,7 +31,7 @@ To change this interface, you must either create a new one or edit an existing o
 The type of the old interface will automatically be changed to the 'data' type.
 
 Configuring a physical interface
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------
 In this example, we'll add and configure the *eth1* network interface on our XiVO.
 
 First, we see there's already an unconfigured network interface named ''eth1'' on our system:
@@ -70,7 +70,7 @@ To reconfigure the given network interface with the new information, you click o
    single:VLAN
 
 Adding a VLAN interface
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 First, we see there's already a configured network interface on our system:
 
