@@ -3,15 +3,14 @@ Configuration Wizard
 ********************
 
 After the first installation, you have to go through the wizard steps to initialize XiVO configuration.
-Basically it helps you to initialize your XiVO configuration. 
+Basically it helps you to initialize your XiVO configuration.
 
 It will create the file ``/etc/pf-xivo/web-interface/xivo.ini``.
 If you want to re-run the wizard you have to delete this file::
     
     rm /etc/pf-xivo/web-interface/xivo.ini
 
-|warning| You may not want to *actually* do this on an already configured XiVO ...
-
+.. warning:: You may not want to *actually* do this on an already configured XiVO ...
 
 .. index:: wizard
 
@@ -25,7 +24,7 @@ You first have to select the language you want to use for the wizard.
     :alt: Base configuration
     
     Select the language
-         
+
 
 License
 =======
@@ -55,7 +54,10 @@ Configuration
 #. Configure the hostname of your XiVO [1]_,
 #. Enter the domain name [2]_,
 #. Choose the ``root`` user password of the administration Web Interface,
-#. Configure the IP address and gateway used by your XiVO (by default it pre-fills the fields with the current IP and gateway of the network interface on which you are connected to complete the wizard steps). |warning| *The IP chosen will actually be configured on the system when the step will be validated.*
+#. Configure the IP address and gateway used by your XiVO (by default it pre-fills the fields with the current IP and gateway of the network interface on which you are connected to complete the wizard steps).
+
+   .. warning:: The IP chosen will actually be configured on the system when the step will be validated.
+
 #. Finally verify and modify if needed the DNS servers information.
 
 
@@ -79,11 +81,11 @@ Validation
 
 Finally you have to validate your configuration by clicking on the ``Validate`` button.
 Note that if you want to change one of the chosen settings you can go backward in the wizard with the ``Previous`` button.
-|warning| This is the last time the ``root`` password will be displayed. Take care to note it up.
+
+.. warning:: This is the last time the ``root`` password will be displayed. Take care to note it up.
 
 You now have to follow the ``Post Installation Steps`` part.
 
 
 .. [1] Allowed characters are : "``A-Z a-z 0-9 -``"
 .. [2] Allowed characters are : "``A-Z a-z 0-9 - .``"
-.. |warning| image:: ../../images/warning.gif
