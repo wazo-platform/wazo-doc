@@ -2,7 +2,9 @@
 XiVO client
 ***********
 
-Xlets
-=====
+This section describes the XiVO client and it's different xlets
 
-:doc:`xlets/contact/index`
+.. toctree::
+   :maxdepth: 1
+
+    Contact xlet <xlets/contact/index>
