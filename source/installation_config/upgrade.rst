@@ -5,12 +5,13 @@ Upgrading
 
 Upgrading to 1.2 from a previous version is not supported right now.
 
-To upgrade from a prior 1.2 version, you need to use aptitude :
+To upgrade from a prior 1.2 version, you need to use xivo-upgrade :
 
 ::
 
- aptitude update
- aptitude full-upgrade
+ xivo-upgrade
+
+This script will be update xivo and restart all daemons
 
 
 To Beta 2
