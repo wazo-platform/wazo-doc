@@ -16,19 +16,19 @@ Installation
     
  wget <nowiki>http://mirror.xivo.fr/fai/xivo-migration/xivo_install_skaro.sh</nowiki>
 
-* With this script you can install 3 flavours of XiVO skaro:
+With this script you can install 3 flavours of XiVO skaro:
 
-- production version, run the script without argument:
+* production version, run the script without argument:
 
 ::
     ./xivo_install_skaro.sh
 
-- release canditate version:
+* release canditate version:
 
 ::
     ./xivo_install_skaro.sh -r
 
-- development version
+* development version
 
 ::
     ./xivo_install_skaro.sh -d
