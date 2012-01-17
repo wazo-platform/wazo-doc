@@ -7,7 +7,8 @@ Prerequisite
 
 You must install XiVO skaro on a fresh debian system (minimal install). You can download debian installation media from http://www.debian.org/distrib
 
-== Installation ==
+Installation
+============
 
 * You can download XiVO skaro installation script from http://mirror.xivo.fr/fai/xivo-migration/xivo_install_skaro.sh
 
