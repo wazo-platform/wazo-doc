@@ -1,3 +1,4 @@
+.. _postinstall:
 .. index::
    single:post installation
 
