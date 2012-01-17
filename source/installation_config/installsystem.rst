@@ -14,7 +14,7 @@ Get the script
 
 ::
     
- wget <nowiki>http://mirror.xivo.fr/fai/xivo-migration/xivo_install_skaro.sh</nowiki>
+ wget http://mirror.xivo.fr/fai/xivo-migration/xivo_install_skaro.sh
 
 Installation
 ============
