@@ -17,17 +17,20 @@ You must install XiVO skaro on a fresh debian system (minimal install). You can 
 
 * With this script you can install 3 flavours of XiVO skaro:
 
-  * production version, run the script without argument:
-    ::
-        ./xivo_install_skaro.sh
+- production version, run the script without argument:
 
-  * release canditate version:
-    ::
-        ./xivo_install_skaro.sh -r
+::
+    ./xivo_install_skaro.sh
 
-  * development version
-    ::
-        ./xivo_install_skaro.sh -d
+- release canditate version:
+
+::
+    ./xivo_install_skaro.sh -r
+
+- development version
+
+::
+    ./xivo_install_skaro.sh -d
 
 Configuration
 =============
