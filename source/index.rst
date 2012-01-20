@@ -11,7 +11,6 @@ to provide communication services (IPBX, Unified Messenging ....) to the entrepr
 .. _Avencall: http://www.avencall.com/ 
 .. _Asterisk: http://www.asterisk.org/ 
 
-
 XiVO is `free software`_. Most of its distinctive components, and XiVO as a whole, are distributed under the *GPLv3 license*.
 We are also working on a fully `Open XiVO Hardware`_.
 
@@ -22,13 +21,13 @@ We are also working on a fully `Open XiVO Hardware`_.
 .. toctree::
    :maxdepth: 1
    
-   introduction.rst
-   Installation And Configuration <installation_config/index>
-   Telephony <telephony/index>
-   XiVO client <xivoclient/index>
-   provisioning.rst
-   System And Administration <system_admin/index>
-   developers.rst
+   introduction
+   installation_config/index
+   telephony/index
+   xivoclient/index
+   provisioning
+   system_admin/index
+   developers
 
 
 You may also check `XiVO blog`_ and `XiVO wiki`_ for more information.
