@@ -34,8 +34,8 @@ You can see three informations :
 
 The colors and label of these two statuses may be configured within the XiVO Web interface.
 
-:ref:`cti_presences`
-:ref:`cti_phonehints`
+.. TODO :ref:`cti_presences`
+.. TODO :ref:`cti_phonehints`
 
 You can interact in several ways with a person object :
 
@@ -56,7 +56,7 @@ Possible actions available through right-click are :
 
 The available actions may differ, depending on your current phone situation (available, busy, in a conference room, ...) and on the actions allowed in your CTI profile.
 
-:ref:`cti_profiles`
+.. TODO :ref:`cti_profiles`
 
 Configuration
 -------------
