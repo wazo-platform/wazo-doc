@@ -1,0 +1,24 @@
+
+.figure {
+    border: 1px dotted #ccc;
+    text-align: center;
+    margin: 20px;
+}
+
+.figure p {
+    margin: 0;
+    text-align: center;
+}
+
+.figure img {
+	margin: 1px;
+	border: 1px solid transparent;
+}
+
+.figure .caption {
+	font-size: 80%;
+	font-family: Verdana, Arial, sans-serif;
+	text-align: center;
+	background: #ddd;
+}
+
