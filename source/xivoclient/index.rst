@@ -17,3 +17,5 @@ Xlets are features of the XiVO Client. It is the contraction of XiVO applets.
    :maxdepth: 1
 
    Contact xlet <xlets/contact/index>
+   Local directory xlet <xlets/localdir/index>
+
