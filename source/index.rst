@@ -22,7 +22,8 @@ We are also working on a fully `Open XiVO Hardware`_.
    :maxdepth: 1
    
    introduction
-   installation_config/index
+   installation/index
+   configuration/index
    telephony/index
    xivoclient/index
    provisioning
