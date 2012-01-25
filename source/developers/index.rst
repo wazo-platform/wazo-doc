@@ -75,7 +75,7 @@ Note: The client's connection is injected in the command instance before calling
 Translation
 ==============
 
-Now we using a centralize tool for the xivo translation. It's transifex and the web acces is : 
+Now we are using a centralize tool for the xivo translation. It's transifex and the web acces is : 
 
 * https://www.transifex.net/projects/p/xivo
 
