@@ -1,4 +1,18 @@
 
+div.related {
+    color: #111;
+    text-shadow: 0px 1px 0 #ccc;
+    background: #ccc url(../img/xivo-trans_92x32.png) top left no-repeat;
+}
+
+div.related ul {
+    margin-left: 100px;
+}
+
+div.related a {
+    color: #333;
+}
+
 .figure {
     border: 1px dotted #ccc;
     text-align: center;
