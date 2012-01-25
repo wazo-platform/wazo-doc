@@ -27,7 +27,7 @@ We are also working on a fully `Open XiVO Hardware`_.
    xivoclient/index
    provisioning
    system_admin/index
-   developers
+   developers/index
 
 
 You may also check `XiVO blog`_ and `XiVO wiki`_ for more information.
