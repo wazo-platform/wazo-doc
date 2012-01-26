@@ -1,27 +1,26 @@
-
 div.related {
-    color: #111;
-    text-shadow: 0px 1px 0 #ccc;
-    background: #ccc url(../img/xivo-trans_92x32.png) top left no-repeat;
+	color: #111;
+	text-shadow: 0px 1px 0 #ccc;
+	background: #ccc url(../img/xivo-trans_92x32.png) top left no-repeat;
 }
 
 div.related ul {
-    margin-left: 100px;
+	margin-left: 100px;
 }
 
 div.related a {
-    color: #333;
+	color: #333;
 }
 
 .figure {
-    border: 1px dotted #ccc;
-    text-align: center;
-    margin: 20px;
+	border: 1px dotted #ccc;
+	text-align: center;
+	margin: 20px;
 }
 
 .figure p {
-    margin: 0;
-    text-align: center;
+	margin: 0;
+	text-align: center;
 }
 
 .figure img {
@@ -36,3 +35,10 @@ div.related a {
 	background: #ddd;
 }
 
+div.sphinxsidebarwrapper {
+	padding: 10px 0;
+}
+
+div.sphinxsidebar ul {
+	margin: 10px 10px;
+}
