@@ -32,4 +32,4 @@ With this script you can install 3 flavours of XiVO skaro:
 
     bash xivo_install_skaro.sh -d
 
-You have to accept ``/etc/dahdi/genconf_parameters`` and ``/etc/security/limits.conf`` modifications.
+When asked about the ``/etc/security/limits.conf`` configuration file, answer ``Y``.
