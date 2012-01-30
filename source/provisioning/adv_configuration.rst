@@ -84,9 +84,11 @@ Custom template for every devices
 
    cp templates/base.tpl var/templates
    vi var/templates/base.tpl
-   "reconfigure-devices-for-plugin"
+   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.1136").reconfigure()'
 
-.. FIXME reconfigure-devices-for-plugin doesn't exist yet.
+Once this is done, if you want to synchronize all the affected devices, use the following command::
+
+    provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.1136").synchronize()'
 
 Custom template for a specific model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -95,7 +97,7 @@ Let's supose we want to customize the template for our 6739i::
 
    cp templates/6739i.tpl var/templates
    vi var/templates/6739i.tpl
-   "reconfigure-devices-for-plugin"
+   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.1136").reconfigure()'
 
 Custom template for a specific device
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -105,7 +107,7 @@ you need to create a template named ``001122334455.cfg.tpl``::
 
    cp templates/6739i.tpl var/templates/001122334455.cfg.tpl
    vi var/templates/001122334455.cfg.tpl
-   "reconfigure-devices-for-plugin"
+   provd_pycli -c 'devices.using_mac("001122334455").reconfigure()'
 
 .. note::
    The choice to use this syntax comes from the fact that ``provd`` supports devices that do not have MAC addresses,
