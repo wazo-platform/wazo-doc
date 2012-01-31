@@ -6,11 +6,6 @@ After the first installation, you have to go through the wizard steps to initial
 Basically it helps you to initialize your XiVO configuration.
 
 It will create the file ``/etc/pf-xivo/web-interface/xivo.ini``.
-If you want to re-run the wizard you have to delete this file::
-    
-    rm /etc/pf-xivo/web-interface/xivo.ini
-
-.. warning:: You may not want to *actually* do this on an already configured XiVO ...
 
 .. index:: wizard
 
