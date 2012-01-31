@@ -18,4 +18,5 @@ Xlets are features of the XiVO Client. It is the contraction of XiVO applets.
 
    Contact xlet <xlets/contact/index>
    Local directory xlet <xlets/localdir/index>
+   Service xlet <xlets/service/index>
 
