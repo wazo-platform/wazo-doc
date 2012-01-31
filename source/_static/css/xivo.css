@@ -1,3 +1,11 @@
+
+div.body h1 { border-top: 20px solid white; margin-top: 0; font-size: 200%; }
+div.body h2 { font-size: 150%; background-color: #C8D5E3; }
+div.body h3 { font-size: 120%; background-color: #D8DEE3; }
+div.body h4 { font-size: 110%; background-color: #D8DEE3; }
+div.body h5 { font-size: 100%; background-color: #D8DEE3; }
+div.body h6 { font-size: 100%; background-color: #D8DEE3; }
+
 div.related {
 	color: #111;
 	text-shadow: 0px 1px 0 #ccc;
@@ -10,6 +18,14 @@ div.related ul {
 
 div.related a {
 	color: #333;
+}
+
+div.section {
+}
+
+div.section img {
+    margin: auto;
+    border: 1px dotted #aaa;
 }
 
 .figure {
