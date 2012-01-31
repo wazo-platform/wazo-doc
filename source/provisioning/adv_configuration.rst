@@ -71,10 +71,10 @@ A few things to know before writing your first custom template:
 
 - templates use the `Jinja2 template engine <http://jinja.pocoo.org/docs/templates/>`_.
 - when doing an ``include`` or an ``extend`` from a template, the file is first looked up
-  in the ``var/templates`` directory and then in the ``templates`` directory.
+  in the :file:`var/templates` directory and then in the :file:`templates` directory.
 - device in autoprov mode are affected by templates, because from the point of view
   of ``provd``, there's no difference between a device in autoprov mode or fully configured.
-  This means there's usually no need to modify static files in ``var/tftpboot``. And this
+  This means there's usually no need to modify static files in :file:`var/tftpboot`. And this
   is a bad idea since a plugin upgrade will override these files.
 
 Custom template for every devices
@@ -102,8 +102,8 @@ Let's supose we want to customize the template for our 6739i::
 Custom template for a specific device
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want to customize the content of a device-specific file named ``001122334455.cfg``,
-you need to create a template named ``001122334455.cfg.tpl``::
+If you want to customize the content of a device-specific file named :file:`001122334455.cfg`,
+you need to create a template named :file:`001122334455.cfg.tpl`::
 
    cp templates/6739i.tpl var/templates/001122334455.cfg.tpl
    vi var/templates/001122334455.cfg.tpl
