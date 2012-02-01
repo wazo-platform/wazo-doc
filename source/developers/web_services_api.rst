@@ -2,14 +2,6 @@
 WebServices API
 ***************
 
-:Authors: 
-    Cedric Abunar. (Bill), 
-    
-    (and sundry other good-natured folks)
-
-:Version: |version| of |today|
-:Dedication: To my father.
-
 **Using web services XiVO to develop applications around XiVO.**
 
 HTTP status codes
