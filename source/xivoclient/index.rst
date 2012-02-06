@@ -4,7 +4,7 @@
 XiVO client
 ***********
 
-This section describes the XiVO Client and its different xlets
+This section describes the XiVO Client and its various xlets
 
 .. index:: Xlets
 

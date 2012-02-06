@@ -1,5 +1,5 @@
 ******************
-Contribute to XiVO
+Contributing to XiVO
 ******************
 
 This section describes the methods to contribute.
@@ -7,5 +7,5 @@ This section describes the methods to contribute.
 .. toctree::
    :maxdepth: 1
 
-   contributes_doc
+   contributing_doc
    submit_a_patch
