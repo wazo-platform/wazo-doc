@@ -152,6 +152,15 @@ Snom
 - 821
 - 870
 
+There's a few known issues with the provisioning of Snom phones in XiVO:
+
+- Synchronization doesn't work reliably. Often, the phones will get stuck at
+  some stage of their boot process. The solution is to either reboot the phone via the
+  phone UI or by power cycling it.
+- After a factory reset of a phone, if no language and timezone are set for the
+  "default config device" in :menuselection:`XiVO --> Configuration --> Provisioning --> Template device`,
+  you will be forced to select a default language and timezone on the phone UI.
+
 Technicolor
 -----------
 
