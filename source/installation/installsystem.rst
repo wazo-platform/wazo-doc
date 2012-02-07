@@ -1,30 +1,40 @@
 *********************
-Installing The System
+Installing the system
 *********************
 
-Prerequisite
-============
+There is three official ways to install XiVO:
 
-You must install XiVO skaro on a fresh debian system (minimal install).
-You can download debian installation media from http://www.debian.org/distrib.
+* using the official ISO image
+* using a minimal Debian installation and the XiVO installation script
+* using a PXE environment
 
-Get the script
-==============
+Installing from the ISO image
+=============================
 
-You can download XiVO skaro installation script from http://mirror.xivo.fr/fai/xivo-migration/xivo_install_skaro.sh::
-    
+The latest ISO image for XiVO |version| can be found at http://mirror.xivo.fr/iso/.
+
+Installing from a minimal Debian installation
+=============================================
+
+XiVO can be installed over an already installed **32-bit** Debian squeeze. When doing so, you are
+advised to start with a clean and minimal installation of Debian squeeze.
+
+Latest installation image for Debian squeeze can be found at http://www.debian.org/distrib/.
+
+Getting the installation script
+-------------------------------
+
+Download the XiVO installation script from http://mirror.xivo.fr/fai/xivo-migration/xivo_install_skaro.sh::
+
     wget http://mirror.xivo.fr/fai/xivo-migration/xivo_install_skaro.sh
 
-Installation
-============
+With this script you can install 3 flavors of XiVO skaro:
 
-With this script you can install 3 flavours of XiVO skaro:
-
-* production version, run the script without argument::
+* production version, by running the script without argument::
 
     bash xivo_install_skaro.sh
 
-* release canditate version::
+* release candidate version::
 
     bash xivo_install_skaro.sh -r
 
@@ -32,4 +42,5 @@ With this script you can install 3 flavours of XiVO skaro:
 
     bash xivo_install_skaro.sh -d
 
-When asked about the ``/etc/security/limits.conf`` configuration file, answer ``Y``.
+.. note::
+   When asked about the :file:`/etc/security/limits.conf` configuration file, answer ``Y``.

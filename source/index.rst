@@ -1,8 +1,8 @@
 .. XiVO-doc Documentation master file.
 
-*************************************
-Welcome to XiVO Project Documentation
-*************************************
+****************************
+XiVO |version| documentation
+****************************
 
 XiVO is an application suite developed by
 Avencall_ Group, based on several free existant components including Asterisk_, and our own developments
