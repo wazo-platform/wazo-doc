@@ -19,8 +19,8 @@ We are also working on a fully `Open XiVO Hardware`_.
 
 
 .. toctree::
-   :maxdepth: 1
-   
+   :maxdepth: 2
+
    introduction
    installation/index
    configuration/index
