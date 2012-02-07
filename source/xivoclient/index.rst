@@ -4,7 +4,12 @@
 XiVO client
 ***********
 
-This section describes the XiVO Client and its different xlets
+This section describes the XiVO Client and its different xlets.
+
+.. toctree::
+   :maxdepth: 1
+
+    Building the XiVO Client <build>
 
 .. index:: Xlets
 
@@ -19,4 +24,3 @@ Xlets are features of the XiVO Client. It is the contraction of XiVO applets.
    Contact xlet <xlets/contact/index>
    Local directory xlet <xlets/localdir/index>
    Service xlet <xlets/service/index>
-
