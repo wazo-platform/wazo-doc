@@ -1,5 +1,5 @@
 *******************************
-Contribute to the documentation
+Contributing to the documentation
 *******************************
 
 XiVO documentation is generated with Sphinx, documentation project source is in git://gitorious.org/xivo-doc/xivo-doc.git
