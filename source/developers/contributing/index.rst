@@ -1,6 +1,6 @@
-******************
+********************
 Contributing to XiVO
-******************
+********************
 
 This section describes the methods to contribute.
 
