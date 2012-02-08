@@ -75,3 +75,14 @@ Supported fields
 +-------------------+---------------------------------------------------------------------------------+
 |                   |                                                                                 |
 +-------------------+---------------------------------------------------------------------------------+
+
+Function keys
+-------------
+
+Function keys can be configured to customize the user's phone keys. Key types are pre-defined and can be browsed through the Type drop-down list. The Supervision field allow the key to be supervised. A supervised key will light up when enabled.
+
+
+.. image:: images/funckeys.png
+
+Call forwards keys should have a destination, it's use without a destination is experimental at the moment.
+
