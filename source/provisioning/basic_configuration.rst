@@ -3,7 +3,7 @@ Basic configuration
 *******************
 
 Configuring the DHCP server
----------------------------
+===========================
 
 XiVO includes a DHCP server that facilitate the auto-provisioning of telephony devices.
 It is *not* activated by default.
@@ -47,7 +47,7 @@ for them to be applied.
 
 
 Installing ``provd`` plugins
-----------------------------
+============================
 
 The installation and management of ``provd`` plugins is done via the
 :menuselection:`Configuration --> Provisioning --> Plugin` page:

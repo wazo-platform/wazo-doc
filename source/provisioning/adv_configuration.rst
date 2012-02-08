@@ -3,7 +3,7 @@ Advanced configuration
 **********************
 
 Creating custom templates
--------------------------
+=========================
 
 Custom templates comes in handy when you have some really specific configuration
 to make on your telephony devices.
@@ -69,16 +69,16 @@ var/tftpboot
 
 A few things to know before writing your first custom template:
 
-- templates use the `Jinja2 template engine <http://jinja.pocoo.org/docs/templates/>`_.
-- when doing an ``include`` or an ``extend`` from a template, the file is first looked up
+* templates use the `Jinja2 template engine <http://jinja.pocoo.org/docs/templates/>`_.
+* when doing an ``include`` or an ``extend`` from a template, the file is first looked up
   in the :file:`var/templates` directory and then in the :file:`templates` directory.
-- device in autoprov mode are affected by templates, because from the point of view
+* device in autoprov mode are affected by templates, because from the point of view
   of ``provd``, there's no difference between a device in autoprov mode or fully configured.
   This means there's usually no need to modify static files in :file:`var/tftpboot`. And this
   is a bad idea since a plugin upgrade will override these files.
 
 Custom template for every devices
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------
 
 ::
 
@@ -91,7 +91,7 @@ Once this is done, if you want to synchronize all the affected devices, use the 
     provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.1136").synchronize()'
 
 Custom template for a specific model
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 Let's supose we want to customize the template for our 6739i::
 
@@ -100,7 +100,7 @@ Let's supose we want to customize the template for our 6739i::
    provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.1136").reconfigure()'
 
 Custom template for a specific device
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------
 
 If you want to customize the content of a device-specific file named :file:`001122334455.cfg`,
 you need to create a template named :file:`001122334455.cfg.tpl`::
