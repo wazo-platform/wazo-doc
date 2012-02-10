@@ -68,7 +68,7 @@ Cisco Small Business SPA500 series:
 
 The SPA500 expansion module is supported.
 
-Cisco Small Business IP Phones (previsouly known as Linksys IP Phones)
+Cisco Small Business IP Phones (previously known as Linksys IP Phones)
 
 * SPA901
 * SPA921
@@ -76,6 +76,10 @@ Cisco Small Business IP Phones (previsouly known as Linksys IP Phones)
 * SPA941
 * SPA942
 * SPA962
+
+.. note::
+   You must install the firmware of each SPA9xx phones you are using since they
+   reboot in loop when they can't find their firmware.
 
 The SPA932 expansion module is supported.
 

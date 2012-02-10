@@ -5,7 +5,6 @@ Introduction
 The auto-provisioning feature found in XiVO make it possible to provision, i.e.
 configure, a lots of devices in an efficient and effortless way.
 
-
 How it works
 ============
 
@@ -27,8 +26,8 @@ Building on this, configuring one of the supported phone on XiVO is as simple as
 And *voila*, once the phone has rebooted, your user is ready to make and receive calls.
 No manual editing of configuration files nor fiddling in the phone web interface.
 
-
 External links
 ==============
 
 * `Introduction to provd plugin model <http://blog.xivo.fr/index.php?post/2011/04/11/Introduction-to-the-plugin-model-of-the-new-provisioning-server>`_
+* `HTTP/TFTP requests processing in provd - part 1 <http://blog.xivo.fr/index.php?post/2012/02/09/HTTP/TFTP-requests-processing-in-provd-part-1>`_
