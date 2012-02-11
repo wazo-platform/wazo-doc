@@ -3,7 +3,7 @@ Introduction
 ************
 
 The auto-provisioning feature found in XiVO make it possible to provision, i.e.
-configure, a lots of devices in an efficient and effortless way.
+configure, a lots of telephony devices in an efficient and effortless way.
 
 How it works
 ============
@@ -18,13 +18,13 @@ Here's a simplified view of how auto-provisioning is supported on a typical SIP 
 
 Building on this, configuring one of the supported phone on XiVO is as simple as:
 
-#. Configuring the DHCP server
-#. Installing the required ``provd`` plugin
+#. :ref:`dhcpd-config`
+#. :ref:`Installing the required provd plugin <provd-plugins-mgmt>`
 #. Powering on the phone
-#. Dialing the user provisioning code from the phone
+#. Dialing the user's provisioning code from the phone
 
 And *voila*, once the phone has rebooted, your user is ready to make and receive calls.
-No manual editing of configuration files nor fiddling in the phone web interface.
+No manual editing of configuration files nor fiddling in the phone's web interface.
 
 External links
 ==============

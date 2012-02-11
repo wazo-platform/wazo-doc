@@ -2,6 +2,8 @@
 Basic configuration
 *******************
 
+.. _dhcpd-config:
+
 Configuring the DHCP server
 ===========================
 
@@ -45,6 +47,7 @@ Extra network interfaces
 After saving your modifications, you need to click on :guilabel:`Apply system configuration`
 for them to be applied.
 
+.. _provd-plugins-mgmt:
 
 Installing ``provd`` plugins
 ============================
