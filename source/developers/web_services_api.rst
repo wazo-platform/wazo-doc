@@ -273,24 +273,24 @@ https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=add
 
 https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=edit&id=[userfeatures_id]
 
-::
 
 Miminum set of data for user creation or edition:
 
 .. code-block:: javascript
 
-  {
-    "userfeatures": {
-      "entityid": "2",
-      "firstname": "John"
-     },
-     "dialaction": {
-        "noanswer": {"actiontype": "none"},
-        "busy": {"actiontype": "none"},
-        "congestion": {"actiontype": "none"},
-        "chanunavail": {"actiontype": "none"}
-     }
-  }
+    {
+       "userfeatures": {
+           "entityid": "2",
+           "firstname": "John"
+       },
+       "dialaction": {
+           "noanswer": {"actiontype": "none"},
+           "busy": {"actiontype": "none"},
+           "congestion": {"actiontype": "none"},
+           "chanunavail": {"actiontype": "none"}
+       }
+    }
+
 
 Full example:
 
@@ -452,12 +452,13 @@ Full example:
                   "weight": 97
             }
       ]
-}
+    }
 
 
 Here is "linefeatures" complete options list:
 
 .. code-block:: javascript
+
   "linefeatures": {
             "id": {""},
             "protocol": {""},
@@ -482,6 +483,7 @@ To associate an available line with created/edited user, use following code (num
 To automatically create a new line associated with created/edited user, don't set *id* key (or set it to "0" value):
 
 .. code-block:: javascript
+
   "linefeatures": {
             "protocol": {"sip"},
             "context": {"default"},
