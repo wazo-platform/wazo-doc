@@ -11,7 +11,8 @@ Schedules can be applied to :
 
 * Users
 * Groups
-* Outband calls
+* Inbound calls
+* Outbound calls
 * Queues
 * Voice menus
 
