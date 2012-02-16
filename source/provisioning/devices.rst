@@ -25,6 +25,7 @@ Aastra
 
 The M670i and M675i expansion modules are supported.
 
+
 Alcatel-Lucent
 ==============
 
@@ -40,6 +41,7 @@ For the plugins to work fully, you need these additional packages::
 
    apt-get install p7zip python-pexpect telnet
 
+
 Avaya
 =====
 
@@ -47,6 +49,7 @@ Avaya
 
 * 1220 IP
 * 1230 IP
+
 
 Cisco
 =====
@@ -91,6 +94,7 @@ ATAs:
 * SPA8000
 * SPA8800
 
+
 Gigaset
 =======
 
@@ -108,10 +112,12 @@ Also known as Siemens.
 * N300A IP
 * N510 IP PRO
 
+
 Jitsi
 =====
 
 * Jitsi (previsouly known as SIP Communicator)
+
 
 Polycom
 =======
@@ -145,6 +151,7 @@ Others:
 
 * VVX1500
 
+
 Snom
 ====
 
@@ -165,6 +172,7 @@ There's a few known issues with the provisioning of Snom phones in XiVO:
   "default config device" in :menuselection:`XiVO --> Configuration --> Provisioning --> Template device`,
   you will be forced to select a default language and timezone on the phone UI.
 
+
 Technicolor
 ===========
 
@@ -173,6 +181,7 @@ Previously known as Thomson:
 * ST2022
 * ST2030
 * TB30
+
 
 Yealink
 =======
@@ -188,6 +197,7 @@ in :file:`/etc/apt/sources.list` and then::
 
    apt-get update
    apt-get install unrar
+
 
 Zenitel
 =======

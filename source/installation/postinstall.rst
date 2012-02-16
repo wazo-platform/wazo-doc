@@ -7,11 +7,11 @@
 Post Installation Steps
 ***********************
 
-
 Configuring the CTI Server
 ==========================
 
 The CTI server configuration options can be found in the web-interface under the services tab. Most default options should be sufficient for most use cases but it's still possible to make some changes.
+
 
 General options
 ---------------
@@ -46,6 +46,7 @@ Context separation is based on the user's line context. This mean that a user wi
 
 .. image:: images/parting_options.png
 
+
 .. index:: VOIP, network interfaces
 
 Configuring Network Interfaces
@@ -59,6 +60,7 @@ You **must** configure your network interfaces directly from the XiVO web interf
    
 The Voip interface is used by the DHCP server and the provisioning server.
 
+
 How-to
 ------
 
@@ -69,6 +71,7 @@ For example, the DHCP server will only listen on the VoIP interface per default.
 
 To change this interface, you must either create a new one or edit an existing one and change its type to VoIP.
 The type of the old interface will automatically be changed to the 'data' type.
+
 
 Configuring a physical interface
 --------------------------------
@@ -93,7 +96,6 @@ In our case, since we want to configure this interface with static information (
  
 Configure physical interface
 
-
 Note that since our ''eth0'' network interface already has a default gateway,
 we do not enter information in the ''Default gateway'' field for our ''eth1'' interface.
 
@@ -102,9 +104,10 @@ Once we click on ''Save'', the XiVO will put the ''Apply network configuration''
 To reconfigure the given network interface with the new information, you click on it.
 
 .. figure:: images/netiface_notify_change.png
-      :figclass: align-center
+   :figclass: align-center
 
-      Apply after modify interface
+   Apply after modify interface
+
 
 .. index::
    single:VLAN
@@ -121,31 +124,30 @@ Listing the network interfaces
 To add and configure a new VLAN interface, we click on the small plus button in the top right corner,
 
 .. figure:: images/utils_add_button.png
-      :figclass: align-center
+   :figclass: align-center
    
-      Adding button
+   Adding button
 
 and we get to this page:
 
 .. figure:: images/netiface_add_virtual_empty.png
-      :figclass: align-center
+   :figclass: align-center
    
-      Adding a new virtual interface
+   Adding a new virtual interface
 
 In our case, since we want to configure this interface with static information:
 
 .. figure:: images/netiface_add_virtual_filled.png
-      :figclass: align-center
+   :figclass: align-center
 
-      Adding a new virtual interface
+   Adding a new virtual interface
 
 Click on **Save** list the network interfaces:
 
 .. figure:: images/netiface_list_new_virtual.png
-      :figclass: align-center
+   :figclass: align-center
       
-      Listing the network interfaces
-
+   Listing the network interfaces
 
 - The new virtual interface has been successfully created.
 

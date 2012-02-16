@@ -5,7 +5,8 @@ Configuration Wizard
 After the first installation, you have to go through the wizard steps to initialize XiVO configuration.
 Basically it helps you to initialize your XiVO configuration.
 
-It will create the file ``/etc/pf-xivo/web-interface/xivo.ini``.
+It will create the file :file:`/etc/pf-xivo/web-interface/xivo.ini`.
+
 
 .. index:: wizard
 
@@ -15,10 +16,10 @@ Language
 You first have to select the language you want to use for the wizard.
 
 .. figure:: images/wizard_step1_lang.png
-    :scale: 75%
-    :alt: Base configuration
+   :scale: 75%
+   :alt: Base configuration
     
-    Select the language
+   Select the language
 
 
 License
@@ -27,24 +28,26 @@ License
 You then have to accept the *GPLv3 License* under which XiVO is distributed.
 
 .. figure:: images/wizard_step2_license.png
-    :scale: 75%
-    :alt: Accept the license
+   :scale: 75%
+   :alt: Accept the license
 
-    Accept the license
+   Accept the license
+
 
 Components Checks
 =================
 
 After this step, the wizard displays the status of the system and of several components. When ready, click on ``Next``.
 
+
 Configuration
 =============
 
 .. figure:: images/wizard_step4_configuration.png
-    :scale: 75%
-    :alt: Base configuration
+   :scale: 75%
+   :alt: Base configuration
 
-    Base configuration    
+   Base configuration
 
 #. Configure the hostname of your XiVO [1]_,
 #. Enter the domain name [2]_,
@@ -60,10 +63,10 @@ Entities and Contexts
 =====================
 
 .. figure:: images/wizard_step5_entities_contexts.png
-    :scale: 75%
-    :alt: Entities and Contexts
+   :scale: 75%
+   :alt: Entities and Contexts
 
-    Entities and Contexts
+   Entities and Contexts
 
 #. Choose the entity printed name (e.g. *Avencall*) [2]_,
 #. You *may* change your internal context name and you **have to** pick an number range. This will define the internal users's phone number of your sytem (you can change it afterward),

@@ -9,7 +9,5 @@ This section describes the tools for developers.
    
    web_services_api
    contributing/index
-   coding_guidelines
    cti_protocol
    translation
-

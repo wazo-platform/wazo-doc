@@ -11,6 +11,7 @@ The Contacts XLet lists the people of your company, giving you access to their p
 
 .. image:: /xivoclient/images/xivoclient-contacts.png
 
+
 Usage
 =====
 
@@ -57,6 +58,7 @@ Possible actions available through right-click are :
 The available actions may differ, depending on your current phone situation (available, busy, in a conference room, ...) and on the actions allowed in your CTI profile.
 
 .. TODO :ref:`cti_profiles`
+
 
 Configuration
 -------------

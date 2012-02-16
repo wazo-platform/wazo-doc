@@ -42,5 +42,4 @@ Refer to ``MeetmeList.__init__`` for a callback registration example and to ``Me
             else:
                 return invite_confroom_command.get_warning('I don't know you, go away', True)
 
-
 Note: The client's connection is injected in the command instance before calling callbacks functions. The client's connection is an ``interface_cti.CTI`` instance.

@@ -10,6 +10,7 @@ These certificates can be used for:
 * enabling SIP TLS
 * enabling encryption between the CTI server and the XiVO clients
 
+
 Creating certificates
 =====================
 
@@ -23,6 +24,7 @@ You'll then be shown this page:
 
 You should look at the `examples`_ if you don't know which attributes to set
 when creating your certificates.
+
 
 Removing certificates
 =====================
@@ -38,11 +40,13 @@ certificates.
    manually disable SIP TLS or asterisk will look for certificate file but it won't
    be able to find them.
 
+
 Examples
 ========
 
 In the following examples, if a field is not specified than you should leave it
 at its default value.
+
 
 Creating certificates for SIP TLS
 ---------------------------------
@@ -65,6 +69,7 @@ Server certificate:
 * :guilabel:`Valid end date` : at least one day in the future
 * :guilabel:`Common name` : the :abbr:`FQDN (Fully Qualified Domain Name)` of your XiVO
 * :guilabel:`Organization` : your organization's name, or blank
+
 
 Creating certificate for CTI server
 -----------------------------------

@@ -5,6 +5,7 @@ Introduction
 The auto-provisioning feature found in XiVO make it possible to provision, i.e.
 configure, a lots of telephony devices in an efficient and effortless way.
 
+
 How it works
 ============
 
@@ -25,6 +26,7 @@ Building on this, configuring one of the supported phone on XiVO is as simple as
 
 And *voila*, once the phone has rebooted, your user is ready to make and receive calls.
 No manual editing of configuration files nor fiddling in the phone's web interface.
+
 
 External links
 ==============

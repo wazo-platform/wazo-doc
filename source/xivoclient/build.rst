@@ -8,6 +8,7 @@ Building the XiVO Client
 
 This page explains how to build an executable of the XiVO Client from its sources for GNU/Linux and Windows.
 
+
 Prerequisites
 =============
 
@@ -36,12 +37,14 @@ Optionally, if you want the automatic documentation generation, check :
 
 * Devel > doxygen
 
+
 Qt SDK
 ^^^^^^
 
 `Qt SDK download page <http://qt.nokia.com/downloads>`_
 
 The SDK is rather big, so if you want to keep it to a reasonable size, you should uncheck in the installer everything fancy, such as mobile devices SDK. Just keep one Desktop Qt component checked and some documentation.
+
 
 Get sources
 ===========
@@ -50,10 +53,12 @@ In a bash or Cygwin shell, enter::
 
    $ git clone git://git.xivo.fr/official/xivo-client-qt.git
 
+
 Note for Windows users
 ======================
 
 All make commands are to be entered in a Qt command shell, by replacing ``make`` with ``mingw32-make``.
+
 
 Building
 ========
@@ -71,6 +76,7 @@ You can then launch ``make``::
 
 Binaries are available in the ``bin`` directory.
 
+
 Debug build
 -----------
 
@@ -78,12 +84,14 @@ Add ``DEBUG=yes`` on the command line::
 
    $ make DEBUG=yes
 
+
 Cleaning
 --------
 
 ::
 
    $ make distclean
+
 
 Launch
 ======

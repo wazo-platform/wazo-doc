@@ -7,6 +7,7 @@ Telephony
 
    Contact Center <contactcenter/index>
 
+
 Setting Up Your First Phone Set
 ===============================
 
@@ -22,6 +23,7 @@ caller ID in different places. Each way to configure a caller ID has it's own us
 The format for a caller ID is the following ``"My Name" <9999>`` If you don't set the number part of
 the caller ID, the dialplan's number will be used instead. This might not be a good option in most
 cases.
+
 
 Outgoing call caller ID
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -57,7 +59,6 @@ The order of precedence when setting the caller ID in multiple place is the foll
 #. Default caller ID
 
 
-
 Voice Mail
 ==========
 
@@ -78,4 +79,3 @@ Fax
 
 XiVO And Asterisk
 =================
-

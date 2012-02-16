@@ -2,7 +2,6 @@
 System And Administration
 *************************
 
-
 High Availability
 =================
 
@@ -39,11 +38,13 @@ The default configuration for all services using this file is the following
 * Rotation frequence: Weekly
 * Number of archived files: 4
 
+
 agid
 ----
 The agid log files are sent to the system's syslog.
 
 See `log files`_ above for global configuration info.
+
 
 asterisk
 --------
@@ -60,17 +61,20 @@ Default configuration
 * Number of archived files: 15
 * Rotation frequence: Daily
 
+
 provd
 -----
 Provd logs are send to the system's syslog.
 
 See `log files`_ above for global configuration info.
 
+
 sysconfd
 --------
 Sysconfd logs are send to the system's syslog.
 
 See `log files`_ above for global configuration info.
+
 
 web-interface
 -------------
@@ -84,6 +88,7 @@ Default configuration
 * Number of archived files: 21
 * File location: /var/log/pf-xivo-web-interface/\*.log
 
+
 xivo-confgend
 -------------
 The xivo-confgend daemon output is sent to the file specified with the --logfile parameter when launched with twistd.
@@ -93,6 +98,7 @@ The file location can be changed in '/etc/init.d/xivo-confgen'. Search the line 
 Default configuration
 
 * File location: '/var/log/xivo-confgend.log'
+
 
 xivo-ctid
 ---------
@@ -106,4 +112,3 @@ Default configuration
 * Number of archived log files: 15
 * Rotation frequence: Daily
 * File location: '/var/log/xivo-ctid.pid'
-

@@ -16,20 +16,25 @@ Quick Reference
 
 .. [1] ``easy_install`` can be found in the debian package python-setuptools : ``sudo apt-get install python-setuptools``
 
-Documentation guideline
-=======================
 
 .. highlight:: rest
 
+Documentation guideline
+=======================
+
 Here's the guideline/conventions to follow for the XiVO documentation.
+
 
 Language
 --------
 
 The documentation must be written in english, and only in english.
 
+
 Sections
 --------
+
+Use the following punctuation characters:
 
 * ``*`` with overline, for "file title"
 * ``=``, for sections
@@ -48,6 +53,60 @@ Incorrect::
    Section2
    ==========
 
+There should be 2 empty lines between sections, except when an empty section is followed by another
+section.
+
+Correct::
+
+   Section1
+   ========
+
+   Foo.
+
+
+   Section2
+   ========
+
+   Bar.
+
+Correct::
+
+   Section1
+   ========
+
+   Foo.
+
+
+   .. _target:
+
+   Section2
+   ========
+
+   Bar.
+
+Correct::
+
+   Section1
+   ========
+
+   Subsection1
+   -----------
+
+   Foo.
+
+Incorrect::
+
+   Section1
+   ========
+
+   Foo.
+
+   Section2
+   ========
+
+   Bar.
+
+
 Lists
 -----
 
@@ -60,6 +119,7 @@ Autonumbered lists::
 
    #. First item
    #. Second item
+
 
 Literal blocks
 --------------
@@ -82,8 +142,28 @@ Incorrect::
 
       apt-get update
 
+
+Inline markup
+-------------
+
+Use the following roles when applicable:
+
+* ``:file:`` for file, i.e.::
+
+   The :file:`/dev/null` file.
+
+* ``:menuselection:`` for the web interface menu::
+
+   The :menuselection:`Configuration --> Management --> Certificates` page.
+
+* ``:guilabel:`` for designating a specific GUI element::
+
+   The :guilabel:`Action` column.
+
+
 Others
 ------
 
-* There should be one and only one newline at the end of each file
-* Lines should be at most 99 characters
+* There should be one and only one newline character at the end of each file
+* There should be no trailing whitespace at the end of lines
+* Lines should be at most 104 characters

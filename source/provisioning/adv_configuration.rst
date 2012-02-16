@@ -77,6 +77,7 @@ A few things to know before writing your first custom template:
   This means there's usually no need to modify static files in :file:`var/tftpboot`. And this
   is a bad idea since a plugin upgrade will override these files.
 
+
 Custom template for every devices
 ---------------------------------
 
@@ -90,6 +91,7 @@ Once this is done, if you want to synchronize all the affected devices, use the 
 
     provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.1136").synchronize()'
 
+
 Custom template for a specific model
 ------------------------------------
 
@@ -98,6 +100,7 @@ Let's supose we want to customize the template for our 6739i::
    cp templates/6739i.tpl var/templates
    vi var/templates/6739i.tpl
    provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.1136").reconfigure()'
+
 
 Custom template for a specific device
 -------------------------------------

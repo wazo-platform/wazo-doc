@@ -13,6 +13,7 @@ The service xlet allows the user to enable and disable telephony services such a
 
 Forward services changes are also reflected in the web interface in the services/ipbx tab under IPBX settings, users. In the user configuration, service tab.
 
+
 Configuration
 =============
 
@@ -21,5 +22,3 @@ The available service list is configured from the web interface in the services/
 The right side of the service section contains services that are available to a given profile.
 
 .. image:: /xivoclient/images/xivoclient-services-config.png
-
-

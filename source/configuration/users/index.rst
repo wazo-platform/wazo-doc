@@ -4,6 +4,7 @@ Users
 
 Users Configuration.
 
+
 .. index:: users
 
 Importing Users
@@ -11,33 +12,32 @@ Importing Users
 
 You may import your users using a csv comma separated file. Users and lines are automatically created.
 
+
 How to import users
 -------------------
 
-First step is to create a text file containing the users you want to create. Here's a basic example:
+First step is to create a text file containing the users you want to create. Here's a basic example::
 
-::
-
- firstname|lastname|phonenumber|context|protocol
- John|Doe|1001|default|sip
- Jane|Doe|1002|default|sip
+   firstname|lastname|phonenumber|context|protocol
+   John|Doe|1001|default|sip
+   Jane|Doe|1002|default|sip
 
 This example defines 2 users, one named John Doe with one SIP line with number 1001 and another named Jane Doe with one SIP line with number 1002.
 
 Note that the number you use must all be in the range you defined for your default context.
 
-Once you have saved your file, you can import your users via 
-the :menuselection:`Services > IPBX > IPBX settings > Users` page by clicking on the plus button. 
+Once you have saved your file, you can import your users via
+the :menuselection:`Services --> IPBX --> IPBX settings --> Users` page by clicking on the plus button.
 
 .. figure:: images/Import_user_menu.png
-    :scale: 80%
-    :alt: Import users
-    
-    Import Users
+   :scale: 80%
+   :alt: Import users
+
+   Import Users
+
 
 Supported fields
 ----------------
-
 
 +-------------------+---------------------------------------------------------------------------------+
 | Field             | Description                                                                     |
@@ -76,13 +76,12 @@ Supported fields
 |                   |                                                                                 |
 +-------------------+---------------------------------------------------------------------------------+
 
+
 Function keys
 =============
 
 Function keys can be configured to customize the user's phone keys. Key types are pre-defined and can be browsed through the Type drop-down list. The Supervision field allow the key to be supervised. A supervised key will light up when enabled.
 
-
 .. image:: images/funckeys.png
 
 Call forwards keys should have a destination, it's use without a destination is experimental at the moment.
-

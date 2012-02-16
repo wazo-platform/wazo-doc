@@ -8,4 +8,3 @@ This section describes the methods to contribute.
    :maxdepth: 1
 
    contributing_doc
-   submit_a_patch

@@ -11,6 +11,7 @@ The local directory xlet allow a user to add personnal contacts to the XiVO clie
 
 .. image:: /xivoclient/images/xivoclient-localdir.png
 
+
 Usage
 =====
 
@@ -24,11 +25,11 @@ The ``Search`` button allow the user to find an occurence of a string in his loc
 
 The ``Remove all contacts`` button deletes all contacts from the user's local directory.
 
+
 File format
 ===========
 
 Imported files should have the following structure::
 
-  firstname,lastname,phonenumber,emailaddress,company,faxnumber,mobilenumber
-  Robert,Toto,5555555555,my@email,xivo,1234,5551231234
-  
+   firstname,lastname,phonenumber,emailaddress,company,faxnumber,mobilenumber
+   Robert,Toto,5555555555,my@email,xivo,1234,5551231234

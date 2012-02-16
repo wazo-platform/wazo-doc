@@ -2,7 +2,6 @@
 Contact Center
 **************
 
-
 Statistics
 ==========
 
@@ -15,11 +14,12 @@ In order to be able to display call center statistics you have first to create o
 
 This configuration is used to generate statistic cache and to allow user to display statistic with XiVO web interface
 
+
 General Architecture
 --------------------
 
-
 .. image:: images/statistic_archi.png
+
 
 Configuration
 -------------
@@ -64,4 +64,3 @@ Configuration
 .. note:: When a configuration is created, cache has to be generated for each object type 
 
 .. image:: images/statistic_cache.png
-
