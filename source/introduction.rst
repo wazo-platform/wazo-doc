@@ -2,23 +2,14 @@
 Introduction
 ************
 
-
-Open Minded Telecom System
-==========================
-
 XiVO History
 ============
 
 XiVO has been created in 2005 by Proformatique.
 
-
 XiVO Releases
 =============
 
-The last release is XiVO Gallifrey, version 1.1. The next version is Skaro and will be arriving before february 2012.
+The latest release of XiVO is |version|.
 
-XiVO Architecture
-=================
-
-Coming Next
-===========
+`XiVO 1.2 was released <https://projects.xivo.fr/news/49>`_ on February 3, 2012.
