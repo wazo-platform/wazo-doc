@@ -28,6 +28,7 @@ We are also working on a fully `Open XiVO Hardware`_.
    xivoclient/index
    provisioning/index
    system_admin/index
+   sccp/sccp
    developers/index
 
 
