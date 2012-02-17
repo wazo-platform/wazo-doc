@@ -2,9 +2,6 @@
 Devices
 *******
 
-Devices Configuration.
-
-
 .. index:: devices
 
 Synchronize a device

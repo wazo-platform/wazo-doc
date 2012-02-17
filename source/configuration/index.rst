@@ -11,6 +11,6 @@ This section describes the system configuration.
    Devices <devices/index>
    Call permissions <callright/callright>
    Schedules <schedules/schedules>
-   CTI server General <ctigeneral/ctigeneral>
+   CTI server <ctiserver/ctiserver>
    Certificates <certificates/certificates>
    Network <network/network>
