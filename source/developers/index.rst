@@ -11,3 +11,4 @@ This section describes the tools for developers.
    contributing/index
    cti_protocol
    translation
+   debug_daemon
