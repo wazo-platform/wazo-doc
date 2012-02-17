@@ -35,7 +35,7 @@ call filter can be added in Services > Call management > Call filters.
 Usage
 -----
 
-The call filter function can be activated and deactivated by the boss using the *37 extension. The
+The call filter function can be activated and deactivated by the boss using the \*37 extension. The
 extension is defined in IPBX services > Extensions.
 
 The call filter has to be activated for each secretary if more than one is defined for a given boss.

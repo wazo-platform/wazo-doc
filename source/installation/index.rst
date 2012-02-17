@@ -10,5 +10,4 @@ It **does not** cover the IPBX configuration.
 
    installsystem
    configuration_wizard/index
-   postinstall
    upgrade
