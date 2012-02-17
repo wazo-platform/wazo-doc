@@ -24,7 +24,7 @@ We are also working on a fully `Open XiVO Hardware`_.
    introduction
    installation/index
    configuration/index
-   telephony/index
+   getting_started/getting_started
    xivoclient/index
    provisioning/index
    system_admin/index

@@ -1,11 +1,11 @@
-*********
-Telephony
-*********
+***************
+Getting started
+***************
 
 .. toctree::
    :maxdepth: 2
 
-   Contact Center <contactcenter/index>
+   Contact Center <contactcenter/contact_center.rst>
 
 
 Setting Up Your First Phone Set
