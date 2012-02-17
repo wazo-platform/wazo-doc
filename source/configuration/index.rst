@@ -9,6 +9,7 @@ This section describes the system configuration.
 
    Users <users/index>
    Services / IPBX / Devices <devices/index>
+   Services / IPBX / Call permissions <callright/callright>
    Services / IPBX / Schedules <schedules/schedules>
    Services / CTI server / General <ctigeneral/ctigeneral>
    Configuration / Certificates <certificates/certificates>
