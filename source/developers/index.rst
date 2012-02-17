@@ -12,3 +12,4 @@ This section describes the tools for developers.
    cti_protocol
    translation
    debug_daemon
+   utils/utils
