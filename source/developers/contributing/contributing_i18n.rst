@@ -37,10 +37,10 @@ For the command to create files for your locale, you need to ensure it is listed
 
 There are a few project files you should edit, each one will translate a module of the XiVO Client :
 
-* ``baselib/baselib.pro``
-* ``xivoclient/xivoclient.pro``
-* ``xivoclient/xletlib.pro``
-* ``xivoclient/src/xlets/*/*.pro``
+* :file:`baselib/baselib.pro`
+* :file:`xivoclient/xivoclient.pro`
+* :file:`xivoclient/xletlib.pro`
+* :file:`xivoclient/src/xlets/*/*.pro`
 
 In these files, you should add a line like this one :
 ::
@@ -59,14 +59,14 @@ This will create the referenced file. The ``$$ROOT_DIR`` variable references eit
 Translate the files
 -------------------
 
-You can edit the files with extension .ts generated in ``baselib`` or in ``xivoclient/i18n``. For each entry, fill the ``<translation>`` tag with the translation of the ``<source>`` tag.
+You can edit the files with extension ``.ts`` generated in ``baselib`` or in :file:`xivoclient/i18n`. For each entry, fill the ``<translation>`` tag with the translation of the ``<source>`` tag.
 
 You can submit your translated files to the xivo-dev@lists.proformatique.com mailing list.
 
 Embed the translation files
 ---------------------------
 
-For each project previously edited, you should have a corresponding .qrc file. This lists all files that will be embedded in the XiVO Client binaries.
+For each project previously edited, you should have a corresponding ``.qrc`` file. This lists all files that will be embedded in the XiVO Client binaries.
 You should then add the corresponding translation files like below :
 ::
 
@@ -77,4 +77,4 @@ This embeds the French translation of the ``xivoclient`` module, corresponding t
 Display the new locale
 ----------------------
 
-You have to edit the source file ``xivoclient/src/configwidget.cpp`` and add the entry corresponding to your locale in the locale-choosing combobox.
+You have to edit the source file :file:`xivoclient/src/configwidget.cpp` and add the entry corresponding to your locale in the locale-choosing combobox.
