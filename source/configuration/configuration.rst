@@ -15,3 +15,4 @@ This section describes the system configuration.
    Certificates <certificates/certificates>
    Network <network/network>
    Hardware <hardware/hardware>
+   Statistics <statistics/statistics>
