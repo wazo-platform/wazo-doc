@@ -14,3 +14,4 @@ This section describes the system configuration.
    CTI server <ctiserver/ctiserver>
    Certificates <certificates/certificates>
    Network <network/network>
+   Hardware <hardware/hardware>
