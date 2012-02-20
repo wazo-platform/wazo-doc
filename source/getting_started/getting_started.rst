@@ -6,6 +6,7 @@ Getting started
    :maxdepth: 2
 
    Contact Center <contactcenter/contact_center>
+   Conference Room <conference_room/conference_room>
 
 
 Setting Up Your First Phone Set
