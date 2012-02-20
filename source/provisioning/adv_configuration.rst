@@ -27,29 +27,29 @@ Once you are there, you can see there's quite a few files and directories::
 
    tree
    .
-   ├── common.py
-   ├── entry.py
-   ├── pkgs
-   │   └── pkgs.db
-   ├── plugin-info
-   ├── README
-   ├── templates
-   │   ├── 6730i.tpl
-   │   ├── 6731i.tpl
-   │   ├── 6739i.tpl
-   │   ├── 6753i.tpl
-   │   ├── 6755i.tpl
-   │   ├── 6757i.tpl
-   │   ├── 9143i.tpl
-   │   ├── 9480i.tpl
-   │   └── base.tpl
-   └── var
-       ├── cache
-       ├── installed
-       ├── templates
-       └── tftpboot
-           └── Aastra
-               └── aastra.cfg
+   +-- common.py
+   +-- entry.py
+   +-- pkgs
+   |   +-- pkgs.db
+   +-- plugin-info
+   +-- README
+   +-- templates
+   |   +-- 6730i.tpl
+   |   +-- 6731i.tpl
+   |   +-- 6739i.tpl
+   |   +-- 6753i.tpl
+   |   +-- 6755i.tpl
+   |   +-- 6757i.tpl
+   |   +-- 9143i.tpl
+   |   +-- 9480i.tpl
+   |   +-- base.tpl
+   +-- var
+       +-- cache
+       +-- installed
+       +-- templates
+       +-- tftpboot
+           +-- Aastra
+               +-- aastra.cfg
 
 The interesting directories are:
 
