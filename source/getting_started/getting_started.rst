@@ -5,12 +5,10 @@ Getting started
 .. toctree::
    :maxdepth: 2
 
+   How To <how_to/how_to>
    Contact Center <contactcenter/contact_center>
    Conference Room <conference_room/conference_room>
 
-
-Setting Up Your First Phone Set
-===============================
 
 Boss secretary filter
 =====================
