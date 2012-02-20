@@ -8,3 +8,4 @@ This section describes the methods to contribute.
    :maxdepth: 1
 
    contributing_doc
+   contributing_i18n
