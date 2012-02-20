@@ -1,10 +1,33 @@
+div.body h1 {
+	border-top: 20px solid white;
+	margin-top: 0;
+	font-size: 200%;
+}
 
-div.body h1 { border-top: 20px solid white; margin-top: 0; font-size: 200%; }
-div.body h2 { font-size: 150%; background-color: #C8D5E3; }
-div.body h3 { font-size: 120%; background-color: #D8DEE3; }
-div.body h4 { font-size: 110%; background-color: #D8DEE3; }
-div.body h5 { font-size: 100%; background-color: #D8DEE3; }
-div.body h6 { font-size: 100%; background-color: #D8DEE3; }
+div.body h2 {
+	font-size: 150%;
+	background-color: #C8D5E3;
+}
+
+div.body h3 {
+	font-size: 120%;
+	background-color: #D8DEE3;
+}
+
+div.body h4 {
+	font-size: 110%;
+	background-color: #D8DEE3;
+}
+
+div.body h5 {
+	font-size: 100%;
+	background-color: #D8DEE3;
+}
+
+div.body h6 {
+	font-size: 100%;
+	background-color: #D8DEE3;
+}
 
 div.related {
 	color: #111;
@@ -21,11 +44,12 @@ div.related a {
 }
 
 div.section {
+	
 }
 
 div.section img {
-    margin: auto;
-    border: 1px dotted #aaa;
+	margin: auto;
+	border: 1px dotted #aaa;
 }
 
 .figure {
@@ -57,4 +81,46 @@ div.sphinxsidebarwrapper {
 
 div.sphinxsidebar ul {
 	margin: 10px 10px;
+}
+
+ol dl li {
+	list-style-type: decimal;
+	list-style-position: outside;
+	font-size: 60pt;
+	position: relative;
+	top: 70px;
+	left: 65px;
+	line-height: normal;
+	color: #DDD;
+	_color: #FFF;; /* show to IE */
+}
+
+ol dl li dt {
+	_margin-top: -70px;
+}
+
+ol dl li dd {
+	width: 400px;
+}
+
+ol dl li dt,ol dl li dd {
+	_list-style-type: decimal;
+	_list-style-position: outside;
+	color: #111;
+	font-size: 0px;
+	line-height: normal;
+	font-size: small;
+	position: relative;
+	top: -70px;
+	left: -70px;
+}
+
+dt {
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+dd {
+	background-color: #eeeee7;
+	padding: 7px;
 }
