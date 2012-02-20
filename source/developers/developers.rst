@@ -11,3 +11,5 @@ This section describes the tools for developers.
    contributing/contributing
    cti_protocol
    translation
+   debug_daemon
+   utils/utils

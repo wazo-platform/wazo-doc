@@ -8,7 +8,9 @@ This section describes the system configuration.
    :maxdepth: 2
 
    Users <users/users>
-   Services / IPBX / Devices <devices/devices>
-   Services / IPBX / Schedules <schedules/schedules>
-   Services / CTI server / General <ctigeneral/ctigeneral>
-   Configuration / Certificates <certificates/certificates>
+   Devices <devices/devices>
+   Call permissions <callright/callright>
+   Schedules <schedules/schedules>
+   CTI server <ctiserver/ctiserver>
+   Certificates <certificates/certificates>
+   Network <network/network>
