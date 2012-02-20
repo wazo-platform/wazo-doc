@@ -22,14 +22,14 @@ We are also working on a fully `Open XiVO Hardware`_.
    :maxdepth: 2
 
    introduction
-   installation/index
-   configuration/index
+   installation/installation
+   configuration/configuration
    getting_started/getting_started
-   xivoclient/index
-   provisioning/index
-   system_admin/index
+   xivoclient/xivoclient
+   provisioning/provisioning
+   system_admin/system_admin
    sccp/sccp
-   developers/index
+   developers/developers
 
 
 You may also check `XiVO blog`_ and `XiVO wiki`_ for more information.

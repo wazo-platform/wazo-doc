@@ -22,6 +22,6 @@ Xlets are features of the XiVO Client. It is the contraction of XiVO applets.
 .. toctree::
    :maxdepth: 1
 
-   Contact xlet <xlets/contact/index>
-   Local directory xlet <xlets/localdir/index>
-   Service xlet <xlets/service/index>
+   Contact xlet <xlets/contact>
+   Local directory xlet <xlets/localdir>
+   Service xlet <xlets/service>

@@ -9,6 +9,6 @@ It **does not** cover the IPBX configuration.
    :maxdepth: 2
 
    installsystem
-   configuration_wizard/index
+   configuration_wizard/configuration_wizard
    postinstall
    upgrade
