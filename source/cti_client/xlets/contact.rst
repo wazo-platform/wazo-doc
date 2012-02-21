@@ -9,7 +9,7 @@ Overview
 
 The Contacts XLet lists the people of your company, giving you access to their phone and XiVO Client status.
 
-.. image:: /xivoclient/images/xivoclient-contacts.png
+.. figure:: /cti_client/images/cti_client-contacts.png
 
 
 Usage
@@ -20,7 +20,7 @@ The "Search" text input allows you to filter the list of people according to the
 If the filter matches some contacts, you can see contact objects.
 Here's what a contact object looks like :
 
-.. image:: /xivoclient/images/xivoclient-contacts-object.png
+.. figure:: /cti_client/images/cti_client-contacts-object.png
 
 You can see three informations :
 

@@ -23,11 +23,11 @@ We are also working on a fully `Open XiVO Hardware`_.
 
    Introduction <introduction/introduction>
    installation/installation
-   configuration/configuration
    getting_started/getting_started
-   xivoclient/xivoclient
-   provisioning/provisioning
+   cti_client/cti_client
    system_admin/system_admin
+   configuration/configuration
+   provisioning/provisioning
    sccp/sccp
    developers/developers
 

@@ -9,7 +9,7 @@ Overview
 
 The local directory xlet allow a user to add personnal contacts to the XiVO client.
 
-.. image:: /xivoclient/images/xivoclient-localdir.png
+.. figure:: /cti_client/images/cti_client-localdir.png
 
 
 Usage
