@@ -8,13 +8,14 @@ Project folder map
 baselib
 -------
 
-The folder `baselib` contains all files necessary to build the baselib. It contains the necessary 
+The folder `baselib` contains all files necessary to build the baselib. It contains the necessary
 code and data structures to communicate with the XiVO CTI server.
 
-This library is designed to be reusable by other XiVO CTI clients. If you want to build it 
-without the rest of the XiVO Client, go in its folder and type :
- $ qmake && make
- 
+This library is designed to be reusable by other XiVO CTI clients. If you want to build it
+without the rest of the XiVO Client, go in its folder and type::
+
+   $ qmake && make
+
 The library will be available in the new bin folder.
 
 xivoclient
@@ -22,7 +23,7 @@ xivoclient
 
 The folder `xivoclient` contains all other source files included in the XiVO Client.
 
-`src` contains the source code files, `images` contains the images, `i18n` contains the 
+`src` contains the source code files, `images` contains the images, `i18n` contains the
 translation files and `qtaddons` contains some Qt addons used by the XiVO Client.
 
 src
@@ -31,18 +32,18 @@ src
 The source files are separated in three categories :
 
 * the XiVO Client itself, the source files are directly in `src`.
-* the XLet library (`xletlib`) contains the code common to multiple XLets (plugins), 
+* the XLet library (`xletlib`) contains the code common to multiple XLets (plugins),
   like the XLet base class and mainly GUI stuff.
 * the XLets themselves (`xlets`), each one is in a `xlets/something` subfolder.
 
-Each XLet is compiled into a dynamic library, but some XLets are still compiled within the 
-xivoclient executable instead of in a separated library. They are marked with a `*-builtin` 
+Each XLet is compiled into a dynamic library, but some XLets are still compiled within the
+xivoclient executable instead of in a separated library. They are marked with a `*-builtin`
 subfolder name.
 
 delivery
 --------
 
-This folder contains all license informations necessary for the XiVO Client to be redistributed, 
+This folder contains all license informations necessary for the XiVO Client to be redistributed,
 i.e. the GNU GPLv3 and the additional requirements.
 
 Configuration access
@@ -58,38 +59,38 @@ There are now 3 sets of functions from BaseEngine that you can use to read/store
 getConfig() / setConfig()
 -------------------------
 
-They are proxy methods to use the BaseConfig object inside BaseEngine. They use QVariantMap to store 
+They are proxy methods to use the BaseConfig object inside BaseEngine. They use QVariantMap to store
 the settings values. They are currently used to store/retrieve options used in the ConfigWidget.
 
 You can find the available keys to access data in the detailed Doxygen documentation of BaseEngine,
  or in `baseengine.h`.
 
-Note that the settings stored in BaseConfig won't be written in the configuration file if BaseEngine 
+Note that the settings stored in BaseConfig won't be written in the configuration file if BaseEngine
 is not aware of their existence (loaded in `loadSettings` and saved in `saveSettings`).
 
 getSettings()
 -------------
 
-Through this function, you can access the lowest level of configuration storage, QSettings. 
+Through this function, you can access the lowest level of configuration storage, QSettings.
 It also contains the options stored in BaseConfig, but is less easy to use.
 
-This direct access is used for purely graphical settings, only used to remember the appearance of 
-the GUI until the next launch. These settings don't have to be shared with other widgets, and storing 
+This direct access is used for purely graphical settings, only used to remember the appearance of
+the GUI until the next launch. These settings don't have to be shared with other widgets, and storing
 them directly in QSettings avoids writing code to import/export to/from BaseConfig.
 
 getProfileSetting() / setProfileSetting()
 -----------------------------------------
 
-This pair of methods allow you to read/write settings directly in QSettings, but specifically for 
+This pair of methods allow you to read/write settings directly in QSettings, but specifically for
 the current configuration profile.
 
 Configuration profiles
 ======================
 
-When starting XiVO Client with an argument, this argument is interpreted as a profile name. 
+When starting XiVO Client with an argument, this argument is interpreted as a profile name.
 This profile name allows you to separate different profiles, with different configuration options.
 
-For example, configuration profile "profileA" will auto-connect with user A and password B and "profileB" 
+For example, configuration profile "profileA" will auto-connect with user A and password B and "profileB"
 will not auto-connect, but is set to connect with user C, no password remembered. To invoke these profiles, use :
 
 .. code-block:: javascript
@@ -102,10 +103,10 @@ The default configuration profile is default-user.
 Recognizing / extracting phone numbers
 ======================================
 
-Of course, working on XiVO Client implies working with phone numbers. But how to interpret them easily, 
+Of course, working on XiVO Client implies working with phone numbers. But how to interpret them easily,
 when we are not sure of the format they're in?
 
-You can use the PhoneNumber namespace (`baselib/src/phonenumber.h`) to do that, it contains routines 
+You can use the PhoneNumber namespace (`baselib/src/phonenumber.h`) to do that, it contains routines
 for recognition/extraction of phone numbers, that way you don't have to parse manually.
 
 These subroutines are pretty basic for the moment, if you need/want to improve them, feel free to do it.
@@ -115,7 +116,7 @@ Retrieving CTI server infos
 
 Informations are synchronized from the server to the BaseEngine when the client connects.
 
-It is stored in BaseEngine in "lists". It is stored in a format close to the one used to transmit it, 
+It is stored in BaseEngine in "lists". It is stored in a format close to the one used to transmit it,
 so you can see the CTI protocol definition for further documentation.
 
 Each list contains objects of different type. These types are :
@@ -134,7 +135,7 @@ Each list contains objects of different type. These types are :
 
 Each type corresponds to a class derived from XInfo, e.g. channel infos are stored in ChannelInfo objects.
 
-The basic attributes of all objects are 3 strings: the IPBX ID, the XiVO object ID and the extended 
+The basic attributes of all objects are 3 strings: the IPBX ID, the XiVO object ID and the extended
 ID of the object, which is the two previous attributes linked with a "/".
 
 Listen to IPBX events
@@ -161,12 +162,12 @@ The parking XLet
 ================
 
 There are two concepts here :
-* Parked calls: These calls have been parked by a switchboard or an operator. 
-They are waiting to be answered by a specific person, unlike a queue, where calls will be 
-answered by one of the agents of the group associated to the queue. Each parked call is given 
-a phone number so that the call can be answered by everyone. 
+* Parked calls: These calls have been parked by a switchboard or an operator.
+They are waiting to be answered by a specific person, unlike a queue, where calls will be
+answered by one of the agents of the group associated to the queue. Each parked call is given
+a phone number so that the call can be answered by everyone.
 
-* Parking lots: They are containers for parked calls. Each parking lot has a phone number, 
+* Parking lots: They are containers for parked calls. Each parking lot has a phone number,
   used to identify where to send the call we want to park.
 
 ParkingWidget represents a parking lot and contains a table that stores all parked calls.
@@ -174,7 +175,7 @@ ParkingWidget represents a parking lot and contains a table that stores all park
 Adding new XLets
 ================
 
-When you want to add a new XLet, you can use the basic XLetNull, that only prints "Hello World". 
+When you want to add a new XLet, you can use the basic XLetNull, that only prints "Hello World".
 Here is a little script to accelerate the copy from XLetNull.
 
 .. code-block:: none
@@ -229,7 +230,7 @@ Add these lines in the .pro file in your XLet directory :
 
  TRANSLATIONS = <xletname>_fr.ts
  TRANSLATIONS += <xletname>_nl.ts
- 
+
  RESOURCES = res.qrc
 
 Replace fr and nl with the languages you want.
@@ -310,8 +311,8 @@ For that, you can add your new language in the `m_locale_cbox` QCombobox in Conf
 CTI debugging tool
 ==================
 
-If you have a problem and you want to see what is going on between the CTI server and client, 
-you can use a specific script, designed specifically for XiVO, instead of using something like 
+If you have a problem and you want to see what is going on between the CTI server and client,
+you can use a specific script, designed specifically for XiVO, instead of using something like
 Wireshark to listen network communications.
 
 Figures
