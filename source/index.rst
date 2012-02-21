@@ -21,7 +21,7 @@ We are also working on a fully `Open XiVO Hardware`_.
 .. toctree::
    :maxdepth: 2
 
-   introduction
+   Introduction <introduction/introduction>
    installation/installation
    configuration/configuration
    getting_started/getting_started
