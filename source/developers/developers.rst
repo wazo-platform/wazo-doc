@@ -14,3 +14,4 @@ This section describes the tools for developers.
    translation
    debug_daemon
    utils/utils
+   subroutine
