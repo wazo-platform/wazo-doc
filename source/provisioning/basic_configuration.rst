@@ -53,24 +53,16 @@ for them to be applied.
 Installing ``provd`` plugins
 ============================
 
-The first thing you need to do is to install the provd plugins for your devices. 
-It won't be possible for your devices to be properly configured if you don't install a proper provd plugin.
+The installation and management of ``provd`` plugins is done via the
+:menuselection:`Configuration --> Provisioning --> Plugin` page:
 
-Via the web-interface, you can update the list of installable plugins by going in 
-Configuration / Provisioning / Plugin and clicking the small update button in the upper right corner: 
-
-.. figure:: img/Autoprov_update_provd_plugins.png
+.. figure:: img/plugin.png
    :scale: 85%
 
    :menuselection:`Configuration --> Provisioning --> Plugin`
 
-You will then have a list of installable provd plugins to choose from: 
-
-.. figure:: img/Autoprov_provd_plugins_list.png
-   :scale: 85%
-
-   The page shows the list of both the installed and installable plugins. You can
-   see if a plugin is installed or not by looking at the :guilabel:`Action` column.
+The page shows the list of both the installed and installable plugins. You can
+see if a plugin is installed or not by looking at the :guilabel:`Action` column.
 
 Here's the list of other things that can be done from this page:
 
@@ -82,27 +74,10 @@ Here's the list of other things that can be done from this page:
 * edit an installed plugin, i.e. install/uninstall optional files that are specific to each plugin, like
   firmware or language files
 
-You can then install the provd plugins that you want by clicking the install icon for each plugins. 
-In our example, since we have Aastra 6731i phones, and we want to use the latest firmware from the 
-2.6 series (and not the 3.2 series), we'll install the xivo-aastra-2.6.0.2019 provd plugin: 
-
-.. figure:: img/Autoprov_provd_install_aastra.png
-   :scale: 85%
-   
-   You can also use the search box if you are looking for a particular word.
-
 After installing a new plugin, you are automatically redirected to its edit page. You
 can then download and install optional files specific to the plugin. You are strongly
 advised to install firmware and language files for the phones you'll use although
 it's often not a strict requirement for the phones to work correctly.
-
-Once the xivo-aastra-2.6.0.2019 plugin is installed, you can download and install the firmware for 
-your 6731i by clicking the edit icon of the xivo-aastra-2.6.0.2019 plugin and then clicking the 
-install icon for the 6731i-fw package. After the download, you should see something like this: 
-
-
-.. figure:: img/Autoprov_provd_install_6731ifw.png
-   :scale: 85%
 
 .. warning::
    If you uninstall a plugin that is used by some of your devices, they will be
@@ -125,32 +100,30 @@ on the vendor website.
 It's good practice to only install the plugins you need and no more.
 
 
-Autoprovisioninging a device
-============================
+Autoprovisioning a device
+=========================
 
-Once you have installed the proper provd plugins for your devices and setup correctly your 
+Once you have installed the proper provd plugins for your devices and setup correctly your
 DHCP server, you can then connect your devices to your network.
 
-But first, go to Services / IPBX / Devices. You will then see that no devices are currently known 
-by your XiVO:
+But first, go to :menuselection:`Services --> IPBX --> Devices` page. You will then see that no
+devices are currently known by your XiVO:
 
 .. figure:: img/Autoprov_no_devices.png
    :scale: 85%
 
-You can then power on your devices on your LAN. For example, after you power on your Aastra 6731i and 
-give it the time to boot and maybe upgrade its firmware, you should then see the phone having its first 
-line configured as 'autoprov', and if you refresh the devices page, you should see that your XiVO 
-now knows about your 6731i: 
+You can then power on your devices on your LAN. For example, after you power on an Aastra 6731i and
+give it the time to boot and maybe upgrade its firmware, you should then see the phone having its first
+line configured as 'autoprov', and if you refresh the devices page, you should see that your XiVO
+now knows about your 6731i:
 
 .. figure:: img/Autoprov_new_aastra_6731i.png
    :scale: 85%
 
 You can then dial from your Aastra 6731i the provisioning code associated to a line of one of your user.
-You will hear a prompt thanking you and your device should then reboot in the next few seconds. 
-Once the device reboot, it will then be properly configured for your user to use it. And also, 
-if you update the device page, you'll see that the icon next to your device has now passed to green: 
+You will hear a prompt thanking you and your device should then reboot in the next few seconds.
+Once the device has rebooted, it will then be properly configured for your user to use it. And also,
+if you update the device page, you'll see that the icon next to your device has now passed to green:
 
 .. figure:: img/Autoprov_cfg_aastra_6731i.png
    :scale: 85%
-
-
