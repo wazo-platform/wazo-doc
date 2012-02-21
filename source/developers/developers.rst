@@ -8,6 +8,7 @@ This section describes the tools for developers.
    :maxdepth: 1
    
    web_services_api
+   contributing/contributing_doc
    contributing/contributing
    cti_protocol
    translation
