@@ -5,7 +5,7 @@ Subroutine
 What is it ?
 ============
 
-The preprocess subroutine is for enhanced the xivo functionnalities with the Asterisk dialplan. You can enhanced this fonctionnality :
+The preprocess subroutine allows you to enhance XiVO features through the Asterisk dialplan. Features that can be enhanced are :
 
 * User
 * Group
@@ -14,21 +14,22 @@ The preprocess subroutine is for enhanced the xivo functionnalities with the Ast
 * Incoming call
 * Outcall
 
-There is tree possible categories :
+There are three possible categories :
 
-* Subroutine for one fonctionnality
+* Subroutine for one feature
 * Subroutine for global forwarding
 * Subroutine for global incoming call to an object
+
 
 Adding new subroutine
 =====================
 
-If you want to adding a new subroutine, we propose to edit a new configuration file in the directory : /etc/asterisk/extensions_extra.d
+If you want to add a new subroutine, we propose to edit a new configuration file in the directory : :file:`/etc/asterisk/extensions_extra.d`.
 You can also add this file by the web interface.
 
 An example :
 
-.. code-block:: python
+.. code-block:: dialplan
 
  [myexemple]
  exten = s,1,NoOp(This is an example)
@@ -40,10 +41,10 @@ Don't forget to finish your subroutine by a Return().
 Global subroutine
 =================
 
-There is predefined subroutine for this feature, you can find the name and the activation in the /etc/pf-xivo/asterisk/xivo_globals.conf.
+There is predefined subroutine for this feature, you can find the name and the activation in the :file:`/etc/pf-xivo/asterisk/xivo_globals.conf`.
 The variables are :
 
-.. code-block:: python
+.. code-block:: dialplan
 
  ; Global Preprocess subroutine
  XIVO_PRESUBR_GLOBAL_ENABLE = 1
@@ -54,9 +55,9 @@ The variables are :
  XIVO_PRESUBR_GLOBAL_INCOMING = xivo-subrgbl-incoming
  XIVO_PRESUBR_GLOBAL_OUTGOING = xivo-subrgbl-outgoing
 
-So if you want to adding a subroutine for all of your xivo users you can do this :
+So if you want to add a subroutine for all of your XiVO users you can do this :
 
-.. code-block:: python
+.. code-block:: dialplan
 
  [xivo-subrgbl-user]
  exten = s,1,NoOp(This is an example for all f my users)
@@ -65,9 +66,9 @@ So if you want to adding a subroutine for all of your xivo users you can do this
 Forward subroutine
 ==================
 
-You can also using a global subroutine for the forward.
+You can also use a global subroutine for call forward.
 
-.. code-block:: python
+.. code-block:: dialplan
 
  ; Preprocess subroutine for forwards
  XIVO_PRESUBR_FWD_ENABLE = 1
@@ -85,7 +86,7 @@ You can also using a global subroutine for the forward.
 Features subroutine
 ===================
 
-.. code-block:: python
+.. code-block:: dialplan
 
  ; Preprocess subroutine for features
  XIVO_GROUP_MEMBER_SUBROUTINE = xivo-subrfeatures-groupmember
