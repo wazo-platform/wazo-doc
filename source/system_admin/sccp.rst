@@ -1,9 +1,9 @@
-****************************
-Skinny Call Control Protocol
-****************************
+***********************************
+Skinny Call Control Protocol (SCCP)
+***********************************
 
 Introduction
--------------
+------------
 
 ::
 
@@ -13,7 +13,7 @@ Introduction
    At the present moment, we are strictly focusing our effort on the Asterisk 1.8 branch which is a Long-Term-Support (LTS) release.
 
 Contact
---------
+-------
 
 ::
 
@@ -23,7 +23,7 @@ Contact
    For a more interactive chat, you can find me on irc.freenode.net on #xivo, my alias is acidfu.
 
 Installation
-----------------
+------------
 
 ::
 
@@ -35,7 +35,7 @@ Installation
    cp ./src/.libs/libsccp.so /usr/lib/asterisk/modules/chan_sccp.so
 
 Configuration
---------------
+-------------
 
 | example /etc/asterisk/sccp.conf:
 
@@ -84,65 +84,65 @@ Configuration
 We see that the extention 107 is effectively configured in the context 'default'.
 
 Features
----------
+--------
 
-+-------------------------------------+---------------+
-|Receive call                         | Supported     |
-+=====================================+===============+
-|Initiate call                        | Yes           |
-+-------------------------------------+---------------+
-|Hangup call                          | Yes           |
-+-------------------------------------+---------------+
-|Transfer call                        | Yes           |
-+-------------------------------------+---------------+
-|Busy signal                          | Yes           |
-+-------------------------------------+---------------+
-|Congestion Signal                    | Yes           |
-+-------------------------------------+---------------+
-|Autoanswer (Paging)                  | Yes           |
-+-------------------------------------+---------------+
-|Call forward                         | Not yet       |
-+-------------------------------------+---------------+
-|Group pickup                         | Not yet       |
-+-------------------------------------+---------------+
-|Hotline (auto-provisioning)          | Not yet       |
-+-------------------------------------+---------------+
-|Multi-instance per line              | Not yet       |
-+-------------------------------------+---------------+
-|Speed dial                           | Not yet       |
-+-------------------------------------+---------------+
-|Multi line                           | Not yet       |
-+-------------------------------------+---------------+
-| Direct RTP                          | Not yet       |
-+-------------------------------------+---------------+
++-----------------------------+-----------+
+| Receive call                | Supported |
++=============================+===========+
+| Initiate call               | Yes       |
++-----------------------------+-----------+
+| Hangup call                 | Yes       |
++-----------------------------+-----------+
+| Transfer call               | Yes       |
++-----------------------------+-----------+
+| Busy signal                 | Yes       |
++-----------------------------+-----------+
+| Congestion Signal           | Yes       |
++-----------------------------+-----------+
+| Autoanswer (Paging)         | Yes       |
++-----------------------------+-----------+
+| Call forward                | Not yet   |
++-----------------------------+-----------+
+| Group pickup                | Not yet   |
++-----------------------------+-----------+
+| Hotline (auto-provisioning) | Not yet   |
++-----------------------------+-----------+
+| Multi-instance per line     | Not yet   |
++-----------------------------+-----------+
+| Speed dial                  | Not yet   |
++-----------------------------+-----------+
+| Multi line                  | Not yet   |
++-----------------------------+-----------+
+| Direct RTP                  | Not yet   |
++-----------------------------+-----------+
 
 Telephone
-----------
+---------
 
-+------------------+-------------+
-| Device type      | Supported   |
-+==================+=============+
-| 7905             | Yes         |
-+------------------+-------------+
-| 7906             | Yes         |
-+------------------+-------------+
-| 7911             | Yes         |
-+------------------+-------------+
-| 7912             | Yes         |
-+------------------+-------------+
-| 7940             | Yes         |
-+------------------+-------------+
-| 7941             | Yes         |
-+------------------+-------------+
-| 7941GE           | Yes         |
-+------------------+-------------+
-| 7960             | Yes         |
-+------------------+-------------+
-| 7961             | Yes         |
-+------------------+-------------+
++-------------+-----------+
+| Device type | Supported |
++=============+===========+
+| 7905        | Yes       |
++-------------+-----------+
+| 7906        | Yes       |
++-------------+-----------+
+| 7911        | Yes       |
++-------------+-----------+
+| 7912        | Yes       |
++-------------+-----------+
+| 7940        | Yes       |
++-------------+-----------+
+| 7941        | Yes       |
++-------------+-----------+
+| 7941GE      | Yes       |
++-------------+-----------+
+| 7960        | Yes       |
++-------------+-----------+
+| 7961        | Yes       |
++-------------+-----------+
 
 CLI
-----
+---
 
 The command line interface provide a way to interact with the different Asterisk modules, and in our case with the sccp channel driver (libsccp).
 
@@ -207,7 +207,7 @@ The command line interface provide a way to interact with the different Asterisk
  SEP00164766A428   unknown  Unregistered
 
 FAQ
----------
+---
 
 | Q. When is this *feature X* will be available ?
 | A. The order in which we implement features is based on our client needs. Write us an email that clearly explain
