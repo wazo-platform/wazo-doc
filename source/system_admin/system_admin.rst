@@ -2,6 +2,14 @@
 System And Administration
 *************************
 
+.. toctree::
+   :maxdepth: 1
+
+   configuration/configuration
+   provisioning/provisioning
+   sccp
+
+
 Log Files
 =========
 Many XiVO services use the syslog's '/var/log/daemon.log' file to log events.

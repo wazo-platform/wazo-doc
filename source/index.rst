@@ -26,9 +26,7 @@ We are also working on a fully `Open XiVO Hardware`_.
    getting_started/getting_started
    cti_client/cti_client
    system_admin/system_admin
-   configuration/configuration
-   provisioning/provisioning
-   sccp/sccp
+   api_sdk/api_sdk
    developers/developers
 
 
