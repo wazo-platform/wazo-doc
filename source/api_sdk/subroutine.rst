@@ -29,7 +29,7 @@ You can also add this file by the web interface.
 
 An example :
 
-.. code-block:: dialplan
+::
 
  [myexemple]
  exten = s,1,NoOp(This is an example)
@@ -44,7 +44,7 @@ Global subroutine
 There is predefined subroutine for this feature, you can find the name and the activation in the :file:`/etc/pf-xivo/asterisk/xivo_globals.conf`.
 The variables are :
 
-.. code-block:: dialplan
+::
 
  ; Global Preprocess subroutine
  XIVO_PRESUBR_GLOBAL_ENABLE = 1
@@ -57,7 +57,7 @@ The variables are :
 
 So if you want to add a subroutine for all of your XiVO users you can do this :
 
-.. code-block:: dialplan
+::
 
  [xivo-subrgbl-user]
  exten = s,1,NoOp(This is an example for all f my users)
@@ -68,7 +68,7 @@ Forward subroutine
 
 You can also use a global subroutine for call forward.
 
-.. code-block:: dialplan
+::
 
  ; Preprocess subroutine for forwards
  XIVO_PRESUBR_FWD_ENABLE = 1
@@ -86,7 +86,7 @@ You can also use a global subroutine for call forward.
 Features subroutine
 ===================
 
-.. code-block:: dialplan
+::
 
  ; Preprocess subroutine for features
  XIVO_GROUP_MEMBER_SUBROUTINE = xivo-subrfeatures-groupmember
