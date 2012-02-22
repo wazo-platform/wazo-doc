@@ -17,6 +17,14 @@ We are also working on a fully `Open XiVO Hardware`_.
 .. _free software: http://www.gnu.org/philosophy/free-sw.html
 .. _Open Xivo Hardware: http://hardware.xivo.fr
 
+.. warning::
+   
+   Upgrading from 1.2.0 or 1.2.1 require a special procedure before executing xivo-upgrade script::
+      
+       $ aptitude update
+       $ aptitude install xivo-upgrade
+       $ xivo-upgrade
+
 
 .. toctree::
    :maxdepth: 2
