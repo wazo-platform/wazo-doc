@@ -2,8 +2,27 @@
 System And Administration
 *************************
 
+<<<<<<< HEAD
 .. toctree::
    :maxdepth: 1
+=======
+
+.. toctree::
+   :maxdepth: 2
+
+   configuration/configuration
+   sccp
+   provisioning/provisioning
+
+
+
+
+
+
+
+High Availability
+=================
+>>>>>>> [refactoring] reorganize sections
 
    configuration/configuration
    provisioning/provisioning

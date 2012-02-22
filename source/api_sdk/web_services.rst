@@ -1,6 +1,6 @@
-***************
-WebServices API
-***************
+***********
+WebServices
+***********
 
 **Using web services XiVO to develop applications around XiVO.**
 

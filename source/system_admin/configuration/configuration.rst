@@ -1,8 +1,8 @@
-*************
-Configuration
-*************
+**********************
+Advanced Configuration
+**********************
 
-This section describes the system configuration.
+This section describes the advanced system configuration.
 
 .. toctree::
    :maxdepth: 2
