@@ -8,6 +8,7 @@ Getting started
    Contact Center <contactcenter/contact_center>
    Conference Room <conference_room/conference_room>
 
+
 Setting Up Your First Phone Set
 ===============================
 
@@ -18,6 +19,7 @@ Boss secretary filter
 The boss secretary filter allow to set a secretary or a boss role to a user. Filters can then be
 created to filter calls directed to a boss using different strategies.
 
+
 Defining a role
 ---------------
 
@@ -27,11 +29,13 @@ this feature, at least one boss and one secretary must be defined.
 .. figure:: images/user_bs_filter.png
    :scale: 85%
 
+
 Creating a filter
 -----------------
 
 The filter is used to associate a boss to one or many secretaries and to set a ring strategy. The
 call filter can be added in Services > Call management > Call filters.
+
 
 Usage
 -----
@@ -46,6 +50,7 @@ The extension to use is ``*37<boss number>*<secretary number>``.
 For a boss with extension 100 and 2 secretaries with extensions 101 and 102 the boss would have to
 type ``*37100*101`` and ``*37100*102``.
 
+
 Function keys
 -------------
 
@@ -54,6 +59,7 @@ phone. In the user's configuration under ``Func Keys``. A function key can be ad
 secretaries of a boss.
 
 If supervision is activated, the key will light up when filter is activated for this secretary.
+
 
 Interconnections
 ================
@@ -118,28 +124,6 @@ The order of precedence when setting the caller ID in multiple place is the foll
 #. User's outgoing caller ID
 #. Outgoing call
 #. Default caller ID
-
-
-Voice Mail
-==========
-
-Internationalization
-====================
-
-Advanced Using Sub Routines
-===========================
-
-Parking and Paging
-==================
-
-Interactive Voice Response
-==========================
-
-Fax
-===
-
-XiVO And Asterisk
-=================
 
 Phonebook
 =========

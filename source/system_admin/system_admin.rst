@@ -2,32 +2,8 @@
 System And Administration
 *************************
 
-High Availability
-=================
-
-Security
-========
-
-Hardware
-========
-
-Backup And Restore
-==================
-
-Internal Services
-=================
-
-sysconfd
---------
-
-confgen
--------
-
-ctid
-----
-
 Log Files
-========= 
+=========
 Many XiVO services use the syslog's '/var/log/daemon.log' file to log events.
 
 This log file's configuration is located at '/etc/logrotate.d/rsyslog'
