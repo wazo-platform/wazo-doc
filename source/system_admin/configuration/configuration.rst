@@ -16,3 +16,4 @@ This section describes the advanced system configuration.
    Network <network/network>
    Hardware <hardware/hardware>
    Statistics <statistics/statistics>
+   fax/fax_transmission
