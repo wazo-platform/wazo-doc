@@ -49,7 +49,8 @@ on a FTP server. You'll still need to enter an email address in these cases even
 Note that, as usual when adding incoming call definitions,, you must first define the incoming 
 call range in the used context.
 
-[[File:fax_recv_adding.png]]
+.. figure:: images/Fax_recv_adding.png
+
 
 Changing the email body
 =======================
