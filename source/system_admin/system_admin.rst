@@ -9,4 +9,5 @@ System And Administration
    log_files
    provisioning/provisioning
    sccp
+   restore
 
