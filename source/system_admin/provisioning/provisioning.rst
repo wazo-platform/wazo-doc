@@ -12,3 +12,4 @@ including SIP phones, SIP ATAs, and even softphones.
    devices
    basic_configuration
    adv_configuration
+   jitsi
