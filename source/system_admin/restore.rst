@@ -7,7 +7,7 @@ Restoring the configuration files
 
 A backup of both the configuration files and the databases used by a XiVO installation is done 
 automatically every day. 
-These backups are created in the ''/var/backups/pf-xivo'' directory and are kept for 7 days.
+These backups are created in the `/var/backups/pf-xivo` directory and are kept for 7 days.
 
 
 Restoring the databases
@@ -15,12 +15,12 @@ Restoring the databases
 
 .. warning::
 
-   This will destroy all the current data in your databases}}
+   This will destroy all the current data in your databases
 
-Databases backups are created as ''db.tgz'' files in the ''/var/backups/pf-xivo'' directory. 
+Databases backups are created as `db.tgz` files in the `/var/backups/pf-xivo` directory. 
 These tarballs contains a dump of the two databases used in XiVO 1.2.
 
-In this example, we'll restore the databases from a backup file named ''db.tgz'' 
+In this example, we'll restore the databases from a backup file named `db.tgz` 
 placed in the home directory of root.
 
 First, stop monit plus all the services that are connected to the databases.
@@ -35,7 +35,7 @@ First, stop monit plus all the services that are connected to the databases.
    /etc/init.d/pf-xivo-sysconfd stop
 
 
-Then, extract the content of the ''db.tgz'' file into the /tmp directory and go inside 
+Then, extract the content of the `db.tgz` file into the /tmp directory and go inside 
 the newly created directory.
 
 ::
@@ -74,7 +74,7 @@ Finally, restart the services you stopped at the first step:
 Creating a databases backup file manually
 =========================================
 
-You can manually create a database backup file named ''db-manual.tgz'' by issuing the following commands:
+You can manually create a database backup file named `db-manual.tgz` by issuing the following commands:
 
 ::
 
