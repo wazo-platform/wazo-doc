@@ -20,11 +20,11 @@ We are also working on a fully `Open XiVO Hardware`_.
 .. warning::
    
    Upgrading from 1.2.0 or 1.2.1 require a special procedure before executing xivo-upgrade script::
-      
-      $ aptitude update
-      $ aptitude install xivo-upgrade
+
+      $ apt-get update
+      $ apt-get install xivo-upgrade
       $ xivo-upgrade
-       
+
    If you have this error: 
    ``bash: /usr/sbin/xivo-upgrade: No such file or directory`` use ``/usr/bin/xivo-upgrade`` instead.
 
