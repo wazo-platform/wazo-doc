@@ -1,5 +1,39 @@
+ {% extends "!layout.html" %} 
+ 
+ {% block extrahead %}
+<link rel="stylesheet" href="{{ pathto('_static/css/xivo.css', 1) }}" type="text/css" />
+{% endblock %} 
 
-{% extends "!layout.html" %}
-{% block extrahead %}
-	<link rel="stylesheet" href="{{ pathto('_static/css/xivo.css', 1) }}" type="text/css" />
+{% block rootrellink %}
+	{{ super() }}
+{% endblock %}
+
+{% block relbaritems %}
+<div style="position: absolute; top:0; right: 180px;">
+	  <form class="search" action="../search.html" method="get">
+		Quick search :
+	    <input type="text" name="q">
+	    <input type="submit" value="Go">
+	    <input type="hidden" name="check_keywords" value="yes">
+	    <input type="hidden" name="area" value="default">
+	  </form>
+</div>
+	{{ super() }}
+{% endblock %}
+
+{% block sidebar1 %} 
+<ul id="doc-versions">
+	<li class="other"><a href="/1.2">1.2</a></li>
+	<li class="current"><span>Documentation version: <strong>dev</strong></span></li>
+</ul>
+{% endblock %}
+
+{% block sidebarsearch %} 
+{% endblock %}
+
+{% block relbar2 %} 
+{% endblock %}
+
+{% block footer %}
+	{{ super() }}
 {% endblock %}
