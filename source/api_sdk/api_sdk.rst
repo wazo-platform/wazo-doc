@@ -7,6 +7,5 @@ API and SDK
 
    web_services
    subroutine
-   contributing/contributing_doc
    contributing/contributing
    translation
