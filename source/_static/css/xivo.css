@@ -1,57 +1,63 @@
 body {
-    background-color: #fff;
+	background-color: #fff;
 }
 
 h1,h2,h3,h4 {
-    margin-top:.8em;
-    font-family:"Trebuchet MS",sans-serif;
-    font-weight:normal;
-}
-h1 {
-    font-size:218%;
-    margin-top:.6em;
-    margin-bottom:.6em;
-    color:#092e20;
-    line-height:1.1em;
-}
-div.body h2 {
-    font-size:150%;
-    margin-top:1em;
-    margin-bottom:.2em;
-    line-height:1.2em;
-    color:#487858;
-}
-#homepage h2 {
-    font-size:140%;
-}
-h3 {
-    font-size:125%;
-    font-weight:bold;
-    margin-bottom:.2em;
-    color:#092e20;
-}
-h4 {
-    font-size:110%;
-    font-weight:bold;
-    margin-bottom:-2px;
-    margin-top:1.2em;
-    color:#234D32;
+	margin-top: .8em;
+	font-family: "Trebuchet MS", sans-serif;
+	font-weight: normal;
 }
 
-h4 pre, h4 tt, h4 .literal {
-    text-transform:none;
+h1 {
+	font-size: 218%;
+	margin-top: .6em;
+	margin-bottom: .6em;
+	color: #092e20;
+	line-height: 1.1em;
 }
+
+div.body h2 {
+	font-size: 150%;
+	margin-top: 1em;
+	margin-bottom: .2em;
+	line-height: 1.2em;
+	color: #333;
+}
+
+#homepage h2 {
+	font-size: 140%;
+}
+
+h3 {
+	font-size: 125%;
+	font-weight: bold;
+	margin-bottom: .2em;
+	color: #555;
+}
+
+h4 {
+	font-size: 110%;
+	font-weight: bold;
+	margin-bottom: -2px;
+	margin-top: 1.2em;
+	color: #777;
+}
+
+h4 pre,h4 tt,h4 .literal {
+	text-transform: none;
+}
+
 h5 {
-    font-size:1em;
-    font-weight:bold;
-    margin-top:1.5em;
-    margin-bottom:3px;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 1.5em;
+	margin-bottom: 3px;
 }
 
 div.related {
 	color: #111;
 	text-shadow: 0px 1px 0 #ccc;
-	background: #ccc url(../img/xivo-trans_92x32.png) top left no-repeat;
+	background: #ccc url("../img/xivo-trans_92x32.png") top left no-repeat;
 }
 
 div.related ul {
@@ -145,52 +151,51 @@ dd {
 }
 
 /* DOCS */
-
 #doc-versions {
-    position: fixed;
-    display: block;
-    padding: 0;
-    margin: 0;
-    bottom: 5px;
-    right: 5px;
-    font-size: small;
+	position: fixed;
+	display: block;
+	padding: 0;
+	margin: 0;
+	bottom: 5px;
+	right: 5px;
+	font-size: small;
 }
 
 #doc-versions:hover {
-    background: transparent url(../img/z.gif) repeat; /* IE7 hack */
-    border-radius: 3px;
+	background: transparent url("../img/z.gif") repeat; /* IE7 hack */
+	border-radius: 3px;
 }
 
 #doc-versions li.other {
-    display: none;
+	display: none;
 }
 
 #doc-versions li.other a {
-    display: block;
-    padding: 5px;
+	display: block;
+	padding: 5px;
 }
 
 #doc-versions:hover li.other {
-    display: block;
+	display: block;
 }
 
 #doc-versions li {
-    display: block;
-    float: left;
-    padding: 0;
-    margin: 0 0 0 7px;
-    background-color: #eeeee7;
-    border: 2px #333 solid;
-    border-radius: 3px;
-    color: #111;
+	display: block;
+	float: left;
+	padding: 0;
+	margin: 0 0 0 7px;
+	background-color: #eeeee7;
+	border: 2px #333 solid;
+	border-radius: 3px;
+	color: #111;
 }
 
 #doc-versions li.current {
-    background: #eeeee7;
-    padding-left: 3px;
+	background: #eeeee7;
+	padding-left: 3px;
 }
 
 #doc-versions li.current span {
-    display: block;
-    padding: 5px;
+	display: block;
+	padding: 5px;
 }
