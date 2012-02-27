@@ -9,26 +9,26 @@
 {% endblock %}
 
 {% block relbaritems %}
+<!--
 <div style="position: absolute; top:0; right: 180px;">
-	  <form class="search" action="/1.2/search.html" method="get">
-		Quick search :
-	    <input type="text" name="q">
-	    <input type="submit" value="Go">
-	    <input type="hidden" name="check_keywords" value="yes">
-	    <input type="hidden" name="area" value="default">
-	  </form>
+        <form class="search" action="/dev/search.html" method="get">
+                Quick search :
+                <input type="text" name="q">
+                <input type="submit" value="Go">
+                <input type="hidden" name="check_keywords" value="yes">
+                <input type="hidden" name="area" value="default">
+        </form>
 </div>
+-->
 	{{ super() }}
 {% endblock %}
 
 {% block sidebar1 %} 
-<ul id="doc-versions">
-	<li class="other"><a href="/dev">dev</a></li>
-	<li class="current"><span>Documentation version: <strong>1.2</strong></span></li>
-</ul>
+	{% include 'menu-' + version + '.html'%}
 {% endblock %}
 
 {% block sidebarsearch %} 
+        {{ super() }}
 {% endblock %}
 
 {% block relbar2 %} 

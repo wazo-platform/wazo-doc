@@ -1,12 +1,13 @@
 body {
-    background-color: #fff;
+	background-color: #fff;
 }
 
 h1,h2,h3,h4 {
-    margin-top:.8em;
-    font-family:"Trebuchet MS",sans-serif;
-    font-weight:normal;
+	margin-top: .8em;
+	font-family: "Trebuchet MS", sans-serif;
+	font-weight: normal;
 }
+
 h1 {
     font-size: 218%;
     margin-top: .6em;
@@ -56,7 +57,7 @@ h5 {
 div.related {
 	color: #111;
 	text-shadow: 0px 1px 0 #ccc;
-	background: #ccc url(../img/xivo-trans_92x32.png) top left no-repeat;
+	background: #ccc url("../img/xivo-trans_92x32.png") top left no-repeat;
 }
 
 div.related ul {
@@ -150,52 +151,51 @@ dd {
 }
 
 /* DOCS */
-
 #doc-versions {
-    position: fixed;
-    display: block;
-    padding: 0;
-    margin: 0;
-    bottom: 5px;
-    right: 5px;
-    font-size: small;
+	position: fixed;
+	display: block;
+	padding: 0;
+	margin: 0;
+	bottom: 5px;
+	right: 5px;
+	font-size: small;
 }
 
 #doc-versions:hover {
-    background: transparent url(../img/z.gif) repeat; /* IE7 hack */
-    border-radius: 3px;
+	background: transparent url("../img/z.gif") repeat; /* IE7 hack */
+	border-radius: 3px;
 }
 
 #doc-versions li.other {
-    display: none;
+	display: none;
 }
 
 #doc-versions li.other a {
-    display: block;
-    padding: 5px;
+	display: block;
+	padding: 5px;
 }
 
 #doc-versions:hover li.other {
-    display: block;
+	display: block;
 }
 
 #doc-versions li {
-    display: block;
-    float: left;
-    padding: 0;
-    margin: 0 0 0 7px;
-    background-color: #eeeee7;
-    border: 2px #333 solid;
-    border-radius: 3px;
-    color: #111;
+	display: block;
+	float: left;
+	padding: 0;
+	margin: 0 0 0 7px;
+	background-color: #eeeee7;
+	border: 2px #333 solid;
+	border-radius: 3px;
+	color: #111;
 }
 
 #doc-versions li.current {
-    background: #eeeee7;
-    padding-left: 3px;
+	background: #eeeee7;
+	padding-left: 3px;
 }
 
 #doc-versions li.current span {
-    display: block;
-    padding: 5px;
+	display: block;
+	padding: 5px;
 }
