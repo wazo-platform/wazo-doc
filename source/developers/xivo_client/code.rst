@@ -1,6 +1,6 @@
-************
-Qt Developer
-************
+***********************
+XiVO Client source code
+***********************
 
 Project folder map
 ==================
