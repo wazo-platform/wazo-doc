@@ -7,4 +7,3 @@ API and SDK
 
    web_services
    subroutine
-   translation

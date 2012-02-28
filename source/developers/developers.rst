@@ -6,10 +6,9 @@ This section describes the tools for developers.
 
 .. toctree::
    :maxdepth: 1
-   
+
    contributing_doc
-   contributing/contributing
+   translate
    cti_server/cti_server
+   xivo_client/xivo_client
    debug_daemon
-   xivo_client/build
-   xivo_client/code

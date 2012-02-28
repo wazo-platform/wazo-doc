@@ -1,6 +1,13 @@
-*****************************
-Contributing to localize XiVO
-*****************************
+**************************************
+Manage translations of the XiVO Client
+**************************************
+
+This sections describes how to manage XiVO Client translations from a developer point of view. If you want to help translate the XiVO Client, see :doc:`Translating XiVO <../translate>`
+
+Updating translations from source code
+======================================
+
+You can use the :file:`utils/translations.sh` to automatize this task.
 
 Edit an existing locale
 =======================

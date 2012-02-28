@@ -1,6 +1,6 @@
-***********************
-XiVO Client source code
-***********************
+**********************
+Coding the XiVO Client
+**********************
 
 Project folder map
 ==================
