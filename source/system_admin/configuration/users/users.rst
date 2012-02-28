@@ -35,7 +35,7 @@ Supported fields
 +=========================+======================================================+=========================================================================+
 |                         |                                                      |                                                                         |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
-| **[section user]**      | **For just add a user**                              |                                                                         |
+| **[section user]**      | **To add a user**                                    |                                                                         |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
 | entityid                | int                                                  | entity id (configuration menu) ``Must be a valid entityid``             |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
@@ -65,9 +65,9 @@ Supported fields
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
 |                         |                                                      |                                                                         |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
-| **[section line]**      | **For add an line to a user**                        |                                                                         |
+| **[section line]**      | **To add a line to a user**                          |                                                                         |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
-| phonenumber *           | string                                               | User phone number create a line ``Must be exist in context <context>``  |
+| phonenumber *           | string                                               | User phone number creates a line ``Must be exist in context <context>`` |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
 | context *               | string                                               | context name ``internal context must be exist e.g. default``            |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
@@ -75,7 +75,7 @@ Supported fields
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
 |                         |                                                      |                                                                         |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
-| **[section incall]**    | **For add an incall to a user**                      |                                                                         |
+| **[section incall]**    | **To add an incall to a user**                       |                                                                         |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
 | incallexten *           | string                                               | DID number ``incallexten must be exist in context <incallcontext>``     |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
@@ -85,7 +85,7 @@ Supported fields
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
 |                         |                                                      |                                                                         |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
-| **[section voicemail]** | **For add an voicemail to a user**                   | You must set a language is use this section                             |
+| **[section voicemail]** | **To add a voicemail to a user**                     | You must set a language to use this section                             |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
 | voicemailname *         | string                                               | voicemail fullname                                                      |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
@@ -93,7 +93,7 @@ Supported fields
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
 | voicemailpassword       | string                                               | password voicemail                                                      |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
-| voicemailemail          | string                                               | mail for send a notification to have a receive a message                |
+| voicemailemail          | string                                               | mail to send a notification when a message is received                  |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
 | voicemailattach         | bool `[0, 1]`                                        | Enable/Disable attach the audio file to your mail                       |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
@@ -130,14 +130,14 @@ This example defines 3 users:
    Note that the number you use must all be in the range you defined for your default context.
 
 
-Text file for add a simple user with a line and voicemail::
+Text file to add a simple user with a line and voicemail::
 
    entityid|firstname|lastname|language|phonenumber|context|protocol|voicemailname|voicemailmailbox|voicemailpassword
    1|John|Doe|en_US|1000|default|sip|John Doe|1000|1234
    
 
 
-Text file for add a simple user with a line and incall::
+Text file to add a simple user with a line and incall::
 
    entityid|firstname|lastname|phonenumber|context|protocol|incallexten|incallcontext
    1|John|Doe|1000|default|sip|2050|from-extern
@@ -152,4 +152,4 @@ Function keys can be configured to customize the user's phone keys. Key types ar
 
 .. image:: images/funckeys.png
 
-Call forwards keys should have a destination, it's use without a destination is experimental at the moment.
+Call forwards keys should have a destination, using them without a destination is experimental at the moment.
