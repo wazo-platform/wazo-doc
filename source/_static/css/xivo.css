@@ -9,49 +9,49 @@ h1,h2,h3,h4 {
 }
 
 h1 {
-    font-size: 218%;
-    margin-top: .6em;
-    margin-bottom: .6em;
-    color: #092e20;
-    line-height: 1.1em;
+	font-size: 218%;
+	margin-top: .6em;
+	margin-bottom: .6em;
+	color: #092e20;
+	line-height: 1.1em;
 }
 
 div.body h2 {
-    font-size: 150%;
-    margin-top: 1em;
-    margin-bottom: .2em;
-    line-height: 1.2em;
-    color: #333;
+	font-size: 150%;
+	margin-top: 1em;
+	margin-bottom: .2em;
+	line-height: 1.2em;
+	color: #333;
 }
 
 #homepage h2 {
-    font-size: 140%;
+	font-size: 140%;
 }
 
 h3 {
-    font-size: 125%;
-    font-weight: bold;
-    margin-bottom: .2em;
-    color: #555;
+	font-size: 125%;
+	font-weight: bold;
+	margin-bottom: .2em;
+	color: #555;
 }
 
 h4 {
-    font-size: 110%;
-    font-weight: bold;
-    margin-bottom: -2px;
-    margin-top: 1.2em;
-    color: #777;
+	font-size: 110%;
+	font-weight: bold;
+	margin-bottom: -2px;
+	margin-top: 1.2em;
+	color: #777;
 }
 
 h4 pre,h4 tt,h4 .literal {
-    text-transform: none;
+	text-transform: none;
 }
 
 h5 {
-    font-size: 1em;
-    font-weight: bold;
-    margin-top: 1.5em;
-    margin-bottom: 3px;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 1.5em;
+	margin-bottom: 3px;
 }
 
 div.related {
