@@ -1,15 +1,20 @@
+.. index:: single:XiVO CTI Client
+
+
 **********
 CTI client
 **********
 
 This section describes the CTI Client and its various xlets
 
-.. toctree::
-   :maxdepth: 1
+Getting the XiVO Client
+=======================
 
-    Building the XiVO CTI Client <build>
+Binaries of the XiVO Client are available on our `FTP server`_.
 
-.. index:: single:XiVO CTI Client
+.. _FTP server: http://downloads.xivo.fr/xivo_cti_client
+
+
 .. index:: Xlets
 
 Xlets
@@ -24,14 +29,3 @@ Xlets are features of the CTI Client. It is the contraction of XiVO applets.
    Contact xlet <xlets/contact>
    Local directory xlet <xlets/localdir>
    Service xlet <xlets/service>
-
-
-Development tips
-================
-
-You can find some tips to ease the development with XiVO and the CTI Client.
-
-.. toctree::
-   :maxdepth: 1
-
-   Qt Developer <qt>
