@@ -47,7 +47,7 @@ Configuration
 
    keepalive=10
    authtimeout=10
-
+   dialtimeout=3
    context=default
 
    [lines]
@@ -61,6 +61,7 @@ Configuration
    [SEP00164766A428]
    device=SEP00164766A428
    line=100
+   voicemail=200
 
 | **WARNING** ! The option 'context' is very important. If you get it wrong, you won't be able to call or receive call.
 | If you are unsure in what context your extension is configured, you can do:
@@ -213,9 +214,6 @@ FAQ
 | A. The order in which we implement features is based on our client needs. Write us an email that clearly explain
 |  your setup and what you would like to do and we will see what we can do. We don't provide any timeline.
 
-| Q. I dial a number, but nothing happend, the phone is not ringing out.
-| A. There is no timeout on dialing yet, you need to press the pound key '#' after the last digit.
-
 | Q. I want to use the Page() application to call many phones at the same time.
 | A. Here a Page() example for a one way call (half-duplex):
 
@@ -230,6 +228,4 @@ FAQ
 
    exten => 1000,1,Verbose(2, Paging to external cisco phone)
     same => n,Page(sccp/100/autoanswer&sccp/101/autoanswer,di,120 )
-
-
 
