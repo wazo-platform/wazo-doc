@@ -55,10 +55,132 @@ anything with the CTI client.
 Sheet configuration
 ===================
 
-Sheet and/or Directory variables
---------------------------------
+The sheet has 2 configurations :
 
-In the sheet configuration, 3 kinds of variables are available
+* Action, you can define the design for your sheet, and the action you need.
+* Event, you can define what type of the sheet for a specific event. For example if you want to define a sheet when you received a call from a queue, you can create a model of your sheet in the action, and you associate your event to this sheet.
+
+.. image:: images/sheets_configuration.png
+
+General option
+--------------
+
+In the first tab you can configure the name of your model, the destination (just dest for the moment).
+When you check focus your xivo client focus when you received a sheet.
+The contexts contain where the event sheet can be trig. The profil is for authorize a specific profil in this model sheet.
+Anyway you can field a description.
+
+.. image:: images/sheets_configuration_general.png
+
+Sheets
+------
+
+This tab is dedicated for the form/information of your sheet. You can define an external form created with qt-designer. You can tell the path with a file:// or a http://. The check box is for activated this ui. The qt file is an xml file.
+
+Here an example of a small form develop with qt-designer.
+
+.. image:: images/sheets_configuration_qtui.png
+
+The qt-designer screenshot.
+
+.. image:: images/sheets_configuration_qtdesigner.png
+
+the generated file from qt-designer :
+
+.. code-block:: javascript
+
+ <?xml version="1.0" encoding="UTF-8"?>
+ <ui version="4.0">
+  <class>widget</class>
+  <widget class="QWidget" name="widget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>225</width>
+     <height>146</height>
+    </rect>
+   </property>
+   <property name="windowTitle">
+    <string>Form</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QGridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Nom</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Prenom</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Sexe</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="XIVOFORM_lastname_2"/>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="XIVOFORM_name"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="save">
+        <property name="text">
+         <string>Envoyer</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="comboBox">
+        <item>
+         <property name="text">
+          <string>Masculin</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Féminin</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <resources/>
+  <connections/>
+  </ui>
+
+
+The second part you can configure the form:
+
+* Field title : name of your line
+* Field type : define the type like text, form ...
+
+ * phone : create a tel: link and you can click to call on your sheet
+ * title : to create a title on your sheet
+ * picture : show a picture from an internal user in your sheet, you need to use {xivo-picture} variable.
+ * text : show a text
+ * form : show the form from an ui predefined. It's an xml ui. You need to define qtui in display format.
+ * url : a simple url link, open your default browser.
+ * urlx : an url button
+
+The third field is for define a text when the fouth field have no result. It's the default display.
+
+In the fourth field, you can defined text or variables or the both.
+There is 3 kinds of variables are available
 
 `xivo-` prefixed ones are those for which the keywords are reserved and set inside the CTI server:
  
@@ -94,17 +216,37 @@ and is typically a mix of firstname and lastname
 
 `dp-` prefixed ones are the variables set through the dialplan (through UserEvent application)
 
-sheet line items
-----------------
+For example if you want to access from the dialplan to a variable dp-test you need to add in your dialplan this line (in a subroutine) :
+
+ UserEvent(dialplan2cti,UNIQUEID: ${UNIQUEID},CHANNEL: ${CHANNEL},VARIABLE: test,VALUE: "Salut")
+
+The {dp-test} display Salut.
+
+Warning : qtui are the exception for the form.
+
+Other example :
 
  * title : (anything, "title", default value, variable pattern)
  * text item : (anything, "text", default value, variable pattern)
  * ui form : (anything, "form", anything, "qtui")
  * user picture : (anything, "picture", anything, {xivo-callerpicture})
 
+.. image:: images/sheets_configuration_sheet.png
 
-urlauto syntaxes
-----------------
+Systray
+-------
+
+Exactly the same syntaxe from the sheet. You can just using text.
+
+.. image:: images/sheets_configuration_systray.png
+
+
+Actions
+-------
+
+The action is for the xivo client, so if you configure an action, please do sure you understand it's execute by the client. You need to allow this action in the client configuration too.
+
+The second and fourth field must be used. And the second is always urlauto. You can use the same variable like {xivo-callerid}
 
  * `http://x.y.z.co.fr/anything` opens the URL on the default browser
  * `tcp://x.y.z.co.fr:4545/?var1=a1&var2=a2&var3=v3` connects to TCP port 4545 on x.y.z.co.fr, sends the string `var1=a1&var2=a2&var3=v3`, then closes
@@ -116,9 +258,17 @@ urlauto syntaxes
 For `tcp://` and `udp://`, it is a requirement that the string between `/` and `?` is empty.
 An extension of it could be to define other serialization methods, if needed.
 
+.. image:: images/sheets_configuration_actions.png
+
+Event configuration
+===================
+
+.. image:: images/events_configuration.png
+
 
 Dialplan interaction
 --------------------
 
-* UserEvents, dialplan2cti
-* FAGI's
+* UserEvents for a custom event.
+
+ UserEvent(Custom,NAME: myevent,UNIQUEID: ${UNIQUEID},CHANNEL: ${CHANNEL})
