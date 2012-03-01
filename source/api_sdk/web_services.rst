@@ -5,7 +5,7 @@ WebServices
 **Using web services XiVO to develop applications around XiVO.**
 
 HTTP status codes
------------------
+=================
 
 - 200: Success
 - 204: No data (only for list and search queries)
@@ -17,13 +17,13 @@ HTTP status codes
 - 500: Internal error
 
 Configuration
--------------
+=============
 
-Gestion
-^^^^^^^
+Manage
+------
 
 Entity
-******
+^^^^^^
 
 List :
 https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=list
@@ -76,10 +76,10 @@ https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=add
 
 
 Network
-^^^^^^^
+-------
 
 Mail
-****
+^^^^
 
 View :
 https://[ip_xivo]/xivo/configuration/json.php/restricted/network/mail/?act=view
@@ -136,13 +136,14 @@ Format des données à envoyer:
 
 
 IPBX
-----
+====
 
 IPBX Settings
-^^^^^^^^^^^^^
+-------------
+
 
 Devices
-*******
+^^^^^^^
 
 **List**
 
@@ -244,7 +245,7 @@ https://192.168.0.10/service/ipbx/json.php/restricted/pbx_settings/devices/?act=
 
 
 Users
-*****
+^^^^^
 
 **List** :
 
@@ -533,11 +534,10 @@ You can also create or associate several lines at once. Here is different possib
 
 
 IPBX Configuration
-^^^^^^^^^^^^^^^^^^
-
+------------------
 
 Extensions
-**********
+^^^^^^^^^^
 
 Get all free extensions for given context, object type and matching partial value
 
