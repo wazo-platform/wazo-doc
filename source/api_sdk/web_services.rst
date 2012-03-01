@@ -59,22 +59,22 @@ https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=add
 .. code-block:: javascript
 
    {
-        "name": "proformatique",
-        "displayname": "Proformatique",
-        "phonenumber": "0033141389960",
-        "faxnumber": "0033141389970",
-        "email": "contact@proformatique.com",
-        "url": "http://www.proformatique.com",
-        "address1": "10 bis, rue Lucien VOILIN",
-        "address2": "",
-        "city": "Puteaux",
-        "state": "Hauts de Seine",
-        "zipcode": "92800",
-        "country": "FR",
-        "description": ""
+      "name": "proformatique",
+      "displayname": "Proformatique",
+      "phonenumber": "0033141389960",
+      "faxnumber": "0033141389970",
+      "email": "contact@proformatique.com",
+      "url": "http://www.proformatique.com",
+      "address1": "10 bis, rue Lucien VOILIN",
+      "address2": "",
+      "city": "Puteaux",
+      "state": "Hauts de Seine",
+      "zipcode": "92800",
+      "country": "FR",
+      "description": ""
    }
-   
-   
+
+
 Network
 ^^^^^^^
 
@@ -89,17 +89,18 @@ Return code example:
 .. code-block:: javascript
 
    {
-    "id": "1",
-    "mydomain": "proformatique.com",
-    "origin": "devel.proformatique.com",
-    "relayhost": "smtp.free.fr",
-    "fallback_relayhost": "smtp.orange.fr",
-    "canonical": [
-      {
-         "pattern": "@proformatique.com",
-         "result" : "support@proformatique.com"
-      }
-    ]
+      "id": "1",
+      "mydomain": "proformatique.com",
+      "origin": "devel.proformatique.com",
+      "relayhost": "smtp.free.fr",
+      "fallback_relayhost": "smtp.orange.fr",
+      "canonical": 
+      [
+         {
+            "pattern": "@proformatique.com",
+            "result" : "support@proformatique.com"
+         }
+      ]
    }
 
 Description des champs:
@@ -120,16 +121,17 @@ Format des données à envoyer:
 .. code-block:: javascript
 
    {
-    "mydomain": "proformatique.com",
-    "origin": "devel.proformatique.com",
-    "relayhost": "smtp.free.fr",
-    "fallback_relayhost": "smtp.orange.fr",
-    "canonical": [
-      {
-         "pattern": "@proformatique.com",
-         "result" : "support@proformatique.com"
-      }
-    ]
+      "mydomain": "proformatique.com",
+      "origin": "devel.proformatique.com",
+      "relayhost": "smtp.free.fr",
+      "fallback_relayhost": "smtp.orange.fr",
+      "canonical": 
+      [
+         {
+            "pattern": "@proformatique.com",
+            "result" : "support@proformatique.com"
+         }
+      ]
    }
 
 
@@ -150,28 +152,28 @@ Example:
 
 .. code-block:: javascript
 
-  [
-    {
-      id: 2,
-      deviceid: "43dafbd0cb8d447a85ebd02b2639861d",
-      config: "43dafbd0cb8d447a85ebd02b2639861d",
-      plugin: "xivo-aastra-3.2.2.1136",
-      ip: "10.0.0.13",
-      mac: "00:08:5d:2a:4f:b1",
-      sn: "",
-      vendor: "Aastra",
-      model: "6731i",
-      version: "3.2.2.1136",
-      proto: "",
-      internal: "0",
-      configured: true,
-      commented: false,
-      description: "",
-      provdexist: true,
-      capabilities: false
-    },
-    ...
-  ]
+   [
+      {
+         id: 2,
+         deviceid: "43dafbd0cb8d447a85ebd02b2639861d",
+         config: "43dafbd0cb8d447a85ebd02b2639861d",
+         plugin: "xivo-aastra-3.2.2.1136",
+         ip: "10.0.0.13",
+         mac: "00:08:5d:2a:4f:b1",
+         sn: "",
+         vendor: "Aastra",
+         model: "6731i",
+         version: "3.2.2.1136",
+         proto: "",
+         internal: "0",
+         configured: true,
+         commented: false,
+         description: "",
+         provdexist: true,
+         capabilities: false
+      },
+      ...
+   ]
 
 
 **Search** :
@@ -182,29 +184,29 @@ search is done either on *ip address* or *mac address* field (with exact match)
 
 .. code-block:: javascript
 
-  https://192.168.0.10/service/ipbx/json.php/restricted/pbx_settings/devices/?act=search&search=00:0e:50:4e:57:b7
+   https://192.168.0.10/service/ipbx/json.php/restricted/pbx_settings/devices/?act=search&search=00:0e:50:4e:57:b7
 
-  [
-    {
-      id: 4,
-      deviceid: "396fa65e837c40d3a78a4424e32a1df7",
-      config: "396fa65e837c40d3a78a4424e32a1df7",
-      plugin: "xivo-technicolor-ST2030-2.74",
-      ip: "10.0.0.12",
-      mac: "00:0e:50:4e:57:b7",
-      sn: "",
-      vendor: "Technicolor",
-      model: "ST2030",
-      version: "2.74",
-      proto: "",
-      internal: "0",
-      configured: true,
-      commented: false,
-      description: "",
-      provdexist: true,
-      capabilities: false
-    }
-  ]
+   [
+      {
+         id: 4,
+         deviceid: "396fa65e837c40d3a78a4424e32a1df7",
+         config: "396fa65e837c40d3a78a4424e32a1df7",
+         plugin: "xivo-technicolor-ST2030-2.74",
+         ip: "10.0.0.12",
+         mac: "00:0e:50:4e:57:b7",
+         sn: "",
+         vendor: "Technicolor",
+         model: "ST2030",
+         version: "2.74",
+         proto: "",
+         internal: "0",
+         configured: true,
+         commented: false,
+         description: "",
+         provdexist: true,
+         capabilities: false
+      }
+   ]
 
 
 **View** :
@@ -213,32 +215,32 @@ https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=vie
 
 Example:
 
+https://192.168.0.10/service/ipbx/json.php/restricted/pbx_settings/devices/?act=view&id=2
+
 .. code-block:: javascript
 
-  https://192.168.0.10/service/ipbx/json.php/restricted/pbx_settings/devices/?act=view&id=2
-
-  [
-    {
-      id: 2,
-      deviceid: "43dafbd0cb8d447a85ebd02b2639861d",
-      config: "43dafbd0cb8d447a85ebd02b2639861d",
-      plugin: "xivo-aastra-3.2.2.1136",
-      ip: "10.0.0.13",
-      mac: "00:08:5d:2a:4f:b1",
-      sn: "",
-      vendor: "Aastra",
-      model: "6731i",
-      version: "3.2.2.1136",
-      proto: "",
-      internal: "0",
-      configured: true,
-      commented: false,
-      description: "",
-      provdexist: true,
-      capabilities: false
-    },
-    ...
-  ]
+   [
+      {
+         id: 2,
+         deviceid: "43dafbd0cb8d447a85ebd02b2639861d",
+         config: "43dafbd0cb8d447a85ebd02b2639861d",
+         plugin: "xivo-aastra-3.2.2.1136",
+         ip: "10.0.0.13",
+         mac: "00:08:5d:2a:4f:b1",
+         sn: "",
+         vendor: "Aastra",
+         model: "6731i",
+         version: "3.2.2.1136",
+         proto: "",
+         internal: "0",
+         configured: true,
+         commented: false,
+         description: "",
+         provdexist: true,
+         capabilities: false
+      },
+      ...
+   ]
 
 
 Users
@@ -296,7 +298,7 @@ Full example:
 
 .. code-block:: javascript
 
-  {
+   {
       "userfeatures": {
             "entityid": "[entityid]",
             "firstname": "John",
@@ -341,15 +343,15 @@ Full example:
             "description": ""
       },
       "linefeatures": {
-            "id": {""},
-            "protocol": {""},
-            "name": {""},
-            "context": {""},
-            "number": {""},
-            "rules_type": {""},
-            "rules_time": {""},
-            "rules_order": {""},
-            "rules_group": {""}
+            "id": [""],
+            "protocol": [""],
+            "name": [""],
+            "context": [""],
+            "number": [""],
+            "rules_type": [""],
+            "rules_time": [""],
+            "rules_order": [""],
+            "rules_group": [""]
       },
       "voicemail": {
             "fullname": "John Doe",
@@ -459,76 +461,80 @@ Here is "linefeatures" complete options list:
 
 .. code-block:: javascript
 
-  "linefeatures": {
-            "id": {""},
-            "protocol": {""},
-            "name": {""},
-            "context": {""},
-            "number": {""},
-            "rules_type": {""},
-            "rules_time": {""},
-            "rules_order": {""},
-            "rules_group": {""}
-  }
+   "linefeatures": {
+      "id": [""],
+      "protocol": [""],
+      "name": [""],
+      "context": [""],
+      "number": [""],
+      "rules_type": [""],
+      "rules_time": [""],
+      "rules_order": [""],
+      "rules_group": [""]
+   }
 
 To associate an available line with created/edited user, use following code (number is optional, but must exist and be free if used):
 
 .. code-block:: javascript
 
-  "linefeatures": {
-            "id": {"2"},
-            "number": {"4000"}
-  }
+   "linefeatures": {
+      "id": ["2"],
+      "number": ["4000"]
+   }
 
 To automatically create a new line associated with created/edited user, don't set *id* key (or set it to "0" value):
 
 .. code-block:: javascript
 
-  "linefeatures": {
-            "protocol": {"sip"},
-            "context": {"default"},
-            "number": {""},
-            "rules_type": {""},
-            "rules_time": {""},
-            "rules_order": {""},
-            "rules_group": {""}
-  }
+   "linefeatures": {
+      "protocol": ["sip"],
+      "context": ["default"],
+      "number": [""],
+      "rules_type": [""],
+      "rules_time": [""],
+      "rules_order": [""],
+      "rules_group": [""]
+   }
 
 Once again, line number is optional.
 You can also create or associate several lines at once. Here is different possible combinations:
 
+1st line create, 2d associated with id 45
+
 .. code-block:: javascript
 
-  1st line create, 2d associated with id 45
+   "linefeatures": {
+      "id": ["0","45"],
+      "protocol": ["sip",""],
+      "context": ["default",""],
+      "number": ["","4000"],
+      "rules_type": ["",""],
+      "rules_time": ["",""],
+      "rules_order": ["",""],
+      "rules_group": ["",""]
+   }
 
-  "linefeatures": {
-            "id": {"0","45"},
-            "protocol": {"sip",""},
-            "context": {"default",""},
-            "number": {"","4000"},
-            "rules_type": {"",""},
-            "rules_time": {"",""},
-            "rules_order": {"",""},
-            "rules_group": {"",""}
-  }
 
-  1st & last lines created, 2d associated with id 45
+1st & last lines created, 2d associated with id 45
 
-  "linefeatures": {
-            "id": {"0","45","0"},
-            "protocol": {"sip","","sip"},
-            "context": {"default","","default"},
-            "number": {"","4000","4001"},
-            "rules_type": {"simul","simul",""},
-            "rules_time": {"10","10","20"},
-            "rules_order": {"1","2","1"},
-            "rules_group": {"1","1","2"}
-  }
+.. code-block:: javascript
+
+   "linefeatures": {
+      "id": ["0","45","0"],
+      "protocol": [{"sip","","sip"],
+      "context": ["default","","default"],
+      "number": ["","4000","4001"],
+      "rules_type": ["simul","simul",""],
+      "rules_time": ["10","10","20"],
+      "rules_order": ["1","2","1"],
+      "rules_group": ["1","1","2"]
+   }
 
 
 
 IPBX Configuration
-^^^^^^^^^^^^^^^^^^ 
+^^^^^^^^^^^^^^^^^^
+
 
 Extensions
 **********
@@ -545,12 +551,12 @@ Arguments:
 
 Example: 
 
-  Return free user extensions (from "default" context) including '10'
+Return free user extensions (from "default" context) including '10'
 
+https://192.168.0.10/service/ipbx/json.php/restricted/system_management/extensions/?act=search&context=default&obj=user&number=10
+  
 .. code-block:: javascript
 
-  https://192.168.0.10/service/ipbx/json.php/restricted/system_management/extensions/?act=search&context=default&obj=user&number=10
-
-  [101,102,104,105,106,109,110,210]
+   [101,102,104,105,106,109,110,210]
 
 
