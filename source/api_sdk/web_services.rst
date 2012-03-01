@@ -25,15 +25,15 @@ Manage
 Entity
 ^^^^^^
 
-List :
-https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=list
+List::
 
-Search :
-https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=search&search=[string]
+   https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=list
 
-.. code-block:: none
+Search::
 
-   Search Attributes :
+   https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=search&search=[string]
+
+* Search Attributes::
 
     - name
     - displayname
@@ -49,12 +49,15 @@ https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=sear
     - country
     - description
 
-View :
-https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=view&id=[entity_id] 
+View::
 
-Add :
-https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=add
+   https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=view&id=[entity_id] 
 
+Add::
+   
+   https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=add
+
+Example content
 
 .. code-block:: javascript
 
@@ -81,10 +84,11 @@ Network
 Mail
 ^^^^
 
-View :
-https://[ip_xivo]/xivo/configuration/json.php/restricted/network/mail/?act=view
+View::
 
-Return code example:
+   https://[ip_xivo]/xivo/configuration/json.php/restricted/network/mail/?act=view
+
+Return code example
 
 .. code-block:: javascript
 
@@ -112,11 +116,11 @@ Description des champs:
 - fallback_relayhost: serveur de relai secondaire des mails
 - canonical: règles de réécriture des adresses email 
 
-Modification
+Edit::
 
-https://[ip_xivo]/xivo/configuration/json.php/restricted/network/mail/?act=edit
+   https://[ip_xivo]/xivo/configuration/json.php/restricted/network/mail/?act=edit
 
-Format des données à envoyer:
+Example content
 
 .. code-block:: javascript
 
@@ -141,15 +145,137 @@ IPBX
 IPBX Settings
 -------------
 
+Lines
+^^^^^
+
+List:
+
+* return all lines::
+
+   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list
+
+* return all free lines::
+
+   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&free=1
+
+* return all no free lines::
+
+   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&free=0
+
+* return all lines with protocol <xxx> `(sip, iax, sccp)`::
+
+   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&protocol=sip
+
+* Example possible::
+
+   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&free=1&protocol=sip
+
+
+
+Search::
+
+   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=%s
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]&context=default
+
+* Search Attributes::
+
+   - number
+   - name (peer)
+
+
+* To search free lines::
+
+   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=%s&free=1
+
+
+* To search no free lines::
+
+   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=%s&free=0
+
+
+* To search a line with specific protocol::
+
+   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=%s&protocol=sip
+
+
+View::
+
+   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=view&id=linefeatures_id
+
+Delete::
+
+   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=delete&id=linefeatures_id
+
+Add:: 
+
+   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=add
+
+Edit:: 
+
+   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=edit&id=linefeatures_id
+
+
+Example of content
+
+.. code-block:: javascript
+
+   "protocol": {
+      "name": "reh58f",
+      "secret": "FV4S9W",
+      "protocol": "sip",
+      "context": "default",
+      "language": "fr_FR",
+      "nat": "",
+      "subscribemwi": "1",
+      "buggymwi": "0",
+      "progressinband": "",
+      "dtmfmode": "",
+      "rfc2833compensate": "",
+      "qualify": "",
+      "rtptimeout": "",
+      "rtpholdtimeout": "",
+      "rtpkeepalive": "",
+      "allowtransfer": "",
+      "autoframing": "",
+      "videosupport": "",
+      "maxcallbitrate": "",
+      "g726nonstandard": "",
+      "disallow": "all",
+      "allow": [
+            "alaw",
+            "ulaw"
+      ],
+      "t38pt_udptl": "",
+      "t38pt_rtp": "",
+      "t38pt_tcp": "",
+      "t38pt_usertpsource": "",
+      "callerid": "\"John Doe\" <666>",
+      "insecure": "",
+      "host-type": "dynamic",
+      "permit": "",
+      "deny": "",
+      "trustrpid": "",
+      "sendrpid": "",
+      "allowsubscribe": "",
+      "allowoverlap": "",
+      "promiscredir": "",
+      "usereqphone": "",
+      "canreinvite": "",
+      "fromuser": "",
+      "fromdomain": "",
+      "amaflags": "default",
+      "accountcode": "",
+      "useclientcode": ""
+   }
 
 Devices
 ^^^^^^^
 
-**List**
+List::
 
-https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=list
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=list
 
-Example:
+Return code example
 
 .. code-block:: javascript
 
@@ -177,9 +303,9 @@ Example:
    ]
 
 
-**Search** :
+Search::
 
-https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=search&search=[value]
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=search&search=[value]
 
 search is done either on *ip address* or *mac address* field (with exact match)
 
@@ -210,13 +336,11 @@ search is done either on *ip address* or *mac address* field (with exact match)
    ]
 
 
-**View** :
+View::
 
-https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=view&id=[deviceid]
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=view&id=[deviceid]
 
-Example:
-
-https://192.168.0.10/service/ipbx/json.php/restricted/pbx_settings/devices/?act=view&id=2
+Return code example
 
 .. code-block:: javascript
 
@@ -247,34 +371,34 @@ https://192.168.0.10/service/ipbx/json.php/restricted/pbx_settings/devices/?act=
 Users
 ^^^^^
 
-**List** :
+List::
 
-https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=list
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=list
 
 
-**Search** :
+Search::
 
-https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=search&search=[string]
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=search&search=[string]
 
 search is done either on *firstname* or *lastname* field (lazy match) or *userfield*
 field (exact match).
 
 
-**View** :
+View::
 
-https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=view&id=[userfeatures_id]
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=view&id=[userfeatures_id]
 
-**Delete** :
+Delete::
 
-https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=delete&id=[userfeatures_id]
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=delete&id=[userfeatures_id]
 
-**Add** :
+Add::
 
-https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=add
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=add
 
-**Edit** :
+Edit::
 
-https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=edit&id=[userfeatures_id]
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=edit&id=[userfeatures_id]
 
 
 Miminum set of data for user creation or edition:
@@ -539,9 +663,9 @@ IPBX Configuration
 Extensions
 ^^^^^^^^^^
 
-Get all free extensions for given context, object type and matching partial value
+Get all free extensions for given context, object type and matching partial value::
 
-https://[ip_xivo]/service/ipbx/json.php/restricted/system_management/extensions/?act=search&context=[context]&obj=[objname]&number=[number]
+   https://[ip_xivo]/service/ipbx/json.php/restricted/system_management/extensions/?act=search&context=[context]&obj=[objname]&number=[number]
 
 Arguments:
  * **context** is one of xivo contexts name (i.e "*default*"),
@@ -549,12 +673,14 @@ Arguments:
  * **number** is part of search extensions (**optional argument**)
 
 
-Example: 
-
 Return free user extensions (from "default" context) including '10'
 
-https://192.168.0.10/service/ipbx/json.php/restricted/system_management/extensions/?act=search&context=default&obj=user&number=10
+Example::
+
+   https://192.168.0.10/service/ipbx/json.php/restricted/system_management/extensions/?act=search&context=default&obj=user&number=10
   
+Return code example
+
 .. code-block:: javascript
 
    [101,102,104,105,106,109,110,210]
