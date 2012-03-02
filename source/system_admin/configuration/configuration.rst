@@ -18,3 +18,4 @@ This section describes the advanced system configuration.
    Statistics <statistics/statistics>
    fax/fax
    ha
+   cel/cel
