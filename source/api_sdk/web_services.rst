@@ -836,6 +836,153 @@ Add::
 .. note:: returns the HTTP code 400 if the creation fails
 
 
+Calls Records
+^^^^^^^^^^^^^
+
+.. warning:: The list returned is limit to 5000, you can set it with argument ``limit=100`` in the url
+
+
+Search by id:
+
+Example to return Calls Records with id begining 200 (limit to 5000 by default)::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/cel/?act=searchid&idbeg=200
+
+``return code example``
+
+.. code-block:: javascript
+   
+   [
+       {
+           "id": "201",
+           "eventtype": "CHAN_START",
+           "eventtime": "2012-01-27 03:12:33.175832",
+           "userdeftype": "",
+           "cid_name": "Sup - 0472445668",
+           "cid_num": "0472445668",
+           "cid_ani": "",
+           "cid_rdnis": "",
+           "cid_dnid": "",
+           "exten": "42803",
+           "context": "default",
+           "channame": "IAX2/assurancetourisk-durallo-3431",
+           "appname": "",
+           "appdata": "",
+           "amaflags": "3",
+           "accountcode": "",
+           "peeraccount": "",
+           "uniqueid": "1327651953.51",
+           "linkedid": "1327651953.51",
+           "userfield": "",
+           "peer": ""
+       },
+       {
+           "id": "202",
+               ...
+           "peer": ""
+       },
+       {
+           "id": "203",
+               ...
+           "peer": ""
+       },
+       ...
+       {
+          "id": "5200",
+          "eventtype": "CHAN_END",
+          "eventtime": "2012-02-03 14:11:53.859392",
+          "userdeftype": "",
+          "cid_name": "",
+          "cid_num": "dial",
+          "cid_ani": "",
+          "cid_rdnis": "",
+          "cid_dnid": "",
+          "exten": "",
+          "context": "outcall",
+          "channame": "IAX2/assurancetourisk-proforhosting-324",
+          "appname": "AppDial",
+          "appdata": "(Outgoing Line)",
+          "amaflags": "3",
+          "accountcode": "",
+          "peeraccount": "",
+          "uniqueid": "1328296281.20",
+          "linkedid": "1328296281.19",
+          "userfield": "",
+          "peer": ""
+      
+      }
+   ]
+
+
+Search:
+
+Search Attributes:
+ * dbeg
+ * dend
+
+.. note:: format accepted to date search: *Y* or *Y-m* or *Y-m-d* or *Y-m-d H:i:s*
+
+Example to return all Calls Records from 2012-02-28 to now::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/cel/?dbeg=2012-02-28
+
+``return code example``
+
+.. code-block:: javascript
+
+   [
+       {
+           "id": "21074",
+           "eventtype": "CHAN_START",
+           "eventtime": "2012-02-27 03:27:21.017623",
+           "userdeftype": "",
+           "cid_name": "Sup - asterisk",
+           "cid_num": "asterisk",
+           "cid_ani": "",
+           "cid_rdnis": "",
+           "cid_dnid": "",
+           "exten": "42803",
+           "context": "default",
+           "channame": "IAX2/assurancetourisk-durallo-16052",
+           "appname": "",
+           "appdata": "",
+           "amaflags": "3",
+           "accountcode": "",
+           "peeraccount": "",
+           "uniqueid": "1330331241.287",
+           "linkedid": "1330331241.287",
+           "userfield": "",
+           "peer": "",
+           "amaflagsmeta": "documentation"
+       },
+       {
+           "id": "21075",
+           "eventtype": "APP_START",
+           "eventtime": "2012-02-27 03:27:21.0437",
+           "userdeftype": "",
+           "cid_name": "Sup - Sup - asterisk",
+           "cid_num": "asterisk",
+           "cid_ani": "asterisk",
+           "cid_rdnis": "",
+           "cid_dnid": "",
+           "exten": "s",
+           "context": "group",
+           "channame": "IAX2/assurancetourisk-durallo-16052",
+           "appname": "Queue",
+           "appdata": "support,,,,",
+           "amaflags": "3",
+           "accountcode": "",
+           "peeraccount": "",
+           "uniqueid": "1330331241.287",
+           "linkedid": "1330331241.287",
+           "userfield": "",
+           "peer": "",
+           "amaflagsmeta": "documentation"
+       },
+       ...
+   ]
+
+
 IPBX Services
 -------------
 
