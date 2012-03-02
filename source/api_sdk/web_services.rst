@@ -211,7 +211,7 @@ Edit::
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=edit&id=[linefeatures_id]
 
 
-Example of content
+``Example of content``
 
 .. code-block:: javascript
 
@@ -834,6 +834,48 @@ Return code example
    }
 
 .. note:: returns the HTTP code 400 if the creation fails
+
+
+IPBX Services
+-------------
+
+Parkings
+^^^^^^^^
+
+Liste::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=list
+
+View::
+ 
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=view&id=[parkinglot_id]
+
+
+Delete::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=delete&id=[parkinglot_id]
+
+Add::
+ 
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=add
+
+Edit::
+ 
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=edit
+
+
+``Example of content``
+
+.. code-block:: javascript
+
+   {
+       "name": "myparkinglot",
+       "context": "default",
+       "extension": 700,
+       "positions": 10,
+       "next": 1,
+       "commented": 0
+   }
 
 
 IPBX Configuration
