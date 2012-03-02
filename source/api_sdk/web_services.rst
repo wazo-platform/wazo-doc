@@ -4,6 +4,8 @@ WebServices
 
 **Using web services XiVO to develop applications around XiVO.**
 
+
+
 HTTP status codes
 =================
 
@@ -1011,7 +1013,7 @@ Edit::
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=edit
 
 
-``Example of content``
+``Example of content to send to add``
 
 .. code-block:: javascript
 
@@ -1148,3 +1150,166 @@ Example::
    [101,102,104,105,106,109,110,210]
 
 
+
+Call Center
+===========
+
+Settings
+--------
+
+Agents
+^^^^^^
+
+View::
+
+   https://[ip_xivo]/callcenter/json.php/restricted/settings/agents?act=view&id=[id]
+
+List::
+ 
+   https://[ip_xivo]/callcenter/json.php/restricted/settings/agents?act=list
+
+Add::
+ 
+   https://[ip_xivo]/callcenter/json.php/restricted/settings/agents?act=add
+   
+``Example of content to send to add``
+
+.. code-block:: javascript
+
+   {
+       "agentfeatures": {
+           "firstname": "john",
+           "lastname": "doe",
+           "number": "160",
+           "passwd": "7789",
+           "context": "default",
+           "language": "de_DE",
+           "numgroup": "1",
+           "silent": "no",
+           "musiconhold": "default",
+           "ackcall": "no",
+           "acceptdtmf": "#",
+           "enddtmf": "*",
+           "autologoff": "0",
+           "wrapuptime": "0",
+           "description": ""
+       },
+       "agentoptions": {
+           "musiconhold": "default",
+           "ackcall": "no",
+           "autologoff": "0",
+           "wrapuptime": "default",
+           "maxlogintries": "3"
+       },
+       "user-select": [
+           "1"
+       ]
+   }
+
+Queues
+^^^^^^
+
+View::
+
+   https://[ip_xivo]/callcenter/json.php/restricted/settings/queues?act=view&id=[id]
+
+List::
+
+   https://[ip_xivo]/callcenter/json.php/restricted/settings/queues?act=list
+ 
+``Return code example``
+
+.. code-block:: javascript
+   
+   [
+       {
+           "id": "7",
+           "name": "epicerie",
+           "displayname": "Épicerie",
+           "number": "301",
+           "context": "default",
+           "data_quality": "0",
+           "hitting_callee": "0",
+           "hitting_caller": "0",
+           "retries": "0",
+           "ring": "0",
+           "transfer_user": "0",
+           "transfer_call": "0",
+           "write_caller": "0",
+           "write_calling": "0",
+           "url": "",
+           "announceoverride": "",
+           "timeout": "0",
+           "preprocess_subroutine": null,
+           "announce_holdtime": "0",
+           "ctipresence": null,
+           "nonctipresence": null,
+           "waittime": null,
+           "waitratio": null,
+           "commented": false,
+           "category": "queue",
+           "nb_qmember": "1",
+           "identity": "Épicerie (301@default)"
+       }
+   ]
+
+Add::
+ 
+   https://[ip_xivo]/callcenter/json.php/restricted/settings/queues?act=add
+   
+``Example of content to send to add``
+
+.. code-block:: javascript
+
+   {
+       "queuefeatures": {
+           "name": "unittest",
+           "number": "310",
+           "context": "default",
+           "preprocess_subroutine": "",
+           "timeout": "0",
+           "hitting_caller": "1",
+           "transfer_user": "1",
+           "write_caller": "1"
+       },
+       "queue": {
+           "strategy": "ringall",
+           "musiconhold": "default",
+           "context": "default",
+           "servicelevel": "",
+           "timeout": "15",
+           "retry": "5",
+           "weight": "0",
+           "wrapuptime": "0",
+           "maxlen": "0",
+           "monitor-type": "",
+           "monitor-format": "",
+           "joinempty": "no",
+           "leavewhenempty": "no",
+           "memberdelay": "0",
+           "timeoutpriority": "app",
+           "min-announce-frequency": 60,
+           "announce-position": "yes",
+           "announce-position-limit": 5
+       },
+       "user": [
+           "1"
+       ],
+       "agent": [],
+       "dialaction": {
+           "noanswer": {
+               "actiontype": "extension",
+               "actionarg1": "0141389960",
+               "actionarg2": "to-extern"
+           },
+           "busy": {
+               "actiontype": "none"
+           },
+           "congestion": {
+               "actiontype": "none"
+           },
+           "chanunavail": {
+               "actiontype": "none"
+           }
+       }
+   }
