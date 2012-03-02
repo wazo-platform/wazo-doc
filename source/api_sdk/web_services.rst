@@ -87,7 +87,7 @@ View::
 
    https://[ip_xivo]/xivo/configuration/json.php/restricted/network/mail/?act=view
 
-Return code example
+``Return code example``
 
 .. code-block:: javascript
 
@@ -271,7 +271,7 @@ List::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=list
 
-Return code example
+``Return code example``
 
 .. code-block:: javascript
 
@@ -336,7 +336,7 @@ View::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=view&id=[deviceid]
 
-Return code example
+``Return code example``
 
 .. code-block:: javascript
 
@@ -689,7 +689,7 @@ List::
    https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/pickup/?act=list
 
 
-Return code example
+``Return code example``
 
 .. code-block:: javascript
 
@@ -711,7 +711,7 @@ View::
  
 where ID is the identifier of the target group
 
-Return code example
+``Return code example``
 
 .. code-block:: javascript
 
@@ -782,7 +782,7 @@ Add::
 
 .. note:: This web service must be called with the HTTP POST method with a JSON object describing the group.
 
-Return code example
+``Return code example``
 
 .. code-block:: javascript
 
@@ -878,6 +878,100 @@ Edit::
    }
 
 
+Trunk management
+----------------
+
+Protocole SIP
+^^^^^^^^^^^^^
+
+View::
+ 
+   https://[ip_xivo]/service/ipbx/json.php/restricted/trunk_management/sip?act=view&id=[trunk_id]
+
+``Return code example``
+
+.. code-block:: javascript
+
+   {
+       "protocol": {
+           "name": "unittest",
+           "username": "XiVO",
+           "secret": "secretpassword",
+           "callerid": "",
+           "call-limit": "0",
+           "host": "0.0.0.0",
+           "type": "peer",
+           "context": "from-extern",
+           "language": "",
+           "nat": "yes",
+           "progressinband": "",
+           "dtmfmode": "rfc2833",
+           "rfc2833compensate": "",
+           "qualify": "",
+           "qualifyfreq": "",
+           "rtptimeout": "",
+           "rtpholdtimeout": "",
+           "rtpkeepalive": "",
+           "allowtransfer": "",
+           "autoframing": "",
+           "videosupport": "",
+           "outboundproxy": "",
+           "maxcallbitrate": "",
+           "g726nonstandard": "",
+           "timert1": "",
+           "timerb": "",
+           "registrertrying": "",
+           "ignoresdpversion": "",
+           "session-timers": "",
+           "session-expires": "",
+           "session-minse": "",
+           "session-refresher": "",
+           "disallow": "all",
+           "allow": [
+               "alaw",
+               "ulaw",
+               "gsm"
+           ],
+           "insecure": "port,invite",
+           "port": "5060",
+           "permit": "",
+           "deny": "",
+           "trustrpid": "",
+           "sendrpid": "",
+           "allowsubscribe": "",
+           "allowoverlap": "",
+           "promiscredir": "",
+           "usereqphone": "",
+           "directmedia": "",
+           "fromuser": "",
+           "fromdomain": "",
+           "amaflags": "default",
+           "accountcode": "",
+           "useclientcode": "",
+           "transport": "udp",
+           "remotesecret": "",
+           "callcounter": "",
+           "busylevel": "",
+           "callbackextension": "",
+           "contactpermit": "",
+           "contactdeny": ""
+       },
+       "register": {
+           "transport": "udp",
+           "username": "XiVO",
+           "password": "secretpassword",
+           "authuser": "",
+           "host": "0.0.0.0",
+           "port": "5060",
+           "contact": "",
+           "expiry": ""
+       },
+       "trunkfeatures": {
+           "description": ""
+       }
+   }
+
+
 IPBX Configuration
 ------------------
 
@@ -899,8 +993,8 @@ Return free user extensions (from "default" context) including "10"
 Example::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/system_management/extensions/?act=search&context=default&obj=user&number=10
-  
-Return code example
+
+``Return code example``
 
 .. code-block:: javascript
 
