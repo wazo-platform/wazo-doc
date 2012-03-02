@@ -33,21 +33,20 @@ Search::
 
    https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=search&search=[string]
 
-* Search Attributes::
-
-    - name
-    - displayname
-    - phonenumber
-    - faxnumber
-    - email
-    - url
-    - address1
-    - address2
-    - city
-    - state
-    - zipcode
-    - country
-    - description
+Search Attributes:
+ * name
+ * displayname
+ * phonenumber
+ * faxnumber
+ * email
+ * url
+ * address1
+ * address2
+ * city
+ * state
+ * zipcode
+ * country
+ * description
 
 View::
 
@@ -108,13 +107,12 @@ Return code example
    }
 
 Description des champs:
-
-- id: identifiant de la ressource (toujours égal à 1)
-- mydomain: nom de domaine mail du serveur
-- origin: adresse d'envoi des mails générés par le système
-- relayhost: serveur de relai principal des mails
-- fallback_relayhost: serveur de relai secondaire des mails
-- canonical: règles de réécriture des adresses email 
+ * id: identifiant de la ressource (toujours égal à 1)
+ * mydomain: nom de domaine mail du serveur
+ * origin: adresse d'envoi des mails générés par le système
+ * relayhost: serveur de relai principal des mails
+ * fallback_relayhost: serveur de relai secondaire des mails
+ * canonical: règles de réécriture des adresses email 
 
 Edit::
 
@@ -152,67 +150,66 @@ List:
 
 * return all lines::
 
-   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list
 
 * return all free lines::
 
-   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&free=1
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&free=1
 
 * return all no free lines::
 
-   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&free=0
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&free=0
 
 * return all lines with protocol <xxx> `(sip, iax, sccp)`::
 
-   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&protocol=sip
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&protocol=sip
 
 * Example possible::
 
-   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&free=1&protocol=sip
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&free=1&protocol=sip
 
 
 
 Search::
 
-   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=%s
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]&context=default
 
-* Search Attributes::
-
-   - number
-   - name (peer)
+Attributes:
+ * number
+ * name (peer)
 
 
 * To search free lines::
 
-   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=%s&free=1
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]&free=1
 
 
 * To search no free lines::
 
-   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=%s&free=0
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]&free=0
 
 
 * To search a line with specific protocol::
 
-   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=%s&protocol=sip
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]&protocol=sip
 
 
 View::
 
-   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=view&id=linefeatures_id
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=view&id=[linefeatures_id]
 
 Delete::
 
-   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=delete&id=linefeatures_id
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=delete&id=[linefeatures_id]
 
 Add:: 
 
-   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=add
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=add
 
 Edit:: 
 
-   https://ip_xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=edit&id=linefeatures_id
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=edit&id=[linefeatures_id]
 
 
 Example of content
@@ -311,7 +308,7 @@ search is done either on *ip address* or *mac address* field (with exact match)
 
 .. code-block:: javascript
 
-   https://192.168.0.10/service/ipbx/json.php/restricted/pbx_settings/devices/?act=search&search=00:0e:50:4e:57:b7
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=search&search=00:0e:50:4e:57:b7
 
    [
       {
@@ -677,7 +674,7 @@ Return free user extensions (from "default" context) including '10'
 
 Example::
 
-   https://192.168.0.10/service/ipbx/json.php/restricted/system_management/extensions/?act=search&context=default&obj=user&number=10
+   https://[ip_xivo]/service/ipbx/json.php/restricted/system_management/extensions/?act=search&context=default&obj=user&number=10
   
 Return code example
 
