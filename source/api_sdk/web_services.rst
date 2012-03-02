@@ -92,24 +92,24 @@ Return code example
 .. code-block:: javascript
 
    {
-      "id": "1",
-      "mydomain": "proformatique.com",
-      "origin": "devel.proformatique.com",
-      "relayhost": "smtp.free.fr",
-      "fallback_relayhost": "smtp.orange.fr",
-      "canonical": 
-      [
-         {
-            "pattern": "@proformatique.com",
-            "result" : "support@proformatique.com"
-         }
-      ]
+       "id": "1",
+       "mydomain": "proformatique.com",
+       "origin": "devel.proformatique.com",
+       "relayhost": "smtp.free.fr",
+       "fallback_relayhost": "smtp.orange.fr",
+       "canonical": [
+           {
+               "pattern": "@proformatique.com",
+               "result": "support@proformatique.com"
+           }
+       ]
    }
+
 
 Description des champs:
  * id: identifiant de la ressource (toujours égal à 1)
  * mydomain: nom de domaine mail du serveur
- * origin: adresse d'envoi des mails générés par le système
+ * origin: adresse d"envoi des mails générés par le système
  * relayhost: serveur de relai principal des mails
  * fallback_relayhost: serveur de relai secondaire des mails
  * canonical: règles de réécriture des adresses email 
@@ -123,17 +123,16 @@ Example content
 .. code-block:: javascript
 
    {
-      "mydomain": "proformatique.com",
-      "origin": "devel.proformatique.com",
-      "relayhost": "smtp.free.fr",
-      "fallback_relayhost": "smtp.orange.fr",
-      "canonical": 
-      [
-         {
-            "pattern": "@proformatique.com",
-            "result" : "support@proformatique.com"
-         }
-      ]
+       "mydomain": "proformatique.com",
+       "origin": "devel.proformatique.com",
+       "relayhost": "smtp.free.fr",
+       "fallback_relayhost": "smtp.orange.fr",
+       "canonical": [
+           {
+               "pattern": "@proformatique.com",
+               "result": "support@proformatique.com"
+           }
+       ]
    }
 
 
@@ -402,18 +401,26 @@ Miminum set of data for user creation or edition:
 
 .. code-block:: javascript
 
-    {
+   {
        "userfeatures": {
            "entityid": "2",
            "firstname": "John"
        },
        "dialaction": {
-           "noanswer": {"actiontype": "none"},
-           "busy": {"actiontype": "none"},
-           "congestion": {"actiontype": "none"},
-           "chanunavail": {"actiontype": "none"}
+           "noanswer": {
+               "actiontype": "none"
+           },
+           "busy": {
+               "actiontype": "none"
+           },
+           "congestion": {
+               "actiontype": "none"
+           },
+           "chanunavail": {
+               "actiontype": "none"
+           }
        }
-    }
+   }
 
 
 Full example:
@@ -421,162 +428,180 @@ Full example:
 .. code-block:: javascript
 
    {
-      "userfeatures": {
-            "entityid": "[entityid]",
-            "firstname": "John",
-            "lastname": "Doe",
-            "callerid": "John Doe",
-            "loginclient": "jdoe",
-            "passwdclient": "8888",
-            "mobilephonenumber": "",
-            "ringseconds": "30",
-            "simultcalls": "5",
-            "musiconhold": "default",
-            "voicemailid": "0",
-            "enableclient": "1",
-            "profileclient": "client",
-            "enablehint": "1",
-            "enablevoicemail": "1",
-            "enablexfer": "1",
-            "enableautomon": "0",
-            "callrecord": "0",
-            "callfilter": "0",
-            "enablednd": "0",
-            "bsfilter": "no",
-            "agentid": "",
-            "enablerna": "0",
-            "destrna": "0033141389960",
-            "enablebusy": "0",
-            "destbusy": "0033141389960",
-            "enableunc": "0",
-            "destunc": "0033141389960",
-            "outcallerid": "default",
-            "preprocess_subroutine": "",
-            "language": "fr_FR",
-            "timezone": "America/Montreal",
-            "ringintern": "",
-            "ringextern": "",
-            "ringgroup": "",
-            "ringforward": "",
-            "rightcallcode": "",
-            "alarmclock": "00:00",
-            "pitchdirection": "",
-            "pitch": "",
-            "description": ""
-      },
-      "linefeatures": {
-            "id": [""],
-            "protocol": [""],
-            "name": [""],
-            "context": [""],
-            "number": [""],
-            "rules_type": [""],
-            "rules_time": [""],
-            "rules_order": [""],
-            "rules_group": [""]
-      },
-      "voicemail": {
-            "fullname": "John Doe",
-            "mailbox": "666",
-            "password": "0000",
-            "email": "jdoe@proformatique.com",
-            "tz": "eu-fr",
-            "attach": "1",
-            "deletevoicemail": "1"
-      },
-      "vmfeatures": {
-            "skipcheckpass": "1"
-      },
-      "dialaction": {
-            "noanswer": {
-                  "actiontype": "group",
-                  "actionarg1": "2",
-                  "actionarg2": "15"
-            },
-            "busy": {
-                  "actiontype": "queue",
-                  "actionarg1": "1",
-                  "actionarg2": ""
-            },
-            "congestion": {
-                  "actiontype": "voicemenu",
-                  "actionarg1": "1"
-            },
-            "chanunavail": {
-                  "actiontype": "application",
-                  "action": "faxtomail",
-                  "actionarg1": "fax@proformatique.com"
-            }
-      },
-      "group-select": [
-            "tous"
-      ],
-      "group": {
-            "accueil": {
-                  "chantype": "default",
-                  "call-limit": "0"
-            },
-            "tous": {
-                  "chantype": "default",
-                  "call-limit": "3"
-            }
-      },
-      "queue-select": [
-            "technique"
-      ],
-      "queue": {
-            "commerciale": {
-                  "chantype": "default",
-                  "penalty": "0",
-                  "call-limit": "0"
-            },
-            "technique": {
-                  "chantype": "default",
-                  "penalty": "4",
-                  "call-limit": "10"
-            }
-      },
-      "phonefunckey": {
-            "fknum": [
-                  "13",
-                  "14",
-                  "15",
-                  "17",
-                  "18"
-            ],
-            "type": [
-                  "user",
-                  "extension",
-                  "meetme",
-                  "group",
-                  "queue"
-            ],
-            "typeval": [
-                  "41",
-                  "extenfeatures-vmusermsg",
-                  "3",
-                  "2",
-                  "1"
-            ],
-            "supervision": [
-                  "1",
-                  "0",
-                  "0",
-                  "0",
-                  "0"
-            ]
-      }
-      "queueskills": [
-            {
-                  "id"    : 5,
-                  "weight": 22
-            },
-            {
-                  "id"    : 2,
-                  "weight": 97
-            }
-      ]
-    }
+       "userfeatures": {
+           "entityid": "[entityid]",
+           "firstname": "John",
+           "lastname": "Doe",
+           "callerid": "John Doe",
+           "loginclient": "jdoe",
+           "passwdclient": "8888",
+           "mobilephonenumber": "",
+           "ringseconds": "30",
+           "simultcalls": "5",
+           "musiconhold": "default",
+           "voicemailid": "0",
+           "enableclient": "1",
+           "profileclient": "client",
+           "enablehint": "1",
+           "enablevoicemail": "1",
+           "enablexfer": "1",
+           "enableautomon": "0",
+           "callrecord": "0",
+           "callfilter": "0",
+           "enablednd": "0",
+           "bsfilter": "no",
+           "agentid": "",
+           "enablerna": "0",
+           "destrna": "0033141389960",
+           "enablebusy": "0",
+           "destbusy": "0033141389960",
+           "enableunc": "0",
+           "destunc": "0033141389960",
+           "outcallerid": "default",
+           "preprocess_subroutine": "",
+           "language": "fr_FR",
+           "timezone": "America/Montreal",
+           "ringintern": "",
+           "ringextern": "",
+           "ringgroup": "",
+           "ringforward": "",
+           "rightcallcode": "",
+           "alarmclock": "00:00",
+           "pitchdirection": "",
+           "pitch": "",
+           "description": ""
+       },
+       "linefeatures": {
+           "id": [
+               ""
+           ],
+           "protocol": [
+               ""
+           ],
+           "name": [
+               ""
+           ],
+           "context": [
+               ""
+           ],
+           "number": [
+               ""
+           ],
+           "rules_type": [
+               ""
+           ],
+           "rules_time": [
+               ""
+           ],
+           "rules_order": [
+               ""
+           ],
+           "rules_group": [
+               ""
+           ]
+       },
+       "voicemail": {
+           "fullname": "John Doe",
+           "mailbox": "666",
+           "password": "0000",
+           "email": "jdoe@proformatique.com",
+           "tz": "eu-fr",
+           "attach": "1",
+           "deletevoicemail": "1"
+       },
+       "vmfeatures": {
+           "skipcheckpass": "1"
+       },
+       "dialaction": {
+           "noanswer": {
+               "actiontype": "group",
+               "actionarg1": "2",
+               "actionarg2": "15"
+           },
+           "busy": {
+               "actiontype": "queue",
+               "actionarg1": "1",
+               "actionarg2": ""
+           },
+           "congestion": {
+               "actiontype": "voicemenu",
+               "actionarg1": "1"
+           },
+           "chanunavail": {
+               "actiontype": "application",
+               "action": "faxtomail",
+               "actionarg1": "fax@proformatique.com"
+           }
+       },
+       "group-select": [
+           "tous"
+       ],
+       "group": {
+           "accueil": {
+               "chantype": "default",
+               "call-limit": "0"
+           },
+           "tous": {
+               "chantype": "default",
+               "call-limit": "3"
+           }
+       },
+       "queue-select": [
+           "technique"
+       ],
+       "queue": {
+           "commerciale": {
+               "chantype": "default",
+               "penalty": "0",
+               "call-limit": "0"
+           },
+           "technique": {
+               "chantype": "default",
+               "penalty": "4",
+               "call-limit": "10"
+           }
+       },
+       "phonefunckey": {
+           "fknum": [
+               "13",
+               "14",
+               "15",
+               "17",
+               "18"
+           ],
+           "type": [
+               "user",
+               "extension",
+               "meetme",
+               "group",
+               "queue"
+           ],
+           "typeval": [
+               "41",
+               "extenfeatures-vmusermsg",
+               "3",
+               "2",
+               "1"
+           ],
+           "supervision": [
+               "1",
+               "0",
+               "0",
+               "0",
+               "0"
+           ]
+       },
+       "queueskills": [
+           {
+               "id": 5,
+               "weight": 22
+           },
+           {
+               "id": 2,
+               "weight": 97
+           }
+       ]
+   }
 
 
 Here is "linefeatures" complete options list:
@@ -604,7 +629,7 @@ To associate an available line with created/edited user, use following code (num
       "number": ["4000"]
    }
 
-To automatically create a new line associated with created/edited user, don't set *id* key (or set it to "0" value):
+To automatically create a new line associated with created/edited user, don"t set *id* key (or set it to "0" value):
 
 .. code-block:: javascript
 
@@ -653,6 +678,163 @@ You can also create or associate several lines at once. Here is different possib
    }
 
 
+Call Management
+---------------
+
+Call pickups
+^^^^^^^^^^^^
+
+List::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/pickup/?act=list
+
+
+Return code example
+
+.. code-block:: javascript
+
+   [
+       {
+           "commented": 0,
+           "description": "sample unittest pickup group",
+           "id": 0,
+           "name": "unittest"
+       }
+   ]
+
+.. note:: if no group exists, the web service returns HTTP code 204
+
+
+View::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/pickup/?act=view&id=ID
+ 
+where ID is the identifier of the target group
+
+Return code example
+
+.. code-block:: javascript
+
+   {
+       "members": [
+           {
+               "category": "member",
+               "memberid": 1,
+               "membertype": "group",
+               "pickupid": 0
+           },
+           {
+               "category": "member",
+               "memberid": 1,
+               "membertype": "queue",
+               "pickupid": 0
+           },
+           {
+               "category": "member",
+               "memberid": 1,
+               "membertype": "user",
+               "pickupid": 0
+           },
+           {
+               "category": "member",
+               "memberid": 3,
+               "membertype": "user",
+               "pickupid": 0
+           },
+           {
+               "category": "member",
+               "memberid": 2,
+               "membertype": "user",
+               "pickupid": 0
+           }
+       ],
+       "pickup": {
+           "commented": 0,
+           "description": "sample unittest pickup group",
+           "id": 0,
+           "name": "unittest"
+       },
+       "pickups": [
+           {
+               "category": "pickup",
+               "memberid": 1,
+               "membertype": "group",
+               "pickupid": 0
+           }
+       ]
+   }
+
+
+
+.. note:: the web service returns HTTP code 404 if no group corresponding to the specified id is found
+
+Delete::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/pickup/?act=delete&id=ID
+ 
+where ID is the identifier of the target group
+
+.. note:: the web service returns HTTP code 404 if no group corresponding to the specified id is found
+
+Add::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/pickup/?act=add
+
+.. note:: This web service must be called with the HTTP POST method with a JSON object describing the group.
+
+Return code example
+
+.. code-block:: javascript
+
+   {
+       "name": "unittest",
+       "description": "sample unittest pickup group",
+       "members": [
+           {
+               "category": "member",
+               "membertype": "group",
+               "memberid": 1
+           },
+           {
+               "category": "member",
+               "membertype": "queue",
+               "memberid": 1
+           },
+           {
+               "category": "member",
+               "membertype": "user",
+               "memberid": 1
+           },
+           {
+               "category": "member",
+               "membertype": "user",
+               "memberid": 3
+           },
+           {
+               "category": "pickup",
+               "membertype": "group",
+               "memberid": 1
+           },
+           {
+               "category": "member",
+               "membertype": "queue",
+               "memberid": 1
+           },
+           {
+               "category": "member",
+               "membertype": "user",
+               "memberid": 1
+           },
+           {
+               "category": "member",
+               "membertype": "user",
+               "memberid": 2
+           }
+       ]
+   }
+
+.. note:: returns the HTTP code 400 if the creation fails
+
 
 IPBX Configuration
 ------------------
@@ -670,7 +852,7 @@ Arguments:
  * **number** is part of search extensions (**optional argument**)
 
 
-Return free user extensions (from "default" context) including '10'
+Return free user extensions (from "default" context) including "10"
 
 Example::
 
