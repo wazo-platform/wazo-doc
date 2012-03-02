@@ -92,3 +92,13 @@ Here's the list of limitations that are more relevant on an administrator standp
 
 * In the case a DHCP server is running on the master node, then when the master is down,
   phones won't be able to get a new DHCP lease, so it is advised not to restart the phones.
+
+Plumbing
+========
+
+3 scripts are used to manage services and data replication.
+
+* xivo-master-slave-db-replication <slave_ip> is used on the master to replicate the master's data on the slave server.
+* xivo-manage-slave-services {start,stop} is used on the slave to start, stop monit and asterisk. The services won't be restarted after an upgrade or restart.
+* xivo-check-master-status <master_ip> is used to check the status of the master and enable or disable services accordingly.
+
