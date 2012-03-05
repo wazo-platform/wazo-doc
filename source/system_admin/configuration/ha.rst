@@ -92,6 +92,8 @@ Here's the list of limitations that are more relevant on an administrator standp
 
 * In the case a DHCP server is running on the master node, then when the master is down,
   phones won't be able to get a new DHCP lease, so it is advised not to restart the phones.
+* The master status is up or down, there's no middle status. This mean that if Asterisk is crashed
+  the XiVO is still up and the failover will NOT happen.
 
 Plumbing
 ========
