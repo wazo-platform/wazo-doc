@@ -54,6 +54,10 @@ h5 {
 	margin-bottom: 3px;
 }
 
+div.important {
+	border: 1px dotted #111;
+}
+
 div.related {
 	color: #111;
 	text-shadow: 0px 1px 0 #ccc;

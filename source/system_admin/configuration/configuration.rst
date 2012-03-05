@@ -17,5 +17,5 @@ This section describes the advanced system configuration.
    Hardware <hardware/hardware>
    Statistics <statistics/statistics>
    fax/fax
-   ha
+   ha/ha
    cel/cel
