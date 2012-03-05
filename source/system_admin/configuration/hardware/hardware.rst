@@ -92,7 +92,7 @@ Configure
 
 
 Echo-canceller Module
-+++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^
 
 If your card has an echo canceller module you need to install the firmware. 
 This can be achieved via the ''xivo-fetchfw'' tool : 
@@ -137,7 +137,7 @@ Get help on a specific operation :
 
 
 Sync cable
-++++++++++
+^^^^^^^^^^
 
 You can link several PRI Digium card between themselves with a sync cable to 
 have the share the exact same clock.
