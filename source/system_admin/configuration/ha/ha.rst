@@ -117,8 +117,8 @@ phones to switch from XiVO power failure.
    :menuselection:`Configuration --> Provisioning --> Template Line --> Edit default`
 
 
-.. warning:: Especially not change these values ​​when the HA is configured, this could cause problems.
-   These values ​​will be provided by default when the HA will be disabled.
+.. warning:: Especially not change these values when the HA is configured, this could cause problems.
+   These values will be provided by default when the HA will be disabled.
 
 
 Disable node
