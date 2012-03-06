@@ -48,6 +48,7 @@ differently. This includes:
 
 Note that, on failover and on failback:
 
+* DND, call forwards, call filtering, ..., statuses may be lost if changed recently.
 * If you are statically connected as an agent (i.e. you use "agent callback login"), then
   you'll need to reconnect as a static agent when the master goes down. Since it's hard to
   know when the master goes down, if your CTI client disconnect and you can't reconnect it,
