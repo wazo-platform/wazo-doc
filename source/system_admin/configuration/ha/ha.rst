@@ -48,10 +48,9 @@ differently. This includes:
 
 Note that, on failover and on failback:
 
-* DND, call forwards, call filtering, ..., statuses are lost.
 * If you are statically connected as an agent (i.e. you use "agent callback login"), then
   you'll need to reconnect as a static agent when the master goes down. Since it's hard to
-  know when the master goes down, if you CTI client disconnect and you can't reconnect it,
+  know when the master goes down, if your CTI client disconnect and you can't reconnect it,
   then it's a sign the master might be down.
 
 Additionally, only on failback:
@@ -80,8 +79,10 @@ First thing to do is to :ref:`install 2 XiVO <installation>`. Note that every se
 
 .. TODO rajouter comment on configure un trunk distant si on n'utilise pas de register
 
-You must configure the :abbr:`HA (High Availability)` in WebI
-(:menuselection:`Configuration --> Management --> High Availability` page)
+You must configure the :abbr:`HA (High Availability)` in the Web interface
+(:menuselection:`Configuration --> Management --> High Availability` page).
+
+You can configure the master and slave in whatever order you want.
 
 .. warning:: When the HA is configured, some changes will be automatically
    made to the configuration of XiVO.
@@ -93,20 +94,23 @@ SIP expiry value on master and slave will be automatically updated:
 * default: 40 seconds
 
 .. figure:: images/general_settings_sip_expiry.png
-   
+
    :menuselection:`Services --> IPBX --> General Settings --> SIP Protocol`
 
 The provisioning server configuration will be automatically updated in order to allow
 phones to switch from XiVO power failure.
 
 .. figure:: images/provd_config_registrar.png
-   
+
    :menuselection:`Configuration --> Provisioning --> Template Line --> Edit default`
 
 
 .. warning:: Especially not change these values when the HA is configured, this could cause problems.
-   These values will be provided by default when the HA will be disabled.
+   These values will be reset to blank when the HA is disabled.
 
+.. important:: For the telephony devices to take the new proxy/registrar settings
+   into account, you must :ref:`resynchronize the devices <synchronize-device>`
+   or restart them manually.
 
 Disable node
 ------------
