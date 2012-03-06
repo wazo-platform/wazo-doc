@@ -8,19 +8,19 @@ The CTI server configuration options can be found in the web-interface under the
 
 
 
-General options
+General Options
 ===============
 
 The general options allow the administrator to manage network connections between the CTI server 
 and other services and clients.
 
-The section named AMI connection allow the administrator to configure the
-information that is required to connect to the Asterisk Manager Interface
+The section named AMI connection allows the administrator to configure the
+information required to connect to the Asterisk Manager Interface
 (AMI). These fields should match the entries in `/etc/asterisk/manager.conf`.
 
 .. image:: images/ami_connection.png
 
-The section named Listening Ports allows the administrator to specify listening
+The section named ``Listening Ports`` allows the administrator to specify listening
 addresses and ports for the CTI server's interfaces.
 
 * Fast AGI is the CTI server's entry point for the Asterisk dialplan. This
@@ -45,37 +45,41 @@ The timeout section allow the administrator to configure multiple timeouts.
 Parting options are used to isolate XiVO users from each other. These options
 should be used when using the same XiVO for different enterprises.
 
-Context separation is based on the user's line context. This mean that a user
+Context separation is based on the user's line context. A user
 with no line is not the member of any context and will not be able to do
 anything with the CTI client.
 
 .. image:: images/parting_options.png
 
 
-Sheet configuration
+Sheet Configuration
 ===================
 
-The sheet has 2 configurations :
+For any sheet you may define 2 different configurations: Actions and Events.
 
-* Action, you can define the design for your sheet, and the action you need.
-* Event, you can define what type of the sheet for a specific event. For example if you want to define a sheet when you received a call from a queue, you can create a model of your sheet in the action, and you associate your event to this sheet.
+Action
+   Design of the sheet, and the action needed.
+Event
+   Type of the sheet for a specific event. For example if you want to define a sheet when you received a call from a queue, 
+   you can create a model of your sheet in the action, and associate your event to this sheet.
 
 .. image:: images/sheets_configuration.png
 
-General option
+General Option
 --------------
 
-In the first tab you can configure the name of your model, the destination (just dest for the moment).
-When you check focus your xivo client focus when you received a sheet.
-The contexts contain where the event sheet can be trig. The profil is for authorize a specific profil in this model sheet.
-Anyway you can field a description.
+In the first tab the name of your model can be configured, the destination (just dest for the moment).
+When you checkbox focus is checked, your xivo client focus when you received a sheet.
+Contexts contain where the event sheet can be triggered. Profil is to authorize a specific profil in this model sheet.
+Anyway you can fill a description.
 
 .. image:: images/sheets_configuration_general.png
 
 Sheets
 ------
 
-This tab is dedicated for the form/information of your sheet. You can define an external form created with qt-designer. You can tell the path with a file:// or a http://. The check box is for activated this ui. The qt file is an xml file.
+This tab is dedicated for the form/information of your sheet. You can define an external form created with qt-designer. 
+You can configure the path to a file:// or  http://. The check box is for activated this ui. The qt file is an xml file.
 
 Here an example of a small form develop with qt-designer.
 
@@ -164,12 +168,11 @@ the generated file from qt-designer :
   </ui>
 
 
-The second part you can configure the form:
+On the second part you can configure the form:
 
-* Field title : name of your line
-* Field type : define the type like text, form ...
-
- * phone : create a tel: link and you can click to call on your sheet
+ * Field title : name of your line
+ * Field type : define the type like text, form ...
+ * phone : create a tel: link, you can click to call on your sheet
  * title : to create a title on your sheet
  * picture : show a picture from an internal user in your sheet, you need to use {xivo-picture} variable.
  * text : show a text
@@ -177,34 +180,34 @@ The second part you can configure the form:
  * url : a simple url link, open your default browser.
  * urlx : an url button
 
-The third field is for define a text when the fouth field have no result. It's the default display.
+The third field is to define a text when the fourth field have no result. It's the default display.
 
-In the fourth field, you can defined text or variables or the both.
-There is 3 kinds of variables are available
+In the fourth field, you can defined text or variables or both.
+Three kinds of variables are available
 
-`xivo-` prefixed ones are those for which the keywords are reserved and set inside the CTI server:
+`xivo-` prefix is reserved and set inside the CTI server:
  
- * `xivo-where` for sheet events, is the event triggering the sheet
- * `xivo-origin` is the place from where the lookup is requested (did, internal, forcelookup)
- * `xivo-direction` is either incoming or internal
- * `xivo-did` is the DID number
+ * `xivo-where` for sheet events, event triggering the sheet
+ * `xivo-origin` place from where the lookup is requested (did, internal, forcelookup)
+ * `xivo-direction` incoming or internal
+ * `xivo-did` DID number
  * `xivo-calleridnum`
  * `xivo-calleridname`
  * `xivo-calleridrdnis` contains information whether there was a transfer
- * `xivo-calleridton` is the Type Of Network (national, international)
+ * `xivo-calleridton` Type Of Network (national, international)
  * `xivo-calledidnum`
  * `xivo-calledidname`
  * `xivo-context`
  * `xivo-ipbxid` (`xivo-astid` in 1.1)
  * `xivo-directory` : for directory requests, it is the directory database the item has been found
- * `xivo-queuename` is the queue called
- * `xivo-agentnumber` is the agent number called
- * `xivo-date` is the formatted date string
- * `xivo-time` is the formatted time string
- * `xivo-channel` is the asterisk channel value (for advanced users)
- * `xivo-uniqueid` is the asterisk uniqueid value (for advanced users)
+ * `xivo-queuename` queue called
+ * `xivo-agentnumber` agent number called
+ * `xivo-date` formatted date string
+ * `xivo-time` formatted time string
+ * `xivo-channel` asterisk channel value (for advanced users)
+ * `xivo-uniqueid` asterisk uniqueid value (for advanced users)
 
-`db-` prefixed ones are those defined in the WEBI configuration, and depend on the matching list. Common values are :
+`db-` prefixed variables are defined in the WEBI configuration, and depend on the matching list. Common values are :
  
  * `db-phone`
  * `db-firstname`
@@ -220,7 +223,7 @@ For example if you want to access from the dialplan to a variable dp-test you ne
 
  UserEvent(dialplan2cti,UNIQUEID: ${UNIQUEID},CHANNEL: ${CHANNEL},VARIABLE: test,VALUE: "Salut")
 
-The {dp-test} display Salut.
+The {dp-test} displays Salut.
 
 Warning : qtui are the exception for the form.
 
@@ -236,7 +239,7 @@ Other example :
 Systray
 -------
 
-Exactly the same syntaxe from the sheet. You can just using text.
+Exactly the same syntax as the sheet. You can just use text.
 
 .. image:: images/sheets_configuration_systray.png
 
@@ -244,7 +247,8 @@ Exactly the same syntaxe from the sheet. You can just using text.
 Actions
 -------
 
-The action is for the xivo client, so if you configure an action, please do sure you understand it's execute by the client. You need to allow this action in the client configuration too.
+The action is for the xivo client, so if you configure an action, please do sure you understand it's executed by the client. 
+You need to allow this action in the client configuration too.
 
 The second and fourth field must be used. And the second is always urlauto. You can use the same variable like {xivo-callerid}
 
@@ -252,11 +256,11 @@ The second and fourth field must be used. And the second is always urlauto. You 
  * `tcp://x.y.z.co.fr:4545/?var1=a1&var2=a2&var3=v3` connects to TCP port 4545 on x.y.z.co.fr, sends the string `var1=a1&var2=a2&var3=v3`, then closes
  * `udp://x.y.z.co.fr:4545/?var1=a1&var2=a2&var3=v3` connects to UDP port 4545 on x.y.z.co.fr, sends the string `var1=a1&var2=a2&var3=v3`, then closes
 
-.. note:: any string that would not be understood as an URL will be handled like
+.. note:: any string that would not be understood as an URL will be handled like and URL
    it is a process to launch and will be executed as it is written
 
 For `tcp://` and `udp://`, it is a requirement that the string between `/` and `?` is empty.
-An extension of it could be to define other serialization methods, if needed.
+An extension could be to define other serialization methods, if needed.
 
 .. image:: images/sheets_configuration_actions.png
 
