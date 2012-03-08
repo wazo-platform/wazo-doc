@@ -207,6 +207,11 @@ The command line interface provide a way to interact with the different Asterisk
  SEPACA016FDF235   7940     Registered
  SEP00164766A428   unknown  Unregistered
 
+::
+
+ nibskaro*CLI> sccp reset <device> [restart]
+ Cause a SCCP device to reset itself, optionally with a full restart
+
 FAQ
 ---
 
