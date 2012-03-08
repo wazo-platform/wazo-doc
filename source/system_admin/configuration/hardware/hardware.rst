@@ -124,16 +124,13 @@ Otherwise you can also issue (with DAHDI >= 2.5.0) the ''cat /proc/dahdi/1'' com
 '''Use ''xivo-fetchfw'' : '''
 
 You can search for ''digium'' occurences in the available packages :
- xivo-fetchfw -Ss digium
+ xivo-fetchfw search digium
 
 You can install the package named ''digium-oct6114-064'' :
- xivo-fetchfw -S digium-oct6114-064
+ xivo-fetchfw install digium-oct6114-064
 
 Get help :
  xivo-fetchfw -h
-
-Get help on a specific operation :
- xivo-fetchfw -h -S
 
 
 Sync cable
@@ -241,7 +238,7 @@ Voice Compression Card configuration
 
 Here's how to install a Digium TC400M card (used for G.729a and/or G.723.1 codecs) :
 
-* install the card firmware : <pre> xivo-fetchfw -S digium-tc400m </pre>
+* install the card firmware : <pre> xivo-fetchfw install digium-tc400m </pre>
 * comment out the line below in ''/etc/asterisk/modules.conf'' : <pre>noload = codec_dahdi.so </pre>
 * restart asterisk : <pre>/etc/init.d/asterisk restart</pre>
 * depending on the codec you want to transcode, you modify the ''mode'' parameter of the module by creating 
