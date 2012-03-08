@@ -33,9 +33,11 @@ We are also working on a fully `Open XiVO Hardware`_.
 
    Introduction <introduction/introduction>
    installation/installation
-   getting_started/getting_started
    cti_client/cti_client
-   system_admin/system_admin
+   system/system
+   administration/administration
+   contact_center/contact_center
+   high_availability/high_availability
    api_sdk/api_sdk
    developers/developers
 

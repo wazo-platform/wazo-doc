@@ -1,9 +1,9 @@
-*******************
-Calls Records (CEL)
-*******************
+**********
+Calls Logs
+**********
 
-You can manage call permissions via the
-:menuselection:`Services --> IPBX --> Call management --> Call Records`
+Call logs cab be accessed using the menu
+:menuselection:`Services --> IPBX --> Call management --> Call Logs`
 page.
 
 Call records can be used for:
