@@ -3,6 +3,7 @@ Devices
 *******
 
 .. index:: devices
+.. _synchronize-device:
 
 Synchronize a device
 ====================

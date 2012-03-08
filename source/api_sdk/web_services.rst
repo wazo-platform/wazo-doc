@@ -683,6 +683,60 @@ You can also create or associate several lines at once. Here is different possib
 Call Management
 ---------------
 
+Incalls
+^^^^^^^
+
+List::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/incall/?act=list
+
+
+Search::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/incall/?act=search&search=[string]
+
+
+View::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/incall/users/?act=view&id=[incall_id]
+
+Delete::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/incall/?act=delete&id=[incall_id]
+
+Add::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/incall/?act=add
+
+Edit::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/incall/?act=edit&id=[incall_id]
+
+
+``Sample JSON for add or edit action``
+
+.. code-block:: javascript
+
+  {
+     "incall": {
+          "exten": "9970",
+          "context": "from-extern",
+          "preprocess_subroutine": "",
+     },
+     "dialaction": {
+           "answer": {
+                "actiontype": "user",
+                "actionarg1": "2",
+                "actionarg2": ""
+           }
+     },
+     "rightcall": [
+          "1"
+     ]
+  }
+
+
+
 Call pickups
 ^^^^^^^^^^^^
 
