@@ -2,6 +2,28 @@
 Advanced configuration
 **********************
 
+DHCP integration
+================
+
+If your phones are getting their network configuration from your XiVO's DHCP server,
+it's possible to activate the DHCP integration on the
+:menuselection:`Configuration --> Provisioning --> General` page.
+
+What DHCP integration does is that, on every DHCP request made by one of your
+phones, the DHCP server sends information about the request to ``provd``, which
+can then use this information to update its device database.
+
+This feature is useful for phones which lack information in their TFTP/HTTP
+requests. For example, without DHCP integration, it's impossible to extract
+model information for phones from the Cisco 7900 series. Without the model
+information extracted, there's chance your device won't be automatically
+associated to the best plugin.
+
+This feature can also be useful if your phones are not always getting the same IP
+addresses, for one reason or another. Again, this is useful only for some phones,
+like the Cisco 7900; it has no effect for Aastra 6700.
+
+
 Creating custom templates
 =========================
 
