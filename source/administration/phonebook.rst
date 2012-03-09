@@ -2,7 +2,9 @@
 Phonebook
 *********
 
-In the section IPBX Services -> Phonebook, you can import a list of people and phone numbers that will be available from both the directory phone key, if the phone is compatible, and the Directory Xlet in the XiVO Client.
+A global phone book can be defined in IPBX Service -> Phone book. The phone book can be used from
+the XiVO client, from the phones directory look key if the phone is compatible and are used to set
+the Caller ID for incoming calls.
 
 You can add entries one by one or you can mass-import from a CSV file.
 
