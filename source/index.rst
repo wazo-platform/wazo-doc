@@ -23,10 +23,7 @@ We are also working on a fully `Open XiVO Hardware`_.
 
       $ apt-get update
       $ apt-get install xivo-upgrade
-      $ xivo-upgrade
-
-   If you have this error: 
-   ``bash: /usr/sbin/xivo-upgrade: No such file or directory`` use ``/usr/bin/xivo-upgrade`` instead.
+      $ /usr/bin/xivo-upgrade
 
 .. toctree::
    :maxdepth: 2
