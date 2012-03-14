@@ -11,4 +11,5 @@ This section describes the tools for developers.
    translate
    cti_server/cti_server
    xivo_client/xivo_client
+   sccp
    debug_daemon

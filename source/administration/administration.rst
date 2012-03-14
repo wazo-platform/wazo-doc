@@ -19,7 +19,7 @@ Administration
    CTI server <ctiserver/ctiserver>
    Hardware <hardware/hardware>
    cel/cel
-   sccp
+   sccp/sccp
    advanced_configuration/advanced_configuration
 
 
