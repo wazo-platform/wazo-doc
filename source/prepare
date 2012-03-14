@@ -20,12 +20,14 @@ class Prepare(object):
 class RetrieveGitInfos(object):
     def __init__(self):
         self.list_tag = []
+
+    def get_last_tag(self):
         comman_list_tags = ['git', 'tag', '-l']
         try:
             p = subprocess.Popen(comman_list_tags, stdout=PIPE, stderr=PIPE, close_fds=True)
         except (OSError, subprocess.CalledProcessError):
-            raise "Error while executing %s" % command
-        
+            raise "Error while executing %s" % comman_list_tags.join(' ')
+
         valid_tag = re.compile(r"^squeeze-xivo-skaro-([0-9\.]*)$")
         if p.stdout:
             for tag in p.stdout.readlines():
@@ -33,8 +35,6 @@ class RetrieveGitInfos(object):
                     tag_version = valid_tag.match(tag).group(1)
                     self.list_tag.append(tag_version)
                     Prepare(tag_version)
-
-    def get_last_tag(self):
         return self.list_tag[-1]
 
 
