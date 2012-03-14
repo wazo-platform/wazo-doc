@@ -127,3 +127,16 @@ if you update the device page, you'll see that the icon next to your device has 
 
 .. figure:: img/Autoprov_cfg_aastra_6731i.png
    :scale: 85%
+   
+Resetting A Phone Set
+=====================
+
+To remove a phone set from XiVO or unable a device to be used for an other user there are two different possibilities :
+
+* click on the ```restet to autoprov``` button on the web interface
+
+.. figure:: img/reset_autoprov.png
+   
+* Dial **\*guest** on the phone dialpad followed by **xivo** as a password
+
+In both cases the phone set restarts and display autoprov, ready to be used for an other user.
