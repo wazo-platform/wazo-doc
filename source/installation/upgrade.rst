@@ -2,17 +2,17 @@
 Upgrading
 *********
 
-Upgrading to 1.2 from a previous version is not supported right now.
+Upgrading to XiVO 1.2 from a previous version (i.e. XiVO 1.1) is not supported right now.
 
-.. warning:: You **should** run the wizard before using xivo-upgrade
-
-To upgrade from a prior 1.2 version, you **MUST** use xivo-upgrade::
+To upgrade to the latest version, you **MUST** use xivo-upgrade::
 
    /usr/sbin/xivo-upgrade
 
-This script will update xivo and restart all daemons.
+.. note:: You can't use xivo-upgrade if you have not run the wizard
 
-From skaro-1.2.4, there are 2 options for xivo-upgrade:
+This script will update XiVO and restart all daemons.
 
-* -d to only download packages, no package will be installed
-* -f to force upgrade, do not ask for user confirmation
+There are 2 options for xivo-upgrade:
+
+* ``-d`` to only download packages, no package will be installed
+* ``-f`` to force upgrade, do not ask for user confirmation
