@@ -8,12 +8,13 @@ Add a SCCP line
 Setting up provisioning
 -----------------------
 
-.. warning:: You **must** active DHCP integration in 
-   :menuselection:`Configuration --> Provisioning --> General` 
+.. warning::
 
+   You **must** activate DHCP integration in
+   :menuselection:`Configuration --> Provisioning --> General`
 
-Once you must install a plugin for SCCP Phone via the 
-:menuselection:`Configuration --> Provisioning --> Plugins` 
+Once you must install a plugin for SCCP Phone via the
+:menuselection:`Configuration --> Provisioning --> Plugins`
 
 .. figure:: images/list_plugin.png
 
@@ -26,7 +27,7 @@ Install ``xivo-cisco-sccp-legacy`` plugin
    SCCP Plugin cisco legacy installed
 
 Now you can connect your SCCP phone to XiVO.
-This device should appear in device list 
+This device should appear in device list
 ( :menuselection:`Services --> IPBX --> IPBX settings --> Devices` )
 
 
