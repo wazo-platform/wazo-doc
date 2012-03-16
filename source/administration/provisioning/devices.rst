@@ -94,6 +94,16 @@ ATAs:
 * SPA8000
 * SPA8800
 
+Cisco 7900 series:
+
+* 7911G
+* 7912G
+* 7940G
+* 7941G
+* 7941G-GE
+* 7960G
+* 7961G
+
 
 Gigaset
 =======

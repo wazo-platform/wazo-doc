@@ -153,3 +153,4 @@ Function keys can be configured to customize the user's phone keys. Key types ar
 .. image:: images/funckeys.png
 
 Call forwards keys should have a destination, using them without a destination is experimental at the moment.
+

@@ -17,6 +17,15 @@ Binaries of the XiVO Client are available on our `FTP server`_.
 
 .. index:: Xlets
 
+Connection to the server
+========================
+
+To connect to the server using the XiVO client you need a user name, a password and the server's
+address. Optionally, it is possible to login an agent while connecting to the server. An option is
+available in the configuration, account to show agent login info.
+
+.. figure:: images/login_window.png
+
 Xlets
 =====
 

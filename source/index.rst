@@ -23,19 +23,18 @@ We are also working on a fully `Open XiVO Hardware`_.
 
       $ apt-get update
       $ apt-get install xivo-upgrade
-      $ xivo-upgrade
-
-   If you have this error: 
-   ``bash: /usr/sbin/xivo-upgrade: No such file or directory`` use ``/usr/bin/xivo-upgrade`` instead.
+      $ /usr/bin/xivo-upgrade
 
 .. toctree::
    :maxdepth: 2
 
    Introduction <introduction/introduction>
    installation/installation
-   getting_started/getting_started
    cti_client/cti_client
-   system_admin/system_admin
+   system/system
+   administration/administration
+   contact_center/contact_center
+   high_availability/high_availability
    api_sdk/api_sdk
    developers/developers
 
