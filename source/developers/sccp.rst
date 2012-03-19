@@ -216,6 +216,11 @@ The command line interface provide a way to interact with the different Asterisk
  nibskaro*CLI> sccp reset <device> [restart]
  Cause a SCCP device to reset itself, optionally with a full restart
 
+::
+
+ nibskaro*CLI> sccp update config
+ Parse the configuration and add new lines and devices
+ 
 FAQ
 ---
 
