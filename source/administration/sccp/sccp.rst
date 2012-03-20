@@ -80,4 +80,4 @@ Creating a user with a SCCP line:
 
 ::
 
- Congratulation ! You now have a fully configured SCCP phone, you can now call and receive call.
+ Congratulation ! Your SCCP phone is now ready to be called !
