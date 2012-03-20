@@ -4,8 +4,6 @@
 Supported devices
 *****************
 
-.. XXX show which one have not been tested
-
 Aastra
 ======
 
