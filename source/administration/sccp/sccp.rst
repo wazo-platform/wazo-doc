@@ -8,39 +8,76 @@ Add a SCCP line
 Setting up provisioning
 -----------------------
 
-.. warning::
+Activating DHCP Server:
+ :menuselection:`Configuration --> Network --> DHCP`
 
-   You **must** activate DHCP integration in
-   :menuselection:`Configuration --> Provisioning --> General`
+Activating DHCP Integration:
+ :menuselection:`Configuration --> Provisioning --> General`
 
-Once you must install a plugin for SCCP Phone via the
-:menuselection:`Configuration --> Provisioning --> Plugins`
+Installing a plugin for SCCP Phone:
+ :menuselection:`Configuration --> Provisioning --> Plugins`
 
 .. figure:: images/list_plugin.png
 
-   SCCP Plugins list
+  Installing xivo cisco-sccp plugin
 
-Install ``xivo-cisco-sccp-legacy`` plugin
+::
 
+ At this point you should have a fully functional DHCP server that provides IP address to your phones.
+ Depending on what type of CISCO phone you have, you need to install the plugin sccp-legacy, sccp-9.2.1 or both.
+
+::
+
+ Once your plugin is installed, you'll be able to edit which firmwares and locales you need.
+ If you are unsure, you can choose all without any problem.
+ 
 .. figure:: images/plugin_installed.png
 
-   SCCP Plugin cisco legacy installed
+   Editing the xivo-cisco-sccp-legacy plugin
 
-Now you can connect your SCCP phone to XiVO.
-This device should appear in device list
-( :menuselection:`Services --> IPBX --> IPBX settings --> Devices` )
+::
 
+ Now if you connect your first SCCP phone, you should be able to see it in the device list.
+
+Listing the detected devices:
+ :menuselection:`Services --> IPBX --> IPBX settings --> Devices`
 
 .. figure:: images/list_device_1.png
 
-   Device list 1
+   Device list
 
-If i connect another SCCP phone
+::
+
+ When connecting a second SCCP phone, the device will be automatically detected as well.
 
 .. figure:: images/list_device_2.png
 
-   Device list 2
-   
+   Device list
+ 
+::
 
-Now create a user with a SCCP line and associate it to a SCCP device.
-( :menuselection:`Services --> IPBX --> IPBX settings --> Users` )
+ The last step is to create a user with a SCCP line.
+
+Creating a user with a SCCP line:
+ :menuselection:`Services --> IPBX --> IPBX settings --> Users`
+
+.. figure:: images/add_user.png
+
+   Add a new user
+
+.. figure:: images/edit_user.png
+
+   Edit user informations
+
+::
+
+ Before saving the newly configured user, you need to select the `Lines` menu and add a SCCP line.
+ Now, you can save your new user.
+ 
+.. figure:: images/user_add_line.png
+
+   Add a line to a user
+
+::
+
+ Congratulation ! You now have a fully configured SCCP phone, you can now call and receive call.
