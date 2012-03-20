@@ -81,3 +81,15 @@ Creating a user with a SCCP line:
 ::
 
  Congratulation ! Your SCCP phone is now ready to be called !
+
+.. warning::
+
+ You must manually do "module reload chan_sccp.so" via the Asterisk command line if you want to:
+
+ 1- Remove a device from the configuration.
+
+ 2- Add a voicemail on an already configured user.
+
+ Please, be warned that this command will disconnect all SCCP phones and hence all current phone calls will be lost.
+
+ This limitation should be removed in the future.
