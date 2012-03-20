@@ -4,8 +4,6 @@
 Supported devices
 *****************
 
-.. XXX show which one have not been tested
-
 Aastra
 ======
 
@@ -13,6 +11,8 @@ Aastra
 
 * 6730i
 * 6731i
+* 6735i
+* 6737i
 * 6739i
 * 6751i
 * 6753i
