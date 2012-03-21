@@ -1,7 +1,7 @@
 .. index:: Agent details
 
 ******************
-Agent details xlet
+Agent Details Xlet
 ******************
 
 Overview

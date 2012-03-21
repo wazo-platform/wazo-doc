@@ -1,5 +1,5 @@
 ****************
-Debugging daemon
+Debugging Daemon
 ****************
 
 Here's how to run the various daemon present in XiVO in foreground and debug mode.

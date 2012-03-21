@@ -1,5 +1,5 @@
 **********************************
-Interconnect XiVO through gateways
+Interconnect XiVO Through Gateways
 **********************************
 
 .. figure:: images/gateways.png

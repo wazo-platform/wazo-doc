@@ -1,5 +1,5 @@
 *********************
-Installing the system
+Installing the System
 *********************
 
 There is three official ways to install XiVO:

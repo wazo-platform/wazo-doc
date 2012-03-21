@@ -1,5 +1,5 @@
 ****************
-Call permissions
+Call Permissions
 ****************
 
 You can manage call permissions via the

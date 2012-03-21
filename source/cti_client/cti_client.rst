@@ -2,7 +2,7 @@
 
 
 **********
-CTI client
+CTI Client
 **********
 
 This section describes the CTI Client and its various xlets

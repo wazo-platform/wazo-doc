@@ -1,7 +1,7 @@
 .. XiVO-doc Documentation master file.
 
 ****************************
-XiVO |version| documentation
+XiVO |version| Documentation
 ****************************
 
 XiVO is an application suite developed by
@@ -39,8 +39,8 @@ We are also working on a fully `Open XiVO Hardware`_.
    developers/developers
 
 You may also check `XiVO blog`_ and `XiVO wiki`_ for more information.
-XiVO documentation is also available as `an epub file <http://documentation.xivo.fr/epub/>`_ 
-or as `a pdf file <http://documentation.xivo.fr/pdf/>`_ 
+XiVO documentation is also available as `an epub file <http://documentation.xivo.fr/epub/>`_
+or as `a pdf file <http://documentation.xivo.fr/pdf/>`_
 
 .. _XiVO blog: http://blog.xivo.fr/
 .. _XiVO wiki: http://wiki.xivo.fr/

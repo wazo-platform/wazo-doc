@@ -1,5 +1,5 @@
 *********************
-Boss secretary filter
+Boss Secretary Filter
 *********************
 
 The boss secretary filter allow to set a secretary or a boss role to a user. Filters can then be

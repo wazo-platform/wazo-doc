@@ -1,5 +1,5 @@
 *************************************
-Interconnect XiVO through an operator
+Interconnect XiVO Through an Operator
 *************************************
 
 .. figure:: images/through_operator.png

@@ -1,5 +1,5 @@
 *******************
-Basic configuration
+Basic Configuration
 *******************
 
 .. _dhcpd-config:

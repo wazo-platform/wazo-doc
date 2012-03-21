@@ -1,7 +1,7 @@
 .. index:: interconnections
 
 *********************
-Interconnect two XiVO
+Interconnect Two XiVO
 *********************
 
 .. figure:: images/two_xivo.png

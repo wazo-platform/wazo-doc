@@ -1,5 +1,5 @@
 *********************************
-Contributing To The Documentation
+Contributing to the Documentation
 *********************************
 
 XiVO documentation is generated with Sphinx. The source code is available on

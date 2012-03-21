@@ -1,7 +1,7 @@
 .. _devices:
 
 *****************
-Supported devices
+Supported Devices
 *****************
 
 Aastra
