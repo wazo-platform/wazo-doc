@@ -1,6 +1,6 @@
-********************
-Configuration Wizard
-********************
+******************
+Running the Wizard
+******************
 
 After the first installation, you have to go through the wizard steps to initialize XiVO configuration.
 Basically it helps you to initialize your XiVO configuration.

@@ -12,4 +12,3 @@ It **does not** cover the IPBX configuration.
 
    installsystem
    configuration_wizard/configuration_wizard
-   upgrade
