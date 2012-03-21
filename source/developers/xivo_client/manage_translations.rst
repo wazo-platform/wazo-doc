@@ -15,8 +15,7 @@ Edit an existing locale
 Update the translation files
 ----------------------------
 
-Run the following command on the wanted project file :
-::
+Run the following command on the wanted project file::
 
    $ lupdate xivoclient/xivoclient.pro
 
@@ -49,15 +48,13 @@ There are a few project files you should edit, each one will translate a module 
 * :file:`xivoclient/xletlib.pro`
 * :file:`xivoclient/src/xlets/*/*.pro`
 
-In these files, you should add a line like this one :
-::
+In these files, you should add a line like this one::
 
    TRANSLATIONS += $$ROOT_DIR/i18n/xivoclient_fr.ts
 
 This line adds a translation file for french. Please replace fr by the code of your locale.
 
-For each project file modified, you should run the following command :
-::
+For each project file modified, you should run the following command::
 
    $ lupdate xivoclient/xivoclient.pro
 
@@ -74,8 +71,7 @@ Embed the translation files
 ---------------------------
 
 For each project previously edited, you should have a corresponding ``.qrc`` file. This lists all files that will be embedded in the XiVO Client binaries.
-You should then add the corresponding translation files like below :
-::
+You should then add the corresponding translation files like below::
 
    <file>obj/xivoclient_fr.qm</file>
 
