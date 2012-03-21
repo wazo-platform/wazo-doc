@@ -35,6 +35,17 @@ The documentation must be written in english, and only in english.
 Sections
 --------
 
+The top section of each file must be capitalized using the following rule:
+capitalization of all words, except for articles, prepositions, conjunctions, and forms of to be.
+
+Correct::
+
+   The Vitamins are in My Fresh California Raisins
+
+Incorrect::
+
+   The Vitamins Are In My Fresh California Raisins
+
 Use the following punctuation characters:
 
 * ``*`` with overline, for "file title"
