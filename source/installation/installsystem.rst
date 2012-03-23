@@ -37,13 +37,5 @@ With this script you can install 3 flavors of XiVO skaro:
 
    bash xivo_install_skaro.sh
 
-* release candidate version::
-
-   bash xivo_install_skaro.sh -r
-
-* development version::
-
-   bash xivo_install_skaro.sh -d
-
 .. note::
    When asked about the :file:`/etc/security/limits.conf` configuration file, answer ``Y``.
