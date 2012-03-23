@@ -22,4 +22,4 @@ Known Problems and Limitations
 Known bugs
 ----------
 
-You may find last bug updates in  `XiVO redmine <https://projects.xivo.fr/projects/xivo-software/issues?set_filter=1&tracker_id=1>`_.
+We keep track of bugs update here  `XiVO redmine <https://projects.xivo.fr/issues?set_filter=1&tracker_id=1>`_.
