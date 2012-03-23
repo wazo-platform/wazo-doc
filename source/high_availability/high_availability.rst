@@ -7,7 +7,6 @@ telephony function whatever your main XiVO server is running or not. When runnin
 HA cluster, users are guaranteed to never experience a downtime of more than 5 minutes of
 their basic telephony service.
 
-.. note:: Information on this page applies only to XiVO 1.2 and later.
 
 The HA solution in XiVO is based on a 2-nodes "master and slave" architecture. In the normal situation,
 both the master and slave nodes are running in parallel, the slave acting as an "hot standby", and all
@@ -30,47 +29,20 @@ The HA solution is guaranteed to work correctly with the following devices:
 
 * Aastra 6700i series, 3.2.2 firmware
 
-
-Limitations
-===========
-
-When the master node is down, some features are not available and some behave a bit
-differently. This includes:
-
-* CTI client is not available.
-* Call history / call records are not recorded.
-* Voicemail messages saved on the master node are not available.
-* Custom voicemail greetings recorded on the master node are not available.
-* More generally, custom sounds are not available. This includes music on hold and recordings.
-* Custom dialplan (i.e. dialplan found in the :file:`/etc/asterisk/extensions_extra.d` directory
-  or in the :menuselection:`Services --> IPBX --> IPBX configuration --> Configuration files` page)
-  is not available.
-
-Note that, on failover and on failback:
-
-* DND, call forwards, call filtering, ..., statuses may be lost if changed recently.
-* If you are statically connected as an agent (i.e. you use "agent callback login"), then
-  you'll need to reconnect as a static agent when the master goes down. Since it's hard to
-  know when the master goes down, if your CTI client disconnect and you can't reconnect it,
-  then it's a sign the master might be down.
-
-Additionally, only on failback:
-
-* Voicemail messages are not copied from the slave to the master, i.e. if someone
-  left a message on your voicemail when the master was down, you won't be able to
-  consult it once the master is up again.
-* More generally, custom sounds are not copied back. This includes recordings.
-
-Here's the list of limitations that are more relevant on an administrator standpoint:
-
-* In the case a DHCP server is running on the master node, then when the master is down,
-  phones won't be able to get a new DHCP lease, so it is advised not to restart the phones.
-* The master status is up or down, there's no middle status. This mean that if Asterisk is crashed
-  the XiVO is still up and the failover will NOT happen.
-
-
-Configuration
+Quick Summary
 =============
+
+* You need two configured XiVO (wizard passed)
+* Configure one XiVO as a master -> setup the slave address
+* Restart cti server on master
+* Configure the other XiVO as a slave -> setup the master address
+* Start configuration synchronization by running the script ```xivo-master-slave-db-replication <slave_ip>``` 
+* Resynchronize all your devices
+
+That's it you now have a HA configuration, and every hour all the configuration done on the master will be reported to the slave.
+
+Configuration Details
+=====================
 
 First thing to do is to :ref:`install 2 XiVO <installation>`. Note that every setting in the
 "Configuration" menu are not automatically copied from the master node to the slave.
@@ -133,6 +105,8 @@ In choosing the method ``Master`` you must enter the IP address of the slave nod
 
    HA Dashboard Master
 
+.. important:: You have to restart the cti server once the master node is configured.
+
 Slave node
 ----------
 
@@ -143,8 +117,8 @@ In choosing the method ``Slave`` you must enter the IP address of master node.
    HA Dashboard Slave
 
 
-Plumbing
-========
+Internals
+=========
 
 3 scripts are used to manage services and data replication.
 
@@ -154,3 +128,40 @@ Plumbing
   The services won't be restarted after an upgrade or restart.
 * xivo-check-master-status <master_ip> is used to check the status of the master and enable or 
   disable services accordingly.
+
+Limitations
+===========
+
+When the master node is down, some features are not available and some behave a bit
+differently. This includes:
+
+* CTI client is not available.
+* Call history / call records are not recorded.
+* Voicemail messages saved on the master node are not available.
+* Custom voicemail greetings recorded on the master node are not available.
+* More generally, custom sounds are not available. This includes music on hold and recordings.
+* Custom dialplan (i.e. dialplan found in the :file:`/etc/asterisk/extensions_extra.d` directory
+  or in the :menuselection:`Services --> IPBX --> IPBX configuration --> Configuration files` page)
+  is not available.
+
+Note that, on failover and on failback:
+
+* DND, call forwards, call filtering, ..., statuses may be lost if changed recently.
+* If you are statically connected as an agent (i.e. you use "agent callback login"), then
+  you'll need to reconnect as a static agent when the master goes down. Since it's hard to
+  know when the master goes down, if your CTI client disconnect and you can't reconnect it,
+  then it's a sign the master might be down.
+
+Additionally, only on failback:
+
+* Voicemail messages are not copied from the slave to the master, i.e. if someone
+  left a message on your voicemail when the master was down, you won't be able to
+  consult it once the master is up again.
+* More generally, custom sounds are not copied back. This includes recordings.
+
+Here's the list of limitations that are more relevant on an administrator standpoint:
+
+* In the case a DHCP server is running on the master node, then when the master is down,
+  phones won't be able to get a new DHCP lease, so it is advised not to restart the phones.
+* The master status is up or down, there's no middle status. This mean that if Asterisk is crashed
+  the XiVO is still up and the failover will NOT happen.
