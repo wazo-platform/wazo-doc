@@ -7,7 +7,6 @@ telephony function whatever your main XiVO server is running or not. When runnin
 HA cluster, users are guaranteed to never experience a downtime of more than 5 minutes of
 their basic telephony service.
 
-
 The HA solution in XiVO is based on a 2-nodes "master and slave" architecture. In the normal situation,
 both the master and slave nodes are running in parallel, the slave acting as an "hot standby", and all
 the telephony services are provided by the master node. If the master fails or must be shutdown for
@@ -29,6 +28,7 @@ The HA solution is guaranteed to work correctly with the following devices:
 
 * Aastra 6700i series, 3.2.2 firmware
 
+
 Quick Summary
 =============
 
@@ -36,10 +36,11 @@ Quick Summary
 * Configure one XiVO as a master -> setup the slave address
 * Restart cti server on master
 * Configure the other XiVO as a slave -> setup the master address
-* Start configuration synchronization by running the script ```xivo-master-slave-db-replication <slave_ip>``` 
+* Start configuration synchronization by running the script ``xivo-master-slave-db-replication <slave_ip>``
 * Resynchronize all your devices
 
 That's it you now have a HA configuration, and every hour all the configuration done on the master will be reported to the slave.
+
 
 Configuration Details
 =====================
@@ -49,8 +50,6 @@ First thing to do is to :ref:`install 2 XiVO <installation>`. Note that every se
 
 .. important:: When you upgrade a node of your cluster, you should also upgrade the other so that
    they both are running the same version of XiVO.
-
-.. TODO rajouter comment on configure un trunk distant si on n'utilise pas de register
 
 You must configure the :abbr:`HA (High Availability)` in the Web interface
 (:menuselection:`Configuration --> Management --> High Availability` page).
@@ -85,6 +84,7 @@ phones to switch from XiVO power failure.
    into account, you must :ref:`resynchronize the devices <synchronize-device>`
    or restart them manually.
 
+
 Disable node
 ------------
 
@@ -96,6 +96,7 @@ Default status of :abbr:`High Availability (HA)` is disabled:
 
    HA Dashboard Disabled (default state)
 
+
 Master node
 -----------
 
@@ -106,6 +107,7 @@ In choosing the method ``Master`` you must enter the IP address of the slave nod
    HA Dashboard Master
 
 .. important:: You have to restart the cti server once the master node is configured.
+
 
 Slave node
 ----------
@@ -122,12 +124,13 @@ Internals
 
 3 scripts are used to manage services and data replication.
 
-* xivo-master-slave-db-replication <slave_ip> is used on the master to replicate the master's 
+* xivo-master-slave-db-replication <slave_ip> is used on the master to replicate the master's
   data on the slave server.
-* xivo-manage-slave-services {start,stop} is used on the slave to start, stop monit and asterisk. 
+* xivo-manage-slave-services {start,stop} is used on the slave to start, stop monit and asterisk.
   The services won't be restarted after an upgrade or restart.
-* xivo-check-master-status <master_ip> is used to check the status of the master and enable or 
+* xivo-check-master-status <master_ip> is used to check the status of the master and enable or
   disable services accordingly.
+
 
 Limitations
 ===========
