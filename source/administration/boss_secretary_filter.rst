@@ -26,8 +26,8 @@ call filter can be added in Services > Call management > Call filters.
 Usage
 =====
 
-The call filter function can be activated and deactivated by the boss using the \*37 extension. The
-extension is defined in IPBX services > Extensions.
+The call filter function can be activated and deactivated by the boss or the secretary using the
+\*37 extension. The extension is defined in IPBX services > Extensions.
 
 The call filter has to be activated for each secretary if more than one is defined for a given boss.
 
@@ -41,7 +41,9 @@ Function keys
 =============
 
 A more convenient way to active the boss secretary filter is to assign a function key on the boss'
-phone. In the user's configuration under ``Func Keys``. A function key can be added for each
-secretaries of a boss.
+phone or the secretary's phone. In the user's configuration under ``Func Keys``. A function key can
+be added for each secretaries of a boss.
 
-If supervision is activated, the key will light up when filter is activated for this secretary.
+If supervision is activated, the key will light up when filter is activated for this secretary. If a
+secretary also has a function key on the same boss/secretary combination the function key's BLF will
+be in sync between each phones.
