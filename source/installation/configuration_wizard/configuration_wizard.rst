@@ -79,7 +79,9 @@ Note that if you want to change one of the chosen settings you can go backward i
 
 .. warning:: This is the last time the ``root`` password will be displayed. Take care to note it up.
 
-Congratulation, you now have a fully functional XiVO server.
+Congratulation, you now have a fully functional XiVO server. The only remaining thing to do is to
+subscribe to the `xivo-announce list <https://lists.proformatique.com/listinfo/xivo-announce>`_ as
+to make sure you'll always be informed of the latest upgrade for your XiVO.
 
 
 .. [1] Allowed characters are : "``A-Z a-z 0-9 -``"
