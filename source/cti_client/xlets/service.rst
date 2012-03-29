@@ -1,7 +1,7 @@
 .. index:: Service
 
 ************
-Service xlet
+Service Xlet
 ************
 
 Overview

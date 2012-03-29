@@ -1,5 +1,5 @@
 ***************************************
-Interconnect XiVO with multiple systems
+Interconnect XiVO with Multiple Systems
 ***************************************
 
 .. figure:: images/multiple.png

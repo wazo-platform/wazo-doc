@@ -1,7 +1,7 @@
 .. index:: interconnections
 
 *********************
-Interconnect two XiVO
+Interconnect Two XiVO
 *********************
 
 .. figure:: images/two_xivo.png
@@ -16,7 +16,7 @@ The settings below allow a trunk to be used in both directions.
 
 Consider XiVO A wants to establish a trunk with XiVO B.
 
-On XiVO B, create a SIP trunk: ::
+On XiVO B, create a SIP trunk::
 
     Name : xivo-trunk
     Username : xivo-trunk
@@ -31,7 +31,7 @@ On XiVO B, create a SIP trunk: ::
 
    For the moment, Name and Username need to be the same string.
 
-On XiVO A, create a SIP trunk: ::
+On XiVO A, create a SIP trunk::
 
     Name : xivo-trunk
     Username : xivo-trunk
@@ -42,7 +42,7 @@ On XiVO A, create a SIP trunk: ::
     Context : Incalls
     Language : something
 
-Register tab: ::
+Register tab::
 
     Register : On
     Transport : UDP
@@ -51,19 +51,18 @@ Register tab: ::
     Remote server : <XiVO B IP address>
 
 
-
-On both XiVO, activate some codecs, General Settings > SIP protocol, Signaling tab: ::
+On both XiVO, activate some codecs, General Settings > SIP protocol, Signaling tab::
 
    Enabled codecs : at least GSM (audio)
 
 Set the routes
 ^^^^^^^^^^^^^^
 
-On XiVO A, Outgoing Calls: ::
+On XiVO A, Outgoing Calls::
 
    Trunks : xivo-trunk
 
-Tab Exten: ::
+Tab Exten::
 
     Exten : 0101
     Stripnum : 1
@@ -72,7 +71,7 @@ Tab Exten: ::
 
    On XiVO B, you need a range of DID for Incalls context.
 
-Incoming calls: ::
+Incoming calls::
 
     DID : 101
     Context : Incalls

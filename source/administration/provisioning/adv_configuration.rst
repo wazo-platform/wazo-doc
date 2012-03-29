@@ -1,5 +1,5 @@
 **********************
-Advanced configuration
+Advanced Configuration
 **********************
 
 DHCP integration

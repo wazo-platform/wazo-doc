@@ -1,7 +1,7 @@
 .. index:: Local directory
 
 ********************
-Local directory xlet
+Local Directory Xlet
 ********************
 
 Overview

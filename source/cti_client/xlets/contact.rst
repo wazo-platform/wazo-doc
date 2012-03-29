@@ -1,7 +1,7 @@
 .. index:: Contacts
 
 ************
-Contact xlet
+Contact Xlet
 ************
 
 Overview

@@ -1,6 +1,6 @@
-***********
+**********
 Subroutine
-***********
+**********
 
 What is it ?
 ============
@@ -90,3 +90,13 @@ Features subroutine
 
  ; Preprocess subroutine for features
  XIVO_GROUP_MEMBER_SUBROUTINE = xivo-subrfeatures-groupmember
+
+Dialplan variables
+==================
+
+Some of the XiVO variables can be used in subroutines.
+
+::
+
+  XIVO_CALLORIGIN ; intern for internal calls, extern for external calls
+
