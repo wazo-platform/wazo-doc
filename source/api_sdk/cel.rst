@@ -16,18 +16,18 @@ CEL Samples
 
 The following configuration will be used for the following examples.
 
-* User `Tux` with extension `1000`.
-* User `Père Noël` with extension `1001`.
-* External User with number `555-555-5555`.
-* External calls to DID `445` are sent to `1000`.
-* External calls to DID `446` are sent to `1001`.
+* User `Tux` with extension `1000`
+* User `Père Noël` with extension `1001`
+* External User with number `555-555-5555`
+* External calls to DID `445` are sent to `1000`
+* External calls to DID `446` are sent to `1001`
 
 Internal Call
 -------------
 
-#. 1000 calls 1001.
-#. 1001 *answers*.
-#. 1001 *hangs up* after a few seconds.
+#. 1000 calls 1001
+#. 1001 *answers*
+#. 1001 *hangs up* after a few seconds
 
 ::
 
@@ -46,8 +46,8 @@ Internal Call
     8537 | CHAN_END     | 2012-03-28 13:44:01.720985 |             | Tux       | 1000    | 1000    |           | 1001     | s     | user    | SIP/k6ztm5-00000004 |         |                 |        3 |             |             | 1332956635.4 | 1332956635.4 |           | 
    (11 rows)
 
-#. 1000 calls 1001.
-#. 1001 *ignores* the call.
+#. 1000 calls 1001
+#. 1001 *ignores* the call
 
 ::
 
@@ -66,9 +66,9 @@ Internal Call
 Internal Call Using Originate
 -----------------------------
 
-#. 1000 calls 1001 from his XiVO client.
-#. 1001 *answers*.
-#. 1001 *hangs up* after a few seconds.
+#. 1000 calls 1001 from his XiVO client
+#. 1001 *answers*
+#. 1001 *hangs up* after a few seconds
 
 ::
 
@@ -87,8 +87,8 @@ Internal Call Using Originate
     8548 | CHAN_END     | 2012-03-28 13:46:39.147224 |             | Tux       | 1000    | 1001    |           |          | s     | user    | SIP/k6ztm5-00000006 |         |                 |        3 |             |             | 1332956789.6 | 1332956789.6 |           | 
    (11 rows)
 
-#. 1000 calls 1001 from his XiVO client.
-#. 1001 *ignores* the call.
+#. 1000 calls 1001 from his XiVO client
+#. 1001 *ignores* the call
 
 ::
 
@@ -104,8 +104,8 @@ Internal Call Using Originate
     8601 | CHAN_END   | 2012-03-28 14:06:53.200924 |             | Tux       | 1000    | 1001    |           |          | s     | hangup  | SIP/k6ztm5-00000012 |         |                 |        3 |             |             | 1332957996.18 | 1332957996.18 |           | 
    (8 rows)
 
-#. 1000 calls 1001 from his XiVO client.
-#. 1000 *ignores* the originate.
+#. 1000 calls 1001 from his XiVO client
+#. 1000 *ignores* the originate
 
 ::
 
@@ -119,9 +119,9 @@ Internal Call Using Originate
 External Call
 -------------
 
-#. External user (`555-555-5555`) calls 445.
-#. 1000 *answers*.
-#. 1000 *hangs up* after a few seconds.
+#. External user (`555-555-5555`) calls 445
+#. 1000 *answers*
+#. 1000 *hangs up* after a few seconds
 
 ::
 
@@ -140,8 +140,8 @@ External Call
     8577 | CHAN_END     | 2012-03-28 13:59:06.387703 |             | 5555555555 | 5555555555 | 5555555555 |           | 445      | s     | user        | SIP/pcm_dev-0000000c |         |                 |        3 |             |             | 1332957529.12 | 1332957529.12 |           | 
    (11 rows)
 
-#. External user (`555-555-5555`) calls 446.
-#. 1001 *ignores* the call.
+#. External user (`555-555-5555`) calls 446
+#. 1001 *ignores* the call
 
 ::
 
@@ -160,11 +160,11 @@ External Call
 Blind Transfer
 --------------
 
-#. External user (`555-555-5555`) calls 445.
-#. 1000 *answers*.
+#. External user (`555-555-5555`) calls 445
+#. 1000 *answers*
 #. 1000 *blind transfer* to 1001
 #. 1001 *answers*
-#. 1001 *hangs up* after a few seconds.
+#. 1001 *hangs up* after a few seconds
 
 ::
 
@@ -190,10 +190,10 @@ Blind Transfer
     8706 | CHAN_END     | 2012-03-28 14:21:23.120981 |             | 5555555555 | 5555555555 | 5555555555 |           | 445      | s     | user        | SIP/pcm_dev-00000026 |         |                 |        3 |             |             | 1332958865.38 | 1332958865.38 |           | 
    (18 rows)
 
-#. External user (`555-555-5555`) calls 445.
-#. 1000 *answers*.
-#. 1000 *blind transfer* to 1001 from his XiVO client.
-#. 1001 *ignores* the call.
+#. External user (`555-555-5555`) calls 445
+#. 1000 *answers*
+#. 1000 *blind transfer* to 1001 from his XiVO client
+#. 1001 *ignores* the call
 
 ::
 
@@ -220,12 +220,12 @@ Blind Transfer
 Attended transfer
 -----------------
 
-#. External user (`555-555-5555`) calls 445.
-#. 1000 *answers*.
-#. 1000 initiate an *attended transfer* to 1001.
-#. 1001 *answers* and talks to 1001.
-#. 1000 completes the transfer.
-#. 1001 *hangs up* after a few seconds.
+#. External user (`555-555-5555`) calls 445
+#. 1000 *answers*
+#. 1000 initiate an *attended transfer* to 1001
+#. 1001 *answers* and talks to 1001
+#. 1000 completes the transfer
+#. 1001 *hangs up* after a few seconds
 
 ::
 
@@ -291,3 +291,157 @@ Voice Mail
     8823 | HANGUP     | 2012-03-28 15:25:09.215869 |             | Tux      | 1000    | 1000    |           | *98      | s      | vmusermsg   | SIP/k6ztm5-00000040 |         |         |        3 |             |             | 1332962667.64 | 1332962667.64 |           | 
     8824 | CHAN_END   | 2012-03-28 15:25:09.215914 |             | Tux      | 1000    | 1000    |           | *98      | s      | vmusermsg   | SIP/k6ztm5-00000040 |         |         |        3 |             |             | 1332962667.64 | 1332962667.64 |           | 
    (4 rows)
+
+Call Forward
+------------
+
+#. 1000 enable unconditional call forwarding to 1001 using `*211001`
+
+::
+
+     id  | eventtype  |         eventtime          | userdeftype | cid_name | cid_num | cid_ani | cid_rdnis | cid_dnid |  exten  |     context     |      channame       | appname | appdata | amaflags | accountcode | peeraccount |   uniqueid    |   linkedid    | userfield | peer 
+   ------+------------+----------------------------+-------------+----------+---------+---------+-----------+----------+---------+-----------------+---------------------+---------+---------+----------+-------------+-------------+---------------+---------------+-----------+------
+    8825 | CHAN_START | 2012-03-29 07:48:37.660366 |             | Tux      | 1000    |         |           |          | *211001 | default         | SIP/k6ztm5-00000041 |         |         |        3 |             |             | 1333021717.65 | 1333021717.65 |           | 
+    8826 | ANSWER     | 2012-03-29 07:48:37.662976 |             | Tux      | 1000    | 1000    |           | *211001  | pickup  | xivo-pickup     | SIP/k6ztm5-00000041 | Answer  |         |        3 |             |             | 1333021717.65 | 1333021717.65 |           | 
+    8827 | HANGUP     | 2012-03-29 07:48:41.12148  |             | Tux      | 1000    | 1000    |           | *211001  | enabled | feature_forward | SIP/k6ztm5-00000041 |         |         |        3 |             |             | 1333021717.65 | 1333021717.65 |           | 
+    8828 | CHAN_END   | 2012-03-29 07:48:41.121864 |             | Tux      | 1000    | 1000    |           | *211001  | enabled | feature_forward | SIP/k6ztm5-00000041 |         |         |        3 |             |             | 1333021717.65 | 1333021717.65 |           | 
+   (4 rows)
+
+#. External user calls 445
+#. The call is *forwarded* to 1001
+#. 1001 *answers*
+#. External user *hangs up* after a few seconds
+
+::
+
+     id  |  eventtype   |         eventtime          | userdeftype |  cid_name  |  cid_num   |  cid_ani   | cid_rdnis | cid_dnid | exten  |   context   |       channame       | appname |     appdata     | amaflags | accountcode | peeraccount |   uniqueid    |   linkedid    | userfield | peer 
+   ------+--------------+----------------------------+-------------+------------+------------+------------+-----------+----------+--------+-------------+----------------------+---------+-----------------+----------+-------------+-------------+---------------+---------------+-----------+------
+    8829 | CHAN_START   | 2012-03-29 07:57:05.918708 |             | 5555555555 | 5555555555 |            |           |          | 445    | from-extern | SIP/pcm_dev-00000042 |         |                 |        3 |             |             | 1333022225.66 | 1333022225.66 |           | 
+    8830 | ANSWER       | 2012-03-29 07:57:05.982497 |             | 5555555555 | 5555555555 | 5555555555 |           | 445      | pickup | xivo-pickup | SIP/pcm_dev-00000042 | Answer  |                 |        3 |             |             | 1333022225.66 | 1333022225.66 |           | 
+    8831 | APP_START    | 2012-03-29 07:57:10.269364 |             | 5555555555 | 5555555555 | 5555555555 |           | 445      | s      | user        | SIP/pcm_dev-00000042 | Dial    | SIP/ge8xbi,30,  |        3 |             |             | 1333022225.66 | 1333022225.66 |           | 
+    8832 | CHAN_START   | 2012-03-29 07:57:10.26958  |             | Père Noël  | 1001       |            |           |          | s      | default     | SIP/ge8xbi-00000043  |         |                 |        3 |             |             | 1333022230.67 | 1333022225.66 |           | 
+    8833 | ANSWER       | 2012-03-29 07:57:13.744093 |             | Père Noël  | 1001       | 1001       |           |          | s      | default     | SIP/ge8xbi-00000043  | AppDial | (Outgoing Line) |        3 |             |             | 1333022230.67 | 1333022225.66 |           | 
+    8834 | BRIDGE_START | 2012-03-29 07:57:13.744248 |             | 5555555555 | 5555555555 | 5555555555 |           | 445      | s      | user        | SIP/pcm_dev-00000042 | Dial    | SIP/ge8xbi,30,  |        3 |             |             | 1333022225.66 | 1333022225.66 |           | 
+    8835 | BRIDGE_END   | 2012-03-29 07:57:24.586868 |             | 5555555555 | 5555555555 | 5555555555 |           | 445      | s      | user        | SIP/pcm_dev-00000042 | Dial    | SIP/ge8xbi,30,  |        3 |             |             | 1333022225.66 | 1333022225.66 |           | 
+    8836 | HANGUP       | 2012-03-29 07:57:24.587584 |             | Père Noël  | 1001       | 1001       |           |          |        | user        | SIP/ge8xbi-00000043  | AppDial | (Outgoing Line) |        3 |             |             | 1333022230.67 | 1333022225.66 |           | 
+    8837 | CHAN_END     | 2012-03-29 07:57:24.588184 |             | Père Noël  | 1001       | 1001       |           |          |        | user        | SIP/ge8xbi-00000043  | AppDial | (Outgoing Line) |        3 |             |             | 1333022230.67 | 1333022225.66 |           | 
+    8838 | HANGUP       | 2012-03-29 07:57:24.588304 |             | 5555555555 | 5555555555 | 5555555555 |           | 445      | s      | user        | SIP/pcm_dev-00000042 |         |                 |        3 |             |             | 1333022225.66 | 1333022225.66 |           | 
+    8839 | CHAN_END     | 2012-03-29 07:57:24.588359 |             | 5555555555 | 5555555555 | 5555555555 |           | 445      | s      | user        | SIP/pcm_dev-00000042 |         |                 |        3 |             |             | 1333022225.66 | 1333022225.66 |           | 
+   (11 rows)
+
+Call To a Queue
+---------------
+
+#. External user *calls* 444
+#. The call is distributed to queue service
+#. Agent 1234 (Père Noël 1001) *answers*
+#. External user *hangs up* after a few seconds
+
+::
+
+     id  |  eventtype   |         eventtime          | userdeftype |  cid_name  |  cid_num   |  cid_ani   | cid_rdnis | cid_dnid |      exten      |   context   |             channame              | appname  |              appdata              | amaflags | accountcode | peeraccount |   uniqueid   |   linkedid   | userfield | peer 
+   ------+--------------+----------------------------+-------------+------------+------------+------------+-----------+----------+-----------------+-------------+-----------------------------------+----------+-----------------------------------+----------+-------------+-------------+--------------+--------------+-----------+------
+    8859 | CHAN_START   | 2012-03-29 08:18:13.983343 |             | 5555555555 | 5555555555 |            |           |          | 444             | from-extern | SIP/pcm_dev-00000002              |          |                                   |        3 |             |             | 1333023493.2 | 1333023493.2 |           | 
+    8860 | ANSWER       | 2012-03-29 08:18:14.049882 |             | 5555555555 | 5555555555 | 5555555555 |           | 444      | s               | queue       | SIP/pcm_dev-00000002              | AGI      | agi://127.0.0.1/holdtime_announce |        3 |             |             | 1333023493.2 | 1333023493.2 |           | 
+    8861 | ANSWER       | 2012-03-29 08:18:19.042273 |             | 5555555555 | 5555555555 | 5555555555 |           | 444      | pickup          | xivo-pickup | SIP/pcm_dev-00000002              | Answer   |                                   |        3 |             |             | 1333023493.2 | 1333023493.2 |           | 
+    8862 | APP_START    | 2012-03-29 08:18:20.113057 |             | 5555555555 | 5555555555 | 5555555555 |           | 444      | s               | queue       | SIP/pcm_dev-00000002              | Queue    | service,tT,,,,,,,,,               |        3 |             |             | 1333023493.2 | 1333023493.2 |           | 
+    8863 | CHAN_START   | 2012-03-29 08:18:20.116129 |             |            |            |            |           |          | 1001            | default     | Local/1001@default-b470;1         |          |                                   |        3 |             |             | 1333023500.3 | 1333023493.2 |           | 
+    8864 | CHAN_START   | 2012-03-29 08:18:20.116184 |             |            |            |            |           |          | 1001            | default     | Local/1001@default-b470;2         |          |                                   |        3 |             |             | 1333023500.4 | 1333023493.2 |           | 
+    8865 | CHAN_START   | 2012-03-29 08:18:20.11623  |             |            |            |            |           |          | 1001            | default     | Agent/1234                        |          |                                   |        3 |             |             | 1333023500.5 | 1333023493.2 |           | 
+    8866 | APP_START    | 2012-03-29 08:18:20.213517 |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1001@default-b470;2         | Dial     | SIP/ge8xbi,30,                    |        3 |             |             | 1333023500.4 | 1333023493.2 |           | 
+    8867 | CHAN_START   | 2012-03-29 08:18:20.213719 |             | Père Noël  | 1001       |            |           |          | s               | default     | SIP/ge8xbi-00000003               |          |                                   |        3 |             |             | 1333023500.6 | 1333023493.2 |           | 
+    8868 | ANSWER       | 2012-03-29 08:18:23.174506 |             | Père Noël  | 1001       | 1001       |           |          | dial_from_queue | default     | SIP/ge8xbi-00000003               | AppDial  | (Outgoing Line)                   |        3 |             |             | 1333023500.6 | 1333023493.2 |           | 
+    8869 | ANSWER       | 2012-03-29 08:18:23.174666 |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1001@default-b470;2         | Dial     | SIP/ge8xbi,30,                    |        3 |             |             | 1333023500.4 | 1333023493.2 |           | 
+    8870 | BRIDGE_START | 2012-03-29 08:18:23.174713 |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1001@default-b470;2         | Dial     | SIP/ge8xbi,30,                    |        3 |             |             | 1333023500.4 | 1333023493.2 |           | 
+    8871 | ANSWER       | 2012-03-29 08:18:23.175011 |             | Père Noël  | 1001       |            |           |          | 1001            | default     | Local/1001@default-b470;1         |          |                                   |        3 |             |             | 1333023500.3 | 1333023493.2 |           | 
+    8872 | HANGUP       | 2012-03-29 08:18:23.367533 |             | Père Noël  | 1001       | 1001       |           |          |                 | user        | Local/1001@default-b470;1<ZOMBIE> | AppDial  | (Outgoing Line)                   |        3 |             |             | 1333023500.6 | 1333023493.2 |           | 
+    8873 | CHAN_END     | 2012-03-29 08:18:23.367547 |             | Père Noël  | 1001       | 1001       |           |          |                 | user        | Local/1001@default-b470;1<ZOMBIE> | AppDial  | (Outgoing Line)                   |        3 |             |             | 1333023500.6 | 1333023493.2 |           | 
+    8874 | HANGUP       | 2012-03-29 08:18:23.367592 |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1001@default-b470;2         |          |                                   |        3 |             |             | 1333023500.4 | 1333023493.2 |           | 
+    8875 | CHAN_END     | 2012-03-29 08:18:23.367604 |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1001@default-b470;2         |          |                                   |        3 |             |             | 1333023500.4 | 1333023493.2 |           | 
+    8876 | HANGUP       | 2012-03-29 08:18:31.818877 |             |            | 444        |            |           |          | s               | default     | Agent/1234                        | AppQueue | (Outgoing Line)                   |        3 |             |             | 1333023500.5 | 1333023493.2 |           | 
+    8877 | HANGUP       | 2012-03-29 08:18:31.818928 |             | Père Noël  | 1001       |            |           |          | 1001            | default     | SIP/ge8xbi-00000003               |          |                                   |        3 |             |             | 1333023500.3 | 1333023493.2 |           | 
+    8878 | CHAN_END     | 2012-03-29 08:18:31.81938  |             | Père Noël  | 1001       |            |           |          | 1001            | default     | SIP/ge8xbi-00000003               |          |                                   |        3 |             |             | 1333023500.3 | 1333023493.2 |           | 
+    8879 | CHAN_END     | 2012-03-29 08:18:31.819443 |             |            | 444        |            |           |          | s               | default     | Agent/1234                        | AppQueue | (Outgoing Line)                   |        3 |             |             | 1333023500.5 | 1333023493.2 |           | 
+    8880 | HANGUP       | 2012-03-29 08:18:31.823143 |             | 5555555555 | 5555555555 | 5555555555 |           | 444      | s               | hangup      | SIP/pcm_dev-00000002              |          |                                   |        3 |             |             | 1333023493.2 | 1333023493.2 |           | 
+    8881 | CHAN_END     | 2012-03-29 08:18:31.823175 |             | 5555555555 | 5555555555 | 5555555555 |           | 444      | s               | hangup      | SIP/pcm_dev-00000002              |          |                                   |        3 |             |             | 1333023493.2 | 1333023493.2 |           | 
+   (23 rows)
+
+Call To the Operator
+--------------------
+
+#. External user *calls* 447
+#. The call is routed to the operator (Tux 1000/Agent 9999)
+#. The operator *hangs up* after a few seconds
+
+::
+
+     id  |  eventtype   |         eventtime          | userdeftype |  cid_name  |  cid_num   |  cid_ani   | cid_rdnis | cid_dnid |      exten      |   context   |             channame              | appname  |       appdata        | amaflags | accountcode | peeraccount |   uniqueid    |   linkedid    | userfield | peer 
+   ------+--------------+----------------------------+-------------+------------+------------+------------+-----------+----------+-----------------+-------------+-----------------------------------+----------+----------------------+----------+-------------+-------------+---------------+---------------+-----------+------
+    8943 | CHAN_START   | 2012-03-29 08:47:54.875967 |             | 5555555555 | 5555555555 |            |           |          | 447             | from-extern | SIP/pcm_dev-0000000a              |          |                      |        3 |             |             | 1333025274.19 | 1333025274.19 |           | 
+    8944 | ANSWER       | 2012-03-29 08:47:54.952265 |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | pickup          | xivo-pickup | SIP/pcm_dev-0000000a              | Answer   |                      |        3 |             |             | 1333025274.19 | 1333025274.19 |           | 
+    8945 | APP_START    | 2012-03-29 08:47:56.050332 |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | queue       | SIP/pcm_dev-0000000a              | Queue    | operator,tT,,,,,,,,, |        3 |             |             | 1333025274.19 | 1333025274.19 |           | 
+    8946 | CHAN_START   | 2012-03-29 08:47:56.05637  |             |            |            |            |           |          | 1000            | default     | Local/1000@default-8c56;1         |          |                      |        3 |             |             | 1333025276.20 | 1333025274.19 |           | 
+    8947 | CHAN_START   | 2012-03-29 08:47:56.056423 |             |            |            |            |           |          | 1000            | default     | Local/1000@default-8c56;2         |          |                      |        3 |             |             | 1333025276.21 | 1333025274.19 |           | 
+    8948 | CHAN_START   | 2012-03-29 08:47:56.056462 |             |            |            |            |           |          | 1000            | default     | Agent/9999                        |          |                      |        3 |             |             | 1333025276.22 | 1333025274.19 |           | 
+    8949 | APP_START    | 2012-03-29 08:47:56.10545  |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1000@default-8c56;2         | Dial     | SIP/k6ztm5,30,       |        3 |             |             | 1333025276.21 | 1333025274.19 |           | 
+    8950 | CHAN_START   | 2012-03-29 08:47:56.105603 |             | Tux        | 1000       |            |           |          | s               | default     | SIP/k6ztm5-0000000b               |          |                      |        3 |             |             | 1333025276.23 | 1333025274.19 |           | 
+    8951 | ANSWER       | 2012-03-29 08:47:59.401063 |             | Tux        | 1000       | 1000       |           |          | dial_from_queue | default     | SIP/k6ztm5-0000000b               | AppDial  | (Outgoing Line)      |        3 |             |             | 1333025276.23 | 1333025274.19 |           | 
+    8952 | ANSWER       | 2012-03-29 08:47:59.401188 |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1000@default-8c56;2         | Dial     | SIP/k6ztm5,30,       |        3 |             |             | 1333025276.21 | 1333025274.19 |           | 
+    8953 | BRIDGE_START | 2012-03-29 08:47:59.401228 |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1000@default-8c56;2         | Dial     | SIP/k6ztm5,30,       |        3 |             |             | 1333025276.21 | 1333025274.19 |           | 
+    8954 | ANSWER       | 2012-03-29 08:47:59.40153  |             | Tux        | 1000       |            |           |          | 1000            | default     | Local/1000@default-8c56;1         |          |                      |        3 |             |             | 1333025276.20 | 1333025274.19 |           | 
+    8955 | ANSWER       | 2012-03-29 08:47:59.401556 |             |            | 447        |            |           |          | s               | default     | Agent/9999                        | AppQueue | (Outgoing Line)      |        3 |             |             | 1333025276.22 | 1333025274.19 |           | 
+    8956 | BRIDGE_START | 2012-03-29 08:47:59.417761 |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | queue       | SIP/pcm_dev-0000000a              | Queue    | operator,tT,,,,,,,,, |        3 |             |             | 1333025274.19 | 1333025274.19 |           | 
+    8957 | HANGUP       | 2012-03-29 08:47:59.535268 |             | Tux        | 1000       | 1000       |           |          |                 | user        | Local/1000@default-8c56;1<ZOMBIE> | AppDial  | (Outgoing Line)      |        3 |             |             | 1333025276.23 | 1333025274.19 |           | 
+    8958 | CHAN_END     | 2012-03-29 08:47:59.535306 |             | Tux        | 1000       | 1000       |           |          |                 | user        | Local/1000@default-8c56;1<ZOMBIE> | AppDial  | (Outgoing Line)      |        3 |             |             | 1333025276.23 | 1333025274.19 |           | 
+    8959 | HANGUP       | 2012-03-29 08:47:59.535397 |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1000@default-8c56;2         |          |                      |        3 |             |             | 1333025276.21 | 1333025274.19 |           | 
+    8960 | CHAN_END     | 2012-03-29 08:47:59.535425 |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1000@default-8c56;2         |          |                      |        3 |             |             | 1333025276.21 | 1333025274.19 |           | 
+    8961 | HANGUP       | 2012-03-29 08:48:03.879393 |             | Tux        | 1000       |            |           |          | 1000            | default     | SIP/k6ztm5-0000000b               |          |                      |        3 |             |             | 1333025276.20 | 1333025274.19 |           | 
+    8962 | CHAN_END     | 2012-03-29 08:48:03.87946  |             | Tux        | 1000       |            |           |          | 1000            | default     | SIP/k6ztm5-0000000b               |          |                      |        3 |             |             | 1333025276.20 | 1333025274.19 |           | 
+    8963 | BRIDGE_END   | 2012-03-29 08:48:03.87952  |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | queue       | SIP/pcm_dev-0000000a              | Queue    | operator,tT,,,,,,,,, |        3 |             |             | 1333025274.19 | 1333025274.19 |           | 
+    8964 | HANGUP       | 2012-03-29 08:48:03.882675 |             |            | 447        |            |           |          | s               | default     | Agent/9999                        | AppQueue | (Outgoing Line)      |        3 |             |             | 1333025276.22 | 1333025274.19 |           | 
+    8965 | CHAN_END     | 2012-03-29 08:48:03.882709 |             |            | 447        |            |           |          | s               | default     | Agent/9999                        | AppQueue | (Outgoing Line)      |        3 |             |             | 1333025276.22 | 1333025274.19 |           | 
+    8966 | HANGUP       | 2012-03-29 08:48:03.882873 |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | queue       | SIP/pcm_dev-0000000a              |          |                      |        3 |             |             | 1333025274.19 | 1333025274.19 |           | 
+    8967 | CHAN_END     | 2012-03-29 08:48:03.883324 |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | queue       | SIP/pcm_dev-0000000a              |          |                      |        3 |             |             | 1333025274.19 | 1333025274.19 |           | 
+   (25 rows)
+
+#. External user *calls* 447
+#. The call is routed to the operator (Tux 1000/Agent 9999)
+#. The operator *transfers* the call to 1001
+
+::
+
+     id  |  eventtype   |         eventtime          | userdeftype |  cid_name  |  cid_num   |  cid_ani   | cid_rdnis | cid_dnid |      exten      |   context   |             channame              | appname  |       appdata        | amaflags | accountcode | peeraccount |   uniqueid    |   linkedid    | userfield | peer 
+   ------+--------------+----------------------------+-------------+------------+------------+------------+-----------+----------+-----------------+-------------+-----------------------------------+----------+----------------------+----------+-------------+-------------+---------------+---------------+-----------+------
+    8911 | CHAN_START   | 2012-03-29 08:41:14.215721 |             | 5555555555 | 5555555555 |            |           |          | 447             | from-extern | SIP/pcm_dev-00000007              |          |                      |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
+    8912 | ANSWER       | 2012-03-29 08:41:14.301682 |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | pickup          | xivo-pickup | SIP/pcm_dev-00000007              | Answer   |                      |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
+    8913 | APP_START    | 2012-03-29 08:41:15.37998  |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | queue       | SIP/pcm_dev-00000007              | Queue    | operator,tT,,,,,,,,, |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
+    8914 | CHAN_START   | 2012-03-29 08:41:15.386099 |             |            |            |            |           |          | 1000            | default     | Local/1000@default-7729;1         |          |                      |        3 |             |             | 1333024875.14 | 1333024874.13 |           | 
+    8915 | CHAN_START   | 2012-03-29 08:41:15.38615  |             |            |            |            |           |          | 1000            | default     | Local/1000@default-7729;2         |          |                      |        3 |             |             | 1333024875.15 | 1333024874.13 |           | 
+    8916 | CHAN_START   | 2012-03-29 08:41:15.386214 |             |            |            |            |           |          | 1000            | default     | Agent/9999                        |          |                      |        3 |             |             | 1333024875.16 | 1333024874.13 |           | 
+    8917 | APP_START    | 2012-03-29 08:41:15.449043 |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1000@default-7729;2         | Dial     | SIP/k6ztm5,30,       |        3 |             |             | 1333024875.15 | 1333024874.13 |           | 
+    8918 | CHAN_START   | 2012-03-29 08:41:15.449351 |             | Tux        | 1000       |            |           |          | s               | default     | SIP/k6ztm5-00000008               |          |                      |        3 |             |             | 1333024875.17 | 1333024874.13 |           | 
+    8919 | ANSWER       | 2012-03-29 08:41:17.624003 |             | Tux        | 1000       | 1000       |           |          | dial_from_queue | default     | SIP/k6ztm5-00000008               | AppDial  | (Outgoing Line)      |        3 |             |             | 1333024875.17 | 1333024874.13 |           | 
+    8920 | ANSWER       | 2012-03-29 08:41:17.624122 |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1000@default-7729;2         | Dial     | SIP/k6ztm5,30,       |        3 |             |             | 1333024875.15 | 1333024874.13 |           | 
+    8921 | BRIDGE_START | 2012-03-29 08:41:17.624159 |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1000@default-7729;2         | Dial     | SIP/k6ztm5,30,       |        3 |             |             | 1333024875.15 | 1333024874.13 |           | 
+    8922 | ANSWER       | 2012-03-29 08:41:17.624454 |             | Tux        | 1000       |            |           |          | 1000            | default     | Local/1000@default-7729;1         |          |                      |        3 |             |             | 1333024875.14 | 1333024874.13 |           | 
+    8923 | ANSWER       | 2012-03-29 08:41:17.62448  |             |            | 447        |            |           |          | s               | default     | Agent/9999                        | AppQueue | (Outgoing Line)      |        3 |             |             | 1333024875.16 | 1333024874.13 |           | 
+    8924 | BRIDGE_START | 2012-03-29 08:41:17.632978 |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | queue       | SIP/pcm_dev-00000007              | Queue    | operator,tT,,,,,,,,, |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
+    8925 | HANGUP       | 2012-03-29 08:41:17.767612 |             | Tux        | 1000       | 1000       |           |          |                 | user        | Local/1000@default-7729;1<ZOMBIE> | AppDial  | (Outgoing Line)      |        3 |             |             | 1333024875.17 | 1333024874.13 |           | 
+    8926 | CHAN_END     | 2012-03-29 08:41:17.767645 |             | Tux        | 1000       | 1000       |           |          |                 | user        | Local/1000@default-7729;1<ZOMBIE> | AppDial  | (Outgoing Line)      |        3 |             |             | 1333024875.17 | 1333024874.13 |           | 
+    8927 | HANGUP       | 2012-03-29 08:41:17.767733 |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1000@default-7729;2         |          |                      |        3 |             |             | 1333024875.15 | 1333024874.13 |           | 
+    8928 | CHAN_END     | 2012-03-29 08:41:17.76776  |             | 5555555555 | 5555555555 | 5555555555 |           |          | dial_from_queue | user        | Local/1000@default-7729;2         |          |                      |        3 |             |             | 1333024875.15 | 1333024874.13 |           | 
+    8929 | BRIDGE_END   | 2012-03-29 08:41:22.12071  |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | 1001            | default     | SIP/pcm_dev-00000007              | Queue    | operator,tT,,,,,,,,, |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
+    8930 | HANGUP       | 2012-03-29 08:41:22.125079 |             |            | 447        |            |           |          | s               | default     | Agent/9999                        | AppQueue | (Outgoing Line)      |        3 |             |             | 1333024875.16 | 1333024874.13 |           | 
+    8931 | HANGUP       | 2012-03-29 08:41:22.125103 |             | Tux        | 1000       |            |           |          | 1000            | default     | SIP/k6ztm5-00000008               |          |                      |        3 |             |             | 1333024875.14 | 1333024874.13 |           | 
+    8932 | CHAN_END     | 2012-03-29 08:41:22.125151 |             | Tux        | 1000       |            |           |          | 1000            | default     | SIP/k6ztm5-00000008               |          |                      |        3 |             |             | 1333024875.14 | 1333024874.13 |           | 
+    8933 | CHAN_END     | 2012-03-29 08:41:22.125209 |             |            | 447        |            |           |          | s               | default     | Agent/9999                        | AppQueue | (Outgoing Line)      |        3 |             |             | 1333024875.16 | 1333024874.13 |           | 
+    8934 | APP_START    | 2012-03-29 08:41:22.194926 |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | user        | SIP/pcm_dev-00000007              | Dial     | SIP/ge8xbi,30,       |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
+    8935 | CHAN_START   | 2012-03-29 08:41:22.195135 |             | Père Noël  | 1001       |            |           |          | s               | default     | SIP/ge8xbi-00000009               |          |                      |        3 |             |             | 1333024882.18 | 1333024874.13 |           | 
+    8936 | ANSWER       | 2012-03-29 08:41:25.236852 |             | Père Noël  | 1001       | 1001       |           |          | s               | default     | SIP/ge8xbi-00000009               | AppDial  | (Outgoing Line)      |        3 |             |             | 1333024882.18 | 1333024874.13 |           | 
+    8937 | BRIDGE_START | 2012-03-29 08:41:25.237116 |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | user        | SIP/pcm_dev-00000007              | Dial     | SIP/ge8xbi,30,       |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
+    8938 | BRIDGE_END   | 2012-03-29 08:41:25.829818 |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | user        | SIP/pcm_dev-00000007              | Dial     | SIP/ge8xbi,30,       |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
+    8939 | HANGUP       | 2012-03-29 08:41:25.830079 |             | Père Noël  | 1001       | 1001       |           |          |                 | user        | SIP/ge8xbi-00000009               | AppDial  | (Outgoing Line)      |        3 |             |             | 1333024882.18 | 1333024874.13 |           | 
+    8940 | CHAN_END     | 2012-03-29 08:41:25.830118 |             | Père Noël  | 1001       | 1001       |           |          |                 | user        | SIP/ge8xbi-00000009               | AppDial  | (Outgoing Line)      |        3 |             |             | 1333024882.18 | 1333024874.13 |           | 
+    8941 | HANGUP       | 2012-03-29 08:41:25.830213 |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | user        | SIP/pcm_dev-00000007              |          |                      |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
+    8942 | CHAN_END     | 2012-03-29 08:41:25.83061  |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | user        | SIP/pcm_dev-00000007              |          |                      |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
+   (32 rows)
