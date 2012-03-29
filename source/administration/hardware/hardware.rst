@@ -41,15 +41,94 @@ Generate DAHDI configuration
 Configure
 ---------
 
-Modify the ''/etc/asterisk/dahdi-channels.conf'' file :
+* Modify the `/etc/dahdi/system.conf`_ :
 
-* by removing the lines like::
+ * Check the span numbering,
+ * If needed change the clock source,
+ * Usually (at least in France) you should remove the ''crc4'',
 
-   context = default
-   group = 63
+ Following is an example `/etc/dahdi/system.conf`_ file for a B410P 4 ports for France network 
+ (check the comments and see the `Notes on DAHDI configuration`_ !)::
 
-* Change the context lines if needed,
-* The ''signaling'' should be one of ''{bri_net,bri_cpe,bri_net_ptmp,bri_cpe_ptmp}''.
+    # Span 1: B4/0/1 "B4XXP (PCI) Card 0 Span 1" (MASTER) RED 
+    # span=1 (this is the first span), 
+    #      1 (this is the primary clock source)
+    #      0 (-)
+    #      ccs (use ccs framing)
+    #      ami (use ami coding )
+    span=1,1,0,ccs,ami 
+    # termtype: te
+    bchan=1-2
+    hardhdlc=3
+    echocanceller=mg2,1-2
+    
+    # Span 2: B4/0/2 "B4XXP (PCI) Card 0 Span 2" RED 
+    span=2,2,0,ccs,ami
+    # termtype: te
+    bchan=4-5
+    hardhdlc=6
+    echocanceller=mg2,4-5
+
+    # Span 3: B4/0/3 "B4XXP (PCI) Card 0 Span 3" RED 
+    span=3,3,0,ccs,ami
+    # termtype: te
+    bchan=7-8
+    hardhdlc=9
+    echocanceller=mg2,7-8
+
+    # Span 4: B4/0/4 "B4XXP (PCI) Card 0 Span 4" RED 
+    # span=4 (this is the fourth span), 
+    #      0 (won't use this span as a sync source)
+    #      0 (-)
+    #      ccs (use ccs framing)
+    #      ami (use ami coding )
+    span=4,0,0,ccs,ami
+    # termtype: nt
+    bchan=10-11
+    hardhdlc=12
+    echocanceller=mg2,10-11
+
+
+* Modify the ''/etc/asterisk/dahdi-channels.conf'' file :
+
+ * by removing the unused lines like::
+ 
+     context = default
+     group = 63
+  
+ * Change the context lines if needed,
+ * The ''signaling'' should be one of ''{bri_net,bri_cpe,bri_net_ptmp,bri_cpe_ptmp}''.
+
+ Following is an example ''/etc/asterisk/dahdi-channels.conf'' file for a B410P 4 ports for France network
+ (check the comments !)::
+
+    ; Span 1: B4/0/1 "B4XXP (PCI) Card 0 Span 1" (MASTER) RED
+    group=0,11              ; belongs to group 0 and 11
+    context=from-extern     ; incoming call to this span will be sent in 'from-extern' context
+    switchtype = euroisdn
+    signalling = bri_cpe    ; use 'bri_cpe' signaling
+    channel => 1-2          ; the above configuration applies to channels 1 and 2
+    
+    ; Span 2: B4/0/2 "B4XXP (PCI) Card 0 Span 2" RED
+    group=0,12
+    context=from-extern
+    switchtype = euroisdn
+    signalling = bri_cpe
+    channel => 4-5
+    
+    ; Span 3: B4/0/3 "B4XXP (PCI) Card 0 Span 3" RED
+    group=0,13
+    context=from-extern
+    switchtype = euroisdn
+    signalling = bri_cpe
+    channel => 7-8
+    
+    ; Span 4: B4/0/4 "B4XXP (PCI) Card 0 Span 4" RED
+    group=1,14              ; belongs to groups 1 and 14
+    context=default         ; incoming call to this span will be sent in 'defaul' context
+    switchtype = euroisdn
+    signalling = bri_net    ; use 'bri_net' signaling
+    channel => 10-11        ; the above configuration applies to channels 10 and 11
 
 
 PRI card configuration
@@ -74,7 +153,7 @@ Generate DAHDI configuration
 
 Configure
 ---------
-* Modify the ''/etc/dahdi/system.conf'' :
+* Modify the `/etc/dahdi/system.conf`_ :
 
  * Check the span numbering,
  * If needed change the clock source,
@@ -183,9 +262,9 @@ Create file '''/etc/modprobe.d/xivo-tdm''' :
  
 Where <module> is the DAHDI module name of your card (e.g. wctdm for a TDM400P).
 
-1. Modify the ''/etc/dahdi/system.conf'' :
-2. Check the span numbering,
-3. Modify the ''/etc/asterisk/dahdi-channels.conf'' file :
+#. Modify the `/etc/dahdi/system.conf`_ :
+#. Check the span numbering,
+#. Modify the ''/etc/asterisk/dahdi-channels.conf'' file :
 
   * by removing the unused lines like::
   
@@ -273,4 +352,41 @@ restart asterisk::
 
    *CLI> transcoder show
    0/0 encoders/decoders of 120 channels are in use.
+
+
+Notes on DAHDI configuration
+============================
+
+/etc/dahdi/system.conf
+----------------------
+
+A ''span'' is created for each card port. Below is an example of a standard E1 port::
+
+   span=1,1,0,ccs,hdb3
+   dchan=16
+   bchan=1-15,17-31
+   echocanceller=mg2,1-15,17-31
+
+Each span has to be declared with the following information::
+   span=<spannum>,<timing>,<LBO>,<framing>,<coding>[,crc4]
+
+* ''spannum'' : corresponds to the span number. It starts to 1 and has to be incremented by 1 at each new span.
+  This number MUST be unique.
+* ''timing'' : describes the how this span will be considered regarding the synchronisation :
+ * 0 : do not use this span as a synchronisation source,
+ * 1 : use this span as the primary synchronisation source,
+ * 2 : use this span as the secondary synchronisation source etc.
+* ''LBO'' : 0 (not used)
+* ''framing'' : correct values are ''ccs'' or ''cas''.
+  For ISDN lines, ''ccs'' is used.
+* ''coding'' : correct valus are ''hdb3'' or ''ami''.
+  For example, ''hdb3'' is used for an E1 (PRI) link, whereas ''ami'' is used for T0 (french BRI) link.
+* ''crc4'' : this is a framing option for PRI lines.
+  For example it is rarely use in France.
+
+Note that the ''dahdi_genconf'' command should usually give you the correct parameters (if you correctly set the cards 
+jumper). All these information should be checked with your operator.
+
+
+
 
