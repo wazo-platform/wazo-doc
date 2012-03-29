@@ -21,6 +21,31 @@ The following configuration will be used for the following examples.
 * External User with number `555-555-5555`
 * External calls to DID `445` are sent to `1000`
 * External calls to DID `446` are sent to `1001`
+* Our DID number is `555-555-6666`
+
+Outgoing Call
+-------------
+
+#. 1000 *calls* 555-555-5555
+#. 555-555-5555 *answers*
+#. 555-555-5555 *hangs-up* after a few seconds
+
+::
+
+     id   |  eventtype   |         eventtime          | userdeftype |    cid_name    |  cid_num   | cid_ani | cid_rdnis |  cid_dnid  |   exten    | context |                 channame                 | appname |                      appdata                      | amaflags | accountcode | peeraccount |    uniqueid    |    linkedid    | userfield | peer 
+   -------+--------------+----------------------------+-------------+----------------+------------+---------+-----------+------------+------------+---------+------------------------------------------+---------+---------------------------------------------------+----------+-------------+-------------+----------------+----------------+-----------+------
+    54048 | CHAN_START   | 2012-03-29 09:50:00.295885 |             | Tux            | 1000       |         |           |            | 5555555555 | default | SIP/zzc0ok-00000217                      |         |                                                   |        3 |             |             | 1333029000.739 | 1333029000.739 |           | 
+    54049 | APP_START    | 2012-03-29 09:50:00.322427 |             | 5555556666     | 5555556666 | 1000    |           | 5555555555 | dial       | outcall | SIP/zzc0ok-00000217                      | Dial    | IAX2/outgoing-trunk/95555555555,,                 |        3 |             |             | 1333029000.739 | 1333029000.739 |           | 
+    54050 | CHAN_START   | 2012-03-29 09:50:00.322539 |             |                |            |         |           |            | s          | default | IAX2/outgoing-trunk-4451                 |         |                                                   |        3 |             |             | 1333029000.740 | 1333029000.739 |           | 
+    54051 | ANSWER       | 2012-03-29 09:50:06.680481 |             |                | dial       |         |           |            | dial       | default | IAX2/outgoing-trunk-4451                 | AppDial | (Outgoing Line)                                   |        3 |             |             | 1333029000.740 | 1333029000.739 |           | 
+    54052 | ANSWER       | 2012-03-29 09:50:06.680634 |             | 5555556666     | 5555556666 | 1000    |           | 5555555555 | dial       | outcall | SIP/zzc0ok-00000217                      | Dial    | IAX2/outgoing-trunk/95555555555,,                 |        3 |             |             | 1333029000.739 | 1333029000.739 |           | 
+    54053 | BRIDGE_START | 2012-03-29 09:50:06.680678 |             | 5555556666     | 5555556666 | 1000    |           | 5555555555 | dial       | outcall | SIP/zzc0ok-00000217                      | Dial    | IAX2/outgoing-trunk/95555555555,,                 |        3 |             |             | 1333029000.739 | 1333029000.739 |           | 
+    54054 | BRIDGE_END   | 2012-03-29 09:50:13.90645  |             | 5555556666     | 5555556666 | 1000    |           | 5555555555 | dial       | outcall | SIP/zzc0ok-00000217                      | Dial    | IAX2/outgoing-trunk/95555555555,,                 |        3 |             |             | 1333029000.739 | 1333029000.739 |           | 
+    54055 | HANGUP       | 2012-03-29 09:50:13.906764 |             |                | dial       |         |           |            |            | outcall | IAX2/outgoing-trunk-4451                 | AppDial | (Outgoing Line)                                   |        3 |             |             | 1333029000.740 | 1333029000.739 |           | 
+    54056 | CHAN_END     | 2012-03-29 09:50:13.906803 |             |                | dial       |         |           |            |            | outcall | IAX2/outgoing-trunk-4451                 | AppDial | (Outgoing Line)                                   |        3 |             |             | 1333029000.740 | 1333029000.739 |           | 
+    54057 | HANGUP       | 2012-03-29 09:50:13.906855 |             | 5555556666     | 5555556666 | 1000    |           | 5555555555 | dial       | outcall | SIP/zzc0ok-00000217                      |         |                                                   |        3 |             |             | 1333029000.739 | 1333029000.739 |           | 
+    54058 | CHAN_END     | 2012-03-29 09:50:13.907034 |             | 5555556666     | 5555556666 | 1000    |           | 5555555555 | dial       | outcall | SIP/zzc0ok-00000217                      |         |                                                   |        3 |             |             | 1333029000.739 | 1333029000.739 |           | 
+   (11 rows)
 
 Internal Call
 -------------
