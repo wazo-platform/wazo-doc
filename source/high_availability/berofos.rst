@@ -74,7 +74,7 @@ edit the :file:`/etc/bnfos.conf` file with the new IP address before continuing.
 
 You can then update your berofos firmware to version 1.53::
 
-   wget http://www.beronet.com/downloads/docs/berofos/bnfos_v153.bin
+   wget http://www.beronet.com/downloads/berofos/bnfos_v153.bin
    bnfos --flash bnfos_v153.bin -f fos1
 
 Once this is done, reboot your berofos, but this time in operational mode (i.e. in normal
