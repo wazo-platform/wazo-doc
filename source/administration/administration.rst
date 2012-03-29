@@ -15,6 +15,7 @@ Administration
    fax/fax
    Hardware <hardware/hardware>
    interconnections/interconnections
+   paging
    parking
    phonebook
    provisioning/provisioning
