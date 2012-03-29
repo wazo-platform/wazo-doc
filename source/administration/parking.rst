@@ -20,7 +20,7 @@ Using this extension, you may define the parking number used to park call, the p
 the parking lots to park the calls, enable parking hint if you want to be able to supervise the parking using phone keys and other
 system default parameters.
 
-It is also ususal to define supervised phone keys to be able to park and unpark calls as in the example below.
+It is also usual to define supervised phone keys to be able to park and unpark calls as in the example below.
 
 .. figure:: images/parking_phone_keys.png
    :scale: 90%
