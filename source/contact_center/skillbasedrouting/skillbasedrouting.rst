@@ -103,7 +103,7 @@ On this part, these variables can be used:
 :Example:
 
    | WT < 60, french = 100
-   | french < 80
+   | french > 50
 
    If the waiting time is less than 60 seconds, select an agent speaking good french (100), otherwise select an agent with low level
    of french
@@ -128,7 +128,9 @@ Then every ``$lang`` occurrence will be replaced by 'german'.
 
    Create Skill Rule Sets
 
-:Examples::
+:Examples:
+
+::
 
  [tech]
  rule => WT < 60, technic & ($os > 29 & $lang > 39 | $os > 39 & $lang > 19)
@@ -136,10 +138,10 @@ Then every ``$lang`` occurrence will be replaced by 'german'.
  rule => WT < 3600, technic & $os > 10 & $lang > 19
  rule => technic
 
- [client-crappy]
+ [client-standard]
  rule => technic = 0 & (sympathy > 20 | linux > 10 & windows > 10)
 
- [client-cool]
+ [client-request]
  rule => EWT < 120, technic = 0 & (sympathy > 60)
  rule => technic = 0
 
@@ -168,3 +170,41 @@ In the following example language selection is applied to incoming calls.
    :scale: 85%
 
    Apply Rule Set to Incoming Call
+   
+:Example:
+
+Configuration file for simple skill selection :
+
+::
+
+   [simple_skill_english]
+   exten=s,1,Set(XIVO_QUEUESKILLRULESET=english_rule_set)
+   same=   n,return
+
+   [simple_skill_french]
+   exten=s,1,Set(XIVO_QUEUESKILLRULESET=french_rule_set)
+   same=   n,return
+
+In this example you just need to create two simple skill rule sets, one named english_rule_set with a rule english > 90
+and the other named french_rule_set
+
+
+Monitoring
+==========
+
+You may monitor your waiting calls with skills using the asterisk CLI command :
+
+::
+
+ xivo-jylebleu*CLI> queue show services
+ services has 1 calls (max unlimited) in 'ringall' strategy (0s holdtime, 2s talktime), W:0, C:1, A:10, SL:0.0% within 0s
+   Members:
+      Agent/2000 (Not in use) (skills: agent-1) has taken no calls yet
+      Agent/2001 (Unavailable) (skills: agent-4) has taken no calls yet
+   Virtual queue english:
+   Virtual queue french:
+      1. SIP/jyl-dev-assur-00000017 (wait: 0:05, prio: 0)
+   Callers:
+
+
+
