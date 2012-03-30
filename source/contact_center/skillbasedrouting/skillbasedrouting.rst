@@ -5,20 +5,18 @@ Skill Based Routing
 Introduction
 ============
 
-*Skills-based routing (SBR), or Skills-based call routing, is a call-assignment strategy used in call centres to assign incoming calls
-to the most suitable agent, instead of simply choosing the next available agent.
-It is an enhancement to the Automatic Call Distributor (ACD) systems found in most call centres.
-The need for skills-based routing has arisen, as call centres have become larger and dealt with a wider variety of call types.*
+   *Skills-based routing (SBR), or Skills-based call routing, is a call-assignment strategy used in call centres to assign incoming calls
+   to the most suitable agent, instead of simply choosing the next available agent.
+   It is an enhancement to the Automatic Call Distributor (ACD) systems found in most call centres.
+   The need for skills-based routing has arisen, as call centres have become larger and dealt with a wider variety of call types.*
 
+   -- Wikipedia
 
-"Wikipedia"
-
-
-In this repect, skill-based routing is also based on call distribution to agents through waiting queues, but one or many skills can be
+In this respect, skill-based routing is also based on call distribution to agents through waiting queues, but one or many skills can be
 assigned to each agent, and call can be distributed to the most suitable agent.
 
 In skill-based routing, you will have to find a way to be able to tag the call for a specific skill need. This can be done for example
-by entering the call distribution using different incoming call numbers, using an IVR to let the caller do his own choice, or by requesting
+by entering the call distribution system using different incoming call numbers, using an IVR to let the caller do his own choice, or by requesting
 to the information system database the customer profile.
 
 .. figure:: images/sbr_introduction.png
@@ -39,7 +37,8 @@ Skills
 ======
 
 Skills are created using the menu :menuselection:`Services --> Call center --> Skills`. Each skill belongs to a category.
-First create the category, and in this category create different skills.
+First create the category, and in this category create different skills. Note that the skill names can't contain upper
+case letters.
 
 .. figure:: images/sbr_skills.png
 
@@ -60,13 +59,14 @@ Once skills are created, rule sets can be defined.
 Rules are the way to reach the right agent.
 Rules can be composed and dynamically modified
 
-A ruleset is a list of rules. rules are evaluated against each queue member (agent) in order to see if it matches.
+A ruleset is a list of rules. Rules are evaluated against each queue member (agent) in order to see if it matches.
 The call is distributed according to the matching rule.
 
 Each rule has two parts:
 
-- the first part is a dynamical condition. If its evaluation is false, the next rule is tried;
-- the second part is tested against queue member's skills, to define a selection.
+* the first part is a dynamical condition. If its evaluation is false, the next rule is tried;
+* the second part is tested against queue member's skills, to define a selection.
+
 
 Operators
 *********
@@ -87,6 +87,7 @@ Arithmetic and logical operators can be applied to rules :
  '/' is the operator with the higher priority, and '|' the one with the lower
  priority. You can use brackets '()' to overload operator priorities.
 
+
 Dynamical Part
 **************
 
@@ -95,36 +96,37 @@ the rules from the second part, and determine if this rule can be kept or if
 the selection is done with the next one.
 
 On this part, these variables can be used:
+
 * EWT (Estimated Waiting Time)      The waiting time estimated for the current selection of members
 * WT  (Waiting time)                The time that caller has been waited
 
 :Example:
 
-  WT < 60, french = 100
-  french < 80
+   | WT < 60, french = 100
+   | french < 80
 
-  If the waiting time is less than 60 seconds, select an agent speaking good french (100), otherwise select an agent with low level
-  of french
+   If the waiting time is less than 60 seconds, select an agent speaking good french (100), otherwise select an agent with low level
+   of french
+
 
 Skill Part
 **********
+
 This second part is evaluated against every queue member's skills, to know
 if it is selected or not.
 
 Variables are skills names, which you can check with operators above. You can
 also use meta-variables, started with a '$', to substitute them with data set
 on the Queue() call. For example, if you call Queue() with the skill rule set
-argument equal to:
+argument equal to::
 
-select_lang(lang=german)
-every $lang occurrence will be replaced to 'german'.
+   select_lang(lang=german)
 
-
+Then every ``$lang`` occurrence will be replaced by 'german'.
 
 .. figure:: images/sbr_rule_set.png
 
    Create Skill Rule Sets
-
 
 :Examples::
 
@@ -142,31 +144,27 @@ every $lang occurrence will be replaced to 'german'.
  rule => technic = 0
 
 
-Aplly Skill Rules
+Apply Skill Rules
 =================
 
 Once skills, skill rules are created, they can attached to the call using a bit of dialplan.
-This diaplan is stored in a configuration file you may edit using menu :menuselection:`Services --> IPBX --> Configuration Files`
+This dialplan is stored in a configuration file you may edit using menu :menuselection:`Services --> IPBX --> Configuration Files`.
 
 .. figure:: images/sbr_configuration_file.png
    :scale: 85%
 
    Use Rule Set In Dialplan
 
-
 In the figure above, 3 different languages are selected using three different subroutines.
 
-:Note:
- Do not forget to issue a dialplan reload in Asterisk CLI after configuration file modification.
+.. note::
 
- Each of this different selections of subroutines can be applied to the call qualifying object.
- In the following example language selection is applied to incoming calls.
+   Do not forget to issue a dialplan reload in Asterisk CLI after configuration file modification.
+
+Each of this different selections of subroutines can be applied to the call qualifying object.
+In the following example language selection is applied to incoming calls.
 
 .. figure:: images/sbr_apply_incoming_call.png
    :scale: 85%
 
    Apply Rule Set to Incoming Call
- 
-
-
-
