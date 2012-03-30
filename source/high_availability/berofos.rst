@@ -7,9 +7,9 @@ XiVO offers the possibility to integrate a `berofos failover switch`_ within a H
 .. _berofos failover switch: http://www.beronet.com/product/failover-switch/
 
 This is useful if you have one or more ISDN lines (i.e. T1/E1 or T2 lines) that you want to use
-whatever the state of your XiVO HA cluster. By using a berofos within your XiVO HA
-installation, you just need to properly configure both your berofos and your XiVOs
-and then the berofos will automatically switch your ISDN lines from your master node to
+whatever the state of your XiVO HA cluster. To use a berofos within your XiVO HA
+installation, you need to properly configure both your berofos and your XiVOs,
+then the berofos will automatically switch your ISDN lines from your master node to
 your slave node if your master goes down, and vice-versa when it comes back up.
 
 
@@ -56,7 +56,7 @@ At this stage, your :file:`/etc/bnfos.conf` file should contains something like 
 It is advised to configure your berofos with a static IP address. You first need to
 put your berofos into *flash* mode. You do this by pressing and holding the black button next
 to the power button while you power on your berofos. The red LEDs of port D should then blink.
-Then, you can issue the following command, by first remplacing the network configuration with
+Then, you can issue the following command, by first replacing the network configuration with
 your one::
 
    bnfos --netconf -f fos1 -i 10.34.1.20 -n 255.255.255.0 -g 10.34.1.1 -d 0
@@ -74,7 +74,7 @@ edit the :file:`/etc/bnfos.conf` file with the new IP address before continuing.
 
 You can then update your berofos firmware to version 1.53::
 
-   wget http://www.beronet.com/downloads/docs/berofos/bnfos_v153.bin
+   wget http://www.beronet.com/downloads/berofos/bnfos_v153.bin
    bnfos --flash bnfos_v153.bin -f fos1
 
 Once this is done, reboot your berofos, but this time in operational mode (i.e. in normal
