@@ -5,26 +5,25 @@ Skill Based Routing
 Introduction
 ============
 
-*Skills-based routing (SBR), or Skills-based call routing, is a call-assignment strategy used in call centres to assign incoming calls 
-to the most suitable agent, instead of simply choosing the next available agent. 
-It is an enhancement to the Automatic Call Distributor (ACD) systems found in most call centres. 
+*Skills-based routing (SBR), or Skills-based call routing, is a call-assignment strategy used in call centres to assign incoming calls
+to the most suitable agent, instead of simply choosing the next available agent.
+It is an enhancement to the Automatic Call Distributor (ACD) systems found in most call centres.
 The need for skills-based routing has arisen, as call centres have become larger and dealt with a wider variety of call types.*
 
 
 "Wikipedia"
 
 
-In this repect, skill-based routing is also based on call distribution to agents through waiting queues, but one or many skills can be 
+In this repect, skill-based routing is also based on call distribution to agents through waiting queues, but one or many skills can be
 assigned to each agent, and call can be distributed to the most suitable agent.
 
-In skill-based routing, you will have to find a way to be able to tag the call for a specific skill need. This can be done for example 
-by entering the call distribution using different incoming call numbers, using an IVR to let the caller do his own choice, or by requesting 
+In skill-based routing, you will have to find a way to be able to tag the call for a specific skill need. This can be done for example
+by entering the call distribution using different incoming call numbers, using an IVR to let the caller do his own choice, or by requesting
 to the information system database the customer profile.
 
 .. figure:: images/sbr_introduction.png
 
    Skill Based Routing
-
 
 
 Getting Started
@@ -39,7 +38,7 @@ Getting Started
 Skills
 ======
 
-Skills are created using the menu :menuselection:`Services --> Call center --> Skills`. Each skill belongs to a category. 
+Skills are created using the menu :menuselection:`Services --> Call center --> Skills`. Each skill belongs to a category.
 First create the category, and in this category create different skills.
 
 .. figure:: images/sbr_skills.png
@@ -56,13 +55,13 @@ Once all the skills are created you may apply them to the agents. Agents may hav
 Skill Rule Sets
 ===============
 
-Once skills are created, rule sets can be defined. 
+Once skills are created, rule sets can be defined.
 
-Rules are the way to reach the right agent. 
+Rules are the way to reach the right agent.
 Rules can be composed and dynamically modified
 
 A ruleset is a list of rules. rules are evaluated against each queue member (agent) in order to see if it matches.
-The call is distributed according to the matching rule. 
+The call is distributed according to the matching rule.
 
 Each rule has two parts:
 
@@ -92,7 +91,7 @@ Dynamical Part
 **************
 
 The first part is evaluated after a selection of queue members is created with
-the rules from the second part, and determine if this rule can be kept or if 
+the rules from the second part, and determine if this rule can be kept or if
 the selection is done with the next one.
 
 On this part, these variables can be used:
@@ -103,8 +102,8 @@ On this part, these variables can be used:
 
   WT < 60, french = 100
   french < 80
-  
-  If the waiting time is less than 60 seconds, select an agent speaking good french (100), otherwise select an agent with low level 
+
+  If the waiting time is less than 60 seconds, select an agent speaking good french (100), otherwise select an agent with low level
   of french
 
 Skill Part
@@ -146,7 +145,7 @@ every $lang occurrence will be replaced to 'german'.
 Aplly Skill Rules
 =================
 
-Once skills, skill rules are created, they can attached to the call using a bit of dialplan. 
+Once skills, skill rules are created, they can attached to the call using a bit of dialplan.
 This diaplan is stored in a configuration file you may edit using menu :menuselection:`Services --> IPBX --> Configuration Files`
 
 .. figure:: images/sbr_configuration_file.png
@@ -159,10 +158,10 @@ In the figure above, 3 different languages are selected using three different su
 
 :Note:
  Do not forget to issue a dialplan reload in Asterisk CLI after configuration file modification.
- 
- Each of this different selections of subroutines can be applied to the call qualifying object. 
+
+ Each of this different selections of subroutines can be applied to the call qualifying object.
  In the following example language selection is applied to incoming calls.
- 
+
 .. figure:: images/sbr_apply_incoming_call.png
    :scale: 85%
 
