@@ -12,10 +12,10 @@ Introduction
 
    -- Wikipedia
 
-In this respect, skill-based routing is also based on call distribution to agents through waiting queues, but one or many skills can be
+In this respect, skills-based routing is also based on call distribution to agents through waiting queues, but one or many skills can be
 assigned to each agent, and call can be distributed to the most suitable agent.
 
-In skill-based routing, you will have to find a way to be able to tag the call for a specific skill need. This can be done for example
+In skills-based routing, you will have to find a way to be able to tag the call for a specific skill need. This can be done for example
 by entering the call distribution system using different incoming call numbers, using an IVR to let the caller do his own choice, or by requesting
 to the information system database the customer profile.
 
@@ -75,7 +75,7 @@ Arithmetic and logical operators can be applied to rules :
 
 * operand1 / operand2  (division)
 * operand1 * operand2  (multiplication)
-* operand1 - operand2  (subtraction)
+* operand1 - operand2  (substraction)
 * operand1 + operand2  (addition)
 * operand1 ! operand2  (is not equal)
 * operand1 = operand2  (is equal)
@@ -98,7 +98,7 @@ the selection is done with the next one.
 On this part, these variables can be used:
 
 * EWT (Estimated Waiting Time)      The waiting time estimated for the current selection of members
-* WT  (Waiting time)                The time that caller has been waited
+* WT  (Waiting time)                The time that caller has been waiting
 
 :Example:
 
@@ -116,7 +116,7 @@ This second part is evaluated against every queue member's skills, to know
 if it is selected or not.
 
 Variables are skills names, which you can check with operators above. You can
-also use meta-variables, started with a '$', to substitute them with data set
+also use meta-variables, starting with a '$', to substitute them with data set
 on the Queue() call. For example, if you call Queue() with the skill rule set
 argument equal to::
 
