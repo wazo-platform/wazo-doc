@@ -1,6 +1,6 @@
-*******************
-Skill Based Routing
-*******************
+********************
+Skills-Based Routing
+********************
 
 Introduction
 ============
@@ -21,7 +21,7 @@ to the information system database the customer profile.
 
 .. figure:: images/sbr_introduction.png
 
-   Skill Based Routing
+   Skills-Based Routing
 
 
 Getting Started
@@ -60,7 +60,7 @@ Once skills are created, rule sets can be defined.
 Rules are the way to reach the right agent.
 Rules can be composed and dynamically modified
 
-A ruleset is a list of rules. Rules are evaluated against each queue member (agent) in order to see if it matches.
+A rule set is a list of rules. Rules are evaluated against each queue member (agent) in order to see if it matches.
 The call is distributed according to the matching rule.
 
 Each rule has two parts:
@@ -92,9 +92,17 @@ Arithmetic and logical operators can be applied to rules :
 Dynamical Part
 --------------
 
-The first part is evaluated after a selection of queue members is created with
-the rules from the second part, and determine if this rule can be kept or if
-the selection is done with the next one.
+The first part is evaluated after a selection of queue members is created with the rules from the second part.
+The result of this evaluation will determine if this rule can be kept or if the selection is to be done with
+the next rule.
+This can be understood as an ``if`` statement :
+
+::
+
+   if this condition is true then
+      select agents with skills (evaluate second part)
+   else
+      evaluate next rule
 
 On this part, these variables can be used:
 
