@@ -126,7 +126,7 @@ SPA8000  |y|         0          |y|
 SPA8800  |n|         0          |y|
 ======== =========== ========== =================
 
-Cisco 7900 series:
+Cisco 7900 series (*SCCP* mode only):
 
 ======== =========== ========== =================
 Model    Tested [1]_ Fkeys [2]_ Backup proxy [3]_
