@@ -33,6 +33,7 @@ Getting Started
 * Assign the skill rule sets using a configuration file
 * Apply the skill rule sets to call qualification, i.e. incoming calls by using the preprocess routine field.
 
+
 Skills
 ======
 
@@ -69,7 +70,7 @@ Each rule has two parts:
 
 
 Operators
-*********
+---------
 
 Arithmetic and logical operators can be applied to rules :
 
@@ -89,7 +90,7 @@ Arithmetic and logical operators can be applied to rules :
 
 
 Dynamical Part
-**************
+--------------
 
 The first part is evaluated after a selection of queue members is created with
 the rules from the second part, and determine if this rule can be kept or if
@@ -110,7 +111,7 @@ On this part, these variables can be used:
 
 
 Skill Part
-**********
+----------
 
 This second part is evaluated against every queue member's skills, to know
 if it is selected or not.
@@ -192,19 +193,14 @@ and the other named french_rule_set
 Monitoring
 ==========
 
-You may monitor your waiting calls with skills using the asterisk CLI command :
+You may monitor your waiting calls with skills using the asterisk CLI command::
 
-::
-
- xivo-jylebleu*CLI> queue show services
- services has 1 calls (max unlimited) in 'ringall' strategy (0s holdtime, 2s talktime), W:0, C:1, A:10, SL:0.0% within 0s
-   Members:
-      Agent/2000 (Not in use) (skills: agent-1) has taken no calls yet
-      Agent/2001 (Unavailable) (skills: agent-4) has taken no calls yet
-   Virtual queue english:
-   Virtual queue french:
-      1. SIP/jyl-dev-assur-00000017 (wait: 0:05, prio: 0)
-   Callers:
-
-
-
+   xivo-jylebleu*CLI> queue show services
+   services has 1 calls (max unlimited) in 'ringall' strategy (0s holdtime, 2s talktime), W:0, C:1, A:10, SL:0.0% within 0s
+     Members:
+        Agent/2000 (Not in use) (skills: agent-1) has taken no calls yet
+        Agent/2001 (Unavailable) (skills: agent-4) has taken no calls yet
+     Virtual queue english:
+     Virtual queue french:
+        1. SIP/jyl-dev-assur-00000017 (wait: 0:05, prio: 0)
+     Callers:
