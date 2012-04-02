@@ -12,6 +12,10 @@ XiVO can be installed on both virtual (QEMU/KVM, VirtualBox, ...) and physical m
 VoIP/Asterisk is sensible to timing issues, you might get better results by installing XiVO on real
 hardware.
 
+.. note::
+
+    Your system's language settings MUST be set to English
+
 
 Installing from the ISO image
 =============================
