@@ -129,53 +129,55 @@ if you update the device page, you'll see that the icon next to your device has 
    :scale: 85%
 
 
-Resetting a Phone Set
-=====================
+Resetting a Device
+==================
 
-From the Device List in the Webi.
----------------------------------
+From the Device List in the Webi
+--------------------------------
 
-To remove a phone set from XiVO or unable a device to be used for an other user there are two different 
+To remove a phone from XiVO or enable a device to be used for another user there are two different
 possibilities :
 
-* click on the ```restet to autoprov``` button on the web interface
+* click on the ``reset to autoprov`` button on the web interface
 
 .. figure:: img/reset_autoprov.png
 
-The phone set restarts and display autoprov, ready to be used for an other user.
+The phone will restarts and display autoprov, ready to be used for another user.
 
-From the User Form in the Webi.
--------------------------------
+
+From the User Form in the Webi
+------------------------------
 
 Device With one User Only Associated
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Edit the user associated to the terminal and put the device field to null.
+Edit the user associated to the device and put the device field to null.
 
-* click on the ```Save``` button on the web interface
+* click on the ``Save`` button on the web interface
 
-The phone doesn't restarts and the phone set autoprov mode in device list.
+The phone doesn't restart and the phone is in autoprov mode in the device list.
 
-You can synchronize the device for reboot it.
+You can synchronize the device to reboot it.
 
-Device With several Users Associated
+
+Device with Several Users Associated
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Edit the primary user associated to the terminal (one with the line 1) and put the field null device.
+Edit the primary user associated to the terminal (one with the line 1) and put the device field to null.
 
-* click on the ```Save``` button on the web interface
+* click on the ``Save`` button on the web interface
 
-The primary line of the phone has been removed, so the device will be loose this funckeys associated 
-to primary user but there others lines associated to the device will be always provisionned.
+The primary line of the phone has been removed, so the device will lose its funckeys associated
+to primary user but there others lines associated to the device will stay provisionned.
 
-The phone doesn't restarts and the phone set autoprov mode in device list.
+The phone doesn't restart and the phone is in autoprov mode in the device list.
 
 You can synchronize the device for reboot it.
 
 
 From a Device
 -------------
-   
-* Dial **\*guest** on the phone dialpad followed by **xivo** as a password
 
-The phone set restarts and display autoprov, ready to be used for an other user.
+* Dial **\*guest** (\*48378) on the phone dialpad followed by **xivo** (9486) as a password
+
+The phone restarts and display autoprov, ready to be used for another user.
