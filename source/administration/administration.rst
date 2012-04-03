@@ -10,6 +10,7 @@ Administration
    callright/callright
    cel/cel
    conference_room/conference_room
+   switchboard/switchboard
    ctiserver/ctiserver
    devices/devices
    fax/fax
