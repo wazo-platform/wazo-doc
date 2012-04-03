@@ -18,7 +18,8 @@ The section named AMI connection allows the administrator to configure the
 information required to connect to the Asterisk Manager Interface
 (AMI). These fields should match the entries in `/etc/asterisk/manager.conf`.
 
-.. image:: images/ami_connection.png
+.. figure:: images/ami_connection.png
+  :scale: 85%
 
 The section named ``Listening Ports`` allows the administrator to specify listening
 addresses and ports for the CTI server's interfaces.
@@ -31,7 +32,8 @@ addresses and ports for the CTI server's interfaces.
 * Info server a debugging console to do some introspection on the state of the CTI server
 * Announce is used to notify the CTI server when a dialplan reload is requested
 
-.. image:: images/listening_ports.png
+.. figure:: images/listening_ports.png
+  :scale: 85%
 
 The timeout section allow the administrator to configure multiple timeouts.
 
@@ -40,7 +42,8 @@ The timeout section allow the administrator to configure multiple timeouts.
 * Login timeout is the timeout before a CTI connection is dropped if the
   authentication is not completed.
 
-.. image:: images/cti_timeout.png
+.. figure:: images/cti_timeout.png
+  :scale: 85%
 
 Parting options are used to isolate XiVO users from each other. These options
 should be used when using the same XiVO for different enterprises.
@@ -49,7 +52,8 @@ Context separation is based on the user's line context. A user
 with no line is not the member of any context and will not be able to do
 anything with the CTI client.
 
-.. image:: images/parting_options.png
+.. figure:: images/parting_options.png
+  :scale: 85%
 
 
 Sheet Configuration
@@ -63,7 +67,8 @@ Event
    Type of the sheet for a specific event. For example if you want to define a sheet when you received a call from a queue, 
    you can create a model of your sheet in the action, and associate your event to this sheet.
 
-.. image:: images/sheets_configuration.png
+.. figure:: images/sheets_configuration.png
+  :scale: 85%
 
 General Option
 --------------
@@ -73,7 +78,38 @@ When you checkbox focus is checked, your xivo client focus when you received a s
 Contexts contain where the event sheet can be triggered. Profil is to authorize a specific profil in this model sheet.
 Anyway you can fill a description.
 
-.. image:: images/sheets_configuration_general.png
+.. figure:: images/sheets_configuration_general.png
+  :scale: 85%
+
+Presence Option
+---------------
+
+In the `Status` menu, under `Presences`, you can edit presences group. The default presence group is xivo. When editing
+a group, you will see a list of presences and there descriptions.
+
+.. figure:: images/presence_list.png
+  :scale: 85%
+
+Available configuration
+^^^^^^^^^^^^^^^^^^^^^^^
+
+* `Presence name` is the name of the presence
+* `Display name` is the human readable representation of this presence
+* `Color status` is the color associated to this presence
+* `Other reachable statuses` is the list of presence that can be switched from this presence state
+* `Actions` are post selection actions that are triggered by selecting this presence
+
+.. figure:: images/presence_configuration.png
+  :scale: 85%
+
+Actions
+^^^^^^^
+
+=========== ==================
+action      param
+=========== ==================
+`enablednd` `{'true','false'}`
+=========== ==================
 
 Sheets
 ------
@@ -83,11 +119,13 @@ You can configure the path to a file:// or  http://. The check box is for activa
 
 Here an example of a small form develop with qt-designer.
 
-.. image:: images/sheets_configuration_qtui.png
+.. figure:: images/sheets_configuration_qtui.png
+  :scale: 85%
 
 The qt-designer screenshot.
 
-.. image:: images/sheets_configuration_qtdesigner.png
+.. figure:: images/sheets_configuration_qtdesigner.png
+  :scale: 85%
 
 the generated file from qt-designer :
 
@@ -234,14 +272,16 @@ Other example :
  * ui form : (anything, "form", anything, "qtui")
  * user picture : (anything, "picture", anything, {xivo-callerpicture})
 
-.. image:: images/sheets_configuration_sheet.png
+.. figure:: images/sheets_configuration_sheet.png
+  :scale: 85%
 
 Systray
 -------
 
 Exactly the same syntax as the sheet. You can just use text.
 
-.. image:: images/sheets_configuration_systray.png
+.. figure:: images/sheets_configuration_systray.png
+  :scale: 85%
 
 
 Actions
@@ -262,12 +302,14 @@ The second and fourth field must be used. And the second is always urlauto. You 
 For `tcp://` and `udp://`, it is a requirement that the string between `/` and `?` is empty.
 An extension could be to define other serialization methods, if needed.
 
-.. image:: images/sheets_configuration_actions.png
+.. figure:: images/sheets_configuration_actions.png
+  :scale: 85%
 
 Event configuration
 ===================
 
-.. image:: images/events_configuration.png
+.. figure:: images/events_configuration.png
+  :scale: 85%
 
 
 Dialplan interaction
