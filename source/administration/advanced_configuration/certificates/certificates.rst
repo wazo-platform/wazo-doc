@@ -58,7 +58,7 @@ CA certificate:
 * :guilabel:`Name` : phones-CA
 * :guilabel:`Certification authority (checkbox)` : checked
 * :guilabel:`Autosigned` : checked
-* :guilabel:`Valid end date` : at least one day in the future
+* :guilabel:`Valid end date` : at least one month in the future
 * :guilabel:`Common name` : the :abbr:`FQDN (Fully Qualified Domain Name)` of your XiVO
 * :guilabel:`Organization` : your organization's name, or blank
 
@@ -66,7 +66,7 @@ Server certificate:
 
 * :guilabel:`Name` : phones
 * :guilabel:`Certification authority (select)` : phones-CA
-* :guilabel:`Valid end date` : at least one day in the future
+* :guilabel:`Valid end date` : at least one month in the future
 * :guilabel:`Common name` : the :abbr:`FQDN (Fully Qualified Domain Name)` of your XiVO
 * :guilabel:`Organization` : your organization's name, or blank
 
@@ -76,6 +76,6 @@ Creating certificate for CTI server
 
 * :guilabel:`Name` : xivo-ctid
 * :guilabel:`Autosigned` : checked
-* :guilabel:`Valid end date` : at least one day in the future
+* :guilabel:`Valid end date` : at least one month in the future
 * :guilabel:`Common name` : the :abbr:`FQDN (Fully Qualified Domain Name)` of your XiVO
 * :guilabel:`Organization` : your organization's name, or blank
