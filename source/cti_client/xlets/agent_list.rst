@@ -24,8 +24,7 @@ Some columns shows different statuses:
 
 * `Listen` shows if the agent is being listened
 * `On Line` shows if the agent is on a call
-* `Presence` shows the cti presence of an agent
-* `Logged` shows if the agent is logged (Agent loggin)
+* `Presence` show if the agent is logged
 
 Listening
 =========
