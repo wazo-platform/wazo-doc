@@ -25,7 +25,7 @@ Creating Schedules
 
    Creating a schedule
 
-A schedule is composed of a name, a tim ezone, one or more opening hours or days that you may setup using a calendar widget,
+A schedule is composed of a name, a timezone, one or more opening hours or days that you may setup using a calendar widget,
 a destination to be used when the schedule state is closed.
 
 .. figure:: schedule_calendar.png
