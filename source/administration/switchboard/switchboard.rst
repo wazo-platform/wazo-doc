@@ -106,6 +106,8 @@ The `Destination` fields contains our previously created agent. The `Label` fiel
 to the function key on the operator's phone. The `Supervision` is set to enable to light up the key when
 the operator is active.
 
+*Do not forget to synchronize the device*
+
 Set No Answer Destinations on the `Switchboard` Queue
 ------------------------------------------------------
 
