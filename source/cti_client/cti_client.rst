@@ -36,6 +36,7 @@ Xlets are features of the CTI Client. It is the contraction of XiVO applets.
    :maxdepth: 1
 
    Agent details xlet <xlets/agent_details>
+   Agent list xlet <xlets/agent_list>
    Contact xlet <xlets/contact>
    Local directory xlet <xlets/localdir>
    Service xlet <xlets/service>
