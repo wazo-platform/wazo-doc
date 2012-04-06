@@ -7,17 +7,19 @@ Administration
 
    advanced_configuration/advanced_configuration
    boss_secretary_filter
-   Call permissions <callright/callright>
+   callright/callright
    cel/cel
    conference_room/conference_room
-   CTI server <ctiserver/ctiserver>
-   Devices <devices/devices>
+   switchboard/switchboard
+   ctiserver/ctiserver
+   devices/devices
    fax/fax
    Hardware <hardware/hardware>
    interconnections/interconnections
+   paging
    parking
    phonebook
    provisioning/provisioning
    sccp/sccp
-   Schedules <schedules/schedules>
-   Users <users/users>
+   schedules/schedules
+   users/users

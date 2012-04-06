@@ -4,7 +4,7 @@ Basic Configuration
 
 .. _dhcpd-config:
 
-Configuring the DHCP server
+Configuring the DHCP Server
 ===========================
 
 XiVO includes a DHCP server that facilitate the auto-provisioning of telephony devices.
@@ -50,7 +50,7 @@ for them to be applied.
 
 .. _provd-plugins-mgmt:
 
-Installing ``provd`` plugins
+Installing ``provd`` Plugins
 ============================
 
 The installation and management of ``provd`` plugins is done via the
@@ -100,7 +100,7 @@ on the vendor website.
 It's good practice to only install the plugins you need and no more.
 
 
-Autoprovisioning a device
+Autoprovisioning a Device
 =========================
 
 Once you have installed the proper provd plugins for your devices and setup correctly your
@@ -127,16 +127,57 @@ if you update the device page, you'll see that the icon next to your device has 
 
 .. figure:: img/Autoprov_cfg_aastra_6731i.png
    :scale: 85%
-   
-Resetting A Phone Set
-=====================
 
-To remove a phone set from XiVO or unable a device to be used for an other user there are two different possibilities :
 
-* click on the ```restet to autoprov``` button on the web interface
+Resetting a Device
+==================
+
+From the Device List in the Webi
+--------------------------------
+
+To remove a phone from XiVO or enable a device to be used for another user there are two different
+possibilities :
+
+* click on the ``reset to autoprov`` button on the web interface
 
 .. figure:: img/reset_autoprov.png
-   
-* Dial **\*guest** on the phone dialpad followed by **xivo** as a password
 
-In both cases the phone set restarts and display autoprov, ready to be used for an other user.
+The phone will restarts and display autoprov, ready to be used for another user.
+
+
+From the User Form in the Webi
+------------------------------
+
+Device With one User Only Associated
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Edit the user associated to the device and put the device field to null.
+
+* click on the ``Save`` button on the web interface
+
+The phone doesn't restart and the phone is in autoprov mode in the device list.
+
+You can synchronize the device to reboot it.
+
+
+Device with Several Users Associated
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Edit the primary user associated to the terminal (one with the line 1) and put the device field to null.
+
+* click on the ``Save`` button on the web interface
+
+The primary line of the phone has been removed, so the device will lose its funckeys associated
+to primary user but there others lines associated to the device will stay provisionned.
+
+The phone doesn't restart and the phone is in autoprov mode in the device list.
+
+You can synchronize the device for reboot it.
+
+
+From a Device
+-------------
+
+* Dial **\*guest** (\*48378) on the phone dialpad followed by **xivo** (9486) as a password
+
+The phone restarts and display autoprov, ready to be used for another user.

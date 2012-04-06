@@ -2,10 +2,7 @@
 Running the Wizard
 ******************
 
-After the first installation, you have to go through the wizard steps to initialize XiVO configuration.
-Basically it helps you to initialize your XiVO configuration.
-
-It will create the file :file:`/etc/pf-xivo/web-interface/xivo.ini`.
+After the system installation, you must go through the wizard before being able to use your XiVO.
 
 
 .. index:: wizard
@@ -45,16 +42,16 @@ Configuration
 
 .. figure:: images/wizard_step4_configuration.png
    :scale: 75%
-   :alt: Base configuration
+   :alt: Basic configuration
 
-   Base configuration
+   Basic configuration
 
-#. Configure the hostname of your XiVO [1]_,
+#. Enter the hostname [1]_,
 #. Enter the domain name [2]_,
-#. Choose the ``root`` user password of the administration Web Interface,
+#. Enter the password for the ``root`` user of the web interface,
 #. Configure the IP address and gateway used by your XiVO (by default it pre-fills the fields with the current IP and gateway of the network interface on which you are connected to complete the wizard steps).
 
-   .. warning:: The IP chosen will actually be configured on the system when the step will be validated.
+   .. note:: The network configuration will be applied at the end of the wizard
 
 #. Finally verify and modify if needed the DNS servers information.
 
@@ -68,10 +65,10 @@ Entities and Contexts
 
    Entities and Contexts
 
-#. Choose the entity printed name (e.g. *Avencall*) [2]_,
-#. You *may* change your internal context name and you **have to** pick an number range. This will define the internal users's phone number of your sytem (you can change it afterward),
-#. You *may* change your incoming calls context name and you *may* also give the DID range you have,
-#. You *may* change your outgoing calls context name.
+#. Enter the entity name (e.g. your organization name) [2]_,
+#. You may change your internal context name and you must pick a number range. This will define the internal users's phone number of your sytem (you can change it afterward),
+#. You may change your incoming calls context name and you may also give the DID range you have,
+#. You may change your outgoing calls context name.
 
 
 Validation
@@ -82,7 +79,9 @@ Note that if you want to change one of the chosen settings you can go backward i
 
 .. warning:: This is the last time the ``root`` password will be displayed. Take care to note it up.
 
-You now have to follow the ``Post Installation Steps`` part.
+Congratulation, you now have a fully functional XiVO server. The only remaining thing to do is to
+subscribe to the `xivo-announce list <https://lists.proformatique.com/listinfo/xivo-announce>`_ as
+to make sure you'll always be informed of the latest upgrade for your XiVO.
 
 
 .. [1] Allowed characters are : "``A-Z a-z 0-9 -``"

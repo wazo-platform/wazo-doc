@@ -1,3 +1,5 @@
+.. _translating-xivo:
+
 ****************
 Translating XiVO
 ****************
@@ -9,6 +11,8 @@ We are now using a centralized tool for the XiVO translation. It's Transifex and
 For each project we have a reference file fetched by transiflex in our git. This file is always by default in english and translated with transifex.
 
 .. image:: images/translation_transifex.png
+
+.. note:: For now, the Jenkins part is replaced with manual actions from developers.
 
 
 XiVO Prompts
