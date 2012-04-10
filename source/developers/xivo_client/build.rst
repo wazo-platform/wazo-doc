@@ -41,7 +41,10 @@ Qt SDK
 
 The SDK is rather big, so if you want to keep it to a reasonable size, you
 should uncheck in the installer everything fancy, such as mobile devices
-SDK. Just keep one Desktop Qt component checked.
+SDK. Required elements are:
+
+* Dev tools > Desktop Qt > one of them
+* Miscellaneous > MinGW
 
 
 Mac OS Prerequisites
