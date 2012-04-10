@@ -1309,8 +1309,32 @@ List::
        }
    ]
 
-Queues
-^^^^^^
+Add::
+
+   https://[ip_xivo]/callcenter/json.php/restricted/settings/queueskills?act=add
+
+``Example of content to send to add``
+
+.. code-block:: javascript
+
+   {
+      "name": "service",
+      "printscreen": "svc",
+      "category_name": "business"
+      "description": "answer to customer service"
+   }
+
+
+Category is created if not exists, printscreen should be less than 5 car long
+
+Delete::
+
+   https://[ip_xivo]/callcenter/json.php/restricted/settings/queueskills?act=delete&id=[kill_id]
+
+*Category is not removed*
+
+Queue
+^^^^^
 
 View::
 
