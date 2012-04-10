@@ -21,7 +21,7 @@ GNU/Linux Prerequisites
 Windows Prerequisites
 =====================
 
-`Cygwin Web site <http://http://www.cygwin.com/>`_
+`Cygwin Web site <http://www.cygwin.com/>`_
 
 Click the "setup" link and execute.
 
