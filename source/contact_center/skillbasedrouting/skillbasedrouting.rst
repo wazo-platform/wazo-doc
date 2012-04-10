@@ -212,3 +212,28 @@ You may monitor your waiting calls with skills using the asterisk CLI command::
      Virtual queue french:
         1. SIP/jyl-dev-assur-00000017 (wait: 0:05, prio: 0)
      Callers:
+
+
+You may monitor your skills groups using the asterisk CLI command::
+
+   xivo-jylebleu*CLI> queue show skills groups <PRESS TAB>
+   agent-2   agent-3   agent-4   agent-48  agent-7   agent-1   
+   xivo-jylebleu*CLI> queue show skills groups agent-
+
+   xivo-jylebleu*CLI> queue show skills groups agent-1 
+   Skill group 'agent-1':
+     - bank           : 50
+     - english        : 100
+
+   xivo-jylebleu*CLI>
+ 
+You may monitor your skills rules using the asterisk CLI command::
+
+   xivo-jylebleu*CLI> queue show skills rules <PRESS TAB>
+   english      french       select_lang  
+   xivo-jylebleu*CLI> queue show skills rules
+
+   xivo-jylebleu*CLI> queue show skills rules english 
+   Skill rules 'english':
+     => english>90
+   xivo-jylebleu*CLI>
