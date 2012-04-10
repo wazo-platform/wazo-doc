@@ -114,7 +114,7 @@ Description des champs:
  * origin: adresse d"envoi des mails générés par le système
  * relayhost: serveur de relai principal des mails
  * fallback_relayhost: serveur de relai secondaire des mails
- * canonical: règles de réécriture des adresses email 
+ * canonical: règles de réécriture des adresses email
 
 Edit::
 
@@ -1231,34 +1231,83 @@ Add::
 .. code-block:: javascript
 
    {
-       "agentfeatures": {
-           "firstname": "john",
-           "lastname": "doe",
-           "number": "160",
-           "passwd": "7789",
-           "context": "default",
-           "language": "de_DE",
-           "numgroup": "1",
-           "silent": "no",
-           "musiconhold": "default",
-           "ackcall": "no",
-           "acceptdtmf": "#",
-           "enddtmf": "*",
-           "autologoff": "0",
-           "wrapuptime": "0",
-           "description": ""
+      "agentfeatures": {
+          "firstname": "Jack",
+          "lastname": "Amand",
+          "number": "99543",
+          "acceptdtmf": "#",
+          "ackcall": "no",
+          "autologoff": "0",
+          "context": "default",
+          "enddtmf": "*",
+          "language": "de_DE",
+          "numgroup": "1",
+          "passwd": "7789",
+          "silent": "no",
+          "wrapuptime": "0"
+          "description": "working in services",
+      },
+      "agentoptions": {
+          "maxlogintries": "3",
+          "musiconhold": "default"
+      },
+      "queueskills": [
+         {
+            "id": "10", "weight": "87"
+         },
+         {
+            "id": "12", "weight": "50"
+         }
+      ],
+      "user-select": [
+         "26"
+      ]
+    }
+
+Skills
+^^^^^^
+
+View::
+
+   https://[ip_xivo]/callcenter/json.php/restricted/settings/queuesskills?act=view&id=[id]
+
+``Return code example``
+
+.. code-block:: javascript
+
+   {
+
+    "id": "1",
+    "name": "english",
+    "description": "English",
+    "printscreen": "Eng",
+    "category_name": "langs"
+    }
+
+List::
+
+   https://[ip_xivo]/callcenter/json.php/restricted/settings/queueskills?act=list
+
+``Return code example``
+
+.. code-block:: javascript
+
+   [
+       {
+           "id": "1",
+           "name": "english",
+           "description": "English",
+           "printscreen": "Eng",
+           "category_name": "langs"
        },
-       "agentoptions": {
-           "musiconhold": "default",
-           "ackcall": "no",
-           "autologoff": "0",
-           "wrapuptime": "default",
-           "maxlogintries": "3"
-       },
-       "user-select": [
-           "1"
-       ]
-   }
+       {
+           "id": "2",
+           "name": "french",
+           "description": "French",
+           "printscreen": "Fr",
+           "category_name": "langs"
+       }
+   ]
 
 Queues
 ^^^^^^
