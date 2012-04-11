@@ -23,9 +23,6 @@ Getting Started
 * Create agents.
 * Create a queue adding created agent as member of queue.
 
-
-
-
 Creating agents
 ================
 
@@ -35,19 +32,16 @@ Service > Call center > Agents > General
 These settings are specific for a given agent.
 
 
-
 Service > Call center > Agents > Users
 --------------------------------------
 
 These settings are specific for a given agent.
 
 
-
 Service > Call center > Agents > Queues
 ---------------------------------------
 
 These settings are specific for a given agent.
-
 
 
 Service > Call center > Agents > Advanced
