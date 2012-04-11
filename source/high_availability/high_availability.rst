@@ -24,6 +24,9 @@ Prerequisites
 The HA in XiVO only works with telephony devices (i.e. phones) that support
 the notion of a primary and backup telephony server.
 
+* The master and the slave must be in the same subnet
+* If firewalling, the master must be allowed to join the slave on port 5232
+
 The HA solution is guaranteed to work correctly with the following devices:
 
 * Aastra 6700i series, 3.2.2 firmware
