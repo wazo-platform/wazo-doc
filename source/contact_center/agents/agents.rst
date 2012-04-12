@@ -1,9 +1,10 @@
-********************
-Skills-Based Routing
-********************
+******
+Agents
+******
 
 Introduction
 ============
+
    *A call center agent is the person who handles incoming or outgoing customer 
    calls for a business. A call center agent might handle account inquiries, 
    customer complaints or support issues. Other names for a call center agent 
@@ -22,6 +23,7 @@ Getting Started
 * Create a user with a SIP line and a provisioned device.
 * Create agents.
 * Create a queue adding created agent as member of queue.
+
 
 Creating agents
 ================
@@ -53,11 +55,12 @@ These settings are specific for a given agent.
 * Accept call DTMF (acceptdtmf) : Configured key used to pick up DTMF calls (if ackcall is enabled)
 * End call DTMF (enddtmf) : Configured key used to end DTMF calls (if endcall is enabled)
 
+
 Service > IPBX > General settings > Advanced > Agent
------------------------------------------------------
+----------------------------------------------------
 
 These settings are global for all agents.
 
-* Press DTMF to hangup (endcall) : When enabled, the key configured in parameter "enddtmf" CAN be pressed to end a call. Usefull for Agent callback login. Without this setting, the enddtmf parameter is unused. 
+* Press DTMF to hangup (endcall) : When enabled, the key configured in parameter "enddtmf" CAN be pressed to end a call. Useful when logged via the *33 extension. Without this setting, the enddtmf parameter is unused.
 
 .. _DTMF: http://en.wikipedia.org/wiki/Dtmf
