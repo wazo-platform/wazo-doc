@@ -132,15 +132,7 @@ Replication can be started manually by running the replication script :
 
    xivo-master-slave-db-replication <slave_ip>
    
-   ERROR:  cannot drop schema public because other objects depend on it
-   DETAIL:  table cel depends on schema public
-   HINT:  Use DROP ... CASCADE to drop the dependent objects too.
-   ERROR:  schema "public" already exists
    Slave replication completed succesfully
-
-
-.. note:: The error displayed are *normal* errors, you have to check the message 
-   ``Slave replication completed succesfully`` to be sure the replication is done successfully
 
 
 Internals
