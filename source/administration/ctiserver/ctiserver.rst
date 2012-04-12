@@ -16,7 +16,7 @@ and other services and clients.
 
 The section named AMI connection allows the administrator to configure the
 information required to connect to the Asterisk Manager Interface
-(AMI). These fields should match the entries in `/etc/asterisk/manager.conf`.
+(AMI). These fields should match the entries in :file:`/etc/asterisk/manager.conf`.
 
 .. figure:: images/ami_connection.png
   :scale: 85%
@@ -115,7 +115,7 @@ Sheets
 ------
 
 This tab is dedicated for the form/information of your sheet. You can define an external form created with qt-designer. 
-You can configure the path to a file:// or  http://. The check box is for activated this ui. The qt file is an xml file.
+You can configure the path to a ``file://`` or  ``http://``. The check box is for activated this ui. The qt file is an xml file.
 
 Here an example of a small form develop with qt-designer.
 
@@ -318,3 +318,23 @@ Dialplan interaction
 * UserEvents for a custom event.
 
  UserEvent(Custom,NAME: myevent,UNIQUEID: ${UNIQUEID},CHANNEL: ${CHANNEL})
+
+
+Enable encryption
+=================
+
+To enable encryption of CTI communications between server and clients, you have
+to create a certificate in :menuselection:`Configuration --> Certificates`.
+
+Then, go in the menu :menuselection:`CTI Server --> General settings -->
+General`, and in the section ``Listening ports``, check the line CTIS, and
+select both the certificate and the private key you created earlier. By default,
+the CTIS port is 5013.
+
+In your XiVO Client, in the menu :menuselection:`XiVO Client --> Configure -->
+Connection`, check the option ``Encrypt connection`` and adjust the server port
+if necessary.
+
+.. warning:: For now, there is no mechanism for strong authentification of the
+   server. The connection is encrypted, but the identity of the server is not
+   verified.
