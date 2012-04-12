@@ -7,3 +7,4 @@ Contact Center
    
    skillbasedrouting/skillbasedrouting
    statistics/statistics
+   agents/agents
