@@ -61,6 +61,6 @@ Service > IPBX > General settings > Advanced > Agent
 
 These settings are global for all agents.
 
-* Press DTMF to hangup (endcall) : When enabled, the key configured in parameter "enddtmf" CAN be pressed to end a call. Useful when logged via the *33 extension. Without this setting, the enddtmf parameter is unused.
+* Press DTMF to hangup (endcall) : When enabled, the key configured in parameter "enddtmf" CAN be pressed to end a call. Useful when logged via the `*33` extension. Without this setting, the enddtmf parameter is unused.
 
 .. _DTMF: http://en.wikipedia.org/wiki/Dtmf
