@@ -67,3 +67,14 @@ You can modify the display of contacts within the XLet: Go in the menu XiVO Clie
 
 * The maximum number of contacts displayed
 * The number of columns used to display the contacts. A value of 0 will automatically display the contacts with the maximum number of columns allowed by the width of the window.
+
+Transfers
+---------
+
+Many transfers scenarios are supported from the XiVO contact xlet. Blind and attended trafers can
+be done by right clicking a contact.
+
+To be able to transfer calls using the XiVO client you have to enable the transfer service from the
+user configuration form in the web-interface.
+
+Attended transfers can be aborted using `*0` from the operators phone.
