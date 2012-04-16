@@ -7,7 +7,8 @@ Contact Xlet
 Overview
 ========
 
-The Contacts XLet lists the people of your company, giving you access to their phone and XiVO Client status.
+The Contacts XLet lists the people of your company, giving you access to their
+phone and XiVO Client status.
 
 .. figure:: /cti_client/images/cti_client-contacts.png
 
@@ -15,7 +16,8 @@ The Contacts XLet lists the people of your company, giving you access to their p
 Usage
 =====
 
-The "Search" text input allows you to filter the list of people according to their name or phone number. An empty filter displays all contacts found.
+The "Search" text input allows you to filter the list of people according to
+their name or phone number. An empty filter displays all contacts found.
 
 If the filter matches some contacts, you can see contact objects.
 Here's what a contact object looks like :
@@ -28,22 +30,26 @@ You can see three informations :
 * A person icon: it displays the status of its XiVO Client. Usually:
     * green means connected
     * gray means disconnected
-* A phone icon: it displays the status of the phone of the user, if it has a configured phone. Usually:
+* A phone icon: it displays the status of the phone of the user, if it has a
+  configured phone. Usually:
     * green means that the phone is activated and hanged up
     * red means that the phone is activated and in communication
     * white means that the phone is not registered, i.e. not functional.
 
-The colors and label of these two statuses may be configured within the XiVO Web interface.
+The colors and label of these two statuses may be configured within the XiVO Web
+interface.
 
 .. TODO :ref:`cti_presences`
 .. TODO :ref:`cti_phonehints`
 
 You can interact in several ways with a person object :
 
-* Holding your mouse cursor on the person or phone icon will display more details about the person and its phone.
+* Holding your mouse cursor on the person or phone icon will display more
+  details about the person and its phone.
 * Double-clicking on it will call the person if its phone is activated
 * Right-clicking on it will display the list of possible actions.
-* Dragging and dropping it on another person icon will make the dragged user call the dropped user.
+* Dragging and dropping it on another person icon will make the dragged user
+  call the dropped user.
 
 Possible actions available through right-click are :
 
@@ -55,7 +61,9 @@ Possible actions available through right-click are :
 * Cancel a transfer
 * Invite to a conference room
 
-The available actions may differ, depending on your current phone situation (available, busy, in a conference room, ...) and on the actions allowed in your CTI profile.
+The available actions may differ, depending on your current phone situation
+(available, busy, in a conference room, ...) and on the actions allowed in your
+CTI profile.
 
 .. TODO :ref:`cti_profiles`
 
@@ -63,18 +71,21 @@ The available actions may differ, depending on your current phone situation (ava
 Configuration
 -------------
 
-You can modify the display of contacts within the XLet: Go in the menu XiVO Client -> Configure, tab Functions, sub-tab Contacts. You get two options :
+You can modify the display of contacts within the XLet: Go in the menu XiVO
+Client -> Configure, tab Functions, sub-tab Contacts. You get two options :
 
 * The maximum number of contacts displayed
-* The number of columns used to display the contacts. A value of 0 will automatically display the contacts with the maximum number of columns allowed by the width of the window.
+* The number of columns used to display the contacts. A value of 0 will
+  automatically display the contacts with the maximum number of columns allowed
+  by the width of the window.
 
 Transfers
 ---------
 
-Many transfers scenarios are supported from the XiVO contact xlet. Blind and attended trafers can
-be done by right clicking a contact.
+Many transfers scenarios are supported from the XiVO contact xlet. Blind and
+attended trafers can be done by right clicking a contact.
 
-To be able to transfer calls using the XiVO client you have to enable the transfer service from the
-user configuration form in the web-interface.
+To be able to transfer calls using the XiVO client you have to enable the
+transfer service from the user configuration form in the web-interface.
 
 Attended transfers can be aborted using `*0` from the operators phone.

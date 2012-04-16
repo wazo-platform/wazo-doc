@@ -61,4 +61,3 @@ This page allows the user to set his network information to connect to the xivo-
 * `Try to reconnect` will reconnect the client when the connection is dropped.
 * `Try to reconnect interval` is the reconnection delay before the auto-reconnection is tryed.
 * `Keep alive interval` is the number of seconds between keepalives messages.
-
