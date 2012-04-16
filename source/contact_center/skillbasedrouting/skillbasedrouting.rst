@@ -187,12 +187,12 @@ Configuration file for simple skill selection :
 ::
 
    [simple_skill_english]
-   exten=s,1,Set(XIVO_QUEUESKILLRULESET=english_rule_set)
-   same=   n,return
+   exten = s,1,Set(XIVO_QUEUESKILLRULESET=english_rule_set)
+   same  =   n,Return()
 
    [simple_skill_french]
-   exten=s,1,Set(XIVO_QUEUESKILLRULESET=french_rule_set)
-   same=   n,return
+   exten = s,1,Set(XIVO_QUEUESKILLRULESET=french_rule_set)
+   same  =   n,Return()
 
 In this example you just need to create two simple skill rule sets, one named english_rule_set with a rule english > 90
 and the other named french_rule_set
