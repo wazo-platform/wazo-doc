@@ -2,8 +2,8 @@
 Statistics
 **********
 
-Introduction
-============
+Configuration
+=============
 
 In order to be able to display call center statistics you have first to create one or more configuration.
 
@@ -63,7 +63,7 @@ Configuration
 +------------------+---------------------------------+---------------------------------------------------------------------------+
 
 
-When a configuration created, cache has to be generated for each object type 
+When a configuration created, cache has to be generated for each object type
 
 .. figure:: images/Statistic_cache.png
    :scale: 90%
