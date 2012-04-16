@@ -20,6 +20,29 @@ Using this extension, you may define the parking number used to park call, the p
 the parking lots to park the calls, enable parking hint if you want to be able to supervise the parking using phone keys and other
 system default parameters.
 
+You have two options in case of parking timeout :
+
+* Callback the peer that parked this call
+
+  In this case the call is sent back to the user who parked the call.
+
+* Send park call to the dialplan
+
+  In case you don't want to call back the user who parked the call, you have the option to send the call to any other extension or application.
+  If the parking times out, the call is sent back to the dialplan in context ``[parkedcallstimeout]``.
+  You can define this context in a dialplan configuration file :menuselection:`Service --> IPBX --> Configuration Files` where you may
+  define this context with dialplan commands.
+
+
+  Example::
+
+   [parkedcallstimeout]
+   exten = s,1,Noop('park call time out')
+   same  =   n,Playback(hello-world)
+   same  =   n,Hangup()
+
+
+
 It is also usual to define supervised phone keys to be able to park and unpark calls as in the example below.
 
 .. figure:: images/parking_phone_keys.png
