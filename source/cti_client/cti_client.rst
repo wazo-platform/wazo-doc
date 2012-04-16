@@ -40,6 +40,7 @@ Xlets are features of the CTI Client. It is the contraction of XiVO applets.
    Contact xlet <xlets/contact>
    Local directory xlet <xlets/localdir>
    Service xlet <xlets/service>
+   Dial xlet <xlets/dial>
 
 Configuration
 =============
