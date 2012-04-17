@@ -102,6 +102,9 @@ Available configuration
 .. figure:: images/presence_configuration.png
   :scale: 85%
 
+
+.. _presence-actions:
+
 Actions
 ^^^^^^^
 
@@ -109,8 +112,9 @@ Actions
 action                        param
 ============================= ==================
 `Enable DND`                  `{'true','false'}`
-`Pause agent in all queues`  
+`Pause agent in all queues`
 `Unpause agent in all queues`
+`Agent logoff`
 ============================= ==================
 
 Sheets
