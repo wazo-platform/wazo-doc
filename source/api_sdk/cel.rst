@@ -470,3 +470,8 @@ Call To the Operator
     8941 | HANGUP       | 2012-03-29 08:41:25.830213 |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | user        | SIP/pcm_dev-00000007              |          |                      |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
     8942 | CHAN_END     | 2012-03-29 08:41:25.83061  |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | user        | SIP/pcm_dev-00000007              |          |                      |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
    (32 rows)
+
+Userfield with CEL
+------------------
+
+If you used the CDR function with userfield like CDR(userfield) you need to change to CHANNEL(userfield).
