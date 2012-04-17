@@ -90,6 +90,9 @@ a group, you will see a list of presences and there descriptions.
 .. figure:: images/presence_list.png
   :scale: 85%
 
+
+.. _presence-actions:
+
 Available configuration
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -102,8 +105,6 @@ Available configuration
 .. figure:: images/presence_configuration.png
   :scale: 85%
 
-
-.. _presence-actions:
 
 Actions
 ^^^^^^^
