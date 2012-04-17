@@ -105,11 +105,13 @@ Available configuration
 Actions
 ^^^^^^^
 
-=========== ==================
-action      param
-=========== ==================
-`enablednd` `{'true','false'}`
-=========== ==================
+============================= ==================
+action                        param
+============================= ==================
+`Enable DND`                  `{'true','false'}`
+`Pause agent in all queues`  
+`Unpause agent in all queues`
+============================= ==================
 
 Sheets
 ------
