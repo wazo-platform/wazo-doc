@@ -1244,7 +1244,7 @@ Add::
           "numgroup": "1",
           "passwd": "7789",
           "silent": "no",
-          "wrapuptime": "0"
+          "wrapuptime": "0",
           "description": "working in services",
       },
       "agentoptions": {
@@ -1263,6 +1263,10 @@ Add::
          "26"
       ]
     }
+
+Arguments:
+ * **wrapuptime** is one of 0,5000,10000,15000,20000,25000,30000,35000,40000,45000,50000,55000,60000
+
 
 Skills
 ^^^^^^
