@@ -315,6 +315,8 @@ An extension could be to define other serialization methods, if needed.
 Event configuration
 ===================
 
+You can configure a sheet when a specific event is called. For example if you want to received a sheet when an agent answer to a call, you can choose a sheet model for the Agent link event.
+
 .. figure:: images/events_configuration.png
   :scale: 85%
 
