@@ -474,4 +474,11 @@ Call To the Operator
 Userfield with CEL
 ------------------
 
-If you used the CDR function with userfield like CDR(userfield) you need to change to CHANNEL(userfield).
+The CEL table has a field named `userfield` which is void by default and which can be enriched from 
+the dialplan with context information.
+To set the value of the field from the dialplan you have to you the asterisk function 
+`CHANNEL(userfield)`, for example::
+    Set(CHANNEL(userfield)=${MY_DIALPLAN_VAR})
+
+Note : for those who used the same `userfield` information in the CDR by calling 
+the function `CDR(userfield)`, you have to replace it with the function `CHANNEL(userfield)`.
