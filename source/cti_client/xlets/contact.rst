@@ -28,13 +28,16 @@ You can see three informations :
 
 * The person's full name
 * A person icon: it displays the status of its XiVO Client. Usually:
-    * green means connected
-    * gray means disconnected
+
+  * green means connected
+  * gray means disconnected
+
 * A phone icon: it displays the status of the phone of the user, if it has a
   configured phone. Usually:
-    * green means that the phone is activated and hanged up
-    * red means that the phone is activated and in communication
-    * white means that the phone is not registered, i.e. not functional.
+
+  * green means that the phone is activated and hanged up
+  * red means that the phone is activated and in communication
+  * white means that the phone is not registered, i.e. not functional.
 
 The colors and label of these two statuses may be configured within the XiVO Web
 interface.
