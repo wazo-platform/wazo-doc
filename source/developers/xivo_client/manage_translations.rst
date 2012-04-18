@@ -6,6 +6,10 @@ This sections describes how to manage XiVO Client translations from a developer
 point of view. If you want to help translate the XiVO Client, see
 :doc:`Translating XiVO <../translate>`
 
+You need to install the python module transifex-client::
+
+   pip install transifex-client
+
 Updating translations from source code
 ======================================
 
