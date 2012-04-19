@@ -104,7 +104,9 @@ This can be understood as an ``if`` statement :
    else
       evaluate next rule
 
-On this part, these variables can be used (you need two persons waiting in the queue):
+On this part, these variables can be used :
+
+.. warning:: you need two persons waiting in the queue for these variables be taken into account
 
 * EWT (Estimated Waiting Time)      The waiting time estimated for the current selection of members
 * WT  (Waiting time)                The time that caller has been waiting
