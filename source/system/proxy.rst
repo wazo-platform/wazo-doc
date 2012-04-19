@@ -25,6 +25,9 @@ where
 If you need to have these settings ready at each connection, you can store them in your
 :file:`~/.bashrc` file.
 
+If you need to reset the ``http_proxy`` environment variable, issue the command::
+    
+    unset http_proxy
 
 apt
 ===
@@ -43,6 +46,8 @@ page.
 
 dhcp-update
 ===========
+
+*This step is needed if you use the DHCP server of the XiVO. Otherwise the DHCP configuration won't be correct.*
 
 Proxy information is set via the :file:`/etc/pf-xivo/dhcpd-update.conf` file.
 
