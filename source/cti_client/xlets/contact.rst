@@ -86,9 +86,42 @@ Transfers
 ---------
 
 Many transfers scenarios are supported from the XiVO contact xlet. Blind and
-attended trafers can be done by right clicking a contact.
+attended tranfers can be done by right clicking a contact.
 
-To be able to transfer calls using the XiVO client you have to enable the
-transfer service from the user configuration form in the web-interface.
+.. important:: To be able to transfer calls using the XiVO client you have to enable the
+    transfer service from the user configuration (or the queue configuration if used)
+    form in the web-interface.
 
-Attended transfers can be aborted using `*0` from the operators phone.
+Attended Transfers
+^^^^^^^^^^^^^^^^^^
+
+.. important:: For the Attended Transfer to work properly in all expected cases you must take care 
+    of the value of the options below:
+    
+    :menuselection:`Services ---> IPBX ---> Services IPBX ---> Extensions ---> Advanced ---> Parking`:
+    
+    * option `Allow DTMF based transfers when picking up parked call` should be set to ``Caller`` to be
+      able to initiate an attended transfer for a call picked from a parking,
+    * option `Allow DTMF based hangups when picking up parked call` should be set to ``Caller`` to be 
+      able to abort an attended transfer picked up from a parking,
+
+Usage :
+
+#. Answer an incoming call, 
+#. Search an user in the Contact xlet,
+#. Right clic on the user icon and choose `Attended transfer`,
+
+    #. If the selected user has also a mobile, you can choose its mobile,
+    #. You can abort the attended transfer by dialing ``*0`` on your phone (see note below),
+    #. You can finish the attended transfer by hanging up the call,
+
+
+Other important options to look to are :
+
+* :menuselection:`Services ---> IPBX ---> Services IPBX ---> Extensions ---> General -> Transfers` :
+  option `Timeout for answer on attended transfer` should be set to a value below the mean ringing time of most users on
+  the XiVO if you want the attented transfer be aborted automatically after this timeout,
+* :menuselection:`Services ---> IPBX ---> Services IPBX ---> Extensions ---> General` : the option `Hangup` 
+  must be set to ``*0`` if you want to use ``*0`` to abort attended transfer.
+
+
