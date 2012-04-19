@@ -45,7 +45,7 @@ Xlets are features of the CTI Client. It is the contraction of XiVO applets.
 Configuration
 =============
 
-The XiVO client configuration options can be accessed under `XiVO client -> configure`.
+The XiVO client configuration options can be accessed under :menuselection:`XiVO client --> configure`.
 
 Connection Configuration
 ------------------------
