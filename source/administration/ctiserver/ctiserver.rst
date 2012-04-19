@@ -55,6 +55,42 @@ anything with the CTI client.
 .. figure:: images/parting_options.png
   :scale: 85%
 
+Presence Option
+===============
+
+In the `Status` menu, under `Presences`, you can edit presences group. The default presence group is xivo. When editing
+a group, you will see a list of presences and there descriptions.
+
+.. figure:: images/presence_list.png
+  :scale: 85%
+
+
+.. _presence-actions:
+
+Available configuration
+-----------------------
+
+* `Presence name` is the name of the presence
+* `Display name` is the human readable representation of this presence
+* `Color status` is the color associated to this presence
+* `Other reachable statuses` is the list of presence that can be switched from this presence state
+* `Actions` are post selection actions that are triggered by selecting this presence
+
+.. figure:: images/presence_configuration.png
+  :scale: 85%
+
+
+Actions
+-------
+
+============================= ==================
+action                        param
+============================= ==================
+`Enable DND`                  `{'true','false'}`
+`Pause agent in all queues`
+`Unpause agent in all queues`
+`Agent logoff`
+============================= ==================
 
 Sheet Configuration
 ===================
@@ -80,43 +116,6 @@ Anyway you can fill a description.
 
 .. figure:: images/sheets_configuration_general.png
   :scale: 85%
-
-Presence Option
----------------
-
-In the `Status` menu, under `Presences`, you can edit presences group. The default presence group is xivo. When editing
-a group, you will see a list of presences and there descriptions.
-
-.. figure:: images/presence_list.png
-  :scale: 85%
-
-
-.. _presence-actions:
-
-Available configuration
-^^^^^^^^^^^^^^^^^^^^^^^
-
-* `Presence name` is the name of the presence
-* `Display name` is the human readable representation of this presence
-* `Color status` is the color associated to this presence
-* `Other reachable statuses` is the list of presence that can be switched from this presence state
-* `Actions` are post selection actions that are triggered by selecting this presence
-
-.. figure:: images/presence_configuration.png
-  :scale: 85%
-
-
-Actions
-^^^^^^^
-
-============================= ==================
-action                        param
-============================= ==================
-`Enable DND`                  `{'true','false'}`
-`Pause agent in all queues`
-`Unpause agent in all queues`
-`Agent logoff`
-============================= ==================
 
 Sheets
 ------
