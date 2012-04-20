@@ -8,4 +8,4 @@ System
    Network <network/network>
    proxy
    log_files
-   restore
+   backup_restore
