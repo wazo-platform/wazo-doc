@@ -73,8 +73,8 @@ Cisco Small Business SPA300 series:
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-SPA301   |n|         1          |y|
-SPA303   |n|         3          |y|
+SPA301   |n|         1          |n|
+SPA303   |n|         3          |n|
 ======== =========== ========== ============
 
 .. note:: Function keys are shared with line keys for all SPA phones
@@ -84,13 +84,13 @@ Cisco Small Business SPA500 series:
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-SPA501G  |y|         8          |y|
-SPA502G  |n|         1          |y|
-SPA504G  |y|         4          |y|
-SPA508G  |y|         8          |y|
-SPA509G  |n|         12         |y|
-SPA525G  |y|         5          |y|
-SPA525G2 |n|         5          |y|
+SPA501G  |y|         8          |n|
+SPA502G  |n|         1          |n|
+SPA504G  |y|         4          |n|
+SPA508G  |y|         8          |n|
+SPA509G  |n|         12         |n|
+SPA525G  |y|         5          |n|
+SPA525G2 |n|         5          |n|
 ======== =========== ========== ============
 
 The SPA500 expansion module is supported.
@@ -100,12 +100,12 @@ Cisco Small Business IP Phones (previously known as Linksys IP Phones)
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-SPA901   |n|         1          |y|
-SPA921   |n|         1          |y|
-SPA922   |n|         1          |y|
-SPA941   |n|         4          |y|
-SPA942   |y|         4          |y|
-SPA962   |y|         6          |y|
+SPA901   |n|         1          |n|
+SPA921   |n|         1          |n|
+SPA922   |n|         1          |n|
+SPA941   |n|         4          |n|
+SPA942   |y|         4          |n|
+SPA962   |y|         6          |n|
 ======== =========== ========== ============
 
 .. note::
@@ -119,11 +119,11 @@ ATAs:
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-PAP2T    |n|         0          |y|
-SPA2102  |n|         0          |y|
-SPA3102  |n|         0          |y|
-SPA8000  |y|         0          |y|
-SPA8800  |n|         0          |y|
+PAP2T    |n|         0          |n|
+SPA2102  |n|         0          |n|
+SPA3102  |n|         0          |n|
+SPA8000  |y|         0          |n|
+SPA8800  |n|         0          |n|
 ======== =========== ========== ============
 
 Cisco 7900 series (*SCCP* mode only):
@@ -131,13 +131,13 @@ Cisco 7900 series (*SCCP* mode only):
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-7911G    |y|         0          |y|
-7912G    |y|         0          |y|
-7940G    |y|         0          |y|
-7941G    |y|         0          |y|
-7941G-GE |y|         0          |y|
-7960G    |y|         0          |y|
-7961G    |y|         0          |y|
+7911G    |y|         0          |n|
+7912G    |y|         0          |n|
+7940G    |y|         0          |n|
+7941G    |y|         0          |n|
+7941G-GE |y|         0          |n|
+7960G    |y|         0          |n|
+7961G    |y|         0          |n|
 ======== =========== ========== ============
 
 
@@ -181,21 +181,21 @@ SoundPoint IP:
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-SPIP301  |y|         0          |y|
-SPIP320  |n|         0          |y|
-SPIP321  |n|         0          |y|
-SPIP330  |n|         0          |y|
-SPIP331  |n|         0          |y|
-SPIP335  |y|         0          |y|
-SPIP430  |n|         0          |y|
-SPIP450  |y|         2          |y|
-SPIP501  |y|         0          |y|
-SPIP550  |y|         3          |y|
-SPIP560  |n|         3          |y|
-SPIP600  |n|         0          |y|
-SPIP601  |n|         0          |y|
-SPIP650  |n|         47         |y|
-SPIP670  |n|         47         |y|
+SPIP301  |y|         0          |n|
+SPIP320  |n|         0          |n|
+SPIP321  |n|         0          |n|
+SPIP330  |n|         0          |n|
+SPIP331  |n|         0          |n|
+SPIP335  |y|         0          |n|
+SPIP430  |n|         0          |n|
+SPIP450  |y|         2          |n|
+SPIP501  |y|         0          |n|
+SPIP550  |y|         3          |n|
+SPIP560  |n|         3          |n|
+SPIP600  |n|         0          |n|
+SPIP601  |n|         0          |n|
+SPIP650  |n|         47         |n|
+SPIP670  |n|         47         |n|
 ======== =========== ========== ============
 
 SoundStation IP:
@@ -203,10 +203,10 @@ SoundStation IP:
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-SPIP4000 |n|         0          |y|
-SPIP5000 |n|         0          |y|
-SPIP6000 |y|         0          |y|
-SPIP7000 |n|         0          |y|
+SPIP4000 |n|         0          |n|
+SPIP5000 |n|         0          |n|
+SPIP6000 |y|         0          |n|
+SPIP7000 |n|         0          |n|
 ======== =========== ========== ============
 
 Others:
@@ -214,7 +214,7 @@ Others:
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-VVX1500  |n|         0          |y|
+VVX1500  |n|         0          |n|
 ======== =========== ========== ============
 
 
@@ -251,9 +251,9 @@ Previously known as Thomson:
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-ST2022   |n|         |u|        |y|
-ST2030   |y|         10         |y|
-TB30     |n|         10         |y|
+ST2022   |n|         |u|        |n|
+ST2030   |y|         10         |n|
+TB30     |n|         10         |n|
 ======== =========== ========== ============
 
 .. note:: Function keys are shared with line keys
