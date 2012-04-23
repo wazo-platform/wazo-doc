@@ -129,6 +129,7 @@ Adding the fax to the directory display
 ---------------------------------------
 
 #. In the definition section, add a field name ``fax`` with the value ``phonebooknumber.fax.number``.
-#. In the display section add a field with field title ``Fax`` and display format ``{db-fax}``.
+#. In the display filter section add a field with field title ``Fax`` and display format ``{db-fax}``.
+#. Restart the CTI Server
 
 Now the fax should be available displayed in the Directory xlet.

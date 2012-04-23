@@ -1,3 +1,41 @@
+******
+Backup
+******
+
+Periodic backup
+===============
+
+A backup of the database and the data are launched each day with a logrotate task.
+Note that you can retrieve the backup from the web-interface in 
+:menuselection:`Services ---> IPBX ---> IPBX Configuration ---> Backup Files` page.
+
+Logrotate task::
+
+    /etc/logrotate.d/pf-xivo-backup
+
+Logrotate cron::
+
+    /etc/cron.daily/logrotate
+
+Backup script::
+
+    /usr/sbin/pf-xivo-backup
+
+Backup location::
+    
+    /var/backups/pf-xivo/
+
+
+Creating a databases backup file manually
+=========================================
+
+You can manually create a database backup file named `db-manual.tgz` by issuing the following commands:
+
+::
+
+   pf-xivo-backup db db-manual.tgz
+
+
 *******
 Restore
 *******
@@ -71,11 +109,4 @@ Finally, restart the services you stopped at the first step:
    /etc/init.d/xivo-ctid start
    /etc/init.d/monit start
 
-Creating a databases backup file manually
-=========================================
 
-You can manually create a database backup file named `db-manual.tgz` by issuing the following commands:
-
-::
-
-   pf-xivo-backup db db-manual.tgz

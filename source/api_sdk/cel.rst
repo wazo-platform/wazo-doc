@@ -470,3 +470,16 @@ Call To the Operator
     8941 | HANGUP       | 2012-03-29 08:41:25.830213 |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | user        | SIP/pcm_dev-00000007              |          |                      |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
     8942 | CHAN_END     | 2012-03-29 08:41:25.83061  |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | user        | SIP/pcm_dev-00000007              |          |                      |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
    (32 rows)
+
+Userfield with CEL
+------------------
+
+The CEL table has a field named `userfield` which is void by default and which can be enriched from 
+the dialplan with context information.
+To set the value of the field from the dialplan you have to you the asterisk function 
+`CHANNEL(userfield)`, for example::
+
+   Set(CHANNEL(userfield)=${MY_DIALPLAN_VAR})
+
+Note : for those who used the same `userfield` information in the CDR by calling 
+the function `CDR(userfield)`, you have to replace it with the function `CHANNEL(userfield)`.

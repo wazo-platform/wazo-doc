@@ -61,6 +61,7 @@ CA certificate:
 * :guilabel:`Valid end date` : at least one month in the future
 * :guilabel:`Common name` : the :abbr:`FQDN (Fully Qualified Domain Name)` of your XiVO
 * :guilabel:`Organization` : your organization's name, or blank
+* :guilabel:`Email` : your email or organization's email
 
 Server certificate:
 
@@ -69,6 +70,7 @@ Server certificate:
 * :guilabel:`Valid end date` : at least one month in the future
 * :guilabel:`Common name` : the :abbr:`FQDN (Fully Qualified Domain Name)` of your XiVO
 * :guilabel:`Organization` : your organization's name, or blank
+* :guilabel:`Email` : your email or organization's email
 
 
 Creating certificate for CTI server
@@ -79,3 +81,4 @@ Creating certificate for CTI server
 * :guilabel:`Valid end date` : at least one month in the future
 * :guilabel:`Common name` : the :abbr:`FQDN (Fully Qualified Domain Name)` of your XiVO
 * :guilabel:`Organization` : your organization's name, or blank
+* :guilabel:`Email` : your email or organization's email

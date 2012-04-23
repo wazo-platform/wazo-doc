@@ -40,11 +40,12 @@ Xlets are features of the CTI Client. It is the contraction of XiVO applets.
    Contact xlet <xlets/contact>
    Local directory xlet <xlets/localdir>
    Service xlet <xlets/service>
+   Dial xlet <xlets/dial>
 
 Configuration
 =============
 
-The XiVO client configuration options can be accessed under `XiVO client -> configure`.
+The XiVO client configuration options can be accessed under :menuselection:`XiVO client --> configure`.
 
 Connection Configuration
 ------------------------
@@ -60,4 +61,3 @@ This page allows the user to set his network information to connect to the xivo-
 * `Try to reconnect` will reconnect the client when the connection is dropped.
 * `Try to reconnect interval` is the reconnection delay before the auto-reconnection is tryed.
 * `Keep alive interval` is the number of seconds between keepalives messages.
-

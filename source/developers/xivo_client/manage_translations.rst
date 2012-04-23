@@ -6,6 +6,11 @@ This sections describes how to manage XiVO Client translations from a developer
 point of view. If you want to help translate the XiVO Client, see
 :doc:`Translating XiVO <../translate>`
 
+You need to install these tools::
+
+   pip install transifex-client
+   apt-get install qt4-dev-tools
+
 Updating translations from source code
 ======================================
 

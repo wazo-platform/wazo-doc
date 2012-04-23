@@ -11,7 +11,6 @@ In order to configure a switchboard on your XiVO, you have to:
 
 * Create a queue for your switchboard
 * Create the users that will be operators
-* Create agents for users that will be operating the switchboard
 * Assign the incoming calls to the switchboard queue
 * Add a function key to each user that will operate the switchboard to log to the switchboard queue
 * Set no answer destinations on the switchboard queue
@@ -59,26 +58,13 @@ The selected device is a `Aastra 6757i`.
 .. figure:: images/user_lines.png
   :scale: 85%
 
-Create an Agent to the Operator Users
--------------------------------------
+Assign the User to the `Switchboard` Queue
+------------------------------------------
 
-Each operators needs to be associated to an agent. And this agent should be associated to the `switchboard` queue.
+Each operator should be assigned to the `Switchboard` queue.
 
-For this example, `Bob` will be associated to an agent with the following configuration:
-
-* First name `Operator`
-* Number `1000`
-
-.. figure:: images/agent_general.png
-  :scale: 85%
-
-The agent then has to be associated to our user `Bob` and to the queue `Switchboard`.
-
-.. figure:: images/agent_members.png
-  :scale: 85%
-
-.. figure:: images/agent_queues.png
-  :scale: 85%
+.. figure:: images/user_queue.png
+   :scale: 85%
 
 Send Incoming Calls to the Switchboard Queue
 --------------------------------------------
@@ -92,21 +78,6 @@ In this example, we associate our incoming call to our `Switchboard` queue:
 
 .. figure:: images/incall_general.png
   :scale: 85%
-
-Set Function Keys to the Operators to Login and Logout
-------------------------------------------------------
-
-To assign a function key to login and logout, edit user `Bob` and in the `Func Keys` tab add an entry to
-`Connect/Disconnect a static agent`.
-
-.. figure:: images/user_keys.png
-  :scale: 85%
-
-The `Destination` fields contains our previously created agent. The `Label` field will be the string next
-to the function key on the operator's phone. The `Supervision` is set to enable to light up the key when
-the operator is active.
-
-*Do not forget to synchronize the device*
 
 Set No Answer Destinations on the `Switchboard` Queue
 ------------------------------------------------------

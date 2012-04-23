@@ -153,4 +153,5 @@ Function keys can be configured to customize the user's phone keys. Key types ar
 .. image:: images/funckeys.png
 
 Call forwards keys should have a destination, using them without a destination is experimental at the moment.
+For User keys, start to key in the user name in destination, XiVO will try to complete with the corresponding user.
 

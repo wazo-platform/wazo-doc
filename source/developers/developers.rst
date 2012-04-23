@@ -13,3 +13,4 @@ This section describes the tools for developers.
    xivo_client/xivo_client
    sccp
    debug_daemon
+   webi

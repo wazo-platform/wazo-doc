@@ -16,7 +16,7 @@ and other services and clients.
 
 The section named AMI connection allows the administrator to configure the
 information required to connect to the Asterisk Manager Interface
-(AMI). These fields should match the entries in `/etc/asterisk/manager.conf`.
+(AMI). These fields should match the entries in :file:`/etc/asterisk/manager.conf`.
 
 .. figure:: images/ami_connection.png
   :scale: 85%
@@ -55,6 +55,42 @@ anything with the CTI client.
 .. figure:: images/parting_options.png
   :scale: 85%
 
+Presence Option
+===============
+
+In the `Status` menu, under `Presences`, you can edit presences group. The default presence group is xivo. When editing
+a group, you will see a list of presences and there descriptions.
+
+.. figure:: images/presence_list.png
+  :scale: 85%
+
+
+.. _presence-actions:
+
+Available configuration
+-----------------------
+
+* `Presence name` is the name of the presence
+* `Display name` is the human readable representation of this presence
+* `Color status` is the color associated to this presence
+* `Other reachable statuses` is the list of presence that can be switched from this presence state
+* `Actions` are post selection actions that are triggered by selecting this presence
+
+.. figure:: images/presence_configuration.png
+  :scale: 85%
+
+
+Actions
+-------
+
+============================= ==================
+action                        param
+============================= ==================
+`Enable DND`                  `{'true','false'}`
+`Pause agent in all queues`
+`Unpause agent in all queues`
+`Agent logoff`
+============================= ==================
 
 Sheet Configuration
 ===================
@@ -81,41 +117,11 @@ Anyway you can fill a description.
 .. figure:: images/sheets_configuration_general.png
   :scale: 85%
 
-Presence Option
----------------
-
-In the `Status` menu, under `Presences`, you can edit presences group. The default presence group is xivo. When editing
-a group, you will see a list of presences and there descriptions.
-
-.. figure:: images/presence_list.png
-  :scale: 85%
-
-Available configuration
-^^^^^^^^^^^^^^^^^^^^^^^
-
-* `Presence name` is the name of the presence
-* `Display name` is the human readable representation of this presence
-* `Color status` is the color associated to this presence
-* `Other reachable statuses` is the list of presence that can be switched from this presence state
-* `Actions` are post selection actions that are triggered by selecting this presence
-
-.. figure:: images/presence_configuration.png
-  :scale: 85%
-
-Actions
-^^^^^^^
-
-=========== ==================
-action      param
-=========== ==================
-`enablednd` `{'true','false'}`
-=========== ==================
-
 Sheets
 ------
 
 This tab is dedicated for the form/information of your sheet. You can define an external form created with qt-designer. 
-You can configure the path to a file:// or  http://. The check box is for activated this ui. The qt file is an xml file.
+You can configure the path to a ``file://`` or  ``http://``. The check box is for activated this ui. The qt file is an xml file.
 
 Here an example of a small form develop with qt-designer.
 
@@ -308,6 +314,26 @@ An extension could be to define other serialization methods, if needed.
 Event configuration
 ===================
 
+You can configure a sheet when a specific event is called. For example if you want to received a sheet when an agent answer to a call, you can choose a sheet model for the Agent link event.
+
+The followed event possible is :
+
+ * Dial: When you received a call (the user phone ringing)
+ * Link: When you answer a call
+ * Unlink: When the call is unlink
+ * Agent linked: When an agent answer to a call
+ * Agent unlinked: When an agent hangup the call
+ * Incoming DID: Received a call in a DID
+ * Outgoing Call: Made an outgoing call
+ * Hangup: Hangup the call
+ * Incoming Queue: Received a call in a queue
+ * Incoming Group: Received a call in a group
+ * Fax reception: Received a fax
+
+You can configure a custom event with a dialplan interaction.
+
+ * Custom : example is custom-myevent and choose the model. See the next section for the dialplan.
+
 .. figure:: images/events_configuration.png
   :scale: 85%
 
@@ -315,6 +341,26 @@ Event configuration
 Dialplan interaction
 --------------------
 
-* UserEvents for a custom event.
+* UserEvents for a custom event. You need to configure by web interface the custom event.
 
  UserEvent(Custom,NAME: myevent,UNIQUEID: ${UNIQUEID},CHANNEL: ${CHANNEL})
+
+
+Enable encryption
+=================
+
+To enable encryption of CTI communications between server and clients, you have
+to create a certificate in :menuselection:`Configuration --> Certificates`.
+
+Then, go in the menu :menuselection:`CTI Server --> General settings -->
+General`, and in the section ``Listening ports``, check the line CTIS, and
+select both the certificate and the private key you created earlier. By default,
+the CTIS port is 5013.
+
+In your XiVO Client, in the menu :menuselection:`XiVO Client --> Configure -->
+Connection`, check the option ``Encrypt connection`` and adjust the server port
+if necessary.
+
+.. warning:: For now, there is no mechanism for strong authentification of the
+   server. The connection is encrypted, but the identity of the server is not
+   verified.
