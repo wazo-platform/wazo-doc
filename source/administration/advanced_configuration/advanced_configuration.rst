@@ -8,4 +8,5 @@ This section describes the advanced system configuration.
    :maxdepth: 2
 
    Certificates <certificates/certificates>
+   LDAP Server <ldapserver/ldapserver>
    
