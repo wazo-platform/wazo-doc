@@ -112,7 +112,7 @@ click on the add button
 
 * ``Direct match`` use to search into this field
 * ``Match reverse directory`` use to search into this field for the reverse directory
-* ``Fieldname/value`` ​​match to the CTI field> server> | field> LDAP> server.
+* ``Fieldname/value`` match to the CTI field> server> | field> LDAP> server.
 
 Add a LDAP Directory to the CTI Server
 --------------------------------------
