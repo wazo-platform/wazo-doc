@@ -95,13 +95,18 @@ action                        param
 Sheet Configuration
 ===================
 
-For any sheet you may define 2 different configurations: Actions and Events.
+Sheets are special forms that are raised on the XiVO client. Each event is
+triggered by an event, dial, agent linked, etc.
 
-Action
-   Design of the sheet, and the action needed.
+Sheets can be defined under :menuselection:`Services --> CTI Server --> Models`
+in the web interface. Once a sheet is defined, it has to be assigned to an event
+in the :menuselection:`Services --> CTI Server --> Events` menu.
+
+Model
+   The model is the content of the displayed sheet.
 Event
-   Type of the sheet for a specific event. For example if you want to define a sheet when you received a call from a queue, 
-   you can create a model of your sheet in the action, and associate your event to this sheet.
+   Events are action that trigger the defined sheet. A sheet can be assigned to
+   many events. In that case, the sheet will be raised for each events.
 
 .. figure:: images/sheets_configuration.png
   :scale: 85%
@@ -109,10 +114,9 @@ Event
 General Option
 --------------
 
-In the first tab the name of your model can be configured, the destination (just dest for the moment).
+In the first tab the name of your model can be configured.
 When you checkbox focus is checked, your xivo client focus when you received a sheet.
-Contexts contain where the event sheet can be triggered. Profil is to authorize a specific profil in this model sheet.
-Anyway you can fill a description.
+The description allow the administrator to give an overview of a given sheet.
 
 .. figure:: images/sheets_configuration_general.png
   :scale: 85%
