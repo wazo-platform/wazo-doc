@@ -95,3 +95,41 @@ filters.
 
 You'll then be able to search your LDAP server directly from your phone and dial
 from the displayed results.
+
+
+Use with CTI Server and Client XiVO
+===================================
+
+Add a LDAP Directory Filter to the CTI Server
+---------------------------------------------
+
+In the :menuselection:`Services --> CTI Server --> Directories --> Definitions` page,
+click on the add button
+
+.. figure:: images/ctiserver_add_ldap_directory_filter.png
+
+   Adding a directory LDAP Filter to CTI Server
+
+* ``Direct match`` use to search into this field
+* ``Match reverse directory`` use to search into this field for the reverse directory
+* ``Fieldname/value`` ​​match to the CTI field> server> | field> LDAP> server.
+
+Add a LDAP Directory to the CTI Server
+--------------------------------------
+
+In the :menuselection:`Services --> CTI Server --> Directories --> Direct directories` page,
+click on the edit button for ``default`` directory
+
+To use this directory, you must then add to the list of searchable directories.
+
+.. figure:: images/ctiserver_add_ldap_directories.png
+
+   Adding a directory LDAP to CTI Server
+
+
+.. warning:: resonates in the CTI server settings. This means creating a context for each 
+   SIC context of membership of your users who will question the "Directories".
+
+* eg: CTI Context ``default`` for users in context ``default``
+
+Restart CTI Server
