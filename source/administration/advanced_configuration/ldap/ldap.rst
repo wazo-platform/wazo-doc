@@ -127,8 +127,8 @@ To use this directory, you must then add to the list of searchable directories.
    Adding a directory LDAP to CTI Server
 
 
-.. warning:: resonates in the CTI server settings. This means creating a context for each 
-   SIC context of membership of your users who will question the "Directories".
+.. warning:: The CTI server settings resonates in contexts. This means creating a context for each 
+   CTI context of membership of your users who will examine the "Directories".
 
 * eg: CTI Context ``default`` for users in context ``default``
 
