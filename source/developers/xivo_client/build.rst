@@ -33,6 +33,10 @@ Optionally, if you want the automatic documentation generation, check :
 
 * Devel > doxygen
 
+If you keep the default path for Cygwin (:file:`C:\\cygwin`), you're done. If you
+changed it, you have to change the line in :file:`xivoclient-all.pri` to set the new
+Cygwin path.
+
 
 Qt SDK
 ------
@@ -116,6 +120,8 @@ You can then launch ``make``::
 
 Binaries are available in the ``bin`` directory.
 
+The version of the executable is taken from the ``git describe`` command.
+
 
 Debug build
 -----------
@@ -146,11 +152,23 @@ On Windows::
 
 On Mac OS::
 
-   $ DYLD_LIBRARY_PATH=bin open bin/xivoclient.app
+   $ DYLD_LIBRARY_PATH=bin open bin/xivoclient.app/Contents/MacOS/xivoclient
 
 
 Pack
 ====
+
+Prerequisites for Windows
+-------------------------
+
+You will need NSIS installed.
+
+If you keep the default path for NSIS (:file:`C:\\Program Files (x86)\\NSIS`),
+you're done. If you changed it, you have to change the line in
+:file:`xivoclient-all.pri` to set the new NSIS path.
+
+Packing
+-------
 
 To create packages (that means an installer for Windows, a Debian package for
 Debian and Ubuntu or an app bundle for Mac OS), the same command is used::
@@ -159,3 +177,5 @@ Debian and Ubuntu or an app bundle for Mac OS), the same command is used::
 
 This will result in a ``.exe`` or ``.deb`` or ``.dmg`` file in the current directory,
 depending on your platform.
+
+The version of the package is taken from the ``git describe`` command.
