@@ -111,7 +111,7 @@ Event
 .. figure:: images/sheets_configuration.png
   :scale: 85%
 
-General Option
+General settings 
 --------------
 
 In the first tab the name of your model can be configured.
@@ -124,7 +124,11 @@ The description allow the administrator to give an overview of a given sheet.
 Sheets
 ------
 
-This tab is dedicated for the form/information of your sheet. You can define an external form created with qt-designer. 
+This tab is dedicated for the form/information of your sheet. You can define an external form created with qt-designer.
+
+
+.. warning:: In qt-designer, one must set 'vertical layout' on the top widget (right click on the top widget > Lay out > Vertical layout).
+
 You can configure the path to a ``file://`` or  ``http://``. The check box is for activated this ui. The qt file is an xml file.
 
 Here an example of a small form develop with qt-designer.
@@ -216,56 +220,53 @@ the generated file from qt-designer :
   </ui>
 
 
-On the second part you can configure the form:
+On the second part of the tab, you can configure the fields to appear on the sheet. Each field is represented by the following parameters :
 
- * Field title : name of your line
- * Field type : define the type like text, form ...
- * phone : create a tel: link, you can click to call on your sheet
- * title : to create a title on your sheet
- * picture : show a picture from an internal user in your sheet, you need to use {xivo-picture} variable.
- * text : show a text
- * form : show the form from an ui predefined. It's an xml ui. You need to define qtui in display format.
- * url : a simple url link, open your default browser.
- * urlx : an url button
+ * Field title : name of your line used as label on the sheet.
+ * Field type : define the type of field displayed on the sheet. Supported field types :
 
-The third field is to define a text when the fourth field have no result. It's the default display.
+   * title : to create a title on your sheet
+   * text : show a text
+   * url : a simple url link, open your default browser.
+   * urlx : an url button
+   * picture : show a picture from an internal user in your sheet, you need to use {xivo-picture} variable.
+   * phone : create a tel: link, you can click to call on your sheet.
+   * form : show the form from an ui predefined. It's an xml ui. You need to define qtui in display format.
 
-In the fourth field, you can defined text or variables or both.
-Three kinds of variables are available
+ * Default value : is to define a text when the fourth field have no result.
+ * Display value : you can define text, variables or both. Three kinds of variables are available :
 
-`xivo-` prefix is reserved and set inside the CTI server:
+   * `xivo-` prefix is reserved and set inside the CTI server:
  
- * `xivo-where` for sheet events, event triggering the sheet
- * `xivo-origin` place from where the lookup is requested (did, internal, forcelookup)
- * `xivo-direction` incoming or internal
- * `xivo-did` DID number
- * `xivo-calleridnum`
- * `xivo-calleridname`
- * `xivo-calleridrdnis` contains information whether there was a transfer
- * `xivo-calleridton` Type Of Network (national, international)
- * `xivo-calledidnum`
- * `xivo-calledidname`
- * `xivo-context`
- * `xivo-ipbxid` (`xivo-astid` in 1.1)
- * `xivo-directory` : for directory requests, it is the directory database the item has been found
- * `xivo-queuename` queue called
- * `xivo-agentnumber` agent number called
- * `xivo-date` formatted date string
- * `xivo-time` formatted time string
- * `xivo-channel` asterisk channel value (for advanced users)
- * `xivo-uniqueid` asterisk uniqueid value (for advanced users)
+     * `xivo-where` for sheet events, event triggering the sheet
+     * `xivo-origin` place from where the lookup is requested (did, internal, forcelookup)
+     * `xivo-direction` incoming or internal
+     * `xivo-did` DID number
+     * `xivo-calleridnum`
+     * `xivo-calleridname`
+     * `xivo-calleridrdnis` contains information whether there was a transfer
+     * `xivo-calleridton` Type Of Network (national, international)
+     * `xivo-calledidnum`
+     * `xivo-calledidname`
+     * `xivo-context`
+     * `xivo-ipbxid` (`xivo-astid` in 1.1)
+     * `xivo-directory` : for directory requests, it is the directory database the item has been found
+     * `xivo-queuename` queue called
+     * `xivo-agentnumber` agent number called
+     * `xivo-date` formatted date string
+     * `xivo-time` formatted time string
+     * `xivo-channel` asterisk channel value (for advanced users)
+     * `xivo-uniqueid` asterisk uniqueid value (for advanced users)
 
-`db-` prefixed variables are defined in the WEBI configuration, and depend on the matching list. Common values are :
+   * `db-` prefixed variables are defined in the WEBI configuration, and depend on the matching list. Common values are :
  
- * `db-phone`
- * `db-firstname`
- * `db-lastname`
- * `db-company`
+     * `db-phone`
+     * `db-firstname`
+     * `db-lastname`
+     * `db-company`
 
-`dbr-` contains one single item `dbr-display` that is used in the setting of what is displayed on phones, 
-and is typically a mix of firstname and lastname
-
-`dp-` prefixed ones are the variables set through the dialplan (through UserEvent application)
+   * `dbr-` contains one single item `dbr-display` that is used in the setting of what is displayed on phones, and is typically a mix of firstname and lastname
+   * `dp-` prefixed ones are the variables set through the dialplan (through UserEvent application)
 
 For example if you want to access from the dialplan to a variable dp-test you need to add in your dialplan this line (in a subroutine) :
 
@@ -273,22 +274,23 @@ For example if you want to access from the dialplan to a variable dp-test you ne
 
 The {dp-test} displays Salut.
 
-Warning : qtui are the exception for the form.
+.. warning:: fields of type 'form' work differently from other field types as 'Field title' and 'Default value' are unsued and 'Display value' MUST be set to 'qtui'.
 
-Other example :
-
- * title : (anything, "title", default value, variable pattern)
- * text item : (anything, "text", default value, variable pattern)
- * ui form : (anything, "form", anything, "qtui")
- * user picture : (anything, "picture", anything, {xivo-callerpicture})
+Default XiVO sheet example :
 
 .. figure:: images/sheets_configuration_sheet.png
   :scale: 85%
 
+Other example with more bells and whistles :
+
+.. figure:: images/sheets_configuration_sheet_demo.png
+  :scale: 85%
+
+
 Systray
 -------
 
-Exactly the same syntax as the sheet. You can just use text.
+Mostly the same syntax as the sheet with less field types available (title, body). A Systray popup will display a single title (the last one added to the list of fields) and zero, one or more fields of type 'body'.
 
 .. figure:: images/sheets_configuration_systray.png
   :scale: 85%
