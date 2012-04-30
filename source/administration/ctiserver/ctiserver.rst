@@ -112,7 +112,7 @@ Event
   :scale: 85%
 
 General settings 
---------------
+----------------
 
 In the first tab the name of your model can be configured.
 When you checkbox focus is checked, your xivo client focus when you received a sheet.
@@ -268,13 +268,15 @@ On the second part of the tab, you can configure the fields to appear on the she
    * `dbr-` contains one single item `dbr-display` that is used in the setting of what is displayed on phones, and is typically a mix of firstname and lastname
    * `dp-` prefixed ones are the variables set through the dialplan (through UserEvent application)
 
-For example if you want to access from the dialplan to a variable dp-test you need to add in your dialplan this line (in a subroutine) :
+For example if you want to access from the dialplan to a variable dp-test you need to add in your 
+dialplan this line (in a subroutine)::
 
  UserEvent(dialplan2cti,UNIQUEID: ${UNIQUEID},CHANNEL: ${CHANNEL},VARIABLE: test,VALUE: "Salut")
 
-The {dp-test} displays Salut.
+The ``{dp-test}`` displays Salut.
 
-.. warning:: fields of type 'form' work differently from other field types as 'Field title' and 'Default value' are unsued and 'Display value' MUST be set to 'qtui'.
+.. warning:: fields of type 'form' work differently from other field types. Fields `Field title` 
+   and `Default value` are not used and field `Display value` MUST be set to ``qtui``.
 
 Default XiVO sheet example :
 
@@ -347,7 +349,7 @@ You can configure a custom event with a dialplan interaction.
 Dialplan interaction
 --------------------
 
-* UserEvents for a custom event. You need to configure by web interface the custom event.
+UserEvent for a custom event. You need to configure by web interface the custom event::
 
  UserEvent(Custom,NAME: myevent,UNIQUEID: ${UNIQUEID},CHANNEL: ${CHANNEL})
 
