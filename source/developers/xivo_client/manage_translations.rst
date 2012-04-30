@@ -14,11 +14,31 @@ You need to install these tools::
 Updating translations from source code
 ======================================
 
-You can use the :file:`utils/translations.sh` to automatize this task.
+You can use the :file:`utils/translations.sh` to automate this task.
 
 To see what this script can do, use the command::
 
    $ utils/translations.sh help
+
+How to Add a New Translated String
+==================================
+
+String to be translated is marqued using the tr macro in the source code
+
+
+Example::
+
+   tr("Number");
+
+
+* Run ``utils/translations.sh update``
+
+  This will generate the new file :file:`xivoclient/i18n/all_en.ts`
+
+* Upload to Transifex the English translation file updated (``Edit resource`` on transifex project)
+* Translate other languages using Transifex web interface
+* Download and merge updated translations with ``utils/translations.sh pull``
+* Commit updated translations
 
 Edit an existing locale
 =======================
