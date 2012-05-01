@@ -17,97 +17,97 @@ Aastra
 +-------------------------------------------+-------+-------+-------+
 | Functions                                 | 6730i | 6731i | 6739i |
 +===========================================+=======+=======+=======+
-| User with supervision function            |       | Y     |       |
+| User with supervision function            |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Group                                     |       | Y     |       |
+| Group                                     |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Queue                                     |       | Y     |       |
+| Queue                                     |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Conference Room with supervision function |       | Y     |       |
+| Conference Room with supervision function |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
 | **General Functions**                                             |
 +-------------------------------------------+-------+-------+-------+
-| Online call recording                     |       | N     |       |
+| Online call recording                     |       | N     | N     |
 +-------------------------------------------+-------+-------+-------+
-| Hangup                                    |       | N     |       |
+| Hangup                                    |       | N     | N     |
 +-------------------------------------------+-------+-------+-------+
-| Phone status                              |       | Y     |       |
+| Phone status                              |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Sound recording                           |       | Y     |       |
+| Sound recording                           |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Call recording                            |       | Y     |       |
+| Call recording                            |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Incoming call filtering                   |       | Y     |       |
+| Incoming call filtering                   |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Do not disturb                            |       | Y     |       |
+| Do not disturb                            |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Group interception                        |       | N     |       |
+| Group interception                        |       | N     | N     |
 +-------------------------------------------+-------+-------+-------+
-| Call interception                         |       | N     |       |
+| Call interception                         |       | N     | N     |
 +-------------------------------------------+-------+-------+-------+
-| Listen to online calls                    |       | NT    |       |
+| Listen to online calls                    |       | NT    | NT    |
 +-------------------------------------------+-------+-------+-------+
-| Directory access                          |       | Y     |       |
+| Directory access                          |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Filtering Boss - Secretary                |       | Y     |       |
+| Filtering Boss - Secretary                |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
 | **Transfers Functions**                                           |
 +-------------------------------------------+-------+-------+-------+
-| Blind transfer                            |       | N     |       |
+| Blind transfer                            |       | N     | N     |
 +-------------------------------------------+-------+-------+-------+
-| Indirect transfer                         |       | Y     |       |
+| Indirect transfer                         |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
 | **Forwards Functions**                                            |
 +-------------------------------------------+-------+-------+-------+
-| Disable all forwarding                    |       | Y     |       |
+| Disable all forwarding                    |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Enable/Disable forwarding on no answer    |       | Y     |       |
+| Enable/Disable forwarding on no answer    |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Enable/Disable forwarding on busy         |       | Y     |       |
+| Enable/Disable forwarding on busy         |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Enable/Disable forwarding unconditional   |       | Y     |       |
+| Enable/Disable forwarding unconditional   |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
 | **Voicemail Functions**                                           |
 +-------------------------------------------+-------+-------+-------+
-| Enable voicemail                          |       | Y     |       |
+| Enable voicemail                          |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Activate voicemail                        |       | N     |       |
+| Activate voicemail                        |       | N     | N     |
 +-------------------------------------------+-------+-------+-------+
-| Reach the voicemail                       |       | Y     |       |
+| Reach the voicemail                       |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Delete messages from voicemail            |       | Y     |       |
+| Delete messages from voicemail            |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
 | **Agent Functions**                                               |
 +-------------------------------------------+-------+-------+-------+
-| Connect/Disconnect a static agent         |       | Y     |       |
+| Connect/Disconnect a static agent         |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Connect a static agent                    |       | Y     |       |
+| Connect a static agent                    |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Disconnect a static agent                 |       | Y     |       |
+| Disconnect a static agent                 |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
-| Connect a dynamic agent                   |       | Y     |       |
+| Connect a dynamic agent                   |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
 | **Groups Functions**                                              |
 +-------------------------------------------+-------+-------+-------+
-| Add/Remove a member into/from a group     |       | N     |       |
+| Add/Remove a member into/from a group     |       | N     | N     |
 +-------------------------------------------+-------+-------+-------+
-| Add a member into a group                 |       | N     |       |
+| Add a member into a group                 |       | N     | N     |
 +-------------------------------------------+-------+-------+-------+
-| Remove a member from a group              |       | N     |       |
+| Remove a member from a group              |       | N     | N     |
 +-------------------------------------------+-------+-------+-------+
-| Add/Remove a member into/from a queue     |       | N     |       |
+| Add/Remove a member into/from a queue     |       | N     | N     |
 +-------------------------------------------+-------+-------+-------+
-| Add a member into a queue                 |       | N     |       |
+| Add a member into a queue                 |       | N     | N     |
 +-------------------------------------------+-------+-------+-------+
-| Remove a member from a queue              |       | N     |       |
+| Remove a member from a queue              |       | N     | N     |
 +-------------------------------------------+-------+-------+-------+
 | **Parking Functions**                                             |
 +-------------------------------------------+-------+-------+-------+
-| Parking                                   |       | N     |       |
+| Parking                                   |       | N     | N     |
 +-------------------------------------------+-------+-------+-------+
-| Parking position                          |       | N     |       |
+| Parking position                          |       | N     | N     |
 +-------------------------------------------+-------+-------+-------+
 | **Paging Functions**                                              |
 +-------------------------------------------+-------+-------+-------+
-| Paging                                    |       | Y     |       |
+| Paging                                    |       | Y     | Y     |
 +-------------------------------------------+-------+-------+-------+
