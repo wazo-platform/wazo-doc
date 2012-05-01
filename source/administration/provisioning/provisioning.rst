@@ -14,3 +14,4 @@ including SIP phones, SIP ATAs, and even softphones.
    adv_configuration
    directory
    jitsi
+   fkeys
