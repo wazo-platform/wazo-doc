@@ -64,7 +64,7 @@ By default, the selected protocol is SIP, which is what we want for now. Put the
 
    Save
 
-Yahoo ! we now have a user named 'Alice Wonderland' the the phone number '1000' !
+Yahoo ! we now have a user named 'Alice Wonderland' with the phone number '1000' !
 
 .. figure:: images/step-10.png
 
@@ -76,7 +76,7 @@ Now go back in the main IPBX menu, and click on 'Lines'.
 
    Lines information
 
-You see the line associated with the user we just created. Now click on the 'pencil' to 'Edit' the line.
+You see the line associated with the user we just created. Now click on the pencil icon to edit the line.
 
 .. figure:: images/step-12.png
 
