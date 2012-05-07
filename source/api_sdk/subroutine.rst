@@ -83,13 +83,6 @@ You can also use a global subroutine for call forward.
  XIVO_PRESUBR_FWD_CUSTOM = xivo-subrfwd-custom
  XIVO_PRESUBR_FWD_EXTENSION = xivo-subrfwd-extension
 
-Features subroutine
-===================
-
-::
-
- ; Preprocess subroutine for features
- XIVO_GROUP_MEMBER_SUBROUTINE = xivo-subrfeatures-groupmember
 
 Dialplan variables
 ==================

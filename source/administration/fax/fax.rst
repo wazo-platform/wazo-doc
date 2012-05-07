@@ -29,6 +29,10 @@ to send a fax to the same XiVO that you use to receive it.
 When a fax is received, the default behaviour is to send an email to a
 user-specified address with the incoming fax attached as a PDF document.
 
+.. figure:: images/xivoclient-fax.png
+
+   The fax Xlet in the XiVO Client
+
 Starting with XiVO 1.1.15, more advanced features have been added, like the
 ability of sending a PDF copy of a fax via FTP, printing it, changing the email body,
 or doing more than one action at the same time. These advanced features are unfortunately

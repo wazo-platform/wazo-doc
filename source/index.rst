@@ -22,6 +22,7 @@ We are also working on a fully `Open XiVO Hardware`_.
 
    introduction/introduction
    installation/installation
+   getting_started/getting_started
    upgrade/upgrade
    cti_client/cti_client
    system/system

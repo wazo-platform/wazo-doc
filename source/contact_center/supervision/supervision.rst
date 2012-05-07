@@ -79,6 +79,9 @@ Efficiency
 QOS
    Percentage of calls taken within X seconds over answered calls during the configured statistical window , X can be configured on queue basis
 
+Logged
+   Shows the number of logged agents in the queue. This column is set to N/A when the queue has just been created and no members are already affected.
+
 **Counter availability**
 
 When the XiVO client is initialized, na is diplayed for not initialized counters. When the XiVO client is restarted the counters are always displayed and calculated as if the application was not restarted. When the server is restarted, counters are reinitialized.

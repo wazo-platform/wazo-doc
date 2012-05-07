@@ -10,8 +10,8 @@ Administration
    callright/callright
    cel/cel
    conference_room/conference_room
-   switchboard/switchboard
    ctiserver/ctiserver
+   Customer info <customerinfo/customerinfo>
    devices/devices
    fax/fax
    Hardware <hardware/hardware>
@@ -22,4 +22,5 @@ Administration
    provisioning/provisioning
    sccp/sccp
    schedules/schedules
+   Switchboard <switchboard/switchboard>
    users/users
