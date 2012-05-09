@@ -66,16 +66,17 @@ Congratulation ! Your SCCP phone is now ready to be called !
 
    You must manually do "module reload chan_sccp.so" via the Asterisk command line if you want to:
 
-   #. Remove a device from the configuration.
-   #. Add a voicemail on an already configured user.
+   * Remove a device from the configuration.
+   * Add a voicemail on an already configured user.
+   * Change the language of an already configured user.
 
    Please, be warned that this command will disconnect all SCCP phones and hence all current phone calls will be lost.
 
    This limitation should be removed in the future.
 
+
 Features
 --------
-
 
 +-----------------------------+-----------+
 | Features                    | Supported |
@@ -115,6 +116,7 @@ Features
 | NAT traversal               | Not yet   |
 +-----------------------------+-----------+
 
+
 Telephone
 ---------
 
@@ -141,5 +143,3 @@ Telephone
 +-------------+-------------+------------------+
 
 An unsupported device won't be able to connect to Asterisk (channel sccp) at all.
-
-
