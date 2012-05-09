@@ -21,6 +21,14 @@ HTTP status codes
 Configuration
 =============
 
+In order to use web services, a special user must be created with the correct ACLs. In order to do so : 
+
+- Visit the Configuration > Web Services Access section
+- Create a new web service user with the username, password OR host of allowed remote machine (the client that is about to use XiVO web services).
+  Edit access rights of given web services user to allow access for needed sections.
+
+If a username /password was given, then those credentials will be needed to connect to the web services. If a host was given, only connections from this host will be allowed. It is possible to specify a username/password pair AND a host on the same web services user.
+
 Manage
 ------
 
