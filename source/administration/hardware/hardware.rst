@@ -402,7 +402,7 @@ If you have problem with the dahdi-2.6.1, you can install temporarily use dahdi-
 
 You have to use the script ``force-dahdi-2.6.0`` available on xivo-tools repository to install dahdi-2.6.0
 
-The script is available ``gitosis`` (git clone http://gitorious.org/xivo/xivo-tools).
+The script is available ``gitosis`` (git clone git://gitorious.org/xivo/xivo-tools.git).
 
 To install dahdi-2.6.0::
 
