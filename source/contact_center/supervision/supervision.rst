@@ -47,7 +47,7 @@ Queue List
 The queue list is a gathering of information and statistics for each queues configured on the XiVO.
 
 .. figure:: images/queue_list.png
-   :scale: 90%
+   :scale: 80%
 
 
 **Columns**
@@ -81,6 +81,9 @@ QOS
 
 Logged
    Shows the number of logged agents in the queue. This column is set to N/A when the queue has just been created and no members are already affected.
+
+Available
+   Shows the number of available agents ready to take a call in the queue. This column is set to N/A when the queue has just been created and no members are already affected.
 
 **Counter availability**
 
