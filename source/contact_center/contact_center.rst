@@ -28,6 +28,7 @@ In XiVO, contact center is implemented to fulfill the following objectives :
    :maxdepth: 2
 
    agents/agents
+   queues/queues
    supervision/supervision
    skillbasedrouting/skillbasedrouting
    statistics/statistics
