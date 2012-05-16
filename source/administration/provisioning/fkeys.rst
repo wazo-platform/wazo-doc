@@ -2,6 +2,12 @@
 Programmable Keys
 *****************
 
+.. warning::
+
+    Funckeys work using the extensions in :menuselection:`Services --> Extensions`. It is important
+    to enable the function keys you want to use.
+
+
 Y = Supported
 
 N = Not supported
