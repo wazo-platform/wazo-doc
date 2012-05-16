@@ -7,6 +7,11 @@ Programmable Keys
     Funckeys work using the extensions in :menuselection:`Services --> Extensions`. It is important
     to enable the function keys you want to use.
 
+.. warning::
+
+    The enable transfer option in the user configuration services tab must be enabled to use transfer
+    function keys.
+
 
 Y = Supported
 
