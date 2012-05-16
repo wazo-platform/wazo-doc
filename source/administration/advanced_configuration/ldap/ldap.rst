@@ -23,10 +23,9 @@ Enter the following information:
 * Name: the server's display name
 * Host: the hostname or IP address
 * Port: the port number (default: 389)
-* Security layer: select TLS or SSL if it is activated on your server and you want to use it (default: disabled)
+* Security layer: select SSL if it is activated on your server and you want to use it (default: disabled)
 
-  * TLS means StartTLS and port 389 should be used
-  * SSL means TLS/SSL and port 636 should be used
+  * SSL means TLS/SSL (doesn't mean StartTLS) and port 636 should be used
 
 * Protocol version: the LDAP protocol version (default: 3)
 
@@ -35,7 +34,7 @@ Enter the following information:
    When editing an LDAP server, you'll have to restart the CTI server
    for the changes to be taken into account.
 
-If you are using SSL or TLS with an LDAP server that is using a CA certificate from
+If you are using SSL with an LDAP server that is using a CA certificate from
 an unknown certificate authority, you'll have to add the CA certificate to the
 :file:`/etc/ssl/certs/ca-certificates.crt` file, modify the :file:`/etc/ldap/ldap.conf`
 to add the line ``TLS_CACERT /etc/ssl/certs/ca-certificates.crt`` and restart spawn-fcgi
