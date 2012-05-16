@@ -11,19 +11,10 @@ You need to install these tools::
    pip install transifex-client
    apt-get install qt4-dev-tools
 
-Updating translations from source code
-======================================
-
-You can use the :file:`utils/translations.sh` to automate this task.
-
-To see what this script can do, use the command::
-
-   $ utils/translations.sh help
-
 How to Add a New Translated String
 ==================================
 
-String to be translated is marqued using the tr macro in the source code
+String to be translated is marqued using the tr macro in the source code.
 
 
 Example::
@@ -36,42 +27,26 @@ Example::
   This will generate the new file :file:`xivoclient/i18n/all_en.ts`
 
 * Upload to Transifex the English translation file updated (``Edit resource`` on transifex project)
-* Translate other languages using Transifex web interface
+* Translate other languages using :ref:`Transifex web interface <translating-xivo>`
 * Download and merge updated translations with ``utils/translations.sh pull``
 * Commit updated translations
-
-Edit an existing locale
-=======================
-
-Update the translation files from source files
-----------------------------------------------
-
-Run the following command on the wanted project file::
-
-   $ lupdate xivoclient/xivoclient.pro
-
-Or use the above script::
-
-   $ utils/translations.sh update
-
-to update all translation files.
-
-Edit the translation files
---------------------------
-
-Translation files, with extension ``.ts`` are located in ``baselib`` and
-``xivoclient/i18n``. Do this only if you want to translate strings you added
-yourself in the code. For already existing strings, see :ref:`translating-xivo`.
 
 Add a new XiVO Client locale
 ============================
 
 Localizing the XiVO Client goes through four steps :
 
+* Creating the new translation in Transifex
 * Generate the translation files
-* Translating the files
 * Embedding the translation in the binaries
 * Display the new locale to be chosen
+
+
+Creating the new translation in Transifex
+-----------------------------------------
+
+Log into Transifex and click the 'Create language' option.
+
 
 Generate translation files
 --------------------------
@@ -97,19 +72,16 @@ This line adds a translation file for french. Please replace fr by the code of
 your locale. The ``$$ROOT_DIR`` variable references either xivoclient or
 baselib.
 
+You can use a command like the following to automate this ($LANG is the new language) ::
+
+   find . -name '*.pro' -exec sed -i -e 's|^TRANSLATIONS += $${\?ROOT_DIR}\?/i18n/\(.*\)_en.ts|\0\nTRANSLATIONS += $$ROOT_DIR/i18n/\1_$LANG.ts|' {} \;
+
 To actually create the files, you will have to use the translation managing
 script. But first, you must tell the script about your new locale. Edit the
 :file:`utils/translations.sh` file and add your locale to the ``LOCALES``
 variable. Then, you can run the script::
 
    $ utils/translations.sh update
-
-Translate the files
--------------------
-
-You can edit the files with extension ``.ts`` generated in ``baselib`` or in
-:file:`xivoclient/i18n`. For each entry, fill the ``<translation>`` tag with the
-translation of the ``<source>`` tag.
 
 Embed the translation files
 ---------------------------
@@ -124,6 +96,11 @@ below::
 This embeds the French translation of the ``xivoclient`` module, corresponding
 to the translation file above. The path is changed to ``obj/`` because the
 ``.qm`` file will be generated from the ``.ts`` file.
+
+You can use a command like the following to automate this ($LANG is the new language) ::
+
+   find . -name '*.qrc' -exec sed -i -e 's|^\( *\)<file>\(.*\)obj/\(.*\)_fr.qm</file>|\0\n\1<file>\2obj/\3_$LANG.qm</file>|' {} \;
+
 
 Display the new locale
 ----------------------
