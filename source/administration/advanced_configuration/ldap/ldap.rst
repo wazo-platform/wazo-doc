@@ -26,7 +26,7 @@ Enter the following information:
 * Security layer: select TLS or SSL if it is activated on your server and you want to use it (default: disabled)
 
   * TLS means StartTLS and port 389 should be used
-  * SSL means TLS/SSL and port 686 should be used
+  * SSL means TLS/SSL and port 636 should be used
 
 * Protocol version: the LDAP protocol version (default: 3)
 
