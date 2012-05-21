@@ -398,7 +398,7 @@ Rolling Back to Dahdi-2.6.0
 
 .. warning:: Since xivo-1.2.8
 
-If you have problem with the dahdi-2.6.1, you can install temporarily use dahdi-2.6.1.
+If you have problem with the 2.6.1 dahdi version, you can rollback to version 2.6.0.
 
 You have to use the script ``force-dahdi-2.6.0`` available on xivo-tools repository to install dahdi-2.6.0
 
