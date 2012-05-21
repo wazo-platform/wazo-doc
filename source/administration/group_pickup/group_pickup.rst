@@ -2,7 +2,7 @@
 Group Pickup
 ************
 
-Group pickup allow users to intercept calls directed with a member of the group with
+Group pickup allow users to intercept calls directed towards a member of the group with
 a function key or with a special extension.
 
 
@@ -35,7 +35,7 @@ The pickup extension can be defined in the :menuselection:`Services --> Extensio
 
 The extension used by group pickup is called *Group interception* it's default value is *\*8*.
 
-.. warning:: The extension must be enabled even if a function is used.
+.. warning:: The extension must be enabled even if a function key is used.
 
 
 Adding a Function Key to an Interceptor
