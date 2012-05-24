@@ -6,7 +6,7 @@ Periodic backup
 ===============
 
 A backup of the database and the data are launched each day with a logrotate task.
-Note that you can retrieve the backup from the web-interface in 
+Note that you can retrieve the backup from the web-interface in
 :menuselection:`Services ---> IPBX ---> IPBX Configuration ---> Backup Files` page.
 
 Logrotate task::
@@ -43,25 +43,17 @@ Restore
 Restoring the configuration files
 =================================
 
-A backup of both the configuration files and the databases used by a XiVO installation is done 
-automatically every day. 
+A backup of both the configuration files and the databases used by a XiVO installation is done
+automatically every day.
 These backups are created in the `/var/backups/pf-xivo` directory and are kept for 7 days.
 
 
-Restoring the databases
-=======================
+Before Restoring the System
+===========================
 
-.. warning::
+Before restoring a XiVO on a fresh install you have to setup XiVO using the installation wizard.
 
-   This will destroy all the current data in your databases
-
-Databases backups are created as `db.tgz` files in the `/var/backups/pf-xivo` directory. 
-These tarballs contains a dump of the two databases used in XiVO 1.2.
-
-In this example, we'll restore the databases from a backup file named `db.tgz` 
-placed in the home directory of root.
-
-First, stop monit plus all the services that are connected to the databases.
+Stop monit and all the xivo services.
 
 ::
 
@@ -71,9 +63,34 @@ First, stop monit plus all the services that are connected to the databases.
    /etc/init.d/xivo-confgend stop
    /etc/init.d/pf-xivo-agid stop
    /etc/init.d/pf-xivo-sysconfd stop
+   /etc/init.d/pf-xivo-provd stop
 
+Restoring System Files
+======================
 
-Then, extract the content of the `db.tgz` file into the /tmp directory and go inside 
+System files are stored in the data.tgz file located in the `/var/backups/pf-xivo` directory.
+
+This file contains for example, voicemail files, musics, voice guides, phone sets firmwares, provisioning server configuration database.
+
+To restore the file :
+
+::
+   tar zxvfp /var/backups/pf-xivo/data.tgz -C /
+
+Restoring the databases
+=======================
+
+.. warning::
+
+   This will destroy all the current data in your databases
+
+Databases backups are created as `db.tgz` files in the `/var/backups/pf-xivo` directory.
+These tarballs contains a dump of the two databases used in XiVO 1.2.
+
+In this example, we'll restore the databases from a backup file named `db.tgz`
+placed in the home directory of root.
+
+Then, extract the content of the `db.tgz` file into the /tmp directory and go inside
 the newly created directory.
 
 ::
@@ -97,11 +114,14 @@ Do the same thing for the xivo database:
    sudo -u postgres dropdb xivo
    sudo -u postgres pg_restore -C -d postgres xivo.dump
 
+After Restoring The System
+==========================
 
-Finally, restart the services you stopped at the first step:
+Restart the services you stopped at the first step:
 
 ::
 
+   /etc/init.d/pf-xivo-provd start
    /etc/init.d/pf-xivo-sysconfd start
    /etc/init.d/pf-xivo-agid start
    /etc/init.d/xivo-confgend start
@@ -109,4 +129,4 @@ Finally, restart the services you stopped at the first step:
    /etc/init.d/xivo-ctid start
    /etc/init.d/monit start
 
-
+You may also reboot the system.
