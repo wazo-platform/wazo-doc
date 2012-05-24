@@ -40,8 +40,8 @@ You can manually create a database backup file named `db-manual.tgz` by issuing 
 Restore
 *******
 
-Restoring the configuration files
-=================================
+Introduction
+============
 
 A backup of both the configuration files and the databases used by a XiVO installation is done
 automatically every day.
