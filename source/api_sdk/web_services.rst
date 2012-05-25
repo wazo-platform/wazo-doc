@@ -1183,8 +1183,8 @@ View::
    }
 
 
-IPBX Configuration
-------------------
+IPBX Services
+-------------
 
 Extensions
 ^^^^^^^^^^
@@ -1211,6 +1211,63 @@ Example::
 
    [101,102,104,105,106,109,110,210]
 
+IPBX Configuration
+------------------
+
+Backup Files
+^^^^^^^^^^^^
+
+Configuration Files
+^^^^^^^^^^^^^^^^^^^
+
+Contexts
+^^^^^^^^
+
+View::
+
+    https://[ip_xivo]/service/ipbx/json.php/restricted/system_management/context/?act=view&id=[context_name]
+
+List::
+
+    https://[ip_xivo]/service/ipbx/json.php/restricted/system_management/context/?act=list
+
+Add::
+
+    https://[ip_xivo]/service/ipbx/json.php/restricted/system_management/context/?act=add
+
+``Example of content to send to add``
+
+.. code-block:: javascript
+
+    {
+        "context": {
+            "name": "default",
+            "displayname": "Appels internes",
+            "entity": "skaro",
+            "contexttype":"internal",
+            "description": ""
+        },
+        "contextinclude": [
+            "to-extern"
+        ],
+        "contextnumbers": {
+            "user": [
+                  {
+                          "numberbeg": "100",
+                          "numberend": "199"
+                  }
+                    ]
+            "group": [
+                  {
+                    [
+                          "numberbeg": "200",
+                          "numberend": "210"
+                    ] 
+        }
+    }
+
+LDAP Filters
+^^^^^^^^^^^^
 
 
 Call Center
