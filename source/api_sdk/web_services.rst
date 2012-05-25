@@ -1256,14 +1256,13 @@ Add::
                           "numberbeg": "100",
                           "numberend": "199"
                   }
-                    ]
+                    ],
             "group": [
                   {
-                    [
                           "numberbeg": "200",
                           "numberend": "210"
-                    ] 
-        }
+                  }
+                     ]
     }
 
 LDAP Filters
