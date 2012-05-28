@@ -25,7 +25,7 @@ In the *Interceptors* tab, you can define a list of users, groups or queues that
 In the *Intercepted* tab, you can define a list of users, groups or queues that can be intercepted.
 
 .. figure:: images/pickup_group.png
-    :scale: 85%
+   :scale: 85%
 
 
 Enabling an Interception Extension
@@ -47,4 +47,4 @@ interceptor and go to the *Func Keys* tab.
 Add a new function key of type *Group Interception* and save.
 
 .. figure:: images/pickup_group_func_key.png
-    :scale: 85%
+   :scale: 85%
