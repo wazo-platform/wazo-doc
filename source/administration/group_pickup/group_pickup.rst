@@ -2,8 +2,8 @@
 Group Pickup
 ************
 
-Group pickup allow users to intercept calls directed towards a member of the group with
-a function key or with a special extension.
+Pickup groups allow users to intercept calls directed towards other users of the group. This
+is done either by dialing a special extension or by pressing a function key.
 
 
 Quick Summary
