@@ -70,6 +70,9 @@ Answered
 Abandoned
    The number of abandoned calls on this queue during the configured statistical window
 
+Mean waiting time
+   The mean  wait time in the statistical time window, in mm:ss
+
 Max waiting time
    The longest wait time in the statistical time window, in mm:ss
 
