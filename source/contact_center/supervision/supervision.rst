@@ -141,22 +141,20 @@ Agent Details
 ^^^^^^^^^^^^^
 **General information**
 
-Display advanced informations of an agent and permit to login/logoff, add/remove to a queue, and pause/unpause.
+Display advanced informations of an agent and enable to login/logoff, add/remove to a queue, and pause/unpause.
 
 .. figure:: images/agent_details.png
 
    Agent Details
 
-1. This is the status information on agent
+1. This is the status information of agent
 2. Button to login/logoff agent
 3. Supervision button of the Xlet "Calls of a queue"
-4. Pause/Unpause button to the queue of the field 
-5. Add/Remove agent to the queue
-6. Pause/Unpause button to the queue of the field
+4. Pause/Unpause button for given queue
+5. Add/Remove agent for given queue
 
-Difference between 4 and 6:
-You can't add/remove this agent to queue1 because there is hard linked in configuration
-   
+You can't add/remove this agent to queue1/queue6 because there is hard linked in configuration (WEBI)
+
 
 Link XiVO Client presence to agent presence
 ===========================================
