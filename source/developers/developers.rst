@@ -2,15 +2,21 @@
 Developers
 **********
 
-This section describes the tools for developers.
+General information:
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    contributing_doc
-   translate
-   cti_server/cti_server
-   xivo_client/xivo_client
-   sccp
    debug_daemon
+   translate
+
+Component specific information:
+
+.. toctree::
+   :maxdepth: 2
+
+   cti_server/cti_server
+   sccp
    webi
+   xivo_client/xivo_client
