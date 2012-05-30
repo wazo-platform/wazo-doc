@@ -17,6 +17,7 @@ Component specific information:
    :maxdepth: 2
 
    cti_server/cti_server
+   provisioning
    sccp
    webi
    xivo_client/xivo_client
