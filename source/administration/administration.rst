@@ -14,6 +14,7 @@ Administration
    Customer info <customerinfo/customerinfo>
    devices/devices
    fax/fax
+   Groups <group/group>
    Group Pickup <group_pickup/group_pickup>
    Hardware <hardware/hardware>
    interconnections/interconnections

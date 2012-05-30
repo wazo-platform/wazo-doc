@@ -14,6 +14,8 @@ Call queues are managed on the
 Ring strategy
    Define how queue members are called when a call enters the queue.
 
+   * Name : used as an unique id, cannot be ``general``
+   * Display name : Displayed on the supervisor screens
    * Linear: for each call, call the first member, then the second, etc.
    * Least recent: call the member who has least recently hung up a call.
    * Fewest calls: call the member with the fewest completed calls.
