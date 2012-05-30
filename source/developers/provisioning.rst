@@ -87,7 +87,7 @@ to the following questions.
    a non negligible amount of work, if you don't meet any real problem
    and are comfortable with provisioning in XiVO. Not all phones are born equal.
    Some are cheap. Some are old and slow. Some are made to work on proprietary
-   system and will only work in degraded mode­ on anything else.
+   system and will only work in degraded mode on anything else.
 
    That said, if you are uncertain, testing will help you clarifying your idea.
 
