@@ -81,7 +81,7 @@ Testing
 Adding auto-provisioning support for a phone is mostly a question of finding answers
 to the following questions.
 
-#. *Is it worth the time adding auto-provisioning support for the phone ?*
+#. Is it worth the time adding auto-provisioning support for the phone ?
 
    Indeed. Adding quality auto-provisioning support for a phone to XiVO requires
    a non negligible amount of work, if you don't meet any real problem
@@ -91,8 +91,8 @@ to the following questions.
 
    That said, if you are uncertain, testing will help you clarifying your idea.
 
-#. *What is the vendor, model, MAC address and firmware version (if available) of
-   your phone ?*
+#. What is the vendor, model, MAC address and firmware version (if available) of
+   your phone ?
 
    Having the vendor and model name is essential when looking for documentation
    or other information. The MAC address will be needed later on for some tests,
@@ -100,16 +100,16 @@ to the following questions.
    you are trying to upgrade to a newer firmware version and you're having some
    troubles, and when reading the documentation.
 
-#. *Is the official administrator guide/documentation available publicly on the
+#. Is the official administrator guide/documentation available publicly on the
    vendor web site ? Is it available only after registering and login to the
-   vendor web site ?*
+   vendor web site ?
 
    Having access to the administrator guide/documentation of the phone is also
    essential. Once you've found it, download it and keep the link to the URL. If
    you can't find it, it's probably not worth going further.
 
-#. *Is the latest firmware of the phone available publicly on the vendor web site ?
-   Is it available only after registering and login to the vendor web site ?*
+#. Is the latest firmware of the phone available publicly on the vendor web site ?
+   Is it available only after registering and login to the vendor web site ?
 
    Good auto-provisioning support means you need to have an easy way to download the
    latest firmware of the phone. Ideally, this mean the firmware is downloadable
@@ -118,15 +118,15 @@ to the following questions.
    which will be cumbersome to automatize and probably fragile. If this is the case, it's
    probably not worth going further.
 
-#. *Does the phone need other files, like language files ? If so, are these files
-   available publicly on the vendor web site ? After registering ?*
+#. Does the phone need other files, like language files ? If so, are these files
+   available publicly on the vendor web site ? After registering ?
 
    Although you might not be able to answer to this question yet because you might not know
    if the phone needs such files to be either in English or in French (the two officially
    supported language in XiVO), you'll need to have an easy access to these files if its
    the case.
 
-#. *Does the phone supports auto-provisioning via DHCP + HTTP (or TFTP) ?*
+#. Does the phone supports auto-provisioning via DHCP + HTTP (or TFTP) ?
 
    The provisioning system in XiVO is based on the popular method of using a DHCP
    server to tell the phone where to download its configuration files, and a HTTP (or TFTP)
@@ -140,14 +140,14 @@ to the following questions.
    If the phone supports both HTTP and TFTP, pick HTTP, it usually works better with
    the provisioning server of XiVO.
 
-#. *What are the default usernames/passwords on the phone to access administrator menus (phone
-   UI and web UI) ? How do you do a factory reset of the phone ?*
+#. What are the default usernames/passwords on the phone to access administrator menus (phone
+   UI and web UI) ? How do you do a factory reset of the phone ?
 
    Although this step is optional, it might be handy later to have these kind of information.
    Try to find them now, and note them somewhere.
 
-#. *What are the DHCP options and their values to send to the phones to tell it where
-   its configuration files are located ?*
+#. What are the DHCP options and their values to send to the phones to tell it where
+   its configuration files are located ?
 
    Once you know that the phone supports DHCP + HTTP provisioning, the next
    question is what do you need to put in the DHCP response to tell the phone where
@@ -163,9 +163,9 @@ to the following questions.
          option tftp-server-name "http://169.254.0.1/foobar.cfg";
       }
 
-#. *What are the configuration files the phone needs (filename and content)
+#. What are the configuration files the phone needs (filename and content)
    and what do we need to put in it for the phone to minimally be able to
-   make and receive calls on XiVO ?*
+   make and receive calls on XiVO ?
 
    Now that you are able to tell your phone where to look for its configuration files,
    you need to write these files with the right content in it. Again, at this
@@ -176,8 +176,8 @@ to the following questions.
    configure 1 line, with the right SIP registrar and proxy, and the associated
    username and password.
 
-#. *Do basic telephony services, like transfer, works correctly when using the
-   phone buttons ?*
+#. Do basic telephony services, like transfer, works correctly when using the
+   phone buttons ?
 
    On most phones, it's possible to do transfer (both attended and direct), three-way
    conferences or put someone on hold directly from the phone. Do some tests to
@@ -186,9 +186,9 @@ to the following questions.
    Also at this step, it's a good idea to check how the phone handle non-ascii
    characters, either in the caller ID or in its configuration files.
 
-#. *Does other "standard" feature works correctly on the phone ? Like the
+#. Does other "standard" feature works correctly on the phone ? Like the
    NTP server, the MWI, the function keys, the BLF, the call interception,
-   the timezone and DST support, the multi language ?*
+   the timezone and DST support, the multi language ?
 
    For quality auto-provisioning support, you must find how to configure and make
    all these features work.
