@@ -109,3 +109,29 @@ After applying the network configuration:
    :figclass: align-center
 
    Listing the network interfaces
+
+
+Add static network routes
+-------------------------
+
+Static route can't be currently added via the web interface.
+If you want static routes in your XiVO you should do the following the steps described below.
+It would ensure that your static routes are applied at startup (in fact each time a network interface goes up).
+
+#. Create the file ``/etc/network/if-up.d/xivo-routes``::
+
+    touch /etc/network/if-up.d/xivo-routes
+    chmod 755 /etc/network/if-up.d/xivo-routes
+
+#. Insert the following content::
+
+    #!/bin/sh
+
+    ip route add <destination> via <gateway> 
+    ip route add <destination> via <gateway>
+
+.. note:: 
+   <destination> and <gateway> should be replaced by your specific configuration.
+   For example `192.168.50.128/25 via 192.168.17.254`
+   or `91.195.18.20 via 192.168.17.254`
+
