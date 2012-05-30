@@ -2,6 +2,34 @@
 Backup
 ******
 
+
+What is actually backuped ?
+===========================
+
+Data
+^^^^
+
+Here is the list of the folder and files backuped::
+
+    /etc/asterisk /etc/dahdi /etc/dhcp /etc/pf-xivo /etc/wanpipe 
+    /etc/network/interfaces /etc/resolv.conf /etc/hosts /etc/hostname
+    /var/lib/asterisk/ /var/lib/pf-xivo/ /var/spool/asterisk/ /var/log/asterisk/ /var/lib/pf-xivo-provd
+
+The following files/folders are excluded from this backup :
+
+- folders : ``/var/spool/asterisk/monitor /var/spool/asterisk/meetme``
+- log files, coredump files,
+- audio recordings,
+- and, files greater than 10Mo or folders containing more than 100 files
+  if they belong to one of these folders : ``/var/lib/pf-xivo/sounds``, ``/var/lib/asterisk/sounds/custom``, ``/var/lib/asterisk/moh``, ``/var/spool/asterisk/voicemail``, ``/var/spool/asterisk/monitor``
+
+
+Database
+^^^^^^^^
+
+All XiVO database is backuped (xivo and asterisk).
+
+
 Periodic backup
 ===============
 
