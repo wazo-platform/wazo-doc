@@ -25,7 +25,7 @@ Enter the following information:
 * Port: the port number (default: 389)
 * Security layer: select SSL if it is activated on your server and you want to use it (default: disabled)
 
-  * SSL means TLS/SSL (doesn't mean StartTLS) and port 636 should be used
+  * SSL means TLS/SSL (doesn't mean StartTLS) and port 636 should then be used
 
 * Protocol version: the LDAP protocol version (default: 3)
 
@@ -34,11 +34,19 @@ Enter the following information:
    When editing an LDAP server, you'll have to restart the CTI server
    for the changes to be taken into account.
 
+
+Notes on SSL/TLS usage
+----------------------
+
 If you are using SSL with an LDAP server that is using a CA certificate from
 an unknown certificate authority, you'll have to add the CA certificate to the
 :file:`/etc/ssl/certs/ca-certificates.crt` file, modify the :file:`/etc/ldap/ldap.conf`
 to add the line ``TLS_CACERT /etc/ssl/certs/ca-certificates.crt`` and restart spawn-fcgi
 with ``/etc/init.d/spawn-fcgi restart``.
+
+Also, make sure to use the :abbr:`FQDN (Fully Qualified Domain Name)` of the server
+in the host field when using SSL. The host field must match exactly what's in the CN
+attribute of the server certificate.
 
 
 Add a LDAP Filter
@@ -64,7 +72,7 @@ Enter the following information:
 * User: the ``dn`` of the user used to do search requests
 * Password: the password of the given user
 * Base DN: the base ``dn`` of search requests
-* Filter: if specified, replace the default filter with this one
+* Filter: if specified, :ref:`it replace the default filter <custom-filter>`
 * Phone number type: this string is appended next to each result display name
 
 You'll also probably need to modify some values in the :guilabel:`Attributes` tab:
@@ -80,6 +88,8 @@ attribute, else the second will be used, etc.
 The :guilabel:`Phone number` section is similar, but is used for the phone number in the
 results.
 
+
+.. _custom-filter:
 
 Use a Custom Filter
 -------------------
