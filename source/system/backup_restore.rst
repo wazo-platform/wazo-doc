@@ -152,6 +152,45 @@ Do the same thing for the xivo database:
    sudo -u postgres dropdb xivo
    sudo -u postgres pg_restore -C -d postgres xivo.dump
 
+Restoring and Keeping System Configuration
+==========================================
+
+System configuration as network interfaces is stored in xivo database. If you want to keep this configuration and only restore xivo data
+you may omit to restore xivo database provided you restore the following tables :
+
+* entity
+* stats_conf
+* stats_conf_agent
+* stats_conf_group
+* stats_conf_incall
+* stats_conf_queue
+* stats_conf_user
+
+::
+
+   sudo -u postgres pg_restore -d xivo -t entity -c xivo.dump
+   sudo -u postgres pg_restore -d xivo -t ldapserver -c xivo.dump
+   sudo -u postgres pg_restore -d xivo -t stats_conf -c xivo.dump
+   sudo -u postgres pg_restore -d xivo -t stats_conf_agent -c xivo.dump
+   sudo -u postgres pg_restore -d xivo -t stats_conf_group -c xivo.dump
+   sudo -u postgres pg_restore -d xivo -t stats_conf_incall -c xivo.dump
+   sudo -u postgres pg_restore -d xivo -t stats_conf_queue -c xivo.dump
+   sudo -u postgres pg_restore -d xivo -t stats_conf_user -c xivo.dump
+
+Restore the rights on these tables :
+
+::
+  
+   su postgres
+   psql xivo
+   SELECT execute('GRANT ALL ON '||schemaname||'.'||tablename||' TO xivo;') FROM pg_tables WHERE schemaname = 'public';
+   SELECT execute('GRANT ALL ON SEQUENCE '||relname||' TO xivo;') FROM pg_class WHERE relkind = 'S';
+
+
+.. warning::
+   Restoring the data.tgz file restore also system files as host hostname network interfaces etc... You will need to reapply 
+   network configuration if you restore the data.tgz file
+
 After Restoring The System
 ==========================
 
