@@ -1,0 +1,22 @@
+XiVO-doc
+========
+
+This is the project of documentation of the software XiVO.
+
+Build
+-----
+
+The documentation is based on Sphinx, so you will need sphinx (python-sphinx on
+Debian) to build it.
+
+$ make html
+
+
+PDF version
+-----------
+
+You will need a LATEX compilation suite. On Debian, you can use the following
+packages :
+
+$ apt-get install texlive-latex-base texlive-latex-recommended
+texlive-latex-extra texlive-fonts-recommended

@@ -98,8 +98,12 @@ In a bash or Cygwin shell, enter::
 Note for Windows users only
 ===========================
 
-All make commands are to be entered in a Qt command shell, by replacing ``make``
+All make commands are to be entered in a **Qt command shell**, by replacing ``make``
 with ``mingw32-make``.
+
+In the Qt command shell ::
+
+   > cd C:\cygwin\...
 
 
 Building

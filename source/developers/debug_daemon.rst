@@ -1,8 +1,8 @@
-****************
-Debugging Daemon
-****************
+*****************
+Debugging Daemons
+*****************
 
-Here's how to run the various daemon present in XiVO in foreground and debug mode.
+Here's how to run the various daemons present in XiVO in foreground and debug mode.
 
 Note that it's usually a good idea to stop monit before running a daemon in foreground.
 

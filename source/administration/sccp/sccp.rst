@@ -66,54 +66,61 @@ Congratulation ! Your SCCP phone is now ready to be called !
 
    You must manually do "module reload chan_sccp.so" via the Asterisk command line if you want to:
 
-   #. Remove a device from the configuration.
-   #. Add a voicemail on an already configured user.
+   * Remove a device from the configuration.
+   * Add a voicemail on an already configured user.
+   * Change the language of an already configured user.
 
    Please, be warned that this command will disconnect all SCCP phones and hence all current phone calls will be lost.
 
    This limitation should be removed in the future.
 
+
 Features
 --------
 
-
-+-----------------------------+-----------+
-| Features                    | Supported |
-+=============================+===========+
-| Receive call                | Yes       |
-+-----------------------------+-----------+
-| Initiate call               | Yes       |
-+-----------------------------+-----------+
-| Hangup call                 | Yes       |
-+-----------------------------+-----------+
-| Transfer call               | Yes       |
-+-----------------------------+-----------+
-| Congestion Signal           | Yes       |
-+-----------------------------+-----------+
-| Autoanswer (custom dialplan)| Yes       |
-+-----------------------------+-----------+
-| Call forward                | Yes       |
-+-----------------------------+-----------+
-| Paging                      | Not yet   |
-+-----------------------------+-----------+
-| Music on hold               | Not yet   |
-+-----------------------------+-----------+
-| Group pickup                | Not yet   |
-+-----------------------------+-----------+
-| Hotline (auto-provisioning) | Not yet   |
-+-----------------------------+-----------+
-| Multi-instance per line     | Not yet   |
-+-----------------------------+-----------+
-| Speed dial                  | Not yet   |
-+-----------------------------+-----------+
-| Multi line                  | Not yet   |
-+-----------------------------+-----------+
-| Direct RTP                  | Not yet   |
-+-----------------------------+-----------+
-| Do not disturb (DND)        | Not yet   |
-+-----------------------------+-----------+
-| NAT traversal               | Not yet   |
-+-----------------------------+-----------+
++-----------------------------+---------------------+
+| Features                    | Supported           |
++=============================+=====================+
+| Receive call                | Yes                 |
++-----------------------------+---------------------+
+| Initiate call               | Yes                 |
++-----------------------------+---------------------+
+| Hangup call                 | Yes                 |
++-----------------------------+---------------------+
+| Transfer call               | Yes                 |
++-----------------------------+---------------------+
+| Congestion Signal           | Yes                 |
++-----------------------------+---------------------+
+| Autoanswer (custom dialplan)| Yes                 |
++-----------------------------+---------------------+
+| Call forward                | Yes                 |
++-----------------------------+---------------------+
+| Multi-instance per line     | Yes (7912 Not yet)  |
++-----------------------------+---------------------+
+| Message waiting indication  | Yes                 |
++-----------------------------+---------------------+
+| Paging                      | Not yet             |
++-----------------------------+---------------------+
+| Codec selection             | Not yet             |
++-----------------------------+---------------------+
+| Music on hold               | Not yet             |
++-----------------------------+---------------------+
+| Group pickup                | Not yet             |
++-----------------------------+---------------------+
+| Hotline (auto-provisioning) | Not yet             |
++-----------------------------+---------------------+
+| Speed dial                  | Not yet             |
++-----------------------------+---------------------+
+| Multi line                  | Not yet             |
++-----------------------------+---------------------+
+| Direct RTP                  | Not yet             |
++-----------------------------+---------------------+
+| Do not disturb (DND)        | Not yet             |
++-----------------------------+---------------------+
+| NAT traversal               | Not yet             |
++-----------------------------+---------------------+
+| Context per line            | Not yet             |
++-----------------------------+---------------------+
 
 Telephone
 ---------
@@ -141,5 +148,3 @@ Telephone
 +-------------+-------------+------------------+
 
 An unsupported device won't be able to connect to Asterisk (channel sccp) at all.
-
-

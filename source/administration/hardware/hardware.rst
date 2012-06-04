@@ -391,3 +391,26 @@ Each span has to be declared with the following information::
 
 Note that the ``dahdi_genconf`` command should usually give you the correct parameters (if you correctly set the cards
 jumper). All these information should be checked with your operator.
+
+
+Rolling Back to Dahdi-2.6.0
+===========================
+
+.. warning:: Since xivo-1.2.8
+
+If you have problem with the 2.6.1 dahdi version, you can rollback to version 2.6.0.
+
+You have to use the script ``force-dahdi-2.6.0`` available on xivo-tools repository to install dahdi-2.6.0
+
+The script is available ``gitosis`` (git clone git://gitorious.org/xivo/xivo-tools.git).
+
+To install dahdi-2.6.0::
+
+  ./scripts/force-dahdi-2.6.0 install
+
+
+To remove dahdi-2.6.0::
+
+  ./scripts/force-dahdi-2.6.0 remove
+
+

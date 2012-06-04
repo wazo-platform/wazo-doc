@@ -163,8 +163,12 @@ Here's an example for a backend named "printer_office"::
 
    [printer_office]
    name = office
+   convert_to_pdf = 1
 
-When a fax will be received, the system command "lp -d office <faxfile>" will be executed.
+When a fax will be received, the system command ``lp -d office <faxfile>`` will be executed.
+
+The "convert_to_pdf" option is optional and defaults to 1. If it is set to 0, the TIFF file will not
+be converted to PDF before being printed.
 
 .. warning:: You need to have cups server somewhere in you network.
 

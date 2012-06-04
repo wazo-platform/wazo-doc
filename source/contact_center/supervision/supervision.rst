@@ -47,7 +47,7 @@ Queue List
 The queue list is a gathering of information and statistics for each queues configured on the XiVO.
 
 .. figure:: images/queue_list.png
-   :scale: 90%
+   :scale: 80%
 
 
 **Columns**
@@ -56,10 +56,23 @@ Queues
    queue name and number if configured to be displayed
 
 Waiting calls
-   The number of calls currently waiting for an agent in this queue, the background colored can change depending of the configured thresholds
+   The number of calls currently waiting for an agent in this queue, the background colored
+   can change depending of the configured thresholds
+
+EWT
+   Estimated waiting time
 
 Longest wait
-   The maximum hold time for currently waiting calls, the background colored can change depending of the configured thresholds
+   The maximum hold time for currently waiting calls, the background colored can change
+   depending of the configured thresholds
+
+Logged
+   Shows the number of logged agents in the queue.
+   This column is set to N/A when the queue has just been created and no members are already affected.
+
+Available
+   Shows the number of available agents ready to take a call in the queue.
+   This column is set to N/A when the queue has just been created and no members are already affected.
 
 Received
    The number of received calls on this queue during the configured statistical window
@@ -70,21 +83,29 @@ Answered
 Abandoned
    The number of abandoned calls on this queue during the configured statistical window
 
+Mean waiting time
+   The mean  wait time in the statistical time window, in mm:ss
+   If no calls are received - is displayed
+
 Max waiting time
    The longest wait time in the statistical time window, in mm:ss
+   If no calls are received - is displayed
 
 Efficiency
-   Answered calls over received calls during the configured statistical window (unanswered calls that are still waiting are not taken into account). If no calls are received the displayed value is empty
+   Answered calls over received calls during the configured statistical window
+   (unanswered calls that are still waiting are not taken into account).
+   If no calls are received - is displayed
 
 QOS
-   Percentage of calls taken within X seconds over answered calls during the configured statistical window , X can be configured on queue basis
+   Percentage of calls taken within X seconds over answered calls during the configured
+   If no calls are received - is displayed
 
-Logged
-   Shows the number of logged agents in the queue. This column is set to N/A when the queue has just been created and no members are already affected.
 
 **Counter availability**
 
-When the XiVO client is initialized, na is diplayed for not initialized counters. When the XiVO client is restarted the counters are always displayed and calculated as if the application was not restarted. When the server is restarted, counters are reinitialized.
+When the XiVO client is initialized, na is diplayed for not initialized counters.
+When the XiVO client is restarted the counters are always displayed and calculated as if
+the application was not restarted. When the server is restarted, counters are reinitialized.
 
 **Enabling the xlet**
 
@@ -95,7 +116,8 @@ The xlet can be added to any CTI profil from the web interface.
 
 **Configuration**
 
-Some values can be configured for the xlet. The statistic fetch timer can be set in the CTI profile preferences. This option is in seconds and the default is 30 seconds.
+Some values can be configured for the xlet. The statistic fetch timer can be set in the CTI profile preferences.
+This option is in seconds and the default is 30 seconds.
 
 .. figure:: images/queue_list_fetch_time.png
    :scale: 70%
@@ -119,6 +141,25 @@ Display options can also be set on the client side.
 
 .. figure:: images/queue_list_config.png
    :scale: 90%
+
+
+Agent Details
+^^^^^^^^^^^^^
+**General information**
+
+Display advanced informations of an agent and enable to login/logoff, add/remove to a queue, and pause/unpause.
+
+.. figure:: images/agent_details.png
+
+   Agent Details
+
+1. This is the status information of agent
+2. Button to login/logoff agent
+3. Supervision button of the Xlet "Calls of a queue"
+4. Pause/Unpause button for given queue
+5. Add/Remove agent for given queue
+
+You can't add/remove this agent to queue1/queue6 because there is hard linked in configuration (WEBI)
 
 
 Link XiVO Client presence to agent presence

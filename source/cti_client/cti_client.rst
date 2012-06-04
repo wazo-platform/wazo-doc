@@ -10,10 +10,26 @@ This section describes the CTI Client and its various xlets
 Getting the XiVO Client
 =======================
 
-Binaries of the XiVO Client are available on our `FTP server`_.
+Binaries of the XiVO Client are available on our `mirror`_.
 
-.. _FTP server: http://downloads.xivo.fr/xivo_cti_client
+.. _mirror: http://downloads.xivo.fr/xivo_cti_client
 
+Choose the version you want and in the right directory, get :
+
+* the ``.exe`` file for Windows
+* the ``.deb`` file for Ubuntu or Debian (i386 or amd64, depending on your computer)
+* the ``.dmg`` file for Mac OS
+
+For Windows, double-click on the file and follow the instructions.
+
+For Ubuntu/Debian, double-click on the file or execute the following command::
+
+   $ gdebi xivoclient-*.deb
+
+For Mac OS, double-click on the file and drag-and-drop the inner file on the
+Application entry of the Finder.
+
+The XiVO Client should then be available in the applications menu of each platform.
 
 .. index:: Xlets
 
@@ -39,6 +55,9 @@ Xlets are features of the CTI Client. It is the contraction of XiVO applets.
    Agent list xlet <xlets/agent_list>
    Calls of a Queue <xlets/calls_of_a_queue>
    Contact xlet <xlets/contact>
+   Directory xlet <xlets/directory>
+   Fax xlet <xlets/fax>
+   History xlet <xlets/history>
    Local directory xlet <xlets/localdir>
    Service xlet <xlets/service>
    Dial xlet <xlets/dial>

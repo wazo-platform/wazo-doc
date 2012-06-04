@@ -21,6 +21,14 @@ HTTP status codes
 Configuration
 =============
 
+In order to use web services, a special user must be created with the correct ACLs. In order to do so : 
+
+- Visit the Configuration > Web Services Access section
+- Create a new web service user with the username, password OR host of allowed remote machine (the client that is about to use XiVO web services).
+  Edit access rights of given web services user to allow access for needed sections.
+
+If a username /password was given, then those credentials will be needed to connect to the web services. If a host was given, only connections from this host will be allowed. It is possible to specify a username/password pair AND a host on the same web services user.
+
 Manage
 ------
 
@@ -721,7 +729,7 @@ Edit::
      "incall": {
           "exten": "9970",
           "context": "from-extern",
-          "preprocess_subroutine": "",
+          "preprocess_subroutine": ""
      },
      "dialaction": {
            "answer": {
@@ -1175,8 +1183,8 @@ View::
    }
 
 
-IPBX Configuration
-------------------
+IPBX Services
+-------------
 
 Extensions
 ^^^^^^^^^^
@@ -1203,6 +1211,62 @@ Example::
 
    [101,102,104,105,106,109,110,210]
 
+IPBX Configuration
+------------------
+
+Backup Files
+^^^^^^^^^^^^
+
+Configuration Files
+^^^^^^^^^^^^^^^^^^^
+
+Contexts
+^^^^^^^^
+
+View::
+
+    https://[ip_xivo]/service/ipbx/json.php/restricted/system_management/context/?act=view&id=[context_name]
+
+List::
+
+    https://[ip_xivo]/service/ipbx/json.php/restricted/system_management/context/?act=list
+
+Add::
+
+    https://[ip_xivo]/service/ipbx/json.php/restricted/system_management/context/?act=add
+
+``Example of content to send to add``
+
+.. code-block:: javascript
+
+    {
+        "context": {
+            "name": "default",
+            "displayname": "Appels internes",
+            "entity": "skaro",
+            "contexttype":"internal",
+            "description": ""
+        },
+        "contextinclude": [
+            "to-extern"
+        ],
+        "contextnumbers": {
+            "user": [
+                  {
+                          "numberbeg": "100",
+                          "numberend": "199"
+                  }
+                    ],
+            "group": [
+                  {
+                          "numberbeg": "200",
+                          "numberend": "210"
+                  }
+                     ]
+    }
+
+LDAP Filters
+^^^^^^^^^^^^
 
 
 Call Center
