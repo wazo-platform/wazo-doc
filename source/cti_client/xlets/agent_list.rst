@@ -17,14 +17,14 @@ The supervisor can use buttons to do some actions on agents:
 
 * The `+` sign focus other xlets on this agent
 * The "play" button will start listening the agent
-* The loggin button will login or logout an agent
+* The login button will login or logoff an agent
 * The pause button will pause or un-pause an agent
 
 Some columns shows different statuses:
 
 * `Listen` shows if the agent is being listened
 * `On Line` shows if the agent is on a call
-* `Presence` show if the agent is logged
+* `Presence` shows if the agent is logged
 
 Listening
 =========
