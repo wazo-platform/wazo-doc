@@ -143,21 +143,22 @@ Adding the fax to the directory display
 Now the fax should be available displayed in the Directory xlet.
 
 
-Reverse look-up
-===============
+Reverse lookup
+==============
 
-It's possible to do reverse look-ups on incoming calls to show a better caller ID name when
+It's possible to do reverse lookups on incoming calls to show a better caller ID name when
 the caller is in our phonebook.
 
-Some configuration must be in place to enable reverse directory look-ups.
+Some configuration must be in place to enable reverse directory lookups.
 
 
 Match reverse fields
 --------------------
 
 The *Match reverse directories* field in :menuselection:`Services --> CTI Server --> Directories --> Definitions`
-should contains the fields that are used by the reverse look-up. The list is coma separated
-and should contains values from the *Fieldname* to *value* list lower on the same page.
+should contains the fields that are used by the reverse lookup. The list is comma separated
+and each field that appears in this list must also appear in the *Value* column of the *Mapped Fields*
+section, or the reverse lookup won't work.
 
 Example::
 
@@ -172,7 +173,7 @@ This line would match office, home and mobile numbers on incoming calls.
 Displayed field
 ---------------
 
-The field to display on reverse look-ups the field named *reverse* on the *Mapped fields* list.
+The field to display on reverse lookups the field named *reverse* on the *Mapped fields* list.
 
 Examples::
 
@@ -188,6 +189,6 @@ Include the directory
 
 To include a directory in reverse directory definition go to
 :menuselection:`Services --> CTI Server --> Directories --> Reverse directories` and add the directories
-to include to reverse look-ups in the *Related directories* section.
+to include to reverse lookups in the *Related directories* section.
 
 Restart the CTI server and incoming caller IDs should be resolved using the specified directories.
