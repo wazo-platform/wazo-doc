@@ -477,8 +477,6 @@ Full example:
            "ringforward": "",
            "rightcallcode": "",
            "alarmclock": "00:00",
-           "pitchdirection": "",
-           "pitch": "",
            "description": ""
        },
        "linefeatures": {
