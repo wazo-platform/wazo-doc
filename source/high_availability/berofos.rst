@@ -131,6 +131,17 @@ Note that when the berofos is off, the A and D ports are connected together. Thi
 behavior is not customizable.
 
 
+Multiple berofos
+----------------
+
+It's possible to use more than 1 berofos with XiVO.
+
+For each supplementary berofos you want to use, you must first configure it properly
+like you did for the first one. The only difference is that you need to add a berofos
+declaration to the :file:`/etc/bnfos.conf` file instead of creating/overwrithing the
+file.
+
+
 Operation
 =========
 

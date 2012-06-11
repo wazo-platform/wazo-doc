@@ -26,3 +26,4 @@ Administration
    schedules/schedules
    Switchboard <switchboard/switchboard>
    users/users
+   voicemail
