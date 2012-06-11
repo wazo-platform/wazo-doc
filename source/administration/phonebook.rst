@@ -60,8 +60,8 @@ Optional headers are :
 .. _here: http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm
 
 
-pDisplayed fields
-=================
+Displayed fields
+================
 
 It's possible to add more fields to the display in the CTI client. The display can be customized in
 the web interface under :menuselection:`Services -> CTI server -> Directories -> Display filter`.
