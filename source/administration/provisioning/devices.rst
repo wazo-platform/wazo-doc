@@ -138,6 +138,37 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 7961G    |y|         0          |n|
 ======== =========== ========== ============
 
+To install firmware for xivo-cisco-sccp plugins, you need to manually download
+the firmware files from the Cisco website and save them in the
+:file:`/var/lib/pf-xivo-provd/plugins/$plugin-name/var/cache` directory.
+
+For example, if you have installed the ``xivo-cisco-sccp-legacy`` plugin and you want
+to install the ``7940-7960-fw``, ``networklocale`` and ``userlocale_fr_FR`` package, you
+must:
+
+* Go to http://www.cisco.com
+* Click on "Log In" in the top right corner of the page, and then log in
+* Click on the "Support" menu
+* Click on the "Downloads" tab, then on "Voice & Unified Communications"
+* Select "IP Telephony", then "Unified Communications Endpoints", then the model
+  of your phone (in this example, the 7940G)
+* Click on "Skinny Client Control Protocol (SCCP) software"
+* Choose the same version as the one shown in the plugin
+* Download the file with an extension ending in ".zip", which is usually the last
+  file in the list
+* In the XiVO web interface, you'll then be able to click on the "install" button
+  for the firmware
+
+The procedure is similar for the network locale and the user locale package, but:
+
+* Instead of clicking on "Skinny Client Control Protocol (SCCP) software", click on
+  "Unified Communications Manager Endpoints Locale Installer"
+* Click on "Linux"
+* Choose the same version of the one shown in the plugin
+* For the network locale, download the file named "po-locale-combined-network.cop.sgn"
+* For the user locale, download the file named "po-locale-$locale-name.cop.sgn, for example
+  "po-locale-fr_FR.cop.sgn" for the "fr_FR" locale
+
 
 Gigaset
 =======
