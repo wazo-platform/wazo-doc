@@ -19,7 +19,7 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 6737i    |y|         30         |y|
 6739i    |y|         55         |y|
 6751i    |n|         |u|        |y|
-6753i    |n|         6          |y|
+6753i    |y|         6          |y|
 6755i    |y|         26         |y|
 6757i    |y|         30         |y|
 6757i CT |n|         30         |y|
