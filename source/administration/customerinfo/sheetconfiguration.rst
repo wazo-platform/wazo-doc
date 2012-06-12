@@ -253,9 +253,8 @@ The followed event possible is :
  * Incoming Group: Received a call in a group
  * Fax reception: Received a fax
 
-You can configure a custom event with a dialplan interaction.
+.. warning:: The link event will not work if an agent is used. Use Link for user members of a queue and agent linked for agents.
 
- * Custom : example is custom-myevent and choose the model. See the next section for the dialplan.
 
 .. figure:: images/events_configuration.png
   :scale: 85%
