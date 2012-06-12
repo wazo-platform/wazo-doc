@@ -4,7 +4,6 @@
 Supported Devices
 *****************
 
-
 Aastra
 ======
 
@@ -46,7 +45,7 @@ Model                  Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 Note that you *must not* download the firmware for these phones unless you
 agree to the fact it comes from a non-official source.
 
-For the plugins to work fully, you need these additional packages::
+For the plugin to work fully, you need these additional packages::
 
    apt-get install p7zip python-pexpect telnet
 
@@ -54,7 +53,7 @@ For the plugins to work fully, you need these additional packages::
 Avaya
 =====
 
-1200 series IP Deskpones (previsouly known as Nortel IP Phones):
+1200 series IP Deskphones (previously known as Nortel IP Phones):
 
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
@@ -62,7 +61,6 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 1220 IP  |y|         0          |n|
 1230 IP  |n|         0          |n|
 ======== =========== ========== ============
-
 
 
 Cisco
@@ -258,6 +256,7 @@ TB30     |n|         10         |n|
 
 .. note:: Function keys are shared with line keys
 
+
 Yealink
 =======
 
@@ -289,7 +288,6 @@ Model      Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 IP station |y|         1          |n|
 ========== =========== ========== ============
 
-
 Caption :
 
 .. [1] ``Tested`` means the device has been tested by the XiVO development team and that
@@ -303,5 +301,3 @@ Caption :
 .. |y| replace:: Yes
 .. |n| replace:: No
 .. |u| replace:: ---
-
-
