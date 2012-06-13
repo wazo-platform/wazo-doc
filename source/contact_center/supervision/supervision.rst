@@ -142,6 +142,31 @@ Display options can also be set on the client side.
 .. figure:: images/queue_list_config.png
    :scale: 90%
 
+**Monitoring queues on high dimension screens**
+
+You may want to display the queue list on one big screen, visible by multiple
+people. However, the default font will not be large enough, so the information
+will not be readable.
+
+You can change the font size of this Xlet by giving a configuration file when
+launching the XiVO Client::
+
+   $ xivoclient -stylesheet big_fonts.qss
+
+The :file:`big_fonts.qss` file should contain::
+
+   QueuesView {font-size: 40px;}
+   QueuesView QHeaderView {font-size: 40px;}
+
+Units of size that can be used are described on the `Qt documentation`_.
+
+.. _Qt documentation: http://doc.qt.nokia.com/latest/stylesheet-reference.html#length
+
+The result will look like this:
+
+.. figure:: images/queue_list_big_font.png
+   :scale: 33%
+
 
 Agent Details
 ^^^^^^^^^^^^^
