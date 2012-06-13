@@ -133,6 +133,17 @@ Configure
     channel => 10-11        ; the above configuration applies to channels 10 and 11
 
 
+Special cases
+-------------
+
+Here are some special cases where you might need to modify the default options : 
+
+* if your telco brings layer 1 down when the line is idle, you should add the following 
+  option in :file:`/etc/asterisk/chan_dahdi.conf` and restart asterisk::
+
+     layer2_persistence=keep_up
+
+
 PRI card configuration
 ======================
 
