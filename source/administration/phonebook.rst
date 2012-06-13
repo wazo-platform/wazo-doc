@@ -173,11 +173,13 @@ This line would match office, home and mobile numbers on incoming calls.
 Displayed field
 ---------------
 
-The field to display on reverse lookups the field named *reverse* on the *Mapped fields* list.
+You have now to define which field should be used to display the result. This is done 
+by defining a mapping between the field named *reverse* on the *Mapped fields* list and a database field.
 
 Examples::
 
    reverse => phonebook.society
+   or
    reverse => phonebook.fullname
 
 The first example would show the contact's company name on the caller ID name, the second would
