@@ -4,7 +4,6 @@
 Supported Devices
 *****************
 
-
 Aastra
 ======
 
@@ -19,7 +18,7 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 6737i    |y|         30         |y|
 6739i    |y|         55         |y|
 6751i    |n|         |u|        |y|
-6753i    |n|         6          |y|
+6753i    |y|         6          |y|
 6755i    |y|         26         |y|
 6757i    |y|         30         |y|
 6757i CT |n|         30         |y|
@@ -46,7 +45,7 @@ Model                  Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 Note that you *must not* download the firmware for these phones unless you
 agree to the fact it comes from a non-official source.
 
-For the plugins to work fully, you need these additional packages::
+For the plugin to work fully, you need these additional packages::
 
    apt-get install p7zip python-pexpect telnet
 
@@ -54,7 +53,7 @@ For the plugins to work fully, you need these additional packages::
 Avaya
 =====
 
-1200 series IP Deskpones (previsouly known as Nortel IP Phones):
+1200 series IP Deskphones (previously known as Nortel IP Phones):
 
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
@@ -62,7 +61,6 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 1220 IP  |y|         0          |n|
 1230 IP  |n|         0          |n|
 ======== =========== ========== ============
-
 
 
 Cisco
@@ -139,6 +137,37 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 7960G    |y|         0          |n|
 7961G    |y|         0          |n|
 ======== =========== ========== ============
+
+To install firmware for xivo-cisco-sccp plugins, you need to manually download
+the firmware files from the Cisco website and save them in the
+:file:`/var/lib/pf-xivo-provd/plugins/$plugin-name/var/cache` directory.
+
+For example, if you have installed the ``xivo-cisco-sccp-legacy`` plugin and you want
+to install the ``7940-7960-fw``, ``networklocale`` and ``userlocale_fr_FR`` package, you
+must:
+
+* Go to http://www.cisco.com
+* Click on "Log In" in the top right corner of the page, and then log in
+* Click on the "Support" menu
+* Click on the "Downloads" tab, then on "Voice & Unified Communications"
+* Select "IP Telephony", then "Unified Communications Endpoints", then the model
+  of your phone (in this example, the 7940G)
+* Click on "Skinny Client Control Protocol (SCCP) software"
+* Choose the same version as the one shown in the plugin
+* Download the file with an extension ending in ".zip", which is usually the last
+  file in the list
+* In the XiVO web interface, you'll then be able to click on the "install" button
+  for the firmware
+
+The procedure is similar for the network locale and the user locale package, but:
+
+* Instead of clicking on "Skinny Client Control Protocol (SCCP) software", click on
+  "Unified Communications Manager Endpoints Locale Installer"
+* Click on "Linux"
+* Choose the same version of the one shown in the plugin
+* For the network locale, download the file named "po-locale-combined-network.cop.sgn"
+* For the user locale, download the file named "po-locale-$locale-name.cop.sgn, for example
+  "po-locale-fr_FR.cop.sgn" for the "fr_FR" locale
 
 
 Gigaset
@@ -258,6 +287,7 @@ TB30     |n|         10         |n|
 
 .. note:: Function keys are shared with line keys
 
+
 Yealink
 =======
 
@@ -289,7 +319,6 @@ Model      Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 IP station |y|         1          |n|
 ========== =========== ========== ============
 
-
 Caption :
 
 .. [1] ``Tested`` means the device has been tested by the XiVO development team and that
@@ -303,5 +332,3 @@ Caption :
 .. |y| replace:: Yes
 .. |n| replace:: No
 .. |u| replace:: ---
-
-
