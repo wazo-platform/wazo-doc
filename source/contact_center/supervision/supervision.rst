@@ -162,11 +162,6 @@ Units of size that can be used are described on the `Qt documentation`_.
 
 .. _Qt documentation: http://doc.qt.nokia.com/latest/stylesheet-reference.html#length
 
-The result will look like this:
-
-.. figure:: images/queue_list_big_font.png
-   :scale: 33%
-
 
 Agent Details
 ^^^^^^^^^^^^^
