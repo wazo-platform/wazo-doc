@@ -131,6 +131,31 @@ Note that when the berofos is off, the A and D ports are connected together. Thi
 behavior is not customizable.
 
 
+Multiple berofos
+----------------
+
+It's possible to use more than 1 berofos with XiVO.
+
+For each supplementary berofos you want to use, you must first configure it properly
+like you did for the first one. The only difference is that you need to add a berofos
+declaration to the :file:`/etc/bnfos.conf` file instead of creating/overwriting the
+file. Here's an example of a valid config file for 2 berofos::
+
+    [fos1]
+    mac = 00:19:32:00:12:1D
+    host = 10.100.0.201
+    login = admin:foobar
+
+    [fos2]
+    mac = 00:11:22:33:44:55
+    host = 10.100.0.202
+    login = admin:barfoo
+
+.. warning::
+   berofos name must follow the pattern ``fosX`` where X is a number starting with 1,
+   then 2, etc. The ``bnfos`` tool won't work properly if it's not the case.
+
+
 Operation
 =========
 

@@ -9,6 +9,7 @@ General information:
 
    contributing_doc
    debug_daemon
+   debug_asterisk
    translate
 
 Component specific information:

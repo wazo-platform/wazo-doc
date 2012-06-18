@@ -44,6 +44,7 @@ Quick Summary
 * Configure the other XiVO as a slave -> setup the master address
 * Start configuration synchronization by running the script ``xivo-master-slave-db-replication <slave_ip>``
 * Resynchronize all your devices
+* Configure the XiVO Clients
 
 That's it you now have a HA configuration, and every hour all the configuration done on the master will be reported to the slave.
 
@@ -137,6 +138,19 @@ Replication can be started manually by running the replication script :
    
    Slave replication completed succesfully
 
+XiVO Client
+-----------
+
+You have to enter the master and slave address in the ``Connection`` tab of the
+XiVO Client configuration :
+
+.. figure:: images/xivoclient-config_ha.png
+
+The main server is the master node and the backup server is the slave node.
+
+When connecting the XiVO Client with the main server down, the login screen will
+hang for 3 seconds before connecting to the backup server.
+
 
 Internals
 =========
@@ -157,7 +171,6 @@ Limitations
 When the master node is down, some features are not available and some behave a bit
 differently. This includes:
 
-* CTI client is not available.
 * Call history / call records are not recorded.
 * Voicemail messages saved on the master node are not available.
 * Custom voicemail greetings recorded on the master node are not available.
