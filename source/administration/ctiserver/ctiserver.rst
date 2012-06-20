@@ -51,7 +51,7 @@ Context separation is based on the user's line context. A user
 with no line is not the member of any context and will not be able to do
 anything with the CTI client.
 
-Live reload configuration allow CTIServer to reload configuration on chage from WEBI. 
+Live reload configuration allow CTI Server to reload this configuration on command received from WEBI.
 (This option is enable by default)
 You must restart the CTIServer to apply it.
 
@@ -61,7 +61,8 @@ You must restart the CTIServer to apply it.
 Presence Option
 ===============
 
-In the `Status` menu, under `Presences`, you can edit presences group. The default presence group is xivo. When editing
+In the `Status` menu, under `Presences`, you can edit presences group. 
+The default presence group is xivo. When editing
 a group, you will see a list of presences and there descriptions.
 
 .. figure:: images/presence_list.png
