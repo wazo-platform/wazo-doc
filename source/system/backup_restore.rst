@@ -61,7 +61,8 @@ You can manually create a database backup file named `db-manual.tgz` by issuing 
 
 ::
 
-   pf-xivo-backup db db-manual.tgz
+   pf-xivo-backup db db-manual
+
 
 
 Creating a data backup file manually
@@ -71,7 +72,7 @@ You can manually create a data backup file named `data-manual.tgz` by issuing th
 
 ::
 
-   pf-xivo-backup data data-manual.tgz
+   pf-xivo-backup data data-manual
 
 
 *******
