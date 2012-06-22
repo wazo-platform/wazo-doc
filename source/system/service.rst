@@ -9,20 +9,25 @@ be used to make sure the service is restarted in the right order.
 Usage
 -----
 
-Stop all services::
+Show all services status::
 
-    xivo-service stop
+   xivo-service status
 
-Start all services::
+Stop XiVO services::
 
-    xivo-service start
+   xivo-service stop
 
-Restart all services::
+Start XiVO services::
 
-    xivo-service restart
+   xivo-service start
 
-Show services status::
+Restart XiVO services::
 
-    xivo-service status
+   xivo-service restart
+
+The commands above will only act upon XiVO services. Appending an argument
+``all`` will also act upon ``nginx`` and ``postgresql``. Example::
+
+   xivo-service restart all
 
 UDP port 5060 will be closed while services are restarting.
