@@ -35,7 +35,7 @@ There are 2 options for xivo-upgrade:
    Untill no more unwanted rules are left behind.
 
 Upgrade Notes on Older Versions
-==============
+===============================
 
 
 * Before upgrading from XiVO 1.2.3 or earlier, you must do the following::
