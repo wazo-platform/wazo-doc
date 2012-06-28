@@ -2,7 +2,7 @@
 CTI Protocol
 ************
 
-Then, under `xivo_ctid/`
+In the git repository ``git://git.xivo.fr/official/xivo-ctid.git``, under `xivo_ctid/`
 
 * `cti_config` handles the configuration coming from the WEBI
 * `interfaces/interface_ami`, together with `asterisk_ami_definitions`, `amiinterpret` and `xivo_ami` handle the AMI connections (asterisk)
@@ -253,25 +253,21 @@ dial
 .. code-block:: javascript
 
     {
-       "destination": "<type>:<xivoid>/<typeid>", 
-       "command": "dial", 
-       "class": "ipbxcommand", 
-       "commandid": <commandid>
+       "class": "ipbxcommand",
+       "command": "dial",
+       "commandid": <commandid>,
+       "destination": "exten:xivo/<extension>"
     }
 
-originate
+For example :
 
 .. code-block:: javascript
 
     {
-       "amicommand": "originate", 
-       "amiargs": ("<protocol>", "<callerpeer>", "<callerext>", "<callername> ", "<calledext>", "<calledname>", "<context>"), 
-       "request": 
-       {
-           "ipbxcommand": "dial", 
-           "commandid": <commandid>, 
-           "requester": <xivo_ctiservers.interface_cti.CTI instance at 0x8997fec>
-       }
+        "class": "ipbxcommand",
+        "command": "dial",
+        "commandid": 1683305913,
+        "destination": "exten:xivo/1202"
     }
 
 meetme
