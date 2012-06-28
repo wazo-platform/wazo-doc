@@ -79,7 +79,7 @@ Refer to ``MeetmeList.__init__`` for a callback registration example and to ``Me
             else:
                 return invite_confroom_command.get_warning('I don't know you, go away', True)
 
-.. note:: The client's connection is injected in the command instance before calling callbacks functions. 
+.. note:: The client's connection is injected in the command instance before calling callbacks functions.
    The client's connection is an ``interface_cti.CTI`` instance.
 
 
@@ -107,8 +107,8 @@ LOGINCOMMANDS
 .. code-block:: javascript
 
    {
-   "commandid": <commandid>, 
-   "class": "login_id", 
+   "commandid": <commandid>,
+   "class": "login_id",
    }
 
 * class: defined what class of command use.
@@ -119,27 +119,27 @@ login_id
 .. code-block:: javascript
 
     {
-    "ident": "X11-LE-27333", 
-    "version": "9999", 
-    "userlogin": "<loginclient>", 
-    "company": "default", 
-    "commandid": <commandid>, 
-    "lastlogout-stopper": "disconnect", 
-    "git_date": "to_fill", 
-    "lastlogout-datetime": "2011-09-06T13:30:49", 
-    "git_hash": "to_fill", 
-    "class": "login_id", 
+    "ident": "X11-LE-27333",
+    "version": "9999",
+    "userlogin": "<loginclient>",
+    "company": "default",
+    "commandid": <commandid>,
+    "lastlogout-stopper": "disconnect",
+    "git_date": "to_fill",
+    "lastlogout-datetime": "2011-09-06T13:30:49",
+    "git_hash": "to_fill",
+    "class": "login_id",
     "xivoversion": "1.2"
     }
 
-   
+
 login_pass
 
 .. code-block:: javascript
 
     {
-    "hashedpassword": "e5229ef45824333e0f8bbeed20dccfa2ddcb1c80", 
-    "class": "login_pass", 
+    "hashedpassword": "e5229ef45824333e0f8bbeed20dccfa2ddcb1c80",
+    "class": "login_pass",
     "commandid": <commandid>
     }
 
@@ -149,11 +149,11 @@ login_capas
 .. code-block:: javascript
 
     {
-    "loginkind": "user", 
-    "capaid": "test", 
-    "lastconnwins": False, 
-    "commandid": <commandid>, 
-    "state": "available", 
+    "loginkind": "user",
+    "capaid": "test",
+    "lastconnwins": False,
+    "commandid": <commandid>,
+    "state": "available",
     "class": "login_capas"
     }
 
@@ -169,8 +169,8 @@ chitchat
 .. code-block:: javascript
 
     {
-       "class": "chitchat", 
-       "text": "message envoye", 
+       "class": "chitchat",
+       "text": "message envoye",
        "to": "<xivoid>/<userfeaturesid>",
        "commandid": <commandid>
     }
@@ -188,13 +188,13 @@ history
 .. code-block:: javascript
 
    {
-      "mode": "0", 
-      "size": "8", 
-      "class": "history", 
-      "xuserid": "<xivoid>/<userfeaturesid>", 
+      "mode": "0",
+      "size": "8",
+      "class": "history",
+      "xuserid": "<xivoid>/<userfeaturesid>",
       "commandid": <commandid>
    }
- 
+
 parking
 
 logfromclient
@@ -214,7 +214,7 @@ getipbxlist
 .. code-block:: javascript
 
     {
-        "class": "getipbxlist", 
+        "class": "getipbxlist",
         "commandid": <commandid>
     }
 
@@ -223,11 +223,11 @@ getlist
 .. code-block:: javascript
 
     {
-       "function": "updatestatus", 
-       "listname": "channels", 
-       "tipbxid": "<xivoid>", 
-       "commandid": <commandid>, 
-       "tid": "SIP/6d29u5-00000003", 
+       "function": "updatestatus",
+       "listname": "channels",
+       "tipbxid": "<xivoid>",
+       "commandid": <commandid>,
+       "tid": "SIP/6d29u5-00000003",
        "class": "getlist"
     }
 
@@ -236,10 +236,10 @@ ipbxcommand
 .. code-block:: javascript
 
     {
-       "class": "ipbxcommand", 
-       "command": "originate", 
-       "commandid": <commandid>, 
-       "destination": "user:special:myvoicemail", 
+       "class": "ipbxcommand",
+       "command": "originate",
+       "commandid": <commandid>,
+       "destination": "user:special:myvoicemail",
        "source": "user:special:me"
     }
 
@@ -315,4 +315,3 @@ queueremove_all
 record
 
 listen
-
