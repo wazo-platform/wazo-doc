@@ -2,6 +2,8 @@
 Server/Hardware
 ***************
 
+.. _load_dahdi_modules:
+
 Load the correct DAHDI modules
 ==============================
 
@@ -15,12 +17,9 @@ You can see which cards are detected by launching ``dahdi_hardware``::
 
 Comment out all the unused modules in :file:`/etc/dahdi/modules`.
 
-Then, restart dahdi (you need to stop asterisk if you want to stop dahdi)::
+Then, restart dahdi::
 
-   /etc/init.d/monit stop
-   /etc/init.d/asterisk stop
-   /etc/init.d/dahdi stop
-   /etc/init.d/dahdi start
+   xivo-service restart
 
 
 BRI card configuration
@@ -31,7 +30,7 @@ Verifications
 
 Verify that the ``wcb4xxp`` module is uncommented in :file:`/etc/dahdi/modules`.
 
-If it wasn't, do again the step #Load the correct DAHDI modules
+If it wasn't, do again the step :ref:`load_dahdi_modules`.
 
 Generate DAHDI configuration
 ----------------------------

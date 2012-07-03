@@ -33,6 +33,13 @@ the notion of a primary and backup telephony server.
 The HA solution is guaranteed to work correctly with the following devices:
 
 * Aastra 6700i series, 3.2.2 firmware
+* Cisco 7911, firmware SCCP11.8-5-3S
+* Cisco 7912, firmware 8.0.4(080108A)
+* Cisco 7940, firmware 8.1(2.0)
+* Cisco 7941, firmware SCCP41.9-0-3S
+* Cisco 7941GE, firmware SCCP41.9-0-3S
+* Cisco 7960, firmware 8.1(2.0)
+* Cisco 7961, SCCP41.9-0-3S
 
 
 Quick Summary
@@ -103,6 +110,8 @@ Default status of :abbr:`High Availability (HA)` is disabled:
 
    HA Dashboard Disabled (default state)
 
+.. important:: You have to restart the CTI server once the master node is disabled.
+
 
 Master node
 -----------
@@ -113,7 +122,7 @@ In choosing the method ``Master`` you must enter the IP address of the slave nod
 
    HA Dashboard Master
 
-.. important:: You have to restart the cti server once the master node is configured.
+.. important:: You have to restart the CTI server once the master node is configured.
 
 
 Slave node

@@ -19,7 +19,7 @@ information required to connect to the Asterisk Manager Interface
 (AMI). These fields should match the entries in :file:`/etc/asterisk/manager.conf`.
 
 .. figure:: images/ami_connection.png
-  :scale: 85%
+   :scale: 85%
 
 The section named ``Listening Ports`` allows the administrator to specify listening
 addresses and ports for the CTI server's interfaces.
@@ -33,17 +33,16 @@ addresses and ports for the CTI server's interfaces.
 * Announce is used to notify the CTI server when a dialplan reload is requested
 
 .. figure:: images/listening_ports.png
-  :scale: 85%
+   :scale: 85%
 
 The timeout section allow the administrator to configure multiple timeouts.
 
-* Update period is a poll delay to retrieve new information from the web services.
 * Socket timeout is the default timeout used for network connections.
 * Login timeout is the timeout before a CTI connection is dropped if the
   authentication is not completed.
 
-.. figure:: images/cti_timeout.png
-  :scale: 85%
+.. figure:: images/cti_timeouts.png
+   :scale: 85%
 
 Parting options are used to isolate XiVO users from each other. These options
 should be used when using the same XiVO for different enterprises.
@@ -52,17 +51,23 @@ Context separation is based on the user's line context. A user
 with no line is not the member of any context and will not be able to do
 anything with the CTI client.
 
-.. figure:: images/parting_options.png
-  :scale: 85%
+Live reload configuration allow CTI Server to reload its configuration on command received from WEBI 
+(this option is enabled by default).
+
+.. note:: The CTI Server must be restarted to take into account this parameter.
+
+.. figure:: images/cti_others.png
+   :scale: 85%
 
 Presence Option
 ===============
 
-In the `Status` menu, under `Presences`, you can edit presences group. The default presence group is xivo. When editing
+In the `Status` menu, under `Presences`, you can edit presences group. 
+The default presence group is xivo. When editing
 a group, you will see a list of presences and there descriptions.
 
 .. figure:: images/presence_list.png
-  :scale: 85%
+   :scale: 85%
 
 
 .. _presence-actions:

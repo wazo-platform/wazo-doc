@@ -195,18 +195,3 @@ to include to reverse lookups in the *Related directories* section.
 
 Restart the CTI server and incoming caller IDs should be resolved using the specified directories.
 
-
-Known limitations
------------------
-
-Here are the calls flows for which the reverse lookup should work :
-
-* Incoming call towards a User (SIP or SCCP),
-* Incoming call towards a Group with a Local member,
-* Incoming call towards Queue with an Agent member
-
-Here are the calls flows for which the reverse lookup will NOT work :
-
-* Incoming call towards a Group with a SIP or SCCP member,
-* Incoming call towards Queue with a SIP or SCCP member
-
