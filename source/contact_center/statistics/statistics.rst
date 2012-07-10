@@ -72,3 +72,42 @@ When a configuration created, cache has to be generated for each object type
    Statistics Cache
 
 
+How to generate the cache
+-------------------------
+
+To get the reporting to work, the cache must be generated. The script to generate the cache is *xivo-stat fill_db*.
+When *xivo-stat fill_db* is run, all stats are computed from the last fill_db to the end of the previous hour.
+
+.. warning:: *xivo-stat fill_db* can be a long operation when used for the first time or after a *xivo-stat clean_db*.
+
+
+Cleaning the cache
+------------------
+
+If for some reason the cache generation fails and the cache becomes unusable, the administrator can clean the cache
+using *xivo_stat clean_db*.
+
+
+Queue statistics
+================
+
+Queue statistics can be viewed in :menuselection:`Services --> Statistics --> Queue`.
+
+.. figure:: images/statistic_queue.png
+   :scale: 85%
+   :alt: Queue statistic
+
+
+Counters
+--------
+
+* Answered: Calls answered by an agent
+* Abandonned: The called hanged up while waiting for an answer
+* Close: Calls received when the queue was closed
+* Full: Calls received when the maximum number of waiting calls on a queue is already reached
+* ROH: Calls that were hanged up after a configured delay
+* ROG: Calls that were rerouted to a voice mail or an IVR
+* RN: Calls that were rerouted to another number
+* AWT: To be documented
+* RH: The ratio of answered calls over answered calls and abandonned calls in percentage
+* QoS: Percentage of calls answered in less than x seconds over the number of answered calls, where x is defined in the configuration
