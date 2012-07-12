@@ -33,7 +33,7 @@ Supervision Panel
 
 
 .. figure:: images/cc_supervision.png
-   :scale: 70%
+   :scale: 10%
 
 * Click on queue name on queue list, display agent list for this queue in member
   of a queue, and updates calls waiting in xlet Calls of queue
@@ -47,7 +47,7 @@ Queue List
 The queue list is a gathering of information and statistics for each queues configured on the XiVO.
 
 .. figure:: images/queue_list.png
-   :scale: 80%
+   :scale: 90%
 
 
 **Columns**
@@ -65,6 +65,10 @@ EWT
 Longest wait
    The maximum hold time for currently waiting calls, the background colored can change
    depending of the configured thresholds
+
+Talking
+   Shows the number of agents currently in conversation in the queue.
+   This column is set to 0 when the queue has just been created and no members are already affected.
 
 Logged
    Shows the number of logged agents in the queue.
