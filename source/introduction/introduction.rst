@@ -38,3 +38,22 @@ Do not forget to substitute <internal-context> with your internal context.
 
 Some places where you might want to add this preprocess subroutine is on queues and outgoing calls
 to be able to transfer the called person to another extension.
+
+
+Boss-Secretary Filter
+---------------------
+
+In some cases, the function key and BLF will not work. 
+The work around consists in deleting affected users and re-create them.
+
+Associated ticket : #3595
+
+Restarting postgreSQL breaks CTId
+---------------------------------
+
+If postgreSQL is restarted while the CTId is running, CTId will most probably become unusable.
+The work around is to restart the CTId once postgreSQL is once again running ::
+
+   /etc/init.d/xivo-ctid restart
+
+Associated ticket : #3592
