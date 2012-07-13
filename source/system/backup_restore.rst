@@ -26,13 +26,13 @@ The following files/folders are excluded from this backup :
 Database
 --------
 
-All XiVO database is backuped (xivo and asterisk).
+All XiVO databases are backuped (xivo and asterisk).
 
 
 Periodic backup
 ===============
 
-A backup of the database and the data are launched each day with a logrotate task.
+A backup of the databases and the data are launched each day with a logrotate task.
 Note that you can retrieve the backup from the web-interface in
 :menuselection:`Services --> IPBX --> IPBX Configuration --> Backup Files` page.
 
@@ -53,7 +53,7 @@ Backup location::
     /var/backups/pf-xivo/
 
 
-Creating a databases backup file manually
+Creating a database backup file manually
 =========================================
 
 You can manually create a database backup file named `db-manual.tgz` by issuing the following commands::
@@ -90,13 +90,7 @@ Stop monit and all the xivo services.
 
 ::
 
-   /etc/init.d/monit stop
-   /etc/init.d/xivo-ctid stop
-   /etc/init.d/asterisk stop
-   /etc/init.d/xivo-confgend stop
-   /etc/init.d/pf-xivo-agid stop
-   /etc/init.d/pf-xivo-sysconfd stop
-   /etc/init.d/pf-xivo-provd stop
+   xivo-service stop
 
 
 Restoring System Files
@@ -185,12 +179,6 @@ After Restoring The System
 
 Restart the services you stopped at the first step::
 
-   /etc/init.d/pf-xivo-provd start
-   /etc/init.d/pf-xivo-sysconfd start
-   /etc/init.d/pf-xivo-agid start
-   /etc/init.d/xivo-confgend start
-   /etc/init.d/asterisk start
-   /etc/init.d/xivo-ctid start
-   /etc/init.d/monit start
+   xivo-service start
 
 You may also reboot the system.
