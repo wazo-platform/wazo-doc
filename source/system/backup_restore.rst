@@ -2,12 +2,11 @@
 Backup
 ******
 
-
 What is actually backuped ?
 ===========================
 
 Data
-^^^^
+----
 
 Here is the list of the folder and files backuped::
 
@@ -17,15 +16,15 @@ Here is the list of the folder and files backuped::
 
 The following files/folders are excluded from this backup :
 
-- folders : ``/var/spool/asterisk/monitor /var/spool/asterisk/meetme``
-- log files, coredump files,
-- audio recordings,
-- and, files greater than 10Mo or folders containing more than 100 files
+* folders : ``/var/spool/asterisk/monitor /var/spool/asterisk/meetme``
+* log files, coredump files,
+* audio recordings,
+* and, files greater than 10Mo or folders containing more than 100 files
   if they belong to one of these folders : ``/var/lib/pf-xivo/sounds``, ``/var/lib/asterisk/sounds/custom``, ``/var/lib/asterisk/moh``, ``/var/spool/asterisk/voicemail``, ``/var/spool/asterisk/monitor``
 
 
 Database
-^^^^^^^^
+--------
 
 All XiVO database is backuped (xivo and asterisk).
 
@@ -35,7 +34,7 @@ Periodic backup
 
 A backup of the database and the data are launched each day with a logrotate task.
 Note that you can retrieve the backup from the web-interface in
-:menuselection:`Services ---> IPBX ---> IPBX Configuration ---> Backup Files` page.
+:menuselection:`Services --> IPBX --> IPBX Configuration --> Backup Files` page.
 
 Logrotate task::
 
@@ -57,20 +56,15 @@ Backup location::
 Creating a databases backup file manually
 =========================================
 
-You can manually create a database backup file named `db-manual.tgz` by issuing the following commands:
-
-::
+You can manually create a database backup file named `db-manual.tgz` by issuing the following commands::
 
    pf-xivo-backup db db-manual
-
 
 
 Creating a data backup file manually
 ====================================
 
-You can manually create a data backup file named `data-manual.tgz` by issuing the following commands:
-
-::
+You can manually create a data backup file named `data-manual.tgz` by issuing the following commands::
 
    pf-xivo-backup data data-manual
 
@@ -104,6 +98,7 @@ Stop monit and all the xivo services.
    /etc/init.d/pf-xivo-sysconfd stop
    /etc/init.d/pf-xivo-provd stop
 
+
 Restoring System Files
 ======================
 
@@ -111,10 +106,10 @@ System files are stored in the data.tgz file located in the `/var/backups/pf-xiv
 
 This file contains for example, voicemail files, musics, voice guides, phone sets firmwares, provisioning server configuration database.
 
-To restore the file :
+To restore the file ::
 
-::
    tar zxvfp /var/backups/pf-xivo/data.tgz -C /
+
 
 Restoring the databases
 =======================
@@ -137,21 +132,16 @@ the newly created directory.
    tar xvf db.tgz -C /tmp
    cd /tmp/pg-backup
 
-
-Drop the asterisk database and restore it with the one from the backup:
-
-::
+Drop the asterisk database and restore it with the one from the backup::
 
    sudo -u postgres dropdb asterisk
    sudo -u postgres pg_restore -C -d postgres asterisk.dump
 
-
-Do the same thing for the xivo database:
-
-::
+Do the same thing for the xivo database::
 
    sudo -u postgres dropdb xivo
    sudo -u postgres pg_restore -C -d postgres xivo.dump
+
 
 Restoring and Keeping System Configuration
 ==========================================
@@ -178,9 +168,7 @@ you may omit to restore xivo database provided you restore the following tables 
    sudo -u postgres pg_restore -d xivo -t stats_conf_queue -c xivo.dump
    sudo -u postgres pg_restore -d xivo -t stats_conf_user -c xivo.dump
 
-Restore the rights on these tables :
-
-::
+Restore the rights on these tables ::
   
    su postgres
    psql xivo
@@ -195,9 +183,7 @@ Restore the rights on these tables :
 After Restoring The System
 ==========================
 
-Restart the services you stopped at the first step:
-
-::
+Restart the services you stopped at the first step::
 
    /etc/init.d/pf-xivo-provd start
    /etc/init.d/pf-xivo-sysconfd start
