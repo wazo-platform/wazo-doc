@@ -23,7 +23,7 @@ Transfers using DTMF
 When transfering a call using DTMF (\*1) you get an *invalid extension* error when dialing the
 extension.
 
-The work around to this problem is to create a preprocess subroutine and assign it the the destinations
+The workaround to this problem is to create a preprocess subroutine and assign it to the destinations
 where you have the problem.
 
 Under :menuselection:`Services --> IPBX --> IPBX configuration --> Configuration files` add a new file
