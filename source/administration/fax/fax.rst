@@ -185,3 +185,13 @@ Using the log backend
 ^^^^^^^^^^^^^^^^^^^^^
 
 There's also a log backend available, which can be used to write a line to a file every time a fax is received.
+
+
+Fax detection
+=============
+
+XiVO *does not currently support Fax Detection*. A workaround is describe in the `Known bugs and limitations`_ section.
+
+
+.. _Known bugs and limitations: http://documentation.xivo.fr/production/introduction/introduction.html#fax-detection
+
