@@ -102,7 +102,7 @@ Counters
 --------
 
 * Answered: Calls answered by an agent
-* Abandonned: The called hanged up while waiting for an answer
+* Abandonned: The caller hanged up while waiting for an answer
 * Close: Calls received when the queue was closed
 * Full: Calls received when the maximum number of waiting calls on a queue is already reached
 * ROH: Calls that were hanged up after a configured delay
