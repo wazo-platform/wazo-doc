@@ -184,14 +184,96 @@ You can define more mail backends if you want. Just look what the default mail b
 Using the log backend
 ^^^^^^^^^^^^^^^^^^^^^
 
-There's also a log backend available, which can be used to write a line to a file every time a fax is received.
+There's also a log backend available, which can be used to write a line to a file every time a fax is 
+received.
 
 
 Fax detection
 =============
 
-XiVO *does not currently support Fax Detection*. A workaround is describe in the `Known bugs and limitations`_ section.
+XiVO **does not currently support Fax Detection**. A workaround is describe in the 
+`Known bugs and limitations`_ section.
 
+
+Using analog gateways
+=====================
+
+XiVO is able to provision Linksys SPA2102, SPA3102 and SPA8000 analog gateways which can be used to 
+connect Fax equipments.
+This type of equipments can handle Fax streams quite successfully if you configure them with the
+correct parameters. This section describes the creation of custom template *for SPA3102* which modifies several parameters
+
+.. note:: Be aware that most of the parameters are or could be country specific, i.e. :
+
+   * Preferred Codec,
+   * FAX Passthru Codec,
+   * RTP Packet Size,
+   * RTP-Start-Loopback_Codec,
+   * Ring_Waveform, 
+   * Ring_Frequency, 
+   * Ring_Voltage, 
+   * FXS_Port_Impedance
+
+#. Create a custom template for the SPA3102 base template::
+
+    cd /var/lib/pf-xivo-provd/plugins/xivo-cisco-spa3102-5.1.10/var/templates/
+    cp ../../templates/base.tpl .
+
+#. Add the following content before the ``</flat-profile>`` tag::
+
+    <!-- CUSTOM TPL - for faxes - START -->
+    
+    {% for line_no, line in sip_lines.iteritems() %}
+    <!-- Dial Plan: L{{ line_no }} -->
+    <Dial_Plan_{{ line_no }}_ ua="na">([x*#].)</Dial_Plan_{{ line_no }}_>
+    
+    <Call_Waiting_Serv_{{ line_no }}_ ua="na">No</Call_Waiting_Serv_{{ line_no }}_>
+    <Three_Way_Call_Serv_{{ line_no }}_ ua="na">No</Three_Way_Call_Serv_{{ line_no }}_>
+    
+    <Preferred_Codec_{{ line_no }}_ ua="na">G711a</Preferred_Codec_{{ line_no }}_>
+    <Silence_Supp_Enable_{{ line_no }}_ ua="na">No</Silence_Supp_Enable_{{ line_no }}_>
+    <Echo_Canc_Adapt_Enable_{{ line_no }}_ ua="na">No</Echo_Canc_Adapt_Enable_{{ line_no }}_>
+    <Echo_Supp_Enable_{{ line_no }}_ ua="na">No</Echo_Supp_Enable_{{ line_no }}_>
+    <Echo_Canc_Enable_{{ line_no }}_ ua="na">No</Echo_Canc_Enable_{{ line_no }}_>
+    <Use_Pref_Codec_Only_{{ line_no }}_ ua="na">yes</Use_Pref_Codec_Only_{{ line_no }}_>
+    <DTMF_Tx_Mode_{{ line_no }}_ ua="na">Normal</DTMF_Tx_Mode_{{ line_no }}_>
+    
+    <FAX_Enable_T38_{{ line_no }}_ ua="na">Yes</FAX_Enable_T38_{{ line_no }}_>
+    <FAX_T38_Redundancy_{{ line_no }}_ ua="na">1</FAX_T38_Redundancy_{{ line_no }}_>
+    <FAX_Passthru_Method_{{ line_no }}_ ua="na">ReINVITE</FAX_Passthru_Method_{{ line_no }}_>
+    <FAX_Passthru_Codec_{{ line_no }}_ ua="na">G711a</FAX_Passthru_Codec_{{ line_no }}_>
+    <FAX_Disable_ECAN_{{ line_no }}_ ua="na">yes</FAX_Disable_ECAN_{{ line_no }}_>
+    <FAX_Tone_Detect_Mode_{{ line_no }}_ ua="na">caller or callee</FAX_Tone_Detect_Mode_{{ line_no }}_>
+    
+    <Network_Jitter_Level_{{ line_no }}_ ua="na">very high</Network_Jitter_Level_{{ line_no }}_>
+    <Jitter_Buffer_Adjustment_{{ line_no }}_ ua="na">disable</Jitter_Buffer_Adjustment_{{ line_no }}_>
+    {% endfor %}
+    
+    <!-- SIP Parameters -->
+    <RTP_Packet_Size ua="na">0.020</RTP_Packet_Size>
+    <RTP-Start-Loopback_Codec ua="na">G711a</RTP-Start-Loopback_Codec>
+    
+    <!-- Regional parameters -->
+    <Ring_Waveform ua="rw">Sinusoid</Ring_Waveform> <!-- options: Sinusoid/Trapezoid -->
+    <Ring_Frequency ua="rw">50</Ring_Frequency>
+    <Ring_Voltage ua="rw">85</Ring_Voltage>
+    
+    <FXS_Port_Impedance ua="na">600+2.16uF</FXS_Port_Impedance>
+    <Caller_ID_Method ua="na">Bellcore(N.Amer,China)</Caller_ID_Method>
+    <Caller_ID_FSK_Standard ua="na">bell 202</Caller_ID_FSK_Standard>
+    
+    <!-- CUSTOM TPL - for faxes - END -->
+
+#. Reconfigure the devices with::
+
+    provd_pycli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").reconfigure()
+
+#. Then reboot the devices::
+
+    provd_pycli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").synchronize()
+
+
+Most of this template can be copy/paste for a SP2102 or SPA8000.
 
 .. _Known bugs and limitations: http://documentation.xivo.fr/production/introduction/introduction.html#fax-detection
 
