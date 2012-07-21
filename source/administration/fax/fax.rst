@@ -208,11 +208,11 @@ correct parameters. This section describes the creation of custom template *for 
    * Preferred Codec,
    * FAX Passthru Codec,
    * RTP Packet Size,
-   * RTP-Start-Loopback_Codec,
-   * Ring_Waveform, 
-   * Ring_Frequency, 
-   * Ring_Voltage, 
-   * FXS_Port_Impedance
+   * RTP-Start-Loopback Codec,
+   * Ring Waveform, 
+   * Ring Frequency, 
+   * Ring Voltage, 
+   * FXS Port Impedance
 
 #. Create a custom template for the SPA3102 base template::
 
