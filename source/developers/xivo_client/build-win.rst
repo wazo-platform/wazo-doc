@@ -115,5 +115,4 @@ To create the installer::
 
    > mingw32-make pack
 
-This will result in a ``.exe`` file in the current directory. You may have to
-rename the file to set the right version.
+This will result in a ``.exe`` file in the current directory.
