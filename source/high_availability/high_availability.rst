@@ -138,7 +138,7 @@ Configuration Replication
 -------------------------
 
 Once master slave configuration is completed, XiVO configuration is replicated from the master node
-to the salve every hour (:00).
+to the slave every hour (:00).
 Replication can be started manually by running the replication script :
 
 ::

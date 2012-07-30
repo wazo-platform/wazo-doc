@@ -98,7 +98,7 @@ These are the different phone numbers that are available
 * phonebooknumber.home
 * phonebooknumber.mobile
 * phonebooknumber.office
-* phoneboomnumber.other
+* phonebooknumber.other
 
 
 Addresses

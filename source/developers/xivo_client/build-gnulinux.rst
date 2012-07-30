@@ -1,0 +1,92 @@
+.. index:: single:XiVO Client
+
+***********************************************
+Building the XiVO Client on GNU/Linux platforms
+***********************************************
+
+This page explains how to build an executable of the XiVO Client from its
+sources for GNU/Linux.
+
+
+Prerequisites
+=============
+
+* Qt library development files (package ``libqt4-dev`` on Debian and derivatives)
+* Git (package ``git``)
+* Generic software building tools : ``make``, ``g++`` ... (package ``build-essential``)
+
+
+Get sources
+===========
+
+In a bash shell::
+
+   $ git clone git://git.xivo.fr/official/xivo-client-qt.git
+
+
+Building
+========
+
+Launch qmake to generate the Makefile::
+
+   $ cd xivo-client-qt
+   $ qmake
+
+This will also generate a file ``versions.mak`` that contains version
+informations about the code being compiled. It is necessary for compilation and
+packaging.
+
+You can then launch ``make``::
+
+   $ make
+
+Binaries are available in the ``bin`` directory.
+
+The version of the executable is taken from the ``git describe`` command.
+
+
+Build options
+-------------
+
+To generate debug symbols::
+
+   $ make DEBUG=yes
+
+To compile the unit tests of the XiVO Client::
+
+   $ qmake CONFIG+=tests
+
+To compile the XiVO Client ready for functional tests::
+
+   $ make FUNCTESTS=yes
+
+To compile the XiVO Client ready for performances profiling::
+
+   $ qmake CONFIG+=profiling
+
+
+Cleaning
+--------
+
+::
+
+   $ make distclean
+
+
+Launch
+======
+
+You can launch the built executable with::
+
+   $ LD_LIBRARY_PATH=bin bin/xivoclient
+
+Package
+=======
+
+To create the Debian package, usable on Debian and Ubuntu::
+
+   $ make pack
+
+This will result in a ``.deb`` file in the current directory.
+
+The version of the package is taken from the ``git describe`` command.
