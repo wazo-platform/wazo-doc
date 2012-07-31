@@ -128,8 +128,12 @@ This option is in seconds and the default is 30 seconds.
 
 When logged to the XiVO client, one can modify his statistic parameters.
 
-* Window is the period of statistical analysis to be displayed
-* qos is the wait time that is required for a call to be answered on time
+* Window is the period of statistical analysis to be displayed.
+
+  The maximum value is 9999 seconds, which is about 2 hours and 45 minutes. On
+  the server side, data that are used to compute statistics are only
+  kept for around 3 hours, so there's a hard limit of 3 hours for this value.
+* Qos is the wait time that is required for a call to be answered on time
 
 These configurations can be done for each queue.
 
