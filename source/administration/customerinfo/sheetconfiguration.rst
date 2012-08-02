@@ -1,5 +1,6 @@
+*******************
 Sheet Configuration
-===================
+*******************
 
 Sheets can be defined under :menuselection:`Services --> CTI Server --> Models`
 in the web interface. Once a sheet is defined, it has to be assigned to an event
@@ -12,26 +13,28 @@ Event
    many events. In that case, the sheet will be raised for each events.
 
 .. figure:: images/sheets_configuration.png
-  :scale: 85%
+   :scale: 85%
+
 
 General settings
-----------------
+================
 
 In the first tab the name of your model can be configured.
 When you checkbox focus is checked, your xivo client focus when you received a sheet.
 The description allow the administrator to give an overview of a given sheet.
 
 .. figure:: images/sheets_configuration_general.png
-  :scale: 85%
+   :scale: 85%
+
 
 Sheets
-------
+======
 
 This tab is dedicated for the form/information of your sheet. You can define an
 external form created with qt-designer.
 
 .. warning:: In qt-designer, one must set 'vertical layout' on the top widget
-.. (right click on the top widget > Lay out > Vertical layout).
+   (right click on the top widget > Lay out > Vertical layout).
 
 You can configure the path to a ``file://`` or ``http://``. The check box is for
 activated this ui. The qt file is an xml file.
@@ -39,12 +42,12 @@ activated this ui. The qt file is an xml file.
 Here an example of a small form develop with qt-designer.
 
 .. figure:: images/sheets_configuration_qtui.png
-  :scale: 85%
+   :scale: 85%
 
 The qt-designer screenshot.
 
 .. figure:: images/sheets_configuration_qtdesigner.png
-  :scale: 85%
+   :scale: 85%
 
 the generated file from qt-designer :
 
@@ -184,33 +187,33 @@ need to add in your dialplan this line (in a subroutine)::
 The ``{dp-test}`` displays Salut.
 
 .. warning:: fields of type 'form' work differently from other field
-.. types. Fields `Field title`
-   and `Default value` are not used and field `Display value` MUST be set to ``qtui``.
+   types. Fields `Field title` and `Default value` are not used and
+   field `Display value` MUST be set to ``qtui``.
 
 Default XiVO sheet example :
 
 .. figure:: images/sheets_configuration_sheet.png
-  :scale: 85%
+   :scale: 85%
 
 Other example with more bells and whistles :
 
 .. figure:: images/sheets_configuration_sheet_demo.png
-  :scale: 85%
+   :scale: 85%
 
 
 Systray
--------
+=======
 
 Mostly the same syntax as the sheet with less field types available (title,
 body). A Systray popup will display a single title (the last one added to the
 list of fields) and zero, one or more fields of type 'body'.
 
 .. figure:: images/sheets_configuration_systray.png
-  :scale: 85%
+   :scale: 85%
 
 
 Actions
--------
+=======
 
 The action is for the xivo client, so if you configure an action, please do sure
 you understand it's executed by the client. You need to allow this action in
@@ -232,10 +235,11 @@ For `tcp://` and `udp://`, it is a requirement that the string between `/` and `
 An extension could be to define other serialization methods, if needed.
 
 .. figure:: images/sheets_configuration_actions.png
-  :scale: 85%
+   :scale: 85%
+
 
 Event configuration
--------------------
+===================
 
 You can configure a sheet when a specific event is called. For example if you want to received a sheet when an agent answer to a call, you can choose a sheet model for the Agent link event.
 
@@ -255,13 +259,12 @@ The followed event possible is :
 
 .. warning:: The link event will not work if an agent is used. Use Link for user members of a queue and agent linked for agents.
 
-
 .. figure:: images/events_configuration.png
-  :scale: 85%
+   :scale: 85%
 
 
 Dialplan interaction
---------------------
+====================
 
 UserEvent for a custom event. You need to configure by web interface the custom event::
 
