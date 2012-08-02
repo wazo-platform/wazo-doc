@@ -141,7 +141,7 @@ On the second part of the tab, you can configure the fields to appear on the she
    * phone : create a tel: link, you can click to call on your sheet.
    * form : show the form from an ui predefined. It's an xml ui. You need to define qtui in display format.
 
- * Default value : is to define a text when the fourth field have no result.
+ * Default value : if given, this value will be used when all substitutions in the display value field fail.
  * Display value : you can define text, variables or both. Three kinds of variables are available :
 
    * `xivo-` prefix is reserved and set inside the CTI server:
@@ -220,13 +220,21 @@ you understand it's executed by the client. You need to allow this action in
 the client configuration too.
 
 The field in this tab receives the URL that will be displayed in your
-browser. You can use the same variable like {xivo-callerid}.
+browser. You can also use variable substitution in this field.
 
- * `http://x.y.z.co.fr/anything` opens the URL on the default browser
- * `tcp://x.y.z.co.fr:4545/?var1=a1&var2=a2&var3=v3` connects to TCP port 4545
-   on x.y.z.co.fr, sends the string `var1=a1&var2=a2&var3=v3`, then closes
- * `udp://x.y.z.co.fr:4545/?var1=a1&var2=a2&var3=v3` connects to UDP port 4545
-   on x.y.z.co.fr, sends the string `var1=a1&var2=a2&var3=v3`, then closes
+ * ``http://example.org/foo`` opens the URL on the default browser
+ * ``http://example.org/{xivo-did}`` opens the URL on the default browser, after
+   substituting the ``{xivo-did}`` variable. If the substitution fails, the URL will
+   remain ``http://example.org/{xivo-did}``, i.e. the curly brackets will still be present.
+ * ``http://example.org/{xivo-did}?origin={xivo-origin}`` opens the URL on the default
+   browser, after substituting the variables. If at least one of the substitution is
+   successful, the failing substitutions will be replaced by an empty string. For example,
+   if ``{xivo-origin}`` is replaced by 'outcall' but ``{xivo-did}`` is not substituted,
+   the resulting URL will be ``http://example.org/?origin=outcall``
+ * ``tcp://x.y.z.co.fr:4545/?var1=a1&var2=a2`` connects to TCP port 4545
+   on x.y.z.co.fr, sends the string ``var1=a1&var2=a2``, then closes
+ * ``udp://x.y.z.co.fr:4545/?var1=a1&var2=a2`` connects to UDP port 4545
+   on x.y.z.co.fr, sends the string ``var1=a1&var2=a2``, then closes
 
 .. note:: any string that would not be understood as an URL will be handled like and URL
    it is a process to launch and will be executed as it is written
