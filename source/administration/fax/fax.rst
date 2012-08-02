@@ -266,11 +266,11 @@ correct parameters. This section describes the creation of custom template *for 
 
 #. Reconfigure the devices with::
 
-    provd_pycli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").reconfigure()
+    provd_pycli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").reconfigure()'
 
 #. Then reboot the devices::
 
-    provd_pycli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").synchronize()
+    provd_pycli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").synchronize()'
 
 
 Most of this template can be copy/paste for a SP2102 or SPA8000.
