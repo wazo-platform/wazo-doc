@@ -162,5 +162,5 @@ The module "bnfos"(modules use  by the berofos to check status of asterisk) not 
 
 	#Workaround to berofos integration
 
-	*/1     *       *       *       *       root  usr/local/sbin/berofos-workaround >> /dev/null    2>&1/bin/sleep 5
+	*/1     *       *       *       *       root  usr/local/sbin/berofos-workaround >> /dev/null    2>&1
 
