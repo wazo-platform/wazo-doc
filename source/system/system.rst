@@ -10,3 +10,4 @@ System
    proxy
    log_files
    backup_restore
+   ntp
