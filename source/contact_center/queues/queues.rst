@@ -30,10 +30,3 @@ Ring strategy
       is due to an asterisk limitation. Unfortunately, if you want to change the
       ring strategy of a queue to linear, you'll have to delete and create a new
       queue with the right strategy.
-
-
-.. figure:: queue_appli.png
-    :scale: 85%
-
-
-
