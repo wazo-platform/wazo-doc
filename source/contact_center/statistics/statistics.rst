@@ -202,3 +202,20 @@ Counters
 * Average waiting time (AWT): The average wait time of call that have waited
 * Home rated (HR): The ratio of answered calls over received calls
 * Quality of service (QoS): Percentage of calls answered in less than x seconds over the number of answered calls, where x is defined in the configuration
+
+
+Agent performance
+=================
+
+Agent performance statistics can be viewed in :menuselection:`Services --> Statistics --> Queue`.
+
+.. figure:: images/statistic_agent.png
+    :scale: 85%
+    :alt: Queue statistic
+
+
+Counters
+--------
+
+* Answered: The number of answered calls for this agent.
+* Conversation: Time spent in conversation for calls answered during a given period.
