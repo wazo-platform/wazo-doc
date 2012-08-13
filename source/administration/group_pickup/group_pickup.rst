@@ -5,6 +5,8 @@ Group Pickup
 Pickup groups allow users to intercept calls directed towards other users of the group. This
 is done either by dialing a special extension or by pressing a function key.
 
+The group pickup is limited to 64 groups by Asterisk. This limitation is removed in Asterisk 11.
+
 
 Quick Summary
 =============
