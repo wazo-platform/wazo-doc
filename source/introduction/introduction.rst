@@ -91,3 +91,84 @@ XiVO **does not currently support Fax detection**. The following describe a work
     
     asterisk -rx 'core reload'
 
+
+Berofos Integration with PBX
+----------------------------
+
+You can use a Berofos failover switch to secure the ISDN provider lines 
+when installing a XiVO in front of an existing PBX.
+The goal of this configuration is to mitigate the consequences of an outage of the XiVO : with this
+equipment the ISDN provider links could be switched to the PBX directly if the XiVO goes down.
+
+XiVO **does not offer natively** the possibility to configure Berofos in this failover mode.
+This section describes a workaround.
+
+Logical view::
+
+                   +------+                            +-----+
+   -- Provider ----| XiVO | -- ISDN Interconnection  --| PBX | -- Phones
+                   +------+                            +-----+
+
+Connection::
+
+       +-------------Bero*fos---------------+
+       | A        B        C        D       |
+       | o o o o  o o o o  o o o o  o o o o |
+       +-+-+------+-+------+-+------+-+-----+
+         | |      | |      | |      | |
+        / /       | |      | |      | | 
+       / /    +--------+   / /   +---------+	
+     2 T2     |  XiVO  |  / /    |   PBX   |	
+              +--------+ / /     +---------+
+                  | |   / /	
+                  \ \__/ /
+                   \____/
+
+
+The following describes how to configure your XiVO and your Berofos.
+
+#. Follow the Berofos general configuration (firmware, IP, login/password) described 
+   on the the berofos_ page.
+
+#. When done, apply these specific parameters to the berofos::
+
+    bnfos --set scenario=1   -h 10.105.2.26 -u admin:berofos
+    bnfos --set mode=1       -h 10.105.2.26 -u admin:berofos
+    bnfos --set modedef=1    -h 10.105.2.26 -u admin:berofos
+    bnfos --set wdog=1       -h 10.105.2.26 -u admin:berofos
+    bnfos --set wdogdef=1    -h 10.105.2.26 -u admin:berofos
+    bnfos --set wdogitime=60 -h 10.105.2.26 -u admin:berofos	
+
+#. Add the following script :file:`/usr/local/sbin/berofos-workaround`::
+
+    #!/bin/bash
+    # Script workAround for berofos integration with a XiVO in front of PABX
+    
+    /etc/init.d/asterisk status
+    if [ $? -eq 0 ]; then
+       # If asterisk is running, we (re)enable wdog and (re)set the mode
+       /usr/bin/bnfos --set mode=1 -f fos1
+       /usr/bin/bnfos --set modedef=1 -f fos1
+       /usr/bin/bnfos --set wdog=1 -f fos1
+    else
+       /usr/bin/logger "$0 - Asterisk is not running"
+    fi
+    
+    # Now 'kick' berofos ten times each 5 seconds
+    for ((i == 1; i <= 10; i += 1)); do
+        /usr/bin/bnfos --kick -f fos1
+    	/bin/sleep 5
+    done
+
+#. Add execution rights to script::
+   
+    chmod +x /usr/local/sbin/berofos-workaround
+
+#. Create a cron to launch the script every minutes :file:`/etc/cron.d/berofos-cron-workaround`::
+
+	# Workaround to berofos integration
+
+	*/1 * * * * root /usr/local/sbin/berofos-workaround 2>&1 > /dev/null
+
+
+.. _berofos: http://documentation.xivo.fr/production/high_availability/berofos.html#slave-configuration

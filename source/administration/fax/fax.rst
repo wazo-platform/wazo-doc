@@ -266,14 +266,60 @@ correct parameters. This section describes the creation of custom template *for 
 
 #. Reconfigure the devices with::
 
-    provd_pycli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").reconfigure()
+    provd_pycli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").reconfigure()'
 
 #. Then reboot the devices::
 
-    provd_pycli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").synchronize()
+    provd_pycli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").synchronize()'
 
 
 Most of this template can be copy/paste for a SP2102 or SPA8000.
 
 .. _Known bugs and limitations: http://documentation.xivo.fr/production/introduction/introduction.html#fax-detection
+
+
+Using a SIP Trunk
+=================
+
+Fax transmission, to be successful, *MUST* use G.711 codec. Fax streams cannot be encoded with
+lossy compression codecs (like G.729a).
+
+That said, you may want to establish a SIP trunk using G.729a to save bandwith.
+Here's a way to be able to receive a fax in this configuration.
+
+.. note:: There are some prerequisities:
+
+     * your SIP Trunk MUST offer both G.729a and G.711 codecs,
+     * your fax users MUST have a personnalized outgoing calleridnum (for the codec change is based on this variable),
+     
+#. We assume that outgoing call rules and fax users with their DID are created,
+#. Create the file :file:`/etc/asterisk/extensions_extra.d/fax.conf` with the following content::
+
+    ;; For faxes :
+    ; The following subroutine forces inbound and outbound codec to alaw.
+    ; For outbound codec selection we must set the variable with inheritance.
+    ; Must be set on each Fax DID
+    [pre-incall-fax]
+    exten = s,1,NoOp(### Force alaw codec on both inbound (operator side) and outbound (analog gw side) when calling a Fax ###)
+    exten = s,n,Set(SIP_CODEC_INBOUND=alaw)
+    exten = s,n,Set(__SIP_CODEC_OUTBOUND=alaw)
+    exten = s,n,Return()
+
+    ; The following subroutine forces outbound codec to alaw based on outgoing callerid numbe
+    ; For outbound codec selection we must set the variable with inheritance.
+    ; Must be set on each outgoing call rule
+    [pre-outcall-fax]
+    exten = s,1,NoOp(### Force alaw codec if caller is a Fax ###)
+    exten = s,n,GotoIf($["${CALLERID(num)}" = "0112697845"]?alaw:)
+    exten = s,n,GotoIf($["${CALLERID(num)}" = "0112697846"]?alaw:end)
+    exten = s,n(alaw),Set(__SIP_CODEC_OUTBOUND=alaw)
+    exten = s,n(end),Return()
+
+#. For each Fax users' DID add the following string in the ``Preprocess subroutine`` field::
+
+    pre-incall-fax
+
+#. For each Outgoing call rule add the the following string in the ``Preprocess subroutine`` field::
+
+    pre-outcall-fax
 

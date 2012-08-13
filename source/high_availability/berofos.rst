@@ -13,6 +13,17 @@ then the berofos will automatically switch your ISDN lines from your master node
 your slave node if your master goes down, and vice-versa when it comes back up.
 
 
+You can also use a Berofos failover switch to secure the ISDN provider lines
+when installing a XiVO in front of an existing PBX.
+The goal of this configuration is to mitigate the consequences of an outage of the XiVO : with this
+equipment the ISDN provider links could be switched to the PBX directly if the XiVO goes down.
+
+XiVO **does not offer natively** the possibility to configure Berofos in this failover mode.
+The `Berofos Integration with PBX`_ section describes a workaround.
+
+.. _Berofos Integration with PBX: http://documentation.xivo.fr/production/introduction/introduction.html#berofos-integration-with-pbx
+
+
 Installation and Configuration
 ==============================
 
