@@ -41,6 +41,14 @@ Diversions can be used to specify distribution options on a given scenario.
     :scale: 85%
 
 
+Estimated Wait Time Overrun
+---------------------------
+
+When this option is used, the administrator can set a destination for calls
+when the average waiting time is over the specified number.
+
+
+
 Waiting Calls / Available Agents Ratio
 ---------------------------------------
 
