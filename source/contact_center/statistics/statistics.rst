@@ -201,9 +201,7 @@ Counters
 
 	Satured: The queue was already full when the call was received
 
-	Blocking (incoming): There was no agent available when the call was received
-
-	Blocking (passing): There is no agent to take the call anymore
+	Blocking : There was no agent available when the call was received or there is no agent to take the call anymore
 * Average waiting time (AWT): The average wait time of call that have waited
 * Answered rate (HR): The ratio of answered calls over received calls
 * Quality of service (QoS): Percentage of calls answered in less than x seconds over the number of answered calls, where x is defined in the configuration
