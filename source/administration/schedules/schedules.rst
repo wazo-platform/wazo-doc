@@ -5,7 +5,7 @@ Schedules
 Schedules are specific time frames that can be defined to open or close a service.
 Within schedules you may specify opening days and hours or close days and hours.
 
-A default destination as user, voicemenu, group ... can be defined when the schedule is in closed state.
+A default destination as user, group ... can be defined when the schedule is in closed state.
 
 Schedules can be applied to :
 
@@ -14,7 +14,6 @@ Schedules can be applied to :
 * Inbound calls
 * Outbound calls
 * Queues
-* Voice menus
 
 
 Creating Schedules
