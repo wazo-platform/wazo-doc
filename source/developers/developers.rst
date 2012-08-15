@@ -10,6 +10,7 @@ General information:
    contributing_doc
    debug_daemon
    debug_asterisk
+   profile_python
    translate
 
 Component specific information:
