@@ -198,7 +198,7 @@ Counters
 
   * Closed: Calls received when the queue was closed
   * No answer (NA): The call reached the ring timeout delay
-  * Satured: The queue was already full when the call was received
+  * Satured: The queue was already full when the call was received or one of the diversion parameter was reached
   * Blocking : There was no agent available when the call was received or there is no agent to take the call anymore
 
 * Average waiting time (AWT): The average wait time of call that have waited
