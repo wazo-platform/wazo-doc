@@ -22,4 +22,5 @@ Component specific information:
    provisioning
    sccp
    webi
+   web_services
    xivo_client/xivo_client
