@@ -73,17 +73,17 @@ Example content
 .. code-block:: javascript
 
    {
-      "name": "proformatique",
-      "displayname": "Proformatique",
+      "name": "avencall",
+      "displayname": "Avencall",
       "phonenumber": "0033141389960",
       "faxnumber": "0033141389970",
-      "email": "contact@proformatique.com",
-      "url": "http://www.proformatique.com",
-      "address1": "10 bis, rue Lucien VOILIN",
+      "email": "contact@avencall.com",
+      "url": "http://www.avencall.com",
+      "address1": "11 rue Salomon de Rothschild",
       "address2": "",
-      "city": "Puteaux",
+      "city": "Suresnes",
       "state": "Hauts de Seine",
-      "zipcode": "92800",
+      "zipcode": "92150",
       "country": "FR",
       "description": ""
    }
