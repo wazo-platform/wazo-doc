@@ -941,12 +941,6 @@ Example::
 IPBX Configuration
 ------------------
 
-Backup Files
-^^^^^^^^^^^^
-
-Configuration Files
-^^^^^^^^^^^^^^^^^^^
-
 Contexts
 ^^^^^^^^
 
@@ -992,9 +986,6 @@ Add::
                      ]
     }
 
-LDAP Filters
-^^^^^^^^^^^^
-
 
 Call Center
 ===========
@@ -1016,47 +1007,6 @@ List::
 Add::
 
    https://[ip_xivo]/callcenter/json.php/restricted/settings/agents?act=add
-
-``Example of content to send to add``
-
-.. code-block:: javascript
-
-   {
-      "agentfeatures": {
-          "firstname": "Jack",
-          "lastname": "Amand",
-          "number": "99543",
-          "acceptdtmf": "#",
-          "ackcall": "no",
-          "autologoff": "0",
-          "context": "default",
-          "enddtmf": "*",
-          "language": "de_DE",
-          "numgroup": "1",
-          "passwd": "7789",
-          "silent": "no",
-          "wrapuptime": "0",
-          "description": "working in services",
-      },
-      "agentoptions": {
-          "maxlogintries": "3",
-          "musiconhold": "default"
-      },
-      "queueskills": [
-         {
-            "id": "10", "weight": "87"
-         },
-         {
-            "id": "12", "weight": "50"
-         }
-      ],
-      "user-select": [
-         "26"
-      ]
-    }
-
-Arguments:
- * **wrapuptime** is one of 0,5000,10000,15000,20000,25000,30000,35000,40000,45000,50000,55000,60000
 
 
 Skills
@@ -1139,99 +1089,6 @@ List::
 
    https://[ip_xivo]/callcenter/json.php/restricted/settings/queues?act=list
 
-``Return code example``
-
-.. code-block:: javascript
-
-   [
-       {
-           "id": "7",
-           "name": "epicerie",
-           "displayname": "Épicerie",
-           "number": "301",
-           "context": "default",
-           "data_quality": "0",
-           "hitting_callee": "0",
-           "hitting_caller": "0",
-           "retries": "0",
-           "ring": "0",
-           "transfer_user": "0",
-           "transfer_call": "0",
-           "write_caller": "0",
-           "write_calling": "0",
-           "url": "",
-           "announceoverride": "",
-           "timeout": "0",
-           "preprocess_subroutine": null,
-           "announce_holdtime": "0",
-           "ctipresence": null,
-           "nonctipresence": null,
-           "waittime": null,
-           "waitratio": null,
-           "commented": false,
-           "category": "queue",
-           "nb_qmember": "1",
-           "identity": "Épicerie (301@default)"
-       }
-   ]
-
 Add::
 
    https://[ip_xivo]/callcenter/json.php/restricted/settings/queues?act=add
-
-``Example of content to send to add``
-
-.. code-block:: javascript
-
-   {
-       "queuefeatures": {
-           "name": "unittest",
-           "number": "310",
-           "context": "default",
-           "preprocess_subroutine": "",
-           "timeout": "0",
-           "hitting_caller": "1",
-           "transfer_user": "1",
-           "write_caller": "1"
-       },
-       "queue": {
-           "strategy": "ringall",
-           "musiconhold": "default",
-           "context": "default",
-           "servicelevel": "",
-           "timeout": "15",
-           "retry": "5",
-           "weight": "0",
-           "wrapuptime": "0",
-           "maxlen": "0",
-           "monitor-type": "",
-           "monitor-format": "",
-           "joinempty": "no",
-           "leavewhenempty": "no",
-           "memberdelay": "0",
-           "timeoutpriority": "app",
-           "min-announce-frequency": 60,
-           "announce-position": "yes",
-           "announce-position-limit": 5
-       },
-       "user": [
-           "1"
-       ],
-       "agent": [],
-       "dialaction": {
-           "noanswer": {
-               "actiontype": "extension",
-               "actionarg1": "0141389960",
-               "actionarg2": "to-extern"
-           },
-           "busy": {
-               "actiontype": "none"
-           },
-           "congestion": {
-               "actiontype": "none"
-           },
-           "chanunavail": {
-               "actiontype": "none"
-           }
-       }
-   }
