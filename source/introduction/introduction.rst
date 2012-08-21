@@ -81,7 +81,9 @@ XiVO **does not currently support Fax detection**. The following describe a work
     same  =   n(return),Return()
 
     exten = fax,1,NoOp(Fax detected from ${CALLERID(num)} towards ${XIVO_DSTNUM} - will be sent upon reception to ${XIVO_USEREMAIL})
-    same  =     n,Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
+    same  =     n,GotoIf($["${CHANNEL(channeltype)}" = "DAHDI"]?changeechocan:continue))
+    same  =     n(changeechocan),Set(CHANNEL(echocan_mode)=fax) ; if chan type is dahdi set echo canceller in fax mode
+    same  =     n(continue),Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
 
 #. In the file :file:`/etc/pf-xivo/asterisk/xivo_globals.conf` set the global user subroutine to ``pre-user-global-faxdetection``::
     
