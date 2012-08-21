@@ -63,13 +63,13 @@ XiVO **does not currently support Fax detection**. The following describe a work
     Be aware that this workaround will probably not survive any upgrade.
 
 #. Activate fax detection in DAHDI configuration by editing :file:`/etc/asterisk/chan_dahdi.conf` and 
-   adding the following line before the include statement::
+   adding the following lines **before** the line ``#include dahdi-channels.conf``::
 
     ;; Workaround Fax detection
     faxdetect = yes
 
-#. Under :menuselection:`Services --> IPBX --> IPBX configuration --> Configuration files` add a new file
-   containing the following dialplan::
+#. In the Web Interface and under :menuselection:`Services --> IPBX --> IPBX configuration --> Configuration files`
+   add a new file named *fax-detection.conf* containing the following dialplan::
     
     ;; Fax Detection
     [pre-user-global-faxdetection]
@@ -83,7 +83,7 @@ XiVO **does not currently support Fax detection**. The following describe a work
     exten = fax,1,NoOp(Fax detected from ${CALLERID(num)} towards ${XIVO_DSTNUM} - will be sent upon reception to ${XIVO_USEREMAIL})
     same  =     n,Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
 
-#. In :file:`/etc/pf-xivo/asterisk/xivo_globals.conf` activate the global user subroutine to ``pre-user-global-forfax``::
+#. In the file :file:`/etc/pf-xivo/asterisk/xivo_globals.conf` set the global user subroutine to ``pre-user-global-faxdetection``::
     
     XIVO_PRESUBR_GLOBAL_USER = pre-user-global-faxdetection
 
