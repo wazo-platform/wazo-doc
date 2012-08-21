@@ -118,7 +118,7 @@ You can find more details about pattern matching in Asterisk (hence in XiVO) on
 `the Asterisk wiki <https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching>`_.
 
 
-Set the outgoing calls
+Set the incoming calls
 ----------------------
 
 Now that we have calls going out from a XiVO, we need to route incoming calls on
