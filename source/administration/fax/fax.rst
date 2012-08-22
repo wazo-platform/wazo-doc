@@ -36,7 +36,7 @@ user-specified address with the incoming fax attached as a PDF document.
 Starting with XiVO 1.1.15, more advanced features have been added, like the
 ability of sending a PDF copy of a fax via FTP, printing it, changing the email body,
 or doing more than one action at the same time. These advanced features are unfortunately
-not available from the web-interface but only by editing the `/etc/asterisk/xivo_fax.conf`
+not available from the web-interface but only by editing the `/etc/pf-xivo/asterisk/xivo_fax.conf`
 configuration file.
 
 
@@ -61,29 +61,39 @@ call range in the used context.
 Changing the email body
 -----------------------
 
-You can change the body of the email sent upon fax reception by editing the `/etc/pf-xivo/mail.txt` file.
+You can change the body of the email sent upon fax reception by editing the :file:`/etc/pf-xivo/mail.txt`
+file.
 
 The following variable can be included in the mail body:
-* %(dstnum)s -- the DID that received the fax
+ * ``%(dstnum)s`` -- the DID that received the fax
 
-If you want to include a regular percent character, i.e. "%", you must write it has "%%" in mail.txt
-or an error will occur when trying to do the variables substitution.
+If you want to include a regular percent character, i.e. "%", you must write it has "%%" in 
+:file:`mail.txt` or an error will occur when trying to do the variables substitution.
+
+The ``agid`` service must be restarted to apply changes::
+
+ /etc/init.d/pf-xivo-agid restart
 
 
 Changing the email subject
 --------------------------
 
-You can change the subject of the email sent upon fax reception by editing the `etc/asterisk/xivo_fax.conf` file.
+You can change the subject of the email sent upon fax reception by editing the :file:`/etc/pf-xivo/asterisk/xivo_fax.conf` file.
 
-Look for the "[mail]" section, and in this section, modify the value of the "subject" option.
+Look for the ``[mail]`` section, and in this section, modify the value of the ``subject`` option.
 
 The available variable substitution are the same as for the email body.
+
+The ``agid`` service must be restarted to apply changes::
+
+ /etc/init.d/pf-xivo-agid restart
 
 
 Using the advanced features
 ---------------------------
 
-The following features are only available via the `/etc/asterisk/xivo_fax.conf` configuration file.
+The following features are only available via the :file:`/etc/pf-xivo/asterisk/xivo_fax.conf`
+configuration file.
 They are not available from the web-interface.
 
 The configuration file has documentation embedded in it in the form of comments, with some examples
@@ -92,13 +102,13 @@ configuration file comments.
 
 The way it works is the following:
 
-* you first declare some "backends", i.e. actions to be taken when a fax is received. A backend
-  name looks like "mail", "ftp_example_org" or "printer_office".
+* you first declare some `backends`, i.e. actions to be taken when a fax is received. A backend
+  name looks like ``mail``, ``ftp_example_org`` or ``printer_office``.
 * once your backends are defined, you can use them in your destination numbers. For example,
-  when someone calls the 100 DID, you might want the "ftp_example_org" and "mail" backend to be run,
-  but otherwise, you only want the "mail" backend to be run.
+  when someone calls the 100 DID, you might want the `ftp_example_org` and `mail` backend to be run,
+  but otherwise, you only want the `mail` backend to be run.
 
-Here's an example of a valid :file:`xivo_fax.conf` configuration file::
+Here's an example of a valid :file:`/etc/pf-xivo/asterisk/xivo_fax.conf` configuration file::
 
    [general]
    tiff2pdf = /usr/bin/tiff2pdf
@@ -121,10 +131,11 @@ Here's an example of a valid :file:`xivo_fax.conf` configuration file::
    [dstnum_100]
    dest = mail, ftp_example_org
 
-There's destination named "dstnum_default" is special because it represent the default actions to be
+There's destination named ``dstnum_default`` is special because it represent the default actions to be
 taken when no DID-specific action are defined.
 
-After editing the :file:`xivo_fax.conf` file, you need to restart the agid server for the changes to be applied::
+After editing the :file:`/etc/pf-xivo/asterisk/xivo_fax.conf` file, you need to restart the agid server
+for the changes to be applied::
 
    $ /etc/init.d/pf-xivo-agid restart
 
@@ -134,8 +145,8 @@ Using the FTP backend
 
 The FTP backend is used to send a PDF version of the received fax to an FTP server.
 
-An FTP backend is always defined in a section beginning with the "ftp" prefix. Here's an example for
-a backend named "ftp_example_org"::
+An FTP backend is always defined in a section beginning with the ``ftp`` prefix. Here's an example for
+a backend named ``ftp_example_org``::
 
    [ftp_example_org]
    host = example.org
@@ -144,22 +155,22 @@ a backend named "ftp_example_org"::
    directory = /foobar
 
 
-The "directory" option is optional and if not specified, the document will be put in the user's root directory.
+The ``directory`` option is optional and if not specified, the document will be put in the user's root directory.
 
-The uploaded file are named like "${XIVO_SRCNUM}-${EPOCH}.pdf".
+The uploaded file are named like ``${XIVO_SRCNUM}-${EPOCH}.pdf``.
 
 
 Using the printer backend
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To use the printer backend, you must have the "cups-client" package installed on your XiVO::
+To use the printer backend, you must have the `cups-client` package installed on your XiVO::
 
    $ apt-get install cups-client
 
-The printer backend use the "lp" command to print fax.
+The printer backend use the `lp` command to print fax.
 
-A printer backend is always defined in a section beginning with the "printer" prefix.
-Here's an example for a backend named "printer_office"::
+A printer backend is always defined in a section beginning with the ``printer`` prefix.
+Here's an example for a backend named ``printer_office``::
 
    [printer_office]
    name = office
@@ -167,7 +178,7 @@ Here's an example for a backend named "printer_office"::
 
 When a fax will be received, the system command ``lp -d office <faxfile>`` will be executed.
 
-The "convert_to_pdf" option is optional and defaults to 1. If it is set to 0, the TIFF file will not
+The ``convert_to_pdf`` option is optional and defaults to 1. If it is set to 0, the TIFF file will not
 be converted to PDF before being printed.
 
 .. warning:: You need to have cups server somewhere in you network.
@@ -176,7 +187,7 @@ be converted to PDF before being printed.
 Using the mail backend
 ^^^^^^^^^^^^^^^^^^^^^^
 
-By default, a mail backend named "mail" is defined.
+By default, a mail backend named ``mail`` is defined.
 
 You can define more mail backends if you want. Just look what the default mail backend looks like.
 
