@@ -46,7 +46,7 @@ data must be sent via POST, in JSON format.
 Where do I find Web Services usage examples?
 --------------------------------------------
 
-Listing data here would is inefficient, as this documentation can not be always
+Listing data here would be inefficient, as this documentation can not be always
 up-to-date. So we're moving it out of the documentation.
 
 Instead, we will use unit-tests as documentation. We are developping a Python
