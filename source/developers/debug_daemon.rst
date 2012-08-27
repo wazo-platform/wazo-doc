@@ -1,3 +1,5 @@
+.. _debug-daemons:
+
 *****************
 Debugging Daemons
 *****************

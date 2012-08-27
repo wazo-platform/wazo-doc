@@ -1,6 +1,9 @@
+.. _remote-directory:
+
 ****************
 Remote directory
 ****************
+
 
 If you have a phone provisioned with XiVO and its one of the supported ones, you'll be able to search in your XiVO directory and place call directly
 from your phone.

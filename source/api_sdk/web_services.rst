@@ -1,3 +1,5 @@
+.. _web-services-api:
+
 ***********
 WebServices
 ***********
@@ -21,13 +23,61 @@ HTTP status codes
 Configuration
 =============
 
-In order to use web services, a special user must be created with the correct ACLs. In order to do so : 
+In order to use web services, a special user must be created with the correct
+ACLs. In order to do so :
 
-- Visit the Configuration > Web Services Access section
-- Create a new web service user with the username, password OR host of allowed remote machine (the client that is about to use XiVO web services).
-  Edit access rights of given web services user to allow access for needed sections.
+- Visit the :menuselection:`Configuration > Web Services Access` section
+- Create a new web service user with the username, password OR host of allowed
+  remote machine (the client that is about to use XiVO web services). Edit
+  access rights of given web services user to allow access for needed sections.
 
-If a username /password was given, then those credentials will be needed to connect to the web services. If a host was given, only connections from this host will be allowed. It is possible to specify a username/password pair AND a host on the same web services user.
+If a username/password was given, then those credentials will be needed to
+connect to the web services. If a host was given, only connections from this
+host will be allowed. It is possible to specify a username/password pair AND a
+host on the same web services user.
+
+How to use this page
+====================
+
+This page lists Web Services available in XiVO. Data sent or received is
+described either in unit-tests (see the section below) or on this page. This
+data must be sent via POST, in JSON format.
+
+Where do I find Web Services usage examples?
+--------------------------------------------
+
+Listing data here would be inefficient, as this documentation can not be always
+up-to-date. So we're moving it out of the documentation.
+
+Instead, we will use unit-tests as documentation. We are developping a Python
+library to access Web Services, named ``xivo-ws``.
+
+* If you plan to use WS in Python scripts, we recommand you use this library,
+  available from PyPI. You can find examples of usage in its source code.
+* If you are developping with another language, you can read our unit-tests for
+  ``xivo-ws``, and find the appropriate data format there.
+
+``xivo-ws`` source code is available in the ``xivo-ws`` `Git repository on
+Gitorious <http://gitorious.org/xivo/xivo-ws>`_.
+
+If you want information about the users Web Services, for example, go look at
+the file :file:`xivo_ws/objects/tests/test_user.py` (`online version
+<http://gitorious.org/xivo/xivo-ws/blobs/master/xivo_ws/objects/tests/test_user.py>`_).
+
+The function ``test_from_obj_dict`` tests the conversion of data received from
+``view`` action into the ``xivo-ws`` format. So the ``obj_dict`` variable in
+that test is the type of data the Web Service will send upon a ``view``
+action. The only difference is that it is expressed in Python format, rather
+than the JSON format that WS use, but they are very similar.
+
+The reverse function is ``test_to_obj_dict``, that expects data in a format that
+will be accepted by Web Services for ``add`` or ``edit`` actions. So the
+``expected_obj_dict`` variable will be the format accepted by Web Services.
+
+Another information you might need is which attributes are required for Web
+Services. For this, you can open the file :file:`xivo_ws/objects/user.py` and
+look at the ``_ATTRIBUTES`` variable. Each attribute marked with
+``required=True`` is in fact required.
 
 Manage
 ------
@@ -60,31 +110,11 @@ Search Attributes:
 
 View::
 
-   https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=view&id=[entity_id] 
+   https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=view&id=[entity_id]
 
 Add::
-   
+
    https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=add
-
-Example content
-
-.. code-block:: javascript
-
-   {
-      "name": "proformatique",
-      "displayname": "Proformatique",
-      "phonenumber": "0033141389960",
-      "faxnumber": "0033141389970",
-      "email": "contact@proformatique.com",
-      "url": "http://www.proformatique.com",
-      "address1": "10 bis, rue Lucien VOILIN",
-      "address2": "",
-      "city": "Puteaux",
-      "state": "Hauts de Seine",
-      "zipcode": "92800",
-      "country": "FR",
-      "description": ""
-   }
 
 
 Network
@@ -165,7 +195,7 @@ List:
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&free=1
 
-* return all no free lines::
+* return all associated lines::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&free=0
 
@@ -173,7 +203,7 @@ List:
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&protocol=sip
 
-* Example possible::
+* Example::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&free=1&protocol=sip
 
@@ -194,7 +224,7 @@ Attributes:
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]&free=1
 
 
-* To search no free lines::
+* To search associated lines::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]&free=0
 
@@ -212,67 +242,49 @@ Delete::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=delete&id=[linefeatures_id]
 
-Add:: 
+Add::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=add
 
-Edit:: 
+Edit::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=edit&id=[linefeatures_id]
 
 
-``Example of content``
+``Example of sent data to edit a SCCP line``
 
 .. code-block:: javascript
 
-   "protocol": {
-      "name": "reh58f",
-      "secret": "FV4S9W",
-      "protocol": "sip",
-      "context": "default",
-      "language": "fr_FR",
-      "nat": "",
-      "subscribemwi": "1",
-      "buggymwi": "0",
-      "progressinband": "",
-      "dtmfmode": "",
-      "rfc2833compensate": "",
-      "qualify": "",
-      "rtptimeout": "",
-      "rtpholdtimeout": "",
-      "rtpkeepalive": "",
-      "allowtransfer": "",
-      "autoframing": "",
-      "videosupport": "",
-      "maxcallbitrate": "",
-      "g726nonstandard": "",
-      "disallow": "all",
-      "allow": [
-            "alaw",
-            "ulaw"
-      ],
-      "t38pt_udptl": "",
-      "t38pt_rtp": "",
-      "t38pt_tcp": "",
-      "t38pt_usertpsource": "",
-      "callerid": "\"John Doe\" <666>",
-      "insecure": "",
-      "host-type": "dynamic",
-      "permit": "",
-      "deny": "",
-      "trustrpid": "",
-      "sendrpid": "",
-      "allowsubscribe": "",
-      "allowoverlap": "",
-      "promiscredir": "",
-      "usereqphone": "",
-      "canreinvite": "",
-      "fromuser": "",
-      "fromdomain": "",
-      "amaflags": "default",
-      "accountcode": "",
-      "useclientcode": ""
-   }
+    {
+        "protocol": {
+            "context": "default",
+            "protocol": "sccp"
+        },
+        "linefeatures": {
+            "id": 150,
+            "name": "101",
+            "context": "default",
+            "commented": false,
+            "protocol": "sccp",
+            "protocolid": 3,
+            "iduserfeatures": 37,
+            "config": "",
+            "device": "11",
+            "configregistrar": "default",
+            "number": "101",
+            "provisioningid": 0,
+            "rules_type": "",
+            "rules_time": "30",
+            "rules_order": 1,
+            "rules_group": "",
+            "num": 1,
+            "line_num": 0,
+            "ipfrom": "10.32.0.1",
+            "internal": false,
+            "encryption": false,
+            "description": ""
+        }
+    }
 
 Devices
 ^^^^^^^
@@ -281,97 +293,19 @@ List::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=list
 
-``Return code example``
-
-.. code-block:: javascript
-
-   [
-      {
-         id: 2,
-         deviceid: "43dafbd0cb8d447a85ebd02b2639861d",
-         config: "43dafbd0cb8d447a85ebd02b2639861d",
-         plugin: "xivo-aastra-3.2.2.1136",
-         ip: "10.0.0.13",
-         mac: "00:08:5d:2a:4f:b1",
-         sn: "",
-         vendor: "Aastra",
-         model: "6731i",
-         version: "3.2.2.1136",
-         proto: "",
-         internal: "0",
-         configured: true,
-         commented: false,
-         description: "",
-         provdexist: true,
-         capabilities: false
-      },
-      ...
-   ]
-
-
 Search::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=search&search=[value]
 
 search is done either on *ip address* or *mac address* field (with exact match)
 
-.. code-block:: javascript
+Example::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=search&search=00:0e:50:4e:57:b7
-
-   [
-      {
-         id: 4,
-         deviceid: "396fa65e837c40d3a78a4424e32a1df7",
-         config: "396fa65e837c40d3a78a4424e32a1df7",
-         plugin: "xivo-technicolor-ST2030-2.74",
-         ip: "10.0.0.12",
-         mac: "00:0e:50:4e:57:b7",
-         sn: "",
-         vendor: "Technicolor",
-         model: "ST2030",
-         version: "2.74",
-         proto: "",
-         internal: "0",
-         configured: true,
-         commented: false,
-         description: "",
-         provdexist: true,
-         capabilities: false
-      }
-   ]
-
 
 View::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=view&id=[deviceid]
-
-``Return code example``
-
-.. code-block:: javascript
-
-   [
-      {
-         id: 2,
-         deviceid: "43dafbd0cb8d447a85ebd02b2639861d",
-         config: "43dafbd0cb8d447a85ebd02b2639861d",
-         plugin: "xivo-aastra-3.2.2.1136",
-         ip: "10.0.0.13",
-         mac: "00:08:5d:2a:4f:b1",
-         sn: "",
-         vendor: "Aastra",
-         model: "6731i",
-         version: "3.2.2.1136",
-         proto: "",
-         internal: "0",
-         configured: true,
-         commented: false,
-         description: "",
-         provdexist: true,
-         capabilities: false
-      },
-      ...
-   ]
 
 
 Users
@@ -407,211 +341,6 @@ Edit::
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=edit&id=[userfeatures_id]
 
 
-Miminum set of data for user creation or edition:
-
-.. code-block:: javascript
-
-   {
-       "userfeatures": {
-           "entityid": "2",
-           "firstname": "John"
-       },
-       "dialaction": {
-           "noanswer": {
-               "actiontype": "none"
-           },
-           "busy": {
-               "actiontype": "none"
-           },
-           "congestion": {
-               "actiontype": "none"
-           },
-           "chanunavail": {
-               "actiontype": "none"
-           }
-       }
-   }
-
-
-Full example:
-
-.. code-block:: javascript
-
-   {
-       "userfeatures": {
-           "entityid": "[entityid]",
-           "firstname": "John",
-           "lastname": "Doe",
-           "callerid": "John Doe",
-           "loginclient": "jdoe",
-           "passwdclient": "8888",
-           "mobilephonenumber": "",
-           "ringseconds": "30",
-           "simultcalls": "5",
-           "musiconhold": "default",
-           "voicemailid": "0",
-           "enableclient": "1",
-           "profileclient": "client",
-           "enablehint": "1",
-           "enablevoicemail": "1",
-           "enablexfer": "1",
-           "enableautomon": "0",
-           "callrecord": "0",
-           "callfilter": "0",
-           "enablednd": "0",
-           "bsfilter": "no",
-           "agentid": "",
-           "enablerna": "0",
-           "destrna": "0033141389960",
-           "enablebusy": "0",
-           "destbusy": "0033141389960",
-           "enableunc": "0",
-           "destunc": "0033141389960",
-           "outcallerid": "default",
-           "preprocess_subroutine": "",
-           "language": "fr_FR",
-           "timezone": "America/Montreal",
-           "ringintern": "",
-           "ringextern": "",
-           "ringgroup": "",
-           "ringforward": "",
-           "rightcallcode": "",
-           "alarmclock": "00:00",
-           "description": ""
-       },
-       "linefeatures": {
-           "id": [
-               ""
-           ],
-           "protocol": [
-               ""
-           ],
-           "name": [
-               ""
-           ],
-           "context": [
-               ""
-           ],
-           "number": [
-               ""
-           ],
-           "rules_type": [
-               ""
-           ],
-           "rules_time": [
-               ""
-           ],
-           "rules_order": [
-               ""
-           ],
-           "rules_group": [
-               ""
-           ]
-       },
-       "voicemail": {
-           "fullname": "John Doe",
-           "mailbox": "666",
-           "password": "0000",
-           "email": "jdoe@proformatique.com",
-           "tz": "eu-fr",
-           "attach": "1",
-           "deletevoicemail": "1"
-       },
-       "vmfeatures": {
-           "skipcheckpass": "1"
-       },
-       "dialaction": {
-           "noanswer": {
-               "actiontype": "group",
-               "actionarg1": "2",
-               "actionarg2": "15"
-           },
-           "busy": {
-               "actiontype": "queue",
-               "actionarg1": "1",
-               "actionarg2": ""
-           },
-           "congestion": {
-               "actiontype": "voicemenu",
-               "actionarg1": "1"
-           },
-           "chanunavail": {
-               "actiontype": "application",
-               "action": "faxtomail",
-               "actionarg1": "fax@proformatique.com"
-           }
-       },
-       "group-select": [
-           "tous"
-       ],
-       "group": {
-           "accueil": {
-               "chantype": "default",
-               "call-limit": "0"
-           },
-           "tous": {
-               "chantype": "default",
-               "call-limit": "3"
-           }
-       },
-       "queue-select": [
-           "technique"
-       ],
-       "queue": {
-           "commerciale": {
-               "chantype": "default",
-               "penalty": "0",
-               "call-limit": "0"
-           },
-           "technique": {
-               "chantype": "default",
-               "penalty": "4",
-               "call-limit": "10"
-           }
-       },
-       "phonefunckey": {
-           "fknum": [
-               "13",
-               "14",
-               "15",
-               "17",
-               "18"
-           ],
-           "type": [
-               "user",
-               "extension",
-               "meetme",
-               "group",
-               "queue"
-           ],
-           "typeval": [
-               "41",
-               "extenfeatures-vmusermsg",
-               "3",
-               "2",
-               "1"
-           ],
-           "supervision": [
-               "1",
-               "0",
-               "0",
-               "0",
-               "0"
-           ]
-       },
-       "queueskills": [
-           {
-               "id": 5,
-               "weight": 22
-           },
-           {
-               "id": 2,
-               "weight": 97
-           }
-       ]
-   }
-
-
 Here is "linefeatures" complete options list:
 
 .. code-block:: javascript
@@ -628,7 +357,8 @@ Here is "linefeatures" complete options list:
       "rules_group": [""]
    }
 
-To associate an available line with created/edited user, use following code (number is optional, but must exist and be free if used):
+To associate an available line with created/edited user, use following code
+(number is optional, but must exist and be free if used):
 
 .. code-block:: javascript
 
@@ -637,7 +367,8 @@ To associate an available line with created/edited user, use following code (num
       "number": ["4000"]
    }
 
-To automatically create a new line associated with created/edited user, don"t set *id* key (or set it to "0" value):
+To automatically create a new line associated with created/edited user, don"t
+set *id* key (or set it to "0" value):
 
 .. code-block:: javascript
 
@@ -651,8 +382,8 @@ To automatically create a new line associated with created/edited user, don"t se
       "rules_group": [""]
    }
 
-Once again, line number is optional.
-You can also create or associate several lines at once. Here is different possible combinations:
+Once again, line number is optional. You can also create or associate several
+lines at once. Here is different possible combinations:
 
 1st line create, 2d associated with id 45
 
@@ -718,30 +449,27 @@ Edit::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/incall/?act=edit&id=[incall_id]
 
-
 ``Sample JSON for add or edit action``
 
 .. code-block:: javascript
 
-  {
-     "incall": {
-          "exten": "9970",
-          "context": "from-extern",
-          "preprocess_subroutine": ""
-     },
-     "dialaction": {
-           "answer": {
-                "actiontype": "user",
-                "actionarg1": "2",
-                "actionarg2": ""
-           }
-     },
-     "rightcall": [
-          "1"
-     ]
-  }
-
-
+   {
+       "incall": {
+            "exten": "9970",
+            "context": "from-extern",
+            "preprocess_subroutine": ""
+       },
+       "dialaction": {
+             "answer": {
+                  "actiontype": "user",
+                  "actionarg1": "2",
+                  "actionarg2": ""
+             }
+       },
+       "rightcall": [
+            "1"
+       ]
+   }
 
 Call pickups
 ^^^^^^^^^^^^
@@ -749,7 +477,6 @@ Call pickups
 List::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/pickup/?act=list
-
 
 ``Return code example``
 
@@ -764,13 +491,15 @@ List::
        }
    ]
 
+
+
 .. note:: if no group exists, the web service returns HTTP code 204
 
 
 View::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/pickup/?act=view&id=ID
- 
+
 where ID is the identifier of the target group
 
 ``Return code example``
@@ -827,13 +556,12 @@ where ID is the identifier of the target group
    }
 
 
-
 .. note:: the web service returns HTTP code 404 if no group corresponding to the specified id is found
 
 Delete::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/pickup/?act=delete&id=ID
- 
+
 where ID is the identifier of the target group
 
 .. note:: the web service returns HTTP code 404 if no group corresponding to the specified id is found
@@ -895,13 +623,14 @@ Add::
        ]
    }
 
+
 .. note:: returns the HTTP code 400 if the creation fails
 
 
 Calls Records
 ^^^^^^^^^^^^^
 
-.. warning:: The list returned is limit to 5000, you can set it with argument ``limit=100`` in the url
+.. warning:: The list returned is limited to 5000, you can set it with argument ``limit=100`` in the url
 
 
 Search by id:
@@ -913,7 +642,7 @@ Example to return Calls Records with id begining 200 (limit to 5000 by default):
 ``return code example``
 
 .. code-block:: javascript
-   
+
    [
        {
            "id": "201",
@@ -971,7 +700,7 @@ Example to return Calls Records with id begining 200 (limit to 5000 by default):
           "linkedid": "1328296281.19",
           "userfield": "",
           "peer": ""
-      
+
       }
    ]
 
@@ -1056,7 +785,7 @@ Liste::
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=list
 
 View::
- 
+
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=view&id=[parkinglot_id]
 
 
@@ -1065,11 +794,11 @@ Delete::
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=delete&id=[parkinglot_id]
 
 Add::
- 
+
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=add
 
 Edit::
- 
+
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=edit
 
 
@@ -1094,7 +823,7 @@ Protocole SIP
 ^^^^^^^^^^^^^
 
 View::
- 
+
    https://[ip_xivo]/service/ipbx/json.php/restricted/trunk_management/sip?act=view&id=[trunk_id]
 
 ``Return code example``
@@ -1212,12 +941,6 @@ Example::
 IPBX Configuration
 ------------------
 
-Backup Files
-^^^^^^^^^^^^
-
-Configuration Files
-^^^^^^^^^^^^^^^^^^^
-
 Contexts
 ^^^^^^^^
 
@@ -1263,9 +986,6 @@ Add::
                      ]
     }
 
-LDAP Filters
-^^^^^^^^^^^^
-
 
 Call Center
 ===========
@@ -1281,53 +1001,12 @@ View::
    https://[ip_xivo]/callcenter/json.php/restricted/settings/agents?act=view&id=[id]
 
 List::
- 
+
    https://[ip_xivo]/callcenter/json.php/restricted/settings/agents?act=list
 
 Add::
- 
+
    https://[ip_xivo]/callcenter/json.php/restricted/settings/agents?act=add
-   
-``Example of content to send to add``
-
-.. code-block:: javascript
-
-   {
-      "agentfeatures": {
-          "firstname": "Jack",
-          "lastname": "Amand",
-          "number": "99543",
-          "acceptdtmf": "#",
-          "ackcall": "no",
-          "autologoff": "0",
-          "context": "default",
-          "enddtmf": "*",
-          "language": "de_DE",
-          "numgroup": "1",
-          "passwd": "7789",
-          "silent": "no",
-          "wrapuptime": "0",
-          "description": "working in services",
-      },
-      "agentoptions": {
-          "maxlogintries": "3",
-          "musiconhold": "default"
-      },
-      "queueskills": [
-         {
-            "id": "10", "weight": "87"
-         },
-         {
-            "id": "12", "weight": "50"
-         }
-      ],
-      "user-select": [
-         "26"
-      ]
-    }
-
-Arguments:
- * **wrapuptime** is one of 0,5000,10000,15000,20000,25000,30000,35000,40000,45000,50000,55000,60000
 
 
 Skills
@@ -1409,100 +1088,7 @@ View::
 List::
 
    https://[ip_xivo]/callcenter/json.php/restricted/settings/queues?act=list
- 
-``Return code example``
-
-.. code-block:: javascript
-   
-   [
-       {
-           "id": "7",
-           "name": "epicerie",
-           "displayname": "Épicerie",
-           "number": "301",
-           "context": "default",
-           "data_quality": "0",
-           "hitting_callee": "0",
-           "hitting_caller": "0",
-           "retries": "0",
-           "ring": "0",
-           "transfer_user": "0",
-           "transfer_call": "0",
-           "write_caller": "0",
-           "write_calling": "0",
-           "url": "",
-           "announceoverride": "",
-           "timeout": "0",
-           "preprocess_subroutine": null,
-           "announce_holdtime": "0",
-           "ctipresence": null,
-           "nonctipresence": null,
-           "waittime": null,
-           "waitratio": null,
-           "commented": false,
-           "category": "queue",
-           "nb_qmember": "1",
-           "identity": "Épicerie (301@default)"
-       }
-   ]
 
 Add::
- 
+
    https://[ip_xivo]/callcenter/json.php/restricted/settings/queues?act=add
-   
-``Example of content to send to add``
-
-.. code-block:: javascript
-
-   {
-       "queuefeatures": {
-           "name": "unittest",
-           "number": "310",
-           "context": "default",
-           "preprocess_subroutine": "",
-           "timeout": "0",
-           "hitting_caller": "1",
-           "transfer_user": "1",
-           "write_caller": "1"
-       },
-       "queue": {
-           "strategy": "ringall",
-           "musiconhold": "default",
-           "context": "default",
-           "servicelevel": "",
-           "timeout": "15",
-           "retry": "5",
-           "weight": "0",
-           "wrapuptime": "0",
-           "maxlen": "0",
-           "monitor-type": "",
-           "monitor-format": "",
-           "joinempty": "no",
-           "leavewhenempty": "no",
-           "memberdelay": "0",
-           "timeoutpriority": "app",
-           "min-announce-frequency": 60,
-           "announce-position": "yes",
-           "announce-position-limit": 5
-       },
-       "user": [
-           "1"
-       ],
-       "agent": [],
-       "dialaction": {
-           "noanswer": {
-               "actiontype": "extension",
-               "actionarg1": "0141389960",
-               "actionarg2": "to-extern"
-           },
-           "busy": {
-               "actiontype": "none"
-           },
-           "congestion": {
-               "actiontype": "none"
-           },
-           "chanunavail": {
-               "actiontype": "none"
-           }
-       }
-   }

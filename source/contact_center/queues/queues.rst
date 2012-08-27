@@ -30,3 +30,35 @@ Ring strategy
       is due to an asterisk limitation. Unfortunately, if you want to change the
       ring strategy of a queue to linear, you'll have to delete and create a new
       queue with the right strategy.
+
+
+Diversions
+==========
+
+Diversions can be used to specify distribution options on a given scenario.
+
+.. figure:: diversions.png
+    :scale: 85%
+
+
+Estimated Wait Time Overrun
+---------------------------
+
+When this option is used, the administrator can set a destination for calls
+when the average waiting time is over the specified number.
+
+
+
+Waiting Calls / Available Agents Ratio
+---------------------------------------
+
+When this option is used, the administrator can set a destination for calls
+when the number of waiting calls is over the number of logged agents.
+
+A Threshold of 100% means that there should not be more than one waiting call
+for each logged agents. A higher ratio means more waiting calls will be received.
+
+.. warning::
+
+  With a threshold under 100% and only one agent logged, no call will distributed
+  since one waiting call / one agent = 100%

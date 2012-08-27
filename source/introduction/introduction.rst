@@ -52,7 +52,9 @@ Associated ticket : #3595
 Fax detection
 -------------
 
-XiVO **does not currently support Fax detection**. The following describe a workaround to use this feature.
+XiVO **does not currently support Fax detection**. The following describe a workaround to use this
+feature. The behavior is to answer all incoming (external) call, wait for a number of seconds (4 in
+this example) : if a fax is detected, receive it otherwise route the call normally.
 
 .. note:: This workaround works only :
         
@@ -62,14 +64,15 @@ XiVO **does not currently support Fax detection**. The following describe a work
 
     Be aware that this workaround will probably not survive any upgrade.
 
-#. Activate fax detection in DAHDI configuration by editing :file:`/etc/asterisk/chan_dahdi.conf` and 
-   adding the following line before the include statement::
+#. Activate fax detection in DAHDI configuration by editing :file:`/etc/asterisk/chan_dahdi.conf` and
+   adding the following lines **before** the line ``#include dahdi-channels.conf``::
 
     ;; Workaround Fax detection
     faxdetect = yes
 
-#. Under :menuselection:`Services --> IPBX --> IPBX configuration --> Configuration files` add a new file
-   containing the following dialplan::
+#. In the Web Interface and under :menuselection:`Services --> IPBX --> IPBX configuration -->
+   Configuration files` add a new file named *fax-detection.conf* containing the following
+   dialplan::
     
     ;; Fax Detection
     [pre-user-global-faxdetection]
@@ -77,13 +80,16 @@ XiVO **does not currently support Fax detection**. The following describe a work
     same  =   n,GotoIf($["${XIVO_CALLORIGIN}" = "extern"]?:return)
     same  =   n,GotoIf(${XIVO_USEREMAIL}?:return)
     same  =   n,Answer()
-    same  =   n,Wait(4)
+    same  =   n,Wait(4) ; You can change the number of seconds that it'll wait for Fax
     same  =   n(return),Return()
 
     exten = fax,1,NoOp(Fax detected from ${CALLERID(num)} towards ${XIVO_DSTNUM} - will be sent upon reception to ${XIVO_USEREMAIL})
-    same  =     n,Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
+    same  =     n,GotoIf($["${CHANNEL(channeltype)}" = "DAHDI"]?changeechocan:continue))
+    same  =     n(changeechocan),Set(CHANNEL(echocan_mode)=fax) ; if chan type is dahdi set echo canceller in fax mode
+    same  =     n(continue),Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
 
-#. In :file:`/etc/pf-xivo/asterisk/xivo_globals.conf` activate the global user subroutine to ``pre-user-global-forfax``::
+#. In the file :file:`/etc/pf-xivo/asterisk/xivo_globals.conf` set the global user subroutine to
+   ``pre-user-global-faxdetection`` : this subroutine will be executed each time a user is called::
     
     XIVO_PRESUBR_GLOBAL_USER = pre-user-global-faxdetection
 

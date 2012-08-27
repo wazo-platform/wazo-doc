@@ -10,6 +10,7 @@ General information:
    contributing_doc
    debug_daemon
    debug_asterisk
+   profile_python
    translate
 
 Component specific information:
@@ -21,4 +22,5 @@ Component specific information:
    provisioning
    sccp
    webi
+   web_services
    xivo_client/xivo_client

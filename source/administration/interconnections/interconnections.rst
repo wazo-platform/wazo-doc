@@ -5,9 +5,6 @@ Interconnections
    :maxdepth: 1
 
    two_xivo
-   through_operator
-   multiple
-   gateways
 
 Debug
 -----

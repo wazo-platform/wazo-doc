@@ -117,6 +117,8 @@ In the :menuselection:`Services --> General settings --> Phonebook` page, click
 on the :guilabel:`LDAP filters` page and add your filter to the list of enabled
 filters.
 
+Please refer to the :ref:`remote-directory` section in order to properly configure a remote directory.
+
 You'll then be able to search your LDAP server directly from your phone and dial
 from the displayed results.
 

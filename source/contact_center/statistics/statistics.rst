@@ -195,15 +195,12 @@ Counters
 * Answered: Calls answered by an agent
 * Abandoned: The caller hanged up while waiting for an answer
 * Dissuaded or Overflowed:
-	Closed: Calls received when the queue was closed
 
-	No answer (NA): The call reached the ring timeout delay
+  * Closed: Calls received when the queue was closed
+  * No answer (NA): The call reached the ring timeout delay
+  * Satured: The queue was already full when the call was received or one of the diversion parameter was reached
+  * Blocking : There was no agent available when the call was received or there is no agent to take the call anymore
 
-	Satured: The queue was already full when the call was received
-
-	Blocking (incoming): There was no agent available when the call was received
-
-	Blocking (passing): There is no agent to take the call anymore
 * Average waiting time (AWT): The average wait time of call that have waited
 * Answered rate (HR): The ratio of answered calls over received calls
 * Quality of service (QoS): Percentage of calls answered in less than x seconds over the number of answered calls, where x is defined in the configuration
