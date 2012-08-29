@@ -12,7 +12,7 @@ The preprocess subroutine allows you to enhance XiVO features through the Asteri
 * Queue
 * Meetme
 * Incoming call
-* Outcall
+* Outgoing call
 
 There are three possible categories :
 
@@ -48,13 +48,14 @@ The variables are::
    XIVO_PRESUBR_GLOBAL_GROUP = xivo-subrgbl-group
    XIVO_PRESUBR_GLOBAL_QUEUE = xivo-subrgbl-queue
    XIVO_PRESUBR_GLOBAL_MEETME = xivo-subrgbl-meetme
-   XIVO_PRESUBR_GLOBAL_INCOMING = xivo-subrgbl-incoming
-   XIVO_PRESUBR_GLOBAL_OUTGOING = xivo-subrgbl-outgoing
+   XIVO_PRESUBR_GLOBAL_DID = xivo-subrgbl-did
+   XIVO_PRESUBR_GLOBAL_OUTCALL = xivo-subrgbl-outcall
+   XIVO_PRESUBR_GLOBAL_PAGING = xivo-subrgbl-paging
 
 So if you want to add a subroutine for all of your XiVO users you can do this::
 
    [xivo-subrgbl-user]
-   exten = s,1,NoOp(This is an example for all f my users)
+   exten = s,1,NoOp(This is an example for all my users)
    same  =   n,Return()
 
 
