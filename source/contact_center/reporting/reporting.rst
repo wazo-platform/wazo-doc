@@ -2,8 +2,9 @@
 Reporting
 *********
 
-You may use your own reporting tools to be able to produce your own reports provided **you do not use the XiVO server original tables**,
-but copy the tables to your own data server. You may use the following procedure as a template :
+You may use your own reporting tools to be able to produce your own reports
+provided **you do not use the XiVO server original tables**, but copy the tables
+to your own data server. You may use the following procedure as a template :
 
 * Allow remote database access on XiVO
 * Create a postgresql account read only on asterisk database
@@ -11,12 +12,34 @@ but copy the tables to your own data server. You may use the following procedure
 * Copy the statistic table content to your data server
 
 
+General Architecture
+====================
+
+.. figure:: images/archi.png
+   :scale: 60%
+   :alt: Statistics Architecture
+
+   Statistics Architecture
+
+#. The *queue_log* table of the *asterisk* database is filled by events from
+   Asterisk and by custom dialplan events
+#. *xivo-stat fill_db* is then used to read data from the *queue_log* table and
+   generate the tables *stat_call_on_queue* and *stat_queue_periodic*
+#. The web interface generate tables and graphics from the *stat_call_on_queue*
+   and *stat_queue_periodic* tables depending on the selected configuration
+
 
 Statistic Data Table Content
 ============================
 
 stat_call_on_queue
 ------------------
+
+This table is used to store each call individually.  Each call received on a queue generates a
+single entry in this table containing time related fields and a foreign key to the agent who
+answered the call and another on the queue on which the call was received.
+
+It also contains the status of the call ie. answered, abandoned, full, etc.
 
 +----------+---------------+-------------------------------------------------------------------------------------------------------+
 | Field    | Values        | Description                                                                                           |
@@ -44,8 +67,10 @@ stat_call_on_queue
 |          |               | Exemple : Agent/1002 is agent with number 1002 in table ``agentfeatures``                             |
 +----------+---------------+-------------------------------------------------------------------------------------------------------+
 
+
 Queue Call Status
 -----------------
+
 +-----------------+--------------------------------------------------------------------------------------------------------+
 | Status          | Description                                                                                            |
 |                 |                                                                                                        |
@@ -73,7 +98,12 @@ Queue Call Status
 stat_queue_periodic Table
 -------------------------
 
-This table is an aggregation of the table
+This table is an aggregation of the queue_log table.
+
+This table contains counters on each queue for each given period. The granularity at the time of
+this writing is an hour and is not configurable.  This table is then used to compute statistics
+for a given range of hours, days, week, month or year.
+
 +-----------------+------------------------------------------------------+
 | Field           | Description                                          |
 |                 |                                                      |
@@ -105,3 +135,20 @@ This table is an aggregation of the table
 | queue_id        |                                                      |
 +-----------------+------------------------------------------------------+
 
+stat_agent
+----------
+
+This table is used to match agents to an id that is different from the id in the agent configuration
+table. This is necessary to avoid loosing statistics on a deleted agent. This also means that if an
+agent changes number ie. Agent/1001 to Agent/1202, the supervisor will have to take this information
+into account when viewing the statistics. Affecting an old number to a another agent also means that
+the supervisor will have to ignore entries for this given agent for the period before the number
+assignment to the new agent.
+
+
+stat_queue
+----------
+
+This table is used to store queues in a table that is different from the queue configuration table.
+This is necessary to avoid losing statistics on a deleted queue. Renaming a queue is also not
+handled at this time.
