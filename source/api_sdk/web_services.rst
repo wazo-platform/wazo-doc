@@ -774,6 +774,59 @@ Example to return all Calls Records from 2012-02-28 to now::
    ]
 
 
+Schedule
+^^^^^^^^
+
+List::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/schedule/?act=list
+
+
+Search::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/schedule/?act=search&search=[string]
+
+
+View::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/schedule/users/?act=view&id=[incall_id]
+
+Delete::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/schedule/?act=delete&id=[incall_id]
+
+Add::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/schedule/?act=add
+
+``Sample JSON for add action``
+
+.. code-block:: javascript
+
+   {
+       "schedule": {
+           "name": "huit_a_midi",
+           "timezone": "America/Montreal",
+           "description": ""
+       },
+       "dialaction": {
+           "schedule_fallback": {
+               "actiontype": "endcall",
+               "action": "hangup"
+           }
+       },
+       "opened": [
+           {
+               "hours": "08: 00-12: 00",
+               "weekdays": "1-5",
+               "monthdays": "1-31",
+               "months": "1-12"
+           }
+       ]
+   }
+
+
+
 IPBX Services
 -------------
 
