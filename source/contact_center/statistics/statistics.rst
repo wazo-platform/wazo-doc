@@ -132,3 +132,7 @@ Counters
 
 * Answered: The number of answered calls for this agent.
 * Conversation: Time spent in conversation for calls answered during a given period.
+
+.. note:: The agent performance counters do not take into account transfer
+          between agents: if agent A processes a call and transfers it to agent
+          B, only the counters of agent A will be updated.
