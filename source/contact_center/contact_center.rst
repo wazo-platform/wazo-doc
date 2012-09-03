@@ -32,3 +32,4 @@ In XiVO, contact center is implemented to fulfill the following objectives :
    supervision/supervision
    skillbasedrouting/skillbasedrouting
    statistics/statistics
+   reporting/reporting
