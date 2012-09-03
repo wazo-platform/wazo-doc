@@ -32,6 +32,22 @@ Ring strategy
       queue with the right strategy.
 
 
+Timers
+======
+
+You may control how long a call has to stay in the queue using different timers
+
+   * Member reachabillity time out (Advanced tab) : This is the agent ringing maximum time, if a call is not answered within this time call is
+     forwareded to an other agent.
+   * Time before retrying a call to a member (Advanced tab) : When an agent does not answer the call will not be placed during that time
+   * Ringing time (Application tab) : The total time the call will stay in the queue
+   * Timeout priority (Application tab) : If set to configuration, call will wait the last agent ringing timeout expires before beeing diverted
+      If set to dialplan (application), at the end of the ringing time the call is diverted.
+
+.. figure:: queue_timers.jpg
+   :scale: 85%
+
+
 Diversions
 ==========
 
@@ -50,7 +66,7 @@ when the average waiting time is over the specified number.
 
 
 Waiting Calls / Available Agents Ratio
----------------------------------------
+--------------------------------------
 
 When this option is used, the administrator can set a destination for calls
 when the number of waiting calls is over the number of logged agents.

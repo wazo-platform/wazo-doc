@@ -21,7 +21,8 @@ Installing from the ISO image
 =============================
 
 The ISO image for XiVO |version| can be found at http://mirror.xivo.fr/iso/.
-
+Download the iso, boot from the iso and follow the installation prompts *choose english as a locale when prompted*
+At the end of the installation run the configuration wizard
 
 Installing from a minimal Debian installation
 =============================================
