@@ -6,7 +6,7 @@ You may use your own reporting tools to be able to produce your own reports
 provided **you do not use the XiVO server original tables**, but copy the tables
 to your own data server. You may use the following procedure as a template :
 
-* Allows remote database access on XiVO
+* Allow remote database access on XiVO
 * Create a postgresql account read only on asterisk database
 * Create target tables in your database located on the data server
 * Copy the statistic table content to your data server
