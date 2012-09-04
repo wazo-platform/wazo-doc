@@ -6,7 +6,7 @@ You may use your own reporting tools to be able to produce your own reports
 provided **you do not use the XiVO server original tables**, but copy the tables
 to your own data server. You may use the following procedure as a template :
 
-* Allow remote database access on XiVO
+* Allows remote database access on XiVO
 * Create a postgresql account read only on asterisk database
 * Create target tables in your database located on the data server
 * Copy the statistic table content to your data server
@@ -104,36 +104,36 @@ This table contains counters on each queue for each given period. The granularit
 this writing is an hour and is not configurable.  This table is then used to compute statistics
 for a given range of hours, days, week, month or year.
 
-+-----------------+------------------------------------------------------+
-| Field           | Description                                          |
-|                 |                                                      |
-+=================+======================================================+
-| id              | Generated id                                         |
-+-----------------+------------------------------------------------------+
-| time            | time period, all counters are aggregated for an hour |
-+-----------------+------------------------------------------------------+
-| answered        | Number of answered calls during the time period      |
-+-----------------+------------------------------------------------------+
-| abandoned       | Number of abandoned calls su                         |
-+-----------------+------------------------------------------------------+
-| total           |                                                      |
-+-----------------+------------------------------------------------------+
-| full            |                                                      |
-+-----------------+------------------------------------------------------+
-| closed          |                                                      |
-+-----------------+------------------------------------------------------+
-| joinempty       |                                                      |
-+-----------------+------------------------------------------------------+
-| leaveempty      |                                                      |
-+-----------------+------------------------------------------------------+
-| divert_ca_ratio |                                                      |
-+-----------------+------------------------------------------------------+
-| divert_waittime |                                                      |
-+-----------------+------------------------------------------------------+
-| timeout         |                                                      |
-+-----------------+------------------------------------------------------+
-| queue_id        |                                                      |
-+-----------------+------------------------------------------------------+
++-----------------+---------------------------------------------------------------------------------------------------------+
+| Field           | Description                                                                                             |
+|                 |                                                                                                         |
++=================+=========================================================================================================+
+| id              | Generated id                                                                                            |
++-----------------+---------------------------------------------------------------------------------------------------------+
+| time            | time period, all counters are aggregated for an hour                                                    |
++-----------------+---------------------------------------------------------------------------------------------------------+
+| answered        | Number of answered calls during the period                                                              |
++-----------------+---------------------------------------------------------------------------------------------------------+
+| abandoned       | Number of abandoned calls during the period                                                             |
++-----------------+---------------------------------------------------------------------------------------------------------+
+| total           | Total calls received during the period                                                                  |
++-----------------+---------------------------------------------------------------------------------------------------------+
+| full            | Number of calls received when queue was full                                                            |
++-----------------+---------------------------------------------------------------------------------------------------------+
+| closed          | Number of calls received on close                                                                       |
++-----------------+---------------------------------------------------------------------------------------------------------+
+| joinempty       | Number of calls received no agents available                                                            |
++-----------------+---------------------------------------------------------------------------------------------------------+
+| leaveempty      | Number of calls diverted agents not available during the wait                                           |
++-----------------+---------------------------------------------------------------------------------------------------------+
+| divert_ca_ratio | Number of calls diverted due to the number of agent number versus calls waiting configured was exceeded |
++-----------------+---------------------------------------------------------------------------------------------------------+
+| divert_waittime | Number of calls diverted because the maximum expected waiting time configured was exceeded              |
++-----------------+---------------------------------------------------------------------------------------------------------+
+| timeout         | Number of calls diverted because the maximum time allowed in queue parameter was exceeded               |
++-----------------+---------------------------------------------------------------------------------------------------------+
+| queue_id        |                                                                                                         |
++-----------------+---------------------------------------------------------------------------------------------------------+
 
 stat_agent
 ----------

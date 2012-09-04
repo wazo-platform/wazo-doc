@@ -3,6 +3,7 @@ Running the Wizard
 ******************
 
 After the system installation, you must go through the wizard before being able to use your XiVO.
+Browse http://xivo-address/ to start the configuration wizard
 
 
 .. index:: wizard
