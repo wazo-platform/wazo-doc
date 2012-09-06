@@ -84,7 +84,7 @@ Cleaning the cache
 ------------------
 
 If for some reason the cache generation fails and the cache becomes unusable,
-the administrator can safely clean the cache using *xivo_stat clean_db* and then
+the administrator can safely clean the cache using *xivo-stat clean_db* and then
 re-generate it. This does *not* erase any data.
 
 
