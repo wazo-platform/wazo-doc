@@ -24,6 +24,7 @@ Administration
    provisioning/provisioning
    sccp/sccp
    schedules/schedules
+   sound_files
    Switchboard <switchboard/switchboard>
    users/users
    voicemail
