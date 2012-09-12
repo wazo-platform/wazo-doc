@@ -286,7 +286,6 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
 ST2022   |n|         |u|        |n|
 ST2030   |y|         10         |n|
-TB30     |n|         10         |n|
 ======== =========== ========== ============
 
 .. note:: Function keys are shared with line keys
