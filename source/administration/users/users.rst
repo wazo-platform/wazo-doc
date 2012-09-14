@@ -159,3 +159,20 @@ Function keys can be configured to customize the user's phone keys. Key types ar
 Call forwards keys should have a destination, using them without a destination is experimental at the moment.
 For User keys, start to key in the user name in destination, XiVO will try to complete with the corresponding user.
 
+
+Extensions
+==========
+
+*3 (call recording online)
+--------------------------
+
+To enable call recording online, you must check the box in the user form.
+
+.. figure:: images/user-services.png
+   :alt: Users Services
+
+   Users Services
+   
+
+
+
