@@ -163,8 +163,8 @@ For User keys, start to key in the user name in destination, XiVO will try to co
 Extensions
 ==========
 
-*3 (call recording online)
---------------------------
+`*3` (call recording online)
+----------------------------
 
 To enable call recording online, you must check the box in the user form.
 
@@ -175,8 +175,8 @@ To enable call recording online, you must check the box in the user form.
    
 
 
-*26 (call recording)
---------------------
+`*26` (call recording)
+----------------------
 
 To enable/disable the recording of all calls 2 choices offer you:
 
