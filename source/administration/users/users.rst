@@ -175,4 +175,16 @@ To enable call recording online, you must check the box in the user form.
    
 
 
+*26 (call recording)
+--------------------
 
+To enable/disable the recording of all calls 2 choices offer you:
+
+1. In the user form.
+
+.. figure:: images/user-services.png
+   :alt: Users Services
+
+   Users Services
+   
+2. Using the extension `*26` from your phone.
