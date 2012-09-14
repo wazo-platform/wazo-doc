@@ -133,20 +133,15 @@ This example defines 3 users:
 
    Note that the number you use must all be in the range you defined for your default context.
 
-
 Text file to add a simple user with a line and voicemail::
 
    entityid|firstname|lastname|language|phonenumber|context|protocol|voicemailname|voicemailmailbox|voicemailpassword
    1|John|Doe|en_US|1000|default|sip|John Doe|1000|1234
-   
-
 
 Text file to add a simple user with a line and incall::
 
    entityid|firstname|lastname|phonenumber|context|protocol|incallexten|incallcontext
    1|John|Doe|1000|default|sip|2050|from-extern
-   
-
 
 
 Function keys
@@ -163,28 +158,35 @@ For User keys, start to key in the user name in destination, XiVO will try to co
 Extensions
 ==========
 
-`*3` (call recording online)
+`*3` (online call recording)
 ----------------------------
 
-To enable call recording online, you must check the box in the user form.
+To enable online call recording, you must check the "Enable online call recording" box in the user form.
 
 .. figure:: images/user-services.png
    :alt: Users Services
 
    Users Services
-   
+
+When this option is activated, the user can press ``*3`` during a conversation to start/stop online
+call recording. The recorded file will be available in the :file:`monitor` directory of the
+:menuselection:`Services --> IPBX --> Audio files` menu.
 
 
 `*26` (call recording)
 ----------------------
 
-To enable/disable the recording of all calls 2 choices offer you:
+You can enable/disable the recording of all calls for a user in 2 different way:
 
-1. In the user form.
+1. By checking the "Call recording" box of the user form.
 
 .. figure:: images/user-services.png
    :alt: Users Services
 
    Users Services
-   
-2. Using the extension `*26` from your phone.
+
+2. By using the extension `*26` from your phone (the "call recording" option must be activated
+   in :menuselection:`Services --> IPBX --> Extensions`).
+
+When this option is activated, all calls made to or made by the user will be recorded in the :file:`monitor`
+directory of the :menuselection:`Services --> IPBX --> Audio files` menu.
