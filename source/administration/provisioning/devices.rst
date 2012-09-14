@@ -192,12 +192,12 @@ D70      |y|         106        |n|
 Particularities:
 
 * For best results, activate :ref:`dhcp-integration` on your XiVO.
-* Impossible to use in a different language than English.
+* English is the only language supported, other languages (e.g. french) are not supported.
 * Impossible to do directed pickup using a BLF function key.
-* Only support DTMF in RFC2833 mode.
-* Do not work reliably with Cisco ESW520 PoE switch. When connected to such a switch, the D40
+* Only supports DTMF in RFC2833 mode.
+* Does not work reliably with Cisco ESW520 PoE switch. When connected to such a switch, the D40
   tends to reboot randomly, and the D70 does not boot at all.
-* It's important not the edit the phone configuration via the phone's web interface
+* It's important to not edit the phone configuration via the phones' web interface
   when using these phones with XiVO.
 
 
