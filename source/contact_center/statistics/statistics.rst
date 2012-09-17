@@ -6,14 +6,14 @@ Statistics
 Overview
 ========
 
-The statistics page is used to monitor the efficiency of queues and agents. Statistics
-are automatically generated twice per day (6:00 AM and 12:00 PM). They can also be generated manually.
+The statistics page is used to monitor queues and agents efficiency. Statistics
+are generated automatically every night but it can also be done manually.
 
 
 Configuration
 =============
 
-In order to display call center statistics, you must create at least one configuration profile.
+In order to be able to display call center statistics you have first to create one or more configuration.
 
 .. figure:: images/Statistic_configuration.png
    :scale: 90%
@@ -21,83 +21,71 @@ In order to display call center statistics, you must create at least one configu
 
    Statistics Configuration
 
-The configuration profile is used to generate reports from the cache. The cache is generated independently
+The configuration is used to generate reports from the cache. The cache is generated independently
 from the configuration so adding a new configuration does not require a new cache generation.
 
-Configuration options
----------------------
 
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-| Field                | Values                          | Description                                                                   |
-|                      |                                 |                                                                               |
-+======================+=================================+===============================================================================+
-|                      |                                 |                                                                               |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-| name                 | string                          | Configuration name, useful for remembering what the configuration is used for |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-| interval             | enum [0-999] [day, week, month] | Default time interval used when displaying statistics.                        |
-|                      |                                 | Examples:                                                                     |
-|                      |                                 | "-1 day": show statistics for yesterday                                       |
-|                      |                                 | "-3 weeks": show statistics for the last 3 weeks                              |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-| show on summary page |                                 | Display this configuration on the summary page                                |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-| timezone             | America/Montreal                | Your time zone                                                                |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-|                      |                                 |                                                                               |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-| **Period cache**     |                                 | Maximum and minimum dates that can be used for displaying statistics          |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-| start                | YYYY-MM                         | Start date                                                                    |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-| end                  | YYYY-MM                         | End date. If left to 0, use the servers' current date                         |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-|                      |                                 |                                                                               |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-| **Working Hours**    |                                 | Work hours for agents                                                         |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-| start                | hh:mm                           | Beginning of working hours.                                                   |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-| end                  | hh:mm                           | End of working hours                                                          |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-|                      |                                 |                                                                               |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-| **Periods**          |                                 | Number of calls answered for a time period                                    |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-| Period 1             | number of seconds (Example: 20) | Show number of calls answered within 20 seconds in column "P1"                |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
-| Period n             | number of seconds (Example: 20) | Show number of calls answered within 20 seconds in column "Pn"                |
-+----------------------+---------------------------------+-------------------------------------------------------------------------------+
++------------------+---------------------------------+---------------------------------------------------------------------------+
+| Field            | Values                          | Description                                                               |
+|                  |                                 |                                                                           |
++==================+=================================+===========================================================================+
+|                  |                                 |                                                                           |
++------------------+---------------------------------+---------------------------------------------------------------------------+
+| name             | string                          | Any name useful to remember what the configuration is used to             |
++------------------+---------------------------------+---------------------------------------------------------------------------+
+| interval         | enum [0-999] [day, week, month] | This parameter is used as a default when you display statistics.          |
+|                  |                                 | If -1 day, default view displays yesterday statistics                     |
++------------------+---------------------------------+---------------------------------------------------------------------------+
+| show on page     |                                 | Display on the summary page                                               |
++------------------+---------------------------------+---------------------------------------------------------------------------+
+| timezone         | America/Montreal                | Time difference to apply when users are not in the same time zone as XIVO |
++------------------+---------------------------------+---------------------------------------------------------------------------+
+| **Period cache** |                                 |                                                                           |
++------------------+---------------------------------+---------------------------------------------------------------------------+
+| start            | YYYY-MM                         | Cache start date                                                          |
++------------------+---------------------------------+---------------------------------------------------------------------------+
+| Cache start date | hh:mm                           | Cache end date if left to 0 the end of cache is the server current date   |
++------------------+---------------------------------+---------------------------------------------------------------------------+
+| **Working Hour** |                                 |                                                                           |
++------------------+---------------------------------+---------------------------------------------------------------------------+
+| start            | hh:mm                           | beginning of work, data of of working hours will not be in cache          |
++------------------+---------------------------------+---------------------------------------------------------------------------+
+| end              | hh:mm                           | End of working hours                                                      |
++------------------+---------------------------------+---------------------------------------------------------------------------+
+| **Periods**      |                                 |                                                                           |
++------------------+---------------------------------+---------------------------------------------------------------------------+
+| Period 1         | Ex : 0-20 ( seconds )           | Used for period statistics, as call answered within Period X etc ...      |
++------------------+---------------------------------+---------------------------------------------------------------------------+
+| Period n         | Ex : 0-20 ( seconds )           | Used for period statistics, as call answered within Period X etc ...      |
++------------------+---------------------------------+---------------------------------------------------------------------------+
 
-.. note:: Calls outside of working hours will not be in the cache.
-    e.g. if working hours are from 8:00 AM to 16:00 PM, a call at 7:55 AM will not show up in the reports.
-
-.. note:: Statistics are computed on the hour. e.g. If work hours are from 8:30 to 16:15,
-    working hours should be set from 8:00 to 17:00.
+.. note:: Statistics are computed on full hours only. If work hours are from 8h30 to 16h15,
+    working hours should be set from 8h to 17h.
 
 
 How to generate the cache
 -------------------------
 
-The cache must be generated before using reports. By default, the cache is
-automatically generated twice per day, at 6:00 AM and 12:00 PM.
+To get the reporting to work, the cache must be generated. The cache is
+generated automatically and periodically. By default, it is re-generated every
+day.
 
-However, you can safely generate it manually. The script to generate the cache is *xivo-stat fill_db*.
-When this script is run, statistics will be regenerated for the last 24 hours starting from the previous hour.
-e.g. If you run xivo-stat on 2012-08-04 11:47:00, statistics will be regenerated from 2012-08-13 11:00:00 to 2012-08-13 11:00:00
+However, you can do it manually safely. The script to generate the cache is
+*xivo-stat fill_db*.  When this script is run, all stats are computed from the
+last fill_db to the end of the previous hour.
 
-.. note:: *xivo-stat fill_db* can be a long operation when used for the first time or after a *xivo-stat clean_db*
+.. note:: *xivo-stat fill_db* can be a long operation when used for the first time or after a *xivo-stat clean_db*.
 
 .. note:: *xivo-stat fill_db* will only compute the statistics up to the last complete hour.
-    ie. at 12:47:00 PM, statistics will be computed up to 11:59:59 AM
+    ie. at 12h47, statistics will be computed from the last *xivo-stat fill_db* to 11h59 59s
 
 
-Clearing the cache
+Cleaning the cache
 ------------------
 
-If for some reason the cache generation fails or the cache becomes unusable,
+If for some reason the cache generation fails and the cache becomes unusable,
 the administrator can safely clean the cache using *xivo-stat clean_db* and then
-regenerate it. This operation will only clear the cache and does *not* erase any other data.
+re-generate it. This does *not* erase any data.
 
 
 Queue statistics
@@ -113,17 +101,17 @@ Queue statistics can be viewed in :menuselection:`Services --> Statistics --> Qu
 Counters
 --------
 
-* Received: Total number of received calls
+* Received: Number of received calls
 * Answered: Calls answered by an agent
-* Abandoned: Calls that were hung up while waiting for an answer
+* Abandoned: The caller hanged up while waiting for an answer
 * Dissuaded or Overflowed:
 
   * Closed: Calls received when the queue was closed
-  * No answer (NA): Calls that reached the ring timeout delay
-  * Satured: Calls received when the queue was already full or when one of the diversion parameters were reached
-  * Blocking : Calls received when no agents were available or when there were no agents to take the call
+  * No answer (NA): The call reached the ring timeout delay
+  * Satured: The queue was already full when the call was received or one of the diversion parameter was reached
+  * Blocking : There was no agent available when the call was received or there is no agent to take the call anymore
 
-* Average waiting time (AWT): The average waiting time of call on wait
+* Average waiting time (AWT): The average wait time of call that have waited
 * Answered rate (HR): The ratio of answered calls over received calls
 * Quality of service (QoS): Percentage of calls answered in less than x seconds
   over the number of answered calls, where x is defined in the configuration
@@ -132,7 +120,7 @@ Counters
 Agent performance
 =================
 
-Agent performance statistics can be viewed in :menuselection:`Services --> Statistics --> Performance agents`.
+Agent performance statistics can be viewed in :menuselection:`Services --> Statistics --> Agent`.
 
 .. figure:: images/statistic_agent.png
     :scale: 85%
@@ -142,8 +130,8 @@ Agent performance statistics can be viewed in :menuselection:`Services --> Stati
 Counters
 --------
 
-* Answered: Number of calls answered by the agent.
-* Conversation: Total time spent for calls answered during a given period.
+* Answered: The number of answered calls for this agent.
+* Conversation: Time spent in conversation for calls answered during a given period.
 
 .. note:: The agent performance counters do not take into account transfer
           between agents: if agent A processes a call and transfers it to agent
