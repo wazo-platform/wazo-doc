@@ -199,6 +199,7 @@ Particularities:
   tends to reboot randomly, and the D70 does not boot at all.
 * It's important to not edit the phone configuration via the phones' web interface
   when using these phones with XiVO.
+* Paging doesn't work.
 
 
 Gigaset

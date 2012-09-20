@@ -201,6 +201,7 @@ to the following questions.
    * non-ASCII labels (line name, function key label)
    * non-ASCII caller ID
    * backup proxy/registrar
+   * paging
 
 Once you have answered all these questions, you'll have a good idea on how the
 phone works and how to configure it. Next step would be to start the development
