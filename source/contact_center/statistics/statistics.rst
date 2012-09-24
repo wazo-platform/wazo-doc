@@ -147,7 +147,8 @@ Counters
 * Login: Total login time of an agent.
 
 .. note:: The Login time counter only supports agent static login (\*31 or XiVO client).
-          Data generated before XiVO 12.18 might have erroneous results.
+          Data generated before XiVO 12.18 might have erroneous results. Logins and logouts
+          for the same login session on different devices is not supported.
 
 .. note:: The agent performance counters do not take into account transfer
           between agents: if agent A processes a call and transfers it to agent
