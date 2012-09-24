@@ -186,12 +186,22 @@ to the following questions.
    Also at this step, it's a good idea to check how the phone handle non-ascii
    characters, either in the caller ID or in its configuration files.
 
-#. *Does other "standard" feature works correctly on the phone ? Like the
-   NTP server, the MWI, the function keys, the BLF, the call interception,
-   the timezone and DST support, the multi language ?*
+#. *Does other "standard" features work correctly on the phone ?*
 
    For quality auto-provisioning support, you must find how to configure and make
-   all these features work.
+   the following features work:
+
+   * NTP server
+   * MWI
+   * function keys (speed dial, BLF, directed pickup / call interception)
+   * timezone and DST support
+   * multi language
+   * DTMF
+   * hard keys, like the voicemail hard key on some phone
+   * non-ASCII labels (line name, function key label)
+   * non-ASCII caller ID
+   * backup proxy/registrar
+   * paging
 
 Once you have answered all these questions, you'll have a good idea on how the
 phone works and how to configure it. Next step would be to start the development

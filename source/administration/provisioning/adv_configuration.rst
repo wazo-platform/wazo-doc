@@ -2,6 +2,8 @@
 Advanced Configuration
 **********************
 
+.. _dhcp-integration:
+
 DHCP integration
 ================
 

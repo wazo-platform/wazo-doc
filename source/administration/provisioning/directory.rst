@@ -4,7 +4,6 @@
 Remote directory
 ****************
 
-
 If you have a phone provisioned with XiVO and its one of the supported ones, you'll be able to search in your XiVO directory and place call directly
 from your phone.
 
@@ -15,11 +14,11 @@ Supported devices
 Tested
 
 * Aastra 6700 series using the **3.2** or later firmware (does not work on firmware 2.6)
+* Snom 320
+* Cisco 7940G, 7941G
 
 Untested
 
-* Cisco SPA series (SPA500 and SPA900)
-* Snom
 * Thomson
 * Yealink
 

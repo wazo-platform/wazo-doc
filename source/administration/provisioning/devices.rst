@@ -174,6 +174,34 @@ The procedure is similar for the network locale and the user locale package, but
   "po-locale-fr_FR.cop.sgn" for the "fr_FR" locale
 
 
+Digium
+======
+
+Digium phones:
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+D40      |y|         2          |n|
+D50      |n|         14         |n|
+D70      |y|         106        |n|
+======== =========== ========== ============
+
+.. note:: Some function keys are shared with line keys
+
+Particularities:
+
+* For best results, activate :ref:`dhcp-integration` on your XiVO.
+* English is the only language supported, other languages (e.g. french) are not supported.
+* Impossible to do directed pickup using a BLF function key.
+* Only supports DTMF in RFC2833 mode.
+* Does not work reliably with Cisco ESW520 PoE switch. When connected to such a switch, the D40
+  tends to reboot randomly, and the D70 does not boot at all.
+* It's important to not edit the phone configuration via the phones' web interface
+  when using these phones with XiVO.
+* Paging doesn't work.
+
+
 Gigaset
 =======
 
@@ -286,7 +314,6 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
 ST2022   |n|         |u|        |n|
 ST2030   |y|         10         |n|
-TB30     |n|         10         |n|
 ======== =========== ========== ============
 
 .. note:: Function keys are shared with line keys

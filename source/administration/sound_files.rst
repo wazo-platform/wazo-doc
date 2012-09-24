@@ -1,5 +1,25 @@
+***********
 Sound Files
 ***********
+
+Add Sounds Files
+================
+
+On a fresh install, only en_US and fr_Fr sounds are installed. Canadian French and German are available too.
+
+To install Canadian French sounds you have to execute the following command in the cli::
+
+    root@xivo:~# apt-get install asterisk-sounds-wav-fr-ca xivo-sounds-fr-ca
+
+To install German sounds you have to execute the following command in the cli::
+
+    root@xivo:~# apt-get install asterisk-sounds-wav-de-de xivo-sounds-de-de
+
+Now you may select the newly installed language for yours users.
+
+
+Convert Your Wav File
+=====================
 
 Asterisk will read natively WAV files encoded in wav 8kHz, 16 bits, mono.
 

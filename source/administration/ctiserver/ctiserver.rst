@@ -51,9 +51,6 @@ Context separation is based on the user's line context. A user
 with no line is not the member of any context and will not be able to do
 anything with the CTI client.
 
-Live reload configuration allow CTI Server to reload its configuration on command received from WEBI 
-(this option is enabled by default).
-
 .. note:: The CTI Server must be restarted to take into account this parameter.
 
 .. figure:: images/cti_others.png
