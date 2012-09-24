@@ -144,6 +144,10 @@ Counters
 
 * Answered: Number of calls answered by the agent.
 * Conversation: Total time spent for calls answered during a given period.
+* Login: Total login time of an agent.
+
+.. note:: The Login time counter only supports agent static login (\*31 or XiVO client).
+          Data generated before XiVO 12.18 might have erroneous results.
 
 .. note:: The agent performance counters do not take into account transfer
           between agents: if agent A processes a call and transfers it to agent
