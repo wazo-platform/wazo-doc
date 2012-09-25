@@ -7,7 +7,7 @@ Overview
 ========
 
 The statistics page is used to monitor the efficiency of queues and agents. Statistics
-are automatically generated twice per day (6:00 AM and 12:00 PM). They can also be generated manually.
+are automatically generated every six hours. They can also be generated manually.
 
 
 Configuration
