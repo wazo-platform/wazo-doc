@@ -219,12 +219,188 @@ Search::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=search&search=[string]
 
-search is done either on *firstname* or *lastname* field (lazy match) or *userfield*
-field (exact match).
+The search is done either on *firstname*, *lastname*, *number* or *userfield*. Only
+*userfield* require an exact match.
 
 View::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=view&id=[userfeatures_id]
+
+Example of returned content for a user with a SIP line and a voicemail (the top-level
+``dialaction`` key has been omitted for clarity purpose):
+
+.. code-block:: javascript
+
+   {
+       "entity": {
+           "context": [
+               {
+                   "commented": False,
+                   "contexttype": "internal",
+                   "description": "",
+                   "displayname": "Default",
+                   "entity": "entite",
+                   "identity": "Default (default)",
+                   "name": "default"
+               }
+           ],
+           "deletable": False,
+           "entity": {
+               "address1": "",
+               "address2": "",
+               "city": "",
+               "country": "",
+               "dcreate": "1348677927",
+               "description": "",
+               "disable": False,
+               "displayname": "entite",
+               "email": "",
+               "faxnumber": "",
+               "id": "1",
+               "identity": "entite (entite)",
+               "name": "entite",
+               "phonenumber": "",
+               "state": "",
+               "url": "",
+               "zipcode": ""
+           }
+       },
+       "groupmember": False,
+       "linefeatures": [
+           {
+               "commented": False,
+               "config": "",
+               "configregistrar": "default",
+               "context": "default",
+               "description": "",
+               "device": "1",
+               "encryption": False,
+               "id": 1,
+               "iduserfeatures": 1,
+               "internal": False,
+               "ipfrom": "10.34.0.12",
+               "line_num": 0,
+               "name": "eu9nbm",
+               "num": 1,
+               "number": "1001",
+               "protocol": "sip",
+               "protocolid": 1,
+               "provisioningid": 113992,
+               "rules_group": "",
+               "rules_order": 1,
+               "rules_time": "30",
+               "rules_type": ""
+           }
+       ],
+       "phonefunckey": False,
+       "picture": False,
+       "queuemember": False,
+       "rightcall": False,
+       "schedule_id": 0,
+       "userfeatures": {
+           "agentid": "3",
+           "alarmclock": "",
+           "bsfilter": "no",
+           "callerid": "\"User 1\"",
+           "callrecord": False,
+           "commented": False,
+           "description": "",
+           "destbusy": "",
+           "destrna": "",
+           "destunc": "",
+           "enableautomon": False,
+           "enablebusy": False,
+           "enableclient": True,
+           "enablednd": False,
+           "enablehint": True,
+           "enablerna": False,
+           "enableunc": False,
+           "enablevoicemail": True,
+           "enablexfer": True,
+           "entityid": 1,
+           "firstname": "User",
+           "fullname": "User 1",
+           "id": 1,
+           "identity": "User 1",
+           "incallfilter": False,
+           "language": "fr_FR",
+           "lastname": "1",
+           "loginclient": "user1",
+           "mobilephonenumber": "",
+           "musiconhold": "default",
+           "outcallerid": "default",
+           "passwdclient": "user1",
+           "pictureid": None,
+           "pitch": None,
+           "pitchdirection": None,
+           "preprocess_subroutine": None,
+           "profileclient": "client",
+           "rightcallcode": "",
+           "ringextern": "",
+           "ringforward": "",
+           "ringgroup": "",
+           "ringintern": "",
+           "ringseconds": "30",
+           "simultcalls": "5",
+           "timezone": "",
+           "userfield": "",
+           "voicemailid": "1",
+           "voicemailtype": "asterisk"
+       },
+       "voicemail": {
+           "attach": None,
+           "attachfmt": None,
+           "backupdeleted": None,
+           "callback": None,
+           "commented": False,
+           "context": "default",
+           "deletevoicemail": "0",
+           "dialout": None,
+           "email": "example@example.org",
+           "emailbody": None,
+           "emailsubject": None,
+           "envelope": None,
+           "exitcontext": None,
+           "forcegreetings": None,
+           "forcename": None,
+           "fullmailbox": "1001@default",
+           "fullname": "User 1",
+           "hidefromdir": "no",
+           "identity": "User 1 (1001@default)",
+           "imapfolder": None,
+           "imappassword": None,
+           "imapuser": None,
+           "imapvmsharedid": None,
+           "language": None,
+           "locale": "fr_FR",
+           "mailbox": "1001",
+           "maxmsg": None,
+           "maxsecs": None,
+           "messagewrap": None,
+           "minsecs": None,
+           "moveheard": None,
+           "nextaftercmd": None,
+           "operator": None,
+           "pager": None,
+           "password": "0000",
+           "passwordlocation": None,
+           "review": None,
+           "saycid": None,
+           "sayduration": None,
+           "saydurationm": None,
+           "sendvoicemail": None,
+           "serveremail": None,
+           "tempgreetwarn": None,
+           "tz": "eu-fr",
+           "uniqueid": 1,
+           "volgain": None
+       },
+       "voicemailfeatures": {
+           "id": 1,
+           "skipcheckpass": "0",
+           "voicemailid": 1
+       }
+   }
 
 Delete::
 
@@ -238,79 +414,266 @@ Edit::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=edit&id=[userfeatures_id]
 
-Here is "linefeatures" complete options list:
+.. warning::
+
+   Editing a user who is a member of a group and/or a queue will remove the user
+   from its group/queue.
+
+Example of sent content for a user with a SIP line and a voicemail (the top-level
+``dialaction`` key has been omitted for clarity purpose):
 
 .. code-block:: javascript
 
-   "linefeatures": {
-      "id": [""],
-      "protocol": [""],
-      "name": [""],
-      "context": [""],
-      "number": [""],
-      "rules_type": [""],
-      "rules_time": [""],
-      "rules_order": [""],
-      "rules_group": [""]
+   {
+       "groupmember": False,
+       "phonefunckey": False,
+       "picture": False,
+       "queuemember": False,
+       "rightcall": False,
+       "schedule_id": 0,
+       "linefeatures": {
+          "id": [
+              1
+          ],
+          "protocol": [
+              "sip"
+          ],
+          "name": [
+              "eu9nbm"
+          ],
+          "rules_group": [
+              ""
+          ],
+          "rules_order": [
+              1
+          ],
+          "line_num": [
+              0
+          ],
+          "context": [
+              "default"
+          ],
+          "number": [
+              "1001"
+          ],
+          "configregistrar": [
+              "default"
+          ],
+          "device": [
+              "1"
+          ],
+          "num": [
+              1
+          ]
+      },
+       "userfeatures": {
+           "agentid": "3",
+           "alarmclock": "",
+           "bsfilter": "no",
+           "callerid": "\"User 1\"",
+           "callrecord": False,
+           "commented": False,
+           "description": "",
+           "destbusy": "",
+           "destrna": "",
+           "destunc": "",
+           "enableautomon": False,
+           "enablebusy": False,
+           "enableclient": True,
+           "enablednd": False,
+           "enablehint": True,
+           "enablerna": False,
+           "enableunc": False,
+           "enablevoicemail": True,
+           "enablexfer": True,
+           "entityid": 1,
+           "firstname": "User",
+           "fullname": "User 1",
+           "id": 1,
+           "identity": "User 1",
+           "incallfilter": False,
+           "language": "fr_FR",
+           "lastname": "1",
+           "loginclient": "user1",
+           "mobilephonenumber": "",
+           "musiconhold": "default",
+           "outcallerid": "default",
+           "passwdclient": "user1",
+           "pictureid": None,
+           "pitch": None,
+           "pitchdirection": None,
+           "preprocess_subroutine": None,
+           "profileclient": "client",
+           "rightcallcode": "",
+           "ringextern": "",
+           "ringforward": "",
+           "ringgroup": "",
+           "ringintern": "",
+           "ringseconds": "30",
+           "simultcalls": "5",
+           "timezone": "",
+           "userfield": "",
+           "voicemailid": "1",
+           "voicemailtype": "asterisk"
+       },
+       "voicemail": {
+           "attach": None,
+           "attachfmt": None,
+           "backupdeleted": None,
+           "callback": None,
+           "commented": False,
+           "context": "default",
+           "deletevoicemail": "0",
+           "dialout": None,
+           "email": "elessard@avencall.com",
+           "emailbody": None,
+           "emailsubject": None,
+           "envelope": None,
+           "exitcontext": None,
+           "forcegreetings": None,
+           "forcename": None,
+           "fullmailbox": "1001@default",
+           "fullname": "User 1",
+           "hidefromdir": "no",
+           "identity": "User 1 (1001@default)",
+           "imapfolder": None,
+           "imappassword": None,
+           "imapuser": None,
+           "imapvmsharedid": None,
+           "language": None,
+           "locale": "fr_FR",
+           "mailbox": "1001",
+           "maxmsg": None,
+           "maxsecs": None,
+           "messagewrap": None,
+           "minsecs": None,
+           "moveheard": None,
+           "nextaftercmd": None,
+           "operator": None,
+           "pager": None,
+           "password": "0000",
+           "passwordlocation": None,
+           "review": None,
+           "saycid": None,
+           "sayduration": None,
+           "saydurationm": None,
+           "sendvoicemail": None,
+           "serveremail": None,
+           "tempgreetwarn": None,
+           "tz": "eu-fr",
+           "uniqueid": 1,
+           "volgain": None
+       },
+       "voicemailfeatures": {
+           "id": 1,
+           "skipcheckpass": "0",
+           "voicemailid": 1
+       }
    }
 
-To associate an available line with created/edited user, use following code
-(number is optional, but must exist and be free if used):
+A limitation of the "edit" action is that you can't use directly the content returned
+by the "view" action in the "edit" action, or you'll get a "400 Bad Request" error.
+
+The "400 Bad Request" error comes from the ``linefeatures`` key that has not the same
+format in the "view" and "add/edit" action.
+
+If you want to edit the line of a user, or to edit one of the following components:
+
+* voicemail
+
+then you *must* transform the ``linefeatures`` dictionary to the format expected by
+the "edit" action. Else, you *must* not put the ``linefeatures`` key (this won't remove
+the line of the user).
+
+For example, if the "view" action returned the following ``linefeatures``:
+
+.. code-block:: javascript
+
+   "linefeatures": [
+        {
+            "commented": False,
+            "config": "",
+            "configregistrar": "default",
+            "context": "default",
+            "description": "",
+            "device": "1",
+            "encryption": False,
+            "id": 1,
+            "iduserfeatures": 1,
+            "internal": False,
+            "ipfrom": "10.34.0.12",
+            "line_num": 0,
+            "name": "eu9nbm",
+            "num": 1,
+            "number": "1001",
+            "protocol": "sip",
+            "protocolid": 1,
+            "provisioningid": 113992,
+            "rules_group": "",
+            "rules_order": 1,
+            "rules_time": "30",
+            "rules_type": ""
+        }
+    ]
+
+then the ``linefeatures`` in the "edit" action would be:
 
 .. code-block:: javascript
 
    "linefeatures": {
-      "id": ["2"],
-      "number": ["4000"]
+       "id": [
+           1
+       ],
+       "protocol": [
+           "sip"
+       ],
+       "name": [
+           "eu9nbm"
+       ],
+       "rules_group": [
+           ""
+       ],
+       "rules_order": [
+           1
+       ],
+       "line_num": [
+           0
+       ],
+       "context": [
+           "default"
+       ],
+       "number": [
+           "1001"
+       ],
+       "configregistrar": [
+           "default"
+       ],
+       "device": [
+           "1"
+       ],
+       "num": [
+           1
+       ]
    }
 
-To automatically create a new line associated with created/edited user, don"t
-set *id* key (or set it to "0" value):
+To associate an available line with an existing user, use the following code:
 
 .. code-block:: javascript
 
    "linefeatures": {
-      "protocol": ["sip"],
-      "context": ["default"],
-      "number": [""],
-      "rules_type": [""],
-      "rules_time": [""],
-      "rules_order": [""],
-      "rules_group": [""]
+       "id": ["2"],
+       "number": ["4000"]
    }
 
-Once again, line number is optional. You can also create or associate several
-lines at once. Here is different possible combinations:
-
-1st line create, 2d associated with id 45
+To automatically create a new line associated with an existing user, don't
+set the *id* key (or set it to "0" value):
 
 .. code-block:: javascript
 
    "linefeatures": {
-      "id": ["0","45"],
-      "protocol": ["sip",""],
-      "context": ["default",""],
-      "number": ["","4000"],
-      "rules_type": ["",""],
-      "rules_time": ["",""],
-      "rules_order": ["",""],
-      "rules_group": ["",""]
-   }
-
-
-1st & last lines created, 2d associated with id 45
-
-.. code-block:: javascript
-
-   "linefeatures": {
-      "id": ["0","45","0"],
-      "protocol": [{"sip","","sip"],
-      "context": ["default","","default"],
-      "number": ["","4000","4001"],
-      "rules_type": ["simul","simul",""],
-      "rules_time": ["10","10","20"],
-      "rules_order": ["1","2","1"],
-      "rules_group": ["1","1","2"]
+       "protocol": ["sip"],
+       "context": ["default"],
+       "number": ["4000"],
    }
 
 
