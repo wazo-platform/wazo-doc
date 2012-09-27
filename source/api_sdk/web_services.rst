@@ -432,40 +432,40 @@ Example of sent content for a user with a SIP line and a voicemail (the top-leve
        "rightcall": False,
        "schedule_id": 0,
        "linefeatures": {
-          "id": [
-              1
-          ],
-          "protocol": [
-              "sip"
-          ],
-          "name": [
-              "eu9nbm"
-          ],
-          "rules_group": [
-              ""
-          ],
-          "rules_order": [
-              1
-          ],
-          "line_num": [
-              0
-          ],
-          "context": [
-              "default"
-          ],
-          "number": [
-              "1001"
-          ],
-          "configregistrar": [
-              "default"
-          ],
-          "device": [
-              "1"
-          ],
-          "num": [
-              1
-          ]
-      },
+           "id": [
+               1
+           ],
+           "protocol": [
+               "sip"
+           ],
+           "name": [
+               "eu9nbm"
+           ],
+           "rules_group": [
+               ""
+           ],
+           "rules_order": [
+               1
+           ],
+           "line_num": [
+               0
+           ],
+           "context": [
+               "default"
+           ],
+           "number": [
+               "1001"
+           ],
+           "configregistrar": [
+               "default"
+           ],
+           "device": [
+               "1"
+           ],
+           "num": [
+               1
+           ]
+       },
        "userfeatures": {
            "agentid": "3",
            "alarmclock": "",
