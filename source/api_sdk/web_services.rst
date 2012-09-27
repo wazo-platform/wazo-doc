@@ -4,21 +4,21 @@
 WebServices
 ***********
 
-**Using web services XiVO to develop applications around XiVO.**
-
+Here's a few guidelines on how to use the XiVO web services.
 
 
 HTTP status codes
 =================
 
-- 200: Success
-- 204: No data (only for list and search queries)
-- 304: Document not changed (only for requests list, search and see)
-- 400: Incorrect syntax (only for requests to add)
-- 401: Authentication required
-- 403: Authentication refused
-- 404: Resource not found (for queries only view and delete)
-- 500: Internal error
+* 200: Success
+* 204: No data (only for list and search queries)
+* 304: Document not changed (only for requests list, search and see)
+* 400: Incorrect syntax (only for requests to add)
+* 401: Authentication required
+* 403: Authentication refused
+* 404: Resource not found (for queries only view and delete)
+* 500: Internal error
+
 
 Configuration
 =============
@@ -36,12 +36,14 @@ connect to the web services. If a host was given, only connections from this
 host will be allowed. It is possible to specify a username/password pair AND a
 host on the same web services user.
 
+
 How to use this page
 ====================
 
 This page lists Web Services available in XiVO. Data sent or received is
 described either in unit-tests (see the section below) or on this page. This
 data must be sent via POST, in JSON format.
+
 
 Where do I find Web Services usage examples?
 --------------------------------------------
@@ -78,6 +80,7 @@ Another information you might need is which attributes are required for Web
 Services. For this, you can open the file :file:`xivo_ws/objects/user.py` and
 look at the ``_ATTRIBUTES`` variable. Each attribute marked with
 ``required=True`` is in fact required.
+
 
 Manage
 ------
@@ -207,8 +210,6 @@ List:
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&free=1&protocol=sip
 
-
-
 Search::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]
@@ -218,21 +219,17 @@ Attributes:
  * number
  * name (peer)
 
-
 * To search free lines::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]&free=1
-
 
 * To search associated lines::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]&free=0
 
-
 * To search a line with specific protocol::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]&protocol=sip
-
 
 View::
 
@@ -249,7 +246,6 @@ Add::
 Edit::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=edit&id=[linefeatures_id]
-
 
 ``Example of sent data to edit a SCCP line``
 
@@ -286,6 +282,7 @@ Edit::
         }
     }
 
+
 Devices
 ^^^^^^^
 
@@ -315,14 +312,12 @@ List::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=list
 
-
 Search::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=search&search=[string]
 
 search is done either on *firstname* or *lastname* field (lazy match) or *userfield*
 field (exact match).
-
 
 View::
 
@@ -339,7 +334,6 @@ Add::
 Edit::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=edit&id=[userfeatures_id]
-
 
 Here is "linefeatures" complete options list:
 
@@ -471,6 +465,7 @@ Edit::
        ]
    }
 
+
 Call pickups
 ^^^^^^^^^^^^
 
@@ -491,10 +486,7 @@ List::
        }
    ]
 
-
-
 .. note:: if no group exists, the web service returns HTTP code 204
-
 
 View::
 
@@ -623,7 +615,6 @@ Add::
        ]
    }
 
-
 .. note:: returns the HTTP code 400 if the creation fails
 
 
@@ -631,7 +622,6 @@ Calls Records
 ^^^^^^^^^^^^^
 
 .. warning:: The list returned is limited to 5000, you can set it with argument ``limit=100`` in the url
-
 
 Search by id:
 
@@ -703,7 +693,6 @@ Example to return Calls Records with id begining 200 (limit to 5000 by default):
 
       }
    ]
-
 
 Search:
 
@@ -781,11 +770,9 @@ List::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/schedule/?act=list
 
-
 Search::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/schedule/?act=search&search=[string]
-
 
 View::
 
@@ -826,7 +813,6 @@ Add::
    }
 
 
-
 IPBX Services
 -------------
 
@@ -841,7 +827,6 @@ View::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=view&id=[parkinglot_id]
 
-
 Delete::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=delete&id=[parkinglot_id]
@@ -853,7 +838,6 @@ Add::
 Edit::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=edit
-
 
 ``Example of content to send to add``
 
@@ -978,7 +962,6 @@ Arguments:
  * **objname** is one of *user*, *group*, *queue*, *meetme* or *incall*,
  * **number** is part of search extensions (**optional argument**)
 
-
 Return free user extensions (from "default" context) including "10"
 
 Example::
@@ -990,6 +973,7 @@ Example::
 .. code-block:: javascript
 
    [101,102,104,105,106,109,110,210]
+
 
 IPBX Configuration
 ------------------
@@ -1122,7 +1106,6 @@ Add::
       "description": "answer to customer service"
    }
 
-
 Category is created if not exists, printscreen should be less than 5 car long
 
 Delete::
@@ -1130,6 +1113,7 @@ Delete::
    https://[ip_xivo]/callcenter/json.php/restricted/settings/queueskills?act=delete&id=[kill_id]
 
 *Category is not removed*
+
 
 Queue
 ^^^^^
