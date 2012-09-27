@@ -34,6 +34,28 @@ There are 2 options for xivo-upgrade:
 
    Untill no more unwanted rules are left behind.
 
+
+Cluster Upgrade
+===============
+
+If upgrading a cluster you should follow these steps :
+
+#. On the master : deactivate the database replication by commenting the cron in :file:`/etc/cron.d/xivo-ha-master`
+#. On the slave, start the upgrade::
+
+    xivo-2:~$ xivo-upgrade
+
+#. On the master, when done with the slave, start the upgrade::
+
+    xivo-1:~$ xivo-upgrade
+
+#. When done, launch the database replication manually::
+
+    xivo-1:~$ /usr/sbin/xivo-master-slave-db-replication <slave ip>
+
+#. If it is ok, reactivate the database replication
+
+
 Upgrade Notes on Older Versions
 ===============================
 
