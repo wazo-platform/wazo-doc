@@ -1103,14 +1103,6 @@ View::
        ]
    }
 
-Description des champs:
- * id: identifiant de la ressource (toujours égal à 1)
- * mydomain: nom de domaine mail du serveur
- * origin: adresse d"envoi des mails générés par le système
- * relayhost: serveur de relai principal des mails
- * fallback_relayhost: serveur de relai secondaire des mails
- * canonical: règles de réécriture des adresses email
-
 Edit::
 
    https://[ip_xivo]/xivo/configuration/json.php/restricted/network/mail/?act=edit
