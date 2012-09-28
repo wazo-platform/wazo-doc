@@ -135,9 +135,11 @@ Agent performance
 Agent performance statistics can be viewed in :menuselection:`Services --> Statistics --> Performance agents`.
 
 .. figure:: images/statistic_agent.png
-    :scale: 85%
-    :alt: Queue statistic
+    :alt: Performance Agents statistic
 
+.. note:: The agent performance counters do not take into account transfer
+          between agents: if agent A processes a call and transfers it to agent
+          B, only the counters of agent A will be updated.
 
 Counters
 --------
@@ -150,6 +152,6 @@ Counters
           Data generated before XiVO 12.18 might have erroneous results. Logins and logouts
           for the same login session on different devices is not supported.
 
-.. note:: The agent performance counters do not take into account transfer
-          between agents: if agent A processes a call and transfers it to agent
-          B, only the counters of agent A will be updated.
+* Pause: Total pause time of an agent.
+
+.. note:: The Pause time counter only supports `PAUSEALL` and `UNPAUSEALL` command from cticlient.
