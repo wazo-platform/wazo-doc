@@ -147,12 +147,16 @@ Text file to add a simple user with a line and incall::
 Function keys
 =============
 
-Function keys can be configured to customize the user's phone keys. Key types are pre-defined and can be browsed through the Type drop-down list. The Supervision field allow the key to be supervised. A supervised key will light up when enabled.
+Function keys can be configured to customize the user's phone keys. Key types are pre-defined and
+can be browsed through the Type drop-down list. The Supervision field allow the key to be
+supervised. A supervised key will light up when enabled.
 
 .. image:: images/funckeys.png
 
-Call forwards keys should have a destination, using them without a destination is experimental at the moment.
 For User keys, start to key in the user name in destination, XiVO will try to complete with the corresponding user.
+
+If the forward unconditionnal function key is used with no destionation the user will be prompted when the user
+presses the function key and the BLF will monitor *ALL* unconditionnal forward for this user.
 
 
 Extensions
