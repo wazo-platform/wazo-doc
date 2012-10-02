@@ -15,6 +15,9 @@ Installing a plugin for SCCP Phone:
 
    Installing xivo cisco-sccp plugin
 
+Review SCCP general settings:
+ :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
+
 At this point you should have a fully functional DHCP server that provides IP address to your phones.
 Depending on what type of CISCO phone you have, you need to install the plugin sccp-legacy, sccp-9.2.1 or both.
 
@@ -60,7 +63,7 @@ Now, you can save your new user.
 
    Add a line to a user
 
-Congratulation ! Your SCCP phone is now ready to be called !
+Congratulations ! Your SCCP phone is now ready to be called !
 
 .. warning::
 
@@ -72,6 +75,12 @@ Congratulation ! Your SCCP phone is now ready to be called !
 
    Please, be warned that this command will disconnect all SCCP phones and hence all current phone calls will be lost.
 
+
+
+Direct Media
+------------
+SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use directmedia, one must enable the directmedia option in SCCP general settings:
+ :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
 
 Features
 --------
@@ -103,7 +112,7 @@ Features
 +-----------------------------+---------------------+
 | Paging                      | Yes                 |
 +-----------------------------+---------------------+
-| Codec selection             | Not yet             |
+| Direct RTP                  | Yes                 |
 +-----------------------------+---------------------+
 | Group pickup                | Not yet             |
 +-----------------------------+---------------------+
@@ -113,7 +122,7 @@ Features
 +-----------------------------+---------------------+
 | Multi line                  | Not yet             |
 +-----------------------------+---------------------+
-| Direct RTP                  | Not yet             |
+| Codec selection             | Not yet             |
 +-----------------------------+---------------------+
 | Do not disturb (DND)        | Not yet             |
 +-----------------------------+---------------------+
