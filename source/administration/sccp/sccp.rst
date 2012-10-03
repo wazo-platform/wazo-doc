@@ -18,6 +18,14 @@ Installing a plugin for SCCP Phone:
 Review SCCP general settings:
  :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
 
+.. figure:: images/general_settings.png
+
+   SCCP general settings
+
+.. warning::
+
+   You must `reload the chan_sccp module`_ for the settings to be applied.
+
 At this point you should have a fully functional DHCP server that provides IP address to your phones.
 Depending on what type of CISCO phone you have, you need to install the plugin sccp-legacy, sccp-9.2.1 or both.
 
@@ -65,22 +73,28 @@ Now, you can save your new user.
 
 Congratulations ! Your SCCP phone is now ready to be called !
 
-.. warning::
-
-   You must manually do "module reload chan_sccp.so" via the Asterisk command line if you want to:
-
-   * Remove a device from the configuration.
-   * Add a voicemail on an already configured user.
-   * Change the language of an already configured user.
-
-   Please, be warned that this command will disconnect all SCCP phones and hence all current phone calls will be lost.
-
-
 
 Direct Media
 ------------
+
 SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use directmedia, one must enable the directmedia option in SCCP general settings:
  :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
+
+
+.. _reload the chan_sccp module:
+
+Reloading the chan_sccp module
+------------------------------
+
+You must manually do a ``module reload chan_sccp.so`` via the Asterisk CLI if you want to:
+
+* Apply the SCCP general settings configuration
+* Remove a device from the configuration.
+* Add a voicemail on an already configured user.
+* Change the language of an already configured user.
+
+Be warned that this command will disconnect all SCCP phones and hence all current phone calls will be lost.
+
 
 Features
 --------
