@@ -88,7 +88,7 @@ e.g. If you run xivo-stat on 2012-08-04 11:47:00, statistics will be regenerated
 
 .. note:: *xivo-stat fill_db* can be a long operation when used for the first time or after a *xivo-stat clean_db*
 
-.. warning:: *The current events have an end date of the launch date of the script xivo-stat as the end date.
+.. warning:: The current events have an end date of the launch date of the script xivo-stat as the end date.
 
 
 Clearing the cache
