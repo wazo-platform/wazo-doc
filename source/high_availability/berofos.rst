@@ -65,8 +65,12 @@ At this stage, your :file:`/etc/bnfos.conf` file should contains something like 
    #login = <user>:<password>
 
 It is advised to configure your berofos with a static IP address. You first need to
-put your berofos into *flash* mode. You do this by pressing and holding the black button next
-to the power button while you power on your berofos. The red LEDs of port D should then blink.
+put your berofos into *flash mode* :
+
+- press and hold the black button next to the power button,
+- power on your berofos,
+- release the black button when the red LEDs of port D start blinking.
+
 Then, you can issue the following command, by first replacing the network configuration with
 your one::
 
@@ -79,17 +83,16 @@ your one::
    * ``-g`` is the gateway
    * ``-d 0`` is to disable DHCP
 
-Once this is done, you'll have to reboot your berofos (reboot it in flash mode because we'll
-need it in the next step) for it to apply its new network configuration. You'll also need to
-edit the :file:`/etc/bnfos.conf` file with the new IP address before continuing.
-
 You can then update your berofos firmware to version 1.53::
 
    wget http://www.beronet.com/downloads/berofos/bnfos_v153.bin
    bnfos --flash bnfos_v153.bin -f fos1
 
-Once this is done, reboot your berofos, but this time in operational mode (i.e. in normal
-mode).
+Once this is done, you'll have to reboot your berofos in operationnal mode (that is in normal mode).
+
+Then you must rewrite the :file:`/etc/bnfos.conf` (mainly if you changed the IP address)::
+
+   bnfos --scan -x -h <berofos ip>
 
 Now that your berofos has proper network configuration and an up to date firmware, you
 might want to set a password on your berofos::
@@ -180,6 +183,16 @@ Uninstallation
 It is important to remove the :file:`/etc/bnfos.conf` file on the slave node when you don't
 want to use anymore your berofos with your XiVOs.
 
+
+Reset the Berofos
+=================
+
+You can reset the berofos configuration :
+
+#. Power on the berofos,
+#. When red and green LEDs are still lit, press & hold the black button,
+#. Release it when the red LEDs of the D port start blinking fast
+#. Reboot the beronet, it should have lost its configuration.
 
 External links
 ==============
