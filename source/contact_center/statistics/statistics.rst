@@ -7,7 +7,7 @@ Overview
 ========
 
 The statistics page is used to monitor the efficiency of queues and agents. Statistics
-are automatically generated twice per day (6:00 AM and 12:00 PM). They can also be generated manually.
+are automatically generated every six hours. They can also be generated manually.
 
 
 Configuration
@@ -80,16 +80,15 @@ How to generate the cache
 -------------------------
 
 The cache must be generated before using reports. By default, the cache is
-automatically generated twice per day, at 6:00 AM and 12:00 PM.
+automatically generated every six hours.
 
 However, you can safely generate it manually. The script to generate the cache is *xivo-stat fill_db*.
-When this script is run, statistics will be regenerated for the last 24 hours starting from the previous hour.
-e.g. If you run xivo-stat on 2012-08-04 11:47:00, statistics will be regenerated from 2012-08-13 11:00:00 to 2012-08-13 11:00:00
+When this script is run, statistics will be regenerated for the last 8 hours starting from the previous hour.
+e.g. If you run xivo-stat on 2012-08-04 11:47:00, statistics will be regenerated from 2012-08-04 03:00:00 to 2012-08-04 11:47:00
 
 .. note:: *xivo-stat fill_db* can be a long operation when used for the first time or after a *xivo-stat clean_db*
 
-.. note:: *xivo-stat fill_db* will only compute the statistics up to the last complete hour.
-    ie. at 12:47:00 PM, statistics will be computed up to 11:59:59 AM
+.. warning:: The current events have an end date of the launch date of the script xivo-stat as the end date.
 
 
 Clearing the cache
@@ -135,9 +134,11 @@ Agent performance
 Agent performance statistics can be viewed in :menuselection:`Services --> Statistics --> Performance agents`.
 
 .. figure:: images/statistic_agent.png
-    :scale: 85%
-    :alt: Queue statistic
+    :alt: Performance Agents statistic
 
+.. note:: The agent performance counters do not take into account transfer
+          between agents: if agent A processes a call and transfers it to agent
+          B, only the counters of agent A will be updated.
 
 Counters
 --------
@@ -150,6 +151,6 @@ Counters
           Data generated before XiVO 12.18 might have erroneous results. Logins and logouts
           for the same login session on different devices is not supported.
 
-.. note:: The agent performance counters do not take into account transfer
-          between agents: if agent A processes a call and transfers it to agent
-          B, only the counters of agent A will be updated.
+* Pause: Total pause time of an agent.
+
+.. note:: The Pause time counter only supports `PAUSEALL` and `UNPAUSEALL` command from cticlient.

@@ -211,6 +211,9 @@ list of fields) and zero, one or more fields of type 'body'.
 .. figure:: images/sheets_configuration_systray.png
    :scale: 85%
 
+.. warning:: The popup message on MacOSX works with Growl http://growl.info. We could get simple sheet popup to work using the free Growl Fork http://www.macupdate.com/app/mac/41038/growl-fork
+  Note that this is not officially supported.
+
 
 Actions
 =======

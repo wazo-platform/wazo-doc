@@ -1,24 +1,11 @@
 .. _web-services-api:
 
-***********
-WebServices
-***********
+************
+Web Services
+************
 
-**Using web services XiVO to develop applications around XiVO.**
+Here's a few guidelines on how to use the XiVO web services.
 
-
-
-HTTP status codes
-=================
-
-- 200: Success
-- 204: No data (only for list and search queries)
-- 304: Document not changed (only for requests list, search and see)
-- 400: Incorrect syntax (only for requests to add)
-- 401: Authentication required
-- 403: Authentication refused
-- 404: Resource not found (for queries only view and delete)
-- 500: Internal error
 
 Configuration
 =============
@@ -36,12 +23,14 @@ connect to the web services. If a host was given, only connections from this
 host will be allowed. It is possible to specify a username/password pair AND a
 host on the same web services user.
 
+
 How to use this page
 ====================
 
 This page lists Web Services available in XiVO. Data sent or received is
 described either in unit-tests (see the section below) or on this page. This
 data must be sent via POST, in JSON format.
+
 
 Where do I find Web Services usage examples?
 --------------------------------------------
@@ -79,101 +68,18 @@ Services. For this, you can open the file :file:`xivo_ws/objects/user.py` and
 look at the ``_ATTRIBUTES`` variable. Each attribute marked with
 ``required=True`` is in fact required.
 
-Manage
-------
 
-Entity
-^^^^^^
+HTTP status codes
+=================
 
-List::
-
-   https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=list
-
-Search::
-
-   https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=search&search=[string]
-
-Search Attributes:
- * name
- * displayname
- * phonenumber
- * faxnumber
- * email
- * url
- * address1
- * address2
- * city
- * state
- * zipcode
- * country
- * description
-
-View::
-
-   https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=view&id=[entity_id]
-
-Add::
-
-   https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=add
-
-
-Network
--------
-
-Mail
-^^^^
-
-View::
-
-   https://[ip_xivo]/xivo/configuration/json.php/restricted/network/mail/?act=view
-
-``Return code example``
-
-.. code-block:: javascript
-
-   {
-       "id": "1",
-       "mydomain": "proformatique.com",
-       "origin": "devel.proformatique.com",
-       "relayhost": "smtp.free.fr",
-       "fallback_relayhost": "smtp.orange.fr",
-       "canonical": [
-           {
-               "pattern": "@proformatique.com",
-               "result": "support@proformatique.com"
-           }
-       ]
-   }
-
-
-Description des champs:
- * id: identifiant de la ressource (toujours égal à 1)
- * mydomain: nom de domaine mail du serveur
- * origin: adresse d"envoi des mails générés par le système
- * relayhost: serveur de relai principal des mails
- * fallback_relayhost: serveur de relai secondaire des mails
- * canonical: règles de réécriture des adresses email
-
-Edit::
-
-   https://[ip_xivo]/xivo/configuration/json.php/restricted/network/mail/?act=edit
-
-Example content
-
-.. code-block:: javascript
-
-   {
-       "mydomain": "proformatique.com",
-       "origin": "devel.proformatique.com",
-       "relayhost": "smtp.free.fr",
-       "fallback_relayhost": "smtp.orange.fr",
-       "canonical": [
-           {
-               "pattern": "@proformatique.com",
-               "result": "support@proformatique.com"
-           }
-       ]
-   }
+* 200: Success
+* 204: No data (only for list and search queries)
+* 304: Document not changed (only for requests list, search and see)
+* 400: Incorrect syntax (only for requests to add)
+* 401: Authentication required
+* 403: Authentication refused
+* 404: Resource not found (for queries only view and delete)
+* 500: Internal error
 
 
 IPBX
@@ -207,8 +113,6 @@ List:
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=list&free=1&protocol=sip
 
-
-
 Search::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]
@@ -218,21 +122,17 @@ Attributes:
  * number
  * name (peer)
 
-
 * To search free lines::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]&free=1
-
 
 * To search associated lines::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]&free=0
 
-
 * To search a line with specific protocol::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=search&search=[string]&protocol=sip
-
 
 View::
 
@@ -249,7 +149,6 @@ Add::
 Edit::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/lines/?act=edit&id=[linefeatures_id]
-
 
 ``Example of sent data to edit a SCCP line``
 
@@ -286,6 +185,7 @@ Edit::
         }
     }
 
+
 Devices
 ^^^^^^^
 
@@ -315,18 +215,192 @@ List::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=list
 
-
 Search::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=search&search=[string]
 
-search is done either on *firstname* or *lastname* field (lazy match) or *userfield*
-field (exact match).
-
+The search is done either on *firstname*, *lastname*, *number* or *userfield*. Only
+*userfield* require an exact match.
 
 View::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=view&id=[userfeatures_id]
+
+Example of returned content for a user with a SIP line and a voicemail (the top-level
+``dialaction`` key has been omitted for clarity purpose):
+
+.. code-block:: javascript
+
+   {
+       "entity": {
+           "context": [
+               {
+                   "commented": False,
+                   "contexttype": "internal",
+                   "description": "",
+                   "displayname": "Default",
+                   "entity": "entite",
+                   "identity": "Default (default)",
+                   "name": "default"
+               }
+           ],
+           "deletable": False,
+           "entity": {
+               "address1": "",
+               "address2": "",
+               "city": "",
+               "country": "",
+               "dcreate": "1348677927",
+               "description": "",
+               "disable": False,
+               "displayname": "entite",
+               "email": "",
+               "faxnumber": "",
+               "id": "1",
+               "identity": "entite (entite)",
+               "name": "entite",
+               "phonenumber": "",
+               "state": "",
+               "url": "",
+               "zipcode": ""
+           }
+       },
+       "groupmember": False,
+       "linefeatures": [
+           {
+               "commented": False,
+               "config": "",
+               "configregistrar": "default",
+               "context": "default",
+               "description": "",
+               "device": "1",
+               "encryption": False,
+               "id": 1,
+               "iduserfeatures": 1,
+               "internal": False,
+               "ipfrom": "10.34.0.12",
+               "line_num": 0,
+               "name": "eu9nbm",
+               "num": 1,
+               "number": "1001",
+               "protocol": "sip",
+               "protocolid": 1,
+               "provisioningid": 113992,
+               "rules_group": "",
+               "rules_order": 1,
+               "rules_time": "30",
+               "rules_type": ""
+           }
+       ],
+       "phonefunckey": False,
+       "picture": False,
+       "queuemember": False,
+       "rightcall": False,
+       "schedule_id": 0,
+       "userfeatures": {
+           "agentid": "3",
+           "alarmclock": "",
+           "bsfilter": "no",
+           "callerid": "\"User 1\"",
+           "callrecord": False,
+           "commented": False,
+           "description": "",
+           "destbusy": "",
+           "destrna": "",
+           "destunc": "",
+           "enableautomon": False,
+           "enablebusy": False,
+           "enableclient": True,
+           "enablednd": False,
+           "enablehint": True,
+           "enablerna": False,
+           "enableunc": False,
+           "enablevoicemail": True,
+           "enablexfer": True,
+           "entityid": 1,
+           "firstname": "User",
+           "fullname": "User 1",
+           "id": 1,
+           "identity": "User 1",
+           "incallfilter": False,
+           "language": "fr_FR",
+           "lastname": "1",
+           "loginclient": "user1",
+           "mobilephonenumber": "",
+           "musiconhold": "default",
+           "outcallerid": "default",
+           "passwdclient": "user1",
+           "pictureid": None,
+           "pitch": None,
+           "pitchdirection": None,
+           "preprocess_subroutine": None,
+           "profileclient": "client",
+           "rightcallcode": "",
+           "ringextern": "",
+           "ringforward": "",
+           "ringgroup": "",
+           "ringintern": "",
+           "ringseconds": "30",
+           "simultcalls": "5",
+           "timezone": "",
+           "userfield": "",
+           "voicemailid": "1",
+           "voicemailtype": "asterisk"
+       },
+       "voicemail": {
+           "attach": None,
+           "attachfmt": None,
+           "backupdeleted": None,
+           "callback": None,
+           "commented": False,
+           "context": "default",
+           "deletevoicemail": "0",
+           "dialout": None,
+           "email": "example@example.org",
+           "emailbody": None,
+           "emailsubject": None,
+           "envelope": None,
+           "exitcontext": None,
+           "forcegreetings": None,
+           "forcename": None,
+           "fullmailbox": "1001@default",
+           "fullname": "User 1",
+           "hidefromdir": "no",
+           "identity": "User 1 (1001@default)",
+           "imapfolder": None,
+           "imappassword": None,
+           "imapuser": None,
+           "imapvmsharedid": None,
+           "language": None,
+           "locale": "fr_FR",
+           "mailbox": "1001",
+           "maxmsg": None,
+           "maxsecs": None,
+           "messagewrap": None,
+           "minsecs": None,
+           "moveheard": None,
+           "nextaftercmd": None,
+           "operator": None,
+           "pager": None,
+           "password": "0000",
+           "passwordlocation": None,
+           "review": None,
+           "saycid": None,
+           "sayduration": None,
+           "saydurationm": None,
+           "sendvoicemail": None,
+           "serveremail": None,
+           "tempgreetwarn": None,
+           "tz": "eu-fr",
+           "uniqueid": 1,
+           "volgain": None
+       },
+       "voicemailfeatures": {
+           "id": 1,
+           "skipcheckpass": "0",
+           "voicemailid": 1
+       }
+   }
 
 Delete::
 
@@ -340,80 +414,266 @@ Edit::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/users/?act=edit&id=[userfeatures_id]
 
+.. warning::
 
-Here is "linefeatures" complete options list:
+   Editing a user who is a member of a group and/or a queue will remove the user
+   from its group/queue.
+
+Example of sent content for a user with a SIP line and a voicemail (the top-level
+``dialaction`` key has been omitted for clarity purpose):
 
 .. code-block:: javascript
 
-   "linefeatures": {
-      "id": [""],
-      "protocol": [""],
-      "name": [""],
-      "context": [""],
-      "number": [""],
-      "rules_type": [""],
-      "rules_time": [""],
-      "rules_order": [""],
-      "rules_group": [""]
+   {
+       "groupmember": False,
+       "phonefunckey": False,
+       "picture": False,
+       "queuemember": False,
+       "rightcall": False,
+       "schedule_id": 0,
+       "linefeatures": {
+           "id": [
+               1
+           ],
+           "protocol": [
+               "sip"
+           ],
+           "name": [
+               "eu9nbm"
+           ],
+           "rules_group": [
+               ""
+           ],
+           "rules_order": [
+               1
+           ],
+           "line_num": [
+               0
+           ],
+           "context": [
+               "default"
+           ],
+           "number": [
+               "1001"
+           ],
+           "configregistrar": [
+               "default"
+           ],
+           "device": [
+               "1"
+           ],
+           "num": [
+               1
+           ]
+       },
+       "userfeatures": {
+           "agentid": "3",
+           "alarmclock": "",
+           "bsfilter": "no",
+           "callerid": "\"User 1\"",
+           "callrecord": False,
+           "commented": False,
+           "description": "",
+           "destbusy": "",
+           "destrna": "",
+           "destunc": "",
+           "enableautomon": False,
+           "enablebusy": False,
+           "enableclient": True,
+           "enablednd": False,
+           "enablehint": True,
+           "enablerna": False,
+           "enableunc": False,
+           "enablevoicemail": True,
+           "enablexfer": True,
+           "entityid": 1,
+           "firstname": "User",
+           "fullname": "User 1",
+           "id": 1,
+           "identity": "User 1",
+           "incallfilter": False,
+           "language": "fr_FR",
+           "lastname": "1",
+           "loginclient": "user1",
+           "mobilephonenumber": "",
+           "musiconhold": "default",
+           "outcallerid": "default",
+           "passwdclient": "user1",
+           "pictureid": None,
+           "pitch": None,
+           "pitchdirection": None,
+           "preprocess_subroutine": None,
+           "profileclient": "client",
+           "rightcallcode": "",
+           "ringextern": "",
+           "ringforward": "",
+           "ringgroup": "",
+           "ringintern": "",
+           "ringseconds": "30",
+           "simultcalls": "5",
+           "timezone": "",
+           "userfield": "",
+           "voicemailid": "1",
+           "voicemailtype": "asterisk"
+       },
+       "voicemail": {
+           "attach": None,
+           "attachfmt": None,
+           "backupdeleted": None,
+           "callback": None,
+           "commented": False,
+           "context": "default",
+           "deletevoicemail": "0",
+           "dialout": None,
+           "email": "elessard@avencall.com",
+           "emailbody": None,
+           "emailsubject": None,
+           "envelope": None,
+           "exitcontext": None,
+           "forcegreetings": None,
+           "forcename": None,
+           "fullmailbox": "1001@default",
+           "fullname": "User 1",
+           "hidefromdir": "no",
+           "identity": "User 1 (1001@default)",
+           "imapfolder": None,
+           "imappassword": None,
+           "imapuser": None,
+           "imapvmsharedid": None,
+           "language": None,
+           "locale": "fr_FR",
+           "mailbox": "1001",
+           "maxmsg": None,
+           "maxsecs": None,
+           "messagewrap": None,
+           "minsecs": None,
+           "moveheard": None,
+           "nextaftercmd": None,
+           "operator": None,
+           "pager": None,
+           "password": "0000",
+           "passwordlocation": None,
+           "review": None,
+           "saycid": None,
+           "sayduration": None,
+           "saydurationm": None,
+           "sendvoicemail": None,
+           "serveremail": None,
+           "tempgreetwarn": None,
+           "tz": "eu-fr",
+           "uniqueid": 1,
+           "volgain": None
+       },
+       "voicemailfeatures": {
+           "id": 1,
+           "skipcheckpass": "0",
+           "voicemailid": 1
+       }
    }
 
-To associate an available line with created/edited user, use following code
-(number is optional, but must exist and be free if used):
+A limitation of the "edit" action is that you can't use directly the content returned
+by the "view" action in the "edit" action, or you'll get a "400 Bad Request" error.
+
+The "400 Bad Request" error comes from the ``linefeatures`` key that has not the same
+format in the "view" and "add/edit" action.
+
+If you want to edit the line of a user, or to edit one of the following components:
+
+* voicemail
+
+then you *must* transform the ``linefeatures`` dictionary to the format expected by
+the "edit" action. Else, you *must* not put the ``linefeatures`` key (this won't remove
+the line of the user).
+
+For example, if the "view" action returned the following ``linefeatures``:
+
+.. code-block:: javascript
+
+   "linefeatures": [
+        {
+            "commented": False,
+            "config": "",
+            "configregistrar": "default",
+            "context": "default",
+            "description": "",
+            "device": "1",
+            "encryption": False,
+            "id": 1,
+            "iduserfeatures": 1,
+            "internal": False,
+            "ipfrom": "10.34.0.12",
+            "line_num": 0,
+            "name": "eu9nbm",
+            "num": 1,
+            "number": "1001",
+            "protocol": "sip",
+            "protocolid": 1,
+            "provisioningid": 113992,
+            "rules_group": "",
+            "rules_order": 1,
+            "rules_time": "30",
+            "rules_type": ""
+        }
+    ]
+
+then the ``linefeatures`` in the "edit" action would be:
 
 .. code-block:: javascript
 
    "linefeatures": {
-      "id": ["2"],
-      "number": ["4000"]
+       "id": [
+           1
+       ],
+       "protocol": [
+           "sip"
+       ],
+       "name": [
+           "eu9nbm"
+       ],
+       "rules_group": [
+           ""
+       ],
+       "rules_order": [
+           1
+       ],
+       "line_num": [
+           0
+       ],
+       "context": [
+           "default"
+       ],
+       "number": [
+           "1001"
+       ],
+       "configregistrar": [
+           "default"
+       ],
+       "device": [
+           "1"
+       ],
+       "num": [
+           1
+       ]
    }
 
-To automatically create a new line associated with created/edited user, don"t
-set *id* key (or set it to "0" value):
+To associate an available line with an existing user, use the following code:
 
 .. code-block:: javascript
 
    "linefeatures": {
-      "protocol": ["sip"],
-      "context": ["default"],
-      "number": [""],
-      "rules_type": [""],
-      "rules_time": [""],
-      "rules_order": [""],
-      "rules_group": [""]
+       "id": ["2"],
+       "number": ["4000"]
    }
 
-Once again, line number is optional. You can also create or associate several
-lines at once. Here is different possible combinations:
-
-1st line create, 2d associated with id 45
+To automatically create a new line associated with an existing user, don't
+set the *id* key (or set it to "0" value):
 
 .. code-block:: javascript
 
    "linefeatures": {
-      "id": ["0","45"],
-      "protocol": ["sip",""],
-      "context": ["default",""],
-      "number": ["","4000"],
-      "rules_type": ["",""],
-      "rules_time": ["",""],
-      "rules_order": ["",""],
-      "rules_group": ["",""]
-   }
-
-
-1st & last lines created, 2d associated with id 45
-
-.. code-block:: javascript
-
-   "linefeatures": {
-      "id": ["0","45","0"],
-      "protocol": [{"sip","","sip"],
-      "context": ["default","","default"],
-      "number": ["","4000","4001"],
-      "rules_type": ["simul","simul",""],
-      "rules_time": ["10","10","20"],
-      "rules_order": ["1","2","1"],
-      "rules_group": ["1","1","2"]
+       "protocol": ["sip"],
+       "context": ["default"],
+       "number": ["4000"],
    }
 
 
@@ -471,6 +731,7 @@ Edit::
        ]
    }
 
+
 Call pickups
 ^^^^^^^^^^^^
 
@@ -491,10 +752,7 @@ List::
        }
    ]
 
-
-
 .. note:: if no group exists, the web service returns HTTP code 204
-
 
 View::
 
@@ -623,7 +881,6 @@ Add::
        ]
    }
 
-
 .. note:: returns the HTTP code 400 if the creation fails
 
 
@@ -631,7 +888,6 @@ Calls Records
 ^^^^^^^^^^^^^
 
 .. warning:: The list returned is limited to 5000, you can set it with argument ``limit=100`` in the url
-
 
 Search by id:
 
@@ -703,7 +959,6 @@ Example to return Calls Records with id begining 200 (limit to 5000 by default):
 
       }
    ]
-
 
 Search:
 
@@ -781,11 +1036,9 @@ List::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/schedule/?act=list
 
-
 Search::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/call_management/schedule/?act=search&search=[string]
-
 
 View::
 
@@ -826,7 +1079,6 @@ Add::
    }
 
 
-
 IPBX Services
 -------------
 
@@ -841,7 +1093,6 @@ View::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=view&id=[parkinglot_id]
 
-
 Delete::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=delete&id=[parkinglot_id]
@@ -853,7 +1104,6 @@ Add::
 Edit::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=edit
-
 
 ``Example of content to send to add``
 
@@ -978,7 +1228,6 @@ Arguments:
  * **objname** is one of *user*, *group*, *queue*, *meetme* or *incall*,
  * **number** is part of search extensions (**optional argument**)
 
-
 Return free user extensions (from "default" context) including "10"
 
 Example::
@@ -990,6 +1239,7 @@ Example::
 .. code-block:: javascript
 
    [101,102,104,105,106,109,110,210]
+
 
 IPBX Configuration
 ------------------
@@ -1122,7 +1372,6 @@ Add::
       "description": "answer to customer service"
    }
 
-
 Category is created if not exists, printscreen should be less than 5 car long
 
 Delete::
@@ -1130,6 +1379,7 @@ Delete::
    https://[ip_xivo]/callcenter/json.php/restricted/settings/queueskills?act=delete&id=[kill_id]
 
 *Category is not removed*
+
 
 Queue
 ^^^^^
@@ -1145,3 +1395,94 @@ List::
 Add::
 
    https://[ip_xivo]/callcenter/json.php/restricted/settings/queues?act=add
+
+
+Configuration
+=============
+
+Manage
+------
+
+Entity
+^^^^^^
+
+List::
+
+   https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=list
+
+Search::
+
+   https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=search&search=[string]
+
+Search Attributes:
+ * name
+ * displayname
+ * phonenumber
+ * faxnumber
+ * email
+ * url
+ * address1
+ * address2
+ * city
+ * state
+ * zipcode
+ * country
+ * description
+
+View::
+
+   https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=view&id=[entity_id]
+
+Add::
+
+   https://[ip_xivo]/xivo/configuration/json.php/restricted/manage/entity/?act=add
+
+
+Network
+-------
+
+Mail
+^^^^
+
+View::
+
+   https://[ip_xivo]/xivo/configuration/json.php/restricted/network/mail/?act=view
+
+``Return code example``
+
+.. code-block:: javascript
+
+   {
+       "id": "1",
+       "mydomain": "proformatique.com",
+       "origin": "devel.proformatique.com",
+       "relayhost": "smtp.free.fr",
+       "fallback_relayhost": "smtp.orange.fr",
+       "canonical": [
+           {
+               "pattern": "@proformatique.com",
+               "result": "support@proformatique.com"
+           }
+       ]
+   }
+
+Edit::
+
+   https://[ip_xivo]/xivo/configuration/json.php/restricted/network/mail/?act=edit
+
+Example content
+
+.. code-block:: javascript
+
+   {
+       "mydomain": "proformatique.com",
+       "origin": "devel.proformatique.com",
+       "relayhost": "smtp.free.fr",
+       "fallback_relayhost": "smtp.orange.fr",
+       "canonical": [
+           {
+               "pattern": "@proformatique.com",
+               "result": "support@proformatique.com"
+           }
+       ]
+   }
