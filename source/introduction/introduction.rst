@@ -182,7 +182,7 @@ The following describes how to configure your XiVO and your Berofos.
 Upgrading from Skaro-1.2.3
 --------------------------
 
-# There is an issue with ``xivo-libsccp`` and ``pf-xivo-base-config`` during an upgrade from 1.2.3::
+#. There is an issue with ``xivo-libsccp`` and ``pf-xivo-base-config`` during an upgrade from 1.2.3::
 
     dpkg: error processing /var/cache/apt/archives/pf-xivo-base-config_13%3a1.2.4-1_all.deb (--unpack):
     trying to overwrite '/etc/asterisk/sccp.conf', which is also in package xivo-libsccp 1.2.3.1-1
@@ -192,16 +192,16 @@ Upgrading from Skaro-1.2.3
     E: Sub-process /usr/bin/dpkg returned an error code (1)
 
 
-# You have to remove :file:`/var/lib/dpkg/info/xivo-libsccp.conffiles`::
+#. You have to remove :file:`/var/lib/dpkg/info/xivo-libsccp.conffiles`::
 
     rm /var/lib/dpkg/info/xivo-libsccp.conffiles
 
-# You have to edit :file:`/var/lib/dpkg/info/xivo-libsccp.list` and remove the following line::
+#. You have to edit :file:`/var/lib/dpkg/info/xivo-libsccp.list` and remove the following line::
 
     /etc/asterisk/sccp.conf
 
-# and remove :file:`/etc/asterisk/sccp.conf`::
+#. and remove :file:`/etc/asterisk/sccp.conf`::
 
     rm /etc/asterisk/sccp.conf
 
-# Now, you can launch ``xivo-upgrade`` to finish the upgrade process
+#. Now, you can launch ``xivo-upgrade`` to finish the upgrade process
