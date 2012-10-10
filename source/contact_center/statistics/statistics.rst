@@ -147,7 +147,7 @@ Counters
 * Conversation: Total time spent for calls answered during a given period.
 * Login: Total login time of an agent.
 
-.. warning:: Data generated before XiVO 12.18 might have erroneous results.
+.. warning:: Data generated before XiVO 12.19 might have erroneous results.
 
 * Pause: Total pause time of an agent.
 
