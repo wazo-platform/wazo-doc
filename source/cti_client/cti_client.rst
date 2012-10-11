@@ -82,3 +82,54 @@ This page allows the user to set his network information to connect to the xivo-
 * `Try to reconnect` will reconnect the client when the connection is dropped.
 * `Try to reconnect interval` is the reconnection delay before the auto-reconnection is tryed.
 * `Keep alive interval` is the number of seconds between keepalives messages.
+
+Handling callto: and tel: URLs
+==============================
+
+The XiVO client can handle telephone number links that appear in web pages. The client will automatically dial
+the number when you click on a link.
+
+.. note:: You must already be logged in for automatic dialing to work, otherwise the client will simply start up and wait for you to log in.
+
+Mac OS
+------
+
+``callto:`` and ``tel:`` links will work out-of-the-box in Safari and other web browsers after installing the client.
+
+Windows
+-------
+
+The following popups might appear When you open a ``callto:`` or ``tel:`` link for the first time in Internet Explorer:
+
+.. figure:: images/ie_warning_1.png
+.. figure:: images/ie_warning_2.png
+
+Simply click on *allow* to dial the number using the XiVO client.
+
+.. note:: If you do not want these warnings to appear each time, do not forget to check/uncheck the checkbox at the bottom of the popups.
+
+Linux
+-----
+
+For distributions running under a GNOME environment, you can type the following to lines to associate ``callto:`` and ``tel:`` URIs with the XiVO client:
+::
+
+    gconftool-2 -s /desktop/gnome/url-handlers/callto/command 'xivoclient %s' --type String
+    gconftool-2 -s /desktop/gnome/url-handlers/callto/enabled --type Boolean true
+    gconftool-2 -s /desktop/gnome/url-handlers/tel/command 'xivoclient %s' --type String
+    gconftool-2 -s /desktop/gnome/url-handlers/tel/enabled --type Boolean true
+
+Manual association in firefox
+-----------------------------
+
+If, for some reason, firefox does not recognize ``callto:`` or ``tel:`` URIs you can manually associate them to the XiVO client using the following steps:
+
+1. Type ``about:config`` in the URL bar
+2. Click the *I'll be careful, I promise !* button to close the warning
+3. Right-click anywhere in the list and select *New -> Boolean*
+4. Enter ``network.protocol-handler.external.callto`` as preference name
+5. Select ``false`` as value
+6. Repeat steps 3 to 6, but replace ``callto`` by ``tel`` at step 4
+
+The next time that you click on a telephone link, firefox will ask you to choose an application. You will then be able to choose the XiVO client for handling telephone numbers.
+
