@@ -33,7 +33,7 @@ Supervision Panel
 
 
 .. figure:: images/cc_supervision.png
-   :scale: 10%
+   :scale: 90%
 
 * Click on queue name on queue list, display agent list for this queue in member
   of a queue, and updates calls waiting in xlet Calls of queue
@@ -188,6 +188,38 @@ Display advanced informations of an agent and enable to login/logoff, add/remove
 5. Add/Remove agent for given queue
 
 You can't add/remove this agent to queue1/queue6 because there is hard linked in configuration (WEBI)
+
+
+Queue members
+^^^^^^^^^^^^^
+
+The queue members lists which agents or phones will receive calls from the
+selected queue and some of their attributes.
+
+.. figure:: images/queue_members.png
+
+**Columns**
+
+Number
+    The agent number or the phone number of the queue member.
+
+Firstname and Lastname
+    First name and last name of the agent or the user to which the phone belongs.
+
+Logged
+    Whether the agent is logged or not. Blank for a phone.
+
+Paused
+    Whether the agent is paused or not. Blank for a phone.
+
+Answered calls
+    Number of calls answered by the member since last restart or configuration reload.
+
+Last call
+    Hangup time of the last answered calls.
+
+Penalty
+    Penalty of the queue member.
 
 
 Link XiVO Client presence to agent presence

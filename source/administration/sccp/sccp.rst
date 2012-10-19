@@ -27,7 +27,7 @@ Review SCCP general settings:
    You must `reload the chan_sccp module`_ for the settings to be applied.
 
 At this point you should have a fully functional DHCP server that provides IP address to your phones.
-Depending on what type of CISCO phone you have, you need to install the plugin sccp-legacy, sccp-9.2.1 or both.
+Depending on what type of CISCO phone you have, you need to install the plugin sccp-legacy, sccp-9.2.1 or both. Please refer to the :ref:`Provisioning page <cisco-provisioning>` for more information on how to install CISCO firmwares.
 
 Once your plugin is installed, you'll be able to edit which firmwares and locales you need.
 If you are unsure, you can choose all without any problem.

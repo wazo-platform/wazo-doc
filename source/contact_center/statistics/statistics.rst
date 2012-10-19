@@ -147,9 +147,7 @@ Counters
 * Conversation: Total time spent for calls answered during a given period.
 * Login: Total login time of an agent.
 
-.. note:: The Login time counter only supports agent static login (\*31 or XiVO client).
-          Data generated before XiVO 12.18 might have erroneous results. Logins and logouts
-          for the same login session on different devices is not supported.
+.. warning:: Data generated before XiVO 12.19 might have erroneous results.
 
 * Pause: Total pause time of an agent.
 

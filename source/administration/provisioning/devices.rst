@@ -63,8 +63,10 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
 
 
+
 Cisco
 =====
+
 
 Cisco Small Business SPA300 series:
 
@@ -141,6 +143,8 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 7960G    |y|         0          |n|
 7961G    |y|         0          |n|
 ======== =========== ========== ============
+
+.. _cisco-provisioning:
 
 To install firmware for xivo-cisco-sccp plugins, you need to manually download
 the firmware files from the Cisco website and save them in the
