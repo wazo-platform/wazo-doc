@@ -38,7 +38,7 @@ Note that you can retrieve the backup from the web-interface in
 
 Logrotate task::
 
-    /etc/logrotate.d/pf-xivo-backup
+    /etc/logrotate.d/xivo-backup
 
 Logrotate cron::
 
@@ -46,19 +46,19 @@ Logrotate cron::
 
 Backup script::
 
-    /usr/sbin/pf-xivo-backup
+    /usr/sbin/xivo-backup
 
 Backup location::
     
-    /var/backups/pf-xivo/
+    /var/backups/xivo/
 
 
 Creating a database backup file manually
-=========================================
+========================================
 
 You can manually create a database backup file named `db-manual.tgz` by issuing the following commands::
 
-   pf-xivo-backup db db-manual
+   xivo-backup db db-manual
 
 
 Creating a data backup file manually
@@ -66,7 +66,7 @@ Creating a data backup file manually
 
 You can manually create a data backup file named `data-manual.tgz` by issuing the following commands::
 
-   pf-xivo-backup data data-manual
+   xivo-backup data data-manual
 
 
 *******
@@ -78,7 +78,7 @@ Introduction
 
 A backup of both the configuration files and the databases used by a XiVO installation is done
 automatically every day.
-These backups are created in the `/var/backups/pf-xivo` directory and are kept for 7 days.
+These backups are created in the `/var/backups/xivo` directory and are kept for 7 days.
 
 
 Before Restoring the System
@@ -96,13 +96,13 @@ Stop monit and all the xivo services.
 Restoring System Files
 ======================
 
-System files are stored in the data.tgz file located in the `/var/backups/pf-xivo` directory.
+System files are stored in the data.tgz file located in the `/var/backups/xivo` directory.
 
 This file contains for example, voicemail files, musics, voice guides, phone sets firmwares, provisioning server configuration database.
 
 To restore the file ::
 
-   tar zxvfp /var/backups/pf-xivo/data.tgz -C /
+   tar zxvfp /var/backups/xivo/data.tgz -C /
 
 
 Restoring the databases
@@ -112,7 +112,7 @@ Restoring the databases
 
    This will destroy all the current data in your databases
 
-Databases backups are created as `db.tgz` files in the `/var/backups/pf-xivo` directory.
+Databases backups are created as `db.tgz` files in the `/var/backups/xivo` directory.
 These tarballs contains a dump of the two databases used in XiVO 1.2.
 
 In this example, we'll restore the databases from a backup file named `db.tgz`
