@@ -8,19 +8,40 @@ What is actually backuped ?
 Data
 ----
 
-Here is the list of the folder and files backuped::
+Here is the list of the folder and files backuped:
 
-    /etc/asterisk /etc/dahdi /etc/dhcp /etc/pf-xivo /etc/wanpipe 
-    /etc/network/interfaces /etc/resolv.conf /etc/hosts /etc/hostname
-    /var/lib/asterisk/ /var/lib/pf-xivo/ /var/spool/asterisk/ /var/log/asterisk/ /var/lib/pf-xivo-provd
+* :file:`/etc/asterisk`
+* :file:`/etc/dahdi`
+* :file:`/etc/dhcp`
+* :file:`/etc/pf-xivo`
+* :file:`/etc/wanpipe`
+* :file:`/etc/network/interfaces`
+* :file:`/etc/resolv.conf`
+* :file:`/etc/hosts`
+* :file:`/etc/hostname`
+* :file:`/var/lib/asterisk/`
+* :file:`/var/lib/pf-xivo/`
+* :file:`/var/lib/pf-xivo-provd`
+* :file:`/var/log/asterisk/`
+* :file:`/var/spool/asterisk/`
 
-The following files/folders are excluded from this backup :
+The following files/folders are excluded from this backup:
 
-* folders : ``/var/spool/asterisk/monitor /var/spool/asterisk/meetme``
+* folders:
+
+  * :file:`/var/spool/asterisk/monitor`
+  * :file:`/var/spool/asterisk/meetme`
+
 * log files, coredump files,
 * audio recordings,
 * and, files greater than 10Mo or folders containing more than 100 files
-  if they belong to one of these folders : ``/var/lib/pf-xivo/sounds``, ``/var/lib/asterisk/sounds/custom``, ``/var/lib/asterisk/moh``, ``/var/spool/asterisk/voicemail``, ``/var/spool/asterisk/monitor``
+  if they belong to one of these folders:
+
+  * :file:`/var/lib/pf-xivo/sounds`
+  * :file:`/var/lib/asterisk/sounds/custom`
+  * :file:`/var/lib/asterisk/moh`
+  * :file:`/var/spool/asterisk/voicemail`
+  * :file:`/var/spool/asterisk/monitor`
 
 
 Database
@@ -36,27 +57,27 @@ A backup of the databases and the data are launched each day with a logrotate ta
 Note that you can retrieve the backup from the web-interface in
 :menuselection:`Services --> IPBX --> IPBX Configuration --> Backup Files` page.
 
-Logrotate task::
+Logrotate task:
 
-    /etc/logrotate.d/xivo-backup
+    :file:`/etc/logrotate.d/xivo-backup`
 
-Logrotate cron::
+Logrotate cron:
 
-    /etc/cron.daily/logrotate
+    :file:`/etc/cron.daily/logrotate`
 
-Backup script::
+Backup script:
 
-    /usr/sbin/xivo-backup
+    :file:`/usr/sbin/xivo-backup`
 
-Backup location::
-    
-    /var/backups/xivo/
+Backup location:
+
+    :file:`/var/backups/xivo/`
 
 
 Creating a database backup file manually
 ========================================
 
-You can manually create a database backup file named `db-manual.tgz` by issuing the following commands::
+You can manually create a database backup file named :file:`db-manual.tgz` by issuing the following commands::
 
    xivo-backup db db-manual
 
@@ -64,7 +85,7 @@ You can manually create a database backup file named `db-manual.tgz` by issuing 
 Creating a data backup file manually
 ====================================
 
-You can manually create a data backup file named `data-manual.tgz` by issuing the following commands::
+You can manually create a data backup file named :file:`data-manual.tgz` by issuing the following commands::
 
    xivo-backup data data-manual
 
@@ -78,7 +99,7 @@ Introduction
 
 A backup of both the configuration files and the databases used by a XiVO installation is done
 automatically every day.
-These backups are created in the `/var/backups/xivo` directory and are kept for 7 days.
+These backups are created in the :file:`/var/backups/xivo` directory and are kept for 7 days.
 
 
 Before Restoring the System
@@ -86,9 +107,7 @@ Before Restoring the System
 
 Before restoring a XiVO on a fresh install you have to setup XiVO using the installation wizard.
 
-Stop monit and all the xivo services.
-
-::
+Stop monit and all the xivo services::
 
    xivo-service stop
 
@@ -96,7 +115,7 @@ Stop monit and all the xivo services.
 Restoring System Files
 ======================
 
-System files are stored in the data.tgz file located in the `/var/backups/xivo` directory.
+System files are stored in the data.tgz file located in the :file:`/var/backups/xivo` directory.
 
 This file contains for example, voicemail files, musics, voice guides, phone sets firmwares, provisioning server configuration database.
 
@@ -112,16 +131,14 @@ Restoring the databases
 
    This will destroy all the current data in your databases
 
-Databases backups are created as `db.tgz` files in the `/var/backups/xivo` directory.
+Databases backups are created as :file:`db.tgz` files in the :file:`/var/backups/xivo` directory.
 These tarballs contains a dump of the two databases used in XiVO 1.2.
 
-In this example, we'll restore the databases from a backup file named `db.tgz`
+In this example, we'll restore the databases from a backup file named :file:`db.tgz`
 placed in the home directory of root.
 
-Then, extract the content of the `db.tgz` file into the /tmp directory and go inside
-the newly created directory.
-
-::
+Then, extract the content of the :file:`db.tgz` file into the /tmp directory and go inside
+the newly created directory::
 
    tar xvf db.tgz -C /tmp
    cd /tmp/pg-backup
@@ -140,8 +157,9 @@ Do the same thing for the xivo database::
 Restoring and Keeping System Configuration
 ==========================================
 
-System configuration as network interfaces is stored in xivo database. If you want to keep this configuration and only restore xivo data
-you may omit to restore xivo database provided you restore the following tables :
+System configuration as network interfaces is stored in xivo database. If you
+want to keep this configuration and only restore xivo data you may omit to
+restore xivo database provided you restore the following tables :
 
 * entity
 * stats_conf
@@ -163,16 +181,17 @@ you may omit to restore xivo database provided you restore the following tables 
    sudo -u postgres pg_restore -d xivo -t stats_conf_user -c xivo.dump
 
 Restore the rights on these tables ::
-  
+
    su postgres
    psql xivo
    SELECT execute('GRANT ALL ON '||schemaname||'.'||tablename||' TO xivo;') FROM pg_tables WHERE schemaname = 'public';
    SELECT execute('GRANT ALL ON SEQUENCE '||relname||' TO xivo;') FROM pg_class WHERE relkind = 'S';
 
 
-.. warning::
-   Restoring the data.tgz file restore also system files as host hostname network interfaces etc... You will need to reapply 
-   network configuration if you restore the data.tgz file
+.. warning:: Restoring the data.tgz file restore also system files as host
+   hostname network interfaces etc... You will need to reapply network
+   configuration if you restore the data.tgz file
+
 
 After Restoring The System
 ==========================
