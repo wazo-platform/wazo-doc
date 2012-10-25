@@ -12,10 +12,10 @@ There is one directory per family. Here is the directory structure for :file:`xi
 .. code-block:: javascript
 
    plugins/xivo-cisco-spa/
-   ├── model_name_xxx
-   ├── model_name_xxx
-   ├── common
-   └── build.py
+   +-- model_name_xxx
+   +-- model_name_xxx
+   +-- common
+   +-- build.py
 
 
 Every plugin has a folder called :file:`common` which regoups common ressources for each model.
@@ -27,8 +27,8 @@ You can modifiy the file :file:`plugin-info` to change the version number:
 .. code-block:: javascript
 
    plugins/xivo-cisco-spa/
-   └── model_name_xxx
-       └── plugin-info
+   +-- model_name_xxx
+       +-- plugin-info
 
 
 .. important::
