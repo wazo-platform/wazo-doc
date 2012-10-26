@@ -72,7 +72,7 @@ If you want to include a regular percent character, i.e. "%", you must write it 
 
 The ``agid`` service must be restarted to apply changes::
 
- /etc/init.d/pf-xivo-agid restart
+ /etc/init.d/xivo-agid restart
 
 
 Changing the email subject
@@ -86,7 +86,7 @@ The available variable substitution are the same as for the email body.
 
 The ``agid`` service must be restarted to apply changes::
 
- /etc/init.d/pf-xivo-agid restart
+ /etc/init.d/xivo-agid restart
 
 
 Using the advanced features
@@ -137,7 +137,7 @@ taken when no DID-specific action are defined.
 After editing the :file:`/etc/pf-xivo/asterisk/xivo_fax.conf` file, you need to restart the agid server
 for the changes to be applied::
 
-   $ /etc/init.d/pf-xivo-agid restart
+   $ /etc/init.d/xivo-agid restart
 
 
 Using the FTP backend
