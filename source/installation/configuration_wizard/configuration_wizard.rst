@@ -63,21 +63,21 @@ Configuration
 
 #. Finally, modify the DNS server information if needed.
 
+
 Entities and Contexts
 =====================
 
 Contexts are used for managing various phone numbers that are used by your system.
 
-- The Interal calls context is used for managing phone numbers for devices that are connected to your system.
-- The Incalls context will intercept all incoming calls from the exterior
-- The Outcalls context is used for managing ougoing calls to the exterior
+* The Interal calls context is used for managing phone numbers for devices that are connected to your system.
+* The Incalls context will intercept all incoming calls from the exterior
+* The Outcalls context is used for managing ougoing calls to the exterior
 
 .. figure:: images/wizard_step5_entities_contexts.png
    :scale: 75%
    :alt: Entities and Contexts
 
    Entities and Contexts
-
 
 #. Enter the entity name (e.g. your organization name) (Allowed characters are : ``A-Z a-z 0-9 - .``)
 #. Enter the number interval for you internal context. The interval will define the users's phone numbers for your system (you can change it afterwards)
@@ -97,4 +97,3 @@ Congratulations, you now have a fully functional XiVO server.
 
 You can subscribe to the `xivo-announce list <https://lists.proformatique.com/listinfo/xivo-announce>`_
 to always stay informed on the latest upgrades for XiVO.
-

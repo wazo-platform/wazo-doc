@@ -19,7 +19,6 @@ There are 2 options you can pass to xivo-upgrade:
 * ``-d`` to only download packages without installing them
 * ``-f`` to force upgrade, without asking for user confirmation
 
-
 .. warning::
 
    If xivo-upgrade fails or aborts in mid-process, the system might end up in a faulty condition. If in doubt, run the following command to check the current state of xivo's firewall rules::
@@ -34,7 +33,7 @@ There are 2 options you can pass to xivo-upgrade:
 
       iptables -D INPUT -p udp --dport 5060 -j DROP
 
-   Repeat this command untill no more unwanted rules are left.
+   Repeat this command until no more unwanted rules are left.
 
 
 Upgrading a cluster
@@ -61,11 +60,9 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes for older Versions of XiVO
 ========================================
 
-
 * When upgrading from XiVO 1.2.3 or earlier, you must do the following::
 
    wget http://mirror.xivo.fr/xivo_current.key -O - | apt-key add -
-
 
 * Upgrading from 1.2.0 or 1.2.1 requires a special procedure before executing xivo-upgrade::
 

@@ -14,6 +14,7 @@ XiVO can be installed on both virtual (QEMU/KVM, VirtualBox, ...) and physical m
 Asterisk is sensible to timing issues, you might get better results by installing XiVO on real
 hardware.
 
+
 Installing from the ISO image
 =============================
 
@@ -21,6 +22,7 @@ The ISO image for XiVO |version| can be found at http://mirror.xivo.fr/iso/xivo-
 Download the iso, boot from it and follow the instructions on the installation prompt. 
 We suggest that you *choose english as locale when prompted*.
 At the end of the installation, you can continue by running the :ref:`configuration wizard. <configuration_wizard>`
+
 
 Installing from a minimal Debian installation
 =============================================
@@ -50,6 +52,7 @@ And run it::
    To install the developement version::
 
       bash xivo_install_skaro.sh -d
+
 
 Installing from a PXE
 =====================
