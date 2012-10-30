@@ -197,7 +197,13 @@ Search::
 
    https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_settings/devices/?act=search&search=[value]
 
-search is done either on *ip address* or *mac address* field (with exact match)
+search (with partial match) is done either on:
+
+* IP address
+* MAC address
+* plugin name
+* model name
+* phone number
 
 Example::
 
