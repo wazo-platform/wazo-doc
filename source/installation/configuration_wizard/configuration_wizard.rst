@@ -1,10 +1,11 @@
+.. _configuration_wizard:
+
 ******************
 Running the Wizard
 ******************
 
 After the system installation, you must go through the wizard before being able to use your XiVO.
-Browse http://xivo-address/ to start the configuration wizard
-
+Browse to your server's IP address to start the configuration wizard (For example: http://192.168.1.10)
 
 .. index:: wizard
 
@@ -32,10 +33,16 @@ You then have to accept the *GPLv3 License* under which XiVO is distributed.
    Accept the license
 
 
-Components Checks
-=================
+Component Checks
+================
 
 After this step, the wizard displays the status of the system and of several components. When ready, click on ``Next``.
+
+.. figure:: images/wizard_step3_component_check.png
+   :scale: 75%
+   :alt: Component checks
+
+   Component checks
 
 
 Configuration
@@ -47,18 +54,24 @@ Configuration
 
    Basic configuration
 
-#. Enter the hostname [1]_,
-#. Enter the domain name [2]_,
+#. Enter the hostname  (Allowed characters are : ``A-Z a-z 0-9 -``)
+#. Enter the domain name (Allowed characters are : ``A-Z a-z 0-9 - .``)
 #. Enter the password for the ``root`` user of the web interface,
-#. Configure the IP address and gateway used by your XiVO (by default it pre-fills the fields with the current IP and gateway of the network interface on which you are connected to complete the wizard steps).
+#. Configure the IP address and gateway used by your XiVO (by default it pre-fills the fields with the current IP and gateway of the network interface on which you are connected).
 
    .. note:: The network configuration will be applied at the end of the wizard
 
-#. Finally verify and modify if needed the DNS servers information.
+#. Finally, modify the DNS server information if needed.
 
 
 Entities and Contexts
 =====================
+
+Contexts are used for managing various phone numbers that are used by your system.
+
+* The Interal calls context is used for managing phone numbers for devices that are connected to your system.
+* The Incalls context will intercept all incoming calls from the exterior
+* The Outcalls context is used for managing ougoing calls to the exterior
 
 .. figure:: images/wizard_step5_entities_contexts.png
    :scale: 75%
@@ -66,24 +79,21 @@ Entities and Contexts
 
    Entities and Contexts
 
-#. Enter the entity name (e.g. your organization name) [2]_,
-#. You may change your internal context name and you must pick a number range. This will define the internal users's phone number of your sytem (you can change it afterward),
-#. You may change your incoming calls context name and you may also give the DID range you have,
-#. You may change your outgoing calls context name.
+#. Enter the entity name (e.g. your organization name) (Allowed characters are : ``A-Z a-z 0-9 - .``)
+#. Enter the number interval for you internal context. The interval will define the users's phone numbers for your system (you can change it afterwards)
+#. Enter the DID range and DID length for your system.
+#. You may change the name of your outgoing calls context.
 
 
 Validation
 ==========
 
-Finally you have to validate your configuration by clicking on the ``Validate`` button.
-Note that if you want to change one of the chosen settings you can go backward in the wizard with the ``Previous`` button.
+Finally, you can validate your configuration by clicking on the ``Validate`` button.
+Note that if you want to change one of the settings you can go backwards in the wizard by clicking on the ``Previous`` button.
 
-.. warning:: This is the last time the ``root`` password will be displayed. Take care to note it up.
+.. warning:: This is the last time the ``root`` password will be displayed. Take care to note it.
 
-Congratulation, you now have a fully functional XiVO server. The only remaining thing to do is to
-subscribe to the `xivo-announce list <https://lists.proformatique.com/listinfo/xivo-announce>`_ as
-to make sure you'll always be informed of the latest upgrade for your XiVO.
+Congratulations, you now have a fully functional XiVO server.
 
-
-.. [1] Allowed characters are : "``A-Z a-z 0-9 -``"
-.. [2] Allowed characters are : "``A-Z a-z 0-9 - .``"
+You can subscribe to the `xivo-announce list <https://lists.proformatique.com/listinfo/xivo-announce>`_
+to always stay informed on the latest upgrades for XiVO.

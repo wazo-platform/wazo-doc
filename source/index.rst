@@ -31,6 +31,7 @@ We are also working on a fully `Open XiVO Hardware`_.
    high_availability/high_availability
    api_sdk/api_sdk
    developers/developers
+   troubleshooting/troubleshooting
 
 You may also check `XiVO blog`_ and `XiVO wiki`_ for more information.
 XiVO documentation is also available as `an epub file <http://documentation.xivo.fr/epub/>`_

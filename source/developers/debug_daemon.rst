@@ -14,7 +14,7 @@ agid
 
 ::
 
-   agid -f -d
+   xivo-agid -f -d
 
 * -f for foreground
 * -d for debug

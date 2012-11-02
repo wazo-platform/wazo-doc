@@ -1,9 +1,6 @@
-************
-Provisioning
-************
-
+***********************
 Testing a new SIP phone
-=======================
+***********************
 
 Let's suppose you have received a brand new SIP phone that is not supported by
 the provisioning system of XiVO. You would like to know if it's possible
@@ -15,7 +12,7 @@ auto-provisioning support for a phone to XiVO.
 
 
 Prerequisites
--------------
+=============
 
 Before continuing, you'll need the following:
 
@@ -24,7 +21,7 @@ Before continuing, you'll need the following:
 
 
 Configuring a test environment
-------------------------------
+==============================
 
 Although it's possible to do all the testing directly on a XiVO, it's more
 comfortable and usually easier to do on a separate, dedicated machine.
@@ -76,7 +73,7 @@ directory and those served via HTTP in the :file:`/var/www` directory.
 
 
 Testing
--------
+=======
 
 Adding auto-provisioning support for a phone is mostly a question of finding answers
 to the following questions.

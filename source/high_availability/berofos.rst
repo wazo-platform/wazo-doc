@@ -125,24 +125,82 @@ The green LEDs on your berofos should be lighted on ports A and B.
 Connection
 ----------
 
-Here's how to connect the ISDN lines between your berofos and your XiVOs.
-This example shows the case where there is 2 ISDN lines coming from your telephony provider::
+Two XiVOs
+^^^^^^^^^
+
+Here's how to connect the ISDN lines between your berofos with:
+
+* two XiVOs in high availability
+
+In this configuration you can protect **up two 4** ISDN lines. If more than 4 ISDN lines to protect,
+you must set up a `Multiple berofos`_ configuration.
+
+Here's an example with 4 ISDN lines coming from your telephony provider::
 
    ISDN lines (provider)
-     | |
-     | |
+     | | | |
+     | | | |
    +---------------------------------------------+
    |    A           B           C           D    |
    | 1|2|3|4     1|2|3|4     1|2|3|4     1|2|3|4 |
    +---------------------------------------------+
-                 | |                     | |
-                 | |                     | |
-              +--------+              +-------+
-              | master |              | slave |
-              +--------+              +-------+
+                 | | | |                 | | | |
+                 | | | |                 | | | |
+               +--------+              +--------+
+               | xivo-1 |              | xivo-2 |
+               +--------+              +--------+
 
 Note that when the berofos is off, the A and D ports are connected together. This
 behavior is not customizable.
+
+Two XiVOs  and one PBX
+^^^^^^^^^^^^^^^^^^^^^^
+
+Here's how to connect your berofos with:
+
+* two XiVOs in high availability,
+* one PBX.
+
+In this configuration you can protect **up two 2** ISDN lines. If more than 2 ISDN lines to protect,
+you must set up a `Multiple berofos`_ configuration. 
+
+Logical view::
+
+                   +--------+                            +-----+
+   -- Provider ----| xivo-1 | -- ISDN Interconnection  --| PBX | -- Phones
+                   +--------+                            +-----+
+                     | xivo-2 |
+                     +--------+
+
+This example shows the case where there are 2 ISDN lines coming from your telephony provider::
+
+   ISDN lines (provider)
+     | |
+     | |
+   +------------------------------------------------------+
+   |    A               B            C           D        |
+   | 1|2|3|4         1|2   3|4      1|2|3|4     1|2   3|4 |
+   +------------------------------------------------------+
+         | |     CPE | |   | | NET          CPE | |   | | NET
+         | |   spans | |   | | spans      spans | |   | | spans
+         | |       +----------+              +------------+
+         | |       |  xivo-1  |              |   xivo-2   |
+         | |       +----------+              +------------+
+         | |
+         | |
+       +------+
+       | PBX  |
+       +------+
+
+Note that when the berofos is off, the A and D ports are connected together. This
+behavior is not customizable.
+
+One XiVO and one PBX
+^^^^^^^^^^^^^^^^^^^^
+
+This case is not currently supported. You'll find a workaround in the `known bugs and limitation`_ section.
+
+.. _known bugs and limitation: http://documentation.xivo.fr/production/introduction/introduction.html#berofos-integration-with-pbx
 
 
 Multiple berofos

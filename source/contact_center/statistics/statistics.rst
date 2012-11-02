@@ -131,24 +131,26 @@ Counters
 Agent performance
 =================
 
-Agent performance statistics can be viewed in :menuselection:`Services --> Statistics --> Performance agents`.
+Agent performance statistics can be viewed in
+:menuselection:`Services --> Statistics --> Performance agents`.
 
 .. figure:: images/statistic_agent.png
     :alt: Performance Agents statistic
 
 .. note:: The agent performance counters do not take into account transfer
           between agents: if agent A processes a call and transfers it to agent
-          B, only the counters of agent A will be updated.
+          B, only the counters of agent A will be updated. Ignoring any
+          info after the call transfer.
 
 Counters
 --------
 
-* Answered: Number of calls answered by the agent.
-* Conversation: Total time spent for calls answered during a given period.
+* Answered: Number of calls answered by the agent
+* Conversation: Total time spent for calls answered during a given period
 * Login: Total login time of an agent.
+* Wrapup: Total time spent in wrapup by an agent.
+* Pause: Total pause time of an agent
 
-.. warning:: Data generated before XiVO 12.19 might have erroneous results.
-
-* Pause: Total pause time of an agent.
-
-.. note:: The Pause time counter only supports `PAUSEALL` and `UNPAUSEALL` command from cticlient.
+.. warning:: Data generated before XiVO 12.19 might have erroneous results for the Login time counter
+.. note:: The Pause time counter only supports **PAUSEALL** and **UNPAUSEALL** command from cticlient
+.. note:: Wrapup time events were added to XiVO in version 12.21
