@@ -51,16 +51,8 @@ Service > Call center > Agents > Advanced
 
 These settings are specific for a given agent.
 
-* Require a DTMF_ to pick a call (ackcall) : When enabled, the key configured in parameter "acceptdtmf" MUST be pressed to pick a call.
-* Accept call DTMF (acceptdtmf) : Configured key used to pick up DTMF calls (if ackcall is enabled)
-* End call DTMF (enddtmf) : Configured key used to end DTMF calls (if endcall is enabled)
-
 
 Service > IPBX > General settings > Advanced > Agent
 ----------------------------------------------------
 
 These settings are global for all agents.
-
-* Press DTMF to hangup (endcall) : When enabled, the key configured in parameter "enddtmf" CAN be pressed to end a call. Useful when logged via the `*33` extension. Without this setting, the enddtmf parameter is unused.
-
-.. _DTMF: http://en.wikipedia.org/wiki/Dtmf
