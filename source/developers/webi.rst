@@ -2,6 +2,26 @@
 Web Interface
 *************
 
+Configuration for development
+=============================
+
+Default error level for XiVO web interface is E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED & ~E_RECOVERABLE_ERROR & ~E_STRICT
+
+If you want to display warning or other error in your browser, edit the :file:`/etc/pf-xivo/web-interface/xivo.ini`
+and replace report_type level to 3
+
+::
+
+      [error]
+      level = 2047
+      report_type = 3
+      report_mode = 1
+      report_func = 1
+      email = john.doe@example.com
+      file = /var/log/pf-xivo-web-interface/error.log
+
+
+
 Interactive debugging in Eclipse
 ================================
 
