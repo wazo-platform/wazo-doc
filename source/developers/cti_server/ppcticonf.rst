@@ -49,7 +49,6 @@ You can also pass a URL as an argument:
    [
        {
            "agentid": null, 
-           "alarmclock": "", 
            "bsfilter": "no", 
            "callerid": "\"User 2\"", 
            "callrecord": false, 

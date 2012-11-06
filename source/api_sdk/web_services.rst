@@ -305,7 +305,6 @@ Example of returned content for a user with a SIP line and a voicemail (the top-
        "schedule_id": 0,
        "userfeatures": {
            "agentid": "3",
-           "alarmclock": "",
            "bsfilter": "no",
            "callerid": "\"User 1\"",
            "callrecord": False,
@@ -472,7 +471,6 @@ Example of sent content for a user with a SIP line and a voicemail (the top-leve
        },
        "userfeatures": {
            "agentid": "3",
-           "alarmclock": "",
            "bsfilter": "no",
            "callerid": "\"User 1\"",
            "callrecord": False,
