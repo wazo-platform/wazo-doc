@@ -20,8 +20,10 @@ and replace report_type level to 3
       email = john.doe@example.com
       file = /var/log/pf-xivo-web-interface/error.log
 
-
-
+You may also edit :file:`/etc/pf-xivo/web-interface/php.ini` and change the error level, but you will need to restart the cgi::
+    
+    /etc/init.d/spawn-fcgi restart
+    
 Interactive debugging in Eclipse
 ================================
 
