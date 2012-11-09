@@ -237,6 +237,23 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 Jitsi    |y|         |u|        |n|
 ======== =========== ========== ============
 
+Panasonic
+=========
+
+
+Panasonic KX-HTXXX series:
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+KX-HT113   |n|         |u|         |n|
+KX-HT123   |n|         |u|         |n|
+KX-HT133   |n|         |u|         |n|
+KX-HT136   |n|         |u|         |n|
+======== =========== ========== ============
+
+.. note:: This phone is for testing for the moment
+
 
 Polycom
 =======
