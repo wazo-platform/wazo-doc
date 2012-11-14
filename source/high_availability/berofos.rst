@@ -150,8 +150,6 @@ Here's an example with 4 ISDN lines coming from your telephony provider::
                | xivo-1 |              | xivo-2 |
                +--------+              +--------+
 
-Note that when the berofos is off, the A and D ports are connected together. This
-behavior is not customizable.
 
 Two XiVOs  and one PBX
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -192,8 +190,6 @@ This example shows the case where there are 2 ISDN lines coming from your teleph
        | PBX  |
        +------+
 
-Note that when the berofos is off, the A and D ports are connected together. This
-behavior is not customizable.
 
 One XiVO and one PBX
 ^^^^^^^^^^^^^^^^^^^^
@@ -233,6 +229,13 @@ Operation
 
 When your XiVO switch the relay mode of your berofos, it logs the event in the
 :file:`/var/log/syslog` file.
+
+
+Default mode
+============
+
+Note that when the berofos is off, the A and D ports are connected together. This
+behavior is not customizable.
 
 
 Uninstallation
