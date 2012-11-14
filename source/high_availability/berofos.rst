@@ -24,6 +24,8 @@ The `Berofos Integration with PBX`_ section describes a workaround.
 .. _Berofos Integration with PBX: http://documentation.xivo.fr/production/introduction/introduction.html#berofos-integration-with-pbx
 
 
+.. _berofos-installation-and-configuration:
+
 Installation and Configuration
 ==============================
 
@@ -194,9 +196,7 @@ This example shows the case where there are 2 ISDN lines coming from your teleph
 One XiVO and one PBX
 ^^^^^^^^^^^^^^^^^^^^
 
-This case is not currently supported. You'll find a workaround in the `known bugs and limitation`_ section.
-
-.. _known bugs and limitation: http://documentation.xivo.fr/production/introduction/introduction.html#berofos-integration-with-pbx
+This case is not currently supported. You'll find a workaround in the :ref:`berofos-integration-with-pbx` section.
 
 
 Multiple berofos
