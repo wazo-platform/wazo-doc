@@ -39,6 +39,8 @@ The work around consists in deleting affected users and re-create them.
 Associated ticket : #3595
 
 
+.. _fax-detection:
+
 Fax detection
 -------------
 
