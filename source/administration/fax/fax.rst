@@ -206,6 +206,8 @@ XiVO **does not currently support Fax Detection**. A workaround (*for DAHDI trun
 in the :ref:`fax-detection` section.
 
 
+.. _fax-analog-gateway:
+
 Using analog gateways
 =====================
 

@@ -19,9 +19,7 @@ The goal of this configuration is to mitigate the consequences of an outage of t
 equipment the ISDN provider links could be switched to the PBX directly if the XiVO goes down.
 
 XiVO **does not offer natively** the possibility to configure Berofos in this failover mode.
-The `Berofos Integration with PBX`_ section describes a workaround.
-
-.. _Berofos Integration with PBX: http://documentation.xivo.fr/production/introduction/introduction.html#berofos-integration-with-pbx
+The :ref:`berofos-integration-with-pbx` section describes a workaround.
 
 
 .. _berofos-installation-and-configuration:
