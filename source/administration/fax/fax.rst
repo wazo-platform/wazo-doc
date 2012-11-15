@@ -202,9 +202,11 @@ received.
 Fax detection
 =============
 
-XiVO **does not currently support Fax Detection**. A workaround is describe in the 
-`Known bugs and limitations`_ section.
+XiVO **does not currently support Fax Detection**. A workaround (*for DAHDI trunk only*) is described
+in the :ref:`fax-detection` section.
 
+
+.. _fax-analog-gateway:
 
 Using analog gateways
 =====================
@@ -285,8 +287,6 @@ correct parameters. This section describes the creation of custom template *for 
 
 
 Most of this template can be copy/paste for a SP2102 or SPA8000.
-
-.. _Known bugs and limitations: http://documentation.xivo.fr/production/introduction/introduction.html#fax-detection
 
 
 Using a SIP Trunk

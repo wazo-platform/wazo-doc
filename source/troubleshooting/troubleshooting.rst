@@ -39,6 +39,8 @@ The work around consists in deleting affected users and re-create them.
 Associated ticket : #3595
 
 
+.. _fax-detection:
+
 Fax detection
 -------------
 
@@ -88,6 +90,8 @@ this example) : if a fax is detected, receive it otherwise route the call normal
     asterisk -rx 'core reload'
 
 
+.. _berofos-integration-with-pbx:
+
 Berofos Integration with PBX
 ----------------------------
 
@@ -124,7 +128,8 @@ Connection::
 The following describes how to configure your XiVO and your Berofos.
 
 #. Follow the Berofos general configuration (firmware, IP, login/password) described 
-   on the the berofos_ page.
+   in the the :ref:`Berofos Installation and Configuration <berofos-installation-and-configuration>`
+   page.
 
 #. When done, apply these specific parameters to the berofos::
 
@@ -166,8 +171,6 @@ The following describes how to configure your XiVO and your Berofos.
 
 	*/1 * * * * root /usr/local/sbin/berofos-workaround 2>&1 > /dev/null
 
-
-.. _berofos: http://documentation.xivo.fr/production/high_availability/berofos.html#slave-configuration
 
 Upgrading from Skaro-1.2.3
 --------------------------

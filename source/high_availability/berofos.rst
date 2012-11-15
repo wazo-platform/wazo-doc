@@ -19,10 +19,10 @@ The goal of this configuration is to mitigate the consequences of an outage of t
 equipment the ISDN provider links could be switched to the PBX directly if the XiVO goes down.
 
 XiVO **does not offer natively** the possibility to configure Berofos in this failover mode.
-The `Berofos Integration with PBX`_ section describes a workaround.
+The :ref:`berofos-integration-with-pbx` section describes a workaround.
 
-.. _Berofos Integration with PBX: http://documentation.xivo.fr/production/introduction/introduction.html#berofos-integration-with-pbx
 
+.. _berofos-installation-and-configuration:
 
 Installation and Configuration
 ==============================
@@ -150,8 +150,6 @@ Here's an example with 4 ISDN lines coming from your telephony provider::
                | xivo-1 |              | xivo-2 |
                +--------+              +--------+
 
-Note that when the berofos is off, the A and D ports are connected together. This
-behavior is not customizable.
 
 Two XiVOs  and one PBX
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -192,15 +190,11 @@ This example shows the case where there are 2 ISDN lines coming from your teleph
        | PBX  |
        +------+
 
-Note that when the berofos is off, the A and D ports are connected together. This
-behavior is not customizable.
 
 One XiVO and one PBX
 ^^^^^^^^^^^^^^^^^^^^
 
-This case is not currently supported. You'll find a workaround in the `known bugs and limitation`_ section.
-
-.. _known bugs and limitation: http://documentation.xivo.fr/production/introduction/introduction.html#berofos-integration-with-pbx
+This case is not currently supported. You'll find a workaround in the :ref:`berofos-integration-with-pbx` section.
 
 
 Multiple berofos
@@ -233,6 +227,13 @@ Operation
 
 When your XiVO switch the relay mode of your berofos, it logs the event in the
 :file:`/var/log/syslog` file.
+
+
+Default mode
+============
+
+Note that when the berofos is off, the A and D ports are connected together. This
+behavior is not customizable.
 
 
 Uninstallation

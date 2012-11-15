@@ -128,7 +128,7 @@ SPA8800  |n|         0          |n|
 
 .. note::
    These devices can be used to connect Faxes. For better success with faxes some parameters 
-   must be changed. You can read the `Using analog gateways`_ section in the Fax_ section.
+   must be changed. You can read the :ref:`fax-analog-gateway` section.
 
 Cisco 7900 series (*SCCP* mode only):
 
@@ -388,5 +388,3 @@ Caption :
 .. |n| replace:: No
 .. |u| replace:: ---
 
-.. _Using analog gateways: http://documentation.xivo.fr/production/administration/fax/fax.html#using-analog-gateways
-.. _Fax: http://documentation.xivo.fr/production/administration/fax/fax.html

@@ -2,6 +2,40 @@
 Backup
 ******
 
+Periodic backup
+===============
+
+A backup of the databases and the data are launched every day with a logrotate task.
+It is run at 06:25 a.m. and backups are kept for 7 days.
+
+Logrotate task:
+
+    :file:`/etc/logrotate.d/xivo-backup`
+
+Logrotate cron:
+
+    :file:`/etc/cron.daily/logrotate`
+
+
+Retrieve the backup
+===================
+
+You can retrieve the backup from the web-interface in
+:menuselection:`Services --> IPBX --> IPBX Configuration --> Backup Files` page.
+
+Otherwise with a shell access you can retrieve them in :file:`/var/backups/xivo/`.
+In this directory you will find :file:`db.tgz` and :file:`data.tgz` files for the databases and data
+backup.
+
+Backup script:
+
+    :file:`/usr/sbin/xivo-backup`
+
+Backup location:
+
+    :file:`/var/backups/xivo/`
+
+
 What is actually backuped ?
 ===========================
 
@@ -48,30 +82,6 @@ Database
 --------
 
 All XiVO databases are backuped (xivo and asterisk).
-
-
-Periodic backup
-===============
-
-A backup of the databases and the data are launched each day with a logrotate task.
-Note that you can retrieve the backup from the web-interface in
-:menuselection:`Services --> IPBX --> IPBX Configuration --> Backup Files` page.
-
-Logrotate task:
-
-    :file:`/etc/logrotate.d/xivo-backup`
-
-Logrotate cron:
-
-    :file:`/etc/cron.daily/logrotate`
-
-Backup script:
-
-    :file:`/usr/sbin/xivo-backup`
-
-Backup location:
-
-    :file:`/var/backups/xivo/`
 
 
 Creating a database backup file manually
