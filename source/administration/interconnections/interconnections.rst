@@ -5,6 +5,31 @@ Interconnections
    :maxdepth: 1
 
    two_xivo
+   xivo_with_pbx
+
+
+Create an interconnection
+-------------------------
+
+There are three types of interconnections :
+
+* Customized
+* SIP
+* IAX
+
+Customized interconnection
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Add an interconnection to the menu :menuselection:`Services --> IPBX --> Trunk management --> Customized` ::
+
+     Name : interconnection name
+     Interface : dahdi/g0
+     Context : outgoing call (to-extern) 
+
+
+.. figure:: images/interco_t2.png
+   :scale: 85%
+
 
 Debug
 -----
