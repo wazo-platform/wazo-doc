@@ -15,8 +15,19 @@ Installing a plugin for SCCP Phone:
 
    Installing xivo cisco-sccp plugin
 
+Review SCCP general settings:
+ :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
+
+.. figure:: images/general_settings.png
+
+   SCCP general settings
+
+.. warning::
+
+   You must `reload the chan_sccp module`_ for the settings to be applied.
+
 At this point you should have a fully functional DHCP server that provides IP address to your phones.
-Depending on what type of CISCO phone you have, you need to install the plugin sccp-legacy, sccp-9.2.1 or both.
+Depending on what type of CISCO phone you have, you need to install the plugin sccp-legacy, sccp-9.2.1 or both. Please refer to the :ref:`Provisioning page <cisco-provisioning>` for more information on how to install CISCO firmwares.
 
 Once your plugin is installed, you'll be able to edit which firmwares and locales you need.
 If you are unsure, you can choose all without any problem.
@@ -60,65 +71,86 @@ Now, you can save your new user.
 
    Add a line to a user
 
-Congratulation ! Your SCCP phone is now ready to be called !
+Congratulations ! Your SCCP phone is now ready to be called !
+
+
+Direct Media
+------------
+
+SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use directmedia, one must enable the directmedia option in SCCP general settings:
+ :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
 
 .. warning::
 
-   You must manually do "module reload chan_sccp.so" via the Asterisk command line if you want to:
+   Direct media is currently only supported between SCCP phones on a same XiVO.
 
-   * Remove a device from the configuration.
-   * Add a voicemail on an already configured user.
-   * Change the language of an already configured user.
+   If your are using your SCCP phones to make/receive calls through a SIP trunk
+   for example, then you must disable the direct media option.
 
-   Please, be warned that this command will disconnect all SCCP phones and hence all current phone calls will be lost.
+
+.. _reload the chan_sccp module:
+
+Reloading the chan_sccp module
+------------------------------
+
+You must manually do a ``module reload chan_sccp.so`` via the Asterisk CLI if you want to:
+
+* Apply the SCCP general settings configuration
+* Remove a device from the configuration
+* Add a voicemail on an already configured user
+* Change the language of an already configured user
+
+Be warned that this command will disconnect all SCCP phones and hence all current phone calls will be lost.
 
 
 Features
 --------
 
-+-----------------------------+---------------------+
-| Features                    | Supported           |
-+=============================+=====================+
-| Receive call                | Yes                 |
-+-----------------------------+---------------------+
-| Initiate call               | Yes                 |
-+-----------------------------+---------------------+
-| Hangup call                 | Yes                 |
-+-----------------------------+---------------------+
-| Transfer call               | Yes                 |
-+-----------------------------+---------------------+
-| Congestion Signal           | Yes                 |
-+-----------------------------+---------------------+
-| Autoanswer (custom dialplan)| Yes                 |
-+-----------------------------+---------------------+
-| Call forward                | Yes                 |
-+-----------------------------+---------------------+
-| Multi-instance per line     | Yes                 |
-+-----------------------------+---------------------+
-| Message waiting indication  | Yes                 |
-+-----------------------------+---------------------+
-| Music on hold               | Yes                 |
-+-----------------------------+---------------------+
-| Context per line            | Yes                 |
-+-----------------------------+---------------------+
-| Paging                      | Yes                 |
-+-----------------------------+---------------------+
-| Codec selection             | Not yet             |
-+-----------------------------+---------------------+
-| Group pickup                | Not yet             |
-+-----------------------------+---------------------+
-| Hotline (auto-provisioning) | Not yet             |
-+-----------------------------+---------------------+
-| Speed dial                  | Not yet             |
-+-----------------------------+---------------------+
-| Multi line                  | Not yet             |
-+-----------------------------+---------------------+
-| Direct RTP                  | Not yet             |
-+-----------------------------+---------------------+
-| Do not disturb (DND)        | Not yet             |
-+-----------------------------+---------------------+
-| NAT traversal               | Not yet             |
-+-----------------------------+---------------------+
++------------------------------+-----------+
+| Features                     | Supported |
++==============================+===========+
+| Receive call                 | Yes       |
++------------------------------+-----------+
+| Initiate call                | Yes       |
++------------------------------+-----------+
+| Hangup call                  | Yes       |
++------------------------------+-----------+
+| Transfer call                | Yes       |
++------------------------------+-----------+
+| Congestion Signal            | Yes       |
++------------------------------+-----------+
+| Autoanswer (custom dialplan) | Yes       |
++------------------------------+-----------+
+| Call forward                 | Yes       |
++------------------------------+-----------+
+| Multi-instance per line      | Yes       |
++------------------------------+-----------+
+| Message waiting indication   | Yes       |
++------------------------------+-----------+
+| Music on hold                | Yes       |
++------------------------------+-----------+
+| Context per line             | Yes       |
++------------------------------+-----------+
+| Paging                       | Yes       |
++------------------------------+-----------+
+| Direct RTP                   | Yes       |
++------------------------------+-----------+
+| Redial                       | Yes       |
++------------------------------+-----------+
+| Group pickup                 | Not yet   |
++------------------------------+-----------+
+| Hotline (auto-provisioning)  | Not yet   |
++------------------------------+-----------+
+| Speed dial                   | Not yet   |
++------------------------------+-----------+
+| Multi line                   | Not yet   |
++------------------------------+-----------+
+| Codec selection              | Not yet   |
++------------------------------+-----------+
+| Do not disturb (DND)         | Not yet   |
++------------------------------+-----------+
+| NAT traversal                | Not yet   |
++------------------------------+-----------+
 
 
 Telephone

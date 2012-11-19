@@ -39,6 +39,7 @@ Generate DAHDI configuration
 
 .. warning:: it will erase all existing configuration !
 
+
 Configure
 ---------
 
@@ -221,6 +222,7 @@ Get help::
 
    xivo-fetchfw -h
 
+.. _sync_cable:
 
 Sync cable
 ^^^^^^^^^^
@@ -368,6 +370,9 @@ command - this command should show the encoders/decoders registered by the TC400
 
 Notes on DAHDI configuration
 ============================
+
+.. _system_conf:
+
 
 /etc/dahdi/system.conf
 ----------------------

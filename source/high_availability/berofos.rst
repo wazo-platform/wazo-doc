@@ -19,10 +19,10 @@ The goal of this configuration is to mitigate the consequences of an outage of t
 equipment the ISDN provider links could be switched to the PBX directly if the XiVO goes down.
 
 XiVO **does not offer natively** the possibility to configure Berofos in this failover mode.
-The `Berofos Integration with PBX`_ section describes a workaround.
+The :ref:`berofos-integration-with-pbx` section describes a workaround.
 
-.. _Berofos Integration with PBX: http://documentation.xivo.fr/production/introduction/introduction.html#berofos-integration-with-pbx
 
+.. _berofos-installation-and-configuration:
 
 Installation and Configuration
 ==============================
@@ -65,8 +65,12 @@ At this stage, your :file:`/etc/bnfos.conf` file should contains something like 
    #login = <user>:<password>
 
 It is advised to configure your berofos with a static IP address. You first need to
-put your berofos into *flash* mode. You do this by pressing and holding the black button next
-to the power button while you power on your berofos. The red LEDs of port D should then blink.
+put your berofos into *flash mode* :
+
+- press and hold the black button next to the power button,
+- power on your berofos,
+- release the black button when the red LEDs of port D start blinking.
+
 Then, you can issue the following command, by first replacing the network configuration with
 your one::
 
@@ -79,17 +83,16 @@ your one::
    * ``-g`` is the gateway
    * ``-d 0`` is to disable DHCP
 
-Once this is done, you'll have to reboot your berofos (reboot it in flash mode because we'll
-need it in the next step) for it to apply its new network configuration. You'll also need to
-edit the :file:`/etc/bnfos.conf` file with the new IP address before continuing.
-
 You can then update your berofos firmware to version 1.53::
 
    wget http://www.beronet.com/downloads/berofos/bnfos_v153.bin
    bnfos --flash bnfos_v153.bin -f fos1
 
-Once this is done, reboot your berofos, but this time in operational mode (i.e. in normal
-mode).
+Once this is done, you'll have to reboot your berofos in operationnal mode (that is in normal mode).
+
+Then you must rewrite the :file:`/etc/bnfos.conf` (mainly if you changed the IP address)::
+
+   bnfos --scan -x -h <berofos ip>
 
 Now that your berofos has proper network configuration and an up to date firmware, you
 might want to set a password on your berofos::
@@ -122,24 +125,76 @@ The green LEDs on your berofos should be lighted on ports A and B.
 Connection
 ----------
 
-Here's how to connect the ISDN lines between your berofos and your XiVOs.
-This example shows the case where there is 2 ISDN lines coming from your telephony provider::
+Two XiVOs
+^^^^^^^^^
+
+Here's how to connect the ISDN lines between your berofos with:
+
+* two XiVOs in high availability
+
+In this configuration you can protect **up two 4** ISDN lines. If more than 4 ISDN lines to protect,
+you must set up a `Multiple berofos`_ configuration.
+
+Here's an example with 4 ISDN lines coming from your telephony provider::
 
    ISDN lines (provider)
-     | |
-     | |
+     | | | |
+     | | | |
    +---------------------------------------------+
    |    A           B           C           D    |
    | 1|2|3|4     1|2|3|4     1|2|3|4     1|2|3|4 |
    +---------------------------------------------+
-                 | |                     | |
-                 | |                     | |
-              +--------+              +-------+
-              | master |              | slave |
-              +--------+              +-------+
+                 | | | |                 | | | |
+                 | | | |                 | | | |
+               +--------+              +--------+
+               | xivo-1 |              | xivo-2 |
+               +--------+              +--------+
 
-Note that when the berofos is off, the A and D ports are connected together. This
-behavior is not customizable.
+
+Two XiVOs  and one PBX
+^^^^^^^^^^^^^^^^^^^^^^
+
+Here's how to connect your berofos with:
+
+* two XiVOs in high availability,
+* one PBX.
+
+In this configuration you can protect **up two 2** ISDN lines. If more than 2 ISDN lines to protect,
+you must set up a `Multiple berofos`_ configuration. 
+
+Logical view::
+
+                   +--------+                            +-----+
+   -- Provider ----| xivo-1 | -- ISDN Interconnection  --| PBX | -- Phones
+                   +--------+                            +-----+
+                     | xivo-2 |
+                     +--------+
+
+This example shows the case where there are 2 ISDN lines coming from your telephony provider::
+
+   ISDN lines (provider)
+     | |
+     | |
+   +------------------------------------------------------+
+   |    A               B            C           D        |
+   | 1|2|3|4         1|2   3|4      1|2|3|4     1|2   3|4 |
+   +------------------------------------------------------+
+         | |     CPE | |   | | NET          CPE | |   | | NET
+         | |   spans | |   | | spans      spans | |   | | spans
+         | |       +----------+              +------------+
+         | |       |  xivo-1  |              |   xivo-2   |
+         | |       +----------+              +------------+
+         | |
+         | |
+       +------+
+       | PBX  |
+       +------+
+
+
+One XiVO and one PBX
+^^^^^^^^^^^^^^^^^^^^
+
+This case is not currently supported. You'll find a workaround in the :ref:`berofos-integration-with-pbx` section.
 
 
 Multiple berofos
@@ -174,12 +229,29 @@ When your XiVO switch the relay mode of your berofos, it logs the event in the
 :file:`/var/log/syslog` file.
 
 
+Default mode
+============
+
+Note that when the berofos is off, the A and D ports are connected together. This
+behavior is not customizable.
+
+
 Uninstallation
 ==============
 
 It is important to remove the :file:`/etc/bnfos.conf` file on the slave node when you don't
 want to use anymore your berofos with your XiVOs.
 
+
+Reset the Berofos
+=================
+
+You can reset the berofos configuration :
+
+#. Power on the berofos,
+#. When red and green LEDs are still lit, press & hold the black button,
+#. Release it when the red LEDs of the D port start blinking fast
+#. Reboot the beronet, it should have lost its configuration.
 
 External links
 ==============

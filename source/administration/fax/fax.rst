@@ -72,7 +72,7 @@ If you want to include a regular percent character, i.e. "%", you must write it 
 
 The ``agid`` service must be restarted to apply changes::
 
- /etc/init.d/pf-xivo-agid restart
+ /etc/init.d/xivo-agid restart
 
 
 Changing the email subject
@@ -86,7 +86,7 @@ The available variable substitution are the same as for the email body.
 
 The ``agid`` service must be restarted to apply changes::
 
- /etc/init.d/pf-xivo-agid restart
+ /etc/init.d/xivo-agid restart
 
 
 Using the advanced features
@@ -137,7 +137,7 @@ taken when no DID-specific action are defined.
 After editing the :file:`/etc/pf-xivo/asterisk/xivo_fax.conf` file, you need to restart the agid server
 for the changes to be applied::
 
-   $ /etc/init.d/pf-xivo-agid restart
+   $ /etc/init.d/xivo-agid restart
 
 
 Using the FTP backend
@@ -202,9 +202,11 @@ received.
 Fax detection
 =============
 
-XiVO **does not currently support Fax Detection**. A workaround is describe in the 
-`Known bugs and limitations`_ section.
+XiVO **does not currently support Fax Detection**. A workaround (*for DAHDI trunk only*) is described
+in the :ref:`fax-detection` section.
 
+
+.. _fax-analog-gateway:
 
 Using analog gateways
 =====================
@@ -285,8 +287,6 @@ correct parameters. This section describes the creation of custom template *for 
 
 
 Most of this template can be copy/paste for a SP2102 or SPA8000.
-
-.. _Known bugs and limitations: http://documentation.xivo.fr/production/introduction/introduction.html#fax-detection
 
 
 Using a SIP Trunk

@@ -63,8 +63,10 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
 
 
+
 Cisco
 =====
+
 
 Cisco Small Business SPA300 series:
 
@@ -126,7 +128,7 @@ SPA8800  |n|         0          |n|
 
 .. note::
    These devices can be used to connect Faxes. For better success with faxes some parameters 
-   must be changed. You can read the `Using analog gateways`_ section in the Fax_ section.
+   must be changed. You can read the :ref:`fax-analog-gateway` section.
 
 Cisco 7900 series (*SCCP* mode only):
 
@@ -141,6 +143,8 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 7960G    |y|         0          |n|
 7961G    |y|         0          |n|
 ======== =========== ========== ============
+
+.. _cisco-provisioning:
 
 To install firmware for xivo-cisco-sccp plugins, you need to manually download
 the firmware files from the Cisco website and save them in the
@@ -233,6 +237,23 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 Jitsi    |y|         |u|        |n|
 ======== =========== ========== ============
 
+Panasonic
+=========
+
+
+Panasonic KX-HTXXX series:
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+KX-HT113   |n|         |u|         |n|
+KX-HT123   |n|         |u|         |n|
+KX-HT133   |n|         |u|         |n|
+KX-HT136   |n|         |u|         |n|
+======== =========== ========== ============
+
+.. note:: This phone is for testing for the moment
+
 
 Polycom
 =======
@@ -289,9 +310,13 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 320      |y|         12         |n|
 360      |n|         |u|        |n|
 370      |n|         12         |n|
-820      |y|         5          |n|
+710      |n|         5          |n|
+720      |n|         18         |n|
+760      |n|         12         |n|
+820      |y|         4          |n|
 821      |n|         |u|        |n|
 870      |y|         15         |n|
+MP       |n|         |u|        |n|
 PA1      |n|         0          |n|
 ======== =========== ========== ============
 
@@ -325,7 +350,6 @@ Yealink
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-T12P     |n|         |u|        |n|
 T20P     |n|         2          |n|
 T22P     |n|         3          |n|
 T26P     |n|         13         |n|
@@ -364,5 +388,3 @@ Caption :
 .. |n| replace:: No
 .. |u| replace:: ---
 
-.. _Using analog gateways: http://documentation.xivo.fr/production/administration/fax/fax.html#using-analog-gateways
-.. _Fax: http://documentation.xivo.fr/production/administration/fax/fax.html

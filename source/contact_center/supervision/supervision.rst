@@ -23,28 +23,32 @@ Profiles` menu, usually contains the following Xlets :
 
 * Identity
 * Queues
-* Queues (detail)
+* Queue members
 * Queues (entries detail)
 * Agents (list)
 * Agents (detail)
 
+
 Supervision Panel
 -----------------
 
-
 .. figure:: images/cc_supervision.png
-   :scale: 10%
+   :scale: 90%
 
 * Click on queue name on queue list, display agent list for this queue in member
   of a queue, and updates calls waiting in xlet Calls of queue
 
+* Click on an agent in agent list to display the details of this agent in Xlet
+  Agent details
+
 * Click on the `+` icon for an agent displays agent details.
+
 
 Queue List
 ^^^^^^^^^^
 **General information**
 
-The queue list is a gathering of information and statistics for each queues configured on the XiVO.
+The queue list is a dashboard displaying queue statistics and real-time counters for each queue configured on the XiVO.
 
 .. figure:: images/queue_list.png
    :scale: 90%
@@ -130,9 +134,8 @@ When logged to the XiVO client, one can modify his statistic parameters.
 
 * Window is the period of statistical analysis to be displayed.
 
-  The maximum value is 9999 seconds, which is about 2 hours and 45 minutes. On
-  the server side, data that are used to compute statistics are only
-  kept for around 3 hours, so there's a hard limit of 3 hours for this value.
+  On the server side, data that are used to compute statistics are only kept
+  for around 3 hours, so there's a hard limit of 3 hours for this value.
 * Qos is the wait time that is required for a call to be answered on time
 
 These configurations can be done for each queue.
@@ -168,11 +171,54 @@ The :file:`big_fonts.qss` file should contain::
 
 Units of size that can be used are described on the `Qt documentation`_.
 
-.. _Qt documentation: http://doc.qt.nokia.com/latest/stylesheet-reference.html#length
+.. _Qt documentation: http://doc.qt.nokia.com/latest/stylesheet-reference.html#length.
+
+
+Agent List
+^^^^^^^^^^
+
+**General information**
+
+The queue list is a dashboard displaying each agent configured on the XiVO.
+
+.. figure:: images/agent_list.png
+   :scale: 80%
+
+**Columns**
+
+Number
+   The agent's number
+
+First name & Last name
+   The agent's first name and last name
+
+Listen
+   A *clickable cell* to listen to the agent's current call
+
+Status since
+   Shows the agent's status and the time spent in this status. An agent can have two statuses : *In use* or *Not in use*.
+
+   An agent is *In use* when he cannot answer a call (in conversation, in wrapup or in pause).
+   The agent is no longer *In use* when he becomes available to answer a call.
+
+   .. note:: For now, the agent is not considered *In use* if he emits a call or receives a call directly through his phone, not through the queue.
+
+Logged
+   A *clickable cell* to log or unlog the agent
+
+Joined queues
+   The number of queues the agent will be receiving calls from
+
+Paused
+   A *clickable cell* to pause or unpause the agent
+
+Paused queues
+   The number of queues in which the agent is paused
 
 
 Agent Details
 ^^^^^^^^^^^^^
+
 **General information**
 
 Display advanced informations of an agent and enable to login/logoff, add/remove to a queue, and pause/unpause.
@@ -188,6 +234,38 @@ Display advanced informations of an agent and enable to login/logoff, add/remove
 5. Add/Remove agent for given queue
 
 You can't add/remove this agent to queue1/queue6 because there is hard linked in configuration (WEBI)
+
+
+Queue members
+^^^^^^^^^^^^^
+
+The queue members lists which agents or phones will receive calls from the
+selected queue and some of their attributes.
+
+.. figure:: images/queue_members.png
+
+**Columns**
+
+Number
+    The agent number or the phone number of the queue member.
+
+Firstname and Lastname
+    First name and last name of the agent or the user to which the phone belongs.
+
+Logged
+    Whether the agent is logged or not. Blank for a phone.
+
+Paused
+    Whether the agent is paused or not. Blank for a phone.
+
+Answered calls
+    Number of calls answered by the member since last restart or configuration reload.
+
+Last call
+    Hangup time of the last answered calls.
+
+Penalty
+    Penalty of the queue member.
 
 
 Link XiVO Client presence to agent presence
