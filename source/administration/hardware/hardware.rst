@@ -43,25 +43,16 @@ For example, if you have one B410P and one TE205P you should comment every modul
    xivo-service restart
 
 
-Echo-cancellation Module
-========================
+Hardware Echo-cancellation
+==========================
 
-You should use telephony cards with an hardware echo-canceller module.
-
-
-Activate the echo-cancellation
-------------------------------
-
-To use the hardware echo-canceller of the card you must activate it in 
-:file:`/etc/asterisk/chan_dahdi.conf` file::
-    
-    echocancel = 1
+It is *recommended* to use telephony cards with an hardware echo-canceller module.
 
 
-Echo cancellation module
-------------------------
+Hardware Echo-cancellation Module
+---------------------------------
 
-You then have to install the firmware of the hardware echo-canceller.
+If you have an hardware echo-canceller module you have to install its firmware.
 This can be achieved via the ``xivo-fetchfw`` tool :
 
 * Know which firmware you need :
@@ -73,7 +64,8 @@ firmware does DAHDI request at startup::
    [    7.781192] wct4xxp 0000:05:0e.0: firmware: requesting dahdi-fw-oct6114-064.bin
 
 Otherwise you can also issue (with DAHDI >= 2.5.0) the ``cat /proc/dahdi/1`` command
-(assuming that the span 1 is a PRI port) and you should see lines containing ``EC: VPMOCT64``::
+(assuming that the span 1 is a PRI port) and you should see lines containing something like 
+``EC: VPMOCT64`` which tells you the echo-canceller module you have::
 
    cat /proc/dahdi/1 
    Span 1: TE2/0/1 "T2XXP (PCI) Card 0 Span 1" HDB3/CCS ClockSource 
@@ -89,7 +81,7 @@ You can search for ``digium`` occurences in the available packages::
 
 * Install the package :
 
-You can install the package named ``digium-oct6114-064``::
+In ou example, you install the package named ``digium-oct6114-064``::
 
    xivo-fetchfw install digium-oct6114-064
 
@@ -97,6 +89,15 @@ You can install the package named ``digium-oct6114-064``::
 Get help on xivo-fetchfw::
 
    xivo-fetchfw -h
+
+
+Activate the Hardware Echo-cancellation
+---------------------------------------
+
+To use the hardware echo-canceller of the card you must activate it in 
+:file:`/etc/asterisk/chan_dahdi.conf` file::
+    
+    echocancel = 1
 
 
 BRI card configuration
