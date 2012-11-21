@@ -176,7 +176,9 @@ The procedure is similar for the network locale and the user locale package, but
 * For the network locale, download the file named "po-locale-combined-network.cop.sgn"
 * For the user locale, download the file named "po-locale-$locale-name.cop.sgn, for example
   "po-locale-fr_FR.cop.sgn" for the "fr_FR" locale
+* Both files must be placed in :file:`/var/lib/pf-xivo-provd/plugins/$plugin-name/var/cache` directory. Then install them in the XiVO Web Interface.
 
+.. note:: Currently user and network locale 9.0.2 should be used for plugins xivo-sccp-legacy and xivo-cisco-sccp-9.0.3
 
 Digium
 ======
