@@ -10,4 +10,5 @@ System
    proxy
    log_files
    backup_restore
+   DHCP Server <dhcp/dhcp>
    ntp
