@@ -14,6 +14,10 @@ Binaries of the XiVO Client are available on our `mirror`_.
 
 .. _mirror: http://downloads.xivo.fr/xivo_cti_client
 
+.. warning::
+
+   The installed version of the XiVO Client must match the XiVO server's version installation. With our current architecture, there is no way to guarantee that the XiVO server will be retro-compatible with older versions of the XiVO Client. Non-matching XiVO server and XiVO Clients versions will bring inconsistencies.
+
 Choose the version you want and in the right directory, get :
 
 * the ``.exe`` file for Windows
