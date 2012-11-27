@@ -23,7 +23,7 @@ Overview
 The chosen architecture for the switchboard is to have a queue for calls distributed to the operator.
 When a call is received, it is distributed to the operators.
 
-The supported phone for the switchboard is a *Aastra 6757i*.
+The supported phones for the switchboard are the *Aastra 6755i* and *Aastra 6757i*.
 
 
 Create a Queue for Your Switchboard
@@ -31,9 +31,10 @@ Create a Queue for Your Switchboard
 
 All calls to the switchboard will first be distributed to a queue.
 
+The queue must be called ``__switchboard``.
 For this example, we will use the following configuration:
 
-* Switchboard queue name *switchboard*
+* Switchboard queue name *__switchboard*
 * Switchboard queue number *300*
 
 To create this queue, go to :menuselection:`Services --> Call center --> Queues` and click the add button.
@@ -57,7 +58,7 @@ For this example, we will use the following configuration:
 .. figure:: images/user_general.png
    :scale: 85%
 
-The selected device is a *Aastra 6757i*.
+The selected device is a *Aastra 6755i* or *Aastra 6757i*.
 
 .. figure:: images/user_lines.png
    :scale: 85%
@@ -97,3 +98,21 @@ destination should be set to a voice mail.
 
 .. figure:: images/queue_no_answer.png
    :scale: 85%
+
+
+Use XiVO Client to transfer calls
+---------------------------------
+
+When the user ``Bob`` connects his XiVO Client, he gets the Switchboard profile.
+
+.. figure:: images/xivoclient-switchboard.png
+   :scale: 85%
+
+The two main Xlets of this profile are the Switchboard Xlet and the Contacts Xlet.
+
+1. The Switchboard Xlet lists the incoming calls waiting to be answered. When your
+phone is ringing, the oldest waiting call can be answered by clicking on it or
+by pressing ``Enter``.
+
+2. The Contacts Xlet lists and searches among the users of the company. See the
+page about the :ref:`contact-xlet` for how to transfer calls.

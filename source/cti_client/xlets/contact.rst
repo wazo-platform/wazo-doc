@@ -1,5 +1,7 @@
 .. index:: Contacts
 
+.. _contact-xlet:
+
 ************
 Contact Xlet
 ************
