@@ -43,6 +43,13 @@ To create this queue, go to :menuselection:`Services --> Call center --> Queues`
    :scale: 85%
 
 
+Update Your Phone Firmware
+--------------------------
+
+The firmware version for Aastra phones *6755i* and *6757i* must be at least
+0.3. See :ref:`provd-plugins-mgmt` for more details.
+
+
 Create the Users that Will be Operators
 ---------------------------------------
 
