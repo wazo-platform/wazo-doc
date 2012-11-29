@@ -55,7 +55,7 @@ Here is the list of the folder and files backuped:
 * :file:`/etc/hostname`
 * :file:`/var/lib/asterisk/`
 * :file:`/var/lib/pf-xivo/`
-* :file:`/var/lib/pf-xivo-provd`
+* :file:`/var/lib/xivo-provd`
 * :file:`/var/log/asterisk/`
 * :file:`/var/spool/asterisk/`
 

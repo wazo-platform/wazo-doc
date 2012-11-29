@@ -148,7 +148,7 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 
 To install firmware for xivo-cisco-sccp plugins, you need to manually download
 the firmware files from the Cisco website and save them in the
-:file:`/var/lib/pf-xivo-provd/plugins/$plugin-name/var/cache` directory.
+:file:`/var/lib/xivo-provd/plugins/$plugin-name/var/cache` directory.
 
 For example, if you have installed the ``xivo-cisco-sccp-legacy`` plugin and you want
 to install the ``7940-7960-fw``, ``networklocale`` and ``userlocale_fr_FR`` package, you
@@ -176,7 +176,7 @@ The procedure is similar for the network locale and the user locale package, but
 * For the network locale, download the file named "po-locale-combined-network.cop.sgn"
 * For the user locale, download the file named "po-locale-$locale-name.cop.sgn, for example
   "po-locale-fr_FR.cop.sgn" for the "fr_FR" locale
-* Both files must be placed in :file:`/var/lib/pf-xivo-provd/plugins/$plugin-name/var/cache` directory. Then install them in the XiVO Web Interface.
+* Both files must be placed in :file:`/var/lib/xivo-provd/plugins/$plugin-name/var/cache` directory. Then install them in the XiVO Web Interface.
 
 .. note:: Currently user and network locale 9.0.2 should be used for plugins xivo-sccp-legacy and xivo-cisco-sccp-9.0.3
 

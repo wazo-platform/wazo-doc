@@ -45,7 +45,7 @@ want to write some custom templates for it.
 
 First thing to do is to go into the directory where the plugin is installed::
 
-   cd /var/lib/pf-xivo-provd/plugins/xivo-aastra-3.2.2.1136
+   cd /var/lib/xivo-provd/plugins/xivo-aastra-3.2.2.1136
 
 Once you are there, you can see there's quite a few files and directories::
 
