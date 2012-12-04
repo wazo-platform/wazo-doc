@@ -53,7 +53,7 @@ XiVO Client.
 Path configuration
 ------------------
 
-You must change the values in :file:`xivoclient-all.pri` to match the paths of
+You must change the values in :file:`build-deps` to match the paths of
 your installed programs.
 
 
@@ -70,7 +70,7 @@ Building
 
 In a **Cygwin shell**::
 
-   source xivoclient-all.pri
+   source build-deps
    export PATH=$WIN_QT_PATH/bin:$WIN_MINGW_PATH/bin:$PATH
 
    qmake
