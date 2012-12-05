@@ -39,14 +39,13 @@ For this example, we will use the following configuration:
 To create this queue, go to :menuselection:`Services --> Call center --> Queues` and click the add button.
 
 .. figure:: images/queue_general.png
-   :scale: 85%
 
 
 Update Your Phone Firmware
 --------------------------
 
-The firmware version for Aastra phones *6755i* and *6757i* must be at least
-0.3. See :ref:`provd-plugins-mgmt` for more details.
+The version of the provisioning plugin for Aastra phones *6755i* and *6757i*
+must be at least 0.3. See :ref:`provd-plugins-mgmt` for more details.
 
 
 Create the Users that Will be Operators
@@ -63,12 +62,10 @@ In this example, we will use the following configuration:
 * Profile *Switchboard*
 
 .. figure:: images/user_general.png
-   :scale: 85%
 
 Select a *Aastra 6755i* or *Aastra 6757i* device in the *Lines* tab
 
 .. figure:: images/user_lines.png
-   :scale: 85%
 
 Create an Agent for the Operator
 --------------------------------
@@ -82,46 +79,41 @@ To create an agent:
 * Click on the `Add` button
 
 .. figure:: images/agent_add.png
+
+* Associate the user to the agent in the `Users` tab
+
+.. figure:: images/agent_user.png
    :scale: 85%
 
-* Don't forget to associate the user to the agent in the `Users` tab
-
-.. figure:: images/agent_add_2.png
-   :scale: 85%
-
-Assign the Agents to the *Switchboard* Queue
-------------------------------------------
-
-After creating the agents, the operators should be assigned to the *Switchboard* queue.
+* Assign the Agent to the *Switchboard* Queue
 
 .. figure:: images/agent_queue.png
-   :scale: 85%
 
 
 Send Incoming Calls to the *Switchboard* Queue
 ----------------------------------------------
 
-Incoming calls should be sent to the *Switchboard* queue to be distributed to the operators. To do this, we
-have to change the destination of our incoming call to the queue.
+Incoming calls should be sent to the *Switchboard* queue to be distributed to
+the operators. To do this, we have to change the destination of our incoming
+call to the queue.
 
 In this example, we associate our incoming call (DID *444*) to our *Switchboard* queue:
 
 .. figure:: images/incall_general.png
-   :scale: 85%
 
 
 Set "No Answer" Destinations on the *Switchboard* Queue
------------------------------------------------------
+-------------------------------------------------------
 
-When there are no operators available to answer a call, "No Answer" destinations should be used to redirect calls
-towards another destination.
+When there are no operators available to answer a call, "No Answer" destinations
+should be used to redirect calls towards another destination.
 
-In this example we redirect "No Answer", "Busy" and "Congestion" calls to the *everyone* group and "Fail" calls to the *guardian* user.
+In this example we redirect "No Answer", "Busy" and "Congestion" calls to the
+*everyone* group and "Fail" calls to the *guardian* user.
 
 You can also choose to redirect all the calls to another user or a voice mail.
 
 .. figure:: images/queue_no_answer.png
-   :scale: 85%
 
 
 Use the XiVO Client to transfer calls
@@ -130,7 +122,7 @@ Use the XiVO Client to transfer calls
 When the user ``Bob`` connects with his XiVO Client, he gets the Switchboard profile.
 
 .. figure:: images/xivoclient-switchboard.png
-   :scale: 85%
+   :scale: 50%
 
 .. note:: If you don't see the Switchboard Xlet, right-click on the grey
           bar at the right of the *Help* menu and check the line *Switchboard*:
