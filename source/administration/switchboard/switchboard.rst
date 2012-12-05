@@ -83,7 +83,6 @@ To create an agent:
 * Associate the user to the agent in the `Users` tab
 
 .. figure:: images/agent_user.png
-   :scale: 85%
 
 * Assign the Agent to the *Switchboard* Queue
 
