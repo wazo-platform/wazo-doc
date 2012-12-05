@@ -132,6 +132,11 @@ When the user ``Bob`` connects with his XiVO Client, he gets the Switchboard pro
 .. figure:: images/xivoclient-switchboard.png
    :scale: 85%
 
+.. note:: If you don't see the Switchboard Xlet, right-click on the grey
+          bar at the right of the *Help* menu and check the line *Switchboard*:
+
+.. figure:: images/enable-switchboard.png
+
 The two main Xlets of this profile are the Switchboard Xlet and the Contacts Xlet.
 
 1. The Switchboard Xlet lists the incoming calls waiting to be answered. When your
