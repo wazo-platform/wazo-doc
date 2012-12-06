@@ -75,6 +75,9 @@ Configuration options
 .. note:: Statistics are computed on the hour. e.g. If work hours are from 8:30 to 16:15,
     working hours should be set from 8:00 to 17:00.
 
+.. note:: Period includes both bounds, if the same number is used for the higher bound and the lower bound of next period, 
+   some calls will be counted twice. i.e period 1 : 0-30 period 2 : 31-60 period 3 : 61 
+
 
 How to generate the cache
 -------------------------
