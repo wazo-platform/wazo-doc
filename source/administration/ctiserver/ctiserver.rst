@@ -113,3 +113,46 @@ if necessary.
 .. warning:: For now, there is no mechanism for strong authentification of the
    server. The connection is encrypted, but the identity of the server is not
    verified.
+
+
+CTI profiles
+============
+
+The CTI profiles define which features are made available to a user. You can
+configure which profile will be used by a user in the menu :menuselection:`IPBX
+--> PBX Settings --> Users`:
+
+.. figure:: images/user_profile.png
+
+You can also customize the default profiles or add new profiles in the menu
+:menuselection:`CTI Server --> Profiles`:
+
+.. figure:: images/profiles_list.png
+
+
+Xlets
+-----
+
+To choose which features are available to users using a profile, you have to
+select which *Xlets* will be available.
+
+The Xlets are detailed in :ref:`xlet-list`.
+
+The *Position* attribute determines how the Xlets will be laid out:
+
+* *dock* will display a Xlet in its own frame. This frame can have some options:
+
+  * *Floating* means that the frame can be detached from the main window of the CTI
+    Client.
+  * *Closable* means that the Xlet can be hidden
+  * *Movable* means that the Xlet can be moved (either inside the main window or outside)
+  * *Scroll* means that the Xlet will display a scroll bar if the Xlet is too large.
+
+* *grid* will display a Xlet inside the main window, and it will not be
+  movable. Multiple *grid* Xlets will be laid out vertically (the second below
+  the first).
+* *tab* will display a Xlet inside a tab of the Xlet *Tabber*. Thus the Xlet
+  *Tabber* is required and can't be in a *tab* position.
+
+The *Number* attribute gives the order of the Xlets, beginning with 0. The order
+applies only to Xlets having the same *Position* attribute.

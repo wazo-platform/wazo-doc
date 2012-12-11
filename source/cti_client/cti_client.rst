@@ -47,6 +47,8 @@ available in the configuration, account to show agent login info.
 .. figure:: images/login_window.png
    :scale: 85%
 
+.. _xlet-list:
+
 Xlets
 =====
 
