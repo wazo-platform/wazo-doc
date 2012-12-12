@@ -259,10 +259,8 @@ You can configure a sheet when a specific event is called. For example if you wa
 The followed event possible is :
 
  * Dial: When you received a call (the user phone ringing)
- * Link: When you answer a call
- * Unlink: When the call is unlink
- * Agent linked: When an agent answer to a call
- * Agent unlinked: When an agent hangup the call
+ * Link: When a user or agent answers a call
+ * Unlink: When a user or agent hangup a call
  * Incoming DID: Received a call in a DID
  * Outgoing Call: Made an outgoing call
  * Hangup: Hangup the call
@@ -270,7 +268,6 @@ The followed event possible is :
  * Incoming Group: Received a call in a group
  * Fax reception: Received a fax
 
-.. warning:: The link event will not work if an agent is used. Use Link for user members of a queue and agent linked for agents.
 
 .. figure:: images/events_configuration.png
    :scale: 85%
