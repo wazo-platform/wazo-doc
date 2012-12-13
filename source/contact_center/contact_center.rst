@@ -2,7 +2,7 @@
 Contact Center
 **************
 
-In XiVO, contact center is implemented to fulfill the following objectives :
+In XiVO, the contact center is implemented to fulfill the following objectives :
 
 * Call routing
 
@@ -10,7 +10,7 @@ In XiVO, contact center is implemented to fulfill the following objectives :
 
 * Agent and Supervisor workstation.
 
-  Provides ability to execute contact center actions such as, login, logout and
+  Provides the ability to execute contact center actions such as: agent login, agent logout and
   to receive real time statistics regarding contact center status
 
 * Statistics reporting
