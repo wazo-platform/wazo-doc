@@ -5,9 +5,9 @@ Supervision
 Introduction
 ============
 
-Allows a contact center supervisor to monitor contact center activities
+Allows a contact center supervisor to monitor contact center activities such as:
 
-* Monitor real time information from call queues
+* Monitoring real time information from call queues
 * Agent activities per call queues
 * Agent detailed activities
 
@@ -19,7 +19,7 @@ Configuration
 -------------
 
 A supervisor profile defined in :menuselection:`Service --> CTI Server -->
-Profiles` menu, usually contains the following Xlets :
+Profiles` menu usually contains the following Xlets :
 
 * Identity
 * Queues
@@ -35,13 +35,11 @@ Supervision Panel
 .. figure:: images/cc_supervision.png
    :scale: 90%
 
-* Click on queue name on queue list, display agent list for this queue in member
-  of a queue, and updates calls waiting in xlet Calls of queue
+* Clicking on a queue's name in the queue list will display the agent list in the xlet `Queue Members` and show waiting calls in the `Calls of a Queue` xlet.
 
-* Click on an agent in agent list to display the details of this agent in Xlet
-  Agent details
+* Clicking on an agent's name in the agent list will display information on the agent in the `Agent Details` xlet 
 
-* Click on the `+` icon for an agent displays agent details.
+* Clicking on the `+` icon in the `Agent Details` xlet will display information about the selected queue in the `Calls of a Queue` and `Queue Members` xlets.
 
 
 Queue List
@@ -60,64 +58,65 @@ Queues
    queue name and number if configured to be displayed
 
 Waiting calls
-   The number of calls currently waiting for an agent in this queue, the background colored
+   The number of calls currently waiting for an agent in this queue. The background color
    can change depending of the configured thresholds
 
 EWT
    Estimated waiting time
 
 Longest wait
-   The maximum hold time for currently waiting calls, the background colored can change
+   The longest waiting time for currently waiting calls. The background color can change
    depending of the configured thresholds
 
 Talking
-   Shows the number of agents currently in conversation in the queue.
-   This column is set to 0 when the queue has just been created and no members are already affected.
+   The number of agents currently in conversation in the queue.
+   This column is set to 0 when the queue has just been created and no members have been added.
 
 Logged
-   Shows the number of logged agents in the queue.
-   This column is set to N/A when the queue has just been created and no members are already affected.
+   The number of logged agents in the queue.
+   This column is set to "N/A" when the queue has just been created and no members have been added.
 
 Available
-   Shows the number of available agents ready to take a call in the queue.
-   This column is set to N/A when the queue has just been created and no members are already affected.
+   The number of available agents ready to take a call in the queue.
+   This column is set to N/A when the queue has just been created and no members have been added.
 
 Received
-   The number of received calls on this queue during the configured statistical window
+   The number of calls received in this queue during the configured statistical window
 
 Answered
-   The number of answered calls on this queue during the configured statistical window
+   The number of calls answered in this queue during the configured statistical window
 
 Abandoned
-   The number of abandoned calls on this queue during the configured statistical window
+   The number of calls abandoned in this queue during the configured statistical window
 
 Mean waiting time
-   The mean  wait time in the statistical time window, in mm:ss
-   If no calls are received - is displayed
+   The mean wait time in the statistical time window, in mm:ss
+   If no calls are received, "-" is displayed
 
 Max waiting time
    The longest wait time in the statistical time window, in mm:ss
-   If no calls are received - is displayed
+   If no calls are received, "-" is displayed
 
 Efficiency
    Answered calls over received calls during the configured statistical window
    (unanswered calls that are still waiting are not taken into account).
-   If no calls are received - is displayed
+   If no calls are received, "-" is displayed
 
 QOS
-   Percentage of calls taken within X seconds over answered calls during the configured
-   If no calls are received - is displayed
+   Percentage of calls taken within X seconds over answered calls during the configured statistical window.
+   If no calls are received, "-" is displayed
 
 
 **Counter availability**
 
-When the XiVO client is initialized, na is diplayed for not initialized counters.
-When the XiVO client is restarted the counters are always displayed and calculated as if
+When the XiVO client is started, "na" is diplayed for counters that have not been initialized.
+
+When the XiVO client is restarted, the counters are always displayed and calculated as if
 the application was not restarted. When the server is restarted, counters are reinitialized.
 
 **Enabling the xlet**
 
-The xlet can be added to any CTI profil from the web interface.
+The xlet can be added to any CTI profile from the web interface.
 
 .. figure:: images/queue_list_enable.png
    :scale: 70%
@@ -125,30 +124,30 @@ The xlet can be added to any CTI profil from the web interface.
 **Configuration**
 
 Some values can be configured for the xlet. The statistic fetch timer can be set in the CTI profile preferences.
-This option is in seconds and the default is 30 seconds.
+This option is expressed in seconds and the default is 30 seconds.
 
 .. figure:: images/queue_list_fetch_time.png
    :scale: 70%
 
-When logged to the XiVO client, one can modify his statistic parameters.
 
-* Window is the period of statistical analysis to be displayed.
+The statistical period can be configured through the XiVO client once logged in by right-clicking on the Queue's name in the `Queues` xlet.
+For each queue, you can configure the following information:
 
-  On the server side, data that are used to compute statistics are only kept
-  for around 3 hours, so there's a hard limit of 3 hours for this value.
-* Qos is the wait time that is required for a call to be answered on time
+ * Qos:  maximum wait time for a call, in seconds. 
+ * Window: period of time used for accumulating statistics, in seconds.
 
-These configurations can be done for each queue.
+The data used to compute statistics on the XiVO server is only kept for a maximum of 3 hours. 
+The window period cannot be configured to go beyond this limit.
 
 .. figure:: images/queue_list_fetch_param.png
    :scale: 90%
 
-Display options can also be set on the client side.
+Display options can also be set on the client side. A threshold can be configured to change the color of a column using the following parameters:
 
-* Queue display (longest wait) add the column showing the longest hold time for the currently waiting calls
-* Queue display (number) shows the queue number
-* The first pair of scroll box control the color switching threshold of the longest wait box
-* The second pair of scroll box control the color switching threshold of the call waiting box
+ * Queue thresholds (waiting calls): number of waiting calls in the queue.
+ * Display queue's longest wait: Add a column displaying the number of seconds the longest call has waited.
+ * Queue thresholds (longest wait): number of seconds for the longest waiting call in the queue.
+ * Display queue number: Add a column displaying the queue's number.
 
 .. figure:: images/queue_list_config.png
    :scale: 90%
