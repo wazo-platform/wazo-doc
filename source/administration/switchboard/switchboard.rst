@@ -25,6 +25,7 @@ The switchboard works in a similar way to a queue: When a call is received, it i
 The supported phones for the switchboard are the *Aastra 6755i* and *Aastra 6757i*.
 
 
+
 Create a Queue for Your Switchboard
 -----------------------------------
 
@@ -45,7 +46,15 @@ Update Your Phone Firmware
 --------------------------
 
 The version of the provisioning plugin for Aastra phones *6755i* and *6757i*
-must be at least 0.3. See :ref:`provd-plugins-mgmt` for more details.
+must be xivo-aastra-switchboard. See :ref:`provd-plugins-mgmt` for more details.
+
+You must select manually a plugin for your device:
+
+* Edit device associated to your user
+
+.. figure:: images/device_plugin_switchboard.png
+
+* Select a *xivo-aastra-switchboard* plugin
 
 
 Create the Users that Will be Operators
