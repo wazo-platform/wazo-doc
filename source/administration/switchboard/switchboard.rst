@@ -11,7 +11,10 @@ Quick Summary
 In order to configure a switchboard on your XiVO, you need to:
 
 * Create a queue for your switchboard
+* Create a queue for your switchboard's call on hold
 * Create the users that will be operators
+* Assign the switchboard plugin to your user
+* Create an agent for your user
 * Assign the incoming calls to the switchboard queue
 * For each operator, add a function key for logging in or logging out from the switchboard queue.
 * Set "no answer" destinations on the switchboard queue
@@ -22,8 +25,14 @@ Overview
 
 The switchboard works in a similar way to a queue: When a call is received, it is distributed to the operators logged in.
 
-The supported phones for the switchboard are the *Aastra 6755i* and *Aastra 6757i*.
 
+Supported Devices
+-----------------
+
+The supported phones for the switchboard are:
+
+* Aastra 6755i
+* Aastra 6757i
 
 
 Create a Queue for Your Switchboard
@@ -31,32 +40,41 @@ Create a Queue for Your Switchboard
 
 All calls to the switchboard will first be distributed to a queue.
 
-The queue must be called ``__switchboard``.
-For this example, we will use the following configuration:
+To create this queue, go to :menuselection:`Services --> Call center --> Queues` and click the add button.
 
-* Switchboard queue name *__switchboard*
-* Switchboard queue number *300*
+.. figure:: images/queue_general.png
+
+The Following configuration is mandatory
+
+* The :menuselection:`General --> Name` field has to be *__switchboard*
+* The :menuselection:`Application --> Allow caller to hang up call` option has to be *enabled*
+* The :menuselection:`Application --> Allow callee to transfer the call` option has to be *enabled*
+* The :menuselection:`Advanced --> Member reachability timeout` option has to be *disabled*
+* The :menuselection:`Advanced --> Time before retrying a call to a member` option has to be *1 second*
+* The :menuselection:`Advanced --> Delay before reassigning a call` option has to be *disabled*
+
+Other important fields
+
+* The :menuselection:`General --> Display name` field is the name displayed in the XiVO client xlets and in the statistics
+* The :menuselection:`General --> Number` field is the number that will be used to reach the switchboard internally typically *9*
+
+Create a Queue for Your Switchboard on Hold
+-------------------------------------------
+
+The switchboard uses a queue to track it's calls on hold.
 
 To create this queue, go to :menuselection:`Services --> Call center --> Queues` and click the add button.
 
 .. figure:: images/queue_general.png
 
+The Following configuration is mandatory
 
-Update Your Phone Firmware
---------------------------
+* The :menuselection:`General --> Name` field has to be *__switchboard_hold*
+* The :menuselection:`General --> Number` field has to be a valid number in a context reachable by the switchboard
 
-The version of the provisioning plugin for Aastra phones *6755i* and *6757i*
-must be xivo-aastra-switchboard. See :ref:`provd-plugins-mgmt` for more details.
+Other important fields
 
-You must select manually a plugin for your device:
-
-* Edit device associated to your user
-
-.. figure:: images/device_plugin_switchboard.png
-
-* Select a *xivo-aastra-switchboard* plugin and save
-
-* Update your phone to update the changes
+* The :menuselection:`General --> Display name` field is the name displayed in the XiVO client xlets and in the statistics
 
 
 Create the Users that Will be Operators
@@ -64,19 +82,36 @@ Create the Users that Will be Operators
 
 Each operator needs to have a user configured with a line. The XiVO client profile has to be set to *Switchboard*.
 
-In this example, we will use the following configuration:
+The following configuration is mandatory for switchboard users
 
-* First name *Bob*
-* Line number *1674*
-* Login *switchboard*
-* Password *$3Cr37*
-* Profile *Switchboard*
+* The :menuselection:`General --> First name` field has to be set
+* The :menuselection:`General --> Simultaneous calls` option has to be set to *1*
+* The :menuselection:`General --> Enable XiVO Client` option has to be set *enabled*
+* The :menuselection:`General --> Login` field has to be set
+* The :menuselection:`General --> Password` field has to be set
+* The :menuselection:`General --> Profile` field has to be  *Switchboard*
+* The :menuselection:`Lines --> Number` field has to be *empty*
+* The :menuselection:`Lines --> Device` field has to be a supported device
+* The :menuselection:`Services --> Enable call transfer` option has to be *enabled*
 
 .. figure:: images/user_general.png
 
-Select a *Aastra 6755i* or *Aastra 6757i* device in the *Lines* tab
 
-.. figure:: images/user_lines.png
+Set the Switchboard Plugin on your Phone
+----------------------------------------
+
+The provisioning plugin for the switchboard must be *xivo-aastra-switchboard*.
+
+See :ref:`provd-plugins-mgmt` for more details.
+
+This *xivo-aastra-switchboard* plugin must be set on the user's phone
+
+* Edit device associated to your user in :menuselection:`Services --> Devices`
+* Select a *xivo-aastra-switchboard* plugin and save
+* Synchronize you phone to apply the changes
+
+.. figure:: images/device_plugin_switchboard.png
+
 
 Create an Agent for the Operator
 --------------------------------
