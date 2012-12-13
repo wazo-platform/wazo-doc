@@ -54,7 +54,9 @@ You must select manually a plugin for your device:
 
 .. figure:: images/device_plugin_switchboard.png
 
-* Select a *xivo-aastra-switchboard* plugin
+* Select a *xivo-aastra-switchboard* plugin and save
+
+* Update your phone to update the changes
 
 
 Create the Users that Will be Operators
