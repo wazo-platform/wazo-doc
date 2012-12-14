@@ -60,6 +60,7 @@ The Following configuration is mandatory
 * The :menuselection:`Advanced --> Member reachability timeout` option has to be *disabled*
 * The :menuselection:`Advanced --> Time before retrying a call to a member` option has to be *1 second*
 * The :menuselection:`Advanced --> Delay before reassigning a call` option has to be *disabled*
+* The :menuselection:`Advanced --> Autopause agents` option has to be *disabled*
 
 Other important fields
 
