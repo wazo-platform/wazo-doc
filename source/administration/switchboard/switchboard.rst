@@ -96,7 +96,7 @@ The following configuration is mandatory for switchboard users
 * The :menuselection:`General --> Login` field has to be set
 * The :menuselection:`General --> Password` field has to be set
 * The :menuselection:`General --> Profile` field has to be  *Switchboard*
-* The :menuselection:`Lines --> Number` field has to be *empty*
+* The :menuselection:`Lines --> Number` field has to have a valid extension
 * The :menuselection:`Lines --> Device` field has to be a supported device
 * The :menuselection:`Services --> Enable call transfer` option has to be *enabled*
 
