@@ -183,7 +183,6 @@ The XiVO Client Switchboard Profile
 When the user connects with his XiVO Client, he gets the Switchboard profile.
 
 .. figure:: images/xivoclient-switchboard.png
-   :scale: 50%
 
 .. note:: If you don't see the Switchboard Xlet, right-click on the grey
           bar at the right of the *Help* menu and check the line *Switchboard*:
