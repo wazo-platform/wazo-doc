@@ -170,6 +170,11 @@ You can also choose to redirect all the calls to another user or a voice mail.
 Usage
 =====
 
+.. warning::
+
+  The switchboard configuration must be completed before connecting the switchboard user.
+  If it's not the case, the user must disconnect it's XiVO client and reconnect.
+
 
 The XiVO Client Switchboard Profile
 -----------------------------------
