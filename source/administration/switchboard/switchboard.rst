@@ -1,12 +1,26 @@
-*************************
-Configuring a Switchboard
-*************************
+***********
+Switchboard
+***********
 
 This page describes the configuration needed to have a switchboard on your XiVO.
 
 
-Quick Summary
+Overview
+========
+
+The switchboard functionnality is available in XiVO through the XiVO client. The goal of this page is to
+describe how to configure your switchboard and how to use it.
+
+The switchboard xlet and profile allow an operator to view incoming calls and answer them.
+Put calls on hold, view the call on hold and pick the call on hold back.
+
+
+Configuration
 =============
+
+
+Quick Summary
+-------------
 
 In order to configure a switchboard on your XiVO, you need to:
 
@@ -18,12 +32,6 @@ In order to configure a switchboard on your XiVO, you need to:
 * Assign the incoming calls to the switchboard queue
 * For each operator, add a function key for logging in or logging out from the switchboard queue.
 * Set "no answer" destinations on the switchboard queue
-
-
-Overview
-========
-
-The switchboard works in a similar way to a queue: When a call is received, it is distributed to the operators logged in.
 
 
 Supported Devices
@@ -64,8 +72,6 @@ Create a Queue for Your Switchboard on Hold
 The switchboard uses a queue to track it's calls on hold.
 
 To create this queue, go to :menuselection:`Services --> Call center --> Queues` and click the add button.
-
-.. figure:: images/queue_general.png
 
 The Following configuration is mandatory
 
@@ -161,10 +167,14 @@ You can also choose to redirect all the calls to another user or a voice mail.
 .. figure:: images/queue_no_answer.png
 
 
-Use the XiVO Client to transfer calls
--------------------------------------
+Usage
+=====
 
-When the user ``Bob`` connects with his XiVO Client, he gets the Switchboard profile.
+
+The XiVO Client Switchboard Profile
+-----------------------------------
+
+When the user connects with his XiVO Client, he gets the Switchboard profile.
 
 .. figure:: images/xivoclient-switchboard.png
    :scale: 50%
@@ -176,9 +186,62 @@ When the user ``Bob`` connects with his XiVO Client, he gets the Switchboard pro
 
 The two main Xlets of this profile are the Switchboard Xlet and the Contacts Xlet.
 
-1. The Switchboard Xlet lists the incoming calls waiting to be answered. When your
-phone is ringing, the oldest call can be answered by clicking on it or
-by pressing ``Enter``.
+1. The Switchboard Xlet lists the incoming calls waiting to be answered, calls on hold and
+the current call.
 
 2. The Contacts Xlet lists and searches among the users of the company. See the
 page about the :ref:`contact-xlet` on how to transfer calls.
+
+The user can login it's agent using a function key or an extension to start
+receiving calls.
+
+
+The Switchboard Xlet
+--------------------
+
+The switchboard xlet is made of three parts. The current call at the top, the list of incoming
+calls on the left and the list of waiting calls.
+
+
+Answering an incoming call
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When the switchboard receives a call, the new call is added to the incoming call
+list on the left. The user can answer this call by clicking on the first call in the
+list or by pressing the *Enter* key.
+
+.. note:: The focus must be on the XiVO client for the keyboard shortcuts to be handled
+
+Once the call is answered, it is removed from the incoming calls list and displayed
+in the *Current Call* frame.
+
+
+Distributing a call
+^^^^^^^^^^^^^^^^^^^
+
+Once the call has been answered and placed in the current call frame, the user
+can distribute the call to another user using the :ref:`contact-xlet`, put the call on hold
+using the *Hold* button or the *F7* key or end the call using the *Hangup* button or
+the *F8* key.
+
+If the user place the call on hold, it will be removed from the currents call frame and
+displayed in the call on hold list.
+
+
+Retrieving a call on hold
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once a call has been placed on hold, the user will most certainly want to retrieve
+that call later to distribute it to another destination.
+
+Any call on hold can be retrieved by clicking the desired call in the *Waiting call* list.
+The focus can also be moved to the *Waiting Call* list and the call picked from the list
+using the *Enter* key.
+
+Once a call has been retrieved from the *Waiting Call* list, it is placed back into
+the *Current Call* frame, ready to be distributed.
+
+.. warning::
+
+  Calls that have been placed on hold and retrieved must be hung up using
+  the *Hangup* button. Hanging up using the phone will put the call back on hold.
