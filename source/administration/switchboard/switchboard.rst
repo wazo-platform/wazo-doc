@@ -191,14 +191,6 @@ When the user connects with his XiVO Client, he gets the Switchboard profile.
 
 .. figure:: images/enable-switchboard.png
 
-The two main Xlets of this profile are the Switchboard Xlet and the Contacts Xlet.
-
-1. The Switchboard Xlet lists the incoming calls waiting to be answered, calls on hold and
-the current call.
-
-2. The Contacts Xlet lists and searches among the users of the company. See the
-page about the :ref:`contact-xlet` on how to transfer calls.
-
 The user can login it's agent using a function key or an extension to start
 receiving calls.
 
