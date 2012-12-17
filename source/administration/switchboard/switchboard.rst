@@ -175,8 +175,8 @@ Usage
 
 .. warning::
 
-  The switchboard configuration must be completed before connecting the switchboard user.
-  If it's not the case, the user must disconnect it's XiVO client and reconnect.
+  The switchboard configuration must be completed before using the switchboard.
+  If it's not the case, the user must disconnect his XiVO client and reconnect.
 
 
 The XiVO Client Switchboard Profile
@@ -187,60 +187,70 @@ When the user connects with his XiVO Client, he gets the Switchboard profile.
 .. figure:: images/xivoclient-switchboard.png
 
 .. note:: If you don't see the Switchboard Xlet, right-click on the grey
-          bar at the right of the *Help* menu and check the line *Switchboard*:
+          bar at the right of the *Help* menu and check *Switchboard*:
 
 .. figure:: images/enable-switchboard.png
 
-The user can login it's agent using a function key or an extension to start
+The operator can login his agent using a function key or an extension to start
 receiving calls.
 
 
-The Switchboard Xlet
---------------------
-
-The switchboard xlet is made of three parts. The current call at the top, the list of incoming
-calls on the left and the list of waiting calls.
-
+Call flow
+---------
 
 Answering an incoming call
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When the switchboard receives a call, the new call is added to the incoming call
-list on the left. The user can answer this call by clicking on the first call in the
-list or by pressing the *Enter* key.
+When the switchboard receives a call, the new call is added to the *Incoming
+Calls* list on the left. The user can answer this call by clicking on the first
+call in the list or by pressing the *Enter* key.
 
-.. note:: The focus must be on the XiVO client for the keyboard shortcuts to be handled
+.. note:: The XiVO Client must be the active window for the keyboard shortcuts
+          to be handled
 
-Once the call is answered, it is removed from the incoming calls list and displayed
+Once the call has been answered, it is removed from the incoming calls list and displayed
 in the *Current Call* frame.
 
 
 Distributing a call
 ^^^^^^^^^^^^^^^^^^^
 
-Once the call has been answered and placed in the current call frame, the user
-can distribute the call to another user using the :ref:`contact-xlet`, put the call on hold
-using the *Hold* button or the *F7* key or end the call using the *Hangup* button or
-the *F8* key.
+Once the call has been answered and placed in the current call frame, the operator has 3 choices:
 
-If the user place the call on hold, it will be removed from the currents call frame and
-displayed in the call on hold list.
+* **transfer the call** to another user using the :ref:`contact-xlet`
+  (typically, search someone and right-click on him)
+* put the call **on hold** using the *Hold* button or the *F7* key
+* **end the call** using the *Hangup* button or the *F8* key.
+
+
+Putting a call on hold
+^^^^^^^^^^^^^^^^^^^^^^
+
+If the user places the call on hold, it will be removed from the *Current call*
+frame and displayed in the *Waiting calls* list. The time counter shows how long
+the call has been waiting, thus it will be reset each time the call returns in
+the *Waiting calls* list. The calls are ordered from the oldest to the newest.
 
 
 Retrieving a call on hold
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Once a call has been placed on hold, the user will most certainly want to retrieve
-that call later to distribute it to another destination.
+Once a call has been placed on hold, the operator will most certainly want to
+retrieve that call later to distribute it to another destination.
 
-Any call on hold can be retrieved by clicking the desired call in the *Waiting call* list.
-The focus can also be moved to the *Waiting Call* list and the call picked from the list
-using the *Enter* key.
+To retrieve a call on hold:
 
-Once a call has been retrieved from the *Waiting Call* list, it is placed back into
-the *Current Call* frame, ready to be distributed.
+* click the desired call in the *Waiting calls* list
+* with the keyboard:
+
+  * move the focus to the *Waiting calls* list (*F9* key)
+  * choose the desired call with the arrow keys
+  * press the *Enter* key.
+
+Once a call has been retrieved from the *Waiting calls* list, it is moved back
+into the *Current Call* frame, ready to be distributed.
 
 .. warning::
 
-  Calls that have been placed on hold and retrieved must be hung up using
-  the *Hangup* button. Hanging up using the phone will put the call back on hold.
+  Any retrieved call must be hung up using the *Hangup* button. Hanging up using
+  the phone will put the call back on hold.
