@@ -34,6 +34,8 @@ In order to configure a switchboard on your XiVO, you need to:
 * Set "no answer" destinations on the switchboard queue
 
 
+.. _switchboard_supported_devices:
+
 Supported Devices
 -----------------
 
@@ -98,7 +100,7 @@ The following configuration is mandatory for switchboard users
 * The :menuselection:`General --> Password` field has to be set
 * The :menuselection:`General --> Profile` field has to be  *Switchboard*
 * The :menuselection:`Lines --> Number` field has to have a valid extension
-* The :menuselection:`Lines --> Device` field has to be a supported device
+* The :menuselection:`Lines --> Device` field has to be a :ref:`supported device <switchboard_supported_devices>`
 * The :menuselection:`Services --> Enable call transfer` option has to be *enabled*
 
 .. figure:: images/user_general.png
