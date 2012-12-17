@@ -232,6 +232,18 @@ Once the call has been answered and placed in the current call frame, the operat
 * **end the call** using the *Hangup* button or the *F8* key.
 
 
+Transferring a call
+^^^^^^^^^^^^^^^^^^^
+
+If you transfer a call with an attended transfer:
+
+* if you want to cancel the transfer, let the callee hang up.
+* if you want to finalize the transfer, hang up yourself (for now, **not** with
+  the *Hangup* button or F8 ; you can hang up by right-clicking on yourself in
+  the *Contacts* Xlet, but there is no way to finalize the transfer via the
+  keyboard).
+
+
 Putting a call on hold
 ^^^^^^^^^^^^^^^^^^^^^^
 
