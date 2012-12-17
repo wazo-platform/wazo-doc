@@ -211,13 +211,14 @@ Answering an incoming call
 
 When the switchboard receives a call, the new call is added to the *Incoming
 Calls* list on the left. The user can answer this call by clicking on the first
-call in the list or by pressing the *Enter* key.
+call in the list or by pressing the *Enter* key **only when his phone is
+ringing**.
 
 .. note:: The XiVO Client must be the active window for the keyboard shortcuts
           to be handled
 
-Once the call has been answered, it is removed from the incoming calls list and displayed
-in the *Current Call* frame.
+Once the call has been answered, it is removed from the incoming calls list and
+displayed in the *Current Call* frame.
 
 
 Distributing a call
