@@ -186,6 +186,14 @@ When the user connects with his XiVO Client, he gets the Switchboard profile.
 
 .. figure:: images/xivoclient-switchboard.png
 
+1. *Current Call* frame
+2. *Hold* button
+3. *Hangup* button
+4. *Incoming Calls* list
+5. *Waiting Calls* list
+6. Contacts Xlet
+7. Dial Xlet
+
 .. note:: If you don't see the Switchboard Xlet, right-click on the grey
           bar at the right of the *Help* menu and check *Switchboard*:
 
