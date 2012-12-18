@@ -7,17 +7,6 @@ The list of current bugs can be found on
 `the official XiVO issue tracker <https://projects.xivo.fr/issues?set_filter=1&tracker_id=1>`_.
 
 
-No sound on blind transfer using SCCP
--------------------------------------
-
-The callee does not hear the caller after a blind transfer using an SCCP phone
-with the direct media option is enabled.
-
-The workaround is to disable direct media in general SCCP options
-
-Associated ticket: #3941
-
-
 Transfers using DTMF
 --------------------
 
