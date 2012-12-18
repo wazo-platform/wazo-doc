@@ -37,7 +37,7 @@ Supervision Panel
 
 * Clicking on a queue's name in the queue list will display the agent list in the xlet `Queue Members` and show waiting calls in the `Calls of a Queue` xlet.
 
-* Clicking on an agent's name in the agent list will display information on the agent in the `Agent Details` xlet 
+* Clicking on an agent's name in the agent list will display information on the agent in the `Agent Details` xlet
 
 * Clicking on the `+` icon in the `Agent Details` xlet will display information about the selected queue in the `Calls of a Queue` and `Queue Members` xlets.
 
@@ -133,10 +133,10 @@ This option is expressed in seconds and the default is 30 seconds.
 The statistical period can be configured through the XiVO client once logged in by right-clicking on the Queue's name in the `Queues` xlet.
 For each queue, you can configure the following information:
 
- * Qos:  maximum wait time for a call, in seconds. 
+ * Qos:  maximum wait time for a call, in seconds.
  * Window: period of time used for accumulating statistics, in seconds.
 
-The data used to compute statistics on the XiVO server is only kept for a maximum of 3 hours. 
+The data used to compute statistics on the XiVO server is only kept for a maximum of 3 hours.
 The window period cannot be configured to go beyond this limit.
 
 .. figure:: images/queue_list_fetch_param.png
