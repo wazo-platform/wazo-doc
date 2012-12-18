@@ -232,8 +232,6 @@ Display advanced informations of an agent and enable to login/logoff, add/remove
 4. Pause/Unpause button for given queue
 5. Add/Remove agent for given queue
 
-You can't add/remove this agent to queue1/queue6 because there is hard linked in configuration (WEBI)
-
 
 Queue members
 ^^^^^^^^^^^^^
