@@ -127,8 +127,24 @@ SPA8800  |n|         0          |n|
 ======== =========== ========== ============
 
 .. note::
+   For best results, activate :ref:`dhcp-integration` on your XiVO.
+
+.. note::
    These devices can be used to connect Faxes. For better success with faxes some parameters 
    must be changed. You can read the :ref:`fax-analog-gateway` section.
+
+.. note::
+   If you want to manually resynchronize the configuration from the ATA device 
+   you should use the following url::
+    
+     http://ATA_IP/admin/resync?http://XIVO_IP:8667/CONF_FILE
+   
+   where :
+
+      * *ATA_IP*    is the IP address of the ATA,
+      * *XIVO_IP*   is the IP address of your XiVO,
+      * *CONF_FILE* is one of {spa2102.cfg,spa3102.cfg,spa8000.cfg}
+
 
 Cisco 7900 series (*SCCP* mode only):
 
