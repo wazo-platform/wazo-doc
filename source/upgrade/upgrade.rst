@@ -11,6 +11,7 @@ To upgrade your XiVO to the latest version, you **must** use the `xivo-upgrade` 
 .. note:: 
    * You can't use xivo-upgrade if you have not run the wizard yet
    * Upgrading to XiVO 1.2 from a previous version (i.e. XiVO 1.1) is not supported right now.
+   * When upgrading Xivo, you **must** also upgrade **all** associated XiVO Clients. There is currently no retro-compatibility on older XiVO Client versions.
 
 This script will update XiVO and restart all daemons.
 

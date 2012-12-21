@@ -2,20 +2,22 @@
 Queues
 ******
 
-Call queues are managed on the
-:menuselection:`Services --> Call Center --> Queues` page:
+Call queues are used to distribute calls to the agents subscribed to the queue.  Queues are managed on the
+:menuselection:`Services --> Call Center --> Queues` page.
 
 .. figure:: add-queue.png
    :scale: 85%
 
-   :menuselection:`Services --> Call Center --> Queues`
+   :menuselection:`Services --> Call Center --> Queues --> Add`
 
-
-Ring strategy
-   Define how queue members are called when a call enters the queue.
+A queue can be configured with the following options:
 
    * Name : used as an unique id, cannot be ``general``
-   * Display name : Displayed on the supervisor screens
+   * Display name : Displayed on the supervisor screen
+
+A ring strategy defines how queue members are called when a call enters the queue. 
+A queue can use one of the following ring strategies:
+
    * Linear: for each call, call the first member, then the second, etc.
    * Least recent: call the member who has least recently hung up a call.
    * Fewest calls: call the member with the fewest completed calls.
@@ -35,14 +37,12 @@ Ring strategy
 Timers
 ======
 
-You may control how long a call has to stay in the queue using different timers
+You may control how long a call will stay in a queue using different timers:
 
-   * Member reachabillity time out (Advanced tab) : This is the agent ringing maximum time, if a call is not answered within this time call is
-     forwareded to an other agent.
-   * Time before retrying a call to a member (Advanced tab) : When an agent does not answer the call will not be placed during that time
+   * Member reachabillity time out (Advanced tab): Maximum number of seconds a call will ring on an agent's phone. If a call is not answered within this time, the call will be forwareded to another agent.
+   * Time before retrying a call to a member (Advanced tab) : Used once a call has reached the "Member reachability time out". The call will be put on hold for the number of seconds alloted before being redirected to another agent.
    * Ringing time (Application tab) : The total time the call will stay in the queue
-   * Timeout priority (Application tab) : If set to configuration, call will wait the last agent ringing timeout expires before beeing diverted
-      If set to dialplan (application), at the end of the ringing time the call is diverted.
+   * Timeout priority (Application tab) : Determines which timeout to use before ending a call. When set to "configuration", the call will use the "Member reachability time out". When set to "dialplan", the call will use the "Ringing time".
 
 .. figure:: queue_timers.jpg
    :scale: 85%
@@ -51,7 +51,8 @@ You may control how long a call has to stay in the queue using different timers
 Diversions
 ==========
 
-Diversions can be used to specify distribution options on a given scenario.
+Diversions can be used to redirect calls towards another destination when a queue is very busy. 
+Calls are redirected using one of the two following scenarios:
 
 .. figure:: diversions.png
     :scale: 85%
@@ -60,19 +61,30 @@ Diversions can be used to specify distribution options on a given scenario.
 Estimated Wait Time Overrun
 ---------------------------
 
-When this option is used, the administrator can set a destination for calls
-when the average waiting time is over the specified number.
-
-
+When this scenario is used, the administrator can set a destination for calls when the average waiting time is over the threshold.
 
 Waiting Calls / Available Agents Ratio
 --------------------------------------
 
-When this option is used, the administrator can set a destination for calls
-when the number of waiting calls is over the number of logged agents.
+When this scenario is used, the administrator can set a destination when the call ratio is higher than the percent threshold.
+The call ratio is calculated with the following formula::
 
-A Threshold of 100% means that there should not be more than one waiting call
-for each logged agents. A higher ratio means more waiting calls will be received.
+    call ratio = (number of waiting calls / available agents) * 100
+
+Here are a few examples::
+
+    Threshold: 100%
+    Waiting calls: 3
+    Available agents: 2
+    call ratio = (3 / 2) * 100 = 150%
+    Calls will be redirected
+
+
+    Threshold: 120%
+    Waiting calls: 9
+    Available agents: 12
+    call ratio = (9 / 12) * 100 = 75%
+    Calls will not be redirected
 
 .. warning::
 

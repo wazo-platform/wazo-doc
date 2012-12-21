@@ -14,6 +14,10 @@ Binaries of the XiVO Client are available on our `mirror`_.
 
 .. _mirror: http://downloads.xivo.fr/xivo_cti_client
 
+.. warning::
+
+   The installed version of the XiVO Client must match the XiVO server's version installation. With our current architecture, there is no way to guarantee that the XiVO server will be retro-compatible with older versions of the XiVO Client. Non-matching XiVO server and XiVO Clients versions will bring inconsistencies.
+
 Choose the version you want and in the right directory, get :
 
 * the ``.exe`` file for Windows
@@ -43,6 +47,8 @@ available in the configuration, account to show agent login info.
 .. figure:: images/login_window.png
    :scale: 85%
 
+.. _xlet-list:
+
 Xlets
 =====
 
@@ -51,9 +57,6 @@ Xlets are features of the CTI Client. It is the contraction of XiVO applets.
 .. toctree::
    :maxdepth: 1
 
-   Agent details xlet <xlets/agent_details>
-   Agent list xlet <xlets/agent_list>
-   Calls of a Queue <xlets/calls_of_a_queue>
    Conference xlet <xlets/conference>
    Contact xlet <xlets/contact>
    Directory xlet <xlets/directory>

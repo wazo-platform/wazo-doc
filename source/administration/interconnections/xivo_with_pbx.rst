@@ -4,23 +4,20 @@
 Interconnect a XiVO to a PBX via an ISDN link
 *********************************************
 
-XiVO will play the role of gateway for the PBX. It will bring new features to the PBX like voicemail, conference, etc.
-Interconnect a XiVO to a PBX allows to migrate slowly users and features.
+The goal of this architecture can be one of:
+
+* start a smooth migration between an old telephony system towards IP telephony with XiVO
+* bring new features to the PBX like voicemail, conference, IVR etc.
+
+First, XiVO is to be integrated transparently between the operator and the PBX.
+Then users or features are to be migrated from the PBX to the XiVO. It requires a special call routing
+configuration both on the XiVO and on the PBX.
 
 .. figure:: images/xivo-pbx.png
    :align: center
    :scale: 65%
 
    Interconnect a XiVO to a PBX
-
-
-Context choice
---------------
-
-Use to the maximum a couple of contexts from / to by interconnection
-
-* ISDN Provider = "to-extern" and "from-extern"
-* ISDN link with PBX = "to-pbx" and "from-pbx"
 
 
 Hardware
@@ -31,77 +28,68 @@ General uses
 
 You must have an ISDN card able to support both the ISDN provider and ISDN links with PBX.
 
-
 .. note::
 
     If you have two ISDN provider links to PBX, XiVO should have a card with 4 spans : two to the provider, and two to the PBX.
 
+
 If you use two cards
 ====================
 
-If you have to use two cards, you have to :
+If you use two cards, you have to :
 
 * Use a cable for clock synchronization between the cards
-* Configure the "wheel" to define the cards order in the system. The ISDN links used by XiVO to synchronize have to be pluged on the card number one!
+* Configure the "wheel" to define the cards order in the system. The ISDN links used by XiVO to synchronize have to be plugged on the card number one!
 
 Please refer to the section :ref:`Sync cable <sync_cable>`
+
 
 Configuration
 -------------
 
 You have now to configure two files :
 
-1. :file:`/etc/dahdi/system.conf`
+#. :file:`/etc/dahdi/system.conf`
+#. :file:`/etc/asterisk/dahdi-channels.conf`
 
-2. :file:`/etc/asterisk/dahdi-channels.conf`
 
 system.conf
 ===========
 
-Horloge
-^^^^^^^
+Clock configuration
+^^^^^^^^^^^^^^^^^^^
 
-.. warning:: Consider the configuration of the clock!
-
-    * Provider side : ISDN links recover sync clock provider
-    * PBX side : ISDN links provide sync PBX
-
-
-* 1 span te provider side (to receive clock)
-* 0 span nt PBX side (to provide clock)
-
-To configure :file:`/etc/dahdi/system.conf` please refer to the section :ref:`system.conf <system_conf>`
+* Provider side - XiVO will get the clock from the provider :
+  the ``timing`` value is to be different from 0 (see :ref:`system_conf` section)
+* PBX side - XiVO will provide the clock to the PBX :
+  the ``timing`` value is to be set to 0 (see :ref:`system_conf` section)
 
 
-Exemple
+Example
 ^^^^^^^
 
 Below an example for interconnection with two ISDN provider::
 
     # Span 1: TE4/0/1 "TE4XXP (PCI) Card 0 Span 1" (MASTER)
-    span=1,1,0,ccs,hdb3
-    # termtype: te
+    span=1,1,0,ccs,hdb3         # Span towards Provider
     bchan=1-15,17-31
     dchan=16
     echocanceller=mg2,1-15,17-31
 
     # Span 2: TE4/0/2 "TE4XXP (PCI) Card 0 Span 2" 
-    span=2,2,0,ccs,hdb3
-    # termtype: te
+    span=2,2,0,ccs,hdb3         # Span towards Provider
     bchan=32-46,48-62
     dchan=47
     echocanceller=mg2,32-46,48-62
 
     # Span 3: TE4/0/3 "TE4XXP (PCI) Card 0 Span 3" 
-    span=3,0,0,ccs,hdb3
-    # termtype: nt
+    span=3,0,0,ccs,hdb3         # Span towards PBX
     bchan=63-77,79-93
     dchan=78
     echocanceller=mg2,63-77,79-93
 
     # Span 4: TE4/0/4 "TE4XXP (PCI) Card 0 Span 4" 
-    span=4,0,0,ccs,hdb3
-    # termtype: nt
+    span=4,0,0,ccs,hdb3         # Span towards PBX
     bchan=94-108,110-124
     dchan=109
     echocanceller=mg2,94-108,110-124
@@ -120,13 +108,14 @@ Modify the file :file:`/etc/asterisk/dahdi-channels.conf` ::
     signalling : pri_cpe provider side, pri_net PBX side
 
 
-.. warning:: On certains destinations, some PBX use an overlapdialing (digits sent one by one). In this case, we have to activate a parameter on the spans concerned :
+.. warning:: Towards certains destinations, some PBX use an overlapdialing (digits are sent one by one).
+  In this case, we have to activate a parameter on the spans concerned::
 
     overlapdial = incoming
 
-This can be see with "pri intense debug" 
+This can be seen with "pri intense debug" 
 
-Below an example to dahdi-channels.conf. Be careful to three parameters :
+Below an example of :file:``/etc/asterisk/dahdi-channels.conf``. Be careful to three parameters :
 
 * group
 * context

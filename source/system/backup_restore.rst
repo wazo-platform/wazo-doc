@@ -55,7 +55,7 @@ Here is the list of the folder and files backuped:
 * :file:`/etc/hostname`
 * :file:`/var/lib/asterisk/`
 * :file:`/var/lib/pf-xivo/`
-* :file:`/var/lib/pf-xivo-provd`
+* :file:`/var/lib/xivo-provd`
 * :file:`/var/log/asterisk/`
 * :file:`/var/spool/asterisk/`
 
@@ -194,9 +194,8 @@ Restore the rights on these tables ::
 
    su postgres
    psql xivo
-   SELECT execute('GRANT ALL ON '||schemaname||'.'||tablename||' TO xivo;') FROM pg_tables WHERE schemaname = 'public';
-   SELECT execute('GRANT ALL ON SEQUENCE '||relname||' TO xivo;') FROM pg_class WHERE relkind = 'S';
-
+   GRANT ALL ON ALL TABLES IN SCHEMA public TO xivo;
+   GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO xivo;
 
 .. warning:: Restoring the data.tgz file restore also system files as host
    hostname network interfaces etc... You will need to reapply network
