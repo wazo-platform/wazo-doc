@@ -200,6 +200,8 @@ Upgrading from Skaro-1.2.3
 #. Now, you can launch ``xivo-upgrade`` to finish the upgrade process
 
 
+.. _rabbitmq-var-full:
+
 CTI server is frozen and won't come back online
 -----------------------------------------------
 
