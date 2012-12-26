@@ -69,6 +69,37 @@ Here are the steps for upgrading a cluster:
 #. Reactivate the database replication (see first step)
 
 
+Upgrade Notes for upgrading to XiVO 12.24
+=========================================
+
+XiVO 12.24 has some limitations mainly affecting the contact center features due
+to the rewriting of the code handling agents.
+
+.. toctree::
+   :maxdepth: 1
+
+   List of limitations <12.24_changes>
+
+Another change is in effect beginning with XiVO 12.24: the field
+``profileclient`` in the CSV user import sees its values change.
+
++-------------+-------------+
+| Old value   | New value   |
++=============+=============+
+| client      | Client      |
++-------------+-------------+
+| agent       | Agent       |
++-------------+-------------+
+| switchboard | Switchboard |
++-------------+-------------+
+| agentsup    | Supervisor  |
++-------------+-------------+
+| oper        | *removed*   |
++-------------+-------------+
+| clock       | *removed*   |
++-------------+-------------+
+
+
 Upgrade Notes for older Versions of XiVO
 ========================================
 
