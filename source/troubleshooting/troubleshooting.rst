@@ -7,17 +7,6 @@ The list of current bugs can be found on
 `the official XiVO issue tracker <https://projects.xivo.fr/issues?set_filter=1&tracker_id=1>`_.
 
 
-No sound on blind transfer using SCCP
--------------------------------------
-
-The callee does not hear the caller after a blind transfer using an SCCP phone
-with the direct media option is enabled.
-
-The workaround is to disable direct media in general SCCP options
-
-Associated ticket: #3941
-
-
 Transfers using DTMF
 --------------------
 
@@ -60,7 +49,7 @@ feature. The behavior is to answer all incoming (external) call, wait for a numb
 this example) : if a fax is detected, receive it otherwise route the call normally.
 
 .. note:: This workaround works only :
-        
+
     * on incoming calls towards an User (and an User only),
     * if the incoming trunk is a DAHDI trunk,
     * if the user has a voicemail which is activated and with the email field filled
@@ -76,7 +65,7 @@ this example) : if a fax is detected, receive it otherwise route the call normal
 #. In the Web Interface and under :menuselection:`Services --> IPBX --> IPBX configuration -->
    Configuration files` add a new file named *fax-detection.conf* containing the following
    dialplan::
-    
+
     ;; Fax Detection
     [pre-user-global-faxdetection]
     exten = s,1,NoOp(Answer call to be able to detect fax if call is external AND user has an email configured)
@@ -93,11 +82,11 @@ this example) : if a fax is detected, receive it otherwise route the call normal
 
 #. In the file :file:`/etc/pf-xivo/asterisk/xivo_globals.conf` set the global user subroutine to
    ``pre-user-global-faxdetection`` : this subroutine will be executed each time a user is called::
-    
+
     XIVO_PRESUBR_GLOBAL_USER = pre-user-global-faxdetection
 
 #. Reload asterisk configuration (both for dialplan and dahdi)::
-    
+
     asterisk -rx 'core reload'
 
 
@@ -106,7 +95,7 @@ this example) : if a fax is detected, receive it otherwise route the call normal
 Berofos Integration with PBX
 ----------------------------
 
-You can use a Berofos failover switch to secure the ISDN provider lines 
+You can use a Berofos failover switch to secure the ISDN provider lines
 when installing a XiVO in front of an existing PBX.
 The goal of this configuration is to mitigate the consequences of an outage of the XiVO : with this
 equipment the ISDN provider links could be switched to the PBX directly if the XiVO goes down.
@@ -127,18 +116,18 @@ Connection::
        | o o o o  o o o o  o o o o  o o o o |
        +-+-+------+-+------+-+------+-+-----+
          | |      | |      | |      | |
-        / /       | |      | |      | | 
-       / /    +--------+   / /   +---------+	
-     2 T2     |  XiVO  |  / /    |   PBX   |	
+        / /       | |      | |      | |
+       / /    +--------+   / /   +---------+
+     2 T2     |  XiVO  |  / /    |   PBX   |
               +--------+ / /     +---------+
-                  | |   / /	
+                  | |   / /
                   \ \__/ /
                    \____/
 
 
 The following describes how to configure your XiVO and your Berofos.
 
-#. Follow the Berofos general configuration (firmware, IP, login/password) described 
+#. Follow the Berofos general configuration (firmware, IP, login/password) described
    in the the :ref:`Berofos Installation and Configuration <berofos-installation-and-configuration>`
    page.
 
@@ -149,13 +138,13 @@ The following describes how to configure your XiVO and your Berofos.
     bnfos --set modedef=1    -h 10.105.2.26 -u admin:berofos
     bnfos --set wdog=1       -h 10.105.2.26 -u admin:berofos
     bnfos --set wdogdef=1    -h 10.105.2.26 -u admin:berofos
-    bnfos --set wdogitime=60 -h 10.105.2.26 -u admin:berofos	
+    bnfos --set wdogitime=60 -h 10.105.2.26 -u admin:berofos
 
 #. Add the following script :file:`/usr/local/sbin/berofos-workaround`::
 
     #!/bin/bash
     # Script workAround for berofos integration with a XiVO in front of PABX
-    
+
     /etc/init.d/asterisk status
     if [ $? -eq 0 ]; then
        # If asterisk is running, we (re)enable wdog and (re)set the mode
@@ -165,22 +154,22 @@ The following describes how to configure your XiVO and your Berofos.
     else
        /usr/bin/logger "$0 - Asterisk is not running"
     fi
-    
+
     # Now 'kick' berofos ten times each 5 seconds
     for ((i == 1; i <= 10; i += 1)); do
         /usr/bin/bnfos --kick -f fos1
-    	/bin/sleep 5
+        /bin/sleep 5
     done
 
 #. Add execution rights to script::
-   
+
     chmod +x /usr/local/sbin/berofos-workaround
 
 #. Create a cron to launch the script every minutes :file:`/etc/cron.d/berofos-cron-workaround`::
 
-	# Workaround to berofos integration
+    # Workaround to berofos integration
 
-	*/1 * * * * root /usr/local/sbin/berofos-workaround 2>&1 > /dev/null
+    */1 * * * * root /usr/local/sbin/berofos-workaround 2>&1 > /dev/null
 
 
 Upgrading from Skaro-1.2.3
@@ -209,3 +198,21 @@ Upgrading from Skaro-1.2.3
     rm /etc/asterisk/sccp.conf
 
 #. Now, you can launch ``xivo-upgrade`` to finish the upgrade process
+
+
+.. _rabbitmq-var-full:
+
+CTI server is frozen and won't come back online
+-----------------------------------------------
+
+You must ensure that the partition containing :file:`/var` always has at least
+100 MiB of free disk space. If it does not, the symptoms are:
+
+* the CTI server is frozen after logging/unlogging an agent or adding/removing a
+  member from a queue.
+* trying to log/unlog an agent via a phone is not possible
+
+To get the system back on tracks after freeing some space in :file:`/var`, you
+must do::
+
+    xivo-service restart

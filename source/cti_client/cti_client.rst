@@ -47,6 +47,8 @@ available in the configuration, account to show agent login info.
 .. figure:: images/login_window.png
    :scale: 85%
 
+.. _xlet-list:
+
 Xlets
 =====
 
@@ -55,9 +57,6 @@ Xlets are features of the CTI Client. It is the contraction of XiVO applets.
 .. toctree::
    :maxdepth: 1
 
-   Agent details xlet <xlets/agent_details>
-   Agent list xlet <xlets/agent_list>
-   Calls of a Queue <xlets/calls_of_a_queue>
    Conference xlet <xlets/conference>
    Contact xlet <xlets/contact>
    Directory xlet <xlets/directory>
