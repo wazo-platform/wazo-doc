@@ -25,6 +25,7 @@ Getting Started
 * Create a queue adding created agent as member of queue.
 
 
+
 Creating agents
 ================
 
@@ -56,3 +57,4 @@ Service > IPBX > General settings > Advanced > Agent
 ----------------------------------------------------
 
 These settings are global for all agents.
+
