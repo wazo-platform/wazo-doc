@@ -111,8 +111,8 @@ Simply click on *allow* to dial the number using the XiVO client.
 
 .. note:: If you do not want these warnings to appear each time, do not forget to check/uncheck the checkbox at the bottom of the popups.
 
-Linux
------
+GNU/Linux
+---------
 
 There is no configuration needed.
 
@@ -129,4 +129,3 @@ If, for some reason, firefox does not recognize ``callto:`` or ``tel:`` URIs you
 6. Repeat steps 3 to 6, but replace ``callto`` by ``tel`` at step 4
 
 The next time that you click on a telephone link, firefox will ask you to choose an application. You will then be able to choose the XiVO client for handling telephone numbers.
-
