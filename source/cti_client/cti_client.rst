@@ -114,13 +114,7 @@ Simply click on *allow* to dial the number using the XiVO client.
 Linux
 -----
 
-For distributions running under a GNOME environment, you can type the following to lines to associate ``callto:`` and ``tel:`` URIs with the XiVO client:
-::
-
-    gconftool-2 -s /desktop/gnome/url-handlers/callto/command 'xivoclient %s' --type String
-    gconftool-2 -s /desktop/gnome/url-handlers/callto/enabled --type Boolean true
-    gconftool-2 -s /desktop/gnome/url-handlers/tel/command 'xivoclient %s' --type String
-    gconftool-2 -s /desktop/gnome/url-handlers/tel/enabled --type Boolean true
+There is no configuration needed.
 
 Manual association in firefox
 -----------------------------
