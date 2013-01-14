@@ -127,7 +127,7 @@ Fields
 * state
 * zipcode
 
-Each line is a field that will be displayed in the directory xlet.
+Each line is a field that will be displayed in the Remote Directory xlet.
 
 .. figure::  images/phone_book_display.png
    :scale: 85% 
@@ -140,7 +140,7 @@ Adding the fax to the directory display
 #. In the display filter section add a field with field title *Fax* and display format *{db-fax}*.
 #. Restart the CTI Server
 
-Now the fax should be available displayed in the Directory xlet.
+Now the fax should be available displayed in the Remote Directory xlet.
 
 
 Reverse lookup

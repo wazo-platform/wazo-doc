@@ -1,14 +1,14 @@
-**************
-Directory Xlet
-**************
+*********************
+Remote Directory Xlet
+*********************
 
 
 Overview
 ========
 
-The directory xlet allow the user to search through the configured directories of the CTI server.
+The remote directory xlet allow the user to search through the configured directories of the CTI server.
 
-.. figure:: ./images/cti_client-directory.png
+.. figure:: ./images/cti_client-remote_directory.png
 
 
 Usage
