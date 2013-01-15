@@ -151,6 +151,10 @@ Function keys can be configured to customize the user's phone keys. Key types ar
 can be browsed through the Type drop-down list. The Supervision field allow the key to be
 supervised. A supervised key will light up when enabled.
 
+.. warning::
+
+   SCCP device only supports type "Customized".
+
 .. image:: images/funckeys.png
 
 For User keys, start to key in the user name in destination, XiVO will try to complete with the corresponding user.
