@@ -111,10 +111,16 @@ Simply click on *allow* to dial the number using the XiVO client.
 
 .. note:: If you do not want these warnings to appear each time, do not forget to check/uncheck the checkbox at the bottom of the popups.
 
-GNU/Linux
----------
+Ubuntu
+------
 
 There is no configuration needed.
+
+GNU/Linux Debian
+----------------
+
+If the XiVO Client is not listed in the proposition when you open the link,
+browse your files to find :file:`/usr/bin/xivoclient`.
 
 Manual association in firefox
 -----------------------------
