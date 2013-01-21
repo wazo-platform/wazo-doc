@@ -45,6 +45,7 @@ The variables are::
    ; Global Preprocess subroutine
    XIVO_PRESUBR_GLOBAL_ENABLE = 1
    XIVO_PRESUBR_GLOBAL_USER = xivo-subrgbl-user
+   XIVO_PRESUBR_GLOBAL_AGENT = xivo-subrgbl-agent
    XIVO_PRESUBR_GLOBAL_GROUP = xivo-subrgbl-group
    XIVO_PRESUBR_GLOBAL_QUEUE = xivo-subrgbl-queue
    XIVO_PRESUBR_GLOBAL_MEETME = xivo-subrgbl-meetme

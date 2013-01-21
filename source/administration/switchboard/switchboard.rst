@@ -162,6 +162,17 @@ Set "No Answer" Destinations on the *Switchboard* Queue
 When there are no operators available to answer a call, "No Answer" destinations
 should be used to redirect calls towards another destination.
 
+You need to set the timeout of the Switchboard queue to know when calls will be
+redirected.
+
+.. figure:: images/queue_application.png
+
+The reachability timeout must not be disabled nor too short.
+
+The time before retrying a call to a member should be as low as possible (1 second).
+
+.. figure:: images/queue_advanced.png
+
 In this example we redirect "No Answer", "Busy" and "Congestion" calls to the
 *everyone* group and "Fail" calls to the *guardian* user.
 
@@ -184,15 +195,16 @@ The XiVO Client Switchboard Profile
 
 When the user connects with his XiVO Client, he gets the Switchboard profile.
 
-.. figure:: images/xivoclient-switchboard.png
+.. figure:: images/xivoclient-answering.png
 
 1. *Current Call* frame
-2. *Hold* button
-3. *Hangup* button
-4. *Incoming Calls* list
-5. *Waiting Calls* list
-6. Contacts Xlet
-7. Dial Xlet
+2. *Attended transfer* button
+3. *Hold* button
+4. *Hangup* button
+5. *Incoming Calls* list
+6. *Waiting Calls* list
+7. Directory Xlet
+8. Dial Xlet
 
 .. note:: If you don't see the Switchboard Xlet, right-click on the grey
           bar at the right of the *Help* menu and check *Switchboard*:
@@ -226,8 +238,7 @@ Distributing a call
 
 Once the call has been answered and placed in the current call frame, the operator has 3 choices:
 
-* **transfer the call** to another user using the :ref:`contact-xlet`
-  (typically, search someone and right-click on him)
+* **transfer the call** to another user using the *Attended transfer* button
 * put the call **on hold** using the *Hold* button or the *F7* key
 * **end the call** using the *Hangup* button or the *F8* key.
 
@@ -235,13 +246,24 @@ Once the call has been answered and placed in the current call frame, the operat
 Transferring a call
 ^^^^^^^^^^^^^^^^^^^
 
-If you transfer a call with an attended transfer:
+In this example, we are transferring *Charlie Chaplin* to *Davy Crockett* with
+an attended transfer. *Davy Crockett* is still ringing.
 
-* if you want to cancel the transfer, let the callee hang up.
-* if you want to finalize the transfer, hang up yourself (for now, **not** with
-  the *Hangup* button or F8 ; you can hang up by right-clicking on yourself in
-  the *Contacts* Xlet, but there is no way to finalize the transfer via the
-  keyboard).
+.. figure:: images/xivoclient-transferring.png
+
+1. *Complete transfer* button
+2. *Cancel transfer* button
+3. Transfer destination filtering field
+4. Transfer destination list
+
+Once the destination has answered, you can:
+
+* cancel the transfer with *F8* key
+* complete the transfer with *F5* key
+
+.. warning:: If the operator completes the transfer before the callee answers
+             the call, the operator's phone will not be available until the
+             callee answers.
 
 
 Putting a call on hold
@@ -270,8 +292,3 @@ To retrieve a call on hold:
 
 Once a call has been retrieved from the *Waiting calls* list, it is moved back
 into the *Current Call* frame, ready to be distributed.
-
-.. warning::
-
-  Any retrieved call must be hung up using the *Hangup* button. Hanging up using
-  the phone will put the call back on hold.

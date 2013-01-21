@@ -99,6 +99,7 @@ You must manually do a ``module reload chan_sccp.so`` via the Asterisk CLI if yo
 * Remove a device from the configuration
 * Add a voicemail on an already configured user
 * Change the language of an already configured user
+* Add/remove a function key to an already configured user
 
 Be warned that this command will disconnect all SCCP phones and hence all current phone calls will be lost.
 
@@ -137,11 +138,13 @@ Features
 +------------------------------+-----------+
 | Redial                       | Yes       |
 +------------------------------+-----------+
+| Speed dial                   | Yes**     |
++------------------------------+-----------+
+| BLF (Supervision)            | Yes**     |
++------------------------------+-----------+
 | Group pickup                 | Not yet   |
 +------------------------------+-----------+
 | Hotline (auto-provisioning)  | Not yet   |
-+------------------------------+-----------+
-| Speed dial                   | Not yet   |
 +------------------------------+-----------+
 | Multi line                   | Not yet   |
 +------------------------------+-----------+
@@ -152,6 +155,9 @@ Features
 | NAT traversal                | Not yet   |
 +------------------------------+-----------+
 
+.. warning::
+
+   ** Speeddial and BLF doesn't work on 7911 and 7906 yet.
 
 Telephone
 ---------

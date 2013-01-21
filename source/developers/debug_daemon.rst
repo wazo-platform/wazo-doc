@@ -55,7 +55,7 @@ provd
 
 ::
 
-   twistd -no provd -s -v
+   twistd -no xivo-provd -s -v
 
 * -s for logging to stderr
 * -v for verbose

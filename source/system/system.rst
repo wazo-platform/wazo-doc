@@ -5,6 +5,7 @@ System
 .. toctree::
    :maxdepth: 2
 
+   asterisk_rc
    service
    Network <network/network>
    proxy

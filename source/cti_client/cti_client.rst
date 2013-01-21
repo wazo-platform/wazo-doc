@@ -59,10 +59,10 @@ Xlets are features of the CTI Client. It is the contraction of XiVO applets.
 
    Conference xlet <xlets/conference>
    Contact xlet <xlets/contact>
-   Directory xlet <xlets/directory>
    Fax xlet <xlets/fax>
    History xlet <xlets/history>
    Local directory xlet <xlets/localdir>
+   Remote Directory xlet <xlets/remote_directory>
    Service xlet <xlets/service>
    Dial xlet <xlets/dial>
 
@@ -111,16 +111,16 @@ Simply click on *allow* to dial the number using the XiVO client.
 
 .. note:: If you do not want these warnings to appear each time, do not forget to check/uncheck the checkbox at the bottom of the popups.
 
-Linux
------
+Ubuntu
+------
 
-For distributions running under a GNOME environment, you can type the following to lines to associate ``callto:`` and ``tel:`` URIs with the XiVO client:
-::
+There is no configuration needed.
 
-    gconftool-2 -s /desktop/gnome/url-handlers/callto/command 'xivoclient %s' --type String
-    gconftool-2 -s /desktop/gnome/url-handlers/callto/enabled --type Boolean true
-    gconftool-2 -s /desktop/gnome/url-handlers/tel/command 'xivoclient %s' --type String
-    gconftool-2 -s /desktop/gnome/url-handlers/tel/enabled --type Boolean true
+GNU/Linux Debian
+----------------
+
+If the XiVO Client is not listed in the proposition when you open the link,
+browse your files to find :file:`/usr/bin/xivoclient`.
 
 Manual association in firefox
 -----------------------------
@@ -135,4 +135,3 @@ If, for some reason, firefox does not recognize ``callto:`` or ``tel:`` URIs you
 6. Repeat steps 3 to 6, but replace ``callto`` by ``tel`` at step 4
 
 The next time that you click on a telephone link, firefox will ask you to choose an application. You will then be able to choose the XiVO client for handling telephone numbers.
-
