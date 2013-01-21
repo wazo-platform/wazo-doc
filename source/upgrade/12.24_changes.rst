@@ -34,7 +34,7 @@ Agents must be logged out for the following operations:
 
 You can logoff all the agents with the following command::
 
-   xivo-agentctl -c logoff_all
+   xivo-agentctl -c "logoff all"
 
 
 Preprocess subroutines
