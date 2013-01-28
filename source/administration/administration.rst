@@ -29,3 +29,4 @@ Administration
    Switchboard <switchboard/switchboard>
    users/users
    voicemail
+   recordings/recording_campaigns
