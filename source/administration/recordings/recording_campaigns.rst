@@ -31,7 +31,11 @@ For instance, if a campaign is recording the queue "Sales" from 2012-01-01 to
 2012-02-28, it is not possible to create another campaign for the queue "Sales" from
 2012-01-30 to 2012-03-31.
 
-The campaign deletion is not yet implemented.
+Deleting a campaign
+-------------------
+
+A campaign can be deleted by clicking on the "Delete" button. It is not possible to delete
+a campaign which still contains some recordings.
 
 
 Managing the recordings
@@ -52,11 +56,9 @@ occur around midnight.
 Logging
 -------
 
-Two log files are specifically generated to monitor the recordings:
+One log file is specifically generated to monitor the recordings. It can be accessed via
+:menuselection:`Service --> IPBX --> Control --> Asterisk log files`.
 
-* /var/log/xivo_recording_agi.log: a "technical" log, allowing to track any errors
-  during the recording process
-* /var/log/asterisk/xivo-recording.log: a log listing the various accesses to the
-  recordings (download, deletion, automatic deletion). This log file is accessible via
-  the web interface, in 
+This file is a summary of the various accesses to the recordings (download, deletion,
+automatic deletion).
 

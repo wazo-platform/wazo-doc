@@ -23,10 +23,10 @@ Administration
    parking
    phonebook
    provisioning/provisioning
+   recordings/recording_campaigns
    sccp/sccp
    schedules/schedules
    sound_files
    Switchboard <switchboard/switchboard>
    users/users
    voicemail
-   recordings/recording_campaigns
