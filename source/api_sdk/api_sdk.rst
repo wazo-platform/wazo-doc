@@ -7,5 +7,6 @@ API and SDK
 
    queue_log
    web_services
+   rest_web_services
    subroutine
    cel
