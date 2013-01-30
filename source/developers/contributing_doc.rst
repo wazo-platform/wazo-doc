@@ -7,7 +7,7 @@ gitorious at https://gitorious.org/xivo/xivo-doc
 
 Provided you already have Python installed on your system. You need first to install Sphinx_ : ``easy_install -U Sphinx`` [1]_.
 
-.. _Sphinx: http://sphinx.pocoo.org/ 
+.. _Sphinx: http://sphinx.pocoo.org/
 
 Quick Reference
 
