@@ -94,6 +94,8 @@ the number when you click on a link.
 
 .. note:: You must already be logged in for automatic dialing to work, otherwise the client will simply start up and wait for you to log in.
 
+.. warning:: The option in the XiVO Client :menuselection:`GUI Options --> Allow multiple instances of XiVO Client` must be disabled, else you will launch one new XiVO Client with every click.
+
 Mac OS
 ------
 
