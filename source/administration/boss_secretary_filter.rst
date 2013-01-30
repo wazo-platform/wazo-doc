@@ -52,6 +52,8 @@ If supervision is activated, the key will light up when filter is activated for 
 secretary also has a function key on the same boss/secretary combination the function key's BLF will
 be in sync between each phones.
 
+.. warning::
+	With SCCP phones, you must configure a custom ``Func Keys``.
 
 Usage
 =====
@@ -61,9 +63,13 @@ The call filter function can be activated and deactivated by the boss or the sec
 
 The call filter has to be activated for each secretary if more than one is defined for a given boss.
 
-The extension to use is ``*37<boss number>*<secretary number>``.
+The extension to use is ``*37<callfilter member id>``.
 
-For a boss with extension 100 and 2 secretaries with extensions 101 and 102 the boss would have to
-type ``*37100*101`` and ``*37100*102``.
+In this example, you would set 2 ``Func Keys`` ``*373`` and ``*374`` on the Boss.
 
+On the secretary ``Jina LaPlace`` you would set ``*373``.
 
+On the secretary ``Ptit Noueau`` you would set ``*374``.
+
+.. figure:: images/sec_bs_filter_id.png
+   :scale: 85%
