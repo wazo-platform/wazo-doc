@@ -4,7 +4,7 @@
 REST Web Services
 *****************
 
-XiVO propose a growing number of REST web services. These are going to replace in the future actual 
+XiVO proposes a growing number of REST web services. These are going to replace in the future existing 
 :ref:`web services <web-services-api>`. Current version is a beta version accesible only via local loopback 
 and shouldn't be used by user services. The data format is susceptible to revisions. Actual version is 
 limited in proposed functions and there's no support of authentication nor authorisation. 
@@ -32,7 +32,7 @@ Listing data here would be inefficient, as this documentation can not be always 
 moving it out of the documentation.
 
 Instead, we will use unit-tests as documentation. We are developping a Python library to access Web
-Services, an alpha version is available in the following file :file:`xivo_restapi/acceptance/features/ws_utils.py`
+Services, an alpha version is available in the following file :file:`xivo-restapi/acceptance/features/ws_utils.py`
 
 This page will be updated together with the library.
 
@@ -55,6 +55,7 @@ __ http://www.iana.org/assignments/http-status-codes/http-status-codes.xml
 * 201: Created
 * 400: Incorrect syntax (only for requests to add)
 * 404: Resource not found (for queries only view and delete)
+* 412: Precondition failed
 * 500: Internal server error
 
 
