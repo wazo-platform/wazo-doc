@@ -256,6 +256,28 @@ an attended transfer. *Davy Crockett* is still ringing.
 3. Transfer destination filtering field
 4. Transfer destination list
 
+Legend:
+
+* Users available |user_available|
+* Users ringing |user_ringing|
+* Users talking |user_talking|
+* Users |user|
+* Mobile phone |mobile|
+* External contacts |external|
+
+.. |user_available| image:: images/legend_user_available.png
+   :align: middle
+.. |user_ringing| image:: images/legend_user_ringing.png
+   :align: middle
+.. |user_talking| image:: images/legend_user_talking.png
+   :align: middle
+.. |user| image:: images/legend_user.png
+   :align: middle
+.. |mobile| image:: images/legend_mobile.png
+   :align: middle
+.. |external| image:: images/legend_external.png
+   :align: middle
+
 Once the destination has answered, you can:
 
 * cancel the transfer with *F8* key

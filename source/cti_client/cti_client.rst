@@ -59,6 +59,7 @@ Xlets are features of the CTI Client. It is the contraction of XiVO applets.
 
    Conference xlet <xlets/conference>
    Contact xlet <xlets/contact>
+   Directory xlet <xlets/directory>
    Fax xlet <xlets/fax>
    History xlet <xlets/history>
    Local directory xlet <xlets/localdir>
