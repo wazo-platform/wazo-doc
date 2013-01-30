@@ -8,11 +8,11 @@ This page describes the configuration needed to have a switchboard on your XiVO.
 Overview
 ========
 
-The switchboard functionnality is available in XiVO through the XiVO client. The goal of this page is to
-describe how to configure your switchboard and how to use it.
+Switchboard functionality is available in the XiVO client. The goal of this page is to explain how to
+configure your switchboard and how to use it.
 
-The switchboard xlet and profile allow an operator to view incoming calls and answer them.
-Put calls on hold, view the call on hold and pick the call on hold back.
+The switchboard xlet and profile allow an operator to view incoming calls, answer them,
+put calls on hold, view the calls on hold and pick up the calls on hold.
 
 
 Configuration
@@ -25,7 +25,7 @@ Quick Summary
 In order to configure a switchboard on your XiVO, you need to:
 
 * Create a queue for your switchboard
-* Create a queue for your switchboard's call on hold
+* Create a queue for your switchboard's calls on hold
 * Create the users that will be operators
 * Assign the switchboard plugin to your user
 * Create an agent for your user
@@ -48,7 +48,7 @@ The supported phones for the switchboard are:
 Create a Queue for Your Switchboard
 -----------------------------------
 
-All calls to the switchboard will first be distributed to a queue.
+All calls to the switchboard will first be distributed to a switchboard queue.
 
 To create this queue, go to :menuselection:`Services --> Call center --> Queues` and click the add button.
 
@@ -67,12 +67,12 @@ The Following configuration is mandatory
 Other important fields
 
 * The :menuselection:`General --> Display name` field is the name displayed in the XiVO client xlets and in the statistics
-* The :menuselection:`General --> Number` field is the number that will be used to reach the switchboard internally typically *9*
+* The :menuselection:`General --> Number` field is the number that will be used to reach the switchboard internally (typically *9*)
 
 Create a Queue for Your Switchboard on Hold
 -------------------------------------------
 
-The switchboard uses a queue to track it's calls on hold.
+The switchboard uses a queue to track its calls on hold.
 
 To create this queue, go to :menuselection:`Services --> Call center --> Queues` and click the add button.
 
@@ -95,10 +95,10 @@ The following configuration is mandatory for switchboard users
 
 * The :menuselection:`General --> First name` field has to be set
 * The :menuselection:`General --> Simultaneous calls` option has to be set to *1*
-* The :menuselection:`General --> Enable XiVO Client` option has to be set *enabled*
+* The :menuselection:`General --> Enable XiVO Client` option has to be *enabled*
 * The :menuselection:`General --> Login` field has to be set
 * The :menuselection:`General --> Password` field has to be set
-* The :menuselection:`General --> Profile` field has to be  *Switchboard*
+* The :menuselection:`General --> Profile` field has to be set to *Switchboard*
 * The :menuselection:`Lines --> Number` field has to have a valid extension
 * The :menuselection:`Lines --> Device` field has to be a :ref:`supported device <switchboard_supported_devices>`
 * The :menuselection:`Services --> Enable call transfer` option has to be *enabled*
@@ -147,9 +147,9 @@ To create an agent:
 Send Incoming Calls to the *Switchboard* Queue
 ----------------------------------------------
 
-Incoming calls should be sent to the *Switchboard* queue to be distributed to
+Incoming calls must be sent to the *Switchboard* queue to be distributed to
 the operators. To do this, we have to change the destination of our incoming
-call to the queue.
+call for the switchboard queue.
 
 In this example, we associate our incoming call (DID *444*) to our *Switchboard* queue:
 
@@ -162,12 +162,12 @@ Set "No Answer" Destinations on the *Switchboard* Queue
 When there are no operators available to answer a call, "No Answer" destinations
 should be used to redirect calls towards another destination.
 
-You need to set the timeout of the Switchboard queue to know when calls will be
+You also need to set the timeout of the Switchboard queue to know when calls will be
 redirected.
 
 .. figure:: images/queue_application.png
 
-The reachability timeout must not be disabled nor too short.
+The reachability timeout must not be disabled nor be too short.
 
 The time before retrying a call to a member should be as low as possible (1 second).
 
