@@ -154,6 +154,7 @@ supervised. A supervised key will light up when enabled.
 .. warning::
 
    SCCP device only supports type "Customized".
+   After you set a FuncKey, you must reload SCCP with "module reload chan_sccp.so".
 
 .. image:: images/funckeys.png
 

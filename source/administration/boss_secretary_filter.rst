@@ -75,5 +75,5 @@ be in sync between each phones.
 
 .. warning::
 	With SCCP phones, you must configure a custom ``Func Keys``.
-
+	After you set a FuncKey, you must reload SCCP with "module reload chan_sccp.so".
 
