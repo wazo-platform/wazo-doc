@@ -28,7 +28,7 @@ Creating a Filter
 =================
 
 The filter is used to associate a boss to one or many secretaries and to set a ring strategy. The
-call filter is added in the :menuselection:`Services --> Call management --> Call filters` page.
+call filter is added in the :menuselection:`Services --> IPBX --> Call management --> Call filters` page.
 
 .. figure:: images/user_bs_filter.png
    :scale: 85%
@@ -40,6 +40,27 @@ Different ringing strategies can be applied :
  * Secretaries are all ringing simultaneously
  * Boss and secretaries are ringing simultaneously
  * Change the caller id if the secretary wants to know which boss was initialy called
+
+
+Usage
+=====
+
+The call filter function can be activated and deactivated by the boss or the secretary using the
+\*37 extension. The extension is defined in :menuselection:`IPBX services > Extensions`.
+
+The call filter has to be activated for each secretary if more than one is defined for a given boss.
+
+The extension to use is ``*37<callfilter member id>``.
+
+In this example, you would set 2 ``Func Keys`` ``*373`` and ``*374`` on the Boss.
+
+On the secretary ``Jina LaPlante`` you would set ``*373``.
+
+On the secretary ``Ptit Nouveau`` you would set ``*374``.
+
+.. figure:: images/sec_bs_filter_id.png
+   :scale: 85%
+
 
 Function Keys
 =============
@@ -55,21 +76,4 @@ be in sync between each phones.
 .. warning::
 	With SCCP phones, you must configure a custom ``Func Keys``.
 
-Usage
-=====
 
-The call filter function can be activated and deactivated by the boss or the secretary using the
-\*37 extension. The extension is defined in :menuselection:`IPBX services > Extensions`.
-
-The call filter has to be activated for each secretary if more than one is defined for a given boss.
-
-The extension to use is ``*37<callfilter member id>``.
-
-In this example, you would set 2 ``Func Keys`` ``*373`` and ``*374`` on the Boss.
-
-On the secretary ``Jina LaPlace`` you would set ``*373``.
-
-On the secretary ``Ptit Noueau`` you would set ``*374``.
-
-.. figure:: images/sec_bs_filter_id.png
-   :scale: 85%
