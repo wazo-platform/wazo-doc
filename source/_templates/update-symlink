@@ -1,0 +1,23 @@
+#!/bin/bash
+set -e
+
+usage()
+{
+    echo "usage: $0 <prod_version> <dev_version>"
+}
+
+prod_version="$1"
+dev_version="$2"
+
+if [ -z "$prod_version" ]; then
+    usage
+    exit 1
+fi
+if [ -z "$dev_version" ]; then
+    usage
+    exit 1
+fi
+
+find -name 'menu-*' -type l -delete
+ln -s menu-1.2-production.html "menu-${prod_version}.html"
+ln -s menu-1.2-devel.html "menu-${dev_version}.html"
