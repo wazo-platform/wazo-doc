@@ -5,13 +5,12 @@ Recording Campaigns
 Introduction
 ============
 
-In order to improve reception quality in a call center, it can be useful record some calls
-to help agents improving their communication skills. It becomes possible thanks to the 
-recording campaigns, whose goal is to record all the calls on a specific queue
-for a given period of time. Creating several campaigns will allow to monitor several queues
-at once. A campaign will automatically stop when its end date is reached, and its recordings
-are easily accessible.
-
+In order to improve the reception quality of a call center and help agents improve
+their communication skills, it can be useful to record some calls. This becomes
+possible with the use of recording campaigns, whose goal is to record all the calls
+on a specific queue for a given period of time. Creating several campaigns will allow
+you to monitor several queues at once. A campaign will automatically stop when its end date
+is reached. Campaign recordings in XiVO are easily accessible through the web interface.
 
 Campaign management
 ===================
@@ -26,8 +25,8 @@ Creating a campaign
 * Specify a name, a start date, an end date and a targetted queue for your campaign
 * Save your modifications
 
-Two campaigns cannot cannot record the same queue on a concurrent period of time.
-For instance, if a campaign is recording the queue "Sales" from 2012-01-01 to 
+Two campaigns cannot cannot record the same queue for an overlapping period of time.
+For instance, if a campaign is recording the queue "Sales" from 2012-01-01 to
 2012-02-28, it is not possible to create another campaign for the queue "Sales" from
 2012-01-30 to 2012-03-31.
 
@@ -41,24 +40,20 @@ a campaign which still contains some recordings.
 Managing the recordings
 -----------------------
 
-The calls are recorded to the .wav format.
+The calls are recorded as .wav files.
 
-To see all the recordings of a given campaign, click on its name.
+To see all the recordings for a given campaign, click on its name.
 
-Each recording can be downloaded by clicking on the "Download" button, and deleted 
+Each recording can be downloaded by clicking on the "Download" button, and deleted
 by clicking on the "Delete" button.
 
-It is possible to perform a search on the recordings on the fields "Agent" and "Caller".
+It is possible to perform a search on the recordings. Searches will be filtered using the fields "Agent" and "Caller".
 
-Every day, the recordings older than 31 days will be automatically deleted. This will
-occur around midnight.
+Recordings older than 31 days will be automatically deleted. Deletion will occur every day around midnight.
 
 Logging
 -------
 
-One log file is specifically generated to monitor the recordings. It can be accessed via
-:menuselection:`Service --> IPBX --> Control --> Asterisk log files`.
-
-This file is a summary of the various accesses to the recordings (download, deletion,
-automatic deletion).
+Accesses to the recordings (such as download, deletion, automatic deletion) are logged to the file
+`xivo-recording.log`. This file can be accessed via :menuselection:`Service --> IPBX --> Control --> Asterisk log files`.
 
