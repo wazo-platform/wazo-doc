@@ -266,7 +266,8 @@ Paused
     Whether the agent is paused or not. Blank for a phone.
 
 Answered calls
-    Number of calls answered by the member since last restart or configuration reload.
+    Number of calls answered by the member since last login (for an agent), or restart
+    or configuration reload.
 
 Last call
     Hangup time of the last answered calls.
