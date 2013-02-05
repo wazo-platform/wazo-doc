@@ -192,7 +192,17 @@ First name & Last name
    The agent's first name and last name
 
 Listen
-   A *clickable cell* to listen to the agent's current call
+   A *clickable cell* to listen to the agent's current call.
+
+   Clicking on the cell will make your phone ring. When you'll answer, you'll hear
+   the conversation the agent is having.
+
+   You'll then be able to press the following digits on your phone to switch between
+   the different "listen" modes:
+
+   * 4 - spy mode (default). No one hears you.
+   * 5 - whisper mode. Only the agent hears you.
+   * 6 - barge mode. Both the agent and the person he's talking to hear you.
 
 Status since
    Shows the agent's status and the time spent in this status. An agent can have two statuses : *In use* or *Not in use*.
