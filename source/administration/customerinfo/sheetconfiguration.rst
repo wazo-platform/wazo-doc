@@ -220,7 +220,7 @@ Actions
 
 The action is for the xivo client, so if you configure an action, please be sure
 you understand it's executed *by the client*. You need to allow this action in
-the client configuration too (menu `XiVO Client -> Configure`, tab `Functions`, 
+the client configuration too (menu `XiVO Client -> Configure`, tab `Functions`,
 tick option `Customer Info` and in sub-tab `Customer Info` tick the option
 `Allow the Automatic Opening of URL`).
 
@@ -262,12 +262,7 @@ The followed event possible is :
  * Link: When a user or agent answers a call
  * Unlink: When a user or agent hangup a call
  * Incoming DID: Received a call in a DID
- * Outgoing Call: Made an outgoing call
  * Hangup: Hangup the call
- * Incoming Queue: Received a call in a queue
- * Incoming Group: Received a call in a group
- * Fax reception: Received a fax
-
 
 .. figure:: images/events_configuration.png
    :scale: 85%
