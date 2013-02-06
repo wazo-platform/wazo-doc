@@ -266,11 +266,3 @@ The followed event possible is :
 
 .. figure:: images/events_configuration.png
    :scale: 85%
-
-
-Dialplan interaction
-====================
-
-UserEvent for a custom event. You need to configure by web interface the custom event::
-
-   UserEvent(Custom,NAME: myevent,UNIQUEID: ${UNIQUEID},CHANNEL: ${CHANNEL})
