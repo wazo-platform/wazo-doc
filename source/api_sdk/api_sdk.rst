@@ -10,3 +10,4 @@ API and SDK
    rest_web_services
    subroutine
    cel
+   rest_api/rest_api
