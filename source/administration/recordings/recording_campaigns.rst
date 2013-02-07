@@ -12,6 +12,9 @@ on a specific queue for a given period of time. Creating several campaigns will 
 you to monitor several queues at once. A campaign will automatically stop when its end date
 is reached. Campaign recordings in XiVO are easily accessible through the web interface.
 
+This functionnality is available only on demand. It requires an additionnal configuration
+file which you can found at the end of this page.
+
 Campaign management
 ===================
 
@@ -56,4 +59,33 @@ Logging
 
 Accesses to the recordings (such as download, deletion, automatic deletion) are logged to the file
 `xivo-recording.log`. This file can be accessed via :menuselection:`Service --> IPBX --> Control --> Asterisk log files`.
+
+Dialplan
+========
+
+::
+
+  ;; Global Queue Sub routine for recording activation
+  [xivo-subrgbl-queue]
+  exten = s,1,NoOp(### Sub routine determinates whether the call is to be recorded - Queue ${XIVO_QUEUENAME}###)
+  same  =  n,Set(QR_RECORDQUEUE=0) ; Init QR_RECORDQUEUE
+  same  =  n,AGI(/usr/bin/xivo_recording_agi.py,determinateRecord)
+  same  =  n,NoOp(# Filename: ${QR_BASE_FILENAME}-${UNIQUEID})
+  same  =  n,GotoIf($["${QR_RECORDQUEUE}" = "1"]?:norecord)
+  same  =  n,Set(XIVO_QUEUESUB=pre-record-queue)
+  same  =  n,Set(__QR_CALLER_NB=${CALLERID(num)})
+  same  =  n(norecord),Return()
+
+  ; sub routine
+  [pre-record-queue]
+  exten = s,1,NoOp(### Sub routine starts recording and saves call details ###)
+  same  =  n, NoOp(## The call is about to be answered by ${CHANNEL} ##)
+  same  =  n,GotoIf($["${CUT(CUT(CHANNEL,@,2),-,1)}" = "agentcallback"]?:noagent)
+  same  =  n,Set(QR_AGENT_ID=${CUT(CUT(CHANNEL,@,1),-,2)})
+  same  =  n,Set(QR_QUEUENAME=${QUEUENAME})
+  same  =  n,Set(QR_TIME=${STRFTIME(${EPOCH},,%Y-%m-%d %H:%M:%S)})
+  same  =  n,AGI(/usr/bin/xivo_recording_agi.py,saveCallDetails)
+  same  =  n,NoOp(# Filename: ${QR_FILENAME})
+  same  =  n,MixMonitor(/var/lib/pf-xivo/sounds/campagnes/${QR_FILENAME},b)
+  same  =  n(noagent),Return()
 
