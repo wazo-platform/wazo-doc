@@ -32,6 +32,7 @@ In order to configure a switchboard on your XiVO, you need to:
 * Assign the incoming calls to the switchboard queue
 * For each operator, add a function key for logging in or logging out from the switchboard queue.
 * Set "no answer" destinations on the switchboard queue
+* Configuring multiple switchboard
 
 
 .. _switchboard_supported_devices:
@@ -179,6 +180,17 @@ In this example we redirect "No Answer", "Busy" and "Congestion" calls to the
 You can also choose to redirect all the calls to another user or a voice mail.
 
 .. figure:: images/queue_no_answer.png
+
+
+Configuring multiple Switchboard
+--------------------------------
+
+The above documentation can be used to for multiple switchboards on the same
+XiVO by replacing the *__switchboard* and *__switchboard_hold* queues name
+and configuring the operators XiVO client accordingly in the
+:menuselection:`XiVO Client --> Configure --> Functions --> Switchboard` window.
+
+.. figure:: images/multi_switchboard.png
 
 
 Usage
