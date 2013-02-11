@@ -67,7 +67,7 @@ All URL's starts by /rest/1.0/, 1.0 is the current protocol version.
 
 Pagination::
 
-   GET http://127.0.0.1:50050/rest/IPBX/users/?_page=X&_pagesize=Y
+   GET http://127.0.0.1:50050/rest/1.0/IPBX/users/?_page=X&_pagesize=Y
 
 Parameters:
  * _page - page number (items from X \* _page to (X+1) \* _pagesize)
@@ -80,9 +80,19 @@ Data representation
 Data retrieved from the REST server
 -----------------------------------
 
-JSON is used to encode returned data. The format is as follows:
- * total - number of returned items in total
- * items - returned data
+JSON is used to encode returned data.
+
+..   note:: Properties can be added without changing the protocol version in the main list or in the object list itself. 
+            Properties will not be removed, type and name will not be modified.
+
+Getting object lists
+^^^^^^^^^^^^^^^^^^^^
+``GET /rest/1.0/IPBX/objects/``
+
+When returning lists the format is as follows:
+ * total - number of returned items in total (optional)
+ * items - returned data as an array of properties list.
+
 
 ``Response data format``
 
@@ -94,54 +104,54 @@ JSON is used to encode returned data. The format is as follows:
         [
             {
                 "id": "1"
-                "campaign_name": "test1",
-                "start_date": "2013-01-22 14:53:33",
-                "end_date": "2013-01-22 17:53:36",
-                "queue_id": "1",
-                "queue_number": "6001",
-                "queue_display_name": "welcome",
-                "queue_name": "welcome",
-                "activated": "True",
-                "base_filename": "test1-file-",
+                "prop1": "test",
+                .......
             },
             {
                 "id": "2"
-                "campaign_name": "ssd",
-                "start_date": "2013-01-15 14:54:45",
-                "end_date": "2013-01-24 00:00:00",
-                "queue_id": "2",
-                "queue_number": "6002",
-                "queue_name": "accueil",
-                "queue_display_name": "accueil",
-                "activated": "True",
-                "base_filename": "ssd-file-",
+                "prop1": "ssd",
+                ......
             }
         ]
     }
+
+Getting An Object
+^^^^^^^^^^^^^^^^^
+Format returned is a list of properties.
+
+``GET /rest/1.0/IPBX/objects/<id>/``
+
+``Response data format``
+
+.. code-block:: javascript
+
+    {
+       "id": "1"
+       "prop1": "test",
+       .......
+    }
+
 
 
 Data sent to the REST server
 ----------------------------
 
-The XiVO REST server implements POST and PUT methods for item creation and update respectively. The PUT method
-is not implemented systematically, please be sure to verify the documentation when in doubt. Data created using the POST method
-is done via root URL and updates using the PUT method via root URL suffixed by /<id>/. The servers expected to receive JSON encoded data. Only one item can be processed per request. The data format and required data fields are illustrated in the following example:
+The XiVO REST server implements POST and PUT methods for item creation and update respectively.
+Data created using the POST method is done via root URL and updates using the PUT method via root URL suffixed by /<id>/.
+The servers expected to receive JSON encoded data.
+Only one item can be processed per request. The data format and required data fields are illustrated in the following example:
 
 ``Request data format``
 
 .. code-block:: javascript
 
     {
-        "id": "1"
-        "campaign_name": "new_campaign",
-        "start_date": "2013-01-22 14:53:33",
-        "end_date": "2013-01-22 17:53:36",
-        "queue_id": "1",
-        "activated": "True",
-        "base_filename": "new_campaign-file-",
-    }
+       "id": "1"
+       "prop1": "test",
+       .......
+     }
 
-When updating, only the id and updated members are needed, omitted members are left intact.
+When updating, only the id and updated properties are needed, omitted properties are not updated.
 
 
 IPBX
@@ -151,16 +161,48 @@ Users
 -----
 Users are XiVO objects using phone sets, users can associated with lines, can be in groups or can have phone keys.
 
-+--------+-------------------+-----------------------------------------------+
-| Method | Ressource         | Description                                   |
-+========+===================+===============================================+
-| GET    | :ref:`ipbx-users` | Return a list of XiVO users, can be paginated |
-+--------+-------------------+-----------------------------------------------+
++--------+-------------------+-----------------------------+
+| Method | Ressource         | Description                 |
++========+===================+=============================+
+| GET    | :ref:`ipbx-users` | Return a list of XiVO users |
++--------+-------------------+-----------------------------+
 
 .. _ipbx-users:
 
 GET /IPBX/users/
 ----------------
 
-Return a list of xivo users
+Return a list of xivo users :
+
+Parameters
+^^^^^^^^^^
+
+* None
+
+Example Request
+^^^^^^^^^^^^^^^
+
+``GET https://xivoserver/rest/1.0/IPBX/users``
+
+.. code-block:: javascript
+
+    {
+        "total": 2,
+        "items":
+        [
+            {
+                "id": "1"
+                "firstname": "John",
+                "lastname": "Doe",
+            },
+            {
+                "id": "2"
+                "firstname": "Alice",
+                "lastname": "Houet",
+            }
+        ]
+    }
+
+
+
 
