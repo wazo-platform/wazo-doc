@@ -5,7 +5,11 @@ Directory
 Overview
 ========
 
-The directory xlet allows the users to search for entries in the xivo directories and the list of xivo users.
+The goal of the directory xlet is to allow the user to search through XiVO users,
+directory entries and arbitrary numbers to be able to transfer calls to these
+destinations.
+
+.. figure:: ./images/xlet_directory.png
 
 
 Usage
@@ -13,6 +17,10 @@ Usage
 
 The list of entries in the xlet is searched using the top field. Entries are filtered by
 name and number. The entry list will initally appear as empty.
+
+The current search term is always displayed in the result list with no name to
+allow transfer to numbers that are not currently in the phonebook or configured
+on the XiVO.
 
 
 Phonebook
