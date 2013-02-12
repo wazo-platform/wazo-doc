@@ -51,15 +51,36 @@ A new display filter must be created for the directory xlet.
 
 .. figure:: ./images/directory_display_filter.png
 
-The following fields must be configurered for entries to be displayed in the xlet:
+The following fields must be configurered with the correct value for the *Field type* column in order for entries to be displayed in the xlet:
 
 #. *name* is displayed in the *Name* column of the xlet
 #. *number_office* is displayed in the *Number* column with a phone icon in the xlet
 #. *number_mobile* is displayed in the *Number* column with a mobile icon in the xlet
 #. *number_...* any other field starting with *number_* will be displayed in the *Number* column of the xlet with a generic directory icon
 
-The values in the *Display format* column contain values that are created in the *Directory Definition*
+The values in the *Display format* column must contain values that were created in the *Directory Definition*
 
+Additional fields without a field type will also be searched when filtering. However, these fields
+will not appear in the xlet. They will only be used for filtering results.
+
+For example, let us imagine that we have the following data in our directory definition:
+
++--------------+-----------------+-----------------+------------+-----------------------+
+| Name         | Number (office) | Number (mobile) | Department | Email                 |
++==============+=================+=================+============+=======================+
+| Dave Hubert  | 900             | 555-1234        | Sales      | dave@sales.com        |
++--------------+-----------------+-----------------+------------+-----------------------+
+| Martha Smith | 800             | 555-2345        | Management | martha@management.com |
++--------------+-----------------+-----------------+------------+-----------------------+
+
+When typing "sales" in the search bar, the fields
+"Name", "Department" and "Email" will be searched and Dave Hubert will appear in the list,
+but only the columns "Name and "Number" will be displayed.
+
+.. warning::
+
+    Make sure that the fields entered in the display format are also available
+    in the directory definition, otherwise the filter will not return any results
 
 Context and filter association
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
