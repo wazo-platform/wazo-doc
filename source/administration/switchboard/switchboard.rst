@@ -210,13 +210,14 @@ When the user connects with his XiVO Client, he gets the Switchboard profile.
 .. figure:: images/xivoclient-answering.png
 
 1. *Current Call* frame
-2. *Attended transfer* button
-3. *Hold* button
-4. *Hangup* button
-5. *Incoming Calls* list
-6. *Waiting Calls* list
-7. Directory Xlet
-8. Dial Xlet
+2. *Answer* button
+3. *Attended transfer* button
+4. *Hold* button
+5. *Hangup* button
+6. *Incoming Calls* list
+7. *Waiting Calls* list
+8. Directory Xlet
+9. Dial Xlet
 
 .. note:: If you don't see the Switchboard Xlet, right-click on the grey
           bar at the right of the *Help* menu and check *Switchboard*:
@@ -235,7 +236,7 @@ Answering an incoming call
 
 When the switchboard receives a call, the new call is added to the *Incoming
 Calls* list on the left. The user can answer this call by clicking on the first
-call in the list or by pressing the *Enter* key **only when his phone is
+call in the list, by clicking the *Answer* button or by pressing the *Enter* key **only when his phone is
 ringing**.
 
 .. note:: The XiVO Client must be the active window for the keyboard shortcuts
@@ -258,7 +259,7 @@ Once the call has been answered and placed in the current call frame, the operat
 Transferring a call
 ^^^^^^^^^^^^^^^^^^^
 
-In this example, we are transferring *Charlie Chaplin* to *Davy Crockett* with
+In this example, we are transferring *Alice Wonderland* to *Bernard Marx* with
 an attended transfer. *Davy Crockett* is still ringing.
 
 .. figure:: images/xivoclient-transferring.png
