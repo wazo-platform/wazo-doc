@@ -2,14 +2,8 @@
 Debugging Asterisk
 ******************
 
-
-Collecting debug information
-----------------------------
-
-See https://wiki.asterisk.org/wiki/display/AST/Collecting+Debug+Information
-
 Asterisk segfault
------------------
+=================
 
 If asterisk segfault it should - in most cases - leave a coredump in :file:`/var/spool/asterisk/`.
 
@@ -28,3 +22,8 @@ Here's how to run extract a backtrace from a coredump left by asterisk after a s
 
       gdb -se "asterisk" -ex "bt full" -ex "thread apply all bt" --batch -c core_file > backtrace_file.txt
 
+
+External links
+==============
+
+See https://wiki.asterisk.org/wiki/display/AST/Collecting+Debug+Information
