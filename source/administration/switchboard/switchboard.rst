@@ -15,6 +15,14 @@ The switchboard xlet and profile allow an operator to view incoming calls, answe
 put calls on hold, view the calls on hold and pick up the calls on hold.
 
 
+Limitations
+===========
+
+It is impossible to cancel a transfer to an invalid number in the dialplan.
+The operator will have to wait until the prompt is over before trying to
+transfer again.
+
+
 Configuration
 =============
 

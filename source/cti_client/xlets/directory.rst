@@ -23,6 +23,16 @@ allow transfer to numbers that are not currently in the phonebook or configured
 on the XiVO.
 
 
+Known issues
+============
+
+Typing enter while the focus is on a directory entry will have the same
+behavior as clicking on the transfer button on the current call xlet.
+
+This unexpected behavior will be fixed when we implement other actions
+to the directory xlet.
+
+
 Phonebook
 =========
 
