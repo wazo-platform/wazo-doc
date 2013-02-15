@@ -2,28 +2,84 @@
 Debugging Asterisk
 ******************
 
-Asterisk segfault
-=================
+To debug asterisk crashes or freezes, you need the following packages on your xivo::
 
-If asterisk segfault it should - in most cases - leave a coredump in :file:`/var/spool/asterisk/`.
+   apt-get install gdb asterisk-dbg xivo-libsccp-dbg
 
-Here's how to run extract a backtrace from a coredump left by asterisk after a segfault :
 
-#. Install asterisk debug packages::
+Debugging Asterisk Crash
+========================
 
-      apt-get install asterisk-dbg xivo-libsccp-dbg
+When asterisk crashes, it usually leaves a core file in :file:`/var/spool/asterisk/`.
 
-#. Install ``gdb``::
+You can create a backtrace from a core file named ``core_file`` with::
 
-      apt-get install gdb
+   gdb -batch -ex "bt full" -ex "thread apply all bt" asterisk core_file > bt-threads.txt
 
-#. Create a backtrace from the coredump where ``core_file`` is the path towards the coredump
-   left by asterisk and ``backtrace_file.txt`` the name of the backtrace file you are going to generate::
 
-      gdb -se "asterisk" -ex "bt full" -ex "thread apply all bt" --batch -c core_file > backtrace_file.txt
+Debugging Asterisk Freeze
+=========================
+
+You can create a backtrace of a running asterisk process with::
+
+   gdb -batch -ex "thread apply all bt" asterisk $(pidof asterisk) > bt-threads.txt
+
+If your version of asterisk has been compiled with the DEBUG_THREADS flag, you can
+get more information about locks with::
+
+   asterisk -rx "core show locks" > core-show-locks.txt
+
+.. note:: Debugging freeze without this information is usually a lot more difficult.
+
+Optionally, other information that can be interesting:
+
+* the output of ``asterisk -rx 'core show channels'``
+* the verbose log of asterisk just before the freeze
+
+
+Recompiling Asterisk
+====================
+
+It's relatively straightforward to recompile the asterisk version of your xivo with the
+DEBUG_THREADS and DONT_OPTIMIZE flag, which make debugging an asterisk problem easier.
+
+The steps are:
+
+#. Uncomment the ``deb-src`` line for the xivo sources::
+
+      sed -i 's/^#deb-src/deb-src/' /etc/apt/sources.list.d/xivo*
+
+#. Fetch the asterisk source package::
+
+      mkdir -p ~/ast-rebuild
+      cd ~/ast-rebuild
+      apt-get update
+      apt-get source asterisk
+
+#. Install the build dependencies::
+
+      apt-get install build-essential
+      apt-get build-dep asterisk
+
+#. Enable the DEBUG_THREADS and DONT_OPTIMIZE flag::
+
+      cd <asterisk-source-folder>
+      vim debian/rules
+
+#. Update the changelog by appending ``+debug1`` in the package version::
+
+      vim debian/changelog
+
+#. Rebuild the asterisk binary packages::
+
+      dpkg-buildpackage -us -uc
+
+This will create a couple of .deb files in the parent directory, which you can install
+via dpkg.
 
 
 External links
 ==============
 
-See https://wiki.asterisk.org/wiki/display/AST/Collecting+Debug+Information
+* https://wiki.asterisk.org/wiki/display/AST/Debugging
+* http://blog.xivo.fr/index.php?post/2012/10/24/Visualizing-asterisk-deadlocks
