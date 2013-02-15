@@ -18,9 +18,22 @@ put calls on hold, view the calls on hold and pick up the calls on hold.
 Limitations
 ===========
 
-It is impossible to cancel a transfer to an invalid number in the dialplan.
-The operator will have to wait until the prompt is over before trying to
-transfer again.
+.. note::
+
+  It is impossible to cancel a transfer to an invalid number in the dialplan.
+  The operator will have to wait until the prompt is over before trying to
+  transfer again.
+
+.. note::
+
+  The shortcut keys of the switchboard do not work on the Mac version of the
+  XiVO client.
+
+.. note::
+
+  The enter shortcut to answer a call will not work if the focus is currently
+  on a widget that will consume the key press. ie: a text field, a drop down
+  list or a button.
 
 
 Configuration
