@@ -22,6 +22,10 @@ Review SCCP general settings:
 
    SCCP general settings
 
+.. warning::
+
+   You must `reload the chan_sccp module`_ for the settings to be applied.
+
 At this point you should have a fully functional DHCP server that provides IP address to your phones.
 Depending on what type of CISCO phone you have, you need to install the plugin sccp-legacy, sccp-9.2.1 or both. Please refer to the :ref:`Provisioning page <cisco-provisioning>` for more information on how to install CISCO firmwares.
 
@@ -84,29 +88,21 @@ SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use di
    for example, then you must disable the direct media option.
 
 
-.. _resync_sccp_device:
+.. _reload the chan_sccp module:
 
-Resynchronize an SCCP device
-----------------------------
+Reloading the chan_sccp module
+------------------------------
 
-You must resynchronize a device to apply any user configuration changes.
+You must manually do a ``module reload chan_sccp.so`` via the Asterisk CLI if you want to:
 
-The Asterisk CLI command is: ``sccp resync <DEVICE>``.
+* Apply the SCCP general settings configuration
+* Remove a device from the configuration
+* Add a voicemail on an already configured user
+* Change the language of an already configured user
+* Add/remove a function key to an already configured user
 
-Example::
+Be warned that this command will disconnect all SCCP phones and hence all current phone calls will be lost.
 
-	> sccp show devices 
-	Device           IP               Type     Reg.state     Proto.Version
-	===============  ===============  ======   ==========    ==============
-	SEP001AA289343B  10.97.8.107      7941     Registered    19
-	SEPE84040A3BAF2  -                unknown  Unregistered  0
-	SEP00164766A428  10.97.8.106      7960     Registered    11
-	SEP64AE0C5F9718  10.97.8.102      7911     Registered    19
-	SEP00175A4AA36D  -                unknown  Unregistered  0
-	SEP001AA27ABBFC  10.97.8.100      7912     Registered    8
-	Total: 6 device(s), 4 registered
-
-	> sccp resync SEP001AA289343B
 
 Features
 --------
@@ -145,8 +141,6 @@ Features
 | Speed dial                   | Yes**     |
 +------------------------------+-----------+
 | BLF (Supervision)            | Yes**     |
-+------------------------------+-----------+
-| Resync device configuration  | Yes       |
 +------------------------------+-----------+
 | Group pickup                 | Not yet   |
 +------------------------------+-----------+
