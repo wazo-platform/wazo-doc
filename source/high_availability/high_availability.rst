@@ -49,7 +49,7 @@ Quick Summary
 * Configure one XiVO as a master -> setup the slave address
 * Restart cti server on master
 * Configure the other XiVO as a slave -> setup the master address
-* Start configuration synchronization by running the script ``xivo-master-slave-db-replication <slave_ip>``
+* Start configuration synchronization by running the script ``xivo-master-slave-db-replication <slave_ip>`` on the master
 * Resynchronize all your devices
 * Configure the XiVO Clients
 
