@@ -206,10 +206,17 @@ Parameters
 
 * None
 
-Example Request
-^^^^^^^^^^^^^^^
+Request
+^^^^^^^
 
 ``GET https://xivoserver:50051/1.0/users``
+
+Response
+^^^^^^^^
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
 
 .. code-block:: javascript
 
@@ -235,12 +242,75 @@ Example Request
 
 GET /1.0/user/<id>
 ------------------
+Return a specific user
 
+Parameters
+^^^^^^^^^^
+* None
+
+Request
+^^^^^^^
+``GET https://xivoserver:50051/1.0/user/34``
+
+Response
+^^^^^^^^
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+      "id": "1"
+      "firstname": "John",
+      "lastname": "Doe",
+      ................ see :ref:`user-properties`
+    }
 
 .. _create-user:
 
 POST /1.0/user/
 ---------------
+Create a user
+
+Parameters
+^^^^^^^^^^
+* None
+
+Request
+^^^^^^^
+::
+
+ POST /1.0/user/ HTTP/1.1
+ Host : xivoserver:50051
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+      "firstname": "John",
+      "lastname": "Doe",
+      ................ see :ref:`user-properties`
+    }
+
+Response
+^^^^^^^^
+::
+
+ HTTP/1.1 201 Created
+ Content-Type: application/json;charset=UTF-8
+ Location: https://xivoserver:50051/1.0/user/38
+
+.. code-block:: javascript
+
+    {
+      "id": "38"
+      "firstname": "John",
+      "lastname": "Doe",
+      ................ see :ref:`user-properties`
+    }
+
 
 
 .. _update-user:
