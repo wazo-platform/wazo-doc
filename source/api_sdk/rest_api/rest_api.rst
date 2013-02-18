@@ -250,7 +250,10 @@ Parameters
 
 Request
 ^^^^^^^
-``GET https://xivoserver:50051/1.0/user/34``
+::
+
+ GET /1.0/user/1 HTTP/1.1
+ Host : xivoserver:50051
 
 Response
 ^^^^^^^^
@@ -299,44 +302,157 @@ Response
 ::
 
  HTTP/1.1 201 Created
- Content-Type: application/json;charset=UTF-8
  Location: https://xivoserver:50051/1.0/user/38
-
-.. code-block:: javascript
-
-    {
-      "id": "38"
-      "firstname": "John",
-      "lastname": "Doe",
-      ................ see :ref:`user-properties`
-    }
-
 
 
 .. _update-user:
 
 PUT /1.0/user/<id>
 ------------------
+Update a user
+
+Parameters
+^^^^^^^^^^
+* None
+
+Request
+^^^^^^^
+::
+
+ PUT /1.0/user/67 HTTP/1.1
+ Host : xivoserver:50051
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+      "email": "John@amaryt.com"
+    }
+
+Response
+^^^^^^^^
+::
+
+ HTTP/1.1 200 OK
+ Location: https://xivoserver:50051/1.0/user/67
 
 
 .. _delete-user:
 
 DELETE /1.0/user/<id>
 ---------------------
+Delete a user
+
+Parameters
+^^^^^^^^^^
+* None
+
+Request
+^^^^^^^
+::
+
+ DELETE /1.0/user/44 HTTP/1.1
+ Host : xivoserver:50051
+
+Response
+^^^^^^^^
+::
+
+ HTTP/1.1 200 OK
+
 
 .. _create-voicemail:
 
 POST /1.0/user/<userid>/voicemail
 ---------------------------------
 
+Add a voicemail to a user. User must not have an associated voicemail
+
+Parameters
+^^^^^^^^^^
+* None
+
+Request
+^^^^^^^
+::
+
+ POST /1.0/user/35/voicemail HTTP/1.1
+ Host : xivoserver:50051
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+      "number": "6789",
+      "password": "1234",
+      "checkpassword": "false",
+      "attach": "false",
+      "sendemail":"false",
+      "deleteaftersend":"false"
+    }
+
+Response
+^^^^^^^^
+::
+
+ HTTP/1.1 201 Created
+ Location: https://xivoserver:50051/1.0/user/35/voicemail
+
 .. _update-voicemail:
 
 PUT /1.0/user/<userid>/voicemail
 --------------------------------
 
+Update a user voicemail, user must have a voicemail associated
+
+Parameters
+^^^^^^^^^^
+* None
+
+Request
+^^^^^^^
+::
+
+ PUT /1.0/user/37/voicemail HTTP/1.1
+ Host : xivoserver:50051
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+      "password": "7895",
+      "deleteaftersend":"true"
+    }
+
+Response
+^^^^^^^^
+::
+
+ HTTP/1.1 200 OK
+ Location: https://xivoserver:50051/1.0/user/37/voicemail
+
 .. _delete-voicemail:
 
 DELETE /1.0/user/<userid>/voicemail
 -----------------------------------
+Delete a user voicemail
+
+Parameters
+^^^^^^^^^^
+* None
+
+Request
+^^^^^^^
+::
+
+ DELETE /1.0/user/80/voicemail HTTP/1.1
+ Host : xivoserver:50051
+
+Response
+^^^^^^^^
+::
+
+ HTTP/1.1 200 OK
+
 
 
