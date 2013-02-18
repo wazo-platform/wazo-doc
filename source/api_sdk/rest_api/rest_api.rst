@@ -196,8 +196,8 @@ User properties
 
 .. _list-users:
 
-GET /IPBX/users/
-----------------
+GET /1.0/users/
+---------------
 
 Return a list of xivo users :
 
