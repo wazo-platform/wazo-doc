@@ -233,40 +233,40 @@ Example Request
 
 .. _get-user:
 
-GET /IPBX/user/<id>
--------------------
+GET /1.0/user/<id>
+------------------
 
 
 .. _create-user:
 
-POST /IPBX/user/
-----------------
+POST /1.0/user/
+---------------
 
 
 .. _update-user:
 
-PUT /IPBX/user/<id>
--------------------
+PUT /1.0/user/<id>
+------------------
 
 
 .. _delete-user:
 
-DELETE /IPBX/user/<id>
-----------------------
+DELETE /1.0/user/<id>
+---------------------
 
 .. _create-voicemail:
 
-POST /IPBX/user/<userid>/voicemail
-----------------------------------
+POST /1.0/user/<userid>/voicemail
+---------------------------------
 
 .. _update-voicemail:
 
-PUT /IPBX/user/<userid>/voicemail
----------------------------------
+PUT /1.0/user/<userid>/voicemail
+--------------------------------
 
 .. _delete-voicemail:
 
-DELETE /IPBX/user/<userid>/voicemail
-------------------------------------
+DELETE /1.0/user/<userid>/voicemail
+-----------------------------------
 
 
