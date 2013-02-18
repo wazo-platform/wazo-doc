@@ -7,7 +7,7 @@ REST API
 XiVO proposes a growing number of REST web services.
 
 In the future, these services will replace existing
-:ref:`web services <web-services-api>`. The current version is version 1.
+:ref:`web services <web-services-api>`. The current version is version 1.0
 
 
 Configuration
@@ -21,28 +21,9 @@ REST web services are :
 How to use this page
 ====================
 
-This page lists the REST Web Services available in XiVO. Their usage is described in the unit-tests
-(see the section below) and some details are given on this page. Data can be retrieved via the HTTP GET
-method and must be sent via POST or PUT methods. Data in encoded in JSON format.
-
-
-Where do I find Web Services usage examples?
---------------------------------------------
-
-Listing data here would be inefficient, as this documentation cannot be always up-to-date. So we're
-moving it out of the documentation.
-
-Instead, we will use unit-tests as documentation. We are developping a Python library to access Web
-Services. An alpha version is available in the following file :file:`xivo-restapi/acceptance/features/ws_utils.py`
-
-This page will be updated together with the library.
-
-``xivo-restapi`` source code is available in the ``xivo-restapi``
-`Git repository on git.xivo.fr <http://git.xivo.fr/?p=official/xivo-restapi.git;a=summary>`_.
-
-If you want information about the users Web Services, for example, have a look at the following file
-:file:`xivo_restapi/rest/tests/test_API_campaigns.py`
-(`online version <http://git.xivo.fr/?p=official/xivo-restapi.git;a=blob;f=xivo-restapi/xivo_restapi/services/tests/test_campagne_management.py;h=9e468e3552c91fabd89e5c03434293009e8785bd;hb=HEAD>`_).
+This page lists the REST Web Services available in XiVO.
+Data is retrieved via the HTTP GET method, created using POST, updated using PUT and deleted using DELETE method.
+Data is encoded in JSON format.
 
 
 HTTP status codes
@@ -63,16 +44,19 @@ __ http://www.iana.org/assignments/http-status-codes/http-status-codes.xml
 General URL parameters
 ======================
 
-All URL's starts by /rest/1.0/, 1.0 is the current protocol version.
+All URL's starts by /1.0/, 1.0 is the current protocol version.
 
 Pagination::
 
-   GET http://127.0.0.1:50050/rest/1.0/users/?_page=X&_pagesize=Y
+   GET http://127.0.0.1:50050/1.0/users/?_page=X&_pagesize=Y
 
 Parameters:
  * _page - page number (items from X \* _page to (X+1) \* _pagesize)
  * _pagesize - number of items per page
 
+
+..    note:: Parameters starting by an _ means that it is not relevant to the data definition, but used 
+             to control how objects are sent back from the server to the client.
 
 Data representation
 ===================
@@ -80,19 +64,22 @@ Data representation
 Data retrieved from the REST server
 -----------------------------------
 
-JSON is used to encode returned data.
+JSON is used to encode returned or sent data
 
-..   note:: Properties can be added without changing the protocol version in the main list or in the object list itself. 
+HTTP Header : Content-Type = application/json
+
+..   note:: Optional properties can be added without changing the protocol version in the main list or in the object list itself. 
             Properties will not be removed, type and name will not be modified.
 
 Getting object lists
 ^^^^^^^^^^^^^^^^^^^^
-``GET /rest/1.0/objects/``
+``GET /1.0/objects/``
 
 When returning lists the format is as follows:
- * total - number of returned items in total (optional)
- * items - returned data as an array of properties list.
+ * total - number of items in total in the system configuration (optional)
+ * items - returned data as an array of object properties list.
 
+Other optional properties can be added later.
 
 ``Response data format``
 
@@ -119,7 +106,7 @@ Getting An Object
 ^^^^^^^^^^^^^^^^^
 Format returned is a list of properties.
 
-``GET /rest/1.0/objects/<id>/``
+``GET /1.0/objects/<id>/``
 
 ``Response data format``
 
@@ -137,8 +124,9 @@ Data sent to the REST server
 ----------------------------
 
 The XiVO REST server implements POST and PUT methods for item creation and update respectively.
-Data created using the POST method is done via root URL and updates using the PUT method via root URL suffixed by /<id>/.
-The servers expected to receive JSON encoded data.
+Data is created using the POST method via a root URL and is
+updated using the PUT method via a root URL suffixed by /<id>/.
+The server expects to receive JSON encoded data.
 Only one item can be processed per request. The data format and required data fields are illustrated in the following example:
 
 ``Request data format``
@@ -152,6 +140,7 @@ Only one item can be processed per request. The data format and required data fi
      }
 
 When updating, only the id and updated properties are needed, omitted properties are not updated.
+Some properties can also be optional when creating an object.
 
 
 XiVO
@@ -161,15 +150,51 @@ Users
 -----
 Users are XiVO objects using phone sets, users can associated with lines, can be in groups or can have phone keys.
 
-+--------+-------------------+-----------------------------+
-| Method | Ressource         | Description                 |
-+========+===================+=============================+
-| GET    | :ref:`ipbx-users` | Return a list of XiVO users |
-+--------+-------------------+-----------------------------+
-| GET    | :ref:`ipbx-user`  | Return a XiVO users         |
-+--------+-------------------+-----------------------------+
++--------+-------------------------+-----------------------------+
+| Method | Ressource               | Description                 |
++========+=========================+=============================+
+| GET    | :ref:`list-users`       | Return a list of XiVO users |
++--------+-------------------------+-----------------------------+
+| GET    | :ref:`get-user`         | Return a specific XiVO user |
++--------+-------------------------+-----------------------------+
+| POST   | :ref:`create-user`      | Create a XiVO user          |
++--------+-------------------------+-----------------------------+
+| PUT    | :ref:`update-user`      | Update a XiVO user          |
++--------+-------------------------+-----------------------------+
+| DELETE | :ref:`delete-user`      | Delete a XiVO user          |
++--------+-------------------------+-----------------------------+
+| POST   | :ref:`create-voicemail` | Create a user voicemail     |
++--------+-------------------------+-----------------------------+
+| PUT    | :ref:`update-voicemail` | Update a user voicemail     |
++--------+-------------------------+-----------------------------+
+| DELETE | :ref:`delete-voicemail` | Delete a user voicemail     |
++--------+-------------------------+-----------------------------+
 
-.. _ipbx-users:
+User properties
+---------------
+
+.. code-block:: javascript
+
+    {
+       "id": "1"
+       "firstname": "John",
+       "lastname": "Doe",
+       "email" : "jdoe@xivo.com",
+       "mobilephonenumber" : "0664345678",
+       "outcallerid" : "John Doe",
+       "language" : "fr_CA",
+       "timezone"  : "America/Montreal",
+       "username" : "jdoe",
+       "password" : "ih?7@poi",
+       "voicemail" : {..........},
+       "services" : {..........},
+       "lines" : [..........],
+       "cti" : {.....},
+       "contactcenter" : {....},
+    }
+
+
+.. _list-users:
 
 GET /IPBX/users/
 ----------------
@@ -184,7 +209,7 @@ Parameters
 Example Request
 ^^^^^^^^^^^^^^^
 
-``GET https://xivoserver/rest/1.0/IPBX/users``
+``GET https://xivoserver:50051/1.0/users``
 
 .. code-block:: javascript
 
@@ -206,11 +231,42 @@ Example Request
     }
 
 
-.. _ipbx-user:
+.. _get-user:
 
 GET /IPBX/user/<id>
 -------------------
 
 
+.. _create-user:
+
+POST /IPBX/user/
+----------------
+
+
+.. _update-user:
+
+PUT /IPBX/user/<id>
+-------------------
+
+
+.. _delete-user:
+
+DELETE /IPBX/user/<id>
+----------------------
+
+.. _create-voicemail:
+
+POST /IPBX/user/<userid>/voicemail
+----------------------------------
+
+.. _update-voicemail:
+
+PUT /IPBX/user/<userid>/voicemail
+---------------------------------
+
+.. _delete-voicemail:
+
+DELETE /IPBX/user/<userid>/voicemail
+------------------------------------
 
 
