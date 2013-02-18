@@ -67,7 +67,7 @@ All URL's starts by /rest/1.0/, 1.0 is the current protocol version.
 
 Pagination::
 
-   GET http://127.0.0.1:50050/rest/1.0/IPBX/users/?_page=X&_pagesize=Y
+   GET http://127.0.0.1:50050/rest/1.0/users/?_page=X&_pagesize=Y
 
 Parameters:
  * _page - page number (items from X \* _page to (X+1) \* _pagesize)
@@ -87,7 +87,7 @@ JSON is used to encode returned data.
 
 Getting object lists
 ^^^^^^^^^^^^^^^^^^^^
-``GET /rest/1.0/IPBX/objects/``
+``GET /rest/1.0/objects/``
 
 When returning lists the format is as follows:
  * total - number of returned items in total (optional)
@@ -119,7 +119,7 @@ Getting An Object
 ^^^^^^^^^^^^^^^^^
 Format returned is a list of properties.
 
-``GET /rest/1.0/IPBX/objects/<id>/``
+``GET /rest/1.0/objects/<id>/``
 
 ``Response data format``
 
@@ -154,7 +154,7 @@ Only one item can be processed per request. The data format and required data fi
 When updating, only the id and updated properties are needed, omitted properties are not updated.
 
 
-IPBX
+XiVO
 ====
 
 Users
@@ -165,6 +165,8 @@ Users are XiVO objects using phone sets, users can associated with lines, can be
 | Method | Ressource         | Description                 |
 +========+===================+=============================+
 | GET    | :ref:`ipbx-users` | Return a list of XiVO users |
++--------+-------------------+-----------------------------+
+| GET    | :ref:`ipbx-user`  | Return a XiVO users         |
 +--------+-------------------+-----------------------------+
 
 .. _ipbx-users:
@@ -202,6 +204,12 @@ Example Request
             }
         ]
     }
+
+
+.. _ipbx-user:
+
+GET /IPBX/user/<id>
+-------------------
 
 
 
