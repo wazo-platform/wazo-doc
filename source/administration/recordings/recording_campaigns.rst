@@ -28,7 +28,7 @@ Creating a campaign
 * Specify a name, a start date, an end date and a targetted queue for your campaign
 * Save your modifications
 
-Two campaigns cannot cannot record the same queue for an overlapping period of time.
+Two campaigns cannot record the same queue for an overlapping period of time.
 For instance, if a campaign is recording the queue "Sales" from 2012-01-01 to
 2012-02-28, it is not possible to create another campaign for the queue "Sales" from
 2012-01-30 to 2012-03-31.
