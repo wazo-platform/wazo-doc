@@ -37,7 +37,9 @@ __ http://www.iana.org/assignments/http-status-codes/http-status-codes.xml
 * 201: Created
 * 400: Incorrect syntax (only for requests to add)
 * 404: Resource not found (for queries only view and delete)
+* 406: Not acceptable
 * 412: Precondition failed
+* 415: Unsupported media type
 * 500: Internal server error
 
 
@@ -150,25 +152,20 @@ Users
 -----
 Users are XiVO objects using phone sets, users can associated with lines, can be in groups or can have phone keys.
 
-+--------+-------------------------+-----------------------------+
-| Method | Ressource               | Description                 |
-+========+=========================+=============================+
-| GET    | :ref:`list-users`       | Return a list of XiVO users |
-+--------+-------------------------+-----------------------------+
-| GET    | :ref:`get-user`         | Return a specific XiVO user |
-+--------+-------------------------+-----------------------------+
-| POST   | :ref:`create-user`      | Create a XiVO user          |
-+--------+-------------------------+-----------------------------+
-| PUT    | :ref:`update-user`      | Update a XiVO user          |
-+--------+-------------------------+-----------------------------+
-| DELETE | :ref:`delete-user`      | Delete a XiVO user          |
-+--------+-------------------------+-----------------------------+
-| POST   | :ref:`create-voicemail` | Create a user voicemail     |
-+--------+-------------------------+-----------------------------+
-| PUT    | :ref:`update-voicemail` | Update a user voicemail     |
-+--------+-------------------------+-----------------------------+
-| DELETE | :ref:`delete-voicemail` | Delete a user voicemail     |
-+--------+-------------------------+-----------------------------+
++--------+--------------------+-----------------------------+
+| Method | Ressource          | Description                 |
++========+====================+=============================+
+| GET    | :ref:`list-users`  | Return a list of XiVO users |
++--------+--------------------+-----------------------------+
+| GET    | :ref:`get-user`    | Return a specific XiVO user |
++--------+--------------------+-----------------------------+
+| POST   | :ref:`create-user` | Create a XiVO user          |
++--------+--------------------+-----------------------------+
+| PUT    | :ref:`update-user` | Update a XiVO user          |
++--------+--------------------+-----------------------------+
+| DELETE | :ref:`delete-user` | Delete a XiVO user          |
++--------+--------------------+-----------------------------+
+
 
 User properties
 ---------------
@@ -176,7 +173,7 @@ User properties
 .. code-block:: javascript
 
     {
-       "id": "1"
+       "id": 1
        "firstname": "John",
        "lastname": "Doe",
        "email" : "jdoe@xivo.com",
@@ -186,7 +183,7 @@ User properties
        "timezone"  : "America/Montreal",
        "username" : "jdoe",
        "password" : "ih?7@poi",
-       "voicemail" : {..........},
+       "voicemailid" : 1,
        "services" : {..........},
        "lines" : [..........],
        "cti" : {.....},
@@ -194,6 +191,37 @@ User properties
     }
 
 
+Voicemails
+----------
+
+Voicemails are XiVO objects with several properties such as a phone number, a e-mail, etc...
+
++--------+-------------------------+-----------------------------+
+| Method | Ressource               | Description                 |
++========+=========================+=============================+
+| GET    | :ref:`list-voicemails`  | Return a list of voicemails |
++--------+-------------------------+-----------------------------+
+| GET    | :ref:`get-voicemail`    | Return a specific voicemail |
++--------+-------------------------+-----------------------------+
+| POST   | :ref:`create-voicemail` | Create a voicemail          |
++--------+-------------------------+-----------------------------+
+| PUT    | :ref:`update-voicemail` | Update a voicemail          |
++--------+-------------------------+-----------------------------+
+| DELETE | :ref:`delete-voicemail` | Delete a voicemail          |
++--------+-------------------------+-----------------------------+
+
+Voicemail properties
+--------------------
+
+.. code-block:: javascript
+
+    {
+       "uniqueid": 1,
+       "mailbox": "123",
+       "password": "123",
+       "email": "foo@bar.com"
+    }
+   
 .. _list-users:
 
 GET /1.0/users/
@@ -240,8 +268,8 @@ Response
 
 .. _get-user:
 
-GET /1.0/user/<id>
-------------------
+GET /1.0/users/<id>
+-------------------
 Return a specific user
 
 Parameters
@@ -252,7 +280,7 @@ Request
 ^^^^^^^
 ::
 
- GET /1.0/user/1 HTTP/1.1
+ GET /1.0/users/1 HTTP/1.1
  Host : xivoserver:50051
 
 Response
@@ -273,8 +301,8 @@ Response
 
 .. _create-user:
 
-POST /1.0/user/
----------------
+POST /1.0/users/
+----------------
 Create a user
 
 Parameters
@@ -285,7 +313,7 @@ Request
 ^^^^^^^
 ::
 
- POST /1.0/user/ HTTP/1.1
+ POST /1.0/users/ HTTP/1.1
  Host : xivoserver:50051
  Content-Type: application/json;charset=UTF-8
 
@@ -302,13 +330,13 @@ Response
 ::
 
  HTTP/1.1 201 Created
- Location: https://xivoserver:50051/1.0/user/38
+ Location: https://xivoserver:50051/1.0/users/38
 
 
 .. _update-user:
 
-PUT /1.0/user/<id>
-------------------
+PUT /1.0/users/<id>
+-------------------
 Update a user
 
 Parameters
@@ -319,14 +347,15 @@ Request
 ^^^^^^^
 ::
 
- PUT /1.0/user/67 HTTP/1.1
+ PUT /1.0/users/67 HTTP/1.1
  Host : xivoserver:50051
  Content-Type: application/json;charset=UTF-8
 
 .. code-block:: javascript
 
     {
-      "email": "John@amaryt.com"
+      "email": "John@amaryt.com",
+      "voicemailid": 17
     }
 
 Response
@@ -334,13 +363,13 @@ Response
 ::
 
  HTTP/1.1 200 OK
- Location: https://xivoserver:50051/1.0/user/67
+ Location: https://xivoserver:50051/1.0/users/67
 
 
 .. _delete-user:
 
-DELETE /1.0/user/<id>
----------------------
+DELETE /1.0/users/<id>
+----------------------
 Delete a user
 
 Parameters
@@ -351,7 +380,7 @@ Request
 ^^^^^^^
 ::
 
- DELETE /1.0/user/44 HTTP/1.1
+ DELETE /1.0/users/44 HTTP/1.1
  Host : xivoserver:50051
 
 Response
@@ -360,13 +389,57 @@ Response
 
  HTTP/1.1 200 OK
 
+.. _list-voicemails:
 
-.. _create-voicemail:
+GET /1.0/voicemails/
+--------------------
 
-POST /1.0/user/<userid>/voicemail
----------------------------------
+Return a list of all voicemails :
 
-Add a voicemail to a user. User must not have an associated voicemail
+Parameters
+^^^^^^^^^^
+
+* None
+
+Request
+^^^^^^^
+
+``GET https://xivoserver:50051/1.0/voicemails``
+
+Response
+^^^^^^^^
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+        "total": 2,
+        "items":
+        [
+            {
+                "uniqueid": 1,
+                "mailbox": "123",
+                "password": "123",
+                "email": "foo@bar.com"
+            },
+            {
+                "uniqueid": 2,
+                "mailbox": "456",
+                "password": "456",
+                "email": "xivo@avencall.com"
+            }
+        ]
+    }
+
+
+.. _get-voicemail:
+
+GET /1.0/voicemails/<id>
+------------------------
+Return a specific voicemail.
 
 Parameters
 ^^^^^^^^^^
@@ -376,19 +449,50 @@ Request
 ^^^^^^^
 ::
 
- POST /1.0/user/35/voicemail HTTP/1.1
+ GET /1.0/voicemails/1 HTTP/1.1
+ Host : xivoserver:50051
+
+Response
+^^^^^^^^
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+      "uniqueid": 1,
+      "mailbox": "123",
+      "password": "123",
+      "email": "foo@bar.com"
+    }
+
+.. _create-voicemail:
+
+POST /1.0/voicemails/
+---------------------
+
+Create a voicemail.
+
+Parameters
+^^^^^^^^^^
+* None
+
+Request
+^^^^^^^
+::
+
+ POST /1.0/voicemails/ HTTP/1.1
  Host : xivoserver:50051
  Content-Type: application/json;charset=UTF-8
 
 .. code-block:: javascript
 
     {
-      "number": "6789",
-      "password": "1234",
-      "checkpassword": "false",
-      "attach": "false",
-      "sendemail":"false",
-      "deleteaftersend":"false"
+       "mailbox": "123",
+       "password": "123",
+       "email": "foo@bar.com"
     }
 
 Response
@@ -396,14 +500,14 @@ Response
 ::
 
  HTTP/1.1 201 Created
- Location: https://xivoserver:50051/1.0/user/35/voicemail
+ Location: https://xivoserver:50051/1.0/voicemails/35
 
 .. _update-voicemail:
 
-PUT /1.0/user/<userid>/voicemail
---------------------------------
+PUT /1.0/voicemails/<voicemailid>
+---------------------------------
 
-Update a user voicemail, user must have a voicemail associated
+Update a voicemail.
 
 Parameters
 ^^^^^^^^^^
@@ -413,7 +517,7 @@ Request
 ^^^^^^^
 ::
 
- PUT /1.0/user/37/voicemail HTTP/1.1
+ PUT /1.0/voicemails/37 HTTP/1.1
  Host : xivoserver:50051
  Content-Type: application/json;charset=UTF-8
 
@@ -421,7 +525,7 @@ Request
 
     {
       "password": "7895",
-      "deleteaftersend":"true"
+      "email": "xivo@avencall.com"
     }
 
 Response
@@ -429,13 +533,13 @@ Response
 ::
 
  HTTP/1.1 200 OK
- Location: https://xivoserver:50051/1.0/user/37/voicemail
+ Location: https://xivoserver:50051/1.0/voicemails/37
 
 .. _delete-voicemail:
 
-DELETE /1.0/user/<userid>/voicemail
------------------------------------
-Delete a user voicemail
+DELETE /1.0/voicemails/<voicemailid>
+------------------------------------
+Delete a voicemail.
 
 Parameters
 ^^^^^^^^^^
@@ -445,7 +549,7 @@ Request
 ^^^^^^^
 ::
 
- DELETE /1.0/user/80/voicemail HTTP/1.1
+ DELETE /1.0/voicemails/80 HTTP/1.1
  Host : xivoserver:50051
 
 Response
