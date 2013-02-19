@@ -148,6 +148,8 @@ Features
 +------------------------------+-----------+
 | Resync device configuration  | Yes       |
 +------------------------------+-----------+
+| Do not disturb (DND)         | Yes       |
++------------------------------+-----------+
 | Group pickup                 | Not yet   |
 +------------------------------+-----------+
 | Hotline (auto-provisioning)  | Not yet   |
@@ -155,8 +157,6 @@ Features
 | Multi line                   | Not yet   |
 +------------------------------+-----------+
 | Codec selection              | Not yet   |
-+------------------------------+-----------+
-| Do not disturb (DND)         | Not yet   |
 +------------------------------+-----------+
 | NAT traversal                | Not yet   |
 +------------------------------+-----------+
