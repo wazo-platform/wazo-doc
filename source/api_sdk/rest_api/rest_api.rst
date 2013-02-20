@@ -237,7 +237,7 @@ Parameters
 Request
 ^^^^^^^
 
-``GET https://xivoserver:50051/1.0/users``
+``GET https://xivoserver:50051/1.0/users/``
 
 Response
 ^^^^^^^^
