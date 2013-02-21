@@ -516,6 +516,141 @@ Listen to an agent
    {"class": "ipbxcommand", "command": "listen", "commandid": 1423579492, "destination": "xivo/1", "subcommand": "start"}
 
 
+Service Messages
+----------------
+* class : featuresput
+
+Call Filtering
+^^^^^^^^^^^^^^
+* function : incallfilter
+* value : true, false activate deactivate filtering
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "featuresput", "commandid": 1326845972, "function": "incallfilter", "value": true}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "config": {"incallfilter": true},
+      "function": "updateconfig",
+      "listname": "users",
+      "tid": "2",
+      "timenow": 1361456398.52, "tipbxid": "xivo"  }
+
+
+DND
+^^^
+* function : enablednd
+* value : true, false activate deactivate DND
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "featuresput", "commandid": 1088978942, "function": "enablednd", "value": true}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "config": {"enablednd": true},
+      "function": "updateconfig",
+      "listname": "users",
+      "tid": "2",
+      "timenow": 1361456614.55, "tipbxid": "xivo"}
+
+Unconditional Forward
+^^^^^^^^^^^^^^^^^^^^^
+Forward the call at any time, call doest not reach the user
+
+* function : fwd
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {
+      "class": "featuresput", "commandid": 2082138822, "function": "fwd",
+      "value": {"destunc": "1002", "enableunc": true}
+   }
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "config": {"destunc": "1002", "enableunc": true},
+      "function": "updateconfig",
+      "listname": "users",
+      "tid": "2",
+      "timenow": 1361456777.98, "tipbxid": "xivo"}
+
+Forward On No Answer
+^^^^^^^^^^^^^^^^^^^^
+Forward the call to another destination if the user does not answer
+
+* function : fwd
+
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {
+      "class": "featuresput", "commandid": 1705419982, "function": "fwd",
+      "value": {"destrna": "1003", "enablerna": true}
+      }
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "config": {"destrna": "1003", "enablerna": true},
+      "function": "updateconfig",
+      "listname": "users",
+      "tid": "2",
+      "timenow": 1361456966.89, "tipbxid": "xivo" }
+
+Forward On Busy
+^^^^^^^^^^^^^^^
+Forward the call to another destination when the user is busy
+
+* function : fwd
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {
+      "class": "featuresput", "commandid": 568274890, "function": "fwd",
+      "value": {"destbusy": "1009", "enablebusy": true}
+      }
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "config": {"destbusy": "1009", "enablebusy": true},
+      "function": "updateconfig",
+      "listname": "users",
+      "tid": "2",
+      "timenow": 1361457163.77, "tipbxid": "xivo"
+      }
+
+
 REGCOMMANDS
 -----------
 
