@@ -447,11 +447,68 @@ queuemembers
 
    {"class": "getlist", "commandid": 964899043, "function": "listid", "listname": "queuemembers", "tipbxid": "xivo"}
 
+Agent messages
+--------------
+
+login
+^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"agentphonenumber": "1000", "class": "ipbxcommand", "command": "agentlogin", "commandid": 733366597}
+
+agentphonenumber is the physical phone set where the agent is going to log on.
+
+Logout
+^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "command": "agentlogout", "commandid": 552759274}
+
+Pause
+^^^^^
+On all queues
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "command": "queuepause", "commandid": 859140432, "member": "agent:xivo/1", "queue": "queue:xivo/all"}
+
+Un pause
+^^^^^^^^
+On all queues
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "command": "queueunpause", "commandid": 822604987, "member": "agent:xivo/1", "queue": "queue:xivo/all"}
+
+Add an agent in a queue
+^^^^^^^^^^^^^^^^^^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "command": "queueadd", "commandid": 542766213, "member": "agent:xivo/3", "queue": "queue:xivo/2"}
+
+Remove an agent from a queue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "command": "queueremove", "commandid": 742480296, "member": "agent:xivo/3", "queue": "queue:xivo/2"}
+
 
 REGCOMMANDS
 -----------
-
-logout
 
 callcampaign
 
@@ -507,19 +564,6 @@ getipbxlist
     {
         "class": "getipbxlist",
         "commandid": <commandid>
-    }
-
-getlist
-
-.. code-block:: javascript
-
-    {
-       "function": "updatestatus",
-       "listname": "channels",
-       "tipbxid": "<xivoid>",
-       "commandid": <commandid>,
-       "tid": "SIP/6d29u5-00000003",
-       "class": "getlist"
     }
 
 ipbxcommand
@@ -584,24 +628,6 @@ answer
 cancel
 
 refuse
-
-agentlogin
-
-agentlogout
-
-queueadd
-
-queueremove
-
-queuepause
-
-queueunpause
-
-queuepause_all
-
-queueunpause_all
-
-queueremove_all
 
 record
 
