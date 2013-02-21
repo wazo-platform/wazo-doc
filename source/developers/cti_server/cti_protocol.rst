@@ -317,6 +317,35 @@ This message is received to display customer information if configured at the se
       "channel": "SIP/e6fhff-00000007"
    }
 
+How to decode payload :
+
+.. code-block:: python
+
+   >>> b64content = base64.b64decode(<payload content>)
+   >>> # 4 first cars are the encoded lenght of the xml string
+   >>> xmllen = struck.unpack('>I',b64content[0:4])
+   >>> # the rest is a compressed xml string
+   >>> xmlcontent = zlib.decompress(toto[4:])
+   >>> print xmlcontent
+
+   <?xml version="1.0" encoding="utf-8"?>
+      <profile>
+         <user>
+            <internal name="ipbxid"><![CDATA[xivo]]></internal>
+            <internal name="where"><![CDATA[dial]]></internal>
+            <internal name="channel"><![CDATA[SIP/barometrix_jyldev-00000009]]></internal>
+            <internal name="focus"><![CDATA[no]]></internal>
+            <internal name="zip"><![CDATA[1]]></internal>
+            <sheet_qtui order="0010" name="qtui" type="None"><![CDATA[]]></sheet_qtui>
+            <sheet_info order="0010" name="Nom" type="title"><![CDATA[0230210083]]></sheet_info>
+            <sheet_info order="0030" name="Origine" type="text"><![CDATA[extern]]></sheet_info>
+            <sheet_info order="0020" name="Num\xc3\xa9ro" type="text"><![CDATA[0230210083]]></sheet_info>
+            <systray_info order="0010" name="Nom" type="title"><![CDATA[Maric\xc3\xa9 Sapr\xc3\xaftch\xc3\xa0]]></systray_info>
+            <systray_info order="0030" name="Origine" type="body"><![CDATA[extern]]></systray_info>
+            <systray_info order="0020" name="Num\xc3\xa9ro" type="body"><![CDATA[0230210083]]></systray_info>
+         </user>
+      </profile>
+
 phone status update
 ^^^^^^^^^^^^^^^^^^^
 
