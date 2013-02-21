@@ -192,7 +192,7 @@ login_pass
 login_capas
 ^^^^^^^^^^^
 
-``Server -> Client``
+``Client -> Server``
 
 .. code-block:: javascript
 
@@ -296,6 +296,156 @@ Third message describes the current user status
       "class": "getlist", 
       "timenow": 1361440830.99
    }
+
+Unsolicited Messages
+--------------------
+
+These message are received whenever a corresponding event occurs, sheet message on incoming calls, updatestatus when a phone status change.
+
+sheet
+^^^^^
+This message is received to display customer information if configured at the server side
+
+.. code-block:: javascript
+
+   {
+      "timenow": 1361444639.61,
+      "class": "sheet",
+      "compressed": true,
+      "serial": "xml",
+      "payload": "AAADnnicndPBToNAEAbgV1n3XgFN1AP...................",
+      "channel": "SIP/e6fhff-00000007"
+   }
+
+phone status update
+^^^^^^^^^^^^^^^^^^^
+
+Received when a phone status change
+
+* class : getlist
+* function : updatestatus
+* listname : phones
+
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "function": "updatestatus",
+      "listname": "phones",
+      "tipbxid": "xivo",
+      "timenow": 1361447017.29,
+      .........
+   }
+
+tid is the the object identification
+
+Example of phone messages received when a phone is ringing :
+
+.. code-block:: javascript
+
+   { ... "status": {"channels": ["SIP/x2gjtw-0000000b"]}, "tid": "3",}
+   {.... "status": {"channels": ["SIP/x2gjtw-0000000b"], "queues": [], "hintstatus": "0", "groups": []}, "tid": "3"}
+   {.... "status": {"hintstatus": "8"}, "tid": "3"}
+
+channel status update
+^^^^^^^^^^^^^^^^^^^^^
+* class : getlist
+* function : updatestatus
+* listname : channels
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "function": "updatestatus",
+      "listname": "channels",
+      "tipbxid": "xivo",
+      "timenow": 1361447017.29,
+      .........
+   }
+
+Example of phone messages received when a phone is ringing :
+
+.. code-block:: javascript
+
+   {"status": {"timestamp": 1361447017.22, "holded": false, "commstatus": "ready", "parked": false, "state": "Down"}, "tid": "SIP/barometrix_jyldev-0000000a"}
+   {"status": {"timestamp": 1361447017.29, "holded": false, "commstatus": "ready", "parked": false, "state": "Unknown"}, "tid": "SIP/x2gjtw-0000000b"}
+   {"status": {"direction": "out", "timestamp": 1361447017.29, "holded": false, "talkingto_id": "SIP/x2gjtw-0000000b", "state": "Ring", "parked": false, "commstatus": "calling"}, "tid": "SIP/barometrix_jyldev-0000000a", "class": "getlist"}
+   {"status": {"direction": "in", "timestamp": 1361447017.29, "holded": false, "talkingto_id": "SIP/barometrix_jyldev-0000000a", "state": "Down", "parked": false, "commstatus": "ringing"}, "tid": "SIP/x2gjtw-0000000b", "class": "getlist"}
+
+
+Configuration Messages
+----------------------
+
+The followin messages are used to retrieve XiVO configuration.
+
+Common fields
+^^^^^^^^^^^^^
+* class : getlist
+* function : listid
+* commandid
+* tipbxid
+* listname : Name of the list to be retreived : users, phones, agents, queues, voicemails, queuemembers
+
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "commandid": 489035169,
+      "function": "listid",
+      "tipbxid": "xivo",
+      "listname": "........."
+   }
+
+users
+^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 489035169, "function": "listid", "listname": "users", "tipbxid": "xivo"}
+
+phones
+^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 495252308, "function": "listid", "listname": "phones", "tipbxid": "xivo"}
+
+agents
+^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 1431355191, "function": "listid", "listname": "agents", "tipbxid": "xivo"}
+
+queues
+^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 719950939, "function": "listid", "listname": "queues", "tipbxid": "xivo"}
+
+voicemails
+^^^^^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 1034160761, "function": "listid", "listname": "voicemails", "tipbxid": "xivo"}
+
+queuemembers
+^^^^^^^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 964899043, "function": "listid", "listname": "queuemembers", "tipbxid": "xivo"}
 
 
 REGCOMMANDS
