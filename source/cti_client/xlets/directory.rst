@@ -16,11 +16,11 @@ Usage
 =====
 
 The list of entries in the xlet is searched using the top field. Entries are filtered by
-name and number. The entry list will initally appear as empty.
+column content. The entry list will initally appear as empty.
 
-The current search term is always displayed in the result list with no name to
-allow transfer to numbers that are not currently in the phonebook or configured
-on the XiVO.
+If the current search term is a valid number, it will be displayed in the result
+list with no name to allow transfer to numbers that are not currently in the
+phonebook or configured on the XiVO.
 
 
 Known issues
@@ -38,6 +38,17 @@ Phonebook
 
 Phonebook searches are triggered after the user has entered 3 characters. Results from remote
 directories will appear after 1 second.
+
+If a directory entry as the same number as a mobile or a phone configured on the
+XiVO, it's extra columns will be added to the corresponding entry instead of
+creating a new line in the search result.
+
+example:
+
+If *User 1* has number *1000* and is also in a configured LDAP with a location in
+"Québec", if the display filter contains the *Location* column, the entry for
+*User 1* will show "Québec" in the *Location* column after the search results are
+received.
 
 
 Configuration
@@ -63,34 +74,20 @@ A new display filter must be created for the directory xlet.
 
 The following fields must be configurered with the correct value for the *Field type* column in order for entries to be displayed in the xlet:
 
+#. *status* is the column that will be used to display the status icon, the title can be empty
 #. *name* is displayed in the *Name* column of the xlet
 #. *number_office* is displayed in the *Number* column with a phone icon in the xlet
 #. *number_mobile* is displayed in the *Number* column with a mobile icon in the xlet
 #. *number_...* any other field starting with *number_* will be displayed in the *Number* column of the xlet with a generic directory icon
+#. Any other field will be displayed in their own column of the directory xlet
 
 The values in the *Display format* column must contain values that were created in the *Directory Definition*
-
-Additional fields without a field type will also be searched when filtering. However, these fields
-will not appear in the xlet. They will only be used for filtering results.
-
-For example, let us imagine that we have the following data in our directory definition:
-
-+--------------+-----------------+-----------------+------------+-----------------------+
-| Name         | Number (office) | Number (mobile) | Department | Email                 |
-+==============+=================+=================+============+=======================+
-| Dave Hubert  | 900             | 555-1234        | Sales      | dave@sales.com        |
-+--------------+-----------------+-----------------+------------+-----------------------+
-| Martha Smith | 800             | 555-2345        | Management | martha@management.com |
-+--------------+-----------------+-----------------+------------+-----------------------+
-
-When typing "sales" in the search bar, the fields
-"Name", "Department" and "Email" will be searched and Dave Hubert will appear in the list,
-but only the columns "Name and "Number" will be displayed.
 
 .. warning::
 
     Make sure that the fields entered in the display format are also available
     in the directory definition, otherwise the filter will not return any results
+
 
 Context and filter association
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -128,11 +125,8 @@ A new directory definition must be added:
 
 .. figure:: ./images/ldap_directory_definition.png
 
-These fields are mandatory:
-
-* firstname
-* lastname
-* phone
+Fields that are included in your *display filter* should be present in the directory
+definition.
 
 The direct match field must be a comma-separated list of the field values.
 
