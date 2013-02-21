@@ -104,6 +104,13 @@ Class list
 LOGINCOMMANDS
 -------------
 
+One the network is connected at the socket level, the login process requires three steps. If one of this step is omitted, the connection is
+reseted by the cti server.
+
+* login_id, the username is sent as a login to the cti server, cti server answers giving a sessionid
+* login_pass, the password combined with the sessionid is sent to the cti server, cti servers answers giving a capaid
+* login_capas, the capaid is returned to the server with the phone state, cti servers answers a list of info relevevant to the user
+
 .. code-block:: javascript
 
    {
@@ -112,28 +119,47 @@ LOGINCOMMANDS
    }
 
 * class: defined what class of command use.
-* command: used to build the method called e.g. regcommand_login_id()
+* commandid : a unique integer number.
 
 login_id
+^^^^^^^^
+
+``Client -> Server``
 
 .. code-block:: javascript
 
     {
-    "ident": "X11-LE-27333",
-    "version": "9999",
-    "userlogin": "<loginclient>",
-    "company": "default",
-    "commandid": <commandid>,
-    "lastlogout-stopper": "disconnect",
-    "git_date": "to_fill",
-    "lastlogout-datetime": "2011-09-06T13:30:49",
-    "git_hash": "to_fill",
-    "class": "login_id",
+    "class": "login_id", 
+    "commandid": 1092130023, 
+    "company": "default", 
+    "ident": "X11-LE-24079", 
+    "lastlogout-datetime": "2013-02-19T11:13:36", 
+    "lastlogout-stopper": "", 
+    "userlogin": <userlogin>, 
+    "version": "9999", 
     "xivoversion": "1.2"
     }
 
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {
+       "class": "login_id",
+       "sessionid": "21UaGDfst7",
+       "timenow": 1361268824.64,
+       "xivoversion": "1.2"
+   }
+   
+.. note::
+
+   sessionid is used to calculate the hashed password in next step
+
 
 login_pass
+^^^^^^^^^^
+
+``Client -> Server``
 
 .. code-block:: javascript
 
@@ -143,19 +169,134 @@ login_pass
     "commandid": <commandid>
     }
 
+.. note::
+
+   hashed_password = sha1(self.sessionid + ':' + password).hexdigest()
+   
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {
+       "capalist": [
+           2
+       ], 
+       "class": "login_pass", 
+       "replyid": 1646064863, 
+       "timenow": 1361268824.68
+   }
+   
+.. note::
+   the first element of the capalist is used in the next step login_capas
 
 login_capas
+^^^^^^^^^^^
+
+``Server -> Client``
 
 .. code-block:: javascript
 
     {
     "loginkind": "user",
-    "capaid": "test",
+    "capaid": 3,
     "lastconnwins": False,
     "commandid": <commandid>,
     "state": "available",
     "class": "login_capas"
     }
+
+loginkind can be 'user' or 'agent', if 'agent' the property 'agentphonenumber' can be added.
+
+``Server -> Client``
+
+First message, describes all the capabilities of the client, configured at the server level
+
+* presence : actual presence of the user
+* userid : the user id, can be used as a reference
+* capas
+   * userstatus : a list of available status
+      * status name
+      * color
+      * selectionnable status from this status
+      * default action to be done when this status is selected
+      * long name
+   * services : list of availble services
+   * phonestatus : list of available phonestatus with default colors and descriptive names
+   * capaxlets : List of xlets configured for this profile
+   * appliname
+
+.. code-block:: javascript
+
+   {
+      "class": "login_capas"
+      "presence": "available",
+      "userid": "3",
+      "ipbxid": "xivo",
+      "timenow": 1361440830.99,
+      "replyid": 3,
+      "capas": {
+               "regcommands": {},
+               "preferences": false,
+               "userstatus": {
+                           "available": { "color": "#08FD20",
+                                          "allowed": ["available", "away", "outtolunch", "donotdisturb", "berightback"],
+                                          "actions": {"enablednd": "false"}, "longname": "Disponible" 
+                                         },
+                           "berightback": {  "color": "#FFB545",
+                                             "allowed": ["available", "away", "outtolunch", "donotdisturb", "berightback"],
+                                             "actions": {"enablednd": "false"}, "longname": "Bient\u00f4t de retour"
+                                           },
+                           "disconnected": { "color": "#202020",
+                                             "actions": {"agentlogoff": ""}, "longname": "D\u00e9connect\u00e9"
+                                           },
+                          /* a list of other status depends on the cti server configuration */
+               },
+            "services": ["fwdrna", "fwdbusy", "fwdunc", "enablednd"],
+            "phonestatus": {
+                              "16": {"color": "#F7FF05", "longname": "En Attente"},
+                              "1":  {"color": "#FF032D", "longname": "En ligne OU appelle"},
+                              "0":  {"color": "#0DFF25", "longname": "Disponible"},
+                              "2":  {"color": "#FF0008", "longname": "Occup\u00e9"},
+                              "-1": {"color": "#000000", "longname": "D\u00e9sactiv\u00e9"},
+                              "4":  {"color": "#FFFFFF", "longname": "Indisponible"},
+                              "-2": {"color": "#030303", "longname": "Inexistant"},
+                              "9":  {"color": "#FF0526", "longname": "(En Ligne OU Appelle) ET Sonne"},
+                              "8":  {"color": "#1B0AFF", "longname": "Sonne"}
+                           },
+            "ipbxcommands": {}
+         },
+      "capaxlets": [["identity", "grid"], ["search", "tab"], ["customerinfo", "tab", "1"], ["fax", "tab", "2"], ["dial", "grid", "2"], ["tabber", "grid", "3"], ["history", "tab", "3"], ["remotedirectory", "tab", "4"], ["features", "tab", "5"], ["mylocaldir", "tab", "6"], ["conference", "tab", "7"]],
+      "appliname": "Client",
+   }
+
+Second message describes the current user configuration
+
+.. code-block:: javascript
+
+   {
+      "function": "updateconfig", 
+      "listname": "users", 
+      "tipbxid": "xivo", 
+      "timenow": 1361440830.99, 
+      "tid": "3", 
+      "config": {"enablednd": false}, 
+      "class": "getlist"
+   }
+
+Third message describes the current user status
+
+.. code-block:: javascript
+
+   {
+      "function": "updatestatus", 
+      "listname": "users", 
+      "status": {"availstate": "available"}, 
+      "tipbxid": "xivo", 
+      "tid": "3", 
+      "class": "getlist", 
+      "timenow": 1361440830.99
+   }
+
 
 REGCOMMANDS
 -----------
