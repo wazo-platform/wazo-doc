@@ -167,6 +167,8 @@ Users are XiVO objects using phone sets, users can associated with lines, can be
 +--------+--------------------+-----------------------------+
 
 
+.. _user-properties:
+
 User properties
 ---------------
 
@@ -296,8 +298,11 @@ Response
       "id": "1"
       "firstname": "John",
       "lastname": "Doe",
-      ................ see :ref:`user-properties`
+      ................
     }
+
+See :ref:`user-properties` for other properties.
+
 
 .. _create-user:
 
@@ -322,8 +327,11 @@ Request
     {
       "firstname": "John",
       "lastname": "Doe",
-      ................ see :ref:`user-properties`
+      ................
     }
+
+See :ref:`user-properties` for other properties.
+
 
 Response
 ^^^^^^^^
@@ -557,6 +565,3 @@ Response
 ::
 
  HTTP/1.1 200 OK
-
-
-
