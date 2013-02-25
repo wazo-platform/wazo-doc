@@ -80,11 +80,12 @@ To activate the recordings, you will need to follow these steps:
   chown asterisk:asterisk /var/log/xivo-recording-agi.log
   chmod 660 /var/log/xivo-recording-agi.log
   
-* display the recordings in the web interface: uncomment the line containing "recording" in the
-  :file: /usr/share/xivo-web-interface/object/objectconf/acl/user.inc
+* display the recordings in the web interface: uncomment the line containing "recording" in the file
+  :file:`/usr/share/xivo-web-interface/object/objectconf/acl/user.inc`
 
-* add a configuration file :file: xivo-recording.conf via the web interface, containing the piece of dialplan
+* add a configuration file :file:`xivo-recording.conf` via the web interface, containing the piece of dialplan
   which you can find hereunder.
+* reload asterisk
   
  
 Dialplan
