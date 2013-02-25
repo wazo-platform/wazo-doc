@@ -156,7 +156,6 @@ On the second part of the tab, you can configure the fields to appear on the she
      * `xivo-calleridton` Type Of Network (national, international)
      * `xivo-calledidnum`
      * `xivo-calledidname`
-     * `xivo-context`
      * `xivo-ipbxid` (`xivo-astid` in 1.1)
      * `xivo-directory` : for directory requests, it is the directory database the item has been found
      * `xivo-queuename` queue called

@@ -58,6 +58,7 @@ In order to configure a switchboard on your XiVO, you need to:
 
 .. _switchboard_supported_devices:
 
+
 Supported Devices
 -----------------
 
@@ -282,6 +283,8 @@ Transferring a call
 
 In this example, we are transferring *Alice Wonderland* to *Bernard Marx* with
 an attended transfer. *Davy Crockett* is still ringing.
+
+For defails about the xlet *Directory* usage and configuration see :ref:`directory-xlet`.
 
 .. figure:: images/xivoclient-transferring.png
 
