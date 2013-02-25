@@ -12,8 +12,7 @@ on a specific queue for a given period of time. Creating several campaigns will 
 you to monitor several queues at once. A campaign will automatically stop when its end date
 is reached. Campaign recordings in XiVO are easily accessible through the web interface.
 
-This functionnality is available only on demand. It requires an additionnal configuration
-file which you can found at the end of this page.
+This functionnality is available only on demand. It requires specific operations to become available.
 
 Campaign management
 ===================
@@ -60,9 +59,36 @@ Logging
 Accesses to the recordings (such as download, deletion, automatic deletion) are logged to the file
 `xivo-recording.log`. This file can be accessed via :menuselection:`Service --> IPBX --> Control --> Asterisk log files`.
 
-Dialplan
-========
+Activate recordings
+===================
 
+To activate the recordings, you will need to follow these steps:
+
+* create the folder containing the recordings with appropriate rights:
+
+::
+
+  mkdir /var/lib/pf-xivo/sounds/campagnes
+  chown asterisk /var/lib/pf-xivo/sounds/campagnes
+  chmod 775 /var/lib/pf-xivo/sounds/campagnes
+
+* create a log file for the AGI script with appropriate rights:
+
+::
+
+  touch /var/log/xivo-recording-agi.log
+  chown asterisk:asterisk /var/log/xivo-recording-agi.log
+  chmod 660 /var/log/xivo-recording-agi.log
+  
+* display the recordings in the web interface: uncomment the line containing "recording" in the
+  :file: /usr/share/xivo-web-interface/object/objectconf/acl/user.inc
+
+* add a configuration file :file: xivo-recording.conf via the web interface, containing the piece of dialplan
+  which you can find hereunder.
+  
+ 
+Dialplan
+--------
 ::
 
   ;; Global Queue Sub routine for recording activation
