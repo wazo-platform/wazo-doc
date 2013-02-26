@@ -85,6 +85,11 @@ The following fields must be configurered with the correct value for the *Field 
 
 The values in the *Display format* column must contain values that were created in the *Directory Definition*
 
+.. note::
+
+    The field title of the first number column will be used for the header title
+    in the xlet.
+
 .. warning::
 
     Make sure that the fields entered in the display format are also available
