@@ -89,7 +89,7 @@ SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use di
 Resynchronize an SCCP device
 ----------------------------
 
-You must resynchronize a device to apply any user configuration changes.
+You must resynchronize a device to apply any user configuration changes. You can either :ref:`synchronize the SCCP device using the web interface <synchronize-device>` or using Asterisk's CLI.
 
 The Asterisk CLI command is: ``sccp resync <DEVICE>``.
 
