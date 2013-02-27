@@ -24,12 +24,37 @@ If the current search term is a valid number, it will be displayed in the result
 list with no name to allow transfer to numbers that are not currently in the
 phonebook or configured on the XiVO.
 
+Legend
+------
+
+* Users available |user_available|
+* Users ringing |user_ringing|
+* Users talking |user_talking|
+* Users |user|
+* Mobile phone |mobile|
+* External contacts |external|
+* Current search (not a contact) |current_search|
+
+.. |user_available| image:: images/directory_legend_user_available.png
+   :align: middle
+.. |user_ringing| image:: images/directory_legend_user_ringing.png
+   :align: middle
+.. |user_talking| image:: images/directory_legend_user_talking.png
+   :align: middle
+.. |user| image:: images/directory_legend_user.png
+   :align: middle
+.. |mobile| image:: images/directory_legend_mobile.png
+   :align: middle
+.. |external| image:: images/directory_legend_external.png
+   :align: middle
+.. |current_search| image:: images/directory_legend_current_search.png
+   :align: middle
 
 Known issues
 ============
 
 Typing enter while the focus is on a directory entry will have the same
-behavior as clicking on the transfer button on the current call xlet.
+behavior as clicking on the transfer button on the *Switchboard* xlet.
 
 This unexpected behavior will be fixed when we implement other actions
 to the directory xlet.
@@ -45,7 +70,7 @@ If a directory entry as the same number as a mobile or a phone configured on the
 XiVO, it's extra columns will be added to the corresponding entry instead of
 creating a new line in the search result.
 
-example:
+For example:
 
 If *User 1* has number *1000* and is also in a configured LDAP with a location in
 "Québec", if the display filter contains the *Location* column, the entry for
@@ -56,16 +81,23 @@ received.
 Configuration
 -------------
 
-
 Context
 ^^^^^^^
 
-The directory xlet uses a special context named  *__switchboard_directory*. This context has to
+The directory xlet uses a special context named *__switchboard_directory*. This context has to
 be added as an `internal` context with no number range on the
 :menuselection:`Services --> IPBX --> IPBX configuration --> Contexts` page.
 
 .. figure:: ./images/switchboard_directory_context.png
 
+Directory definition
+^^^^^^^^^^^^^^^^^^^^
+
+A new directory definition must be added:
+
+.. figure:: ./images/ldap_directory_definition.png
+
+The direct match field must be a comma-separated list of the field values.
 
 Display filter
 ^^^^^^^^^^^^^^
@@ -83,7 +115,9 @@ The following fields must be configurered with the correct value for the *Field 
 #. *number_...* any other field starting with *number_* will be displayed in the *Number* column of the xlet with a generic directory icon
 #. Any other field will be displayed in their own column of the directory xlet
 
-The values in the *Display format* column must contain values that were created in the *Directory Definition*
+The values in the *Display format* column must contain values that were created in the *Directory definition*.
+
+The title used for the *Number* column is the title of the first field whose type starts with *number_*.
 
 .. note::
 
@@ -118,26 +152,11 @@ LDAP filter
 
 If you already have an LDAP filter configured for the *Remote directory* Xlet, you can use it.
 
-If not, you must add an LDAP filter in :menuselection:`IPBX --> IPBX configuration --> LDAP filters`.
+If not, please refer to :ref:`add-ldap-filter`.
 
-.. figure:: ./images/ldap_filter_configuration.png
-.. figure:: ./images/ldap_filter_attributes.png
-
-The *Display name* attributes and phone number must be configured as shown above.
-
-Directory definition
-^^^^^^^^^^^^^^^^^^^^
-
-A new directory definition must be added:
-
-.. figure:: ./images/ldap_directory_definition.png
-
-Fields that are included in your *display filter* should be present in the directory
-definition.
-
-The direct match field must be a comma-separated list of the field values.
+.. _directory-definition:
 
 Include the new directory for lookup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You must add the new LDAP filter in the directory list. See `Context and filter association`_ for more details.
+You must use the new LDAP filter in the `Context and filter association`_ step.
