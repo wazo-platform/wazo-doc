@@ -7,9 +7,7 @@ Directory
 Overview
 ========
 
-The goal of the directory xlet is to allow the user to search through XiVO users,
-directory entries and arbitrary numbers to be able to transfer calls to these
-destinations.
+The goal of the directory xlet is to allow the user to search through XiVO users, directory entries and arbitrary numbers to be able to transfer calls to these destinations.
 
 .. figure:: ./images/xlet_directory.png
 
@@ -17,12 +15,9 @@ destinations.
 Usage
 =====
 
-The list of entries in the xlet is searched using the top field. Entries are filtered by
-column content. The entry list will initally appear as empty.
+The list of entries in the xlet is searched using the top field. Entries are filtered by column content. The entry list will initally appear as empty.
 
-If the current search term is a valid number, it will be displayed in the result
-list with no name to allow transfer to numbers that are not currently in the
-phonebook or configured on the XiVO.
+If the current search term is a valid number, it will be displayed in the result list with no name to allow transfer to numbers that are not currently in the phonebook or configured on the XiVO.
 
 Legend
 ------
@@ -53,29 +48,21 @@ Legend
 Known issues
 ============
 
-Typing enter while the focus is on a directory entry will have the same
-behavior as clicking on the transfer button on the *Switchboard* xlet.
+Typing enter while the focus is on a directory entry will have the same behavior as clicking on the transfer button on the *Switchboard* xlet.
 
-This unexpected behavior will be fixed when we implement other actions
-to the directory xlet.
+This unexpected behavior will be fixed when we implement other actions to the directory xlet.
 
 
 Phonebook
 =========
 
-Phonebook searches are triggered after the user has entered 3 characters. Results from remote
-directories will appear after 1 second.
+Phonebook searches are triggered after the user has entered 3 characters. Results from remote directories will appear after 1 second.
 
-If a directory entry as the same number as a mobile or a phone configured on the
-XiVO, it's extra columns will be added to the corresponding entry instead of
-creating a new line in the search result.
+If a directory entry as the same number as a mobile or a phone configured on the XiVO, it's extra columns will be added to the corresponding entry instead of creating a new line in the search result.
 
 For example:
 
-If *User 1* has number *1000* and is also in a configured LDAP with a location in
-"Québec", if the display filter contains the *Location* column, the entry for
-*User 1* will show "Québec" in the *Location* column after the search results are
-received.
+If *User 1* has number *1000* and is also in a configured LDAP with a location in "Québec", if the display filter contains the *Location* column, the entry for *User 1* will show "Québec" in the *Location* column after the search results are received.
 
 
 Configuration
@@ -84,9 +71,7 @@ Configuration
 Context
 ^^^^^^^
 
-The directory xlet uses a special context named *__switchboard_directory*. This context has to
-be added as an `internal` context with no number range on the
-:menuselection:`Services --> IPBX --> IPBX configuration --> Contexts` page.
+The directory xlet uses a special context named *__switchboard_directory*. This context has to be added as an `internal` context with no number range on the :menuselection:`Services --> IPBX --> IPBX configuration --> Contexts` page.
 
 .. figure:: ./images/switchboard_directory_context.png
 
