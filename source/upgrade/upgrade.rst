@@ -56,15 +56,15 @@ Here are the steps for upgrading a cluster:
    :file:`/etc/cron.d/xivo-ha-master`
 #. On the slave, start the upgrade::
 
-    xivo-2:~$ xivo-upgrade
+    xivo-slave:~$ xivo-upgrade
 
-#. When the slave has finished, start the upgrade on the slave::
+#. When the slave has finished, start the upgrade on the master::
 
-    xivo-1:~$ xivo-upgrade
+    xivo-master:~$ xivo-upgrade
 
 #. When done, launch the database replication manually::
 
-    xivo-1:~$ /usr/sbin/xivo-master-slave-db-replication <slave ip>
+    xivo-master:~$ /usr/sbin/xivo-master-slave-db-replication <slave ip>
 
 #. Reactivate the database replication (see first step)
 
