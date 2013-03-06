@@ -23,7 +23,7 @@ This script will update XiVO and restart all daemons.
 
 There are 2 options you can pass to xivo-upgrade:
 
-* ``-d`` to only download packages without installing them
+* ``-d`` to only download packages without installing them. **This will still upgrade xivo-upgrade and xivo-service packages**.
 * ``-f`` to force upgrade, without asking for user confirmation
 
 .. warning::
@@ -47,33 +47,55 @@ There are 2 options you can pass to xivo-upgrade:
    Repeat this command until no more unwanted rules are left.
 
 
-Upgrading a cluster
-===================
+Typical Upgrade Process
+=======================
+
+* Read all `roadmaps <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
+* Read all existing Upgrade Notes starting from your current version to the current prod version.
+* If in a specific configuration, follow the specific procedure (example : cluster).
+* Run 'xivo-upgrade -d' (will upgrade xivo-upgrade, xivo-service and download all packages necessary, prior to stopping services for upgrade).
+* When ready (services will be stopped), run 'xivo-upgrade'
+
+
+Specific Procedure : Upgrading a Cluster
+======================================
 
 Here are the steps for upgrading a cluster:
 
 #. On the master : deactivate the database replication by commenting the cron in
    :file:`/etc/cron.d/xivo-ha-master`
+#. On the slave, deactivate the xivo-check-master-status script cronjob by commenting the line in
+   :file:`/etc/cron.d/xivo-ha-slave`
 #. On the slave, start the upgrade::
 
-    xivo-2:~$ xivo-upgrade
+    xivo-slave:~$ xivo-upgrade
 
-#. When the slave has finished, start the upgrade on the slave::
+#. When the slave has finished, start the upgrade on the master::
 
-    xivo-1:~$ xivo-upgrade
+    xivo-master:~$ xivo-upgrade
 
 #. When done, launch the database replication manually::
 
-    xivo-1:~$ /usr/sbin/xivo-master-slave-db-replication <slave ip>
+    xivo-master:~$ /usr/sbin/xivo-master-slave-db-replication <slave ip>
 
-#. Reactivate the database replication (see first step)
+#. Reactivate the cronjobs (see steps 1 and 2)
 
 
-Upgrade Notes for upgrading to XiVO 12.24
-=========================================
+13.04 Upgrade Notes
+===================
 
-XiVO 12.24 has some limitations mainly affecting the contact center features due
-to the rewriting of the code handling agents.
+* Consult the `Roadmap <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1#13.04>`_
+* Upgrade procedure for HA Cluster has changed. Refer to `Specific Procedure : Upgrading a Cluster`_.
+* Configuration of switchboards has changed. Since the directory xlet can now display any column from the lookup source, a display filter has to be configured and assigned to the __switchboard_directory context. Refer to :ref:`Directory xlet documenttion <directory-xlet>`.
+* There is no more context field directly associated with a call filter. Boss and secretary users associated with a call filter must necessarily be in the same context.
+
+
+12.24 Upgrade Notes
+===================
+
+* Consult the `Roadmap <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1#12.24>`_
+
+* XiVO 12.24 has some limitations mainly affecting the contact center features due to the rewriting of the code handling agents.
 
 .. toctree::
    :maxdepth: 1

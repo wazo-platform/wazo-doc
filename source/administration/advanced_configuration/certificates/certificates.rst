@@ -82,3 +82,8 @@ Creating certificate for CTI server
 * :guilabel:`Common name` : the :abbr:`FQDN (Fully Qualified Domain Name)` of your XiVO
 * :guilabel:`Organization` : your organization's name, or blank
 * :guilabel:`Email` : your email or organization's email
+
+.. warning::
+   You must *not* set a password for the certificate. If the certificate is
+   password protected, the CTI server will not be able to use it.
+

@@ -6,7 +6,7 @@ XiVO offers the possibility to integrate a `berofos failover switch`_ within a H
 
 .. _berofos failover switch: http://www.beronet.com/product/failover-switch/
 
-This is useful if you have one or more ISDN lines (i.e. T1/E1 or T2 lines) that you want to use
+This is useful if you have one or more ISDN lines (i.e. T1/E1 or T0 lines) that you want to use
 whatever the state of your XiVO HA cluster. To use a berofos within your XiVO HA
 installation, you need to properly configure both your berofos and your XiVOs,
 then the berofos will automatically switch your ISDN lines from your master node to

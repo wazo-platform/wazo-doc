@@ -50,6 +50,7 @@ Also, make sure to use the :abbr:`FQDN (Fully Qualified Domain Name)` of the ser
 in the host field when using SSL. The host field must match exactly what's in the CN
 attribute of the server certificate.
 
+.. _add-ldap-filter:
 
 Add a LDAP Filter
 =================

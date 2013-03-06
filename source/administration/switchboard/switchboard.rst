@@ -53,10 +53,10 @@ In order to configure a switchboard on your XiVO, you need to:
 * Assign the incoming calls to the switchboard queue
 * For each operator, add a function key for logging in or logging out from the switchboard queue.
 * Set "no answer" destinations on the switchboard queue
-* Configuring multiple switchboard
 
 
 .. _switchboard_supported_devices:
+
 
 Supported Devices
 -----------------
@@ -203,8 +203,8 @@ You can also choose to redirect all the calls to another user or a voice mail.
 .. figure:: images/queue_no_answer.png
 
 
-Configuring multiple Switchboard
---------------------------------
+Configuration for multiple switchboards
+=======================================
 
 The above documentation can be used to for multiple switchboards on the same
 XiVO by replacing the *__switchboard* and *__switchboard_hold* queues name
@@ -237,8 +237,8 @@ When the user connects with his XiVO Client, he gets the Switchboard profile.
 5. *Hangup* button
 6. *Incoming Calls* list
 7. *Waiting Calls* list
-8. Directory Xlet
-9. Dial Xlet
+8. *Directory* Xlet
+9. *Dial* Xlet
 
 .. note:: If you don't see the Switchboard Xlet, right-click on the grey
           bar at the right of the *Help* menu and check *Switchboard*:
@@ -255,10 +255,11 @@ Call flow
 Answering an incoming call
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When the switchboard receives a call, the new call is added to the *Incoming
-Calls* list on the left. The user can answer this call by clicking on the first
-call in the list, by clicking the *Answer* button or by pressing the *Enter* key **only when his phone is
-ringing**.
+When the switchboard receives a call, the new call is added to the *Incoming Calls* list on the left. The user can answer this call **only when his phone is ringing**, by:
+
+* clicking on the first call in the list
+* clicking the *Answer* button
+* pressing the *Enter* key
 
 .. note:: The XiVO Client must be the active window for the keyboard shortcuts
           to be handled
@@ -272,7 +273,7 @@ Distributing a call
 
 Once the call has been answered and placed in the current call frame, the operator has 3 choices:
 
-* **transfer the call** to another user using the *Attended transfer* button
+* **transfer the call** to another user using the *Attended transfer* button or the *F5* key
 * put the call **on hold** using the *Hold* button or the *F7* key
 * **end the call** using the *Hangup* button or the *F8* key.
 
@@ -287,39 +288,17 @@ an attended transfer. *Davy Crockett* is still ringing.
 
 1. *Complete transfer* button
 2. *Cancel transfer* button
-3. Transfer destination filtering field
-4. Transfer destination list
+3. Transfer destination filtering field (xlet *Directory*)
+4. Transfer destination list (xlet *Directory*)
 
-Legend:
-
-* Users available |user_available|
-* Users ringing |user_ringing|
-* Users talking |user_talking|
-* Users |user|
-* Mobile phone |mobile|
-* External contacts |external|
-
-.. |user_available| image:: images/legend_user_available.png
-   :align: middle
-.. |user_ringing| image:: images/legend_user_ringing.png
-   :align: middle
-.. |user_talking| image:: images/legend_user_talking.png
-   :align: middle
-.. |user| image:: images/legend_user.png
-   :align: middle
-.. |mobile| image:: images/legend_mobile.png
-   :align: middle
-.. |external| image:: images/legend_external.png
-   :align: middle
+For defails about the xlet *Directory* usage and configuration see :ref:`directory-xlet`.
 
 Once the destination has answered, you can:
 
 * cancel the transfer with *F8* key
 * complete the transfer with *F5* key
 
-.. warning:: If the operator completes the transfer before the callee answers
-             the call, the operator's phone will not be available until the
-             callee answers.
+.. warning:: Blind transfer is not supported. If the operator completes the transfer before the callee answers the call, the operator's phone will not be available until the callee answers.
 
 
 Putting a call on hold

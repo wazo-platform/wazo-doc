@@ -6,6 +6,9 @@ To debug asterisk crashes or freezes, you need the following packages on your xi
 
    apt-get install gdb asterisk-dbg xivo-libsccp-dbg
 
+.. warning:: When installing theses packages you should take care that it doesn't drag a new version
+    of asterisk since it would restart your asterisk
+
 
 Debugging Asterisk Crash
 ========================
