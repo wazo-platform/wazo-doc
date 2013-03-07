@@ -43,8 +43,54 @@ Here's how to profile a python program on XiVO:
       % stats 15
 
 
+Measuring Code Coverage
+=======================
+
+Here's an example on how to measure the code coverage of xivo-ctid.
+
+This can be useful when you suspect a piece of code to be unused and you
+want to have additional information about it.
+
+#. Install the following packages::
+
+      apt-get install python-pip build-essential python-dev
+
+#. Install coverage via pip::
+
+      pip install coverage
+
+#. Run the program in foreground mode with ``coverage run``::
+
+      service monit stop
+      service xivo-ctid stop
+      coverage erase
+      coverage run /usr/bin/xivo-ctid -d
+
+   The :ref:`debug-daemons` section documents how to launch the various XiVO service
+   in foreground/debug mode.
+
+#. After the process terminates, use ``coverage html`` to generate
+   an HTML coverage report::
+
+      coverage html --include='*xivo_cti*'
+
+   This will generate an :file:`htlmcov` directory in the current directory.
+
+#. Browse the coverage report.
+
+   On the XiVO::
+
+      cd htmlcov
+      python -m SimpleHTTPServer
+
+   On your personal machine (i.e. not on the xivo)::
+
+      firefox http://<xivo-hostname>:8000
+
+
 External Links
 ==============
 
 * `Official python documentation <http://docs.python.org/library/profile.html>`_
 * `PyMOTW <http://blog.doughellmann.com/2008/08/pymotw-profile-cprofile-pstats.html>`_
+* `coverage.py <http://nedbatchelder.com/code/coverage/>`_
