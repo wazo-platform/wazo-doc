@@ -413,6 +413,35 @@ login
 
 agentphonenumber is the physical phone set where the agent is going to log on.
 
+
+``Server > Client``
+
+* Login successfull :
+
+.. code-block:: javascript
+
+   {"function": "updateconfig", "listname": "queuemembers", "tipbxid": "xivo",
+      "timenow": 1362664323.94, "tid": "Agent/2002,blue",
+      "config": {"paused": "0", "penalty": "0", "membership": "static", "status": "1", "lastcall": "",
+                  "interface": "Agent/2002", "queue_name": "blue", "callstaken": "0"},
+    "class": "getlist"
+      }
+
+   {"function": "updatestatus", "listname": "agents", "tipbxid": "xivo",
+      "timenow": 1362664323.94,
+      "status": {"availability_since": 1362664323.94,
+                  "queues": [], "phonenumber": "1001", "on_call": false, "groups": [],
+                  "availability": "available", "channel": null},
+      "tid": 7, "class": "getlist"
+         }
+
+
+* The phone number is already used by an other agent :
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "error_string": "agent_login_exten_in_use", "timenow": 1362664158.14}
+
 Logout
 ^^^^^^
 
