@@ -58,7 +58,7 @@ Typical Upgrade Process
 
 
 Specific Procedure : Upgrading a Cluster
-======================================
+========================================
 
 Here are the steps for upgrading a cluster:
 
