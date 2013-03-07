@@ -57,7 +57,7 @@ login_id
     "company": "default", 
     "ident": "X11-LE-24079", 
     "lastlogout-datetime": "2013-02-19T11:13:36", 
-    "lastlogout-stopper": "", 
+    "lastlogout-stopper": "disconnect",
     "userlogin": <userlogin>, 
     "version": "9999", 
     "xivoversion": "1.2"
