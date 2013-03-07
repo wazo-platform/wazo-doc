@@ -8,8 +8,8 @@ General information:
    :maxdepth: 2
 
    contributing_doc
-   debug_daemon
    debug_asterisk
+   debug_daemon
    profile_python
    translate
 
