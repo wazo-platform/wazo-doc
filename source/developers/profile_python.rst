@@ -5,9 +5,9 @@ Profiling Python Programs
 Profiling CPU/Time Usage
 ========================
 
-Here's an example on how to profile for CPU/time usage of xivo-ctid:
+Here's an example on how to profile xivo-ctid for CPU/time usage:
 
-#. Add the non-free repository to :file:`/etc/apt/sources.list`.
+#. Add the debian non-free repository to :file:`/etc/apt/sources.list`.
 
 #. Install the ``python-profiler`` package::
 
@@ -18,7 +18,7 @@ Here's an example on how to profile for CPU/time usage of xivo-ctid:
 
       /etc/init.d/monit stop
 
-#. Stop the process you want to profile, i.e. xivo-ctid for example::
+#. Stop the process you want to profile, i.e. xivo-ctid::
 
       /etc/init.d/xivo-ctid stop
 
@@ -26,10 +26,9 @@ Here's an example on how to profile for CPU/time usage of xivo-ctid:
 
       python -m cProfile -o test.profile /usr/bin/xivo-ctid -d
 
-   This will create a file named ``test.profile`` when the process will
-   terminate.
+   This will create a file named ``test.profile`` when the process terminates.
 
-   The :ref:`debug-daemons` section documents how to launch the various XiVO service
+   The :ref:`debug-daemons` section documents how to launch the various XiVO services
    in foreground/debug mode.
 
 #. Examine the result of the profiling::
@@ -78,12 +77,13 @@ want to have additional information about it.
 
 #. Browse the coverage report.
 
-   On the XiVO::
+   Either copy the directory onto your computer and open it with a web browser,
+   or start a web server on the XiVO::
 
       cd htmlcov
       python -m SimpleHTTPServer
 
-   On your personal machine (i.e. not on the xivo)::
+   Then open the page from your computer (i.e. not on the xivo)::
 
       firefox http://<xivo-hostname>:8000
 
