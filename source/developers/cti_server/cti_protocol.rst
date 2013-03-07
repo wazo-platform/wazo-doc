@@ -603,6 +603,50 @@ Forward the call to another destination when the user is busy
 
 Ipbx Commands
 -------------
+dial
+^^^^
+* destination can be any number
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+    {
+       "class": "ipbxcommand",
+       "command": "dial",
+       "commandid": <commandid>,
+       "destination": "exten:xivo/<extension>"
+    }
+
+For example :
+
+.. code-block:: javascript
+
+    {
+        "class": "ipbxcommand",
+        "command": "dial",
+        "commandid": 1683305913,
+        "destination": "exten:xivo/1202"
+    }
+
+originate
+^^^^^^^^^
+
+Same message than the dial_ message with a source fied. The source field is ``user:xivo/<userid``,
+userid is replaced by a user identifer returned by the message getting users_ list
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "class": "ipbxcommand",
+        "command": "originate",
+        "commandid": 1683305913,
+        "source":"user:xivo/34",
+        "destination": "exten:xivo/1202"
+    }
+
 record
 ^^^^^^
 ``Client -> Server``
@@ -704,28 +748,6 @@ IPBXCOMMANDS
 ------------
 
 hangupme
-
-dial
-
-.. code-block:: javascript
-
-    {
-       "class": "ipbxcommand",
-       "command": "dial",
-       "commandid": <commandid>,
-       "destination": "exten:xivo/<extension>"
-    }
-
-For example :
-
-.. code-block:: javascript
-
-    {
-        "class": "ipbxcommand",
-        "command": "dial",
-        "commandid": 1683305913,
-        "destination": "exten:xivo/1202"
-    }
 
 meetme
 
