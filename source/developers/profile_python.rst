@@ -2,29 +2,29 @@
 Profiling Python Programs
 *************************
 
-Profiling
-=========
+Profiling CPU/Time Usage
+========================
 
-Here's how to profile a python program on XiVO:
+Here's an example on how to profile for CPU/time usage of xivo-ctid:
 
 #. Add the non-free repository to :file:`/etc/apt/sources.list`.
 
 #. Install the ``python-profiler`` package::
 
-      $ apt-get update
-      $ apt-get install python-profiler
+      apt-get update
+      apt-get install python-profiler
 
 #. Stop the monit daemon::
 
-      $ /etc/init.d/monit stop
+      /etc/init.d/monit stop
 
 #. Stop the process you want to profile, i.e. xivo-ctid for example::
 
-      $ /etc/init.d/xivo-ctid stop
+      /etc/init.d/xivo-ctid stop
 
 #. Start the service in foreground mode running with the profiler::
 
-      $ python -m cProfile -o test.profile /usr/bin/xivo-ctid -d
+      python -m cProfile -o test.profile /usr/bin/xivo-ctid -d
 
    This will create a file named ``test.profile`` when the process will
    terminate.
