@@ -2,86 +2,9 @@
 CTI Protocol
 ************
 
-In the git repository ``git://git.xivo.fr/official/xivo-ctid.git``, under `xivo_ctid/`
-
-* `cti_config` handles the configuration coming from the WEBI
-* `interfaces/interface_ami`, together with `asterisk_ami_definitions`, `amiinterpret` and `xivo_ami` handle the AMI connections (asterisk)
-* `interfaces/interface_fagi` handles the FAGI connections (still asterisk)
-* `interfaces/interface_info` handles the CLI-like connections
-* `interfaces/interface_webi` handles the requests and signals coming from the WEBI
-* `interfaces/interface_cti` handles the clients' connections, with the help of `client_connection`, and it often involves `cti_command` too
-* `interfaces/interface_rcti` handles the connections from the CTI server to other ones in the multi-xivo framework
-* `innerdata` is meant to be the place where all statuses are computed and stored
-
-The main loop uses `select()` syscall to dispatch the tasks according to miscellaneous incoming requests.
-
-Requirements for `innerdata`:
-
-* the properties fetched from the WEBI configuration shall be stored in the relevant `xod_config` structure
-* the properties fetched from elsewhere shall be stored in the relevant `xod_status` structure
-* at least two kinds of objects are not "predefined" (as are the phones or the queues, for instance)
-
-  * the channels (in the asterisk SIP/345-0x12345678 meaning)
-  * the group and queue members and shall be handled in a special way each
-  * most statuses of the calls should be set inside the channel structure
-
-The purpose of the 'relations' field, in the various structures, is to keep track of relations
-and cross-relations between different objects (a phone logged in as an agent, itself in a queue,
-itself called by some channels belonging to phones ...).
-
-
-Message flow
-============
-
-Received messages from the CTI clients to the server are received by the CTIServer class.
-The CTIServer then calls ``interface_cti.CTI`` class ``manage_connection`` method.
-The ``interface_cti`` uses his ``_cti_command_handler`` member to parse and run the command.
-The ``CTICommandHandler`` get a list of classes that handle this message from the ``CTICommandFactory``.
-Then the the ``interface_cti.CTI`` calls ``run_commands`` on the handler, which returns a list of all commands replies.
-
-To implement a new message in the protocol you have to create a new class that inherits the ``CTICommand`` class.
-Your new class should have a static member caller ``required_fields`` which is a list of required fields for this class.
-Your class should also have a ``conditions`` static member which is a list of tupples of conditions to detect that
-an incoming message matches this class. The ``__init__`` of your class is responsible for the initialization of
-it's fields and should call ``super(<ClassName>, self).__init__(msg)``. Your class should register itself to the ``CTICommandFactory``.
-
-.. code-block:: python
-
-    from xivo_cti.cti.cti_command import CTICommand
-    from xivo_cti.cti.cti_command_factory import CTICommandFactory
-
-    class InviteConfroom(CTICommand):
-        required_fields = ['class', 'invitee']
-        conditions = [('class', 'invite_confroom')]
-        def __init__(self):
-            super(InviteConfroom, self).__init__(msg)
-            self._invitee = msg['invitee']
-
-    CTICommandFactory.register_class(InviteConfroom)
-
-Each CTI commands has a callback list that you can register to from anywhere. Each callback function will be called when
-this message is received with the command as parameter.
-
-Refer to ``MeetmeList.__init__`` for a callback registration example and to ``MeetmeList.invite`` for the implementation of a callback.
-
-.. code-block:: python
-
-    from xivo_cti.cti.commands.invite_confroom import InviteConfroom
-
-    class MySuperClass(object):
-        def __init__(self):
-            InviteConfroom.register_callback(self.invite_confroom_handler)
-
-        def invite_confroom_handler(self, invite_confroom_command):
-            # Do your stuff here.
-            if ok:
-                return invite_confroom_command.get_message('Everything is fine')
-            else:
-                return invite_confroom_command.get_warning('I don't know you, go away', True)
-
-.. note:: The client's connection is injected in the command instance before calling callbacks functions.
-   The client's connection is an ``interface_cti.CTI`` instance.
-
+.. Warning::
+   The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure 
+   to check that the protocol did not change before upgrading XiVO
 
 Commands
 ========
@@ -134,7 +57,7 @@ login_id
     "company": "default", 
     "ident": "X11-LE-24079", 
     "lastlogout-datetime": "2013-02-19T11:13:36", 
-    "lastlogout-stopper": "", 
+    "lastlogout-stopper": "disconnect",
     "userlogin": <userlogin>, 
     "version": "9999", 
     "xivoversion": "1.2"
@@ -490,6 +413,35 @@ login
 
 agentphonenumber is the physical phone set where the agent is going to log on.
 
+
+``Server > Client``
+
+* Login successfull :
+
+.. code-block:: javascript
+
+   {"function": "updateconfig", "listname": "queuemembers", "tipbxid": "xivo",
+      "timenow": 1362664323.94, "tid": "Agent/2002,blue",
+      "config": {"paused": "0", "penalty": "0", "membership": "static", "status": "1", "lastcall": "",
+                  "interface": "Agent/2002", "queue_name": "blue", "callstaken": "0"},
+    "class": "getlist"
+      }
+
+   {"function": "updatestatus", "listname": "agents", "tipbxid": "xivo",
+      "timenow": 1362664323.94,
+      "status": {"availability_since": 1362664323.94,
+                  "queues": [], "phonenumber": "1001", "on_call": false, "groups": [],
+                  "availability": "available", "channel": null},
+      "tid": 7, "class": "getlist"
+         }
+
+
+* The phone number is already used by an other agent :
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "error_string": "agent_login_exten_in_use", "timenow": 1362664158.14}
+
 Logout
 ^^^^^^
 
@@ -571,7 +523,6 @@ Call Filtering
       "listname": "users",
       "tid": "2",
       "timenow": 1361456398.52, "tipbxid": "xivo"  }
-
 
 DND
 ^^^
@@ -679,6 +630,77 @@ Forward the call to another destination when the user is busy
       "timenow": 1361457163.77, "tipbxid": "xivo"
       }
 
+Ipbx Commands
+-------------
+dial
+^^^^
+* destination can be any number
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+    {
+       "class": "ipbxcommand",
+       "command": "dial",
+       "commandid": <commandid>,
+       "destination": "exten:xivo/<extension>"
+    }
+
+For example :
+
+.. code-block:: javascript
+
+    {
+        "class": "ipbxcommand",
+        "command": "dial",
+        "commandid": 1683305913,
+        "destination": "exten:xivo/1202"
+    }
+
+originate
+^^^^^^^^^
+
+Same message than the dial_ message with a source fied. The source field is ``user:xivo/<userid``,
+userid is replaced by a user identifer returned by the message getting users_ list
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "class": "ipbxcommand",
+        "command": "originate",
+        "commandid": 1683305913,
+        "source":"user:xivo/34",
+        "destination": "exten:xivo/1202"
+    }
+
+record
+^^^^^^
+``Client -> Server``
+
+* subcommand : ``start`` of ``stop``
+
+
+.. code-block:: javascript
+
+   {
+            'class': 'ipbxcommand',
+            'command': 'record',
+            'subcommand': 'start',
+            'channel': 'SIP/x2gjtw-0000000d',
+            'commandid': 1423579492
+   }
+
+ ``Server > Client``
+
+* response : ``ok`` request was correctly processed, ``ko`` unable to process the request
+
+.. code-block:: javascript
+
+   {"command": "record", "replyid": 1423579492, "class": "ipbxcommand", "ipbxreply": true, "timenow": 1361801751.87}
+   {"replyid": 1423579492, "command": "record", "class": "ipbxcommand", "timenow": 1361798879.13, "response": "ok"}
 
 REGCOMMANDS
 -----------
@@ -756,28 +778,6 @@ IPBXCOMMANDS
 
 hangupme
 
-dial
-
-.. code-block:: javascript
-
-    {
-       "class": "ipbxcommand",
-       "command": "dial",
-       "commandid": <commandid>,
-       "destination": "exten:xivo/<extension>"
-    }
-
-For example :
-
-.. code-block:: javascript
-
-    {
-        "class": "ipbxcommand",
-        "command": "dial",
-        "commandid": 1683305913,
-        "destination": "exten:xivo/1202"
-    }
-
 meetme
 
 sipnotify
@@ -802,6 +802,85 @@ cancel
 
 refuse
 
-record
+CTI server implementation
+=========================
 
-listen
+In the git repository ``git://git.xivo.fr/official/xivo-ctid.git``, under `xivo_ctid/`
+
+* `cti_config` handles the configuration coming from the WEBI
+* `interfaces/interface_ami`, together with `asterisk_ami_definitions`, `amiinterpret` and `xivo_ami` handle the AMI connections (asterisk)
+* `interfaces/interface_fagi` handles the FAGI connections (still asterisk)
+* `interfaces/interface_info` handles the CLI-like connections
+* `interfaces/interface_webi` handles the requests and signals coming from the WEBI
+* `interfaces/interface_cti` handles the clients' connections, with the help of `client_connection`, and it often involves `cti_command` too
+* `interfaces/interface_rcti` handles the connections from the CTI server to other ones in the multi-xivo framework
+* `innerdata` is meant to be the place where all statuses are computed and stored
+
+The main loop uses `select()` syscall to dispatch the tasks according to miscellaneous incoming requests.
+
+Requirements for `innerdata`:
+
+* the properties fetched from the WEBI configuration shall be stored in the relevant `xod_config` structure
+* the properties fetched from elsewhere shall be stored in the relevant `xod_status` structure
+* at least two kinds of objects are not "predefined" (as are the phones or the queues, for instance)
+
+  * the channels (in the asterisk SIP/345-0x12345678 meaning)
+  * the group and queue members and shall be handled in a special way each
+  * most statuses of the calls should be set inside the channel structure
+
+The purpose of the 'relations' field, in the various structures, is to keep track of relations
+and cross-relations between different objects (a phone logged in as an agent, itself in a queue,
+itself called by some channels belonging to phones ...).
+
+CTI server Message flow
+=======================
+
+Received messages from the CTI clients to the server are received by the CTIServer class.
+The CTIServer then calls ``interface_cti.CTI`` class ``manage_connection`` method.
+The ``interface_cti`` uses his ``_cti_command_handler`` member to parse and run the command.
+The ``CTICommandHandler`` get a list of classes that handle this message from the ``CTICommandFactory``.
+Then the the ``interface_cti.CTI`` calls ``run_commands`` on the handler, which returns a list of all commands replies.
+
+To implement a new message in the protocol you have to create a new class that inherits the ``CTICommand`` class.
+Your new class should have a static member caller ``required_fields`` which is a list of required fields for this class.
+Your class should also have a ``conditions`` static member which is a list of tupples of conditions to detect that
+an incoming message matches this class. The ``__init__`` of your class is responsible for the initialization of
+it's fields and should call ``super(<ClassName>, self).__init__(msg)``. Your class should register itself to the ``CTICommandFactory``.
+
+.. code-block:: python
+
+    from xivo_cti.cti.cti_command import CTICommand
+    from xivo_cti.cti.cti_command_factory import CTICommandFactory
+
+    class InviteConfroom(CTICommand):
+        required_fields = ['class', 'invitee']
+        conditions = [('class', 'invite_confroom')]
+        def __init__(self):
+            super(InviteConfroom, self).__init__(msg)
+            self._invitee = msg['invitee']
+
+    CTICommandFactory.register_class(InviteConfroom)
+
+Each CTI commands has a callback list that you can register to from anywhere. Each callback function will be called when
+this message is received with the command as parameter.
+
+Refer to ``MeetmeList.__init__`` for a callback registration example and to ``MeetmeList.invite`` for the implementation of a callback.
+
+.. code-block:: python
+
+    from xivo_cti.cti.commands.invite_confroom import InviteConfroom
+
+    class MySuperClass(object):
+        def __init__(self):
+            InviteConfroom.register_callback(self.invite_confroom_handler)
+
+        def invite_confroom_handler(self, invite_confroom_command):
+            # Do your stuff here.
+            if ok:
+                return invite_confroom_command.get_message('Everything is fine')
+            else:
+                return invite_confroom_command.get_warning('I don't know you, go away', True)
+
+.. note:: The client's connection is injected in the command instance before calling callbacks functions.
+   The client's connection is an ``interface_cti.CTI`` instance.
+

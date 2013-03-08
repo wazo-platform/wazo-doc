@@ -66,9 +66,12 @@ Data representation
 Data retrieved from the REST server
 -----------------------------------
 
-JSON is used to encode returned or sent data
+JSON is used to encode returned or sent data. Therefore, the following headers are needed:
 
-HTTP Header : Content-Type = application/json
+* when the request is supposed to return JSON:
+   Accept = application/json
+* when the request's body contains JSON:
+   Content-Type = application/json
 
 ..   note:: Optional properties can be added without changing the protocol version in the main list or in the object list itself. 
             Properties will not be removed, type and name will not be modified.
@@ -144,6 +147,30 @@ Only one item can be processed per request. The data format and required data fi
 When updating, only the id and updated properties are needed, omitted properties are not updated.
 Some properties can also be optional when creating an object.
 
+Errors
+------
+
+A request to the web services may return an error. An error will always be associated to an
+HTTP error code, and eventually to one or more error messages. The following errors are common to all web services:
+
++------------+----------------+-------------------------------------------------------------------------------------------------------------+
+| Error code | Error message  | Description                                                                                                 |
++============+================+=============================================================================================================+
+| 406        | empty          | Accept header missing or contains an unsupported content type                                               |
++------------+----------------+-------------------------------------------------------------------------------------------------------------+
+| 415        | empty          | Content-Type header missing or contains an unsupported content type                                         |
++------------+----------------+-------------------------------------------------------------------------------------------------------------+
+| 500        | list of errors | An error occured on the server side; the content of the message depends of the type of errors which occured |
++------------+----------------+-------------------------------------------------------------------------------------------------------------+
+
+The 400, 404 and 412 errors depend on the web service you are requesting. They are separately described for each of them.
+
+The error messages are contained in a JSON list, even if there is only one error message:
+
+.. code-block:: javascript
+
+   [ message_1, message_2, ... ]
+
 
 XiVO
 ====
@@ -175,21 +202,49 @@ User properties
 .. code-block:: javascript
 
     {
-       "id": 1
-       "firstname": "John",
-       "lastname": "Doe",
-       "email" : "jdoe@xivo.com",
-       "mobilephonenumber" : "0664345678",
-       "outcallerid" : "John Doe",
-       "language" : "fr_CA",
-       "timezone"  : "America/Montreal",
-       "username" : "jdoe",
-       "password" : "ih?7@poi",
-       "voicemailid" : 1,
-       "services" : {..........},
-       "lines" : [..........],
-       "cti" : {.....},
-       "contactcenter" : {....},
+       "id" = 1
+       "firstname" = "Jean"
+       "lastname" = "Dupond"
+       "voicemailtype" = "asterisk"
+       "voicemailid" = 1
+       "agentid" = 1
+       "pictureid" = 1
+       "entityid" = 1
+       "callerid" = "Jean Dupond"
+       "ringseconds" = 30
+       "simultcalls" = 2
+       "enableclient" = 1
+       "loginclient" = "1234"
+       "passwdclient" = "1234"
+       "cti_profile_id = 1
+       "enablehint" = 1
+       "enablevoicemail" = 0
+       "enablexfer" = 0
+       "enableautomon" = 0
+       "callrecord" = 0
+       "incallfilter" = 0
+       "enablednd" = 0
+       "enableunc" = 0
+       "destunc" = ""
+       "enablerna" = 0
+       "destrna" = ""
+       "enablebusy" = 0
+       "destbusy" = ""
+       "musiconhold" = "my_music"
+       "outcallerid" = "1234"
+       "mobilephonenumber" = "0611111111"
+       "userfield" = ""
+       "bsfilter" = "no"
+       "preprocess_subroutine" = ""
+       "timezone" = "Europe/Paris"
+       "language" = "fr_FR"
+       "ringintern" = ""
+       "ringextern" = ""
+       "ringgroup" = ""
+       "ringforward" = ""
+       "rightcallcode" = ""
+       "commented" = 0
+       "description" = "une description"
     }
 
 
@@ -303,6 +358,15 @@ Response
 
 See :ref:`user-properties` for other properties.
 
+Errors
+^^^^^^
+
++------------+---------------+----------------------------------+
+| Error code | Error message | Description                      |
++============+===============+==================================+
+| 404        | empty         | The requested user was not found |
++------------+---------------+----------------------------------+
+
 
 .. _create-user:
 
@@ -340,6 +404,14 @@ Response
  HTTP/1.1 201 Created
  Location: https://xivoserver:50051/1.0/users/38
 
+Errors
+^^^^^^
+
++------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
+| Error code | Error message                                     | Description                                                                           |
++============+===================================================+=======================================================================================+
+| 400        | Incorrect parameters sent: parameter1, parameter2 | The request body contained incorrect parameters. The incorrect parameters are listed. |
++------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 
 .. _update-user:
 
@@ -373,6 +445,16 @@ Response
  HTTP/1.1 200 OK
  Location: https://xivoserver:50051/1.0/users/67
 
+Errors
+^^^^^^
+
++------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
+| Error code | Error message                                     | Description                                                                           |
++============+===================================================+=======================================================================================+
+| 404        | empty                                             | The requested user was not found                                                      |
++------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
+| 400        | Incorrect parameters sent: parameter1, parameter2 | The request body contained incorrect parameters. The incorrect parameters are listed. |
++------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 
 .. _delete-user:
 
@@ -396,6 +478,15 @@ Response
 ::
 
  HTTP/1.1 200 OK
+
+Errors
+^^^^^^
+
++------------+---------------+----------------------------------+
+| Error code | Error message | Description                      |
++============+===============+==================================+
+| 404        | empty         | The requested user was not found |
++------------+---------------+----------------------------------+
 
 .. _list-voicemails:
 
@@ -475,6 +566,15 @@ Response
       "password": "123",
       "email": "foo@bar.com"
     }
+    
+Errors
+^^^^^^
+
++------------+---------------+---------------------------------------+
+| Error code | Error message | Description                           |
++============+===============+=======================================+
+| 404        | empty         | The requested voicemail was not found |
++------------+---------------+---------------------------------------+
 
 .. _create-voicemail:
 
@@ -509,6 +609,15 @@ Response
 
  HTTP/1.1 201 Created
  Location: https://xivoserver:50051/1.0/voicemails/35
+ 
+Errors
+^^^^^^
+
++------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
+| Error code | Error message                                     | Description                                                                           |
++============+===================================================+=======================================================================================+
+| 400        | Incorrect parameters sent: parameter1, parameter2 | The request body contained incorrect parameters. The incorrect parameters are listed. |
++------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 
 .. _update-voicemail:
 
@@ -542,6 +651,17 @@ Response
 
  HTTP/1.1 200 OK
  Location: https://xivoserver:50051/1.0/voicemails/37
+ 
+Errors
+^^^^^^
+
++------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
+| Error code | Error message                                     | Description                                                                           |
++============+===================================================+=======================================================================================+
+| 404        | empty                                             | The requested voicemail was not found                                                 |
++------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
+| 400        | Incorrect parameters sent: parameter1, parameter2 | The request body contained incorrect parameters. The incorrect parameters are listed. |
++------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 
 .. _delete-voicemail:
 
@@ -565,3 +685,12 @@ Response
 ::
 
  HTTP/1.1 200 OK
+ 
+Errors
+^^^^^^
+
++------------+---------------+---------------------------------------+
+| Error code | Error message | Description                           |
++============+===============+=======================================+
+| 404        | empty         | The requested voicemail was not found |
++------------+---------------+---------------------------------------+
