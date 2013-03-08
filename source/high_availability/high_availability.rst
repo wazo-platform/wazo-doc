@@ -139,7 +139,7 @@ Configuration Replication
 
 Once master slave configuration is completed, XiVO configuration is replicated from the master node
 to the slave every hour (:00).
-Replication can be started manually by running the replication script :
+Replication can be started manually by running the replication script on the master:
 
 ::
 
@@ -167,7 +167,7 @@ Internals
 3 scripts are used to manage services and data replication.
 
 * xivo-master-slave-db-replication <slave_ip> is used on the master to replicate the master's
-  data on the slave server.
+  data on the slave server. It runs on the master.
 * xivo-manage-slave-services {start,stop} is used on the slave to start, stop monit and asterisk.
   The services won't be restarted after an upgrade or restart.
 * xivo-check-master-status <master_ip> is used to check the status of the master and enable or
