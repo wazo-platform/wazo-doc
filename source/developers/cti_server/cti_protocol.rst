@@ -353,11 +353,25 @@ Common fields
 
 users
 ^^^^^
+
+Return a list of configured user id's
+
 ``Client -> Server``
 
 .. code-block:: javascript
 
    {"class": "getlist", "commandid": 489035169, "function": "listid", "listname": "users", "tipbxid": "xivo"}
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "function": "listid", "listname": "users",
+      "list": ["11", "12", "14", "17", "1", "3", "2", "4", "9"],
+      "tipbxid": "xivo","timenow": 1362735061.17
+      }
 
 phones
 ^^^^^^
