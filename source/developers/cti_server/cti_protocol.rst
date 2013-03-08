@@ -373,6 +373,42 @@ Return a list of configured user id's
       "tipbxid": "xivo","timenow": 1362735061.17
       }
 
+user
+^^^^
+
+Return a user configuration
+
+* tid is the userid returned by users_ message
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+    {
+      "class": "getlist",
+      "function": "updateconfig",
+      "listname": "users",
+      "tid": "17",
+      "tpbxid": "xivo",  "commandid": 5}
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "function": "updateconfig",
+      "listname": "users",
+      "tid": "17",
+      "tipbxid": "xivo",
+      "timenow": 1362741166.4,
+      "config": {
+            "enablednd": 0, "destrna": "", "enablerna": 0,  "enableunc": 0, "destunc": "", "destbusy": "", "enablebusy": 0, "enablexfer": 1,
+            "firstname": "Alice",  "lastname": "Bouzat", "fullname": "Alice Bouzat",
+            "voicemailid": null, "incallfilter": 0,  "enablevoicemail": 0,   "profileclient": null, "agentid": 2, "enableclient": 1, "linelist": ["7"], "mobilephonenumber": ""}
+       }
+
+
 phones
 ^^^^^^
 ``Client -> Server``
