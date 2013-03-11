@@ -117,7 +117,7 @@ incoming call:
 With such a configuration, when calling this incoming call from the outside, we will be asked for:
 
 * the voicemail number we want to consult
-* the voicemail password
+* the voicemail password, **even if the "Disable password checking option" is activated**
 
 And then, we will be granted access to the voicemail.
 
