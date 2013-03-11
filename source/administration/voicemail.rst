@@ -56,7 +56,7 @@ The other way is to directly add the voicemail from user's configuration in the 
 
 
 Deactivating voicemail
-=======================
+======================
 
 You can deactivate user's voicemail by un-checking 'Enable voicemail' option on the Voicemail tab from user's configuration:
 
@@ -98,3 +98,28 @@ Delete voicemail is done on :menuselection:`Services --> IBX --> IPBX settings -
    * If concerned user still have messages waiting for him, you have to manually reboot the phone.
 
 
+Disable password checking
+=========================
+
+This option allows to skip password checking for the voicemail when it is consulted from the inside. More precisely, password
+checking will be skipped:
+
+* when calling the voicemail with \*98
+* when calling the voicemail with \*99<voicemail number>
+
+But it will not be skipped when the voicemail is consulted through an incoming call. For instance, let's consider the following
+incoming call:
+
+.. figure:: images/Incoming_call_voicemail.png
+   :scale: 80%
+   :alt: Incoming call for voicemails
+
+With such a configuration, when calling this incoming call from the outside, we will be asked for:
+
+* the voicemail number we want to consult
+* the voicemail password
+
+And then, we will be granted access to the voicemail.
+
+Take note that the second "context" field contains the context of the voicemail. Voicemails of other contexts
+will not be accessible through this incoming call.
