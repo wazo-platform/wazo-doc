@@ -281,8 +281,19 @@ Once the call has been answered and placed in the current call frame, the operat
 Transferring a call
 ^^^^^^^^^^^^^^^^^^^
 
-In this example, we are transferring *Alice Wonderland* to *Bernard Marx* with
-an attended transfer. *Davy Crockett* is still ringing.
+Transfer buttons allow the operator to select towards which destination he wishes to transfer the call. This is made through the *Directory* xlet. For defails about the xlet *Directory* usage and configuration see :ref:`directory-xlet`.
+
+Once the destination name has been entered, press *Enter*. If multiple destinations are displayed, you can choose by:
+
+* double-clicking on the destination
+* using *Up*/*Down* arrows then:
+
+  * pressing *Enter*
+  * pressing the transfer button again
+
+For attended transfers, the operator needs to wait for the transfer destination to answer before completing the transfer.
+
+In this example, the operator is currently asking *Bernard Marx* if he can transfer *Alice Wonderland* to him.
 
 .. figure:: images/xivoclient-transferring.png
 
@@ -290,8 +301,6 @@ an attended transfer. *Davy Crockett* is still ringing.
 2. *Cancel transfer* button
 3. Transfer destination filtering field (xlet *Directory*)
 4. Transfer destination list (xlet *Directory*)
-
-For defails about the xlet *Directory* usage and configuration see :ref:`directory-xlet`.
 
 Once the destination has answered, you can:
 
