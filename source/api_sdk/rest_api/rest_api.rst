@@ -205,46 +205,21 @@ User properties
        "id" = 1
        "firstname" = "Jean"
        "lastname" = "Dupond"
-       "voicemailtype" = "asterisk"
-       "voicemailid" = 1
-       "agentid" = 1
-       "pictureid" = 1
-       "entityid" = 1
        "callerid" = "Jean Dupond"
-       "ringseconds" = 30
-       "simultcalls" = 2
+       "username" = "1234"
+       "password" = "1234"
        "enableclient" = 1
-       "loginclient" = "1234"
-       "passwdclient" = "1234"
-       "cti_profile_id = 1
-       "enablehint" = 1
-       "enablevoicemail" = 0
-       "enablexfer" = 0
-       "enableautomon" = 0
-       "callrecord" = 0
-       "incallfilter" = 0
-       "enablednd" = 0
-       "enableunc" = 0
-       "destunc" = ""
-       "enablerna" = 0
-       "destrna" = ""
-       "enablebusy" = 0
-       "destbusy" = ""
        "musiconhold" = "my_music"
        "outcallerid" = "1234"
        "mobilephonenumber" = "0611111111"
        "userfield" = ""
-       "bsfilter" = "no"
-       "preprocess_subroutine" = ""
        "timezone" = "Europe/Paris"
        "language" = "fr_FR"
-       "ringintern" = ""
-       "ringextern" = ""
-       "ringgroup" = ""
-       "ringforward" = ""
-       "rightcallcode" = ""
-       "commented" = 0
        "description" = "une description"
+       "cti_profile_id = 1
+       "voicemailid" = 1
+       "agentid" = 1
+       "entityid" = 1
     }
 
 
@@ -273,10 +248,14 @@ Voicemail properties
 .. code-block:: javascript
 
     {
-       "uniqueid": 1,
+       "id": 1,
+       "email": "john.doe@bar.com"
+       "fullname":"John Doe"
        "mailbox": "123",
        "password": "123",
-       "email": "foo@bar.com"
+       "attach": 1,
+       "skipcheckpass" : 0,
+       "deleteaftersend" : 0,
     }
    
 .. _list-users:
@@ -609,7 +588,7 @@ Response
 
  HTTP/1.1 201 Created
  Location: https://xivoserver:50051/1.0/voicemails/35
- 
+
 Errors
 ^^^^^^
 
@@ -651,7 +630,7 @@ Response
 
  HTTP/1.1 200 OK
  Location: https://xivoserver:50051/1.0/voicemails/37
- 
+
 Errors
 ^^^^^^
 
@@ -685,7 +664,7 @@ Response
 ::
 
  HTTP/1.1 200 OK
- 
+
 Errors
 ^^^^^^
 
