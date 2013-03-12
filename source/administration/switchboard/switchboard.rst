@@ -232,13 +232,14 @@ When the user connects with his XiVO Client, he gets the Switchboard profile.
 
 1. *Current Call* frame
 2. *Answer* button
-3. *Attended transfer* button
-4. *Hold* button
-5. *Hangup* button
-6. *Incoming Calls* list
-7. *Waiting Calls* list
-8. *Directory* Xlet
-9. *Dial* Xlet
+3. *Blind transfer* button
+4. *Attended transfer* button
+5. *Hold* button
+6. *Hangup* button
+7. *Incoming Calls* list
+8. *Waiting Calls* list
+9. *Directory* Xlet
+10. *Dial* Xlet
 
 .. note:: If you don't see the Switchboard Xlet, right-click on the grey
           bar at the right of the *Help* menu and check *Switchboard*:
@@ -273,9 +274,13 @@ Distributing a call
 
 Once the call has been answered and placed in the current call frame, the operator has 3 choices:
 
-* **transfer the call** to another user using the *Attended transfer* button or the *F5* key
-* put the call **on hold** using the *Hold* button or the *F7* key
-* **end the call** using the *Hangup* button or the *F8* key.
+* transfer the call to another user
+
+  * using the *Blind transfer* button or the *F4* key.
+  * using the *Attended transfer* button or the *F5* key
+
+* put the call on hold using the *Hold* button or the *F7* key
+* end the call using the *Hangup* button or the *F8* key.
 
 
 Transferring a call
@@ -291,7 +296,9 @@ Once the destination name has been entered, press *Enter*. If multiple destinati
   * pressing *Enter*
   * pressing the transfer button again
 
-For attended transfers, the operator needs to wait for the transfer destination to answer before completing the transfer.
+Blind transfers are straightforward: once the call is transferred, the operator is free to manage other calls.
+
+Attended transfers are a bit more complicated: the operator needs to wait for the transfer destination to answer before completing the transfer.
 
 In this example, the operator is currently asking *Bernard Marx* if he can transfer *Alice Wonderland* to him.
 
@@ -307,7 +314,7 @@ Once the destination has answered, you can:
 * cancel the transfer with *F8* key
 * complete the transfer with *F5* key
 
-.. warning:: Blind transfer is not supported. If the operator completes the transfer before the callee answers the call, the operator's phone will not be available until the callee answers.
+.. note:: The operator can not complete an attended transfer while the transfer destination is ringing. In this case, the operator must cancel the attended transfer and use the *Blind transfer* action.
 
 
 Putting a call on hold
