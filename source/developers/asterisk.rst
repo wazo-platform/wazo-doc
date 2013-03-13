@@ -33,6 +33,14 @@ Table of modules that were availble in the asterisk 1.8 package but that are not
 | res_jabber      | AJI - Asterisk Jabber Interface       | No               | Deprecated      | res_xmpp           |
 +-----------------+---------------------------------------+------------------+-----------------+--------------------+
 
+List of debian packages that are not available anymore for asterisk 11:
+
+* asterisk-config
+* asterisk-mysql
+* asterisk-web-vmail
+
+.. note::  All these packages are not installed by default for asterisk 1.8.
+
 
 External Links
 **************
