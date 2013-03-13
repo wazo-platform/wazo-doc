@@ -33,18 +33,6 @@ You then have to accept the *GPLv3 License* under which XiVO is distributed.
    Accept the license
 
 
-Component Checks
-================
-
-After this step, the wizard displays the status of the system and of several components. When ready, click on ``Next``.
-
-.. figure:: images/wizard_step3_component_check.png
-   :scale: 75%
-   :alt: Component checks
-
-   Component checks
-
-
 Configuration
 =============
 
