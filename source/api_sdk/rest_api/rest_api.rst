@@ -216,7 +216,7 @@ User properties
        "timezone" = "Europe/Paris"
        "language" = "fr_FR"
        "description" = "une description"
-       "cti_profile_id = 1
+       "ctiprofileid = 1
        "voicemailid" = 1
        "agentid" = 1
        "entityid" = 1
