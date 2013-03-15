@@ -1,12 +1,11 @@
-*********************
 Boss Secretary Filter
-*********************
+#####################
 
-The boss secretary filter allow to set a secretary or a boss role to a user. Filters can then be
-created to filter calls directed to a boss using different strategies.
+The boss secretary filter allow to set a secretary or a boss role to a user. Filters can then be created
+to filter calls directed to a boss using different strategies.
 
 Quick Summary
-=============
+*************
 
 In order to be able to use the boss secretary filter you have to :
  * Select a boss role for one the users
@@ -15,7 +14,7 @@ In order to be able to use the boss secretary filter you have to :
  * Add a function key for the user boss and the user secretary
 
 Defining a Role
-===============
+***************
 
 The secretary or boss role can be set in the user's configuration page under the service tab. To use
 this feature, at least one boss and one secretary must be defined.
@@ -25,10 +24,10 @@ this feature, at least one boss and one secretary must be defined.
 
 
 Creating a Filter
-=================
+*****************
 
-The filter is used to associate a boss to one or many secretaries and to set a ring strategy. The
-call filter is added in the :menuselection:`Services --> IPBX --> Call management --> Call filters` page.
+The filter is used to associate a boss to one or many secretaries and to set a ring strategy. The call
+filter is added in the :menuselection:`Services --> IPBX --> Call management --> Call filters` page.
 
 .. figure:: images/user_bs_filter.png
    :scale: 85%
@@ -41,9 +40,12 @@ Different ringing strategies can be applied :
  * Boss and secretaries are ringing simultaneously
  * Change the caller id if the secretary wants to know which boss was initialy called
 
+When one of serial strategies is used, the first secretary called is the last in the list. The order can
+be modified by drag and drop in the list.
+
 
 Usage
-=====
+*****
 
 The call filter function can be activated and deactivated by the boss or the secretary using the
 \*37 extension. The extension is defined in :menuselection:`IPBX services > Extensions`.
@@ -63,15 +65,15 @@ On the secretary ``Ptit Nouveau`` you would set ``*374``.
 
 
 Function Keys
-=============
+*************
 
-A more convenient way to active the boss secretary filter is to assign a function key on the boss'
-phone or the secretary's phone. In the user's configuration under ``Func Keys``. A function key can
-be added for each secretaries of a boss.
+A more convenient way to active the boss secretary filter is to assign a function key on the boss' phone
+or the secretary's phone. In the user's configuration under ``Func Keys``. A function key can be added
+for each secretaries of a boss.
 
 If supervision is activated, the key will light up when filter is activated for this secretary. If a
-secretary also has a function key on the same boss/secretary combination the function key's BLF will
-be in sync between each phones.
+secretary also has a function key on the same boss/secretary combination the function key's BLF will be
+in sync between each phones.
 
 .. warning::
 	With SCCP phones, you must configure a custom ``Func Keys``.
