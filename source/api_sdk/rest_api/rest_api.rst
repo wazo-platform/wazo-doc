@@ -396,7 +396,7 @@ Errors
 
 PUT /1.0/users/<id>
 -------------------
-Update a user
+Update a user. If the firstname or the lastname is modified, the associated voicemail will not be modified.
 
 Parameters
 ^^^^^^^^^^
