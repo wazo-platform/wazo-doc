@@ -81,6 +81,14 @@ Here are the steps for upgrading a cluster:
 #. Reactivate the cronjobs (see steps 1 and 2)
 
 
+13.05 Upgrade Notes
+===================
+
+* Consult the `13.05 Roadmap <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids[]=1&tracker_ids[]=2&completed=1#13.05>`_
+* The bug `#4228 <https://projects.xivo.fr/issues/4228>`_ concerning BS filter only applies to 13.04 servers installed from scratch. Please upgrade to 13.05.
+* The order of softkeys on SCCP phones has changed, e.g. the *Bis* button is now at the left.
+
+
 13.04 Upgrade Notes
 ===================
 
