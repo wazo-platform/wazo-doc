@@ -190,8 +190,6 @@ Users are XiVO objects using phone sets, users can associated with lines, can be
 +--------+--------------------+-----------------------------+
 | PUT    | :ref:`update-user` | Update a XiVO user          |
 +--------+--------------------+-----------------------------+
-| DELETE | :ref:`delete-user` | Delete a XiVO user          |
-+--------+--------------------+-----------------------------+
 
 
 .. _user-properties:
@@ -233,13 +231,7 @@ Voicemails are XiVO objects with several properties such as a phone number, a e-
 +========+=========================+=============================+
 | GET    | :ref:`list-voicemails`  | Return a list of voicemails |
 +--------+-------------------------+-----------------------------+
-| GET    | :ref:`get-voicemail`    | Return a specific voicemail |
-+--------+-------------------------+-----------------------------+
-| POST   | :ref:`create-voicemail` | Create a voicemail          |
-+--------+-------------------------+-----------------------------+
 | PUT    | :ref:`update-voicemail` | Update a voicemail          |
-+--------+-------------------------+-----------------------------+
-| DELETE | :ref:`delete-voicemail` | Delete a voicemail          |
 +--------+-------------------------+-----------------------------+
 
 Voicemail properties
@@ -435,38 +427,6 @@ Errors
 | 400        | Incorrect parameters sent: parameter1, parameter2 | The request body contained incorrect parameters. The incorrect parameters are listed. |
 +------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 
-.. _delete-user:
-
-DELETE /1.0/users/<id>
-----------------------
-Delete a user
-
-Parameters
-^^^^^^^^^^
-* None
-
-Request
-^^^^^^^
-::
-
- DELETE /1.0/users/44 HTTP/1.1
- Host : xivoserver:50051
-
-Response
-^^^^^^^^
-::
-
- HTTP/1.1 200 OK
-
-Errors
-^^^^^^
-
-+------------+---------------+----------------------------------+
-| Error code | Error message | Description                      |
-+============+===============+==================================+
-| 404        | empty         | The requested user was not found |
-+------------+---------------+----------------------------------+
-
 .. _list-voicemails:
 
 GET /1.0/voicemails/
@@ -513,91 +473,6 @@ Response
     }
 
 
-.. _get-voicemail:
-
-GET /1.0/voicemails/<id>
-------------------------
-Return a specific voicemail.
-
-Parameters
-^^^^^^^^^^
-* None
-
-Request
-^^^^^^^
-::
-
- GET /1.0/voicemails/1 HTTP/1.1
- Host : xivoserver:50051
-
-Response
-^^^^^^^^
-::
-
- HTTP/1.1 200 OK
- Content-Type: application/json;charset=UTF-8
-
-.. code-block:: javascript
-
-    {
-      "uniqueid": 1,
-      "mailbox": "123",
-      "password": "123",
-      "email": "foo@bar.com"
-    }
-    
-Errors
-^^^^^^
-
-+------------+---------------+---------------------------------------+
-| Error code | Error message | Description                           |
-+============+===============+=======================================+
-| 404        | empty         | The requested voicemail was not found |
-+------------+---------------+---------------------------------------+
-
-.. _create-voicemail:
-
-POST /1.0/voicemails/
----------------------
-
-Create a voicemail.
-
-Parameters
-^^^^^^^^^^
-* None
-
-Request
-^^^^^^^
-::
-
- POST /1.0/voicemails/ HTTP/1.1
- Host : xivoserver:50051
- Content-Type: application/json;charset=UTF-8
-
-.. code-block:: javascript
-
-    {
-       "mailbox": "123",
-       "password": "123",
-       "email": "foo@bar.com"
-    }
-
-Response
-^^^^^^^^
-::
-
- HTTP/1.1 201 Created
- Location: https://xivoserver:50051/1.0/voicemails/35
-
-Errors
-^^^^^^
-
-+------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
-| Error code | Error message                                     | Description                                                                           |
-+============+===================================================+=======================================================================================+
-| 400        | Incorrect parameters sent: parameter1, parameter2 | The request body contained incorrect parameters. The incorrect parameters are listed. |
-+------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
-
 .. _update-voicemail:
 
 PUT /1.0/voicemails/<voicemailid>
@@ -642,34 +517,4 @@ Errors
 | 400        | Incorrect parameters sent: parameter1, parameter2 | The request body contained incorrect parameters. The incorrect parameters are listed. |
 +------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 
-.. _delete-voicemail:
 
-DELETE /1.0/voicemails/<voicemailid>
-------------------------------------
-Delete a voicemail.
-
-Parameters
-^^^^^^^^^^
-* None
-
-Request
-^^^^^^^
-::
-
- DELETE /1.0/voicemails/80 HTTP/1.1
- Host : xivoserver:50051
-
-Response
-^^^^^^^^
-::
-
- HTTP/1.1 200 OK
-
-Errors
-^^^^^^
-
-+------------+---------------+---------------------------------------+
-| Error code | Error message | Description                           |
-+============+===============+=======================================+
-| 404        | empty         | The requested voicemail was not found |
-+------------+---------------+---------------------------------------+
