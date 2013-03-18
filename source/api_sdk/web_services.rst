@@ -390,12 +390,8 @@ Example of sent content for a user with a SIP line and a voicemail (the top-leve
            "tempgreetwarn": None,
            "tz": "eu-fr",
            "uniqueid": 1,
-           "volgain": None
-       },
-       "voicemailfeatures": {
-           "id": 1,
-           "skipcheckpass": "0",
-           "voicemailid": 1
+           "volgain": None,
+           "skipcheckpass": "0"
        }
    }
 

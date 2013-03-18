@@ -58,7 +58,7 @@ Typical Upgrade Process
 
 
 Specific Procedure : Upgrading a Cluster
-======================================
+========================================
 
 Here are the steps for upgrading a cluster:
 
@@ -81,10 +81,18 @@ Here are the steps for upgrading a cluster:
 #. Reactivate the cronjobs (see steps 1 and 2)
 
 
+13.05 Upgrade Notes
+===================
+
+* Consult the `13.05 Roadmap <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids[]=1&tracker_ids[]=2&completed=1#13.05>`_
+* The bug `#4228 <https://projects.xivo.fr/issues/4228>`_ concerning BS filter only applies to 13.04 servers installed from scratch. Please upgrade to 13.05.
+* The order of softkeys on SCCP phones has changed, e.g. the *Bis* button is now at the left.
+
+
 13.04 Upgrade Notes
 ===================
 
-* Consult the `Roadmap <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1#13.04>`_
+* Consult the `13.04 Roadmap <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1#13.04>`_
 * Upgrade procedure for HA Cluster has changed. Refer to `Specific Procedure : Upgrading a Cluster`_.
 * Configuration of switchboards has changed. Since the directory xlet can now display any column from the lookup source, a display filter has to be configured and assigned to the __switchboard_directory context. Refer to :ref:`Directory xlet documenttion <directory-xlet>`.
 * There is no more context field directly associated with a call filter. Boss and secretary users associated with a call filter must necessarily be in the same context.
@@ -93,7 +101,7 @@ Here are the steps for upgrading a cluster:
 12.24 Upgrade Notes
 ===================
 
-* Consult the `Roadmap <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1#12.24>`_
+* Consult the `12.24 Roadmap <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1#12.24>`_
 
 * XiVO 12.24 has some limitations mainly affecting the contact center features due to the rewriting of the code handling agents.
 

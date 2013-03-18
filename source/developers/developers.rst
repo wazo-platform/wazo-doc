@@ -8,8 +8,8 @@ General information:
    :maxdepth: 2
 
    contributing_doc
-   debug_daemon
    debug_asterisk
+   debug_daemon
    profile_python
    translate
 
@@ -18,6 +18,7 @@ Component specific information:
 .. toctree::
    :maxdepth: 2
 
+   asterisk
    cti_server/cti_server
    provisioning/provisioning
    sccp

@@ -9,6 +9,17 @@ Here's how to run the various daemons present in XiVO in foreground and debug mo
 Note that it's usually a good idea to stop monit before running a daemon in foreground.
 
 
+agentd
+======
+
+::
+
+   xivo-agentd -f -v
+
+* -f for foreground
+* -v for verbose
+
+
 agid
 ====
 

@@ -57,7 +57,7 @@ login_id
     "company": "default", 
     "ident": "X11-LE-24079", 
     "lastlogout-datetime": "2013-02-19T11:13:36", 
-    "lastlogout-stopper": "", 
+    "lastlogout-stopper": "disconnect",
     "userlogin": <userlogin>, 
     "version": "9999", 
     "xivoversion": "1.2"
@@ -353,11 +353,61 @@ Common fields
 
 users
 ^^^^^
+
+Return a list of configured user id's
+
 ``Client -> Server``
 
 .. code-block:: javascript
 
    {"class": "getlist", "commandid": 489035169, "function": "listid", "listname": "users", "tipbxid": "xivo"}
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "function": "listid", "listname": "users",
+      "list": ["11", "12", "14", "17", "1", "3", "2", "4", "9"],
+      "tipbxid": "xivo","timenow": 1362735061.17
+      }
+
+user
+^^^^
+
+Return a user configuration
+
+* tid is the userid returned by users_ message
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+    {
+      "class": "getlist",
+      "function": "updateconfig",
+      "listname": "users",
+      "tid": "17",
+      "tpbxid": "xivo",  "commandid": 5}
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "function": "updateconfig",
+      "listname": "users",
+      "tid": "17",
+      "tipbxid": "xivo",
+      "timenow": 1362741166.4,
+      "config": {
+            "enablednd": 0, "destrna": "", "enablerna": 0,  "enableunc": 0, "destunc": "", "destbusy": "", "enablebusy": 0, "enablexfer": 1,
+            "firstname": "Alice",  "lastname": "Bouzat", "fullname": "Alice Bouzat",
+            "voicemailid": null, "incallfilter": 0,  "enablevoicemail": 0,   "profileclient": null, "agentid": 2, "enableclient": 1, "linelist": ["7"], "mobilephonenumber": ""}
+       }
+
 
 phones
 ^^^^^^
@@ -412,6 +462,35 @@ login
    {"agentphonenumber": "1000", "class": "ipbxcommand", "command": "agentlogin", "commandid": 733366597}
 
 agentphonenumber is the physical phone set where the agent is going to log on.
+
+
+``Server > Client``
+
+* Login successfull :
+
+.. code-block:: javascript
+
+   {"function": "updateconfig", "listname": "queuemembers", "tipbxid": "xivo",
+      "timenow": 1362664323.94, "tid": "Agent/2002,blue",
+      "config": {"paused": "0", "penalty": "0", "membership": "static", "status": "1", "lastcall": "",
+                  "interface": "Agent/2002", "queue_name": "blue", "callstaken": "0"},
+    "class": "getlist"
+      }
+
+   {"function": "updatestatus", "listname": "agents", "tipbxid": "xivo",
+      "timenow": 1362664323.94,
+      "status": {"availability_since": 1362664323.94,
+                  "queues": [], "phonenumber": "1001", "on_call": false, "groups": [],
+                  "availability": "available", "channel": null},
+      "tid": 7, "class": "getlist"
+         }
+
+
+* The phone number is already used by an other agent :
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "error_string": "agent_login_exten_in_use", "timenow": 1362664158.14}
 
 Logout
 ^^^^^^
@@ -603,6 +682,50 @@ Forward the call to another destination when the user is busy
 
 Ipbx Commands
 -------------
+dial
+^^^^
+* destination can be any number
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+    {
+       "class": "ipbxcommand",
+       "command": "dial",
+       "commandid": <commandid>,
+       "destination": "exten:xivo/<extension>"
+    }
+
+For example :
+
+.. code-block:: javascript
+
+    {
+        "class": "ipbxcommand",
+        "command": "dial",
+        "commandid": 1683305913,
+        "destination": "exten:xivo/1202"
+    }
+
+originate
+^^^^^^^^^
+
+Same message than the dial_ message with a source fied. The source field is ``user:xivo/<userid``,
+userid is replaced by a user identifer returned by the message getting users_ list
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "class": "ipbxcommand",
+        "command": "originate",
+        "commandid": 1683305913,
+        "source":"user:xivo/34",
+        "destination": "exten:xivo/1202"
+    }
+
 record
 ^^^^^^
 ``Client -> Server``
@@ -704,28 +827,6 @@ IPBXCOMMANDS
 ------------
 
 hangupme
-
-dial
-
-.. code-block:: javascript
-
-    {
-       "class": "ipbxcommand",
-       "command": "dial",
-       "commandid": <commandid>,
-       "destination": "exten:xivo/<extension>"
-    }
-
-For example :
-
-.. code-block:: javascript
-
-    {
-        "class": "ipbxcommand",
-        "command": "dial",
-        "commandid": 1683305913,
-        "destination": "exten:xivo/1202"
-    }
 
 meetme
 
