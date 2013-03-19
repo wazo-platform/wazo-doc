@@ -608,7 +608,7 @@ Activate / deactivate recording for a user,
 
 .. code-block:: javascript
 
-   {"class": "featuresput", "commandid": 1088978942, "function": "enablerecording", "value": true, "userid" : "7" }
+   {"class": "featuresput", "commandid": 1088978942, "function": "enablerecording", "value": true, "target" : "7" }
 
 ``Server > Client``
 
