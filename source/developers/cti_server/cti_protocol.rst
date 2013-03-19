@@ -597,6 +597,31 @@ DND
       "tid": "2",
       "timenow": 1361456614.55, "tipbxid": "xivo"}
 
+Recording
+^^^^^^^^^
+* function : enablerecording
+* value : true, false
+
+Activate / deactivate recording for a user,
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "featuresput", "commandid": 1088978942, "function": "enablerecording", "value": true, "userid" : "7" }
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "config": {"enablerecording": true},
+      "function": "updateconfig",
+      "listname": "users",
+      "tid": "7",
+      "timenow": 1361456614.55, "tipbxid": "xivo"}
+
 Unconditional Forward
 ^^^^^^^^^^^^^^^^^^^^^
 Forward the call at any time, call doest not reach the user
