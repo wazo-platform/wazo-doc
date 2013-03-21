@@ -249,6 +249,40 @@ Edit::
 
    Editing a user who is a member of a group and/or a queue will remove the user
    from its group/queue.
+   
+
+Example of key ``phonefunckey``:
+
+.. code-block:: javascript
+
+   {
+       "fknum": [
+           "1",
+           "2",
+           "3"
+       ],
+       "type": [
+           "user",
+           "user",
+           "custom"
+       ],
+       "typeval": [
+           "1259",
+           "3",
+           "1002"
+       ],
+       "label": [
+           "Francis",
+           "Alfred",
+           "1002"
+       ],
+       "supervision": [
+           "1",
+           "0",
+           "0"
+       ]
+   }
+   
 
 Example of sent content for a user with a SIP line and a voicemail (the top-level
 ``dialaction`` key has been omitted for clarity purpose):
