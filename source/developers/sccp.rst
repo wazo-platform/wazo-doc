@@ -23,6 +23,19 @@ For a more interactive chat, you can find me on irc.freenode.net on #xivo, my al
 Installation
 ------------
 
+The following packages are required to compile libsccp on a XiVO.
+
+* build-essential
+* cmake
+* autoconf
+* automake
+* libtool
+* asterisk-dev
+
+::
+
+    apt-get update && apt-get install build-essential cmake autoconf automake libtool asterisk-dev
+
 ::
 
    git clone git://git.xivo.fr/official/xivo-libsccp.git
