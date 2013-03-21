@@ -903,6 +903,210 @@ Add::
    }
 
 
+IPBX Services
+-------------
+
+Phonebook
+^^^^^^^^^
+
+List::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/phonebook?act=list
+
+Search::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/phonebook/?act=search&search=[string_to_search]
+
+``Return code example``
+
+.. code-block:: javascript
+
+   [
+       {
+           "phonebook": {
+               "id": 2,
+               "title": "mr",
+               "firstname": "tito",
+               "lastname": "",
+               "displayname": "toot",
+               "society": "toto",
+               "email": "",
+               "url": "",
+               "image": null,
+               "description": "",
+               "fullname": "tito"
+           },
+           "phonebookaddress": {
+               "office": {
+                   "id": 4,
+                   "phonebookid": 2,
+                   "address1": "",
+                   "address2": "",
+                   "city": "",
+                   "state": "",
+                   "zipcode": "",
+                   "country": "",
+                   "type": "office"
+               },
+               "home": {
+                   "id": 5,
+                   "phonebookid": 2,
+                   "address1": "",
+                   "address2": "",
+                   "city": "",
+                   "state": "",
+                   "zipcode": "",
+                   "country": "",
+                   "type": "home"
+               },
+               "other": {
+                   "id": 6,
+                   "phonebookid": 2,
+                   "address1": "",
+                   "address2": "",
+                   "city": "",
+                   "state": "",
+                   "zipcode": "",
+                   "country": "",
+                   "type": "other"
+               }
+           },
+           "phonebooknumber": {
+               "mobile": {
+                   "id": 3,
+                   "phonebookid": 2,
+                   "number": "5464646",
+                   "type": "mobile"
+               }
+           }
+       }
+   ]
+
+View::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/phonebook?act=view&id=[phonebook_id]
+
+``Return code example``
+
+.. code-block:: javascript
+
+   {
+       "phonebook": {
+           "id": 2,
+           "title": "mr",
+           "firstname": "tito",
+           "lastname": "",
+           "displayname": "toot",
+           "society": "toto",
+           "email": "",
+           "url": "",
+           "image": null,
+           "description": "",
+           "fullname": "tito"
+       },
+       "phonebookaddress": {
+           "office": {
+               "id": 4,
+               "phonebookid": 2,
+               "address1": "",
+               "address2": "",
+               "city": "",
+               "state": "",
+               "zipcode": "",
+               "country": "",
+               "type": "office"
+           },
+           "home": {
+               "id": 5,
+               "phonebookid": 2,
+               "address1": "",
+               "address2": "",
+               "city": "",
+               "state": "",
+               "zipcode": "",
+               "country": "",
+               "type": "home"
+           },
+           "other": {
+               "id": 6,
+               "phonebookid": 2,
+               "address1": "",
+               "address2": "",
+               "city": "",
+               "state": "",
+               "zipcode": "",
+               "country": "",
+               "type": "other"
+           }
+       },
+       "phonebooknumber": {
+           "mobile": {
+               "id": 3,
+               "phonebookid": 2,
+               "number": "5464646",
+               "type": "mobile"
+           }
+       }
+   }
+
+Delete::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/phonebook?act=delete&id=[phonebook_id]
+
+Add::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/phonebook?act=add
+
+``Example of content to send to add``
+
+.. code-block:: javascript
+
+   {
+       "phonebook": {
+           "title": "mr",
+           "firstname": "test",
+           "lastname": "",
+           "displayname": "",
+           "society": "",
+           "email": "",
+           "url": "",
+           "description": ""
+       },
+       "phonebooknumber": {
+           "mobile": "",
+           "office": "",
+           "fax": "",
+           "home": "",
+           "other": ""
+       },
+       "phonebookaddress": {
+           "office": {
+               "address1": "",
+               "address2": "",
+               "city": "",
+               "state": "",
+               "zipcode": "",
+               "country": ""
+           },
+           "home": {
+               "address1": "",
+               "address2": "",
+               "city": "",
+               "state": "",
+               "zipcode": "",
+               "country": ""
+           },
+           "other": {
+               "address1": "",
+               "address2": "",
+               "city": "",
+               "state": "",
+               "zipcode": "",
+               "country": ""
+           }
+       }
+   }
+
 
 Trunk management
 ----------------
