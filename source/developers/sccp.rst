@@ -26,7 +26,6 @@ Installation
 The following packages are required to compile libsccp on a XiVO.
 
 * build-essential
-* cmake
 * autoconf
 * automake
 * libtool
@@ -34,7 +33,7 @@ The following packages are required to compile libsccp on a XiVO.
 
 ::
 
-    apt-get update && apt-get install build-essential cmake autoconf automake libtool asterisk-dev
+    apt-get update && apt-get install build-essential autoconf automake libtool asterisk-dev
 
 ::
 
