@@ -107,6 +107,8 @@ Other important fields
 
 * The :menuselection:`General --> Display name` field is the name displayed in the XiVO client xlets and in the statistics
 
+.. warning:: This queue MUST have **NO** members
+
 
 Create the Users that Will be Operators
 ---------------------------------------
@@ -149,6 +151,8 @@ Create an Agent for the Operator
 
 Each operator needs to have an associated agent.
 
+.. warning:: Each agent MUST ONLY be a member of the Switchboard queue
+
 To create an agent:
 
 * Go to :menuselection:`Services --> Call center --> Agents`
@@ -161,7 +165,7 @@ To create an agent:
 
 .. figure:: images/agent_user.png
 
-* Assign the Agent to the *Switchboard* Queue
+* Assign the Agent to the *Switchboard* Queue (**and ONLY to the Switchboard queue**)
 
 .. figure:: images/agent_queue.png
 
