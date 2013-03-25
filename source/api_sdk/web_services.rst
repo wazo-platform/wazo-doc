@@ -1093,52 +1093,55 @@ Add::
 
 ``Example of content to send to add``
 
+   * ``title`` is enum of (mr, mrs, ms)
+   * ``displayname`` must be fill
+
 .. code-block:: javascript
 
    {
-       "phonebook": {
-           "title": "mr",
-           "firstname": "test",
-           "lastname": "",
-           "displayname": "",
-           "society": "",
-           "email": "",
-           "url": "",
-           "description": ""
-       },
-       "phonebooknumber": {
-           "mobile": "",
-           "office": "",
-           "fax": "",
-           "home": "",
-           "other": ""
-       },
-       "phonebookaddress": {
-           "office": {
-               "address1": "",
-               "address2": "",
-               "city": "",
-               "state": "",
-               "zipcode": "",
-               "country": ""
-           },
-           "home": {
-               "address1": "",
-               "address2": "",
-               "city": "",
-               "state": "",
-               "zipcode": "",
-               "country": ""
-           },
-           "other": {
-               "address1": "",
-               "address2": "",
-               "city": "",
-               "state": "",
-               "zipcode": "",
-               "country": ""
-           }
-       }
+      "phonebook": {
+        "title": "mr",
+        "firstname": "tito",
+        "lastname": "test",
+        "displayname": "test test",
+        "society": "avencall",
+        "email": "cabunar@avencall.com",
+        "url": "mysite.com",
+        "description": ""
+      },
+      "phonebooknumber": {
+        "mobile": "12345",
+        "office": "123456",
+        "fax": "321456",
+        "home": "123854",
+        "other": "544897"
+      },
+      "phonebookaddress": {
+        "office": {
+            "address1": "95 rue des rues",
+            "address2": "nex rue",
+            "city": "mars",
+            "state": "wakila",
+            "zipcode": "324956",
+            "country": "EC"
+        },
+        "home": {
+            "address1": "6954 rue des kali",
+            "address2": "next",
+            "city": "cirud",
+            "state": "sfsd",
+            "zipcode": "478561",
+            "country": "DK"
+        },
+        "other": {
+            "address1": "5487 rue des goliku",
+            "address2": "next",
+            "city": "cityuyu",
+            "state": "washikl",
+            "zipcode": "154d",
+            "country": "CZ"
+        }
+      }
    }
 
 
