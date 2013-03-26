@@ -57,6 +57,7 @@ Xlets are features of the CTI Client. It is the contraction of XiVO applets.
 .. toctree::
    :maxdepth: 1
 
+   Agent status dashboard xlet <xlets/dashboard>
    Conference xlet <xlets/conference>
    Contact xlet <xlets/contact>
    Directory xlet <xlets/directory>
