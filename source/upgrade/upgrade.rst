@@ -85,6 +85,13 @@ Here are the steps for upgrading a cluster:
 #. Reactivate the cronjobs (see steps 1 and 2)
 
 
+13.06 Upgrade Notes
+===================
+
+* Consult the `13.06 Roadmap <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids[]=1&tracker_ids[]=2&completed=1#13.06>`_
+* The new Agent Status Dashboard has a few known limitations. See related :ref:`dashboard xlet known issues section <dashboard-xlet-issues>`
+* Status Since counter in xlet list of agents has changed behavior to better reflect states of agents in queues as seen by asterisk. See `Ticket #4254 <https://projects.xivo.fr/issues/4254>`_ for more details.
+
 13.05 Upgrade Notes
 ===================
 

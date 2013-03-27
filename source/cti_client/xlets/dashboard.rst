@@ -25,6 +25,8 @@ The xlet is *read-only* and presents a list of queues aligned vertically. For ea
 
 An agent is *In use* when he cannot receive a call from a queue (in conversation, in wrapup or in pause).
 
+.. _dashboard-xlet-issues:
+
 Known issues
 ============
 
