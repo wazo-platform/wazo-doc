@@ -808,15 +808,14 @@ Send back a table of calls :
 
 .. code-block:: javascript
 
+
    {
-      {
-         "class": "history",
-         "history": [
-            {"calldate": "2013-03-29T08:44:35.273998", "duration": 0.148765, "fullname": "*844201"},
-            {"calldate": "2013-03-28T16:56:48.071213", "duration": 58.134744, "fullname": "41400"}
-         ],
-         "mode": 0, "replyid": 529422441, "timenow": 1364571477.33
-      }
+      "class": "history",
+      "history": [
+         {"calldate": "2013-03-29T08:44:35.273998", "duration": 0.148765, "fullname": "*844201"},
+         {"calldate": "2013-03-28T16:56:48.071213", "duration": 58.134744, "fullname": "41400"}
+      ],
+      "mode": 0, "replyid": 529422441, "timenow": 1364571477.33
    }
 
 
