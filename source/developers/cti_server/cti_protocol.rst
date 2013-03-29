@@ -780,6 +780,46 @@ record
 REGCOMMANDS
 -----------
 
+history
+^^^^^^^
+* mode
+   * 0 : sent calls
+   * 1 : received calls
+   * 2 : missed calls
+* size : Size of the list to be sent by the server
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {
+      "mode": "0",
+      "size": "8",
+      "class": "history",
+      "xuserid": "<xivoid>/<userfeaturesid>",
+      "commandid": <commandid>
+   }
+
+``Server > Client``
+
+Send back a table of calls :
+
+* duration in seconds
+
+.. code-block:: javascript
+
+   {
+      {
+         "class": "history",
+         "history": [
+            {"calldate": "2013-03-29T08:44:35.273998", "duration": 0.148765, "fullname": "*844201"},
+            {"calldate": "2013-03-28T16:56:48.071213", "duration": 58.134744, "fullname": "41400"}
+         ],
+         "mode": 0, "replyid": 529422441, "timenow": 1364571477.33
+      }
+   }
+
+
 callcampaign
 
 chitchat
@@ -801,17 +841,6 @@ featuresput
 
 directory
 
-history
-
-.. code-block:: javascript
-
-   {
-      "mode": "0",
-      "size": "8",
-      "class": "history",
-      "xuserid": "<xivoid>/<userfeaturesid>",
-      "commandid": <commandid>
-   }
 
 parking
 
