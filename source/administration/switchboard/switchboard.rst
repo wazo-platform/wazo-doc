@@ -107,6 +107,8 @@ Other important fields
 
 * The :menuselection:`General --> Display name` field is the name displayed in the XiVO client xlets and in the statistics
 
+.. warning:: This queue MUST have **NO** members
+
 
 Create the Users that Will be Operators
 ---------------------------------------
@@ -149,6 +151,8 @@ Create an Agent for the Operator
 
 Each operator needs to have an associated agent.
 
+.. warning:: Each agent MUST ONLY be a member of the Switchboard queue
+
 To create an agent:
 
 * Go to :menuselection:`Services --> Call center --> Agents`
@@ -161,7 +165,7 @@ To create an agent:
 
 .. figure:: images/agent_user.png
 
-* Assign the Agent to the *Switchboard* Queue
+* Assign the Agent to the *Switchboard* Queue (**and ONLY to the Switchboard queue**)
 
 .. figure:: images/agent_queue.png
 
@@ -203,10 +207,19 @@ You can also choose to redirect all the calls to another user or a voice mail.
 .. figure:: images/queue_no_answer.png
 
 
-Configuration for multiple switchboards
-=======================================
+XiVO Client configuration 
+=========================
 
-The above documentation can be used to for multiple switchboards on the same
+Directory xlet
+--------------
+
+The transfer destination is chosen in the Directory xlet. You **must** follow the :ref:`directory-xlet` section to be able to use it.
+
+
+Configuration for multiple switchboards
+---------------------------------------
+
+The above documentation can be used for multiple switchboards on the same
 XiVO by replacing the *__switchboard* and *__switchboard_hold* queues name
 and configuring the operators XiVO client accordingly in the
 :menuselection:`XiVO Client --> Configure --> Functions --> Switchboard` window.
@@ -219,7 +232,11 @@ Usage
 
 .. warning::
 
-  The switchboard configuration must be completed before using the switchboard.
+  The switchboard configuration must be completed before using the switchboard. This includes :
+    
+    * Device, User, Agent and Queues configuration (see above),
+    * Directory xlet configuration (see :ref:`directory-xlet`)
+
   If it's not the case, the user must disconnect his XiVO client and reconnect.
 
 

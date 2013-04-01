@@ -71,7 +71,11 @@ Configuration
 Context
 ^^^^^^^
 
-The directory xlet uses a special context named *__switchboard_directory*. This context has to be added as an `internal` context with no number range on the :menuselection:`Services --> IPBX --> IPBX configuration --> Contexts` page.
+The directory xlet needs a special context named *__switchboard_directory*. In :menuselection:`Services --> IPBX --> IPBX configuration --> Contexts` add a new context with the followong parameters :
+
+* Name : ``__switchboard_directory``
+* Type of context : **internal**
+* Display name : Switchboard
 
 .. figure:: ./images/switchboard_directory_context.png
 
@@ -124,7 +128,7 @@ The new *Display filter* has to be assigned to the *__switchboard_directory* con
 
 You can then choose which directories will be searched by the Xlet.
 
-.. note:: You must **not select internal** directory, as it is already handled.
+.. warning:: You must **not select internal** directory, as it is already handled.
 
 
 LDAP Configuration

@@ -5,25 +5,35 @@ Skinny Call Control Protocol (SCCP)
 Introduction
 ------------
 
-::
+SCCP (or skinny) is a stimulus protocol used to fully interact with Cisco phones.
+What is libsccp ? It's a channel driver written for Asterisk by Avencall based on the channel skinny.
 
-   SCCP (or skinny) is a stimulus protocol used to fully interact with Cisco phones.
-   What is libsccp ? It's a channel driver written for Asterisk by Avencall based on the channel skinny.
+At the present moment, we are strictly focusing our effort on the Asterisk 1.8 branch which is a Long-Term-Support (LTS) release.
 
-   At the present moment, we are strictly focusing our effort on the Asterisk 1.8 branch which is a Long-Term-Support (LTS) release.
 
 Contact
 -------
 
-::
+libsccp is actually developed and maintained by Nicolas Bouliane (nbouliane@avencall.com)
+If you need any help, have questions or want to give some help by providing patch or by testing code you can write me an email.
 
-   libsccp is actually developed and maintained by Nicolas Bouliane (nbouliane@avencall.com)
-   If you need any help, have questions or want to give some help by providing patch or by testing code you can write me an email.
+For a more interactive chat, you can find me on irc.freenode.net on #xivo, my alias is acidfu.
 
-   For a more interactive chat, you can find me on irc.freenode.net on #xivo, my alias is acidfu.
 
 Installation
 ------------
+
+The following packages are required to compile libsccp on a XiVO.
+
+* build-essential
+* autoconf
+* automake
+* libtool
+* asterisk-dev
+
+::
+
+    apt-get update && apt-get install build-essential autoconf automake libtool asterisk-dev
 
 ::
 
@@ -34,13 +44,14 @@ Installation
    make
    cp ./src/.libs/libsccp.so /usr/lib/asterisk/modules/chan_sccp.so
 
+
 Configuration
 -------------
 
-| example /etc/asterisk/sccp.conf:
+example /etc/asterisk/sccp.conf:
 
 ::
- 
+
    [general]
    bindaddr=10.97.8.5
    dateformat=D.M.Y
@@ -63,8 +74,10 @@ Configuration
    line=100
    voicemail=200
 
-| **WARNING** ! The option 'context' is very important. If you get it wrong, you won't be able to call or receive call.
-| If you are unsure in what context your extension is configured, you can do:
+.. warning::
+    The option 'context' is very important. If you get it wrong, you won't be
+    able to call or receive call. If you are unsure in what context your
+    extension is configured, you can do:
 
 ::
 
@@ -83,6 +96,7 @@ Configuration
 
 
 We see that the extention 107 is effectively configured in the context 'default'.
+
 
 CLI
 ---
@@ -158,26 +172,28 @@ The command line interface provide a way to interact with the different Asterisk
 
  nibskaro*CLI> sccp update config
  Parse the configuration and add new lines and devices
- 
+
+
 FAQ
 ---
 
-| Q. When is this *feature X* will be available ?
-| A. The order in which we implement features is based on our client needs. Write us an email that clearly explain
-|  your setup and what you would like to do and we will see what we can do. We don't provide any timeline.
+::
 
-| Q. I want to use the Page() application to call many phones at the same time.
-| A. Here a Page() example for a one way call (half-duplex):
+    Q. When is this *feature X* will be available?
+    A. The order in which we implement features is based on our client needs. Write
+       us an email that clearly explain your setup and what you would like to do and we
+       will see what we can do. We don't provide any timeline.
 
 ::
 
-   exten => 1000,1,Verbose(2, Paging to external cisco phone)
-    same => n,Page(sccp/100/autoanswer&sccp/101/autoanswer,i,120 )
+    Q. I want to use the Page() application to call many phones at the same time.
+    A. Here a Page() example for a one way call (half-duplex):
 
-| ... for a two-way call (full-duplex):
+    exten => 1000,1,Verbose(2, Paging to external cisco phone)
+     same => n,Page(sccp/100/autoanswer&sccp/101/autoanswer,i,120 )
 
-::
+    ...for a two-way call (full-duplex):
 
-   exten => 1000,1,Verbose(2, Paging to external cisco phone)
-    same => n,Page(sccp/100/autoanswer&sccp/101/autoanswer,di,120 )
+    exten => 1000,1,Verbose(2, Paging to external cisco phone)
+     same => n,Page(sccp/100/autoanswer&sccp/101/autoanswer,di,120 )
 

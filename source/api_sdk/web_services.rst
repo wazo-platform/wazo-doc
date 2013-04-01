@@ -249,6 +249,40 @@ Edit::
 
    Editing a user who is a member of a group and/or a queue will remove the user
    from its group/queue.
+   
+
+Example of key ``phonefunckey``:
+
+.. code-block:: javascript
+
+   {
+       "fknum": [
+           "1",
+           "2",
+           "3"
+       ],
+       "type": [
+           "user",
+           "user",
+           "custom"
+       ],
+       "typeval": [
+           "1259",
+           "3",
+           "1002"
+       ],
+       "label": [
+           "Francis",
+           "Alfred",
+           "1002"
+       ],
+       "supervision": [
+           "1",
+           "0",
+           "0"
+       ]
+   }
+   
 
 Example of sent content for a user with a SIP line and a voicemail (the top-level
 ``dialaction`` key has been omitted for clarity purpose):
@@ -906,40 +940,208 @@ Add::
 IPBX Services
 -------------
 
-Parkings
-^^^^^^^^
+Phonebook
+^^^^^^^^^
 
-Liste::
+List::
 
-   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=list
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/phonebook?act=list
+
+Search::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/phonebook/?act=search&search=[string_to_search]
+
+``Return code example``
+
+.. code-block:: javascript
+
+   [
+       {
+           "phonebook": {
+               "id": 2,
+               "title": "mr",
+               "firstname": "tito",
+               "lastname": "",
+               "displayname": "toot",
+               "society": "toto",
+               "email": "",
+               "url": "",
+               "image": null,
+               "description": "",
+               "fullname": "tito"
+           },
+           "phonebookaddress": {
+               "office": {
+                   "id": 4,
+                   "phonebookid": 2,
+                   "address1": "",
+                   "address2": "",
+                   "city": "",
+                   "state": "",
+                   "zipcode": "",
+                   "country": "",
+                   "type": "office"
+               },
+               "home": {
+                   "id": 5,
+                   "phonebookid": 2,
+                   "address1": "",
+                   "address2": "",
+                   "city": "",
+                   "state": "",
+                   "zipcode": "",
+                   "country": "",
+                   "type": "home"
+               },
+               "other": {
+                   "id": 6,
+                   "phonebookid": 2,
+                   "address1": "",
+                   "address2": "",
+                   "city": "",
+                   "state": "",
+                   "zipcode": "",
+                   "country": "",
+                   "type": "other"
+               }
+           },
+           "phonebooknumber": {
+               "mobile": {
+                   "id": 3,
+                   "phonebookid": 2,
+                   "number": "5464646",
+                   "type": "mobile"
+               }
+           }
+       }
+   ]
 
 View::
 
-   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=view&id=[parkinglot_id]
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/phonebook?act=view&id=[phonebook_id]
 
-Delete::
-
-   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=delete&id=[parkinglot_id]
-
-Add::
-
-   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=add
-
-Edit::
-
-   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/parkinglot?act=edit
-
-``Example of content to send to add``
+``Return code example``
 
 .. code-block:: javascript
 
    {
-       "name": "myparkinglot",
-       "context": "default",
-       "extension": 700,
-       "positions": 10,
-       "next": 1,
-       "commented": 0
+       "phonebook": {
+           "id": 2,
+           "title": "mr",
+           "firstname": "tito",
+           "lastname": "",
+           "displayname": "toot",
+           "society": "toto",
+           "email": "",
+           "url": "",
+           "image": null,
+           "description": "",
+           "fullname": "tito"
+       },
+       "phonebookaddress": {
+           "office": {
+               "id": 4,
+               "phonebookid": 2,
+               "address1": "",
+               "address2": "",
+               "city": "",
+               "state": "",
+               "zipcode": "",
+               "country": "",
+               "type": "office"
+           },
+           "home": {
+               "id": 5,
+               "phonebookid": 2,
+               "address1": "",
+               "address2": "",
+               "city": "",
+               "state": "",
+               "zipcode": "",
+               "country": "",
+               "type": "home"
+           },
+           "other": {
+               "id": 6,
+               "phonebookid": 2,
+               "address1": "",
+               "address2": "",
+               "city": "",
+               "state": "",
+               "zipcode": "",
+               "country": "",
+               "type": "other"
+           }
+       },
+       "phonebooknumber": {
+           "mobile": {
+               "id": 3,
+               "phonebookid": 2,
+               "number": "5464646",
+               "type": "mobile"
+           }
+       }
+   }
+
+Delete::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/phonebook?act=delete&id=[phonebook_id]
+
+Add::
+
+   https://[ip_xivo]/service/ipbx/json.php/restricted/pbx_services/phonebook?act=add
+
+``Example of content to send to add``
+
+   * ``title`` is enum of (mr, mrs, ms)
+   * ``displayname`` must be fill
+
+.. code-block:: javascript
+
+   {
+      "phonebook": {
+        "title": "mr",
+        "firstname": "tito",
+        "lastname": "test",
+        "displayname": "test test",
+        "society": "avencall",
+        "email": "cabunar@avencall.com",
+        "url": "mysite.com",
+        "description": ""
+      },
+      "phonebooknumber": {
+        "mobile": "12345",
+        "office": "123456",
+        "fax": "321456",
+        "home": "123854",
+        "other": "544897"
+      },
+      "phonebookaddress": {
+        "office": {
+            "address1": "95 rue des rues",
+            "address2": "nex rue",
+            "city": "mars",
+            "state": "wakila",
+            "zipcode": "324956",
+            "country": "EC"
+        },
+        "home": {
+            "address1": "6954 rue des kali",
+            "address2": "next",
+            "city": "cirud",
+            "state": "sfsd",
+            "zipcode": "478561",
+            "country": "DK"
+        },
+        "other": {
+            "address1": "5487 rue des goliku",
+            "address2": "next",
+            "city": "cityuyu",
+            "state": "washikl",
+            "zipcode": "154d",
+            "country": "CZ"
+        }
+      }
    }
 
 

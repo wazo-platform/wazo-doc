@@ -51,10 +51,14 @@ Typical Upgrade Process
 =======================
 
 * Read all `roadmaps <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
-* Read all existing Upgrade Notes starting from your current version to the current prod version.
-* If in a specific configuration, follow the specific procedure (example : cluster).
-* Run 'xivo-upgrade -d' (will upgrade xivo-upgrade, xivo-service and download all packages necessary, prior to stopping services for upgrade).
-* When ready (services will be stopped), run 'xivo-upgrade'
+* Read all existing Upgrade Notes (see below) starting from your current version to the current prod version.
+* If in a specific configuration, follow the specific procedure described below (example : cluster).
+* To download the packages beforehand, run ``xivo-upgrade -d`` (will upgrade xivo-upgrade, xivo-service and download all packages necessary, prior to stopping services for upgrade).
+* When ready (services will be stopped), run ``xivo-upgrade`` which will actually start the migration.
+* When finished, check that the services are correctly running :
+
+ * with ``xivo-service status`` command,
+ * and with actual checks like SIP registration, ISDN links status, internal/incoming/outgoing calls, XiVO Client connections etc.
 
 
 Specific Procedure : Upgrading a Cluster
@@ -80,6 +84,13 @@ Here are the steps for upgrading a cluster:
 
 #. Reactivate the cronjobs (see steps 1 and 2)
 
+
+13.06 Upgrade Notes
+===================
+
+* Consult the `13.06 Roadmap <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids[]=1&tracker_ids[]=2&completed=1#13.06>`_
+* The new Agent Status Dashboard has a few known limitations. See related :ref:`dashboard xlet known issues section <dashboard-xlet-issues>`
+* Status Since counter in xlet list of agents has changed behavior to better reflect states of agents in queues as seen by asterisk. See `Ticket #4254 <https://projects.xivo.fr/issues/4254>`_ for more details.
 
 13.05 Upgrade Notes
 ===================

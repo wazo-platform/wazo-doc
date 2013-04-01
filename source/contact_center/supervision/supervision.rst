@@ -210,8 +210,6 @@ Status since
    An agent is *In use* when he cannot answer a call (in conversation, in wrapup or in pause).
    The agent is no longer *In use* when he becomes available to answer a call.
 
-   .. note:: For now, the agent is not considered *In use* if he emits a call or receives a call directly through his phone, not through the queue.
-
 Logged
    A *clickable cell* to log or unlog the agent
 
