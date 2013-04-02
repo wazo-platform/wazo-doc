@@ -200,24 +200,27 @@ User properties
 .. code-block:: javascript
 
     {
-       "id" = 1
-       "firstname" = "Jean"
-       "lastname" = "Dupond"
-       "callerid" = "Jean Dupond"
-       "username" = "1234"
-       "password" = "1234"
-       "enableclient" = 1
-       "musiconhold" = "my_music"
-       "outcallerid" = "1234"
-       "mobilephonenumber" = "0611111111"
-       "userfield" = ""
-       "timezone" = "Europe/Paris"
-       "language" = "fr_FR"
-       "description" = "une description"
-       "ctiprofileid = 1
-       "voicemailid" = 1
-       "agentid" = 1
-       "entityid" = 1
+       "id": 1,
+       "firstname": "Jean",
+       "lastname": "Dupond",
+       "callerid": "Jean Dupond",
+       "username": "1234",
+       "password": "1234",
+       "enableclient": 1,
+       "musiconhold": "my_music",
+       "outcallerid": "1234",
+       "mobilephonenumber": "0611111111",
+       "userfield": "",
+       "timezone": "Europe/Paris",
+       "language": "fr_FR",
+       "description": "une description",
+       "ctiprofileid: 1,
+       "voicemailid": 1,
+       "agentid": 1,
+       "entityid": 1,
+       "line": {
+                  "number": "44500"
+               }
     }
 
 
@@ -241,13 +244,13 @@ Voicemail properties
 
     {
        "id": 1,
-       "email": "john.doe@bar.com"
-       "fullname":"John Doe"
+       "email": "john.doe@bar.com",
+       "fullname":"John Doe",
        "mailbox": "123",
        "password": "123",
        "attach": 1,
        "skipcheckpass" : 0,
-       "deleteaftersend" : 0,
+       "deleteaftersend" : 0
     }
    
 .. _list-users:
