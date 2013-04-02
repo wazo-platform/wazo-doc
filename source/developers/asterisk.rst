@@ -5,7 +5,7 @@ Asterisk
 Asterisk 1.8 to Asterisk 11
 ===========================
 
-Table of modules that were availble in the asterisk 1.8 package but that are not available anymore in the asterisk 11 package:
+Table of modules that were available in the asterisk 1.8 package but that are not available anymore in the asterisk 11 package:
 
 +-----------------+---------------------------------------+------------------+-----------------+--------------------+
 | Name            | Description                           | Loaded in AST1.8 | Asterisk Status | Replaced By        |
@@ -32,6 +32,16 @@ Table of modules that were availble in the asterisk 1.8 package but that are not
 +-----------------+---------------------------------------+------------------+-----------------+--------------------+
 | res_jabber      | AJI - Asterisk Jabber Interface       | No               | Deprecated      | res_xmpp           |
 +-----------------+---------------------------------------+------------------+-----------------+--------------------+
+
+List of modules that were loaded in asterisk 1.8 but that are not loaded anymore in the asterisk 11 (see modules.conf):
+
+* res_calendar.so
+* res_calendar_caldav.so
+* res_calendar_ews.so
+* res_calendar_exchange.so
+* res_calendar_icalendar.so
+* res_config_sqlite.so
+* res_stun_monitor.so
 
 List of debian packages that are not available anymore for asterisk 11:
 
