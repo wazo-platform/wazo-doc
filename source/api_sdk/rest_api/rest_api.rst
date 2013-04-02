@@ -223,6 +223,7 @@ User properties
                }
     }
 
+If the user does not have a line, the "line" property is not displayed.
 
 Voicemails
 ----------
