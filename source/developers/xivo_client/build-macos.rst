@@ -25,23 +25,7 @@ Qt SDK
 
 `Qt SDK download page <http://qt.nokia.com/downloads>`_
 
-The SDK is rather big, so if you want to keep it to a reasonable size, you
-should uncheck in the installer everything fancy, such as mobile devices
-SDK. Just keep one Desktop Qt component checked.
-
-
-Add Qt to your PATH
--------------------
-
-Once the Qt SDK is installed, by default in your home directory, you should add
-the Qt binaries directory to your shell path. For BASH, you should edit the file
-~/.profile (or create it) and add the following lines ::
-
-   PATH=/Users/demo-mac/QtSDK/Desktop/Qt/4.8.0/gcc/bin:$PATH
-   export PATH
-
-The path shown here is only an example, you should adapt it to your
-installation.
+Install the Qt libraries version 4.8 and the Qt Creator.
 
 
 Get sources
@@ -58,7 +42,7 @@ Building
 Launch qmake to generate the Makefile::
 
    $ cd xivo-client-qt
-   $ qmake
+   $ qmake -spec macx-g++
 
 This will also generate a file ``versions.mak`` that contains version
 informations about the code being compiled. It is necessary for compilation and
