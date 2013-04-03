@@ -417,6 +417,28 @@ phones
 
    {"class": "getlist", "commandid": 495252308, "function": "listid", "listname": "phones", "tipbxid": "xivo"}
 
+``Server > Client``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "function": "listid", "list": ["1", "3", "2", "5", "14", "7", "6", "9", "8"],
+      "listname": "phones", "timenow": 1364994093.38, "tipbxid": "xivo"}
+
+Individual phone configuration request:
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 704096693, "function": "updateconfig", "listname": "phones", "tid": "3", "tipbxid": "xivo"}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {"class": "getlist",
+      "config": {"allowtransfer": null, "context": "default", "identity": "SIP/ihvbur", "iduserfeatures": 1,
+                     "initialized": null, "number": "1000", "protocol": "sip", "rules_order": 1},
+      "function": "updateconfig", "listname": "phones", "tid": "3", "timenow": 1364994093.43, "tipbxid": "xivo"}
+
 agents
 ^^^^^^
 ``Client -> Server``
@@ -448,6 +470,52 @@ queuemembers
 .. code-block:: javascript
 
    {"class": "getlist", "commandid": 964899043, "function": "listid", "listname": "queuemembers", "tipbxid": "xivo"}
+
+Status messages
+---------------
+
+These messages can also be received without any request as unsolicited messages.
+
+User status
+^^^^^^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 107712156,
+      "function": "updatestatus",
+      "listname": "users",
+      "tid": "14", "tipbxid": "xivo"}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {"class": "getlist",
+      "function": "updatestatus",
+      "listname": "users",
+      "status": {"availstate": "outtolunch", "connection": "yes"},
+            "tid": "1", "timenow": 1364994093.48, "tipbxid": "xivo"}
+
+Phone status
+^^^^^^^^^^^^
+* tid is the line id, found in linelist from message `user`_
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 107712156,
+      "function": "updatestatus",
+      "listname": "phones", "tid": "8", "tipbxid": "xivo"}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "function": "updatestatus", "listname": "phones",
+      "status": {"channels": [], "groups": [], "hintstatus": "0", "queues": []},
+      "tid": "1", "timenow": 1364994093.48, "tipbxid": "xivo"}
 
 Agent messages
 --------------
