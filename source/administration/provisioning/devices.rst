@@ -376,6 +376,8 @@ T20P     |n|         2          |n|
 T22P     |n|         3          |n|
 T26P     |n|         13         |n|
 T28P     |y|         16         |n|
+T32G     |n|         3          |n|
+T38G     |y|         16         |n|
 ======== =========== ========== ============
 
 .. note:: Some function keys are shared with line keys
