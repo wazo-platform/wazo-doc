@@ -670,7 +670,7 @@ Recording
 * function : enablerecording
 * value : true, false
 
-Activate / deactivate recording for a user,
+Activate / deactivate recording for a user, extension call recording has to be activated : :menuselection:`Services->IPBX->IPBX services->Extension`
 
 ``Client -> Server``
 
