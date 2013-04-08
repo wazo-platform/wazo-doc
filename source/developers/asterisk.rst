@@ -33,7 +33,7 @@ Table of modules that were available in the asterisk 1.8 package but that are no
 | res_jabber      | AJI - Asterisk Jabber Interface       | No               | Deprecated      | res_xmpp           |
 +-----------------+---------------------------------------+------------------+-----------------+--------------------+
 
-List of modules that were loaded in asterisk 1.8 but that are not loaded anymore in the asterisk 11 (see modules.conf):
+List of modules that were loaded in asterisk 1.8 but that are not loaded anymore in asterisk 11 (see modules.conf):
 
 * res_calendar.so
 * res_calendar_caldav.so
@@ -49,11 +49,16 @@ List of debian packages that are not available anymore for asterisk 11:
 * asterisk-mysql
 * asterisk-web-vmail
 
-.. note::  All these packages are not installed by default for asterisk 1.8.
+.. note::  These packages were not installed by default for asterisk 1.8.
+
+If you are using some custom dialplan or AGIs, it is your responsibility to make sure it still
+works with asterisk 11. See the `External Links`_ for more information.
 
 
 External Links
 **************
 
+* http://svnview.digium.com/svn/asterisk/branches/11/UPGRADE-10.txt
+* http://svnview.digium.com/svn/asterisk/branches/11/UPGRADE.txt
 * https://wiki.asterisk.org/wiki/display/AST/New+in+10
 * https://wiki.asterisk.org/wiki/display/AST/New+in+11
