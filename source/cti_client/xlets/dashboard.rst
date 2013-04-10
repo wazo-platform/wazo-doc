@@ -15,32 +15,52 @@ The goal of the agent status dashboard xlet is to give contact center supervisor
 Usage
 =====
 
-The xlet is *read-only* and presents a list of queues aligned vertically. For each queue, the xlet displays a status box for each logged agents. Each status box gives the following information :
+The xlet is *read-only* and presents a list of queues. For each queue, the xlet displays a status box for each logged agents. Each status box gives the following information:
 
 * Agent name
-* Agent status : Shows the agent’s status. An agent can have two statuses: *In use* or *Not in use*.
-* Agent status since : Shows the time spent in the current status
-* Border color : orange if *In use*, green if *Not in use*
-  
+* Agent status: Shows the agent’s status. An agent can have two statuses: *In use* or *Not in use*.
+* Agent status since: Shows the time spent in the current status
+* Background color: orange if *In use*, green if *Not in use*
 
 An agent is *In use* when he cannot receive a call from a queue (in conversation, in wrapup or in pause).
 
+
+Changing the disposition
+========================
+
+The disposition of the Xlet can be changed in two ways:
+
+* Placement of queues
+* Which queues are displayed
+
+The disposition is saved whenever the XiVO Client is closed and restored when it is opened again.
+
+
+Changing the placement of queues
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The little windows containing each queue can be resized and moved around. That way, any layout can be achieved, according to the size and importance of each queue.
+
+
+Choosing which queues are displayed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There is a little contextual menu when right-clicking on the title bar of every queue window. Checking/unchecking the lines of this menu shows/hides the associated queue.
+
+.. figure:: ./images/dashboard_choosing_queues.png
+
 .. _dashboard-xlet-issues:
+
 
 Known issues
 ============
 
-* There is no profile containing this xlet. Profile must be created  manually.
-* Xlet *Agent Status Dashboard* must be inserted in cti profile using dock mode. Otherwise, it will be impossible to scroll among queues.
-* Modification and deletion of queues are not handled in display until the XiVO client is reconnected.
-* As of now, there is no way to configure the displayed queues. Xlet displays all queues.
-* There is no sorting on agents in a queue or in list of queues.
+* There is no profile containing this xlet. Profile must be created manually.
+* There is no sorting on agents in a queue.
 * An emtpy queue will display an empty box with no message specifying the queue has no logged agents.
-* Layout is very basic at the moment: all queues are vertically aligned one queue per line. If there are more agents logged than space available to display them, a scrollbar will be available.
+
 
 Configuration
 =============
 
-No special configuration necessary other than creating a cti profile in which the Agent Status Dashboard is added.
-
-
+No special configuration necessary other than creating a CTI profile in which the Agent Status Dashboard is added.
