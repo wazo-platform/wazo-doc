@@ -94,6 +94,7 @@ Here are the steps for upgrading a cluster:
 * asterisk has been upgraded from version 1.8.20.1 to 1.8.21.0. Please note that in XiVO 13.08, asterisk will be upgraded to version 11.
 * DAHDI has been upgraded from version 2.6.1 to 2.6.2.
 * libpri has been upgraded from version 1.4.13 to 1.4.14.
+* PostgreSQL upgraded from version 9.0.4 to 9.0.13
 
 
 13.06 Upgrade Notes
