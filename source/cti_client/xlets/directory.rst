@@ -78,7 +78,7 @@ Context
 The directory xlet needs a special context named *__switchboard_directory*. In :menuselection:`Services --> IPBX --> IPBX configuration --> Contexts` add a new context with the followong parameters :
 
 * Name : ``__switchboard_directory``
-* Type of context : **internal**
+* Type of context : **Other**
 * Display name : Switchboard
 
 .. figure:: ./images/switchboard_directory_context.png
