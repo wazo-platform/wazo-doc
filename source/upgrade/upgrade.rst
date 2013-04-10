@@ -90,9 +90,10 @@ Here are the steps for upgrading a cluster:
 
 * Consult the `13.07 Roadmap <https://projects.xivo.fr/versions/173>`_
 * Agent Status Dashboard has more features and less limitations. See related :ref:`dashboard xlet documentation <dashboard-xlet>`
-* XiVO 13.07 ships with asterisk 1.8.21 and is the last XiVO version shipping with asterisk 1.8.*. Begining with 13.08, asterisk shipped with XiVO will be 11.*.
 * XiVO call centers have no more notion of 'disabled agents'. All previously disabled agents in web interface will become active agents after upgrading.
-* 
+* asterisk has been upgraded from version 1.8.20.1 to 1.8.21.0. Please note that in XiVO 13.08, asterisk will be upgraded to version 11.
+* DAHDI has been upgraded from version 2.6.1 to 2.6.2.
+* libpri has been upgraded from version 1.4.13 to 1.4.14.
 
 
 13.06 Upgrade Notes
@@ -101,6 +102,7 @@ Here are the steps for upgrading a cluster:
 * Consult the `13.06 Roadmap <https://projects.xivo.fr/versions/172>`_
 * The new Agent Status Dashboard has a few known limitations. See related :ref:`dashboard xlet known issues section <dashboard-xlet-issues>`
 * Status Since counter in xlet list of agents has changed behavior to better reflect states of agents in queues as seen by asterisk. See `Ticket #4254 <https://projects.xivo.fr/issues/4254>`_ for more details.
+
 
 13.05 Upgrade Notes
 ===================
