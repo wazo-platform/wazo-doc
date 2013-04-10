@@ -4,6 +4,7 @@
 Directory
 *********
 
+
 Overview
 ========
 
@@ -18,6 +19,7 @@ Usage
 The list of entries in the xlet is searched using the top field. Entries are filtered by column content. The entry list will initally appear as empty.
 
 If the current search term is a valid number, it will be displayed in the result list with no name to allow transfer to numbers that are not currently in the phonebook or configured on the XiVO.
+
 
 Legend
 ------
@@ -45,6 +47,7 @@ Legend
 .. |current_search| image:: images/directory_legend_current_search.png
    :align: middle
 
+
 Known issues
 ============
 
@@ -68,6 +71,7 @@ If *User 1* has number *1000* and is also in a configured LDAP with a location i
 Configuration
 -------------
 
+
 Context
 ^^^^^^^
 
@@ -79,14 +83,6 @@ The directory xlet needs a special context named *__switchboard_directory*. In :
 
 .. figure:: ./images/switchboard_directory_context.png
 
-Directory definition
-^^^^^^^^^^^^^^^^^^^^
-
-A new directory definition must be added:
-
-.. figure:: ./images/ldap_directory_definition.png
-
-The direct match field must be a comma-separated list of the field values.
 
 Display filter
 ^^^^^^^^^^^^^^
@@ -136,6 +132,7 @@ LDAP Configuration
 
 To search in ldap directories, you must have an LDAP server configured. See :ref:`ldap` for more details.
 
+
 LDAP filter
 ^^^^^^^^^^^
 
@@ -144,6 +141,7 @@ If you already have an LDAP filter configured for the *Remote directory* Xlet, y
 If not, please refer to :ref:`add-ldap-filter`.
 
 .. _directory-definition:
+
 
 Include the new directory for lookup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
