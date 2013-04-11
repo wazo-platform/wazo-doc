@@ -40,12 +40,12 @@ of ``provd``.
    When you install a new plugin, templates are not migrated automatically, so you must
    manually copy them from the old plugin directory to the new one. This does not apply for a plugin upgrade.
 
-Let's supose we have installed the ``xivo-aastra-3.2.2.2112`` plugin and
+Let's supose we have installed the ``xivo-aastra-3.2.2.SP3`` plugin and
 want to write some custom templates for it.
 
 First thing to do is to go into the directory where the plugin is installed::
 
-   cd /var/lib/xivo-provd/plugins/xivo-aastra-3.2.2.2112
+   cd /var/lib/xivo-provd/plugins/xivo-aastra-3.2.2.SP3
 
 Once you are there, you can see there's quite a few files and directories::
 
@@ -109,11 +109,11 @@ Custom template for every devices
 
    cp templates/base.tpl var/templates
    vi var/templates/base.tpl
-   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.2112").reconfigure()'
+   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.SP3").reconfigure()'
 
 Once this is done, if you want to synchronize all the affected devices, use the following command::
 
-    provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.2112").synchronize()'
+    provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.SP3").synchronize()'
 
 
 Custom template for a specific model
@@ -123,7 +123,7 @@ Let's supose we want to customize the template for our 6739i::
 
    cp templates/6739i.tpl var/templates
    vi var/templates/6739i.tpl
-   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.2112").reconfigure()'
+   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.SP3").reconfigure()'
 
 
 Custom template for a specific device
