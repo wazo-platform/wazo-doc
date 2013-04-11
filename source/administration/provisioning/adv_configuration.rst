@@ -129,12 +129,23 @@ Let's supose we want to customize the template for our 6739i::
 Custom template for a specific device
 -------------------------------------
 
-If you want to customize the content of a device-specific file named :file:`001122334455.cfg`,
-you need to create a template named :file:`001122334455.cfg.tpl`::
+To create a custom template for a specific device you have to create a device-specific template
+named :file:`<device_specific_file_with_extension>.tpl` in the :file:`var/templates/` directory :
 
-   cp templates/6739i.tpl var/templates/001122334455.cfg.tpl
-   vi var/templates/001122334455.cfg.tpl
-   provd_pycli -c 'devices.using_mac("001122334455").reconfigure()'
+* for an Aastra phone, if you want to customize the file :file:`00085D2EECFB.cfg` you will have
+  to create a template file named :file:`00085D2EECFB.cfg.tpl`,
+* for a Snom phone, if you want to customize the file :file:`000413470411.xml` you will have 
+  to create a template file named :file:`000413470411.xml.tpl`,
+* for a Polycom phone, if you want to customize the file :file:`0004f2211c8b-user.cfg` you will have 
+  to create a template file named :file:`0004f2211c8b-user.cfg.tpl`,
+* and so on.
+
+Here, we want to customize the content of a device-specific file named :file:`00085D2EECFB.cfg`,
+we need to create a template named :file:`00085D2EECFB.cfg.tpl`::
+
+   cp templates/6739i.tpl var/templates/00085D2EECFB.cfg.tpl
+   vi var/templates/00085D2EECFB.cfg.tpl
+   provd_pycli -c 'devices.using_mac("00085D2EECFB").reconfigure()'
 
 .. note::
    The choice to use this syntax comes from the fact that ``provd`` supports devices that do not have MAC addresses,
