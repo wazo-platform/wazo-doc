@@ -9,3 +9,4 @@ Installation
 
    installsystem
    configuration_wizard/configuration_wizard
+   postinstall
