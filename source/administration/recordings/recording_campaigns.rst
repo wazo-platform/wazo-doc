@@ -12,7 +12,9 @@ on a specific queue for a given period of time. Creating several campaigns will 
 you to monitor several queues at once. A campaign will automatically stop when its end date
 is reached. Campaign recordings in XiVO are easily accessible through the web interface.
 
-This functionnality is available only on demand. It requires specific operations to become available.
+.. note::
+   * These campaigns will only work for queues whose context is **default**.
+   * This functionnality is available only on demand. It requires specific operations to become available.
 
 Campaign management
 ===================
