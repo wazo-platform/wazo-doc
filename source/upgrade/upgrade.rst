@@ -85,17 +85,30 @@ Here are the steps for upgrading a cluster:
 #. Reactivate the cronjobs (see steps 1 and 2)
 
 
+13.07 Upgrade Notes
+===================
+
+* Consult the `13.07 Roadmap <https://projects.xivo.fr/versions/173>`_
+* Agent Status Dashboard has more features and less limitations. See related :ref:`dashboard xlet documentation <dashboard-xlet>`
+* XiVO call centers have no more notion of 'disabled agents'. All previously disabled agents in web interface will become active agents after upgrading.
+* asterisk has been upgraded from version 1.8.20.1 to 1.8.21.0. Please note that in XiVO 13.08, asterisk will be upgraded to version 11.
+* DAHDI has been upgraded from version 2.6.1 to 2.6.2.
+* libpri has been upgraded from version 1.4.13 to 1.4.14.
+* PostgreSQL upgraded from version 9.0.4 to 9.0.13
+
+
 13.06 Upgrade Notes
 ===================
 
-* Consult the `13.06 Roadmap <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids[]=1&tracker_ids[]=2&completed=1#13.06>`_
+* Consult the `13.06 Roadmap <https://projects.xivo.fr/versions/172>`_
 * The new Agent Status Dashboard has a few known limitations. See related :ref:`dashboard xlet known issues section <dashboard-xlet-issues>`
 * Status Since counter in xlet list of agents has changed behavior to better reflect states of agents in queues as seen by asterisk. See `Ticket #4254 <https://projects.xivo.fr/issues/4254>`_ for more details.
+
 
 13.05 Upgrade Notes
 ===================
 
-* Consult the `13.05 Roadmap <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids[]=1&tracker_ids[]=2&completed=1#13.05>`_
+* Consult the `13.05 Roadmap <https://projects.xivo.fr/versions/171>`_
 * The bug `#4228 <https://projects.xivo.fr/issues/4228>`_ concerning BS filter only applies to 13.04 servers installed from scratch. Please upgrade to 13.05.
 * The order of softkeys on SCCP phones has changed, e.g. the *Bis* button is now at the left.
 
@@ -103,7 +116,7 @@ Here are the steps for upgrading a cluster:
 13.04 Upgrade Notes
 ===================
 
-* Consult the `13.04 Roadmap <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1#13.04>`_
+* Consult the `13.04 Roadmap <https://projects.xivo.fr/versions/170>`_
 * Upgrade procedure for HA Cluster has changed. Refer to `Specific Procedure : Upgrading a Cluster`_.
 * Configuration of switchboards has changed. Since the directory xlet can now display any column from the lookup source, a display filter has to be configured and assigned to the __switchboard_directory context. Refer to :ref:`Directory xlet documenttion <directory-xlet>`.
 * There is no more context field directly associated with a call filter. Boss and secretary users associated with a call filter must necessarily be in the same context.

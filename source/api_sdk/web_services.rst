@@ -824,7 +824,7 @@ Search Attributes:
  * dbeg
  * dend
 
-.. note:: format accepted to date search: *Y* or *Y-m* or *Y-m-d* or *Y-m-d H:i:s*
+.. note:: format accepted to date search: *Y* or *Y-m* or *Y-m-d*
 
 Example to return all Calls Records from 2012-02-28 to now::
 

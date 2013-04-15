@@ -40,12 +40,12 @@ of ``provd``.
    When you install a new plugin, templates are not migrated automatically, so you must
    manually copy them from the old plugin directory to the new one. This does not apply for a plugin upgrade.
 
-Let's supose we have installed the ``xivo-aastra-3.2.2.1136`` plugin and
+Let's supose we have installed the ``xivo-aastra-3.2.2-SP3`` plugin and
 want to write some custom templates for it.
 
 First thing to do is to go into the directory where the plugin is installed::
 
-   cd /var/lib/xivo-provd/plugins/xivo-aastra-3.2.2.1136
+   cd /var/lib/xivo-provd/plugins/xivo-aastra-3.2.2-SP3
 
 Once you are there, you can see there's quite a few files and directories::
 
@@ -109,11 +109,11 @@ Custom template for every devices
 
    cp templates/base.tpl var/templates
    vi var/templates/base.tpl
-   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.1136").reconfigure()'
+   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2-SP3").reconfigure()'
 
 Once this is done, if you want to synchronize all the affected devices, use the following command::
 
-    provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.1136").synchronize()'
+    provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2-SP3").synchronize()'
 
 
 Custom template for a specific model
@@ -123,18 +123,29 @@ Let's supose we want to customize the template for our 6739i::
 
    cp templates/6739i.tpl var/templates
    vi var/templates/6739i.tpl
-   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2.1136").reconfigure()'
+   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2-SP3").reconfigure()'
 
 
 Custom template for a specific device
 -------------------------------------
 
-If you want to customize the content of a device-specific file named :file:`001122334455.cfg`,
-you need to create a template named :file:`001122334455.cfg.tpl`::
+To create a custom template for a specific device you have to create a device-specific template
+named :file:`<device_specific_file_with_extension>.tpl` in the :file:`var/templates/` directory :
 
-   cp templates/6739i.tpl var/templates/001122334455.cfg.tpl
-   vi var/templates/001122334455.cfg.tpl
-   provd_pycli -c 'devices.using_mac("001122334455").reconfigure()'
+* for an Aastra phone, if you want to customize the file :file:`00085D2EECFB.cfg` you will have
+  to create a template file named :file:`00085D2EECFB.cfg.tpl`,
+* for a Snom phone, if you want to customize the file :file:`000413470411.xml` you will have 
+  to create a template file named :file:`000413470411.xml.tpl`,
+* for a Polycom phone, if you want to customize the file :file:`0004f2211c8b-user.cfg` you will have 
+  to create a template file named :file:`0004f2211c8b-user.cfg.tpl`,
+* and so on.
+
+Here, we want to customize the content of a device-specific file named :file:`00085D2EECFB.cfg`,
+we need to create a template named :file:`00085D2EECFB.cfg.tpl`::
+
+   cp templates/6739i.tpl var/templates/00085D2EECFB.cfg.tpl
+   vi var/templates/00085D2EECFB.cfg.tpl
+   provd_pycli -c 'devices.using_mac("00085D2EECFB").reconfigure()'
 
 .. note::
    The choice to use this syntax comes from the fact that ``provd`` supports devices that do not have MAC addresses,

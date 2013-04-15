@@ -152,16 +152,16 @@ Cisco 7900 series (*SCCP* mode only):
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
 7905G    |n|         0          |n|
-7906G    |n|         0          |n|
-7911G    |y|         0          |n|
-7912G    |y|         0          |n|
-7940G    |y|         0          |n|
-7941G    |y|         0          |n|
-7941G-GE |y|         0          |n|
-7942G    |y|         0          |n|
-7960G    |y|         0          |n|
-7961G    |y|         0          |n|
-7962G    |y|         0          |n|
+7906G    |y|         0          |y|
+7911G    |y|         0          |y|
+7912G    |y|         0          |y|
+7940G    |y|         0          |y|
+7941G    |y|         0          |y|
+7941G-GE |y|         0          |y|
+7942G    |y|         0          |y|
+7960G    |y|         0          |y|
+7961G    |y|         0          |y|
+7962G    |y|         0          |y|
 ======== =========== ========== ============
 
 .. _cisco-provisioning:
@@ -376,6 +376,8 @@ T20P     |n|         2          |n|
 T22P     |n|         3          |n|
 T26P     |n|         13         |n|
 T28P     |y|         16         |n|
+T32G     |n|         3          |n|
+T38G     |y|         16         |n|
 ======== =========== ========== ============
 
 .. note:: Some function keys are shared with line keys

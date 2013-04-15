@@ -165,16 +165,6 @@ On the second part of the tab, you can configure the fields to appear on the she
      * `xivo-channel` asterisk channel value (for advanced users)
      * `xivo-uniqueid` asterisk uniqueid value (for advanced users)
 
-   * `db-` prefixed variables are defined in the WEBI configuration, and depend on the matching list. Common values are :
-
-     * `db-phone`
-     * `db-firstname`
-     * `db-lastname`
-     * `db-company`
-
-   * `dbr-` contains one single item `dbr-display` that is used in the setting
-     of what is displayed on phones, and is typically a mix of firstname and
-     lastname
    * `dp-` prefixed ones are the variables set through the dialplan (through
      UserEvent application)
 
