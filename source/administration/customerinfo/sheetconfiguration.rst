@@ -243,11 +243,11 @@ An extension could be to define other serialization methods, if needed.
 Event configuration
 ===================
 
-You can configure a sheet when a specific event is called. For example if you want to received a sheet when an agent answer to a call, you can choose a sheet model for the Agent link event.
+You can configure a sheet when a specific event is called. For example if you want to receive a sheet when an agent answers to a call, you can choose a sheet model for the Agent link event.
 
-The followed event possible is :
+The following events are available :
 
- * Dial: When you received a call (the user phone ringing)
+ * Dial: When a new call enters the queue (all the members of the queue will be notified, even if they are not logged)
  * Link: When a user or agent answers a call
  * Unlink: When a user or agent hangup a call
  * Incoming DID: Received a call in a DID
