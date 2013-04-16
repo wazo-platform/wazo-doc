@@ -39,12 +39,12 @@ Limitations
 Configuration
 =============
 
-
 Quick Summary
 -------------
 
 In order to configure a switchboard on your XiVO, you need to:
 
+* Create the preprocess subroutines for the switchboard queue
 * Create a queue for your switchboard
 * Create a queue for your switchboard's calls on hold
 * Create the users that will be operators
@@ -67,6 +67,34 @@ The supported phones for the switchboard are:
 * Aastra 6757i
 
 
+Create the preprocess subroutines for the switchboard queue
+-----------------------------------------------------------
+
+The following preprocess subroutines should be added to the dialplan to remove some
+queue specific actions that are not desirable for calls transfered from the switchboard
+
+The *switchboard* preprocess subroutine sets the *XIVO_QUEUESUB* variable that will
+be executed when the switchboard answers a call:
+
+::
+
+    [switchboard]
+    exten = s,1,Set(XIVO_QUEUESUB=remove_from_queue)
+    same=   n,Return()
+
+The *remove_from_queue* preprocess subroutine remove the *XIVO_FROMQUEUE* variable
+from the channel:
+
+::
+
+    [remove_from_queue]
+    exten = s,1,Set(__XIVO_FROMQUEUE=0)
+    same = n,Return()
+
+These preprocess subroutines should be added to *xivo-extrafeatures.conf* in
+:menuselection:`Services --> Configuration files` or another file that is part of the dialplan.
+
+
 Create a Queue for Your Switchboard
 -----------------------------------
 
@@ -79,6 +107,7 @@ To create this queue, go to :menuselection:`Services --> Call center --> Queues`
 The Following configuration is mandatory
 
 * The :menuselection:`General --> Name` field has to be *__switchboard*
+* The :menuselection:`General --> Preprocess subroutine` field has to be *switchboard*
 * The :menuselection:`Application --> Allow caller to hang up call` option has to be *enabled*
 * The :menuselection:`Application --> Allow callee to transfer the call` option has to be *enabled*
 * The :menuselection:`Advanced --> Member reachability timeout` option has to be *disabled*
@@ -91,6 +120,7 @@ Other important fields
 
 * The :menuselection:`General --> Display name` field is the name displayed in the XiVO client xlets and in the statistics
 * The :menuselection:`General --> Number` field is the number that will be used to reach the switchboard internally (typically *9*)
+
 
 Create a Queue for Your Switchboard on Hold
 -------------------------------------------
