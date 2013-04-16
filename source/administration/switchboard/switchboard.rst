@@ -66,29 +66,25 @@ The supported phones for the switchboard are:
 * Aastra 6757i
 
 
-Create the preprocess subroutines for the switchboard queue
+Create the Preprocess Subroutines for the Switchboard Queue
 -----------------------------------------------------------
 
 The following preprocess subroutines should be added to the dialplan to remove some
-queue specific actions that are not desirable for calls transfered from the switchboard
+queue specific actions that are not desirable for calls transfered from the switchboard.
 
 The *switchboard* preprocess subroutine sets the *XIVO_QUEUESUB* variable that will
-be executed when the switchboard answers a call:
-
-::
+be executed when the switchboard answers a call::
 
     [switchboard]
     exten = s,1,Set(XIVO_QUEUESUB=remove_from_queue)
-    same=   n,Return()
+    same  =   n,Return()
 
-The *remove_from_queue* preprocess subroutine remove the *XIVO_FROMQUEUE* variable
-from the channel:
-
-::
+The *remove_from_queue* preprocess subroutine removes the *XIVO_FROMQUEUE* variable
+from the channel::
 
     [remove_from_queue]
     exten = s,1,Set(__XIVO_FROMQUEUE=0)
-    same = n,Return()
+    same  =   n,Return()
 
 These preprocess subroutines should be added to *xivo-extrafeatures.conf* in
 :menuselection:`Services --> Configuration files` or another file that is part of the dialplan.
