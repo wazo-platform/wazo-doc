@@ -57,7 +57,6 @@ In order to configure a switchboard on your XiVO, you need to:
 
 .. _switchboard_supported_devices:
 
-
 Supported Devices
 -----------------
 
@@ -238,7 +237,7 @@ You can also choose to redirect all the calls to another user or a voice mail.
 .. figure:: images/queue_no_answer.png
 
 
-XiVO Client configuration 
+XiVO Client configuration
 =========================
 
 Directory xlet
@@ -264,7 +263,7 @@ Usage
 .. warning::
 
   The switchboard configuration must be completed before using the switchboard. This includes :
-    
+
     * Device, User, Agent and Queues configuration (see above),
     * Directory xlet configuration (see :ref:`directory-xlet`)
 
