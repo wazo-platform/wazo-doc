@@ -44,7 +44,7 @@ Quick Summary
 
 In order to configure a switchboard on your XiVO, you need to:
 
-* Create the preprocess subroutines for the switchboard queue
+* Create the preprocess subroutine for the switchboard queue
 * Create a queue for your switchboard
 * Create a queue for your switchboard's calls on hold
 * Create the users that will be operators
@@ -66,27 +66,27 @@ The supported phones for the switchboard are:
 * Aastra 6757i
 
 
-Create the Preprocess Subroutines for the Switchboard Queue
+Create the Preprocess Subroutine for the Switchboard Queue
 -----------------------------------------------------------
 
-The following preprocess subroutines should be added to the dialplan to remove some
-queue specific actions that are not desirable for calls transfered from the switchboard.
-
-The *xivo_subr_switchboard* preprocess subroutine sets the *XIVO_QUEUESUB* variable that will
-be executed when the switchboard answers a call::
+The following subroutines should be added to the dialplan to remove some queue specific actions
+that are not desirable for calls transferred from the switchboard::
 
     [xivo_subr_switchboard]
     exten = s,1,Set(XIVO_QUEUESUB=xivo_subr_remove_from_queue)
     same  =   n,Return()
 
-The *xivo_subr_remove_from_queue* preprocess subroutine removes the *XIVO_FROMQUEUE* variable
-from the channel::
-
     [xivo_subr_remove_from_queue]
     exten = s,1,Set(__XIVO_FROMQUEUE=0)
     same  =   n,Return()
 
-These preprocess subroutines should be added to *xivo-extrafeatures.conf* in
+The *xivo_subr_switchboard* preprocess subroutine sets the *XIVO_QUEUESUB* variable that will
+be executed when the switchboard answers a call.
+
+The *xivo_subr_remove_from_queue* subroutine, which will be called from the queue application,
+removes the *XIVO_FROMQUEUE* variable from the channel.
+
+These subroutines should be added to *xivo-extrafeatures.conf* in
 :menuselection:`Services --> Configuration files` or another file that is part of the dialplan.
 
 
@@ -102,7 +102,7 @@ To create this queue, go to :menuselection:`Services --> Call center --> Queues`
 The Following configuration is mandatory
 
 * The :menuselection:`General --> Name` field has to be *__switchboard*
-* The :menuselection:`General --> Preprocess subroutine` field has to be *switchboard*
+* The :menuselection:`General --> Preprocess subroutine` field has to be *xivo_subr_switchboard*
 * The :menuselection:`Application --> Allow caller to hang up call` option has to be *enabled*
 * The :menuselection:`Application --> Allow callee to transfer the call` option has to be *enabled*
 * The :menuselection:`Advanced --> Member reachability timeout` option has to be *disabled*
