@@ -72,17 +72,17 @@ Create the Preprocess Subroutines for the Switchboard Queue
 The following preprocess subroutines should be added to the dialplan to remove some
 queue specific actions that are not desirable for calls transfered from the switchboard.
 
-The *switchboard* preprocess subroutine sets the *XIVO_QUEUESUB* variable that will
+The *xivo_subr_switchboard* preprocess subroutine sets the *XIVO_QUEUESUB* variable that will
 be executed when the switchboard answers a call::
 
-    [switchboard]
-    exten = s,1,Set(XIVO_QUEUESUB=remove_from_queue)
+    [xivo_subr_switchboard]
+    exten = s,1,Set(XIVO_QUEUESUB=xivo_subr_remove_from_queue)
     same  =   n,Return()
 
-The *remove_from_queue* preprocess subroutine removes the *XIVO_FROMQUEUE* variable
+The *xivo_subr_remove_from_queue* preprocess subroutine removes the *XIVO_FROMQUEUE* variable
 from the channel::
 
-    [remove_from_queue]
+    [xivo_subr_remove_from_queue]
     exten = s,1,Set(__XIVO_FROMQUEUE=0)
     same  =   n,Return()
 
