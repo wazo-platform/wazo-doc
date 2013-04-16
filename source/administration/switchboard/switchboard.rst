@@ -39,12 +39,12 @@ Limitations
 Configuration
 =============
 
-
 Quick Summary
 -------------
 
 In order to configure a switchboard on your XiVO, you need to:
 
+* Create the preprocess subroutine for the switchboard queue
 * Create a queue for your switchboard
 * Create a queue for your switchboard's calls on hold
 * Create the users that will be operators
@@ -57,7 +57,6 @@ In order to configure a switchboard on your XiVO, you need to:
 
 .. _switchboard_supported_devices:
 
-
 Supported Devices
 -----------------
 
@@ -65,6 +64,30 @@ The supported phones for the switchboard are:
 
 * Aastra 6755i
 * Aastra 6757i
+
+
+Create the Preprocess Subroutine for the Switchboard Queue
+-----------------------------------------------------------
+
+The following subroutines should be added to the dialplan to remove some queue specific actions
+that are not desirable for calls transferred from the switchboard::
+
+    [xivo_subr_switchboard]
+    exten = s,1,Set(XIVO_QUEUESUB=xivo_subr_remove_from_queue)
+    same  =   n,Return()
+
+    [xivo_subr_remove_from_queue]
+    exten = s,1,Set(__XIVO_FROMQUEUE=0)
+    same  =   n,Return()
+
+The *xivo_subr_switchboard* preprocess subroutine sets the *XIVO_QUEUESUB* variable that will
+be executed when the switchboard answers a call.
+
+The *xivo_subr_remove_from_queue* subroutine, which will be called from the queue application,
+removes the *XIVO_FROMQUEUE* variable from the channel.
+
+These subroutines should be added to *xivo-extrafeatures.conf* in
+:menuselection:`Services --> Configuration files` or another file that is part of the dialplan.
 
 
 Create a Queue for Your Switchboard
@@ -79,6 +102,7 @@ To create this queue, go to :menuselection:`Services --> Call center --> Queues`
 The Following configuration is mandatory
 
 * The :menuselection:`General --> Name` field has to be *__switchboard*
+* The :menuselection:`General --> Preprocess subroutine` field has to be *xivo_subr_switchboard*
 * The :menuselection:`Application --> Allow caller to hang up call` option has to be *enabled*
 * The :menuselection:`Application --> Allow callee to transfer the call` option has to be *enabled*
 * The :menuselection:`Advanced --> Member reachability timeout` option has to be *disabled*
@@ -91,6 +115,7 @@ Other important fields
 
 * The :menuselection:`General --> Display name` field is the name displayed in the XiVO client xlets and in the statistics
 * The :menuselection:`General --> Number` field is the number that will be used to reach the switchboard internally (typically *9*)
+
 
 Create a Queue for Your Switchboard on Hold
 -------------------------------------------
@@ -208,7 +233,7 @@ You can also choose to redirect all the calls to another user or a voice mail.
 .. figure:: images/queue_no_answer.png
 
 
-XiVO Client configuration 
+XiVO Client configuration
 =========================
 
 Directory xlet
@@ -234,7 +259,7 @@ Usage
 .. warning::
 
   The switchboard configuration must be completed before using the switchboard. This includes :
-    
+
     * Device, User, Agent and Queues configuration (see above),
     * Directory xlet configuration (see :ref:`directory-xlet`)
 
