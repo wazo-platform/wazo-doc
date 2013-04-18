@@ -103,11 +103,10 @@ To use the hardware echo-canceller of the card you must activate it in
 Use the Hardware Echo-canceller for DTMF detection
 --------------------------------------------------
 
-If you have an hardware echo-canceller it can be used to detect the 
-DTMF.
+If you have an hardware echo-canceller it can be used to detect the DTMF.
 
-Create the file :file:`/etc/modprobe.d/xivo-hwec-dtmf` with the following 
-content (replace the ``<dahdi_module_name>`` word by the DAHDI module name)::
+Create the file :file:`/etc/modprobe.d/xivo-hwec-dtmf` with the following content (replace the
+``<dahdi_module_name>`` word by the DAHDI module name)::
 
    option <dahdi_module_name> vpmdtmfsupport=1
 
