@@ -8,17 +8,6 @@ Introduction
 SCCP (or skinny) is a stimulus protocol used to fully interact with Cisco phones.
 What is libsccp ? It's a channel driver written for Asterisk by Avencall based on the channel skinny.
 
-At the present moment, we are strictly focusing our effort on the Asterisk 1.8 branch which is a Long-Term-Support (LTS) release.
-
-
-Contact
--------
-
-libsccp is actually developed and maintained by Nicolas Bouliane (nbouliane@avencall.com)
-If you need any help, have questions or want to give some help by providing patch or by testing code you can write me an email.
-
-For a more interactive chat, you can find me on irc.freenode.net on #xivo, my alias is acidfu.
-
 
 Installation
 ------------
@@ -37,7 +26,7 @@ The following packages are required to compile libsccp on a XiVO.
 
 ::
 
-   git clone git://git.xivo.fr/official/xivo-libsccp.git
+   git clone git://gitorious.org/xivo/xivo-libsccp.git
    cd xivo-libsccp/xivo-libsccp/
    autoreconf -fvi
    ./configure
@@ -106,7 +95,7 @@ The command line interface provide a way to interact with the different Asterisk
 ::
 
  nibskaro*CLI> sccp show version
- SCCP library 0.93alpha <nbouliane@avencall.com>
+ xivo-libsccp 1.3
  nibskaro*CLI>
 
 ::
