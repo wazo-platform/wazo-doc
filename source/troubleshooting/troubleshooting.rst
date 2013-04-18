@@ -148,21 +148,19 @@ The following describes how to configure your XiVO and your Berofos.
     res=$(/etc/init.d/asterisk status)
     /usr/bin/logger "$0 - $res"
     if [ $? -eq 0 ]; then
-           # If asterisk is running, we (re)enable wdog and (re)set the mode
-              /usr/bin/bnfos --set mode=1 -f fos1 -s
-                 /usr/bin/bnfos --set modedef=1 -f fos1 -s
-                    /usr/bin/bnfos --set wdog=1 -f fos1 -s
-                    else
-                           /usr/bin/logger "$0 - Asterisk is not running"
-                           fi
+        # If asterisk is running, we (re)enable wdog and (re)set the mode
+        /usr/bin/bnfos --set mode=1 -f fos1 -s
+        /usr/bin/bnfos --set modedef=1 -f fos1 -s
+        /usr/bin/bnfos --set wdog=1 -f fos1 -s
+    else
+        /usr/bin/logger "$0 - Asterisk is not running"
+    fi
 
     # Now 'kick' berofos ten times each 5 seconds
     for ((i == 1; i <= 10; i += 1)); do
         /usr/bin/bnfos --kick -f fos1 -s
-            /bin/sleep 5
-            done
-
-    
+        /bin/sleep 5
+    done
 
 #. Add execution rights to script::
 
