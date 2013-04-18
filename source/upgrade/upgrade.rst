@@ -139,14 +139,15 @@ Please consult the following detailed upgrade notes for more information:
 12.24 Upgrade Notes
 ===================
 
-* Consult the `12.24 Roadmap <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1#12.24>`_
-
+* Consult the `12.24 Roadmap <https://projects.xivo.fr/versions/165>`_
 * XiVO 12.24 has some limitations mainly affecting the contact center features due to the rewriting of the code handling agents.
+
+Please consult the following detailed upgrade notes for more information:
 
 .. toctree::
    :maxdepth: 1
 
-   List of limitations <12.24_changes>
+   contactcenter_12.24
 
 Another change is in effect beginning with XiVO 12.24: the field
 ``profileclient`` in the CSV user import sees its values change.
