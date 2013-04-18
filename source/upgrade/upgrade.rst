@@ -85,6 +85,20 @@ Here are the steps for upgrading a cluster:
 #. Reactivate the cronjobs (see steps 1 and 2)
 
 
+13.08 Upgrade Notes
+===================
+
+* Consult the `13.08 Roadmap <https://projects.xivo.fr/versions/174>`_
+* asterisk has been upgraded from version 1.8.21.0 to 11.3.0, which is a major asterisk upgrade.
+
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   asterisk_11
+
+
 13.07 Upgrade Notes
 ===================
 

@@ -18,7 +18,6 @@ Component specific information:
 .. toctree::
    :maxdepth: 2
 
-   asterisk
    cti_server/cti_server
    provisioning/provisioning
    sccp

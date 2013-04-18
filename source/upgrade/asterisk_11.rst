@@ -1,9 +1,6 @@
-********
-Asterisk
-********
-
-Asterisk 1.8 to Asterisk 11
-===========================
+********************************
+Asterisk 1.8 to 11 Upgrade Notes
+********************************
 
 Table of modules that were available in the asterisk 1.8 package but that are not available anymore in the asterisk 11 package:
 
