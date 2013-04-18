@@ -141,25 +141,28 @@ The following describes how to configure your XiVO and your Berofos.
     bnfos --set wdogitime=60 -h 10.105.2.26 -u admin:berofos
 
 #. Add the following script :file:`/usr/local/sbin/berofos-workaround`::
-
+   
     #!/bin/bash
     # Script workAround for berofos integration with a XiVO in front of PABX
 
-    /etc/init.d/asterisk status
+    res=$(/etc/init.d/asterisk status)
+    /usr/bin/logger "$0 - $res"
     if [ $? -eq 0 ]; then
-       # If asterisk is running, we (re)enable wdog and (re)set the mode
-       /usr/bin/bnfos --set mode=1 -f fos1
-       /usr/bin/bnfos --set modedef=1 -f fos1
-       /usr/bin/bnfos --set wdog=1 -f fos1
-    else
-       /usr/bin/logger "$0 - Asterisk is not running"
-    fi
+           # If asterisk is running, we (re)enable wdog and (re)set the mode
+              /usr/bin/bnfos --set mode=1 -f fos1 -s
+                 /usr/bin/bnfos --set modedef=1 -f fos1 -s
+                    /usr/bin/bnfos --set wdog=1 -f fos1 -s
+                    else
+                           /usr/bin/logger "$0 - Asterisk is not running"
+                           fi
 
     # Now 'kick' berofos ten times each 5 seconds
     for ((i == 1; i <= 10; i += 1)); do
-        /usr/bin/bnfos --kick -f fos1
-        /bin/sleep 5
-    done
+        /usr/bin/bnfos --kick -f fos1 -s
+            /bin/sleep 5
+            done
+
+    
 
 #. Add execution rights to script::
 
@@ -169,8 +172,7 @@ The following describes how to configure your XiVO and your Berofos.
 
     # Workaround to berofos integration
 
-    */1 * * * * root /usr/local/sbin/berofos-workaround 2>&1 > /dev/null
-
+    */1 * * * * root /usr/local/sbin/berofos-workaround 
 
 Upgrading from Skaro-1.2.3
 --------------------------
