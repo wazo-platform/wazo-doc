@@ -7,23 +7,22 @@ Configuration for development
 
 Default error level for XiVO web interface is E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED & ~E_RECOVERABLE_ERROR & ~E_STRICT
 
-If you want to display warning or other error in your browser, edit the :file:`/etc/pf-xivo/web-interface/xivo.ini`
-and replace report_type level to 3
+If you want to display warning or other error in your browser, edit the :file:`/etc/pf-xivo/xivo-web-interface/xivo.ini`
+and replace report_type level to 3::
 
-::
-
-      [error]
-      level = 2047
-      report_type = 3
-      report_mode = 1
-      report_func = 1
-      email = john.doe@example.com
-      file = /var/log/pf-xivo-web-interface/error.log
+   [error]
+   level = 2047
+   report_type = 3
+   report_mode = 1
+   report_func = 1
+   email = john.doe@example.com
+   file = /var/log/xivo-web-interface/error.log
 
 You may also edit :file:`/etc/pf-xivo/web-interface/php.ini` and change the error level, but you will need to restart the cgi::
-    
-    /etc/init.d/spawn-fcgi restart
-    
+
+   /etc/init.d/spawn-fcgi restart
+
+
 Interactive debugging in Eclipse
 ================================
 
@@ -31,21 +30,21 @@ On your XiVO:
 
 #. Install php5-xdebug::
 
-      $ apt-get install php5-xdebug
+   $ apt-get install php5-xdebug
 
 #. Edit the :file:`/etc/php5/conf.d/xdebug.ini` and add these lines at the end::
 
-      xdebug.remote_enable=On
-      xdebug.remote_host="<dev_host_ip>"
-      xdebug.remote_port=9000
-      xdebug.remote_handler="dbgp"
+   xdebug.remote_enable=On
+   xdebug.remote_host="<dev_host_ip>"
+   xdebug.remote_port=9000
+   xdebug.remote_handler="dbgp"
 
    where ``<dev_host_ip>`` is the IP address of your machine where Eclipse is installed.
    Of course, your XiVO must be able to reach this IP address.
 
 #. Restart spawn-fcgi::
 
-      $ /etc/init.d/spawn-fcgi restart
+   $ /etc/init.d/spawn-fcgi restart
 
 On your machine where Eclipse is installed:
 
