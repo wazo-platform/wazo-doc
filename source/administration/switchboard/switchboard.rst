@@ -44,7 +44,6 @@ Quick Summary
 
 In order to configure a switchboard on your XiVO, you need to:
 
-* Create the preprocess subroutine for the switchboard queue
 * Create a queue for your switchboard
 * Create a queue for your switchboard's calls on hold
 * Create the users that will be operators
@@ -64,30 +63,6 @@ The supported phones for the switchboard are:
 
 * Aastra 6755i
 * Aastra 6757i
-
-
-Create the Preprocess Subroutine for the Switchboard Queue
------------------------------------------------------------
-
-The following subroutines should be added to the dialplan to remove some queue specific actions
-that are not desirable for calls transferred from the switchboard::
-
-    [xivo_subr_switchboard]
-    exten = s,1,Set(XIVO_QUEUESUB=xivo_subr_remove_from_queue)
-    same  =   n,Return()
-
-    [xivo_subr_remove_from_queue]
-    exten = s,1,Set(__XIVO_FROMQUEUE=0)
-    same  =   n,Return()
-
-The *xivo_subr_switchboard* preprocess subroutine sets the *XIVO_QUEUESUB* variable that will
-be executed when the switchboard answers a call.
-
-The *xivo_subr_remove_from_queue* subroutine, which will be called from the queue application,
-removes the *XIVO_FROMQUEUE* variable from the channel.
-
-These subroutines should be added to *xivo-extrafeatures.conf* in
-:menuselection:`Services --> Configuration files` or another file that is part of the dialplan.
 
 
 Create a Queue for Your Switchboard
