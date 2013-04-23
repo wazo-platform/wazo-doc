@@ -91,6 +91,7 @@ Here are the steps for upgrading a cluster:
 * Consult the `13.08 Roadmap <https://projects.xivo.fr/versions/174>`_
 * asterisk has been upgraded from version 1.8.21.0 to 11.3.0, which is a major asterisk upgrade.
 * The switchboard's queue now requires the *xivo_subr_switchboard* preprocess subroutine.
+* A fix to bug `#4296 <https://projects.xivo.fr/issues/4296>`_ introduced functionnal changes due to the order in which sub-contexts are included. Please refer to `ticket <https://projects.xivo.fr/issues/4296>`_ for details.
 
 Please consult the following detailed upgrade notes for more information:
 
