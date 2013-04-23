@@ -205,10 +205,11 @@ Listen
    * 6 - barge mode. Both the agent and the person he's talking to hear you.
 
 Status since
-   Shows the agent's status and the time spent in this status. An agent can have two statuses : *In use* or *Not in use*.
+   Shows the agent's status and the time spent in this status. An agent can have three statuses:
 
-   An agent is *In use* when he cannot answer a call (in conversation, in wrapup or in pause).
-   The agent is no longer *In use* when he becomes available to answer a call.
+   * *Not in use* when he is ready to answer an ACD call
+   * *Out of queue* when he called or answered a call not from the queue
+   * *In use* when he is either on call from a queue, on pause or on wrapup
 
 Logged
    A *clickable cell* to log or unlog the agent
