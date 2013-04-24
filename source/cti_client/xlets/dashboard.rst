@@ -18,11 +18,18 @@ Usage
 The xlet is *read-only* and presents a list of queues. For each queue, the xlet displays a status box for each logged agents. Each status box gives the following information:
 
 * Agent name
-* Agent status: Shows the agent’s status. An agent can have two statuses: *In use* or *Not in use*.
-* Agent status since: Shows the time spent in the current status
-* Background color: orange if *In use*, green if *Not in use*
+* Agent status: Shows the agent’s status. An agent can have three statuses:
 
-An agent is *In use* when he cannot receive a call from a queue (in conversation, in wrapup or in pause).
+  * *Not in use* when he is ready to answer an ACD call
+  * *Out of queue* when he called or answered a call not from the queue
+  * *In use* when he is either on call from a queue, on pause or on wrapup
+
+* Agent status since: Shows the time spent in the current status
+* Background color:
+
+  * green if *Not in use*
+  * purple if *Out of queue*
+  * orange if *In use*
 
 
 Changing the disposition
