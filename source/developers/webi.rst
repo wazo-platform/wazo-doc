@@ -30,21 +30,21 @@ On your XiVO:
 
 #. Install php5-xdebug::
 
-   $ apt-get install php5-xdebug
+      $ apt-get install php5-xdebug
 
 #. Edit the :file:`/etc/php5/conf.d/xdebug.ini` and add these lines at the end::
 
-   xdebug.remote_enable=On
-   xdebug.remote_host="<dev_host_ip>"
-   xdebug.remote_port=9000
-   xdebug.remote_handler="dbgp"
+      xdebug.remote_enable=On
+      xdebug.remote_host="<dev_host_ip>"
+      xdebug.remote_port=9000
+      xdebug.remote_handler="dbgp"
 
-   where ``<dev_host_ip>`` is the IP address of your machine where Eclipse is installed.
-   Of course, your XiVO must be able to reach this IP address.
+      where ``<dev_host_ip>`` is the IP address of your machine where Eclipse is installed.
+      Of course, your XiVO must be able to reach this IP address.
 
 #. Restart spawn-fcgi::
 
-   $ /etc/init.d/spawn-fcgi restart
+      $ /etc/init.d/spawn-fcgi restart
 
 On your machine where Eclipse is installed:
 
