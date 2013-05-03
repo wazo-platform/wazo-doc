@@ -109,6 +109,18 @@ login_pass
        "timenow": 1361268824.68
    }
    
+If no CTI profile is defined on XiVO for this user, the following message will be sent:
+
+.. code-block:: javascript
+
+   {
+       "error_string": "capaid_undefined", 
+       "class": "login_pass", 
+       "replyid": 1646064863, 
+       "timenow": 1361268824.68
+   }
+
+   
 .. note::
    the first element of the capalist is used in the next step login_capas
 
