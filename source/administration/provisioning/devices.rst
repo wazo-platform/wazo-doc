@@ -382,12 +382,6 @@ T38G     |y|         16         |n|
 
 .. note:: Some function keys are shared with line keys
 
-For the plugins to work fully, you need to add the ``non-free`` repository
-in :file:`/etc/apt/sources.list` and then::
-
-   apt-get update
-   apt-get install unrar
-
 
 Zenitel
 =======
