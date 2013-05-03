@@ -85,6 +85,12 @@ Here are the steps for upgrading a cluster:
 #. Reactivate the cronjobs (see steps 1 and 2)
 
 
+13.09 Upgrade Notes
+===================
+
+* The *restart CTI server* link is now on the IPBX page in the *Control* section.
+
+
 13.08 Upgrade Notes
 ===================
 
