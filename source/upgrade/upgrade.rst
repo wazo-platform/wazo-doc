@@ -88,7 +88,8 @@ Here are the steps for upgrading a cluster:
 13.09 Upgrade Notes
 ===================
 
-* The *restart CTI server* link is now on the IPBX page in the *Control* section.
+* The *Restart CTI server* link has been moved from :menuselection:`Services --> CTI Server --> Control`
+  to :menuselection:`Services --> IPBX --> Control`.
 
 
 13.08 Upgrade Notes
