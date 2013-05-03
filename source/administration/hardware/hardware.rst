@@ -362,6 +362,9 @@ Voice Compression Card configuration
 
 Here's how to install a Digium TC400M card (used for G.729a and/or G.723.1 codecs) :
 
+* Verify that the ``wctc4xxp`` module is uncommented in :file:`/etc/dahdi/modules`.
+  If it wasn't, do again the step :ref:`load_dahdi_modules`.
+
 * install the card firmware::
 
     xivo-fetchfw install digium-tc400m
