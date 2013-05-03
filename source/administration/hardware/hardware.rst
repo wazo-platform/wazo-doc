@@ -384,7 +384,7 @@ Here's how to install a Digium TC400M card (used for G.729a and/or G.723.1 codec
 
 Example::
 
-   cat << EOF > /etc/modprobe.d/xivo-transcode
+   cat << EOF > /etc/modprobe.d/xivo-transcode.conf
    options wctc4xxp mode=g729
    EOF
    
