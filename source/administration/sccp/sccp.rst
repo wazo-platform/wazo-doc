@@ -76,6 +76,10 @@ Direct Media
 SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use directmedia, one must enable the directmedia option in SCCP general settings:
  :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
 
+Then you must issue the command in Asterisk CLI::
+
+    > module reload chan_sccp
+
 .. warning::
 
    Direct media is currently only supported between SCCP phones on a same XiVO.
