@@ -119,7 +119,6 @@ Each operator needs to have a user configured with a line. The XiVO client profi
 The following configuration is mandatory for switchboard users
 
 * The :menuselection:`General --> First name` field has to be set
-* The :menuselection:`General --> Simultaneous calls` option has to be set to *1*
 * The :menuselection:`General --> Enable XiVO Client` option has to be *enabled*
 * The :menuselection:`General --> Login` field has to be set
 * The :menuselection:`General --> Password` field has to be set
