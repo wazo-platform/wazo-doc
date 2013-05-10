@@ -19,6 +19,13 @@ e.g.
  user:xivo-test/5
  I'm looking for the user that has the ID 5 on the xivo-test server.
 
+Here is a non exaustive list of types:
+
+* exten
+* user
+* vm_consult
+* voicemail
+
 
 Class list
 ----------
@@ -789,11 +796,17 @@ Forward the call to another destination when the user is busy
       "timenow": 1361457163.77, "tipbxid": "xivo"
       }
 
+
 Ipbx Commands
 -------------
+
+
 dial
 ^^^^
+
+
 * destination can be any number
+* destination can be a pseudo URL of the form "type:ibpx/id"
 
 ``Client -> Server``
 
@@ -816,6 +829,7 @@ For example :
         "commandid": 1683305913,
         "destination": "exten:xivo/1202"
     }
+
 
 originate
 ^^^^^^^^^
