@@ -30,13 +30,13 @@ Some places where you might want to add this preprocess subroutine is on queues 
 to be able to transfer the called person to another extension.
 
 
-Boss-Secretary Filter
----------------------
+XiVO Client and Xlet tabber
+---------------------------
 
-In some cases, the function key and BLF will not work.
-The work around consists in deleting affected users and re-create them.
+Configuring the Xlet tabber in dock mode will crash the XiVO Client uppon disconnection
+The work around consists in always configuring the Xlet tabber in grid mode.
 
-Associated ticket: #3595
+Associated ticket: #4341
 
 
 .. _fax-detection:

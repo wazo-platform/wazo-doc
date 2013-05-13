@@ -85,13 +85,23 @@ Here are the steps for upgrading a cluster:
 #. Reactivate the cronjobs (see steps 1 and 2)
 
 
+13.09 Upgrade Notes
+===================
+
+* Consult the `13.09 Roadmap <https://projects.xivo.fr/versions/175>`_
+* The *Restart CTI server* link has been moved from :menuselection:`Services --> CTI Server --> Control`
+  to :menuselection:`Services --> IPBX --> Control`.
+* The Agent Status Dashboard has been optimized.
+* The Directory xlet can now be used to place call.
+
+
 13.08 Upgrade Notes
 ===================
 
 * Consult the `13.08 Roadmap <https://projects.xivo.fr/versions/174>`_
 * asterisk has been upgraded from version 1.8.21.0 to 11.3.0, which is a major asterisk upgrade.
 * The switchboard's queue now requires the *xivo_subr_switchboard* preprocess subroutine.
-* A fix to bug `#4296 <https://projects.xivo.fr/issues/4296>`_ introduced functionnal changes due to the order in which sub-contexts are included. Please refer to `ticket <https://projects.xivo.fr/issues/4296>`_ for details.
+* A fix to bug `#4296 <https://projects.xivo.fr/issues/4296>`_ introduced functional changes due to the order in which sub-contexts are included. Please refer to `ticket <https://projects.xivo.fr/issues/4296>`_ for details.
 
 Please consult the following detailed upgrade notes for more information:
 

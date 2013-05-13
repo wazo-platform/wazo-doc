@@ -19,6 +19,13 @@ e.g.
  user:xivo-test/5
  I'm looking for the user that has the ID 5 on the xivo-test server.
 
+Here is a non exaustive list of types:
+
+* exten
+* user
+* vm_consult
+* voicemail
+
 
 Class list
 ----------
@@ -108,6 +115,18 @@ login_pass
        "replyid": 1646064863, 
        "timenow": 1361268824.68
    }
+   
+If no CTI profile is defined on XiVO for this user, the following message will be sent:
+
+.. code-block:: javascript
+
+   {
+       "error_string": "capaid_undefined", 
+       "class": "login_pass", 
+       "replyid": 1646064863, 
+       "timenow": 1361268824.68
+   }
+
    
 .. note::
    the first element of the capalist is used in the next step login_capas
@@ -245,7 +264,7 @@ How to decode payload :
 .. code-block:: python
 
    >>> b64content = base64.b64decode(<payload content>)
-   >>> # 4 first cars are the encoded lenght of the xml string
+   >>> # 4 first cars are the encoded lenght of the xml string (in Big Endian format)
    >>> xmllen = struck.unpack('>I',b64content[0:4])
    >>> # the rest is a compressed xml string
    >>> xmlcontent = zlib.decompress(toto[4:])
@@ -268,6 +287,10 @@ How to decode payload :
             <systray_info order="0020" name="Num\xc3\xa9ro" type="body"><![CDATA[0230210083]]></systray_info>
          </user>
       </profile>
+
+The xml file content is defined by the following xsd file:
+:file:`xivo-javactilib/src/main/xsd/sheet.xsd`
+(`online version <https://www.gitorious.org/xivo/xivo-javactilib/blobs/master/src/main/xsd/sheet.xsd>`_)
 
 phone status update
 ^^^^^^^^^^^^^^^^^^^
@@ -773,11 +796,17 @@ Forward the call to another destination when the user is busy
       "timenow": 1361457163.77, "tipbxid": "xivo"
       }
 
+
 Ipbx Commands
 -------------
+
+
 dial
 ^^^^
+
+
 * destination can be any number
+* destination can be a pseudo URL of the form "type:ibpx/id"
 
 ``Client -> Server``
 
@@ -800,6 +829,7 @@ For example :
         "commandid": 1683305913,
         "destination": "exten:xivo/1202"
     }
+
 
 originate
 ^^^^^^^^^

@@ -119,7 +119,6 @@ Each operator needs to have a user configured with a line. The XiVO client profi
 The following configuration is mandatory for switchboard users
 
 * The :menuselection:`General --> First name` field has to be set
-* The :menuselection:`General --> Simultaneous calls` option has to be set to *1*
 * The :menuselection:`General --> Enable XiVO Client` option has to be *enabled*
 * The :menuselection:`General --> Login` field has to be set
 * The :menuselection:`General --> Password` field has to be set
@@ -250,14 +249,15 @@ When the user connects with his XiVO Client, he gets the Switchboard profile.
 
 1. *Current Call* frame
 2. *Answer* button
-3. *Blind transfer* button
-4. *Attended transfer* button
-5. *Hold* button
-6. *Hangup* button
-7. *Incoming Calls* list
-8. *Waiting Calls* list
-9. *Directory* Xlet
-10. *Dial* Xlet
+3. *Call* button
+4. *Blind transfer* button
+5. *Attended transfer* button
+6. *Hold* button
+7. *Hangup* button
+8. *Incoming Calls* list
+9. *Waiting Calls* list
+10. *Directory* Xlet
+11. *Dial* Xlet
 
 .. note:: If you don't see the Switchboard Xlet, right-click on the grey
           bar at the right of the *Help* menu and check *Switchboard*:
@@ -285,6 +285,16 @@ When the switchboard receives a call, the new call is added to the *Incoming Cal
 
 Once the call has been answered, it is removed from the incoming calls list and
 displayed in the *Current Call* frame.
+
+
+Making a Call
+^^^^^^^^^^^^^
+
+The switchboard operator can do the following operations:
+
+* Press the *Call* button or press *F3*
+* Search for the call destination in the directory xlet
+* Press to confirm the selection and start the call
 
 
 Distributing a call
