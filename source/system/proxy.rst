@@ -59,7 +59,7 @@ xivo-fetchfw
 
 *This step is not needed if you don't use xivo-fetchfw.*
 
-Proxy information is set via the :file:`/etc/pf-xivo/fetchfw.conf` file.
+Proxy information is set via the :file:`/etc/pf-xivo/xivo-fetchfw.conf` file.
 
 Edit the file and look for the ``[proxy]`` section.
 
