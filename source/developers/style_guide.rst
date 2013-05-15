@@ -161,8 +161,8 @@ or the meaning isn't clear.
 
 Bad Example::
 
-    if price * tax - bonus / reduction + fee < money
-        product.pay(money):
+    if price * tax - bonus / reduction + fee < money:
+        product.pay(money)
 
 Good Example::
 
