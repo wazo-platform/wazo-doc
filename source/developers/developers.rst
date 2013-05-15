@@ -12,6 +12,7 @@ General information:
    debug_daemon
    profile_python
    translate
+   style_guide
 
 Component specific information:
 
