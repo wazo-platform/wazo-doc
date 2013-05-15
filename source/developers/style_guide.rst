@@ -178,6 +178,9 @@ Good Example::
 Naming
 ======
 
+ * Class names are in ``CamelCase``
+ * File names are in ``lower_underscore_case``
+
 
 Conventions for functions prefixed by `find`:
 
@@ -264,6 +267,24 @@ Good example::
 
 Tests
 =====
+
+Tests for a package are placed in their own folder named "tests" inside the package.
+
+Example::
+
+    package1/
+    __init__.py
+    mod1.py
+    tests/
+        __init__.py
+        test_mod1.py
+    package2/
+    __init__.py
+    mod9.py
+    tests/
+        __init__.py
+        test_mod9.py
+
 
 Unit tests should be short, clear and concise in order to make the test easy to
 understand. A unit test is separated into 3 sections :
