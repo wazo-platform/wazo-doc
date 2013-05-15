@@ -123,6 +123,58 @@ Good Example::
         calendar.add(meeting)
 
 
+Conditions
+**********
+
+Avoid using parenthesis around if statements, unless the statement expands
+on multiple lines or you need to nest your conditions.
+
+Bad Examples::
+
+    if(x == 3):
+        print "condition is true"
+
+    if(x == 3 and y == 4):
+        print "condition is true"
+
+
+Good Examples::
+
+    if x == 3:
+        print "condition is true"
+
+    if x == 3 and y == 4:
+        print "condition is true"
+
+    if (extremely_long_variable == 3
+        and another_long_variable == 4
+        and yet_another_variable == 5):
+
+        print "condition is true"
+
+    if (2 + 3 + 4) - (1 + 1 + 1) == 6:
+        print "condition is true"
+
+
+Consider refactoring your statement into a function if it becomes too long,
+or the meaning isn't clear.
+
+Bad Example::
+
+    if price * tax - bonus / reduction + fee < money
+        product.pay(money):
+
+Good Example::
+
+    def calculate_price(price, tax, bonus, reduction, fee):
+        return price * tax - bonus / reduction + fee
+
+    final_price = calculate_price(price, tax, bonus, reduction, fee)
+
+    if final_price < money:
+        product.pay(money)
+
+
 Naming
 ======
 
@@ -213,8 +265,8 @@ Good example::
 Tests
 =====
 
-Unit tests should be short, clear and concise in order to make the goal
-of the test easy to understand. A unit test is separated into 3 sections :
+Unit tests should be short, clear and concise in order to make the test easy to
+understand. A unit test is separated into 3 sections :
 
  * Preconditions / Preparations
  * Thing to test
@@ -256,3 +308,62 @@ Example::
             self._assert_users_are_equal(expected, user)
 
 
+Exceptions
+==========
+
+Exceptions should not be used for flow control. Raise exceptions only for edge cases,
+or when something that isn't usually expected happens.
+
+Bad Example::
+
+    def is_user_available(user):
+        if user.available():
+            return True
+        else:
+            raise Exception("User isn't available")
+
+    try:
+        is_user_available(user)
+    except Exception:
+        disable_user(user)
+
+
+Good Example::
+
+    def is_user_available(user):
+        if user.available():
+            return True
+        else:
+            return False
+
+
+    if not is_user_available(user):
+        disable_user(user)
+
+
+Avoid throwing `Exception`. Use one of Python's built-in Exceptions, or create
+your own custom Exception. A list of exceptions is available at
+http://docs.python.org/2/library/exceptions.html#exception-hierarchy
+
+
+Bad Example::
+
+    def get_user(userid):
+        user = session.query(User).get(userid)
+
+        if not user:
+            raise Exception("User not found")
+
+Good Example::
+
+    class UserNotFoundError(LookupError):
+
+        def __init__(self, userid):
+            message = "user with id %s not found" % userid
+            LookupError.__init__(self, message)
+
+    def get_user(userid):
+        user = session.query(User).get(userid)
+
+        if not user:
+            raise UserNotFoundError(userid)
