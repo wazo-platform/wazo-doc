@@ -40,7 +40,7 @@ Spacing
 * In python, indentation blocks use 4 spaces
 * In PHP, indentation blocks use tabs
 * Imports should be ordered alphabetically
-* Separate module imports and `from` imports with a blank line
+* Separate module imports and ``from`` imports with a blank line
 
 Example::
 
@@ -362,9 +362,8 @@ Good Example::
         disable_user(user)
 
 
-Avoid throwing `Exception`. Use one of Python's built-in Exceptions, or create
-your own custom Exception. A list of exceptions is available at
-http://docs.python.org/2/library/exceptions.html#exception-hierarchy
+Avoid throwing ``Exception``. Use one of Python's built-in Exceptions, or create
+your own custom Exception. A list of exceptions is available on `the Python documentation website <http://docs.python.org/2/library/exceptions.html#exception-hierarchy>`_.
 
 
 Bad Example::
