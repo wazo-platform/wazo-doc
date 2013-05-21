@@ -173,7 +173,6 @@ Edit::
             "number": "101",
             "provisioningid": 0,
             "num": 1,
-            "line_num": 0,
             "ipfrom": "10.32.0.1",
             "internal": false,
             "encryption": false,
@@ -301,9 +300,6 @@ Example of sent content for a user with a SIP line and a voicemail (the top-leve
            ],
            "name": [
                "eu9nbm"
-           ],
-           "line_num": [
-               0
            ],
            "context": [
                "default"
@@ -450,7 +446,6 @@ For example, if the "view" action returned the following ``linefeatures``:
             "iduserfeatures": 1,
             "internal": False,
             "ipfrom": "10.34.0.12",
-            "line_num": 0,
             "name": "eu9nbm",
             "num": 1,
             "number": "1001",
@@ -473,9 +468,6 @@ then the ``linefeatures`` in the "edit" action would be:
        ],
        "name": [
            "eu9nbm"
-       ],
-       "line_num": [
-           0
        ],
        "context": [
            "default"
