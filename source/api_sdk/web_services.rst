@@ -172,7 +172,6 @@ Edit::
             "configregistrar": "default",
             "number": "101",
             "provisioningid": 0,
-            "rules_time": "30",
             "rules_order": 1,
             "rules_group": "",
             "num": 1,
@@ -467,8 +466,7 @@ For example, if the "view" action returned the following ``linefeatures``:
             "protocolid": 1,
             "provisioningid": 113992,
             "rules_group": "",
-            "rules_order": 1,
-            "rules_time": "30"
+            "rules_order": 1
         }
     ]
 
