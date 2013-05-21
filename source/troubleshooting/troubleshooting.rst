@@ -143,11 +143,12 @@ The following describes how to configure your XiVO and your Berofos.
 #. Add the following script :file:`/usr/local/sbin/berofos-workaround`::
    
     #!/bin/bash
-    # Script workAround for berofos integration with a XiVO in front of PABX
+    # Script workaround for berofos integration with a XiVO in front of PABX
 
-    res=$(/etc/init.d/asterisk status)
-    /usr/bin/logger "$0 - $res"
-    if [ $? -eq 0 ]; then
+    /etc/init.d/asterisk status
+    does_ast_run=$?
+    if [ $does_ast_run -eq 0 ]; then
+        /usr/bin/logger "$0 - Asterisk is running"
         # If asterisk is running, we (re)enable wdog and (re)set the mode
         /usr/bin/bnfos --set mode=1 -f fos1 -s
         /usr/bin/bnfos --set modedef=1 -f fos1 -s
