@@ -172,7 +172,6 @@ Edit::
             "configregistrar": "default",
             "number": "101",
             "provisioningid": 0,
-            "rules_order": 1,
             "rules_group": "",
             "num": 1,
             "line_num": 0,
@@ -306,9 +305,6 @@ Example of sent content for a user with a SIP line and a voicemail (the top-leve
            ],
            "rules_group": [
                ""
-           ],
-           "rules_order": [
-               1
            ],
            "line_num": [
                0
@@ -465,8 +461,7 @@ For example, if the "view" action returned the following ``linefeatures``:
             "protocol": "sip",
             "protocolid": 1,
             "provisioningid": 113992,
-            "rules_group": "",
-            "rules_order": 1
+            "rules_group": ""
         }
     ]
 
@@ -486,9 +481,6 @@ then the ``linefeatures`` in the "edit" action would be:
        ],
        "rules_group": [
            ""
-       ],
-       "rules_order": [
-           1
        ],
        "line_num": [
            0

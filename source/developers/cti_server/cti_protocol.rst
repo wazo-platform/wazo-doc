@@ -459,7 +459,7 @@ Individual phone configuration request:
 
    {"class": "getlist",
       "config": {"allowtransfer": null, "context": "default", "identity": "SIP/ihvbur", "iduserfeatures": 1,
-                     "initialized": null, "number": "1000", "protocol": "sip", "rules_order": 1},
+                     "initialized": null, "number": "1000", "protocol": "sip"},
       "function": "updateconfig", "listname": "phones", "tid": "3", "timenow": 1364994093.43, "tipbxid": "xivo"}
 
 agents
