@@ -403,6 +403,6 @@ Good Example::
 
     try:
         get_user(user_id)
-    except UserNotFoundError, e:
+    except UserNotFoundError as e:
         logger.error(e.message)
         raise
