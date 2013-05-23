@@ -85,6 +85,17 @@ Here are the steps for upgrading a cluster:
 #. Reactivate the cronjobs (see steps 1 and 2)
 
 
+13.10 Upgrade Notes
+===================
+
+* Consult the `13.10 Roadmap <https://projects.xivo.fr/versions/176>`_
+
+API changes:
+
+* CTI protocol: for messages of class ``getlist`` and function ``updateconfig``, the ``config`` object/dictionary
+  does not have a ``rules_order`` key anymore.
+
+
 13.09 Upgrade Notes
 ===================
 
