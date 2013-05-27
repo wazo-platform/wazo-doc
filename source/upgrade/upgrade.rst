@@ -85,6 +85,17 @@ Here are the steps for upgrading a cluster:
 #. Reactivate the cronjobs (see steps 1 and 2)
 
 
+13.11 Upgrade Notes
+===================
+
+* Consult the `13.11 Roadmap <https://projects.xivo.fr/versions/177>`_
+
+API changes:
+
+* Dialplan variable XIVO_INTERFACE_0 is now XIVO_INTERFACE
+* Dialplan variable XIVO_INTERFACE_NB and XIVO_INTERFACE_COUNT have been removed
+
+
 13.10 Upgrade Notes
 ===================
 
