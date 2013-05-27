@@ -14,22 +14,21 @@ You need to install these tools::
 How to Add a New Translated String
 ==================================
 
-String to be translated is marqued using the tr macro in the source code.
+String to be translated is marked using the tr macro in the source code.
 
 
 Example::
 
    tr("Number");
 
+* ``utils/translations.sh`` pull
+* ``utils/translations.sh`` commit
+* ``utils/translations.sh`` push
+* Go to `transifex <https://www.transifex.com/projects/p/xivo/language/fr/>`_, check 100% for french on xivo-client
+* ``utils/translations.sh`` pull
+* ``git commit``
+* ``git push``
 
-* Run ``utils/translations.sh update``
-
-  This will generate the new file :file:`xivoclient/i18n/all_en.ts`
-
-* Upload to Transifex the English translation file updated (``Edit resource`` on transifex project)
-* Translate other languages using :ref:`Transifex web interface <translating-xivo>`
-* Download and merge updated translations with ``utils/translations.sh pull``
-* Commit updated translations
 
 Add a new XiVO Client locale
 ============================
@@ -72,7 +71,7 @@ This line adds a translation file for french. Please replace fr by the code of
 your locale. The ``$$ROOT_DIR`` variable references either xivoclient or
 baselib.
 
-You can use a command like the following to automate this ($LANG is the new language) ::
+You can use a command like the following to automate this ($LANG is the new language)::
 
    find . -name '*.pro' -exec sed -i -e 's|^TRANSLATIONS += $${\?ROOT_DIR}\?/i18n/\(.*\)_en.ts|\0\nTRANSLATIONS += $$ROOT_DIR/i18n/\1_$LANG.ts|' {} \;
 
@@ -97,7 +96,7 @@ This embeds the French translation of the ``xivoclient`` module, corresponding
 to the translation file above. The path is changed to ``obj/`` because the
 ``.qm`` file will be generated from the ``.ts`` file.
 
-You can use a command like the following to automate this ($LANG is the new language) ::
+You can use a command like the following to automate this ($LANG is the new language)::
 
    find . -name '*.qrc' -exec sed -i -e 's|^\( *\)<file>\(.*\)obj/\(.*\)_fr.qm</file>|\0\n\1<file>\2obj/\3_$LANG.qm</file>|' {} \;
 

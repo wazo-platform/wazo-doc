@@ -387,3 +387,22 @@ Good Example::
 
         if not user:
             raise UserNotFoundError(userid)
+
+
+Never use ``except:`` without specifying any exception type. The reason is that it will also catch important exceptions, such as ``KeyboardInterrupt`` and ``OutOfMemory`` exceptions, making your program unstoppable or continuously failing, instead of stopping when wanted.
+
+
+Bad Example::
+
+    try:
+        get_user(user_id)
+    except:
+        logger.exception("There was an error")
+
+Good Example::
+
+    try:
+        get_user(user_id)
+    except UserNotFoundError as e:
+        logger.error(e.message)
+        raise
