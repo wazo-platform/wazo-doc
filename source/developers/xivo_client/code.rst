@@ -315,6 +315,40 @@ If you have a problem and you want to see what is going on between the CTI serve
 you can use a specific script, designed specifically for XiVO, instead of using something like
 Wireshark to listen network communications.
 
+Profiling
+=========
+
+To get profiling informations on the XiVO Client:
+
+* Compile the XiVO Client with debugging symbols
+* Run the command::
+
+    LD_LIBRARY_PATH=bin valgrind --tool callgrind bin/xivoclient
+
+* Quit the client
+* Open the generated file :file:`callgrind.out.<pid>` with KCacheGrind
+
+Automatic checking tools
+========================
+
+We use two tools to check the source code of the XiVO Client: CppCheck et Valgrind.
+
+CppCheck
+--------
+
+Usage::
+
+    cppcheck -I baselib/src -I xivoclient/src .
+
+Valgrind (Memcheck)
+-------------------
+
+Usage::
+
+    LD_LIBRARY_PATH=bin valgrind --leak-check=full --suppressions=valgrind.supp --num-callers=30 --gen-suppressions=yes bin/xivoclient
+
+You need to fill a file :file:`valgrind.supp` with Valgrind suppressions, to avoid displaying errors in code you have no control over.
+
 Figures
 =======
 

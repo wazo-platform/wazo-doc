@@ -12,6 +12,7 @@ General information:
    debug_daemon
    profile_python
    translate
+   style_guide
 
 Component specific information:
 
@@ -19,6 +20,7 @@ Component specific information:
    :maxdepth: 2
 
    cti_server/cti_server
+   diagrams
    provisioning/provisioning
    sccp
    webi

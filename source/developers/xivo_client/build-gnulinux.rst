@@ -64,10 +64,6 @@ To compile the XiVO Client ready for functional tests::
 
    $ make FUNCTESTS=yes
 
-To compile the XiVO Client ready for performances profiling::
-
-   $ qmake CONFIG+=profiling
-
 
 Cleaning
 --------

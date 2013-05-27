@@ -2,9 +2,18 @@
 CTI Protocol
 ************
 
-.. Warning::
+Protocol Changelog
+==================
+
+.. warning::
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure 
    to check that the protocol did not change before upgrading XiVO
+
+13.10
+
+* for messages of class ``getlist`` and function ``updateconfig``, the ``config`` object/dictionary
+  does not have a ``rules_order`` key anymore.
+
 
 Commands
 ========
@@ -459,7 +468,7 @@ Individual phone configuration request:
 
    {"class": "getlist",
       "config": {"allowtransfer": null, "context": "default", "identity": "SIP/ihvbur", "iduserfeatures": 1,
-                     "initialized": null, "number": "1000", "protocol": "sip", "rules_order": 1},
+                     "initialized": null, "number": "1000", "protocol": "sip"},
       "function": "updateconfig", "listname": "phones", "tid": "3", "timenow": 1364994093.43, "tipbxid": "xivo"}
 
 agents
