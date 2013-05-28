@@ -175,6 +175,150 @@ The error messages are contained in a JSON list, even if there is only one error
 XiVO
 ====
 
+Recording campaigns
+-------------------
+Recording campaigns aim at recording all the calls on a given queue for a given period of time.
+
++--------+------------------------+-----------------------------+
+| Method | Ressource              | Description                 |
++========+========================+=============================+
+| GET    | :ref:`list-campaigns`  | Return a list of campaigns  |
++--------+------------------------+-----------------------------+
+| GET    | :ref:`get-campaign`    | Return a specific campaign  |
++--------+------------------------+-----------------------------+
+| POST   | :ref:`create-campaign` | Create a recording campaign |
++--------+------------------------+-----------------------------+
+| PUT    | :ref:`update-campaign` | Update a recording campaign |
++--------+------------------------+-----------------------------+
+| DELETE | :ref:`delete-campaign` | Delete a recording campaign |
++--------+------------------------+-----------------------------+
+
+
+.. _campaign-properties:
+
+Campaign properties
+-------------------
+
+.. code-block:: javascript
+
+    {
+        "id": "1",
+        "campaign_name": "new_campaign",
+        "start_date": "2013-01-22 14:53:33",
+        "end_date": "2013-01-22 17:53:36",
+        "queue_id": "1",
+        "activated": "True",
+        "base_filename": "new_campaign-file-"
+    }
+    
+Recordings
+----------
+A recording represents the sound file of a conversation in the scope of a recording campaign. 
+
++--------+--------------------------+--------------------------------------------------+
+| Method | Ressource                | Description                                      |
++========+==========================+==================================================+
+| GET    | :ref:`list-recordings`   | Return a list of recordings for a given campaign |
++--------+--------------------------+--------------------------------------------------+
+| GET    | :ref:`search-recordings` | Searches a recording with some specific criteria |
++--------+--------------------------+--------------------------------------------------+
+| POST   | :ref:`create-recording`  | Creates a recording                              |
++--------+--------------------------+--------------------------------------------------+
+| DELETE | :ref:`delete-recording`  | Delete a recording                               |
++--------+--------------------------+--------------------------------------------------+
+
+
+.. _recording-properties:
+
+Recording properties
+--------------------
+
+.. code-block:: javascript
+
+    {
+        "cid": "123.456",
+        "start_time": "2013-01-22 14:53:33",
+        "caller": "0231156897", 
+        "client_id": "abcd",  
+        "filename": "file.wav", 
+        "campaign_id": 2,
+        "agent_id": 3,
+        "agent_no": "7890"
+    }
+    
+Queues
+------
+A queue is an object on which calls are stored until they are answered by an agent.
+
++--------+--------------------+---------------------------------+
+| Method | Ressource          | Description                     |
++========+====================+=================================+
+| GET    | :ref:`list-queues` | Return a list of all the queues |
++--------+--------------------+---------------------------------+
+
+.. _queue_properties:
+
+Queue properties
+----------------
+
+.. code-block:: javascript
+
+    {
+        "id": 1,
+        "name": "my_queue",
+        "displayname": "My queue",
+        "number": "2000",
+        "context": "default", 
+        "data_quality": 0,
+        "hitting_callee": 0,
+        "hitting_caller": 0,
+        "retries": 0,
+        "ring": 0,
+        "transfer_user": 0,
+        "transfer_call": 0,
+        "write_caller": 0,
+        "write_calling": 0,
+        "url": "",
+        "announceoverride": "",
+        "timeout": 0,
+        "preprocess_subroutine": "test-subroutine", 
+        "announce_holdtime": 0,
+        "waittime": 0, 
+        "waitratio": 0
+    }
+    
+Agents
+------
+An agent is responsible for answering calls on one or several queues.
+
++--------+--------------------+---------------------------------+
+| Method | Ressource          | Description                     |
++========+====================+=================================+
+| GET    | :ref:`list-agents` | Return a list of all the agents |
++--------+--------------------+---------------------------------+
+
+.. _agent_properties:
+
+Agent properties
+================
+
+.. code-block:: javascript
+
+   {
+      "id": 19,
+      "autologoff": 0,
+      "group": null,
+      "language": "",
+      "firstname": "Chuck",
+      "passwd": "",
+      "lastname": "N",
+      "number": "2123",
+      "context": "default",
+      "numgroup": 1,
+      "preprocess_subroutine": null,
+      "description": ""
+   }
+
 Users
 -----
 Users are XiVO objects using phone sets, users can associated with lines, can be in groups or can have phone keys.
@@ -253,6 +397,445 @@ Voicemail properties
        "skipcheckpass" : 0,
        "deleteaftersend" : 0
     }
+   
+.. _list-campaigns:
+
+GET /1.0/recording_campaigns/
+-----------------------------
+
+Return a list of recording campaigns :
+
+Parameters
+^^^^^^^^^^
+
+* campaign_name : filter on the campaign name
+* queue_id : filter on the queue id
+* queue_number : filter on the queue number
+* running : the campaign must be currently active (current date must be between the start date and the end date)
+
+Request
+^^^^^^^
+
+::
+
+ GET /1.0/recording_campaigns/[?param1=val1[&param2=val2]]
+ Host : xivoserver:50051
+ 
+Response
+^^^^^^^^
+
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+        "total": 2,
+        "items":
+        [
+            {
+                 "id": "1"
+                 "campaign_name": "campaign1",
+                 ...
+            },
+            {
+                 "id": "2"
+                 "campaign_name": "campaign2",
+                 ...
+            }
+        ]
+    }
+    
+.. _get-campaign:
+
+GET /1.0/recording_campaigns/<id>
+---------------------------------
+
+Return the recording campaign with the given id
+
+Parameters
+^^^^^^^^^^
+
+* None
+
+Request
+^^^^^^^
+
+::
+
+ GET /1.0/recording_campaigns/<id>
+ Host : xivoserver:50051
+   
+Response
+^^^^^^^^
+
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+        "total": 1,
+        "items":
+        [
+            {
+                 "id": "1"
+                 "campaign_name": "campaign1",
+                 ...
+            }
+        ]
+    }
+    
+.. _create-campaign:
+
+POST /1.0/recording_campaigns/
+------------------------------
+
+Creates a campaign and returns the generated id.
+
+Parameters
+^^^^^^^^^^
+
+* None
+
+Request
+^^^^^^^
+
+::
+
+ GET /1.0/recording_campaigns/<id>
+ Host : xivoserver:50051
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+      "campaign_name": "my campaign",
+      "queue_id": "2",
+      ...
+    }
+   
+Response
+^^^^^^^^
+
+::
+
+ HTTP/1.1 201 CREATED
+ Content-Type: application/json;charset=UTF-8
+ 
+.. code-block:: javascript
+   
+   "1"
+ 
+.. _update-campaign:
+
+PUT /1.0/recording_campaigns/<id>
+---------------------------------
+
+Update the recording campaign with the given id.
+
+Parameters
+^^^^^^^^^^
+
+* None
+
+Request
+^^^^^^^
+
+::
+
+ PUT /1.0/recording_campaigns/<id>
+ Host : xivoserver:50051
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+      "campaign_name": "my campaign",
+      "queue_id": "2",
+      ...
+    }
+   
+Response
+^^^^^^^^
+
+::
+
+ HTTP/1.1 200 OK
+ 
+.. _delete-campaign:
+
+DELETE /1.0/recording_campaigns/<id>
+------------------------------------
+
+Delete the recording campaign with the given id.
+
+Parameters
+^^^^^^^^^^
+
+* None
+
+Request
+^^^^^^^
+
+::
+
+ PUT /1.0/recording_campaigns/<id>
+ Host : xivoserver:50051
+   
+Response
+^^^^^^^^
+
+::
+
+ HTTP/1.1 200 OK
+   
+.. _list-recordings:
+
+GET /1.0/recording_campaigns/<campaign_id>/
+-------------------------------------------
+
+Return a list of recordings for the given campaign:
+
+Parameters
+^^^^^^^^^^
+
+* None
+
+Request
+^^^^^^^
+
+::
+
+ GET /1.0/recording_campaigns/<campaign_id>/
+ Host : xivoserver:50051
+ 
+Response
+^^^^^^^^
+
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+        "total": 2,
+        "items":
+        [
+            {
+                 "cid": "123.456"
+                 "campaign_id": 1,
+                 ...
+            },
+            {
+                 "cid": "456.789"
+                 "campaign_id": 1,
+                 ...
+            }
+        ]
+    }
+    
+.. _search-recordings:
+
+GET /1.0/recording_campaigns/<campaign_id>/search
+-------------------------------------------------
+
+Searches recordings in the given campaign whose fields "caller" or "agent_no" match the specified key:
+
+Parameters
+^^^^^^^^^^
+
+* None
+
+Request
+^^^^^^^
+
+::
+
+ GET /1.0/recording_campaigns/<campaign_id>/search/?key=<searched number>
+ Host : xivoserver:50051
+ 
+Response
+^^^^^^^^
+
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+        "total": 2,
+        "items":
+        [
+            {
+                 "cid": "123.456"
+                 "campaign_id": 1,
+                 ...
+            },
+            {
+                 "cid": "456.789"
+                 "campaign_id": 1,
+                 ...
+            }
+        ]
+    }
+   
+.. _create-recording:
+
+POST /1.0/recording_campaigns/<campaign_id>
+-------------------------------------------
+
+Creates a recording in the given campaign. It is the responsibility of the caller to send a unique cid. However, it is advisable
+to use the cid generated by Asterisk for the associated call.
+
+Parameters
+^^^^^^^^^^
+
+* None
+
+Request
+^^^^^^^
+
+::
+
+ POST /1.0/recording_campaigns/<campaign_id>/
+ Host : xivoserver:50051
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+      "cid": "123.456"
+      "campaign_id": 1,
+      ...
+    }
+   
+Response
+^^^^^^^^
+
+::
+
+ HTTP/1.1 201 CREATED
+ 
+.. _delete-recording:
+
+DELETE /1.0/recording_campaigns/<campaign_id>/<recording_cid>
+-------------------------------------------------------------
+
+Deletes the recording in the given campaign, with the given cid.
+
+Parameters
+^^^^^^^^^^
+
+* None
+
+Request
+^^^^^^^
+
+::
+
+ DELETE /1.0/recording_campaigns/<campaign_id>/<recording_cid>
+ Host : xivoserver:50051
+    
+Response
+^^^^^^^^
+
+::
+
+ HTTP/1.1 200 OK
+   
+.. _list-queues:
+
+GET /1.0/CallCenter/queues/
+---------------------------
+
+Return a list all the queues :
+
+Parameters
+^^^^^^^^^^
+
+* None
+
+Request
+^^^^^^^
+
+::
+
+ POST /1.0/CallCenter/queues/
+ Host : xivoserver:50051
+
+Response
+^^^^^^^^
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    
+     [
+         {
+             "id": 1,
+             "name": "my_queue",
+             ...
+         },
+         {
+             "id": 2,
+             "name": "your_queue",
+             ...
+         }
+     ]
+   
+.. _list-agents:
+
+GET /1.0/CallCenter/agents/
+---------------------------
+
+Return a list all the agents :
+
+Parameters
+^^^^^^^^^^
+
+* None
+
+Request
+^^^^^^^
+
+::
+
+ POST /1.0/CallCenter/agents/
+ Host : xivoserver:50051
+
+Response
+^^^^^^^^
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+   
+    [
+       {
+          "id": 19,
+          "autologoff": 0,
+          ...
+       },
+       {
+          "id": 20,
+          "autologoff": 0,
+          ...
+       }
+    ]
    
 .. _list-users:
 
