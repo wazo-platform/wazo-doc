@@ -263,6 +263,8 @@ Users are XiVO objects using phone sets, users can associated with lines, can be
 +--------+--------------------+-----------------------------+
 | PUT    | :ref:`update-user` | Update a XiVO user          |
 +--------+--------------------+-----------------------------+
+| DELETE | :ref:`delete-user` | Delete a XiVO user          |
++--------+--------------------+-----------------------------+
 
 
 .. _user-properties:
@@ -468,6 +470,44 @@ Update a user. If the firstname or the lastname is modified, the associated voic
 +------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 | 400        | Incorrect parameters sent: parameter1, parameter2 | The request body contained incorrect parameters. The incorrect parameters are listed. |
 +------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
+
+.. _delete-user:
+
+DELETE /1.0/users/<id>
+^^^^^^^^^^^^^^^^^^^^^^
+Delete a user along with its SIP line if he has one. This will be rejected if the user owns a voicemail, unless a parameter "deleteVoicemail" is specified.
+The user will also be removed to all queues, groups or other XiVO entities whom he is member.
+
+**Parameters**
+
+* deleteVoicemail (no value, it just needs to be present or not)
+
+**Request**
+
+::
+
+ DELETE /1.0/users/67 HTTP/1.1
+ Host: xivoserver:50051
+ 
+**Response**
+
+::
+
+ HTTP/1.1 200 OK
+ 
+**Errors**
+
++------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Error code | Error message                                                                               | Description                                                                                                                     |
++============+=============================================================================================+=================================================================================================================================+
+| 404        | empty                                                                                       | The requested user was not found                                                                                                |
++------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| 412        | Cannot remove a user with a voicemail. Delete the voicemail or dissociate it from the user. | The user owns a voicemail, so it cannot be deleted unless you specify the deleteVoicemail parameter                             |
++------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| 500        | The user was deleted but the device could not be reconfigured.                              | provd returned an error when trying to reconfigure the user's device                                                            |
++------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| 500        | The user was deleted but the voicemail content could not be removed.                        | sysconfd returned an error when trying to delete the user's voicemail. This can only happen if "deleteVoicemail" was specified. |
++------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
 Voicemails
 ----------
