@@ -16,8 +16,18 @@ Configuration
 REST web services are :
 
 * Available on the XiVO loopback network interface on port TCP/50050.
-* Available on https on port TCP/50051, authentication is configured using web service configuration menu using XiVO administration interface.
+* Available from the outside with https on port TCP/50051. However, accessing RestAPI from the outside requires to create a webservices user in the web interface
+  (Configuration/Management/Web Services Access):
 
+  * if an IP address is specified for the user, no authentication is needed
+  * if you choose not to specify an IP address for the user, you can connect to RestAPI with a HTTP Digest authentication, using the user name and password you provided.
+    For instance, the following command line allows to retrieve XiVO users through RestAPI, using the login **admin** and the password **passadmin** :
+
+.. code-block:: bash
+
+    curl --digest --user admin:passadmin https://<xivo_address>:50051/1.0/users/ --insecure
+    
+    
 How to use this page
 ====================
 
