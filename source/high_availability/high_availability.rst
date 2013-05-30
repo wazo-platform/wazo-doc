@@ -30,16 +30,7 @@ the notion of a primary and backup telephony server.
 * If firewalling, the master must be allowed to join the slave on port 5232
 * Trunk registration timeout (``expiry``) should be less than 300 seconds (5 minutes)
 
-The HA solution is guaranteed to work correctly with the following devices:
-
-* Aastra 6700i series, 3.2.2 firmware
-* Cisco 7911, firmware SCCP11.8-5-3S
-* Cisco 7912, firmware 8.0.4(080108A)
-* Cisco 7940, firmware 8.1(2.0)
-* Cisco 7941, firmware SCCP41.9-0-3S
-* Cisco 7941GE, firmware SCCP41.9-0-3S
-* Cisco 7960, firmware 8.1(2.0)
-* Cisco 7961, SCCP41.9-0-3S
+The HA solution is guaranteed to work correctly with :ref:`the following devices <devices>`.
 
 
 Quick Summary
