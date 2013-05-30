@@ -94,6 +94,13 @@ API changes:
 
 * Dialplan variable XIVO_INTERFACE_0 is now XIVO_INTERFACE
 * Dialplan variable XIVO_INTERFACE_NB and XIVO_INTERFACE_COUNT have been removed
+* The following fields have been removed from the lines and users web services
+
+  * line_num
+  * roles_group
+  * rules_order
+  * rules_time
+  * rules_type
 
 
 13.10 Upgrade Notes
