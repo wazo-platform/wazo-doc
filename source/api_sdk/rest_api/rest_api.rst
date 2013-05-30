@@ -16,8 +16,18 @@ Configuration
 REST web services are :
 
 * Available on the XiVO loopback network interface on port TCP/50050.
-* Available on https on port TCP/50051, authentication is configured using web service configuration menu using XiVO administration interface.
+* Available from the outside with https on port TCP/50051. However, accessing RestAPI from the outside requires to create a webservices user in the web interface
+  (Configuration/Management/Web Services Access):
 
+  * if an IP address is specified for the user, no authentication is needed
+  * if you choose not to specify an IP address for the user, you can connect to RestAPI with a HTTP Digest authentication, using the user name and password you provided.
+    For instance, the following command line allows to retrieve XiVO users through RestAPI, using the login **admin** and the password **passadmin** :
+
+.. code-block:: bash
+
+    curl --digest --user admin:passadmin https://<xivo_address>:50051/1.0/users/ --insecure
+    
+    
 How to use this page
 ====================
 
@@ -175,6 +185,79 @@ The error messages are contained in a JSON list, even if there is only one error
 XiVO
 ====
 
+Agents
+------
+An agent is responsible for answering calls on one or several queues.
+
++--------+--------------------+---------------------------------+
+| Method | Ressource          | Description                     |
++========+====================+=================================+
+| GET    | :ref:`list-agents` | Return a list of all the agents |
++--------+--------------------+---------------------------------+
+
+.. _agent_properties:
+
+Agent properties
+^^^^^^^^^^^^^^^^
+
+.. code-block:: javascript
+
+   {
+      "id": 19,
+      "autologoff": 0,
+      "group": null,
+      "language": "",
+      "firstname": "Chuck",
+      "passwd": "",
+      "lastname": "N",
+      "number": "2123",
+      "context": "default",
+      "numgroup": 1,
+      "preprocess_subroutine": null,
+      "description": ""
+   }
+
+.. _list-agents:
+
+GET /1.0/CallCenter/agents/
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Return a list all the agents :
+
+**Parameters**
+
+* None
+
+**Request**
+
+::
+
+ GET /1.0/CallCenter/agents/
+ Host : xivoserver:50051
+
+**Response**
+
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    [
+       {
+          "id": 19,
+          "autologoff": 0,
+          ...
+       },
+       {
+          "id": 20,
+          "autologoff": 0,
+          ...
+       }
+    ]
+
+
 Users
 -----
 Users are XiVO objects using phone sets, users can associated with lines, can be in groups or can have phone keys.
@@ -190,12 +273,14 @@ Users are XiVO objects using phone sets, users can associated with lines, can be
 +--------+--------------------+-----------------------------+
 | PUT    | :ref:`update-user` | Update a XiVO user          |
 +--------+--------------------+-----------------------------+
+| DELETE | :ref:`delete-user` | Delete a XiVO user          |
++--------+--------------------+-----------------------------+
 
 
 .. _user-properties:
 
 User properties
----------------
+^^^^^^^^^^^^^^^
 
 .. code-block:: javascript
 
@@ -225,54 +310,22 @@ User properties
 
 If the user does not have a line, the "line" property is not displayed.
 
-Voicemails
-----------
-
-Voicemails are XiVO objects with several properties such as a phone number, a e-mail, etc...
-
-+--------+-------------------------+-----------------------------+
-| Method | Ressource               | Description                 |
-+========+=========================+=============================+
-| GET    | :ref:`list-voicemails`  | Return a list of voicemails |
-+--------+-------------------------+-----------------------------+
-| PUT    | :ref:`update-voicemail` | Update a voicemail          |
-+--------+-------------------------+-----------------------------+
-
-Voicemail properties
---------------------
-
-.. code-block:: javascript
-
-    {
-       "id": 1,
-       "email": "john.doe@bar.com",
-       "fullname":"John Doe",
-       "mailbox": "123",
-       "password": "123",
-       "attach": 1,
-       "skipcheckpass" : 0,
-       "deleteaftersend" : 0
-    }
-   
 .. _list-users:
 
 GET /1.0/users/
----------------
-
+^^^^^^^^^^^^^^^
 Return a list of xivo users :
 
-Parameters
-^^^^^^^^^^
+**Parameters**
 
 * None
 
-Request
-^^^^^^^
+**Request** :
 
 ``GET https://xivoserver:50051/1.0/users/``
 
-Response
-^^^^^^^^
+**Response**
+
 ::
 
  HTTP/1.1 200 OK
@@ -285,12 +338,12 @@ Response
         "items":
         [
             {
-                "id": "1"
+                "id": "1",
                 "firstname": "John",
                 "lastname": "Doe",
             },
             {
-                "id": "2"
+                "id": "2",
                 "firstname": "Alice",
                 "lastname": "Houet",
             }
@@ -301,22 +354,22 @@ Response
 .. _get-user:
 
 GET /1.0/users/<id>
--------------------
+^^^^^^^^^^^^^^^^^^^
 Return a specific user
 
-Parameters
-^^^^^^^^^^
+**Parameters**
+
 * None
 
-Request
-^^^^^^^
+**Request**
+
 ::
 
  GET /1.0/users/1 HTTP/1.1
  Host : xivoserver:50051
 
-Response
-^^^^^^^^
+**Response**
+
 ::
 
  HTTP/1.1 200 OK
@@ -333,8 +386,7 @@ Response
 
 See :ref:`user-properties` for other properties.
 
-Errors
-^^^^^^
+**Errors**
 
 +------------+---------------+----------------------------------+
 | Error code | Error message | Description                      |
@@ -346,16 +398,16 @@ Errors
 .. _create-user:
 
 POST /1.0/users/
-----------------
+^^^^^^^^^^^^^^^^
 Create a user
 
-Parameters
-^^^^^^^^^^
+**Parameters**
+
 * None
 
-Request
-^^^^^^^
-::
+**Request**
+
+:::::::::::
 
  POST /1.0/users/ HTTP/1.1
  Host : xivoserver:50051
@@ -372,15 +424,14 @@ Request
 See :ref:`user-properties` for other properties.
 
 
-Response
-^^^^^^^^
-::
+**Response**
+
+::::::::::::
 
  HTTP/1.1 201 Created
  Location: https://xivoserver:50051/1.0/users/38
 
-Errors
-^^^^^^
+**Errors**
 
 +------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 | Error code | Error message                                     | Description                                                                           |
@@ -391,15 +442,15 @@ Errors
 .. _update-user:
 
 PUT /1.0/users/<id>
--------------------
-Update a user. If the firstname or the lastname is modified, the associated voicemail will not be modified.
+^^^^^^^^^^^^^^^^^^^
+Update a user. If the firstname or the lastname is modified, the associated voicemail will be modified.
 
-Parameters
-^^^^^^^^^^
+**Parameters**
+
 * None
 
-Request
-^^^^^^^
+**Request**
+
 ::
 
  PUT /1.0/users/67 HTTP/1.1
@@ -413,15 +464,14 @@ Request
       "voicemailid": 17
     }
 
-Response
-^^^^^^^^
+**Response**
+
 ::
 
  HTTP/1.1 200 OK
  Location: https://xivoserver:50051/1.0/users/67
 
-Errors
-^^^^^^
+**Errors**
 
 +------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 | Error code | Error message                                     | Description                                                                           |
@@ -431,25 +481,90 @@ Errors
 | 400        | Incorrect parameters sent: parameter1, parameter2 | The request body contained incorrect parameters. The incorrect parameters are listed. |
 +------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 
+.. _delete-user:
+
+DELETE /1.0/users/<id>
+^^^^^^^^^^^^^^^^^^^^^^
+Delete a user along with its SIP line if he has one. This will be rejected if the user owns a voicemail, unless a parameter "deleteVoicemail" is specified.
+The user will also be removed to all queues, groups or other XiVO entities whom he is member.
+
+**Parameters**
+
+* deleteVoicemail (no value, it just needs to be present or not)
+
+**Request**
+
+::
+
+ DELETE /1.0/users/67 HTTP/1.1
+ Host: xivoserver:50051
+ 
+**Response**
+
+::
+
+ HTTP/1.1 200 OK
+ 
+**Errors**
+
++------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Error code | Error message                                                                               | Description                                                                                                                     |
++============+=============================================================================================+=================================================================================================================================+
+| 404        | empty                                                                                       | The requested user was not found                                                                                                |
++------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| 412        | Cannot remove a user with a voicemail. Delete the voicemail or dissociate it from the user. | The user owns a voicemail, so it cannot be deleted unless you specify the deleteVoicemail parameter                             |
++------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| 500        | The user was deleted but the device could not be reconfigured.                              | provd returned an error when trying to reconfigure the user's device                                                            |
++------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| 500        | The user was deleted but the voicemail content could not be removed.                        | sysconfd returned an error when trying to delete the user's voicemail. This can only happen if "deleteVoicemail" was specified. |
++------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+
+Voicemails
+----------
+
+Voicemails are XiVO objects with several properties such as a phone number, a e-mail, etc...
+
++--------+-------------------------+-----------------------------+
+| Method | Ressource               | Description                 |
++========+=========================+=============================+
+| GET    | :ref:`list-voicemails`  | Return a list of voicemails |
++--------+-------------------------+-----------------------------+
+| PUT    | :ref:`update-voicemail` | Update a voicemail          |
++--------+-------------------------+-----------------------------+
+
+Voicemail properties
+^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: javascript
+
+    {
+       "id": 1,
+       "email": "john.doe@bar.com",
+       "fullname":"John Doe",
+       "mailbox": "123",
+       "password": "123",
+       "attach": 1,
+       "skipcheckpass" : 0,
+       "deleteaftersend" : 0
+    }
+
 .. _list-voicemails:
 
 GET /1.0/voicemails/
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 Return a list of all voicemails :
 
-Parameters
-^^^^^^^^^^
+**Parameters**
 
 * None
 
-Request
-^^^^^^^
+**Request**
 
 ``GET https://xivoserver:50051/1.0/voicemails``
 
-Response
-^^^^^^^^
+**Response**
+
 ::
 
  HTTP/1.1 200 OK
@@ -480,16 +595,16 @@ Response
 .. _update-voicemail:
 
 PUT /1.0/voicemails/<voicemailid>
----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Update a voicemail.
 
-Parameters
-^^^^^^^^^^
+**Parameters**
+
 * None
 
-Request
-^^^^^^^
+**Request**
+
 ::
 
  PUT /1.0/voicemails/37 HTTP/1.1
@@ -503,15 +618,14 @@ Request
       "email": "xivo@avencall.com"
     }
 
-Response
-^^^^^^^^
+**Response**
+
 ::
 
  HTTP/1.1 200 OK
  Location: https://xivoserver:50051/1.0/voicemails/37
 
-Errors
-^^^^^^
+**Errors**
 
 +------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 | Error code | Error message                                     | Description                                                                           |
@@ -522,3 +636,481 @@ Errors
 +------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 
 
+
+Queues
+------
+A queue is an object on which calls are stored until they are answered by an agent.
+
++--------+--------------------+---------------------------------+
+| Method | Ressource          | Description                     |
++========+====================+=================================+
+| GET    | :ref:`list-queues` | Return a list of all the queues |
++--------+--------------------+---------------------------------+
+
+.. _queue_properties:
+
+Queue properties
+^^^^^^^^^^^^^^^^
+
+.. code-block:: javascript
+
+    {
+        "id": 1,
+        "name": "my_queue",
+        "displayname": "My queue",
+        "number": "2000",
+        "context": "default",
+        "data_quality": 0,
+        "hitting_callee": 0,
+        "hitting_caller": 0,
+        "retries": 0,
+        "ring": 0,
+        "transfer_user": 0,
+        "transfer_call": 0,
+        "write_caller": 0,
+        "write_calling": 0,
+        "url": "",
+        "announceoverride": "",
+        "timeout": 0,
+        "preprocess_subroutine": "test-subroutine",
+        "announce_holdtime": 0,
+        "waittime": 0,
+        "waitratio": 0
+    }
+.. _list-queues:
+
+GET /1.0/CallCenter/queues/
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Return a list all the queues :
+
+**Parameters**
+
+
+* None
+
+**Request**
+
+::
+
+ POST /1.0/CallCenter/queues/
+ Host : xivoserver:50051
+
+**Response**
+
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    
+     [
+         {
+             "id": 1,
+             "name": "my_queue",
+             ...
+         },
+         {
+             "id": 2,
+             "name": "your_queue",
+             ...
+         }
+     ]
+
+Recording campaigns
+-------------------
+Recording campaigns aim at recording all the calls on a given queue for a given period of time.
+
++--------+------------------------+-----------------------------+
+| Method | Ressource              | Description                 |
++========+========================+=============================+
+| GET    | :ref:`list-campaigns`  | Return a list of campaigns  |
++--------+------------------------+-----------------------------+
+| GET    | :ref:`get-campaign`    | Return a specific campaign  |
++--------+------------------------+-----------------------------+
+| POST   | :ref:`create-campaign` | Create a recording campaign |
++--------+------------------------+-----------------------------+
+| PUT    | :ref:`update-campaign` | Update a recording campaign |
++--------+------------------------+-----------------------------+
+| DELETE | :ref:`delete-campaign` | Delete a recording campaign |
++--------+------------------------+-----------------------------+
+
+
+.. _campaign-properties:
+
+Recording Campaign properties
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: javascript
+
+    {
+        "id": "1",
+        "campaign_name": "new_campaign",
+        "start_date": "2013-01-22 14:53:33",
+        "end_date": "2013-01-22 17:53:36",
+        "queue_id": "1",
+        "activated": "True",
+        "base_filename": "new_campaign-file-"
+    }
+
+
+.. _list-campaigns:
+
+GET /1.0/recording_campaigns/
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Return a list of recording campaigns :
+
+**Parameters**
+
+* campaign_name : filter on the campaign name
+* queue_id : filter on the queue id
+* queue_number : filter on the queue number
+* running : the campaign must be currently active (current date must be between the start date and the end date)
+
+**Request**
+
+::
+
+ GET /1.0/recording_campaigns/[?param1=val1[&param2=val2]]
+ Host : xivoserver:50051
+
+**Response**
+
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+        "total": 2,
+        "items":
+        [
+            {
+                 "id": "1"
+                 "campaign_name": "campaign1",
+                 ...
+            },
+            {
+                 "id": "2"
+                 "campaign_name": "campaign2",
+                 ...
+            }
+        ]
+    }
+
+.. _get-campaign:
+
+GET /1.0/recording_campaigns/<id>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Return the recording campaign with the given id
+
+**Parameters**
+
+* None
+
+**Request**
+
+::
+
+ GET /1.0/recording_campaigns/<id>
+ Host : xivoserver:50051
+
+**Response**
+
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+        "total": 1,
+        "items":
+        [
+            {
+                 "id": "1"
+                 "campaign_name": "campaign1",
+                 ...
+            }
+        ]
+    }
+
+.. _create-campaign:
+
+POST /1.0/recording_campaigns/
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Creates a campaign and returns the generated id.
+
+**Parameters**
+
+* None
+
+**Request**
+
+::
+
+ GET /1.0/recording_campaigns/<id>
+ Host : xivoserver:50051
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+      "campaign_name": "my campaign",
+      "queue_id": "2",
+      ...
+    }
+
+**Response**
+
+::
+
+ HTTP/1.1 201 CREATED
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+   "1"
+
+.. _update-campaign:
+
+PUT /1.0/recording_campaigns/<id>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Update the recording campaign with the given id.
+
+**Parameters**
+
+* None
+
+**Request**
+
+::
+
+ PUT /1.0/recording_campaigns/<id>
+ Host : xivoserver:50051
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+      "campaign_name": "my campaign",
+      "queue_id": "2",
+      ...
+    }
+
+**Response**
+
+::
+
+ HTTP/1.1 200 OK
+
+.. _delete-campaign:
+
+DELETE /1.0/recording_campaigns/<id>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Delete the recording campaign with the given id.
+
+**Parameters**
+
+* None
+
+**Request**
+
+::
+
+ PUT /1.0/recording_campaigns/<id>
+ Host : xivoserver:50051
+
+**Response**
+
+::
+
+ HTTP/1.1 200 OK
+
+Recordings
+----------
+A recording represents the sound file of a conversation in the scope of a recording campaign.
+
++--------+--------------------------+--------------------------------------------------+
+| Method | Ressource                | Description                                      |
++========+==========================+==================================================+
+| GET    | :ref:`list-recordings`   | Return a list of recordings for a given campaign |
++--------+--------------------------+--------------------------------------------------+
+| GET    | :ref:`search-recordings` | Searches a recording with some specific criteria |
++--------+--------------------------+--------------------------------------------------+
+| POST   | :ref:`create-recording`  | Creates a recording                              |
++--------+--------------------------+--------------------------------------------------+
+| DELETE | :ref:`delete-recording`  | Delete a recording                               |
++--------+--------------------------+--------------------------------------------------+
+
+
+.. _recording-properties:
+
+Recording properties
+^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: javascript
+
+    {
+        "cid": "123.456",
+        "start_time": "2013-01-22 14:53:33",
+        "caller": "0231156897",
+        "client_id": "abcd",
+        "filename": "file.wav",
+
+
+.. _list-recordings:
+
+GET /1.0/recording_campaigns/<campaign_id>/
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Return a list of recordings for the given campaign:
+
+**Parameters**
+
+* None
+
+**Request**
+
+::
+
+ GET /1.0/recording_campaigns/<campaign_id>/
+ Host : xivoserver:50051
+
+**Response**
+
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+        "total": 2,
+        "items":
+        [
+            {
+                 "cid": "123.456"
+                 "campaign_id": 1,
+                 ...
+            },
+            {
+                 "cid": "456.789"
+                 "campaign_id": 1,
+                 ...
+            }
+        ]
+    }
+
+.. _search-recordings:
+
+GET /1.0/recording_campaigns/<campaign_id>/search
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Searches recordings in the given campaign whose fields "caller" or "agent_no" match the specified key:
+
+**Parameters**
+
+* None
+
+**Request**
+
+::
+
+ GET /1.0/recording_campaigns/<campaign_id>/search/?key=<searched number>
+ Host : xivoserver:50051
+
+**Response**
+
+::
+
+ HTTP/1.1 200 OK
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+        "total": 2,
+        "items":
+        [
+            {
+                 "cid": "123.456"
+                 "campaign_id": 1,
+                 ...
+            },
+            {
+                 "cid": "456.789"
+                 "campaign_id": 1,
+                 ...
+            }
+        ]
+    }
+
+.. _create-recording:
+
+POST /1.0/recording_campaigns/<campaign_id>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Creates a recording in the given campaign. It is the responsibility of the caller to send a unique cid. However, it is advisable
+to use the cid generated by Asterisk for the associated call.
+
+**Parameters**
+
+* None
+
+**Request**
+
+::
+
+ POST /1.0/recording_campaigns/<campaign_id>/
+ Host : xivoserver:50051
+ Content-Type: application/json;charset=UTF-8
+
+.. code-block:: javascript
+
+    {
+      "cid": "123.456"
+      "campaign_id": 1,
+      ...
+    }
+
+**Response**
+
+::
+
+ HTTP/1.1 201 CREATED
+
+.. _delete-recording:
+
+DELETE /1.0/recording_campaigns/<campaign_id>/<recording_cid>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Deletes the recording in the given campaign, with the given cid.
+
+**Parameters**
+
+* None
+
+**Request**
+
+::
+
+ DELETE /1.0/recording_campaigns/<campaign_id>/<recording_cid>
+ Host : xivoserver:50051
+
+**Response**
+
+::
+
+ HTTP/1.1 200 OK
