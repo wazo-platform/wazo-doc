@@ -5,11 +5,13 @@ Channel Event Logging (CEL)
 CELs are the mechanism used by Asterisk to store telephony events. XiVO uses
 CELs instead of CDRs since they are more accurate and flexible.
 
+
 Official Documentation
 ======================
 
 Asterisk's CEL documentation can be accessed online on the
 `Asterisk wiki <https://wiki.asterisk.org/wiki/display/AST/Channel+Event+Logging+%28CEL%29>`_.
+
 
 CEL Samples
 ===========
@@ -22,6 +24,7 @@ The following configuration will be used for the following examples.
 * External calls to DID `445` are sent to `1000`
 * External calls to DID `446` are sent to `1001`
 * Our DID number is `555-555-6666`
+
 
 Outgoing Call
 -------------
@@ -46,6 +49,7 @@ Outgoing Call
     54057 | HANGUP       | 2012-03-29 09:50:13.906855 |             | 5555556666     | 5555556666 | 1000    |           | 5555555555 | dial       | outcall | SIP/zzc0ok-00000217                      |         |                                                   |        3 |             |             | 1333029000.739 | 1333029000.739 |           | 
     54058 | CHAN_END     | 2012-03-29 09:50:13.907034 |             | 5555556666     | 5555556666 | 1000    |           | 5555555555 | dial       | outcall | SIP/zzc0ok-00000217                      |         |                                                   |        3 |             |             | 1333029000.739 | 1333029000.739 |           | 
    (11 rows)
+
 
 Internal Call
 -------------
@@ -87,6 +91,7 @@ Internal Call
     8584 | HANGUP     | 2012-03-28 14:02:27.164036 |             | Tux       | 1000    | 1000    |           | 1001     | s      | hangup      | SIP/k6ztm5-0000000e |         |                 |        3 |             |             | 1332957731.14 | 1332957731.14 |           | 
     8585 | CHAN_END   | 2012-03-28 14:02:27.164529 |             | Tux       | 1000    | 1000    |           | 1001     | s      | hangup      | SIP/k6ztm5-0000000e |         |                 |        3 |             |             | 1332957731.14 | 1332957731.14 |           | 
    (8 rows)
+
 
 Internal Call Using Originate
 -----------------------------
@@ -141,6 +146,7 @@ Internal Call Using Originate
     8604 | CHAN_END   | 2012-03-28 14:08:34.431759 |             | 1001     | 1001    | 1001    |           |          | 1001  | default | SIP/k6ztm5-00000014 |         |         |        3 |             |             | 1332958101.20 | 1332958101.20 |           | 
    (3 rows)
 
+
 External Call
 -------------
 
@@ -181,6 +187,7 @@ External Call
     8626 | HANGUP     | 2012-03-28 14:12:26.202676 |             | 5555555555 | 5555555555 | 5555555555 |           | 446      | s      | hangup      | SIP/pcm_dev-00000019 |         |                 |        3 |             |             | 1332958333.25 | 1332958333.25 |           | 
     8627 | CHAN_END   | 2012-03-28 14:12:26.203237 |             | 5555555555 | 5555555555 | 5555555555 |           | 446      | s      | hangup      | SIP/pcm_dev-00000019 |         |                 |        3 |             |             | 1332958333.25 | 1332958333.25 |           | 
    (8 rows)
+
 
 Blind Transfer
 --------------
@@ -242,6 +249,7 @@ Blind Transfer
     8751 | CHAN_END     | 2012-03-28 14:37:33.133324 |             | 5555555555 | 5555555555 | 5555555555 |           | 445      | s      | hangup      | SIP/pcm_dev-0000002e |         |                 |        3 |             |             | 1332959836.46 | 1332959836.46 |           | 
    (16 rows)
 
+
 Attended transfer
 -----------------
 
@@ -281,6 +289,7 @@ Attended transfer
     8790 | CHAN_END     | 2012-03-28 14:53:18.147343 |             | 5555555555 | 5555555555 | 5555555555 |           | 445      | s     | user        | SIP/pcm_dev-00000034        |         |                 |        3 |             |             | 1332960784.54 | 1332960776.52 |           | 
    (23 rows)
 
+
 Voice Mail
 ----------
 
@@ -316,6 +325,7 @@ Voice Mail
     8823 | HANGUP     | 2012-03-28 15:25:09.215869 |             | Tux      | 1000    | 1000    |           | *98      | s      | vmusermsg   | SIP/k6ztm5-00000040 |         |         |        3 |             |             | 1332962667.64 | 1332962667.64 |           | 
     8824 | CHAN_END   | 2012-03-28 15:25:09.215914 |             | Tux      | 1000    | 1000    |           | *98      | s      | vmusermsg   | SIP/k6ztm5-00000040 |         |         |        3 |             |             | 1332962667.64 | 1332962667.64 |           | 
    (4 rows)
+
 
 Call Forward
 ------------
@@ -355,6 +365,7 @@ Call Forward
     8840 | CHAN_END      | 2012-03-29 07:57:24.588359 |               | 5555555555 | 5555555555 | 5555555555 |           | 445      | s                 | user        | SIP/pcm_dev-00000042 |                 |                         |        3 |             |             | 1333022225.66 | 1333022225.66 |           | 
    (11 rows)
 
+
 Call To a Queue
 ---------------
 
@@ -391,6 +402,7 @@ Call To a Queue
     8880 | HANGUP       | 2012-03-29 08:18:31.823143 |             | 5555555555 | 5555555555 | 5555555555 |           | 444      | s               | hangup      | SIP/pcm_dev-00000002              |          |                                   |        3 |             |             | 1333023493.2 | 1333023493.2 |           | 
     8881 | CHAN_END     | 2012-03-29 08:18:31.823175 |             | 5555555555 | 5555555555 | 5555555555 |           | 444      | s               | hangup      | SIP/pcm_dev-00000002              |          |                                   |        3 |             |             | 1333023493.2 | 1333023493.2 |           | 
    (23 rows)
+
 
 Call To the Operator
 --------------------
@@ -472,15 +484,18 @@ Call To the Operator
     8942 | CHAN_END     | 2012-03-29 08:41:25.83061  |             | 5555555555 | 5555555555 | 5555555555 |           | 447      | s               | user        | SIP/pcm_dev-00000007              |          |                      |        3 |             |             | 1333024874.13 | 1333024874.13 |           | 
    (32 rows)
 
+
 Userfield with CEL
 ------------------
 
-The CEL table has a field named `userfield` which is void by default and which can be enriched from 
-the dialplan with context information.
+The CEL table has a field named *userfield* which is used on outgoing calls when the caller
+has a userfield set in his configuration. The *userfield* can be enriched from the
+dialplan with context information.
+
 To set the value of the field from the dialplan you have to you the asterisk function 
-`CHANNEL(userfield)`, for example::
+*CHANNEL(userfield)*, for example::
 
    Set(CHANNEL(userfield)=${MY_DIALPLAN_VAR})
 
-Note : for those who used the same `userfield` information in the CDR by calling 
-the function `CDR(userfield)`, you have to replace it with the function `CHANNEL(userfield)`.
+Note : for those who used the same *userfield* information in the CDR by calling
+the function *CDR(userfield)*, you have to replace it with the function *CHANNEL(userfield)*.
