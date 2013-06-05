@@ -460,8 +460,9 @@ Update a user. If the firstname or the lastname is modified, the associated voic
 .. code-block:: javascript
 
     {
-      "email": "John@amaryt.com",
-      "voicemailid": 17
+      "firstname": "John",
+      "lastname": "Doe",
+      ................
     }
 
 **Response**
