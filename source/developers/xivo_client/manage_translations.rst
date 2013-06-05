@@ -21,13 +21,22 @@ Example::
 
    tr("Number");
 
-* ``utils/translations.sh`` pull
-* ``utils/translations.sh`` commit
-* ``utils/translations.sh`` push
-* Go to `transifex <https://www.transifex.com/projects/p/xivo/language/fr/>`_, check 100% for french on xivo-client
-* ``utils/translations.sh`` pull
-* ``git commit``
-* ``git push``
+Updating translations on transifex
+----------------------------------
+
+Run the following commands from the root of the xivo-client-qt project::
+
+    utils/translations.sh pull
+    utils/translations.sh commit
+    utils/translations.sh push
+
+After these first 3 commands, you can visit `transifex <https://www.transifex.com/projects/p/xivo/language/fr/>`_, and check that the xivo-client is 100% translated for your language. Once all the translations have been checked, run the 3 following commands::
+
+    utils/translations.sh pull
+    git commit
+    git push
+
+.. warning:: Under Arch Linux, you must have qt4 installed and prepend ``PATH=/usr/lib/qt4/bin:$PATH`` before each command
 
 
 Add a new XiVO Client locale
