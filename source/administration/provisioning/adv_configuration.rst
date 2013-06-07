@@ -156,3 +156,36 @@ we need to create a template named :file:`00085D2EECFB.cfg.tpl`::
 
 The template to use as the base for a device specific template will vary depending on the need.
 Typically, the model template will be a good choice, but it might not always be the case.
+
+
+Changing the Plugin Used by a Device
+====================================
+
+From time to time, new firmwares are released by the devices manufacturer.
+This sometimes translate to a new plugin being available for these devices.
+
+When this happens, it almost always means the new plugin obsoletes the older one.
+The older plugin is then considered "end-of-life", and won't receive any new updates
+nor be available for new installation.
+
+Let's suppose we have the old ``xivo-aastra-3.2.2.1136`` plugin installed on our
+xivo and want to use the newer ``xivo-aastra-3.2.2-SP3`` plugin.
+
+Both these plugins can be installed at the same time, and you can manually change
+the plugin used by a phone by editing it via the :menuselection:`Services --> IPBX --> Devices`
+page.
+
+If you are using custom templates in your old plugin, you should copy
+them to the new plugin and make sure that they are still compatible.
+
+Once you take the decision to migrate all your phones to the new plugin, you can
+use the following command::
+
+   provd_pycli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.2.2-SP3")'
+
+Or, if you also want to synchronize (i.e. reboot) them at the same time::
+
+   provd_pycli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.2.2-SP3", synchronize=True)'
+
+You can check that all went well by looking at the :menuselection:`Services --> IPBX --> Devices`
+page.
