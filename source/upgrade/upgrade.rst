@@ -89,6 +89,7 @@ Here are the steps for upgrading a cluster:
 ===================
 
 * Consult the `13.11 Roadmap <https://projects.xivo.fr/versions/177>`_
+* Asterisk has been upgraded from version 11.3.0 to 11.4.0
 
 API changes:
 
