@@ -21,8 +21,8 @@ It is *not* activated by default.
 
 There's a few things to know about the peculiarities of the included DHCP server:
 
-* it only answer to DHCP requests from :ref:`supported devices <devices>`.
-* it only answer to DHCP requests coming from the VoIP subnet
+* it only answers to DHCP requests from :ref:`supported devices <devices>`.
+* it only answers to DHCP requests coming from the VoIP subnet (see :ref:`network configuration <network_configuration>`).
 
 This means that if your phones are on the same broadcast domain than your computers,
 and you would like the DHCP server on your XiVO to handle both your phones and your
