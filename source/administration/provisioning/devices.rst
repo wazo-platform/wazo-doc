@@ -328,21 +328,23 @@ Snom
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-300      |n|         6          |n|
-320      |y|         12         |n|
-360      |n|         |u|        |n|
-370      |n|         12         |n|
-710      |y|         5          |n|
-720      |y|         18         |n|
-760      |y|         12         |n|
-820      |y|         4          |n|
-821      |n|         |u|        |n|
-870      |y|         15         |n|
-MP       |n|         |u|        |n|
-PA1      |n|         0          |n|
+300      |n|         6          |y|
+320      |y|         12         |y|
+360      |n|         |u|        |y|
+370      |n|         12         |y|
+710      |y|         5          |y|
+720      |y|         18         |y|
+760      |y|         12         |y|
+820      |y|         4          |y|
+821      |n|         |u|        |y|
+870      |y|         15         |y|
+MP       |n|         |u|        |y|
+PA1      |n|         0          |y|
 ======== =========== ========== ============
 
 .. note:: For some models, function keys are shared with line keys
+
+.. warning:: If you are using Snom phones with HA, you should not assign multiple lines to the same device.
 
 There's a known issue with the provisioning of Snom phones in XiVO:
 

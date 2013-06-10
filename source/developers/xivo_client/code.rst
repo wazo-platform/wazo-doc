@@ -349,6 +349,36 @@ Usage::
 
 You need to fill a file :file:`valgrind.supp` with Valgrind suppressions, to avoid displaying errors in code you have no control over.
 
+Here is a template :file:`valgrind.supp` you can use. All memory in the XiVO Client is allocated using the new operator, so all calls to ``malloc`` and co. must come from libraries::
+
+    {
+       malloc
+       Memcheck:Leak
+       fun:malloc
+       ...
+    }
+    
+    {
+       calloc
+       Memcheck:Leak
+       fun:calloc
+       ...
+    }
+    
+    {
+       realloc
+       Memcheck:Leak
+       fun:realloc
+       ...
+    }
+    
+    {
+       memalign
+       Memcheck:Leak
+       fun:memalign
+       ...
+    }
+
 Figures
 =======
 

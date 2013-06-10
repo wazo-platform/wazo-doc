@@ -510,6 +510,10 @@ These messages can also be received without any request as unsolicited messages.
 
 User status
 ^^^^^^^^^^^
+User status is to manage user presence 
+
+- Request user status update 
+
 ``Client -> Server``
 
 .. code-block:: javascript
@@ -528,6 +532,29 @@ User status
       "listname": "users",
       "status": {"availstate": "outtolunch", "connection": "yes"},
             "tid": "1", "timenow": 1364994093.48, "tipbxid": "xivo"}
+
+- Change User status
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+    {"availstate": "away", 
+        "class": "availstate", 
+        "commandid": 1946092392, 
+        "ipbxid": "xivo", 
+            "userid": "1"}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+    {"class": "getlist", 
+        "function": "updatestatus", 
+        "listname": "users", 
+        "status": {"availstate": "away"}, 
+        "tid": "1", "timenow": 1370523352.6, "tipbxid": "xivo"}
+
 
 Phone status
 ^^^^^^^^^^^^
