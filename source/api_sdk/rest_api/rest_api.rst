@@ -4,30 +4,29 @@
 REST API
 ********
 
-XiVO proposes a growing number of REST web services.
+The XiVO REST API is the new and privileged way to programmatically interact with XiVO.
 
-In the future, these services will replace existing
-:ref:`web services <web-services-api>`. The current version is version 1.0
+In the future, this web API will replace the existing :ref:`web services <web-services-api>`.
+
+The current version is 1.0.
 
 
 Configuration
 =============
 
-REST web services are :
+The REST API is available via HTTPS on port 50051. Accessing the REST API requires to create a
+webservices user in the web interface (Configuration/Management/Web Services Access):
 
-* Available on the XiVO loopback network interface on port TCP/50050.
-* Available from the outside with https on port TCP/50051. However, accessing RestAPI from the outside requires to create a webservices user in the web interface
-  (Configuration/Management/Web Services Access):
+* if an IP address is specified for the user, no authentication is needed
+* if you choose not to specify an IP address for the user, you can connect to the REST API with a HTTP Digest authentication, using the user name and password you provided.
+  For instance, the following command line allows to retrieve XiVO users through the REST API, using the login **admin** and the password **passadmin**::
 
-  * if an IP address is specified for the user, no authentication is needed
-  * if you choose not to specify an IP address for the user, you can connect to RestAPI with a HTTP Digest authentication, using the user name and password you provided.
-    For instance, the following command line allows to retrieve XiVO users through RestAPI, using the login **admin** and the password **passadmin** :
+     curl --digest --insecure -u admin:passadmin https://<xivo_address>:50051/1.0/users/
 
-.. code-block:: bash
+The REST API is also available on the loopback interface via HTTP on port 50050, with no
+authentication needed.
 
-    curl --digest --user admin:passadmin https://<xivo_address>:50051/1.0/users/ --insecure
-    
-    
+
 How to use this page
 ====================
 
@@ -499,13 +498,13 @@ The user will also be removed to all queues, groups or other XiVO entities whom 
 
  DELETE /1.0/users/67 HTTP/1.1
  Host: xivoserver:50051
- 
+
 **Response**
 
 ::
 
  HTTP/1.1 200 OK
- 
+
 **Errors**
 
 +------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
