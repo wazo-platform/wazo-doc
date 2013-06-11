@@ -933,11 +933,11 @@ record
 .. code-block:: javascript
 
    {
-            'class': 'ipbxcommand',
-            'command': 'record',
-            'subcommand': 'start',
-            'channel': 'SIP/x2gjtw-0000000d',
-            'commandid': 1423579492
+            "class": "ipbxcommand",
+            "command": "record",
+            "subcommand": "start",
+            "channel": "SIP/x2gjtw-0000000d",
+            "commandid": 1423579492
    }
 
  ``Server > Client``
@@ -1158,4 +1158,3 @@ Refer to ``MeetmeList.__init__`` for a callback registration example and to ``Me
 
 .. note:: The client's connection is injected in the command instance before calling callbacks functions.
    The client's connection is an ``interface_cti.CTI`` instance.
-
