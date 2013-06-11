@@ -4,8 +4,13 @@
 Supported Devices
 *****************
 
+Official support
+================
+
+The provisioning plugins of these phones will be supported through each XiVO version. Already supported features will remain so.
+
 Aastra
-======
+------
 
 6700i and 9000i series:
 
@@ -30,42 +35,8 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 The M670i and M675i expansion modules are supported.
 
 
-Alcatel-Lucent
-==============
-
-IP Touch series:
-
-====================== =========== ========== ============
-Model                  Tested [1]_ Fkeys [2]_ XiVO HA [3]_
-====================== =========== ========== ============
-4008 Extended Edition  |y|         4          |n|
-4018 Extended Edition  |y|         4          |n|
-====================== =========== ========== ============
-
-Note that you *must not* download the firmware for these phones unless you
-agree to the fact it comes from a non-official source.
-
-For the plugin to work fully, you need these additional packages::
-
-   apt-get install p7zip python-pexpect telnet
-
-
-Avaya
-=====
-
-1200 series IP Deskphones (previously known as Nortel IP Phones):
-
-======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
-======== =========== ========== ============
-1220 IP  |y|         0          |n|
-1230 IP  |n|         0          |n|
-======== =========== ========== ============
-
-
-
 Cisco
-=====
+-----
 
 
 Cisco Small Business SPA300 series:
@@ -200,85 +171,9 @@ The procedure is similar for the network locale and the user locale package, but
 
 .. note:: Currently user and network locale 9.0.2 should be used for plugins xivo-sccp-legacy and xivo-cisco-sccp-9.0.3
 
-Digium
-======
-
-Digium phones:
-
-======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
-======== =========== ========== ============
-D40      |y|         2          |n|
-D50      |n|         14         |n|
-D70      |y|         106        |n|
-======== =========== ========== ============
-
-.. note:: Some function keys are shared with line keys
-
-Particularities:
-
-* For best results, activate :ref:`dhcp-integration` on your XiVO.
-* English is the only language supported, other languages (e.g. french) are not supported.
-* Impossible to do directed pickup using a BLF function key.
-* Only supports DTMF in RFC2833 mode.
-* Does not work reliably with Cisco ESW520 PoE switch. When connected to such a switch, the D40
-  tends to reboot randomly, and the D70 does not boot at all.
-* It's important to not edit the phone configuration via the phones' web interface
-  when using these phones with XiVO.
-* Paging doesn't work.
-
-
-Gigaset
-=======
-
-Also known as Siemens.
-
-=========== =========== ========== ============
-Model       Tested [1]_ Fkeys [2]_ XiVO HA [3]_
-=========== =========== ========== ============
-C470 IP     |n|         0          |n|
-C475 IP     |n|         0          |n|
-C590 IP     |n|         0          |n|
-C595 IP     |n|         0          |n|
-C610 IP     |n|         0          |n|
-C610A IP    |n|         0          |n|
-S675 IP     |n|         0          |n|
-S685 IP     |n|         0          |n|
-N300 IP     |n|         0          |n|
-N300A IP    |n|         0          |n|
-N510 IP PRO |n|         0          |n|
-=========== =========== ========== ============
-
-
-Jitsi
-=====
-
-======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
-======== =========== ========== ============
-Jitsi    |y|         |u|        |n|
-======== =========== ========== ============
-
-Panasonic
-=========
-
-
-Panasonic KX-HTXXX series:
-
-======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
-======== =========== ========== ============
-KX-HT113   |n|         |u|         |n|
-KX-HT123   |n|         |u|         |n|
-KX-HT133   |n|         |u|         |n|
-KX-HT136   |n|         |u|         |n|
-======== =========== ========== ============
-
-.. note:: This phone is for testing for the moment
-
 
 Polycom
-=======
+-------
 
 SoundPoint IP:
 
@@ -323,7 +218,7 @@ VVX1500  |n|         0          |n|
 
 
 Snom
-====
+----
 
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
@@ -344,32 +239,19 @@ PA1      |n|         0          |y|
 
 .. note:: For some models, function keys are shared with line keys
 
-.. warning:: If you are using Snom phones with HA, you should not assign multiple lines to the same device.
+.. warning:: If you are using Snom phones with HA, you should not assign
+multiple lines to the same device.
 
 There's a known issue with the provisioning of Snom phones in XiVO:
 
 * After a factory reset of a phone, if no language and timezone are set for the
-  "default config device" in :menuselection:`XiVO --> Configuration --> Provisioning --> Template device`,
+  "default config device" in :menuselection:`XiVO --> Configuration -->
+Provisioning --> Template device`,
   you will be forced to select a default language and timezone on the phone UI.
 
 
-Technicolor
-===========
-
-Previously known as Thomson:
-
-======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
-======== =========== ========== ============
-ST2022   |n|         |u|        |n|
-ST2030   |y|         10         |n|
-======== =========== ========== ============
-
-.. note:: Function keys are shared with line keys
-
-
 Yealink
-=======
+-------
 
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
@@ -385,8 +267,140 @@ T38G     |y|         16         |n|
 .. note:: Some function keys are shared with line keys
 
 
+
+Community support
+=================
+
+The provisioning plugins for these phones are provided for convenience, but they are not updated by Avencall.
+
+Alcatel-Lucent
+--------------
+
+IP Touch series:
+
+====================== =========== ========== ============
+Model                  Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+====================== =========== ========== ============
+4008 Extended Edition  |y|         4          |n|
+4018 Extended Edition  |y|         4          |n|
+====================== =========== ========== ============
+
+Note that you *must not* download the firmware for these phones unless you
+agree to the fact it comes from a non-official source.
+
+For the plugin to work fully, you need these additional packages::
+
+   apt-get install p7zip python-pexpect telnet
+
+
+Avaya
+-----
+
+1200 series IP Deskphones (previously known as Nortel IP Phones):
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+1220 IP  |y|         0          |n|
+1230 IP  |n|         0          |n|
+======== =========== ========== ============
+
+
+
+Digium
+------
+
+Digium phones:
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+D40      |y|         2          |n|
+D50      |n|         14         |n|
+D70      |y|         106        |n|
+======== =========== ========== ============
+
+.. note:: Some function keys are shared with line keys
+
+Particularities:
+
+* For best results, activate :ref:`dhcp-integration` on your XiVO.
+* English is the only language supported, other languages (e.g. french) are not supported.
+* Impossible to do directed pickup using a BLF function key.
+* Only supports DTMF in RFC2833 mode.
+* Does not work reliably with Cisco ESW520 PoE switch. When connected to such a switch, the D40
+  tends to reboot randomly, and the D70 does not boot at all.
+* It's important to not edit the phone configuration via the phones' web interface
+  when using these phones with XiVO.
+* Paging doesn't work.
+
+
+Gigaset
+-------
+
+Also known as Siemens.
+
+=========== =========== ========== ============
+Model       Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+=========== =========== ========== ============
+C470 IP     |n|         0          |n|
+C475 IP     |n|         0          |n|
+C590 IP     |n|         0          |n|
+C595 IP     |n|         0          |n|
+C610 IP     |n|         0          |n|
+C610A IP    |n|         0          |n|
+S675 IP     |n|         0          |n|
+S685 IP     |n|         0          |n|
+N300 IP     |n|         0          |n|
+N300A IP    |n|         0          |n|
+N510 IP PRO |n|         0          |n|
+=========== =========== ========== ============
+
+
+Jitsi
+-----
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+Jitsi    |y|         |u|        |n|
+======== =========== ========== ============
+
+Panasonic
+---------
+
+
+Panasonic KX-HTXXX series:
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+KX-HT113   |n|         |u|         |n|
+KX-HT123   |n|         |u|         |n|
+KX-HT133   |n|         |u|         |n|
+KX-HT136   |n|         |u|         |n|
+======== =========== ========== ============
+
+.. note:: This phone is for testing for the moment
+
+
+Technicolor
+-----------
+
+Previously known as Thomson:
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+ST2022   |n|         |u|        |n|
+ST2030   |y|         10         |n|
+======== =========== ========== ============
+
+.. note:: Function keys are shared with line keys
+
+
 Zenitel
-=======
+-------
 
 ========== =========== ========== ============
 Model      Tested [1]_ Fkeys [2]_ XiVO HA [3]_
@@ -407,4 +421,3 @@ Caption :
 .. |y| replace:: Yes
 .. |n| replace:: No
 .. |u| replace:: ---
-
