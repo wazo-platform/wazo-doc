@@ -27,14 +27,6 @@ The REST API is also available on the loopback interface via HTTP on port 50050,
 authentication needed.
 
 
-How to use this page
-====================
-
-This page lists the REST Web Services available in XiVO.
-Data is retrieved via the HTTP GET method, created using POST, updated using PUT and deleted using DELETE method.
-Data is encoded in JSON format.
-
-
 HTTP status codes
 =================
 
@@ -44,8 +36,8 @@ __ http://www.iana.org/assignments/http-status-codes/http-status-codes.xml
 
 * 200: Success
 * 201: Created
-* 400: Incorrect syntax (only for requests to add)
-* 404: Resource not found (for queries only view and delete)
+* 400: Incorrect syntax
+* 404: Resource not found
 * 406: Not acceptable
 * 412: Precondition failed
 * 415: Unsupported media type
@@ -65,9 +57,9 @@ Parameters:
  * _page - page number (items from X \* _page to (X+1) \* _pagesize)
  * _pagesize - number of items per page
 
+.. note:: Parameters starting by an _ means that it is not relevant to the data definition, but used
+          to control how objects are sent back from the server to the client.
 
-..    note:: Parameters starting by an _ means that it is not relevant to the data definition, but used 
-             to control how objects are sent back from the server to the client.
 
 Data representation
 ===================
@@ -82,11 +74,13 @@ JSON is used to encode returned or sent data. Therefore, the following headers a
 * when the request's body contains JSON:
    Content-Type = application/json
 
-..   note:: Optional properties can be added without changing the protocol version in the main list or in the object list itself. 
-            Properties will not be removed, type and name will not be modified.
+.. note:: Optional properties can be added without changing the protocol version in the main list or in the object list itself.
+          Properties will not be removed, type and name will not be modified.
+
 
 Getting object lists
 ^^^^^^^^^^^^^^^^^^^^
+
 ``GET /1.0/objects/``
 
 When returning lists the format is as follows:
@@ -104,20 +98,20 @@ Other optional properties can be added later.
         "items":
         [
             {
-                "id": "1"
-                "prop1": "test",
-                .......
+                "id": "1",
+                "prop1": "test"
             },
             {
-                "id": "2"
-                "prop1": "ssd",
-                ......
+                "id": "2",
+                "prop1": "ssd"
             }
         ]
     }
 
+
 Getting An Object
 ^^^^^^^^^^^^^^^^^
+
 Format returned is a list of properties.
 
 ``GET /1.0/objects/<id>/``
@@ -127,11 +121,9 @@ Format returned is a list of properties.
 .. code-block:: javascript
 
     {
-       "id": "1"
-       "prop1": "test",
-       .......
+       "id": "1",
+       "prop1": "test"
     }
-
 
 
 Data sent to the REST server
@@ -148,13 +140,13 @@ Only one item can be processed per request. The data format and required data fi
 .. code-block:: javascript
 
     {
-       "id": "1"
-       "prop1": "test",
-       .......
-     }
+       "id": "1",
+       "prop1": "test"
+    }
 
 When updating, only the id and updated properties are needed, omitted properties are not updated.
 Some properties can also be optional when creating an object.
+
 
 Errors
 ------
@@ -186,13 +178,13 @@ XiVO
 
 Agents
 ------
-An agent is responsible for answering calls on one or several queues.
 
 +--------+--------------------+---------------------------------+
 | Method | Ressource          | Description                     |
 +========+====================+=================================+
 | GET    | :ref:`list-agents` | Return a list of all the agents |
 +--------+--------------------+---------------------------------+
+
 
 .. _agent_properties:
 
@@ -216,12 +208,13 @@ Agent properties
       "description": ""
    }
 
+
 .. _list-agents:
 
 GET /1.0/CallCenter/agents/
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Return a list all the agents :
+Return a list all the agents:
 
 **Parameters**
 
@@ -231,15 +224,16 @@ Return a list all the agents :
 
 ::
 
- GET /1.0/CallCenter/agents/
- Host : xivoserver:50051
+   GET /1.0/CallCenter/agents/ HTTP/1.1
+   Host: xivoserver:50051
+   Accept: application/json
 
 **Response**
 
 ::
 
- HTTP/1.1 200 OK
- Content-Type: application/json;charset=UTF-8
+   HTTP/1.1 200 OK
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -259,7 +253,6 @@ Return a list all the agents :
 
 Users
 -----
-Users are XiVO objects using phone sets, users can associated with lines, can be in groups or can have phone keys.
 
 +--------+--------------------+-----------------------------+
 | Method | Ressource          | Description                 |
@@ -307,13 +300,15 @@ User properties
                }
     }
 
-If the user does not have a line, the "line" property is not displayed.
+If the user does not have a line, the "line" property is set to null.
+
 
 .. _list-users:
 
 GET /1.0/users/
 ^^^^^^^^^^^^^^^
-Return a list of xivo users :
+
+Return a list of xivo users:
 
 **Parameters**
 
@@ -321,14 +316,18 @@ Return a list of xivo users :
 
 **Request** :
 
-``GET https://xivoserver:50051/1.0/users/``
+::
+
+   GET /1.0/users/ HTTP/1.1
+   Host: xivoserver:50051
+   Accept: application/json
 
 **Response**
 
 ::
 
- HTTP/1.1 200 OK
- Content-Type: application/json;charset=UTF-8
+   HTTP/1.1 200 OK
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -354,6 +353,7 @@ Return a list of xivo users :
 
 GET /1.0/users/<id>
 ^^^^^^^^^^^^^^^^^^^
+
 Return a specific user
 
 **Parameters**
@@ -364,15 +364,16 @@ Return a specific user
 
 ::
 
- GET /1.0/users/1 HTTP/1.1
- Host : xivoserver:50051
+   GET /1.0/users/1 HTTP/1.1
+   Host: xivoserver:50051
+   Accept: application/json
 
 **Response**
 
 ::
 
- HTTP/1.1 200 OK
- Content-Type: application/json;charset=UTF-8
+   HTTP/1.1 200 OK
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -398,6 +399,7 @@ See :ref:`user-properties` for other properties.
 
 POST /1.0/users/
 ^^^^^^^^^^^^^^^^
+
 Create a user
 
 **Parameters**
@@ -406,11 +408,11 @@ Create a user
 
 **Request**
 
-:::::::::::
+::
 
- POST /1.0/users/ HTTP/1.1
- Host : xivoserver:50051
- Content-Type: application/json;charset=UTF-8
+   POST /1.0/users/ HTTP/1.1
+   Host: xivoserver:50051
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -422,13 +424,11 @@ Create a user
 
 See :ref:`user-properties` for other properties.
 
-
 **Response**
 
-::::::::::::
+::
 
- HTTP/1.1 201 Created
- Location: https://xivoserver:50051/1.0/users/38
+   HTTP/1.1 201 Created
 
 **Errors**
 
@@ -438,10 +438,12 @@ See :ref:`user-properties` for other properties.
 | 400        | Incorrect parameters sent: parameter1, parameter2 | The request body contained incorrect parameters. The incorrect parameters are listed. |
 +------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 
+
 .. _update-user:
 
 PUT /1.0/users/<id>
 ^^^^^^^^^^^^^^^^^^^
+
 Update a user. If the firstname or the lastname is modified, the associated voicemail will be modified.
 
 **Parameters**
@@ -452,9 +454,9 @@ Update a user. If the firstname or the lastname is modified, the associated voic
 
 ::
 
- PUT /1.0/users/67 HTTP/1.1
- Host : xivoserver:50051
- Content-Type: application/json;charset=UTF-8
+   PUT /1.0/users/67 HTTP/1.1
+   Host: xivoserver:50051
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -468,8 +470,7 @@ Update a user. If the firstname or the lastname is modified, the associated voic
 
 ::
 
- HTTP/1.1 200 OK
- Location: https://xivoserver:50051/1.0/users/67
+   HTTP/1.1 200 OK
 
 **Errors**
 
@@ -481,10 +482,12 @@ Update a user. If the firstname or the lastname is modified, the associated voic
 | 400        | Incorrect parameters sent: parameter1, parameter2 | The request body contained incorrect parameters. The incorrect parameters are listed. |
 +------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 
+
 .. _delete-user:
 
 DELETE /1.0/users/<id>
 ^^^^^^^^^^^^^^^^^^^^^^
+
 Delete a user along with its SIP line if he has one. This will be rejected if the user owns a voicemail, unless a parameter "deleteVoicemail" is specified.
 The user will also be removed to all queues, groups or other XiVO entities whom he is member.
 
@@ -496,14 +499,14 @@ The user will also be removed to all queues, groups or other XiVO entities whom 
 
 ::
 
- DELETE /1.0/users/67 HTTP/1.1
- Host: xivoserver:50051
+   DELETE /1.0/users/67 HTTP/1.1
+   Host: xivoserver:50051
 
 **Response**
 
 ::
 
- HTTP/1.1 200 OK
+   HTTP/1.1 200 OK
 
 **Errors**
 
@@ -519,10 +522,9 @@ The user will also be removed to all queues, groups or other XiVO entities whom 
 | 500        | The user was deleted but the voicemail content could not be removed.                        | sysconfd returned an error when trying to delete the user's voicemail. This can only happen if "deleteVoicemail" was specified. |
 +------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
+
 Voicemails
 ----------
-
-Voicemails are XiVO objects with several properties such as a phone number, a e-mail, etc...
 
 +--------+-------------------------+-----------------------------+
 | Method | Ressource               | Description                 |
@@ -531,6 +533,7 @@ Voicemails are XiVO objects with several properties such as a phone number, a e-
 +--------+-------------------------+-----------------------------+
 | PUT    | :ref:`update-voicemail` | Update a voicemail          |
 +--------+-------------------------+-----------------------------+
+
 
 Voicemail properties
 ^^^^^^^^^^^^^^^^^^^^
@@ -548,6 +551,7 @@ Voicemail properties
        "deleteaftersend" : 0
     }
 
+
 .. _list-voicemails:
 
 GET /1.0/voicemails/
@@ -561,14 +565,18 @@ Return a list of all voicemails :
 
 **Request**
 
-``GET https://xivoserver:50051/1.0/voicemails``
+::
+
+   GET /1.0/voicemails HTTP/1.1
+   Host: xivoserver:50051
+   Accept: application/json
 
 **Response**
 
 ::
 
- HTTP/1.1 200 OK
- Content-Type: application/json;charset=UTF-8
+   HTTP/1.1 200 OK
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -607,9 +615,9 @@ Update a voicemail.
 
 ::
 
- PUT /1.0/voicemails/37 HTTP/1.1
- Host : xivoserver:50051
- Content-Type: application/json;charset=UTF-8
+   PUT /1.0/voicemails/37 HTTP/1.1
+   Host: xivoserver:50051
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -622,8 +630,7 @@ Update a voicemail.
 
 ::
 
- HTTP/1.1 200 OK
- Location: https://xivoserver:50051/1.0/voicemails/37
+   HTTP/1.1 200 OK
 
 **Errors**
 
@@ -639,13 +646,13 @@ Update a voicemail.
 
 Queues
 ------
-A queue is an object on which calls are stored until they are answered by an agent.
 
 +--------+--------------------+---------------------------------+
 | Method | Ressource          | Description                     |
 +========+====================+=================================+
 | GET    | :ref:`list-queues` | Return a list of all the queues |
 +--------+--------------------+---------------------------------+
+
 
 .. _queue_properties:
 
@@ -677,6 +684,8 @@ Queue properties
         "waittime": 0,
         "waitratio": 0
     }
+
+
 .. _list-queues:
 
 GET /1.0/CallCenter/queues/
@@ -693,15 +702,16 @@ Return a list all the queues :
 
 ::
 
- POST /1.0/CallCenter/queues/
- Host : xivoserver:50051
+   GET /1.0/CallCenter/queues/
+   Host: xivoserver:50051
+   Accept: application/json
 
 **Response**
 
 ::
 
- HTTP/1.1 200 OK
- Content-Type: application/json;charset=UTF-8
+   HTTP/1.1 200 OK
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -719,8 +729,10 @@ Return a list all the queues :
          }
      ]
 
+
 Recording campaigns
 -------------------
+
 Recording campaigns aim at recording all the calls on a given queue for a given period of time.
 
 +--------+------------------------+-----------------------------+
@@ -774,15 +786,16 @@ Return a list of recording campaigns :
 
 ::
 
- GET /1.0/recording_campaigns/[?param1=val1[&param2=val2]]
- Host : xivoserver:50051
+   GET /1.0/recording_campaigns/[?param1=val1[&param2=val2]]
+   Host: xivoserver:50051
+   Accept: application/json
 
 **Response**
 
 ::
 
- HTTP/1.1 200 OK
- Content-Type: application/json;charset=UTF-8
+   HTTP/1.1 200 OK
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -803,6 +816,7 @@ Return a list of recording campaigns :
         ]
     }
 
+
 .. _get-campaign:
 
 GET /1.0/recording_campaigns/<id>
@@ -818,15 +832,16 @@ Return the recording campaign with the given id
 
 ::
 
- GET /1.0/recording_campaigns/<id>
- Host : xivoserver:50051
+   GET /1.0/recording_campaigns/<id>
+   Host: xivoserver:50051
+   Accept: application/json
 
 **Response**
 
 ::
 
- HTTP/1.1 200 OK
- Content-Type: application/json;charset=UTF-8
+   HTTP/1.1 200 OK
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -841,6 +856,7 @@ Return the recording campaign with the given id
             }
         ]
     }
+
 
 .. _create-campaign:
 
@@ -857,9 +873,9 @@ Creates a campaign and returns the generated id.
 
 ::
 
- GET /1.0/recording_campaigns/<id>
- Host : xivoserver:50051
- Content-Type: application/json;charset=UTF-8
+   POST /1.0/recording_campaigns/<id>
+   Host : xivoserver:50051
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -873,12 +889,13 @@ Creates a campaign and returns the generated id.
 
 ::
 
- HTTP/1.1 201 CREATED
- Content-Type: application/json;charset=UTF-8
+    HTTP/1.1 201 CREATED
+    Content-Type: application/json
 
 .. code-block:: javascript
 
    "1"
+
 
 .. _update-campaign:
 
@@ -895,9 +912,9 @@ Update the recording campaign with the given id.
 
 ::
 
- PUT /1.0/recording_campaigns/<id>
- Host : xivoserver:50051
- Content-Type: application/json;charset=UTF-8
+   PUT /1.0/recording_campaigns/<id>
+   Host: xivoserver:50051
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -911,7 +928,8 @@ Update the recording campaign with the given id.
 
 ::
 
- HTTP/1.1 200 OK
+   HTTP/1.1 200 OK
+
 
 .. _delete-campaign:
 
@@ -928,17 +946,19 @@ Delete the recording campaign with the given id.
 
 ::
 
- PUT /1.0/recording_campaigns/<id>
- Host : xivoserver:50051
+   DELETE /1.0/recording_campaigns/<id>
+   Host: xivoserver:50051
 
 **Response**
 
 ::
 
- HTTP/1.1 200 OK
+   HTTP/1.1 200 OK
+
 
 Recordings
 ----------
+
 A recording represents the sound file of a conversation in the scope of a recording campaign.
 
 +--------+--------------------------+--------------------------------------------------+
@@ -984,15 +1004,16 @@ Return a list of recordings for the given campaign:
 
 ::
 
- GET /1.0/recording_campaigns/<campaign_id>/
- Host : xivoserver:50051
+   GET /1.0/recording_campaigns/<campaign_id>/
+   Host: xivoserver:50051
+   Accept: application/json
 
 **Response**
 
 ::
 
- HTTP/1.1 200 OK
- Content-Type: application/json;charset=UTF-8
+   HTTP/1.1 200 OK
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -1012,6 +1033,7 @@ Return a list of recordings for the given campaign:
             }
         ]
     }
+
 
 .. _search-recordings:
 
@@ -1028,15 +1050,16 @@ Searches recordings in the given campaign whose fields "caller" or "agent_no" ma
 
 ::
 
- GET /1.0/recording_campaigns/<campaign_id>/search/?key=<searched number>
- Host : xivoserver:50051
+   GET /1.0/recording_campaigns/<campaign_id>/search/?key=<searched number>
+   Host: xivoserver:50051
+   Accept: application/json
 
 **Response**
 
 ::
 
- HTTP/1.1 200 OK
- Content-Type: application/json;charset=UTF-8
+   HTTP/1.1 200 OK
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -1056,6 +1079,7 @@ Searches recordings in the given campaign whose fields "caller" or "agent_no" ma
             }
         ]
     }
+
 
 .. _create-recording:
 
@@ -1073,9 +1097,9 @@ to use the cid generated by Asterisk for the associated call.
 
 ::
 
- POST /1.0/recording_campaigns/<campaign_id>/
- Host : xivoserver:50051
- Content-Type: application/json;charset=UTF-8
+   POST /1.0/recording_campaigns/<campaign_id>/
+   Host: xivoserver:50051
+   Content-Type: application/json
 
 .. code-block:: javascript
 
@@ -1089,7 +1113,8 @@ to use the cid generated by Asterisk for the associated call.
 
 ::
 
- HTTP/1.1 201 CREATED
+   HTTP/1.1 201 CREATED
+
 
 .. _delete-recording:
 
@@ -1106,11 +1131,11 @@ Deletes the recording in the given campaign, with the given cid.
 
 ::
 
- DELETE /1.0/recording_campaigns/<campaign_id>/<recording_cid>
- Host : xivoserver:50051
+   DELETE /1.0/recording_campaigns/<campaign_id>/<recording_cid>
+   Host: xivoserver:50051
 
 **Response**
 
 ::
 
- HTTP/1.1 200 OK
+   HTTP/1.1 200 OK
