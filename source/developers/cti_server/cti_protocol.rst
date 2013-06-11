@@ -576,6 +576,44 @@ Phone status
       "status": {"channels": [], "groups": [], "hintstatus": "0", "queues": []},
       "tid": "1", "timenow": 1364994093.48, "tipbxid": "xivo"}
 
+
+Agent status
+^^^^^^^^^^^^
+
+* tid is the agent id.
+
+..code-block:: javascript
+
+   {"class": "getlist",
+    "listname": "agents",
+    "function": "updatestatus",
+    "tipbxid": "xivo",
+    "tid": 635,
+    "status": {
+        "availability": "logged_out",
+         "availability_since": 1370868774.74,
+         "channel": null,
+         "groups": [],
+         "on_call_acd": false,
+         "on_call_nonacd": false,
+         "on_wrapup": false,
+         "phonenumber": null,
+         "queues": [
+             "113"
+         ]
+     }}
+
+* availability can take the values:
+
+    * logged_out
+    * available
+    * unavailable
+    * on_call_nonacd_incoming
+    * on_call_nonacd_outgoing
+
+* availability_since is the timestamp of the last availability change
+* queues is the list of queue ids from which the agent receives calls
+
 Agent messages
 --------------
 
