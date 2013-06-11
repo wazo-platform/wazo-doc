@@ -8,7 +8,7 @@ The XiVO REST API is the new and privileged way to programmatically interact wit
 
 In the future, this web API will replace the existing :ref:`web services <web-services-api>`.
 
-The current version is 1.0.
+The current API version is :ref:`1.0 <rest-api-v1.0>`.
 
 
 Configuration
@@ -176,11 +176,16 @@ The error messages are contained in a JSON list, even if there is only one error
 API
 ===
 
-.. toctree::
+Production version:
 
-   agents
-   queues
-   recording_campaigns
-   recordings
-   users
-   voicemails
+.. toctree::
+   :maxdepth: 1
+
+   v1.0/api
+
+Development version:
+
+.. toctree::
+   :maxdepth: 1
+
+   v1.1/api
