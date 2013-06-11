@@ -6,7 +6,7 @@ Protocol Changelog
 ==================
 
 .. warning::
-   The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure 
+   The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
 13.10
@@ -68,14 +68,14 @@ login_id
 .. code-block:: javascript
 
     {
-    "class": "login_id", 
-    "commandid": 1092130023, 
-    "company": "default", 
-    "ident": "X11-LE-24079", 
-    "lastlogout-datetime": "2013-02-19T11:13:36", 
+    "class": "login_id",
+    "commandid": 1092130023,
+    "company": "default",
+    "ident": "X11-LE-24079",
+    "lastlogout-datetime": "2013-02-19T11:13:36",
     "lastlogout-stopper": "disconnect",
-    "userlogin": <userlogin>, 
-    "version": "9999", 
+    "userlogin": <userlogin>,
+    "version": "9999",
     "xivoversion": "1.2"
     }
 
@@ -89,7 +89,7 @@ login_id
        "timenow": 1361268824.64,
        "xivoversion": "1.2"
    }
-   
+
 .. note::
 
    sessionid is used to calculate the hashed password in next step
@@ -111,7 +111,7 @@ login_pass
 .. note::
 
    hashed_password = sha1(self.sessionid + ':' + password).hexdigest()
-   
+
 ``Server -> Client``
 
 .. code-block:: javascript
@@ -119,24 +119,24 @@ login_pass
    {
        "capalist": [
            2
-       ], 
-       "class": "login_pass", 
-       "replyid": 1646064863, 
+       ],
+       "class": "login_pass",
+       "replyid": 1646064863,
        "timenow": 1361268824.68
    }
-   
+
 If no CTI profile is defined on XiVO for this user, the following message will be sent:
 
 .. code-block:: javascript
 
    {
-       "error_string": "capaid_undefined", 
-       "class": "login_pass", 
-       "replyid": 1646064863, 
+       "error_string": "capaid_undefined",
+       "class": "login_pass",
+       "replyid": 1646064863,
        "timenow": 1361268824.68
    }
 
-   
+
 .. note::
    the first element of the capalist is used in the next step login_capas
 
@@ -191,7 +191,7 @@ First message, describes all the capabilities of the client, configured at the s
                "userstatus": {
                            "available": { "color": "#08FD20",
                                           "allowed": ["available", "away", "outtolunch", "donotdisturb", "berightback"],
-                                          "actions": {"enablednd": "false"}, "longname": "Disponible" 
+                                          "actions": {"enablednd": "false"}, "longname": "Disponible"
                                          },
                            "berightback": {  "color": "#FFB545",
                                              "allowed": ["available", "away", "outtolunch", "donotdisturb", "berightback"],
@@ -225,12 +225,12 @@ Second message describes the current user configuration
 .. code-block:: javascript
 
    {
-      "function": "updateconfig", 
-      "listname": "users", 
-      "tipbxid": "xivo", 
-      "timenow": 1361440830.99, 
-      "tid": "3", 
-      "config": {"enablednd": false}, 
+      "function": "updateconfig",
+      "listname": "users",
+      "tipbxid": "xivo",
+      "timenow": 1361440830.99,
+      "tid": "3",
+      "config": {"enablednd": false},
       "class": "getlist"
    }
 
@@ -239,12 +239,12 @@ Third message describes the current user status
 .. code-block:: javascript
 
    {
-      "function": "updatestatus", 
-      "listname": "users", 
-      "status": {"availstate": "available"}, 
-      "tipbxid": "xivo", 
-      "tid": "3", 
-      "class": "getlist", 
+      "function": "updatestatus",
+      "listname": "users",
+      "status": {"availstate": "available"},
+      "tipbxid": "xivo",
+      "tid": "3",
+      "class": "getlist",
       "timenow": 1361440830.99
    }
 
@@ -510,9 +510,9 @@ These messages can also be received without any request as unsolicited messages.
 
 User status
 ^^^^^^^^^^^
-User status is to manage user presence 
+User status is to manage user presence
 
-- Request user status update 
+- Request user status update
 
 ``Client -> Server``
 
@@ -539,20 +539,20 @@ User status is to manage user presence
 
 .. code-block:: javascript
 
-    {"availstate": "away", 
-        "class": "availstate", 
-        "commandid": 1946092392, 
-        "ipbxid": "xivo", 
+    {"availstate": "away",
+        "class": "availstate",
+        "commandid": 1946092392,
+        "ipbxid": "xivo",
             "userid": "1"}
 
 ``Server > Client``
 
 .. code-block:: javascript
 
-    {"class": "getlist", 
-        "function": "updatestatus", 
-        "listname": "users", 
-        "status": {"availstate": "away"}, 
+    {"class": "getlist",
+        "function": "updatestatus",
+        "listname": "users",
+        "status": {"availstate": "away"},
         "tid": "1", "timenow": 1370523352.6, "tipbxid": "xivo"}
 
 
