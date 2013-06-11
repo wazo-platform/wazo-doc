@@ -43,43 +43,41 @@ List Users
 
 List all users.
 
+::
+
+   GET /1.0/users/
+
 **Parameters**
 
 * None
 
-**Request** :
-
-::
+**Example request**::
 
    GET /1.0/users/ HTTP/1.1
    Host: xivoserver:50051
    Accept: application/json
 
-**Response**
-
-::
+**Example response**::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
 
-.. code-block:: javascript
-
-    {
-        "total": 2,
-        "items":
-        [
-            {
-                "id": "1",
-                "firstname": "John",
-                "lastname": "Doe",
-            },
-            {
-                "id": "2",
-                "firstname": "Alice",
-                "lastname": "Houet",
-            }
-        ]
-    }
+   {
+       "total": 2,
+       "items":
+       [
+           {
+               "id": "1",
+               "firstname": "John",
+               "lastname": "Doe"
+           },
+           {
+               "id": "2",
+               "firstname": "Alice",
+               "lastname": "Houet"
+           }
+       ]
+   }
 
 
 .. _get-user:
@@ -89,35 +87,13 @@ Get User
 
 Return a specific user.
 
+::
+
+   GET /1.0/users/<id>
+
 **Parameters**
 
 * None
-
-**Request**
-
-::
-
-   GET /1.0/users/1 HTTP/1.1
-   Host: xivoserver:50051
-   Accept: application/json
-
-**Response**
-
-::
-
-   HTTP/1.1 200 OK
-   Content-Type: application/json
-
-.. code-block:: javascript
-
-    {
-      "id": "1"
-      "firstname": "John",
-      "lastname": "Doe",
-      ................
-    }
-
-See :ref:`user-properties` for other properties.
 
 **Errors**
 
@@ -127,6 +103,26 @@ See :ref:`user-properties` for other properties.
 | 404        | empty         | The requested user was not found |
 +------------+---------------+----------------------------------+
 
+**Example request**::
+
+   GET /1.0/users/1 HTTP/1.1
+   Host: xivoserver:50051
+   Accept: application/json
+
+**Example response**::
+
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+
+   {
+     "id": "1"
+     "firstname": "John",
+     "lastname": "Doe",
+     ................
+   }
+
+See :ref:`user-properties` for other properties.
+
 
 .. _create-user:
 
@@ -135,33 +131,13 @@ Create User
 
 Create a new user.
 
+::
+
+   POST /1.0/users/
+
 **Parameters**
 
 * None
-
-**Request**
-
-::
-
-   POST /1.0/users/ HTTP/1.1
-   Host: xivoserver:50051
-   Content-Type: application/json
-
-.. code-block:: javascript
-
-    {
-      "firstname": "John",
-      "lastname": "Doe",
-      ................
-    }
-
-See :ref:`user-properties` for other properties.
-
-**Response**
-
-::
-
-   HTTP/1.1 201 Created
 
 **Errors**
 
@@ -171,6 +147,24 @@ See :ref:`user-properties` for other properties.
 | 400        | Incorrect parameters sent: parameter1, parameter2 | The request body contained incorrect parameters. The incorrect parameters are listed. |
 +------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 
+**Example request**::
+
+   POST /1.0/users/ HTTP/1.1
+   Host: xivoserver:50051
+   Content-Type: application/json
+
+   {
+     "firstname": "John",
+     "lastname": "Doe",
+     ................
+   }
+
+See :ref:`user-properties` for other properties.
+
+**Example response**::
+
+   HTTP/1.1 201 Created
+
 
 .. _update-user:
 
@@ -179,31 +173,13 @@ Update User
 
 Update a user. If the firstname or the lastname is modified, the associated voicemail will be modified.
 
+::
+
+   PUT /1.0/users/<id>
+
 **Parameters**
 
 * None
-
-**Request**
-
-::
-
-   PUT /1.0/users/67 HTTP/1.1
-   Host: xivoserver:50051
-   Content-Type: application/json
-
-.. code-block:: javascript
-
-    {
-      "firstname": "John",
-      "lastname": "Doe",
-      ................
-    }
-
-**Response**
-
-::
-
-   HTTP/1.1 200 OK
 
 **Errors**
 
@@ -215,6 +191,22 @@ Update a user. If the firstname or the lastname is modified, the associated voic
 | 400        | Incorrect parameters sent: parameter1, parameter2 | The request body contained incorrect parameters. The incorrect parameters are listed. |
 +------------+---------------------------------------------------+---------------------------------------------------------------------------------------+
 
+**Example request**::
+
+   PUT /1.0/users/67 HTTP/1.1
+   Host: xivoserver:50051
+   Content-Type: application/json
+
+   {
+     "firstname": "John",
+     "lastname": "Doe",
+     ................
+   }
+
+**Example response**::
+
+   HTTP/1.1 200 OK
+
 
 .. _delete-user:
 
@@ -224,22 +216,13 @@ Delete User
 Delete a user along with its SIP line if he has one. This will be rejected if the user owns a voicemail, unless a parameter "deleteVoicemail" is specified.
 The user will also be removed to all queues, groups or other XiVO entities whom he is member.
 
+::
+
+   DELETE /1.0/users/<id>
+
 **Parameters**
 
 * deleteVoicemail (no value, it just needs to be present or not)
-
-**Request**
-
-::
-
-   DELETE /1.0/users/67 HTTP/1.1
-   Host: xivoserver:50051
-
-**Response**
-
-::
-
-   HTTP/1.1 200 OK
 
 **Errors**
 
@@ -254,3 +237,12 @@ The user will also be removed to all queues, groups or other XiVO entities whom 
 +------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | 500        | The user was deleted but the voicemail content could not be removed.                        | sysconfd returned an error when trying to delete the user's voicemail. This can only happen if "deleteVoicemail" was specified. |
 +------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+
+**Example request**::
+
+   DELETE /1.0/users/67 HTTP/1.1
+   Host: xivoserver:50051
+
+**Example response**::
+
+   HTTP/1.1 200 OK

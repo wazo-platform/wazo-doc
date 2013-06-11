@@ -30,6 +30,10 @@ List Campaigns
 
 List all recording campaigns.
 
+::
+
+   GET /1.0/recording_campaigns/
+
 **Parameters**
 
 * campaign_name : filter on the campaign name
@@ -37,39 +41,33 @@ List all recording campaigns.
 * queue_number : filter on the queue number
 * running : the campaign must be currently active (current date must be between the start date and the end date)
 
-**Request**
+**Example request**::
 
-::
-
-   GET /1.0/recording_campaigns/[?param1=val1[&param2=val2]]
+   GET /1.0/recording_campaigns/[?param1=val1[&param2=val2]] HTTP/1.1
    Host: xivoserver:50051
    Accept: application/json
 
-**Response**
-
-::
+**Example response**::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
 
-.. code-block:: javascript
-
-    {
-        "total": 2,
-        "items":
-        [
-            {
-                 "id": "1"
-                 "campaign_name": "campaign1",
-                 ...
-            },
-            {
-                 "id": "2"
-                 "campaign_name": "campaign2",
-                 ...
-            }
-        ]
-    }
+   {
+       "total": 2,
+       "items":
+       [
+           {
+                "id": "1"
+                "campaign_name": "campaign1",
+                ...
+           },
+           {
+                "id": "2"
+                "campaign_name": "campaign2",
+                ...
+           }
+       ]
+   }
 
 
 .. _get-campaign:
@@ -79,38 +77,36 @@ Get Campaign
 
 Return the recording campaign with the given id
 
+::
+
+   GET /1.0/recording_campaigns/<id>
+
 **Parameters**
 
 * None
 
-**Request**
+**Example request**::
 
-::
-
-   GET /1.0/recording_campaigns/<id>
+   GET /1.0/recording_campaigns/1 HTTP/1.1
    Host: xivoserver:50051
    Accept: application/json
 
-**Response**
-
-::
+**Example response**::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
 
-.. code-block:: javascript
-
-    {
-        "total": 1,
-        "items":
-        [
-            {
-                 "id": "1"
-                 "campaign_name": "campaign1",
-                 ...
-            }
-        ]
-    }
+   {
+       "total": 1,
+       "items":
+       [
+           {
+                "id": "1"
+                "campaign_name": "campaign1",
+                ...
+           }
+       ]
+   }
 
 
 .. _create-campaign:
@@ -120,34 +116,30 @@ Create Campaign
 
 Creates a campaign and returns the generated id.
 
+::
+
+   POST /1.0/recording_campaigns/
+
 **Parameters**
 
 * None
 
-**Request**
+**Example request**::
 
-::
-
-   POST /1.0/recording_campaigns/<id>
+   POST /1.0/recording_campaigns/ HTTP/1.1
    Host : xivoserver:50051
    Content-Type: application/json
 
-.. code-block:: javascript
+   {
+     "campaign_name": "my campaign",
+     "queue_id": "2",
+     ...
+   }
 
-    {
-      "campaign_name": "my campaign",
-      "queue_id": "2",
-      ...
-    }
+**Example response**::
 
-**Response**
-
-::
-
-    HTTP/1.1 201 CREATED
-    Content-Type: application/json
-
-.. code-block:: javascript
+   HTTP/1.1 201 CREATED
+   Content-Type: application/json
 
    "1"
 
@@ -159,29 +151,27 @@ Update Campaign
 
 Update the recording campaign with the given id.
 
+::
+
+   PUT /1.0/recording_campaigns/<id>
+
 **Parameters**
 
 * None
 
-**Request**
+**Example request**::
 
-::
-
-   PUT /1.0/recording_campaigns/<id>
+   PUT /1.0/recording_campaigns/1 HTTP/1.1
    Host: xivoserver:50051
    Content-Type: application/json
 
-.. code-block:: javascript
+   {
+     "campaign_name": "my campaign",
+     "queue_id": "2",
+     ...
+   }
 
-    {
-      "campaign_name": "my campaign",
-      "queue_id": "2",
-      ...
-    }
-
-**Response**
-
-::
+**Example response**::
 
    HTTP/1.1 200 OK
 
@@ -193,19 +183,19 @@ Delete Campaign
 
 Delete the recording campaign with the given id.
 
+::
+
+   DELETE /1.0/recording_campaigns/<id>
+
 **Parameters**
 
 * None
 
-**Request**
+**Example request**::
 
-::
-
-   DELETE /1.0/recording_campaigns/<id>
+   DELETE /1.0/recording_campaigns/1 HTTP/1.1
    Host: xivoserver:50051
 
-**Response**
-
-::
+**Example response**::
 
    HTTP/1.1 200 OK

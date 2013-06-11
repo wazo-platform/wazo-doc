@@ -32,36 +32,34 @@ List Agents
 
 List all agents.
 
+::
+
+   GET /1.0/CallCenter/agents/
+
 **Parameters**
 
 * None
 
-**Request**
-
-::
+**Example request**::
 
    GET /1.0/CallCenter/agents/ HTTP/1.1
    Host: xivoserver:50051
    Accept: application/json
 
-**Response**
-
-::
+**Example response**::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
 
-.. code-block:: javascript
-
-    [
-       {
-          "id": 19,
-          "autologoff": 0,
-          ...
-       },
-       {
-          "id": 20,
-          "autologoff": 0,
-          ...
-       }
-    ]
+   [
+      {
+         "id": 19,
+         "autologoff": 0,
+         ...
+      },
+      {
+         "id": 20,
+         "autologoff": 0,
+         ...
+      }
+   ]

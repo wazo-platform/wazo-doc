@@ -41,36 +41,34 @@ List Queues
 
 List all queues.
 
+::
+
+   GET /1.0/CallCenter/queues/
+
 **Parameters**
 
 * None
 
-**Request**
+**Example request**::
 
-::
-
-   GET /1.0/CallCenter/queues/
+   GET /1.0/CallCenter/queues/ HTTP/1.1
    Host: xivoserver:50051
    Accept: application/json
 
-**Response**
-
-::
+**Example response**::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
 
-.. code-block:: javascript
-
-     [
-         {
-             "id": 1,
-             "name": "my_queue",
-             ...
-         },
-         {
-             "id": 2,
-             "name": "your_queue",
-             ...
-         }
-     ]
+   [
+       {
+           "id": 1,
+           "name": "my_queue",
+           ...
+       },
+       {
+           "id": 2,
+           "name": "your_queue",
+           ...
+       }
+   ]
