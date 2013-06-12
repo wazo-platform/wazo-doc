@@ -7,7 +7,7 @@ Supported Devices
 Official support
 ================
 
-The provisioning plugins of these phones will be supported through each XiVO version. Already supported features will remain so.
+XiVO provides official support for the following phones. These phones will be supported across upgrades and phone features are guaranteed to be supported on the latest version.
 
 Aastra
 ------
@@ -260,7 +260,7 @@ T38G     |y|         16         |n|
 Community support
 =================
 
-The provisioning plugins for these phones are provided for convenience, but they are not updated by Avencall.
+The following phones are only supported by the community. In other words, maintenance, bug corrections and features are developed by members of the XiVO community. XiVO does not officially endorse support for these phones.
 
 Alcatel-Lucent
 --------------
