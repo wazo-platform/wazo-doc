@@ -165,6 +165,32 @@ The procedure is similar for the network locale and the user locale package, but
 .. note:: Currently user and network locale 9.0.2 should be used for plugins xivo-sccp-legacy and xivo-cisco-sccp-9.0.3
 
 
+Digium
+------
+
+Digium phones:
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+D40      |y|         2          |n|
+D50      |n|         14         |n|
+D70      |y|         106        |n|
+======== =========== ========== ============
+
+.. note:: Some function keys are shared with line keys
+
+Particularities:
+
+* For best results, activate :ref:`dhcp-integration` on your XiVO.
+* English is the only language supported, other languages (e.g. french) are not supported.
+* Impossible to do directed pickup using a BLF function key.
+* Only supports DTMF in RFC2833 mode.
+* Does not work reliably with Cisco ESW520 PoE switch. When connected to such a switch, the D40 tends to reboot randomly, and the D70 does not boot at all.
+* It's important to not edit the phone configuration via the phones' web interface when using these phones with XiVO.
+* Paging doesn't work.
+
+
 Polycom
 -------
 
@@ -294,34 +320,6 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 1230 IP  |n|         0          |n|
 ======== =========== ========== ============
 
-
-
-Digium
-------
-
-Digium phones:
-
-======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
-======== =========== ========== ============
-D40      |y|         2          |n|
-D50      |n|         14         |n|
-D70      |y|         106        |n|
-======== =========== ========== ============
-
-.. note:: Some function keys are shared with line keys
-
-Particularities:
-
-* For best results, activate :ref:`dhcp-integration` on your XiVO.
-* English is the only language supported, other languages (e.g. french) are not supported.
-* Impossible to do directed pickup using a BLF function key.
-* Only supports DTMF in RFC2833 mode.
-* Does not work reliably with Cisco ESW520 PoE switch. When connected to such a switch, the D40
-  tends to reboot randomly, and the D70 does not boot at all.
-* It's important to not edit the phone configuration via the phones' web interface
-  when using these phones with XiVO.
-* Paging doesn't work.
 
 
 Gigaset
