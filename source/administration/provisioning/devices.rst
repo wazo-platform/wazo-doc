@@ -114,7 +114,7 @@ SPA8800  |n|         0          |n|
 
       * *ATA_IP*    is the IP address of the ATA,
       * *XIVO_IP*   is the IP address of your XiVO,
-      * *CONF_FILE* is one of {spa2102.cfg,spa3102.cfg,spa8000.cfg}
+      * *CONF_FILE* is one of ``spa2102.cfg``, ``spa3102.cfg``, ``spa8000.cfg``
 
 
 Cisco 7900 series (*SCCP* mode only):
