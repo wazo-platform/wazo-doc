@@ -53,12 +53,30 @@ Typical Upgrade Process
 * Read all `roadmaps <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
 * Read all existing Upgrade Notes (see below) starting from your current version to the current prod version.
 * If in a specific configuration, follow the specific procedure described below (example : cluster).
-* To download the packages beforehand, run ``xivo-upgrade -d`` (will upgrade xivo-upgrade, xivo-service and download all packages necessary, prior to stopping services for upgrade).
+* To download the packages beforehand, run ``xivo-upgrade -d`` (will upgrade xivo-upgrade, xivo-service and download all packages necessary, prior to stopping services for upgrade, making the upgrade faster).
 * When ready (services will be stopped), run ``xivo-upgrade`` which will actually start the migration.
 * When finished, check that the services are correctly running :
 
  * with ``xivo-service status`` command,
  * and with actual checks like SIP registration, ISDN links status, internal/incoming/outgoing calls, XiVO Client connections etc.
+
+
+Specific procedure: XiVO 13.03 and before
+=========================================
+
+When upgrading from XiVO 13.03 or earlier, you must do the following, before the normal upgrade::
+
+   wget http://mirror.xivo.fr/xivo_current.key -O - | apt-key add -
+
+
+Specific procedure: XiVO 1.2.1 and before
+=========================================
+
+Upgrading from 1.2.0 or 1.2.1 requires a special procedure before executing ``xivo-upgrade``::
+
+   apt-get update
+   apt-get install xivo-upgrade
+   /usr/bin/xivo-upgrade
 
 
 Specific Procedure : Upgrading a Cluster
@@ -210,18 +228,3 @@ Another change is in effect beginning with XiVO 12.24: the field
 +-------------+-------------+
 | clock       | *removed*   |
 +-------------+-------------+
-
-
-Upgrade Notes for older Versions of XiVO
-========================================
-
-* When upgrading from XiVO 1.2.3 or earlier, you must do the following::
-
-   wget http://mirror.xivo.fr/xivo_current.key -O - | apt-key add -
-
-* Upgrading from 1.2.0 or 1.2.1 requires a special procedure before executing
-  xivo-upgrade::
-
-   apt-get update
-   apt-get install xivo-upgrade
-   /usr/bin/xivo-upgrade
