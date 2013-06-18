@@ -8,7 +8,7 @@ The XiVO REST API is the new and privileged way to programmatically interact wit
 
 In the future, this web API will replace the existing :ref:`web services <web-services-api>`.
 
-The current API version is :ref:`1.0 <rest-api-v1.0>`.
+The current API version is :ref:`1.0 <rest-api-1.0>`.
 
 
 Configuration
@@ -95,6 +95,7 @@ Other optional properties can be added later.
 
     {
         "total": 2,
+
         "items":
         [
             {
@@ -181,11 +182,11 @@ Production version:
 .. toctree::
    :maxdepth: 1
 
-   v1.0/api
+   1.0/api-1.0
 
 Development version:
 
 .. toctree::
    :maxdepth: 1
 
-   v1.1/api
+   1.1/api-1.1
