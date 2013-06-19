@@ -25,6 +25,39 @@ on an other interface, you have to fill the *Extra network interfaces* field wit
 After saving your modifications, you need to click on *Apply system configuration* for them to be applied.
 
 
+Configuration DHCP server to serve unknown hosts
+================================================
+
+By default, the XiVO DHCP server serves only known hosts. That is:
+
+* either hosts which MAC address prefix (the `OUI <http://en.wikipedia.org/wiki/Organizationally_unique_identifier>`_) is known 
+* or hosts which Vendor Identifier is known
+
+Known OUIs and Vendor Class Identifiers are declared in :file:`/etc/dhcpd/dhcpd_update/*` files.
+
+If you want your XiVO DHCP server to serve also unknown hosts (like PCs) follow these instructions:
+
+#. Create a custom template for :file:`dhcpd_subnet.conf.tail` file::
+     
+     mkdir -p /etc/pf-xivo/custom-templates/dhcp/etc/dhcp/
+     cd /etc/pf-xivo/custom-templates/dhcp/etc/dhcp/
+     cp /usr/share/xivo-config/templates/dhcp/etc/dhcp/dhcpd_subnet.conf.tail .
+
+#. Edit the custom template ::
+
+     vim dhcpd_subnet.conf.tail
+
+#. And add the following line at the head of the file ::
+   
+     allow unknown-clients;
+
+#. Re-generate the dhcp configuration::
+
+     xivo-update-config
+
+DHCP server should have been restarted and should now serve all network equipments.
+
+
 DHCP-Relay 
 ==========
 
