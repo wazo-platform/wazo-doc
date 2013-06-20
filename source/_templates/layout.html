@@ -8,7 +8,7 @@
 {% block rootrellink %}{{ super() }}{% endblock %}
 {% block relbaritems %}{{ super() }}{% endblock %}
 
-{% block sidebar1 %}{{ sidebar() }}{% endblock %}
+{% block sidebar1 %}{% include 'menu-' + version + '.html'%}{% endblock %}
 {% block sidebar2 %}{{ sidebar() }}{% endblock %}
 
 {% block sidebarsearch %}{{ super() }}{% endblock %}
