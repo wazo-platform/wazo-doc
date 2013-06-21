@@ -103,6 +103,13 @@ Here are the steps for upgrading a cluster:
 #. Reactivate the cronjobs (see steps 1 and 2)
 
 
+13.12 Upgrade Notes
+===================
+
+* Consult the `13.12 Roadmap <https://projects.xivo.fr/versions/178>`_
+* CTI protocol: Added message ``status`` (agent status) of class ``getlist`` and function ``updatestatus``. Read :ref:`CTI Protocol documentation <cti-protocol>`
+* Clean-up was made related to the minimization of the XiVO Client. Some visual differences have been observed on Mac OS X that do not affect the XiVO Client in a functional way.
+
 13.11 Upgrade Notes
 ===================
 
