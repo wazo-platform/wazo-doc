@@ -11,6 +11,14 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+13.12
+
+* for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary changed values:
+
+  * deleted value: ``on_call_non_acd``
+  * added values: ``on_call_non_acd_incoming`` and ``on_call_non_acd_outgoing``
+
+
 13.10
 
 * for messages of class ``getlist`` and function ``updateconfig``, the ``config`` object/dictionary
@@ -584,7 +592,20 @@ Agent status
 
 * tid is the agent id.
 
-..code-block:: javascript
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist",
+    "commandid": <random_integer>,
+    "function": "updatestatus",
+    "listname": "agents",
+    "tid": "635",
+    "tipbxid": "xivo"}
+
+``Server > Client``
+
+.. code-block:: javascript
 
    {"class": "getlist",
     "listname": "agents",
