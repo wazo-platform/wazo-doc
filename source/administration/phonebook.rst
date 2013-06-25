@@ -143,6 +143,8 @@ Adding the fax to the directory display
 Now the fax should be available displayed in the Remote Directory xlet.
 
 
+.. _reverse_lookup:
+
 Reverse lookup
 ==============
 

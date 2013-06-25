@@ -1,3 +1,5 @@
+.. _remote_directory_xlet:
+
 *********************
 Remote Directory Xlet
 *********************
