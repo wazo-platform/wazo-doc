@@ -36,6 +36,43 @@ You can modifiy the file :file:`plugin-info` to change the version number:
    If ever you modify the folder :file:`common`, you must increment the version number of all the models.
 
 
+Test your changes
+-----------------
+
+You have three different methods to test your changes on your development machine.
+
+Always increase plugin version (easiest)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the production version is 0.4, change the plugin version to 0.4.01, make your
+changes and upload to testing (see below).
+
+Next modification will change the plugin version to 0.4.02, etc. When you are
+finished making changes, change the version to 0.5 and upload one last time.
+
+Edit directly on XiVO
+^^^^^^^^^^^^^^^^^^^^^
+
+Edit the files in :file:`/var/lib/xivo-provd/plugins`.
+
+To apply your changes, go in ``provd_pycli`` and run::
+
+    plugins.reload('xivo-cisco-spa-7.5.4')
+
+Disable plugin caching
+^^^^^^^^^^^^^^^^^^^^^^
+
+Edit :file:`/etc/pf-xivo/provd/provd.conf` and add the line::
+
+    cache_plugin: True
+
+Empty :file:`/var/cache/xivo-provd` and restart provd.
+
+Make your changes in provd-plugins, update the plugin version to the new one and upload to testing (see below). Now, every time you uninstall/install the plugin, the new plugin will be fetched from testing, instead of being cached, even without changing the version.
+
+Uploading to testing
+^^^^^^^^^^^^^^^^^^^^
+
 Before updating a plugin, it must be passed through the testing phase.
 Once it has been approved it can be uploaded to the production server
 

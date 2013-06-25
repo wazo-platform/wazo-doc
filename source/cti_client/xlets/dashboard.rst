@@ -21,7 +21,8 @@ The xlet is *read-only* and presents a list of queues. For each queue, the xlet 
 * Agent status: Shows the agent’s status. An agent can have three statuses:
 
   * *Not in use* when he is ready to answer an ACD call
-  * *Out of queue* when he called or answered a call not from the queue
+  * *OOQ In* when he answered a call not from the queue (*OOQ* is *Out of Queue*)
+  * *OOQ Out* when he called someone (*OOQ* is *Out of Queue*)
   * *In use* when he is either on call from a queue, on pause or on wrapup
 
 * Agent status since: Shows the time spent in the current status
@@ -30,6 +31,23 @@ The xlet is *read-only* and presents a list of queues. For each queue, the xlet 
   * green if *Not in use*
   * purple if *Out of queue*
   * orange if *In use*
+
+Note that the agent status will only change when the communication is established, not when phones are ringing.
+
+
+Known bugs
+^^^^^^^^^^
+
+#. If an agent emits a call via its XiVO Client, the status will change to *OOQ Out* when the destination phone rings, instead of when the destination answers.
+
+#.
+ * Given the agent is on ACD call
+ * When the agent logs out
+ * When the agent hangs up the ACD call
+ * When the agent logs back in via CTI Client
+ * Then the agent is seen in outgoing non-ACD communication, whether there is a non-ACD communication or not
+
+ To make the agent *Not in use* again, make a non-ACD call and hangup.
 
 
 Changing the disposition

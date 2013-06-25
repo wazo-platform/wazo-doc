@@ -2,6 +2,15 @@
 Basic Configuration
 *******************
 
+You have two options to get your phone to be provisioned:
+
+* Set up a DHCP server
+* Tell manually each phone where to get the provisioning informations
+
+You may want to manually configure the phones if you are only trying XiVO or if your network configuration does not allow the phones to access the XiVO DHCP server.
+
+You may want to set up a DHCP server if you have a significant number of phones to connect, as no manual intervention will be required on each phone.
+
 .. _dhcpd-config:
 
 Configuring the DHCP Server
@@ -12,8 +21,8 @@ It is *not* activated by default.
 
 There's a few things to know about the peculiarities of the included DHCP server:
 
-* it only answer to DHCP requests from :ref:`supported devices <devices>`.
-* it only answer to DHCP requests coming from the VoIP subnet
+* it only answers to DHCP requests from :ref:`supported devices <devices>`.
+* it only answers to DHCP requests coming from the VoIP subnet (see :ref:`network configuration <network_configuration>`).
 
 This means that if your phones are on the same broadcast domain than your computers,
 and you would like the DHCP server on your XiVO to handle both your phones and your
@@ -98,6 +107,41 @@ If you are unsure about which version you should install, you should look for mo
 on the vendor website.
 
 It's good practice to only install the plugins you need and no more.
+
+
+How to manually tell the phones to get their configuration
+==========================================================
+
+If you have set up a DHCP server on XiVO and the phones can access it, you can skip this section.
+
+The according provisioning plugins must be installed.
+
+
+Aastra
+------
+
+On the web interface of your phone, go to :menuselection:`Advanced settings --> Configuration server`, and enter the following settings:
+
+.. figure:: img/config_server_aastra.png
+
+
+Polycom
+-------
+
+On the phone, go to :menuselection:`Menu --> Settings --> Advanced --> Admin Settings --> Network configuration --> Server Menu` and enter the following settings:
+
+* Server type: HTTP
+* Server address: ``http://<XiVO IP address>:8667/000000000000.cfg``
+
+Then save and reboot the phone.
+
+
+Snom
+----
+
+On the web interface of your phone, go to :menuselection:`Setup --> Advanced --> Update` and enter the following settings:
+
+.. figure:: img/config_server_snom.png
 
 
 Autoprovisioning a Device
