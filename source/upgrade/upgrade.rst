@@ -103,16 +103,19 @@ Here are the steps for upgrading a cluster:
 #. Reactivate the cronjobs (see steps 1 and 2)
 
 
-13.12 Upgrade Notes
-===================
+Upgrade Notes
+=============
+
+13.12
+-----
 
 * Consult the `13.12 Roadmap <https://projects.xivo.fr/versions/178>`_
 * CTI protocol: Modified values of agent ``availability``. Read :ref:`CTI Protocol changelog <cti-protocol>`
 * Clean-up was made related to the minimization of the XiVO Client. Some visual differences have been observed on Mac OS X that do not affect the XiVO Client in a functional way.
 
 
-13.11 Upgrade Notes
-===================
+13.11
+-----
 
 * Consult the `13.11 Roadmap <https://projects.xivo.fr/versions/177>`_
 * Asterisk has been upgraded from version 11.3.0 to 11.4.0
@@ -130,8 +133,8 @@ API changes:
   * rules_type
 
 
-13.10 Upgrade Notes
-===================
+13.10
+-----
 
 * Consult the `13.10 Roadmap <https://projects.xivo.fr/versions/176>`_
 
@@ -141,8 +144,8 @@ API changes:
   does not have a ``rules_order`` key anymore.
 
 
-13.09 Upgrade Notes
-===================
+13.09
+-----
 
 * Consult the `13.09 Roadmap <https://projects.xivo.fr/versions/175>`_
 * The *Restart CTI server* link has been moved from :menuselection:`Services --> CTI Server --> Control`
@@ -151,8 +154,8 @@ API changes:
 * The Directory xlet can now be used to place call.
 
 
-13.08 Upgrade Notes
-===================
+13.08
+-----
 
 * Consult the `13.08 Roadmap <https://projects.xivo.fr/versions/174>`_
 * asterisk has been upgraded from version 1.8.21.0 to 11.3.0, which is a major asterisk upgrade.
@@ -168,8 +171,8 @@ Please consult the following detailed upgrade notes for more information:
    xivo_subr_switchboard
 
 
-13.07 Upgrade Notes
-===================
+13.07
+-----
 
 * Consult the `13.07 Roadmap <https://projects.xivo.fr/versions/173>`_
 * Agent Status Dashboard has more features and less limitations. See related :ref:`dashboard xlet documentation <dashboard-xlet>`
@@ -180,24 +183,24 @@ Please consult the following detailed upgrade notes for more information:
 * PostgreSQL upgraded from version 9.0.4 to 9.0.13
 
 
-13.06 Upgrade Notes
-===================
+13.06
+-----
 
 * Consult the `13.06 Roadmap <https://projects.xivo.fr/versions/172>`_
 * The new Agent Status Dashboard has a few known limitations. See related :ref:`dashboard xlet known issues section <dashboard-xlet-issues>`
 * Status Since counter in xlet list of agents has changed behavior to better reflect states of agents in queues as seen by asterisk. See `Ticket #4254 <https://projects.xivo.fr/issues/4254>`_ for more details.
 
 
-13.05 Upgrade Notes
-===================
+13.05
+-----
 
 * Consult the `13.05 Roadmap <https://projects.xivo.fr/versions/171>`_
 * The bug `#4228 <https://projects.xivo.fr/issues/4228>`_ concerning BS filter only applies to 13.04 servers installed from scratch. Please upgrade to 13.05.
 * The order of softkeys on SCCP phones has changed, e.g. the *Bis* button is now at the left.
 
 
-13.04 Upgrade Notes
-===================
+13.04
+-----
 
 * Consult the `13.04 Roadmap <https://projects.xivo.fr/versions/170>`_
 * Upgrade procedure for HA Cluster has changed. Refer to `Specific Procedure : Upgrading a Cluster`_.
@@ -205,8 +208,8 @@ Please consult the following detailed upgrade notes for more information:
 * There is no more context field directly associated with a call filter. Boss and secretary users associated with a call filter must necessarily be in the same context.
 
 
-12.24 Upgrade Notes
-===================
+12.24
+-----
 
 * Consult the `12.24 Roadmap <https://projects.xivo.fr/versions/165>`_
 * XiVO 12.24 has some limitations mainly affecting the contact center features due to the rewriting of the code handling agents.
