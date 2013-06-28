@@ -43,6 +43,9 @@ Time and date
 * Configure your locale and default time zone in device template => :menuselection:`Configuration --> Provisioning --> Template Device`
   by editing the default template
 * Configure the Timezone in => :menuselection:`Services --> IPBX --> General settings --> Advanced --> Timezone`
+* Reconfigure your timezone for the system::
+
+    dpkg-reconfigure tzdata
 
 
 Codecs
