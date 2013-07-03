@@ -11,6 +11,17 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+13.14
+
+* for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary changed values:
+
+  * deleted values: ``on_call_non_acd_incoming`` and ``on_call_non_acd_outgoing``
+  * added values:
+    * ``on_call_non_acd_incoming_internal``
+    * ``on_call_non_acd_incoming_external``
+    * ``on_call_non_acd_outgoing_internal``
+    * ``on_call_non_acd_outgoing_external``
+
 13.12
 
 * for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary changed values:
@@ -631,8 +642,10 @@ Agent status
     * logged_out
     * available
     * unavailable
-    * on_call_nonacd_incoming
-    * on_call_nonacd_outgoing
+    * on_call_non_acd_incoming_internal
+    * on_call_non_acd_incoming_external
+    * on_call_non_acd_outgoing_internal
+    * on_call_non_acd_outgoing_external
 
 * availability_since is the timestamp of the last availability change
 * queues is the list of queue ids from which the agent receives calls
