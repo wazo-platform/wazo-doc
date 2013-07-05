@@ -120,7 +120,7 @@ Static route can't be currently added via the web interface.
 If you want static routes in your XiVO you should do the following the steps described below.
 It would ensure that your static routes are applied at startup (in fact each time a network interface goes up).
 
-#. Create the file ``/etc/network/if-up.d/xivo-routes``::
+#. Create the file file:`/etc/network/if-up.d/xivo-routes`::
 
     touch /etc/network/if-up.d/xivo-routes
     chmod 755 /etc/network/if-up.d/xivo-routes
