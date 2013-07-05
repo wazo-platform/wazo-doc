@@ -106,6 +106,13 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes
 =============
 
+13.13
+-----
+
+* Consult the `13.13 Roadmap <https://projects.xivo.fr/versions/179>`_
+* Bugs fixed for SCCP phones
+
+
 13.12
 -----
 
