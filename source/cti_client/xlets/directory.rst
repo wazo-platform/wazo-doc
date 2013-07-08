@@ -91,7 +91,7 @@ A new display filter must be created for the directory xlet.
 
 .. figure:: ./images/directory_display_filter.png
 
-The following fields must be configurered with the correct value for the *Field type* column in order for entries to be displayed in the xlet:
+The following fields must be configured with the correct value for the *Field type* column in order for entries to be displayed in the xlet:
 
 #. *status* is the column that will be used to display the status icon, the title can be empty
 #. *name* is displayed in the *Name* column of the xlet

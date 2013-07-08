@@ -120,7 +120,7 @@ Static route can't be currently added via the web interface.
 If you want static routes in your XiVO you should do the following the steps described below.
 It would ensure that your static routes are applied at startup (in fact each time a network interface goes up).
 
-#. Create the file ``/etc/network/if-up.d/xivo-routes``::
+#. Create the file :file:`/etc/network/if-up.d/xivo-routes`::
 
     touch /etc/network/if-up.d/xivo-routes
     chmod 755 /etc/network/if-up.d/xivo-routes
@@ -136,4 +136,40 @@ It would ensure that your static routes are applied at startup (in fact each tim
    <destination> and <gateway> should be replaced by your specific configuration.
    For example `192.168.50.128/25 via 192.168.17.254`
    or `91.195.18.20 via 192.168.17.254`
+
+Change interface MTU
+--------------------
+
+.. warning::
+   Changing the MTU is risky. You should know what you are doing.
+
+
+If you need to change the MTU here is how you should do it:
+
+#. Create the file :file:`/etc/network/if-up.d/xivo-mtu`::
+
+     touch /etc/network/if-up.d/xivo-mtu
+     chmod 755 /etc/network/if-up.d/xivo-mtu
+
+#. Insert the following content::
+
+     #!/bin/sh
+
+     # Set MTU per iface
+     if [ "${IFACE}" = "<data interface>" ]; then
+         ip link set ${IFACE} mtu <data mtu>
+     elif [ "${IFACE}" = "<voip interface>" ]; then
+         ip link set ${IFACE} mtu <voip mtu>
+     fi
+
+#. Change the *<data interface>* to the name of your interface (e.g. eth0), and the *<data mtu>* to the new MTU (e.g. 1492),
+#. Change the *<voip interface>* to the name of your interface (e.g. eth0.10), and the *<voip mtu>* to the new MTU (e.g. 1488)
+
+.. note::
+   In the above example you can set a different MTU per interface.
+   If you don't need a per-interface MTU you can simply write::
+
+     #!/bin/sh
+
+     ip link set ${IFACE} mtu <my mtu>
 

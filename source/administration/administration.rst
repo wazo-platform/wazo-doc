@@ -13,6 +13,7 @@ Administration
    ctiserver/ctiserver
    Customer info <customerinfo/customerinfo>
    devices/devices
+   directories/directories
    directed_pickup/directed_pickup
    fax/fax
    Groups <group/group>
