@@ -72,6 +72,9 @@ include
 
    Example: ``include=line,voicemail``
 
+
+.. warning:: filters on the line number have not been implemeneted yet
+
 **Example request**::
 
    GET /1.1/users HTTP/1.1
