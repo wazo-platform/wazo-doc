@@ -25,8 +25,8 @@ on an other interface, you have to fill the *Extra network interfaces* field wit
 After saving your modifications, you need to click on *Apply system configuration* for them to be applied.
 
 
-Configuration DHCP server to serve unknown hosts
-================================================
+Configuring DHCP server to serve unknown hosts
+==============================================
 
 By default, the XiVO DHCP server serves only known hosts. That is:
 
