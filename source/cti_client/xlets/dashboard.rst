@@ -48,9 +48,17 @@ Known bugs
  * When the agent logs out
  * When the agent hangs up the ACD call
  * When the agent logs back in via CTI Client
- * Then the agent is seen as outgoing non-ACD communication, whether there is a non-ACD communication or not
+ * Then the agent may be seen as outgoing non-ACD communication, whether there is a non-ACD communication or not
 
  To make the agent *Not in use* again, make a non-ACD call and hangup.
+
+#.
+ * Given the agent is on ACD call
+ * When the agent calls someone else (e.g. his supervisor)
+ * When the ACD call hangs up (while the agent talks to his supervisor)
+ * Then the agent is seen as available, instead of in outgoing non-ACD communication.
+
+ This applies to all kinds of non-ACD calls.
 
 
 Changing the disposition
