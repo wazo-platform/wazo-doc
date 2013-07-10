@@ -31,8 +31,8 @@ The xlet is *read-only* and presents a list of queues. For each queue, the xlet 
 * Background color:
 
   * green if *Not in use*
-  * purple if *Int. Incomming* or *Int. Outgoing*
-  * pink if *Ext. Incomming* or *Ext. Outgoing*
+  * purple if *Int. Incoming* or *Int. Outgoing*
+  * pink if *Ext. Incoming* or *Ext. Outgoing*
   * orange if *In use*
 
 Note that the agent status will only change when the communication is established, not when phones are ringing.
@@ -93,7 +93,7 @@ Known issues
 
 * There is no profile containing this xlet. The profile must be created manually.
 * There is no sorting on agents in a queue.
-* An emtpy queue will display an empty box with no message specifying the queue has no logged agents.
+* An empty queue will display an empty box with no message specifying the queue has no logged agents.
 
 
 Configuration
