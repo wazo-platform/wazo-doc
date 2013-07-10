@@ -252,16 +252,12 @@ If the firstname or the lastname is modified, the associated voicemail is also u
 Delete User
 ===========
 
-Delete a user along with its line if he has one. This will be rejected if the user owns a voicemail, unless a parameter "deleteVoicemail" is specified.
-The user will also be removed to all queues, groups or other XiVO entities whom he is member.
+Delete a user along with its line if he has one.
+The user will also be removed from all queues, groups or other XiVO entities whom he is member.
 
 ::
 
    DELETE /1.1/users/<id>
-
-**Parameters**
-
-* deleteVoicemail (no value, it just needs to be present or not)
 
 **Errors**
 
