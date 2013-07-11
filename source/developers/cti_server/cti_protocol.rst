@@ -13,7 +13,7 @@ Protocol Changelog
 
 13.14
 
-* for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary changed values:
+* for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary has changed values:
 
   * deleted values: ``on_call_non_acd_incoming`` and ``on_call_non_acd_outgoing``
   * added values:
@@ -24,7 +24,7 @@ Protocol Changelog
 
 13.12
 
-* for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary changed values:
+* for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary has changed values:
 
   * deleted value: ``on_call_non_acd``
   * added values: ``on_call_non_acd_incoming`` and ``on_call_non_acd_outgoing``
@@ -41,7 +41,7 @@ Commands
 
 Objects have the format: "<type>:<xivoid>/<typeid>"
 
-* <type> can take values in user, agent, queue, phone, group, meetme, ...
+* <type> can take any of the following values:  user, agent, queue, phone, group, meetme, ...
 * <xivoid> indicates on which server the object is defined
 * <typeid> is the object id, type dependant
 
@@ -64,12 +64,12 @@ Class list
 LOGINCOMMANDS
 -------------
 
-One the network is connected at the socket level, the login process requires three steps. If one of this step is omitted, the connection is
+Once the network is connected at the socket level, the login process requires three steps. If one of these steps is omitted, the connection is
 reseted by the cti server.
 
-* login_id, the username is sent as a login to the cti server, cti server answers giving a sessionid
-* login_pass, the password combined with the sessionid is sent to the cti server, cti servers answers giving a capaid
-* login_capas, the capaid is returned to the server with the phone state, cti servers answers a list of info relevevant to the user
+* login_id, the username is sent as a login to the cti server, cti server answers by giving a sessionid
+* login_pass, the password combined with the sessionid is sent to the cti server, cti server answers by giving a capaid
+* login_capas, the capaid is returned to the server with the phone state, cti server answers with a list of info relevevant to the user
 
 .. code-block:: javascript
 
@@ -177,7 +177,7 @@ login_capas
     "class": "login_capas"
     }
 
-loginkind can be 'user' or 'agent', if 'agent' the property 'agentphonenumber' can be added.
+loginkind can be 'user' or 'agent', if 'agent', the property 'agentphonenumber' can be added.
 
 ``Server -> Client``
 
@@ -186,14 +186,14 @@ First message, describes all the capabilities of the client, configured at the s
 * presence : actual presence of the user
 * userid : the user id, can be used as a reference
 * capas
-   * userstatus : a list of available status
+   * userstatus : a list of available statuses
       * status name
       * color
       * selectionnable status from this status
       * default action to be done when this status is selected
       * long name
    * services : list of availble services
-   * phonestatus : list of available phonestatus with default colors and descriptive names
+   * phonestatus : list of available phonestatuses with default colors and descriptive names
    * capaxlets : List of xlets configured for this profile
    * appliname
 
@@ -272,7 +272,7 @@ Third message describes the current user status
 Unsolicited Messages
 --------------------
 
-These message are received whenever a corresponding event occurs, sheet message on incoming calls, updatestatus when a phone status change.
+These messages are received whenever one of the following corresponding event occurs: sheet message on incoming calls, or updatestatus when a phone status changes.
 
 sheet
 ^^^^^
@@ -383,7 +383,7 @@ Example of phone messages received when a phone is ringing :
 Configuration Messages
 ----------------------
 
-The followin messages are used to retrieve XiVO configuration.
+The following messages are used to retrieve XiVO configuration.
 
 Common fields
 ^^^^^^^^^^^^^
@@ -825,7 +825,7 @@ Activate / deactivate recording for a user, extension call recording has to be a
 
 Unconditional Forward
 ^^^^^^^^^^^^^^^^^^^^^
-Forward the call at any time, call doest not reach the user
+Forward the call at any time, call does not reach the user
 
 * function : fwd
 
@@ -1136,17 +1136,17 @@ Requirements for `innerdata`:
 * at least two kinds of objects are not "predefined" (as are the phones or the queues, for instance)
 
   * the channels (in the asterisk SIP/345-0x12345678 meaning)
-  * the group and queue members and shall be handled in a special way each
+  * the group and queue members shall be handled in a special way each
   * most statuses of the calls should be set inside the channel structure
 
-The purpose of the 'relations' field, in the various structures, is to keep track of relations
+The purpose of the 'relations' field, in the various structures is to keep track of relations
 and cross-relations between different objects (a phone logged in as an agent, itself in a queue,
 itself called by some channels belonging to phones ...).
 
 CTI server Message flow
 =======================
 
-Received messages from the CTI clients to the server are received by the CTIServer class.
+Messages sent from the CTI clients to the server are received by the CTIServer class.
 The CTIServer then calls ``interface_cti.CTI`` class ``manage_connection`` method.
 The ``interface_cti`` uses his ``_cti_command_handler`` member to parse and run the command.
 The ``CTICommandHandler`` get a list of classes that handle this message from the ``CTICommandFactory``.
