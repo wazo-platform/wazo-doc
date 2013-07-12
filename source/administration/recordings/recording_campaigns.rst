@@ -2,6 +2,7 @@
 Recording Campaigns
 *******************
 
+
 Introduction
 ============
 
@@ -16,11 +17,13 @@ is reached. Campaign recordings in XiVO are easily accessible through the web in
    * These campaigns will only work for queues whose context is **default**.
    * This functionnality is available only on demand. It requires specific operations to become available.
 
+
 Campaign management
 ===================
 
 Recording campaigns are accessible via the
 :menuselection:`Service --> IPBX --> IPBX Settings --> Recordings` page.
+
 
 Creating a campaign
 -------------------
@@ -33,6 +36,7 @@ Two campaigns cannot record the same queue for an overlapping period of time.
 For instance, if a campaign is recording the queue "Sales" from 2012-01-01 to
 2012-02-28, it is not possible to create another campaign for the queue "Sales" from
 2012-01-30 to 2012-03-31.
+
 
 Deleting a campaign
 -------------------
@@ -55,66 +59,23 @@ It is possible to perform a search on the recordings. Searches will be filtered 
 
 Recordings older than 31 days will be automatically deleted. Deletion will occur every day around midnight.
 
+
 Logging
 -------
 
 Accesses to the recordings (such as download, deletion, automatic deletion) are logged to the file
 `xivo-recording.log`. This file can be accessed via :menuselection:`Service --> IPBX --> Control --> Asterisk log files`.
 
+
 Activate recordings
 ===================
 
 To activate the recordings, you will need to follow these steps:
 
-* create the folder containing the recordings with appropriate rights:
+* Download the debian package:
 
-::
+  $ wget http://mirror.xivo.fr/iso/extra/xivo-recording-campaigns_0.1_all.deb
 
-  mkdir /var/lib/pf-xivo/sounds/campagnes
-  chown asterisk /var/lib/pf-xivo/sounds/campagnes
-  chmod 775 /var/lib/pf-xivo/sounds/campagnes
+* Install the package:
 
-* create a log file for the AGI script with appropriate rights:
-
-::
-
-  touch /var/log/xivo-recording-agi.log
-  chown asterisk:asterisk /var/log/xivo-recording-agi.log
-  chmod 660 /var/log/xivo-recording-agi.log
-  
-* display the recordings in the web interface: uncomment the line containing "recording" in the file
-  :file:`/usr/share/xivo-web-interface/object/objectconf/acl/user.inc`
-
-* add a configuration file :file:`xivo-recording.conf` via the web interface, containing the piece of dialplan
-  which you can find hereunder.
-* reload asterisk
-  
- 
-Dialplan
---------
-::
-
-  ;; Global Queue Sub routine for recording activation
-  [xivo-subrgbl-queue]
-  exten = s,1,NoOp(### Sub routine determinates whether the call is to be recorded - Queue ${XIVO_QUEUENAME}###)
-  same  =  n,Set(QR_RECORDQUEUE=0) ; Init QR_RECORDQUEUE
-  same  =  n,AGI(/usr/bin/xivo_recording_agi.py,determinateRecord)
-  same  =  n,NoOp(# Filename: ${QR_BASE_FILENAME}-${UNIQUEID})
-  same  =  n,GotoIf($["${QR_RECORDQUEUE}" = "1"]?:norecord)
-  same  =  n,Set(XIVO_QUEUESUB=pre-record-queue)
-  same  =  n,Set(__QR_CALLER_NB=${CALLERID(num)})
-  same  =  n(norecord),Return()
-
-  ; sub routine
-  [pre-record-queue]
-  exten = s,1,NoOp(### Sub routine starts recording and saves call details ###)
-  same  =  n, NoOp(## The call is about to be answered by ${CHANNEL} ##)
-  same  =  n,GotoIf($["${CUT(CUT(CHANNEL,@,2),-,1)}" = "agentcallback"]?:noagent)
-  same  =  n,Set(QR_AGENT_ID=${CUT(CUT(CHANNEL,@,1),-,2)})
-  same  =  n,Set(QR_QUEUENAME=${QUEUENAME})
-  same  =  n,Set(QR_TIME=${STRFTIME(${EPOCH},,%Y-%m-%d %H:%M:%S)})
-  same  =  n,AGI(/usr/bin/xivo_recording_agi.py,saveCallDetails)
-  same  =  n,NoOp(# Filename: ${QR_FILENAME})
-  same  =  n,MixMonitor(/var/lib/pf-xivo/sounds/campagnes/${QR_FILENAME},b)
-  same  =  n(noagent),Return()
-
+  $ dpkg -i xivo-recording-campaigns_0.1_all.deb
