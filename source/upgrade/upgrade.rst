@@ -106,6 +106,12 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes
 =============
 
+13.14
+-----
+
+* Recording campaigns are now in the xivo-recording-campaigns package. Consult :ref:`Recording Campaigns <recording-campaigns>` if you are using the recording campaign feature to install the package after the upgrade.
+
+
 13.13
 -----
 
