@@ -30,15 +30,6 @@ Some places where you might want to add this preprocess subroutine is on queues 
 to be able to transfer the called person to another extension.
 
 
-XiVO Client and Xlet tabber
----------------------------
-
-Configuring the Xlet tabber in dock mode will crash the XiVO Client uppon disconnection
-The work around consists in always configuring the Xlet tabber in grid mode.
-
-Associated ticket: #4341
-
-
 .. _fax-detection:
 
 Fax detection
