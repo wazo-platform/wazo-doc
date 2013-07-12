@@ -1142,7 +1142,7 @@ View::
            "type": "peer",
            "context": "from-extern",
            "language": "",
-           "nat": "yes",
+           "nat": "force_rnat,comedia",
            "progressinband": "",
            "dtmfmode": "rfc2833",
            "rfc2833compensate": "",
