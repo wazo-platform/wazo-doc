@@ -81,3 +81,10 @@ To activate the recordings, you will need to follow these steps:
 * Install the package:
 
   $ dpkg -i xivo-recording-campaigns_0.1_all.deb
+
+.. warning::
+
+    If you have previously installed the recordings manually, debian will issue a warning
+    about the file ``/etc/asterisk/extensions_extra.d/xivo-recording.conf``. If you have
+    not modified this file, you can press 'Y' to overwrite the file with the one provided by the
+    package.
