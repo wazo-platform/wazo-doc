@@ -119,10 +119,10 @@ Response if the query parameter ``include=line,voicemail`` is included::
                "firstname": "John",
                "lastname": "Doe",
                "userfield": "",
-               "line": {
+               "lines": [{
                    "line_id": 2,
                    "number": "1001"
-               },
+               }],
                "voicemail": {
                   "voicemail_id": 3
                }
@@ -132,7 +132,7 @@ Response if the query parameter ``include=line,voicemail`` is included::
                "firstname": "Alice",
                "lastname": "Houet",
                "userfield": "",
-               "line": null,
+               "lines": [],
                "voicemail": null
            }
        ]
@@ -286,16 +286,16 @@ The user will also be removed from all queues, groups or other XiVO entities who
    HTTP/1.1 204 No Content
 
 
-Get Line Associated to User
-===========================
+Get Lines Associated to User
+============================
 
 ::
 
-   GET /1.1/users/<id>/line
+   GET /1.1/users/<id>/lines
 
 **Example request**::
 
-   GET /1.1/users/1/line
+   GET /1.1/users/1/lines
    Host: xivoserver
    Accept: application/json
 
@@ -306,9 +306,15 @@ Get Line Associated to User
    Link: http://xivoserver/lines/42;rel=line
 
    {
-      "line_id": 42,
-      "number": "1234",
-      "main_user": true
+      "total": 1,
+      "items":
+      [
+           {
+               "line_id": 42,
+               "number": "1234",
+               "main_user": true
+           }
+      ]
    }
 
 or, if no line is associated to the user::
