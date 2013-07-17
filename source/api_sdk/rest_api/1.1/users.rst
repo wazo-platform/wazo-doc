@@ -119,10 +119,14 @@ Response if the query parameter ``include=line,voicemail`` is included::
                "firstname": "John",
                "lastname": "Doe",
                "userfield": "",
-               "lines": [{
-                   "line_id": 2,
-                   "number": "1001"
-               }],
+               "lines":
+               [
+                    {
+                        "id": 2,
+                        "number": "1001",
+                        "main_user": true
+                    }
+               ],
                "voicemail": {
                   "voicemail_id": 3
                }
@@ -310,7 +314,7 @@ Get Lines Associated to User
       "items":
       [
            {
-               "line_id": 42,
+               "id": 42,
                "number": "1234",
                "main_user": true
            }
@@ -348,7 +352,7 @@ line ID):
    Content-Type: application/json
 
    {
-       "line_id": 42,
+       "id": 42,
        "number": "1234"
    }
 
