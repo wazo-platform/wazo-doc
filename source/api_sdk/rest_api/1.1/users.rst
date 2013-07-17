@@ -408,7 +408,7 @@ Get Voicemail Associated to User
    Link: http://xivoserver/voicemails/3;rel=voicemail
 
    {
-      "voicemail_id": 42
+      "id": 42
    }
 
 or, if no voicemail is associated to the user::
@@ -435,7 +435,7 @@ different voicemail ID), the user old voicemail is not deleted.
    Content-Type: application/json
 
    {
-       "voicemail_id": 3
+       "id": 3
    }
 
 **Example response**::
