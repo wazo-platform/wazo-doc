@@ -107,10 +107,37 @@ Queue statistics
 
 Queue statistics can be viewed in :menuselection:`Services --> Statistics --> Queue`.
 
+The first table displays a list of queues with all the counters for the period choosen from the Dashboard panel
+
+.. figure:: images/statistic_all_queues.png
+   :scale: 85%
+   :alt: Queue statistic all
+
+By clicking on a queue name you may display detailed queue statistics
+
 .. figure:: images/statistic_queue.png
    :scale: 85%
    :alt: Queue statistic
 
+Statistics can be displayed :
+
+* By week
+
+.. figure:: images/statistic_queue_week.png
+   :scale: 85%
+   :alt: Queue statistic week
+
+* By month
+
+.. figure:: images/statistic_queue_month.png
+   :scale: 85%
+   :alt: Queue statistic month
+
+* By year
+
+.. figure:: images/statistic_queue_year.png
+   :scale: 85%
+   :alt: Queue statistic year
 
 Counters
 --------
@@ -122,8 +149,10 @@ Counters
 
   * Closed: Calls received when the queue was closed
   * No answer (NA): Calls that reached the ring timeout delay
-  * Satured: Calls received when the queue was already full or when one of the diversion parameters were reached
-  * Blocking : Calls received when no agents were available or when there were no agents to take the call
+  * Satured: Calls received when the queue was already full ("Maximum number of people allowed to wait:" limit of advanced tab)
+    or when one of the diversion parameters were reached
+  * Blocking : Calls received when no agents were available or when there were no agents to take the call, join an empty queue condition
+    or remove callers if there are no agents condition is reached (advanced queue parameter tab).
 
 * Average waiting time (AWT): The average waiting time of call on wait
 * Answered rate (HR): The ratio of answered calls over received calls
