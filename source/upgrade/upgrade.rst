@@ -106,6 +106,15 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes
 =============
 
+13.14
+-----
+
+* Consult the `13.14 Roadmap <https://projects.xivo.fr/versions/180>`_
+* Recording campaigns are now in the xivo-recording-campaigns package. Consult :ref:`Recording Campaigns <recording-campaigns>` if you are using the recording campaign feature to install the package after the upgrade.
+* The latest Polycom plugin enables the phone lock feature with a default user password of '123'. All Polycom phones used with XiVO also have a default admin password. In order for the phone lock feature to be secure, one should change every phone's admin AND user passwords.
+* WebServices for SIP trunks/lines: field ``nat``: value ``yes`` changed to ``force_rport,comedia``
+* The database has beed updated in order to remove deprecated tables (generalfeatures, extenumbers, extenhash, cost_center).
+
 13.13
 -----
 

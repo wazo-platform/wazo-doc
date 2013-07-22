@@ -15,7 +15,7 @@ A queue can be configured with the following options:
    * Name : used as an unique id, cannot be ``general``
    * Display name : Displayed on the supervisor screen
 
-A ring strategy defines how queue members are called when a call enters the queue. 
+A ring strategy defines how queue members are called when a call enters the queue.
 A queue can use one of the following ring strategies:
 
    * Linear: for each call, call the first member, then the second, etc.
@@ -47,11 +47,23 @@ You may control how long a call will stay in a queue using different timers:
 .. figure:: queue_timers.jpg
    :scale: 85%
 
+No Answer
+=========
+
+Call can be diverted on no answer :
+
+.. figure:: noanswer.png
+    :scale: 85%
+
+* No answer : The call reach the "Ringing time" in Application tab and no agent has answered the call
+* Congestion : The number of calls waiting have reach the "Maximum number of people allowed to wait:" limit of advanced tab
+* Fail : No agent was available to answer the call when call entered the queue (join an empty queue condition advanced tab)  or
+  the call was queued and no agents was available to answer (Remove callers if there are no agents advanced tab)
 
 Diversions
 ==========
 
-Diversions can be used to redirect calls towards another destination when a queue is very busy. 
+Diversions can be used to redirect calls towards another destination when a queue is very busy.
 Calls are redirected using one of the two following scenarios:
 
 .. figure:: diversions.png

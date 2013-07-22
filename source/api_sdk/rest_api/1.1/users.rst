@@ -72,6 +72,9 @@ include
 
    Example: ``include=line,voicemail``
 
+
+.. warning:: filters on the line number have not been implemeneted yet
+
 **Example request**::
 
    GET /1.1/users HTTP/1.1
@@ -116,10 +119,14 @@ Response if the query parameter ``include=line,voicemail`` is included::
                "firstname": "John",
                "lastname": "Doe",
                "userfield": "",
-               "line": {
-                   "line_id": 2,
-                   "number": "1001"
-               },
+               "lines":
+               [
+                    {
+                        "id": 2,
+                        "number": "1001",
+                        "main_user": true
+                    }
+               ],
                "voicemail": {
                   "voicemail_id": 3
                }
@@ -129,7 +136,7 @@ Response if the query parameter ``include=line,voicemail`` is included::
                "firstname": "Alice",
                "lastname": "Houet",
                "userfield": "",
-               "line": null,
+               "lines": [],
                "voicemail": null
            }
        ]
@@ -252,30 +259,26 @@ If the firstname or the lastname is modified, the associated voicemail is also u
 Delete User
 ===========
 
-Delete a user along with its line if he has one. This will be rejected if the user owns a voicemail, unless a parameter "deleteVoicemail" is specified.
-The user will also be removed to all queues, groups or other XiVO entities whom he is member.
+Delete a user along with its line if he has one.
+The user will also be removed from all queues, groups or other XiVO entities whom he is member.
 
 ::
 
    DELETE /1.1/users/<id>
 
-**Parameters**
-
-* deleteVoicemail (no value, it just needs to be present or not)
-
 **Errors**
 
-+------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| Error code | Error message                                                                               | Description                                                                                                                     |
-+============+=============================================================================================+=================================================================================================================================+
-| 404        | empty                                                                                       | The requested user was not found                                                                                                |
-+------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| 412        | Cannot remove a user with a voicemail. Delete the voicemail or dissociate it from the user. | The user owns a voicemail, so it cannot be deleted unless you specify the deleteVoicemail parameter                             |
-+------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| 500        | The user was deleted but the device could not be reconfigured.                              | provd returned an error when trying to reconfigure the user's device                                                            |
-+------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| 500        | The user was deleted but the voicemail content could not be removed.                        | sysconfd returned an error when trying to delete the user's voicemail. This can only happen if "deleteVoicemail" was specified. |
-+------------+---------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
++------------+---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| Error code | Error message                                                                               | Description                                                                                          |
++============+=============================================================================================+======================================================================================================+
+| 404        | empty                                                                                       | The requested user was not found                                                                     |
++------------+---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| 412        | Cannot remove a user with a voicemail. Delete the voicemail or dissociate it from the user. | The user owns a voicemail, so it cannot be deleted unless you specify the deleteVoicemail parameter  |
++------------+---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| 500        | The user was deleted but the device could not be reconfigured.                              | provd returned an error when trying to reconfigure the user's device                                 |
++------------+---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| 500        | The user was deleted but the voicemail content could not be removed.                        | sysconfd returned an error when trying to delete the user's voicemail.                               |
++------------+---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
 
 **Example request**::
 
@@ -287,16 +290,16 @@ The user will also be removed to all queues, groups or other XiVO entities whom 
    HTTP/1.1 204 No Content
 
 
-Get Line Associated to User
-===========================
+Get Lines Associated to User
+============================
 
 ::
 
-   GET /1.1/users/<id>/line
+   GET /1.1/users/<id>/lines
 
 **Example request**::
 
-   GET /1.1/users/1/line
+   GET /1.1/users/1/lines
    Host: xivoserver
    Accept: application/json
 
@@ -307,9 +310,15 @@ Get Line Associated to User
    Link: http://xivoserver/lines/42;rel=line
 
    {
-      "line_id": 42,
-      "number": "1234",
-      "main_user": true
+      "total": 1,
+      "items":
+      [
+           {
+               "id": 42,
+               "number": "1234",
+               "main_user": true
+           }
+      ]
    }
 
 or, if no line is associated to the user::
@@ -343,7 +352,7 @@ line ID):
    Content-Type: application/json
 
    {
-       "line_id": 42,
+       "id": 42,
        "number": "1234"
    }
 
@@ -403,7 +412,7 @@ Get Voicemail Associated to User
    Link: http://xivoserver/voicemails/3;rel=voicemail
 
    {
-      "voicemail_id": 42
+      "id": 42
    }
 
 or, if no voicemail is associated to the user::
@@ -430,7 +439,7 @@ different voicemail ID), the user old voicemail is not deleted.
    Content-Type: application/json
 
    {
-       "voicemail_id": 3
+       "id": 3
    }
 
 **Example response**::

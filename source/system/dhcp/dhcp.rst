@@ -25,8 +25,35 @@ on an other interface, you have to fill the *Extra network interfaces* field wit
 After saving your modifications, you need to click on *Apply system configuration* for them to be applied.
 
 
-Configuration DHCP server to serve unknown hosts
-================================================
+Change default gateway for DHCP
+===============================
+
+By default, the XiVO DHCP server gives the XiVO IP address in the router option.
+To change this you must create a custom-template:
+
+#. Create a custom template for the :file:`dhcpd_subnet.conf.head` file::
+
+     mkdir -p /etc/pf-xivo/custom-templates/dhcp/etc/dhcp/
+     cd /etc/pf-xivo/custom-templates/dhcp/etc/dhcp/
+     cp /usr/share/xivo-config/templates/dhcp/etc/dhcp/dhcpd_subnet.conf.head .
+
+#. Edit the custom template::
+
+     vim dhcpd_subnet.conf.head
+
+#. In the file, replace the string ``#XIVO_NET4_IP#`` by the router of your VoIP network, for example::
+
+     option routers 192.168.2.254;
+
+#. Re-generate the dhcp configuration::
+
+     xivo-update-config
+
+DHCP server should have been restarted and should now give the new router option.
+
+
+Configuring DHCP server to serve unknown hosts
+==============================================
 
 By default, the XiVO DHCP server serves only known hosts. That is:
 
@@ -37,17 +64,17 @@ Known OUIs and Vendor Class Identifiers are declared in :file:`/etc/dhcpd/dhcpd_
 
 If you want your XiVO DHCP server to serve also unknown hosts (like PCs) follow these instructions:
 
-#. Create a custom template for :file:`dhcpd_subnet.conf.tail` file::
+#. Create a custom template for the :file:`dhcpd_subnet.conf.tail` file::
      
      mkdir -p /etc/pf-xivo/custom-templates/dhcp/etc/dhcp/
      cd /etc/pf-xivo/custom-templates/dhcp/etc/dhcp/
      cp /usr/share/xivo-config/templates/dhcp/etc/dhcp/dhcpd_subnet.conf.tail .
 
-#. Edit the custom template ::
+#. Edit the custom template::
 
      vim dhcpd_subnet.conf.tail
 
-#. And add the following line at the head of the file ::
+#. And add the following line at the head of the file::
    
      allow unknown-clients;
 

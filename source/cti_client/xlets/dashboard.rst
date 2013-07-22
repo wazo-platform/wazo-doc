@@ -15,21 +15,24 @@ The goal of the agent status dashboard xlet is to give contact center supervisor
 Usage
 =====
 
-The xlet is *read-only* and presents a list of queues. For each queue, the xlet displays a status box for each logged agents. Each status box gives the following information:
+The xlet is *read-only* and presents a list of queues. For each queue, the xlet displays a status box for each logged in agent. Each status box gives the following information:
 
 * Agent name
-* Agent status: Shows the agent’s status. An agent can have three statuses:
+* Agent status: Shows the agent’s status. An agent can have six statuses:
 
   * *Not in use* when he is ready to answer an ACD call
-  * *OOQ In* when he answered a call not from the queue (*OOQ* is *Out of Queue*)
-  * *OOQ Out* when he called someone (*OOQ* is *Out of Queue*)
-  * *In use* when he is either on call from a queue, on pause or on wrapup
+  * *Int. Incoming* when he answered an internal call not from a queue
+  * *Int. Outgoing* when he emitted an internal call not from a queue
+  * *Ext. Incoming* when he answered an external call not from a queue
+  * *Ext. Outgoing* when he emitted an external call not from a queue
+  * *In use* when he is either on call a from a queue, on pause or on wrapup
 
 * Agent status since: Shows the time spent in the current status
 * Background color:
 
   * green if *Not in use*
-  * purple if *Out of queue*
+  * purple if *Int. Incoming* or *Int. Outgoing*
+  * pink if *Ext. Incoming* or *Ext. Outgoing*
   * orange if *In use*
 
 Note that the agent status will only change when the communication is established, not when phones are ringing.
@@ -38,16 +41,24 @@ Note that the agent status will only change when the communication is establishe
 Known bugs
 ^^^^^^^^^^
 
-#. If an agent emits a call via its XiVO Client, the status will change to *OOQ Out* when the destination phone rings, instead of when the destination answers.
+#. If an agent emits a call via his XiVO Client, the status will change to *Int. Outgoing* or *Ext. Outgoing* when the destination phone rings, instead of when the destination answers.
 
 #.
- * Given the agent is on ACD call
+ * Given the agent is on an ACD call
  * When the agent logs out
  * When the agent hangs up the ACD call
  * When the agent logs back in via CTI Client
- * Then the agent is seen in outgoing non-ACD communication, whether there is a non-ACD communication or not
+ * Then the agent may be seen as outgoing non-ACD communication, whether there is a non-ACD communication or not
 
  To make the agent *Not in use* again, make a non-ACD call and hangup.
+
+#.
+ * Given the agent is on ACD call
+ * When the agent calls someone else (e.g. his supervisor)
+ * When the ACD call hangs up (while the agent talks to his supervisor)
+ * Then the agent is seen as available, instead of in outgoing non-ACD communication.
+
+ This applies to all kinds of non-ACD calls.
 
 
 Changing the disposition
@@ -80,12 +91,12 @@ There is a little contextual menu when right-clicking on the title bar of every 
 Known issues
 ============
 
-* There is no profile containing this xlet. Profile must be created manually.
+* There is no profile containing this xlet. The profile must be created manually.
 * There is no sorting on agents in a queue.
-* An emtpy queue will display an empty box with no message specifying the queue has no logged agents.
+* An empty queue will display an empty box with no message specifying the queue has no logged agents.
 
 
 Configuration
 =============
 
-No special configuration necessary other than creating a CTI profile in which the Agent Status Dashboard is added.
+No special configuration is necessary other than creating a CTI profile in which the Agent Status Dashboard is added.
