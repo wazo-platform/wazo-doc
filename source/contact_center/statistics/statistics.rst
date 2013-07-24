@@ -190,6 +190,37 @@ Counters
 .. note:: The Pause time counter only supports **PAUSEALL** and **UNPAUSEALL** command from cticlient
 .. note:: Wrapup time events were added to XiVO in version 12.21
 
+Agent summary
+-------------
+
+.. figure:: images/statistic_agent_summary.png
+    :alt: Performance Agents statistic summary
+
+Agent per day
+-------------
+
+.. figure:: images/statistic_agent_day.png
+    :alt: Performance Agents statistic per day
+
+Agent per week
+--------------
+
+.. figure:: images/statistic_agent_week.png
+    :alt: Performance Agents statistic per week
+
+Agent per month
+---------------
+
+.. figure:: images/statistic_agent_month.png
+    :alt: Performance Agents statistic per month
+
+Agent per year
+--------------
+
+.. figure:: images/statistic_agent_year.png
+    :alt: Performance Agents statistic per year
+
+
 Period details
 ==============
 Display by period defined in configuration, i.e. between 0 and 10s, 10s and 30s etc ...
