@@ -106,6 +106,12 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes
 =============
 
+13.15
+-----
+
+* The :ref:`call logs <call_logs>` page is able to display partial results of big queries, instead of displaying a blank page.
+
+
 13.14
 -----
 
