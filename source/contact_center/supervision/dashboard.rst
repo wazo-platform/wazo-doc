@@ -1,4 +1,4 @@
-.. _dashboard-xlet:
+.. _agent_dashboard:
 
 **********************
 Agent Status Dashboard

@@ -190,7 +190,7 @@ Please consult the following detailed upgrade notes for more information:
 -----
 
 * Consult the `13.07 Roadmap <https://projects.xivo.fr/versions/173>`_
-* Agent Status Dashboard has more features and less limitations. See related :ref:`dashboard xlet documentation <dashboard-xlet>`
+* Agent Status Dashboard has more features and less limitations. See related :ref:`agent status dashboard documentation <agent_dashboard>`
 * XiVO call centers have no more notion of 'disabled agents'. All previously disabled agents in web interface will become active agents after upgrading.
 * asterisk has been upgraded from version 1.8.20.1 to 1.8.21.0. Please note that in XiVO 13.08, asterisk will be upgraded to version 11.
 * DAHDI has been upgraded from version 2.6.1 to 2.6.2.

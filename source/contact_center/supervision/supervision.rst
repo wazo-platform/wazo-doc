@@ -28,6 +28,7 @@ Profiles` menu usually contains the following Xlets :
 * Agents (list)
 * Agents (detail)
 
+:Note: You may also see the :ref:`agent_dashboard`
 
 Supervision Panel
 -----------------
