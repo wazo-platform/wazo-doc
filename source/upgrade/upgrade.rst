@@ -121,6 +121,7 @@ Upgrade Notes
 * WebServices for SIP trunks/lines: field ``nat``: value ``yes`` changed to ``force_rport,comedia``
 * The database has beed updated in order to remove deprecated tables (generalfeatures, extenumbers, extenhash, cost_center).
 
+
 13.13
 -----
 
