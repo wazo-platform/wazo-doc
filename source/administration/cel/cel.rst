@@ -10,7 +10,9 @@ Call records can be used for:
 * Search by Channel, Caller, Called
 
 You can export search results to CSV files.
- 
+
+The call logs results are currently limited to 20000 CEL entries, which represent a maximum of about 2000 calls. If you hit this limit, a message will be displayed, and the last call log entries will not be displayed.
+
 
 Search Dashboard
 ----------------
