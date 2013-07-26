@@ -156,12 +156,12 @@ the newly created directory::
 Drop the asterisk database and restore it with the one from the backup::
 
    sudo -u postgres dropdb asterisk
-   sudo -u postgres pg_restore -C -d postgres asterisk.dump
+   sudo -u postgres pg_restore -C -d postgres asterisk-*.dump
 
 Do the same thing for the xivo database::
 
    sudo -u postgres dropdb xivo
-   sudo -u postgres pg_restore -C -d postgres xivo.dump
+   sudo -u postgres pg_restore -C -d postgres xivo-*.dump
 
 
 Restoring and Keeping System Configuration
