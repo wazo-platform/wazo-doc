@@ -181,21 +181,22 @@ restore xivo database provided you restore the following tables :
 
 ::
 
-   sudo -u postgres pg_restore -d xivo -t entity -c xivo.dump
-   sudo -u postgres pg_restore -d xivo -t ldapserver -c xivo.dump
-   sudo -u postgres pg_restore -d xivo -t stats_conf -c xivo.dump
-   sudo -u postgres pg_restore -d xivo -t stats_conf_agent -c xivo.dump
-   sudo -u postgres pg_restore -d xivo -t stats_conf_group -c xivo.dump
-   sudo -u postgres pg_restore -d xivo -t stats_conf_incall -c xivo.dump
-   sudo -u postgres pg_restore -d xivo -t stats_conf_queue -c xivo.dump
-   sudo -u postgres pg_restore -d xivo -t stats_conf_user -c xivo.dump
+   sudo -u postgres pg_restore -d xivo -t entity -c xivo-*.dump
+   sudo -u postgres pg_restore -d xivo -t entity_id_seq -c xivo-*.dump
+   sudo -u postgres pg_restore -d xivo -t ldapserver -c xivo-*.dump
+   sudo -u postgres pg_restore -d xivo -t ldapserver_id_seq -c xivo-*.dump
+   sudo -u postgres pg_restore -d xivo -t stats_conf -c xivo-*.dump
+   sudo -u postgres pg_restore -d xivo -t stats_conf_id_seq -c xivo-*.dump
+   sudo -u postgres pg_restore -d xivo -t stats_conf_agent -c xivo-*.dump
+   sudo -u postgres pg_restore -d xivo -t stats_conf_group -c xivo-*.dump
+   sudo -u postgres pg_restore -d xivo -t stats_conf_incall -c xivo-*.dump
+   sudo -u postgres pg_restore -d xivo -t stats_conf_queue -c xivo-*.dump
+   sudo -u postgres pg_restore -d xivo -t stats_conf_user -c xivo-*.dump
 
 Restore the rights on these tables ::
 
-   su postgres
-   psql xivo
-   GRANT ALL ON ALL TABLES IN SCHEMA public TO xivo;
-   GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO xivo;
+   su postgres -c 'psql xivo -c "GRANT ALL ON ALL TABLES IN SCHEMA public TO xivo"'
+   su postgres -c 'psql xivo -c "GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO xivo"'
 
 .. warning:: Restoring the data.tgz file restore also system files as host
    hostname network interfaces etc... You will need to reapply network
