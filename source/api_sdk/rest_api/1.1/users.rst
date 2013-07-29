@@ -232,7 +232,8 @@ If the firstname or the lastname is modified, the associated voicemail is also u
 Delete User
 ===========
 
-Delete a user along with its line if he has one.
+The user will not be removed if he is associated to a line and an extension. You must delete the association first.
+
 The user will also be removed from all queues, groups or other XiVO entities whom he is member.
 
 ::
@@ -244,6 +245,8 @@ The user will also be removed from all queues, groups or other XiVO entities who
 +------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
 | Error code | Error message                                                                               | Description                                                                                         |
 +============+=============================================================================================+=====================================================================================================+
+| 400        | error during deletion: explanation                                                          | The requested user is probably associated to other objects.                                         |
++------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
 | 404        | empty                                                                                       | The requested user was not found                                                                    |
 +------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
 | 412        | Cannot remove a user with a voicemail. Delete the voicemail or dissociate it from the user. | The user owns a voicemail, so it cannot be deleted unless you specify the deleteVoicemail parameter |
