@@ -33,7 +33,7 @@ The representation of a extension.
        "links" : [
            {
                "rel": "extensions",
-               "href": "https://xivoserver:50051/1.1/extensions/1"
+               "href": "https://xivoserver/1.1/extensions/1"
            }
        ]
    }
@@ -70,7 +70,7 @@ List all extensions.
                "links" : [
                    {
                        "rel": "extensions",
-                       "href": "https://xivoserver:50051/1.1/extensions/1"
+                       "href": "https://xivoserver/1.1/extensions/1"
                    }
                ]
            },
@@ -82,7 +82,7 @@ List all extensions.
                "links" : [
                    {
                        "rel": "extensions",
-                       "href": "https://xivoserver:50051/1.1/extensions/2"
+                       "href": "https://xivoserver/1.1/extensions/2"
                    }
                ]
            }
@@ -159,7 +159,7 @@ Create Extension
        "links" : [
            {
                "rel": "extensions",
-               "href": "https://xivoserver:50051/1.1/extensions/1"
+               "href": "https://xivoserver/1.1/extensions/1"
            }
        ]
    }

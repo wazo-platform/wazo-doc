@@ -42,7 +42,7 @@ links
       "links" : [
          {
             "rel": "lines_sip",
-            "href": "https://xivoserver:50051/1.1/lines_sip/1"
+            "href": "https://xivoserver/1.1/lines_sip/1"
          }
       ]
    }
@@ -61,7 +61,7 @@ links
       "links" : [
          {
             "rel": "lines_custom",
-            "href": "https://xivoserver:50051/1.1/lines_custom/2"
+            "href": "https://xivoserver/1.1/lines_custom/2"
          }
       ]
    }
@@ -80,7 +80,7 @@ links
       "links" : [
          {
             "rel": "lines_sccp",
-            "href": "https://xivoserver:50051/1.1/lines_sccp/3"
+            "href": "https://xivoserver/1.1/lines_sccp/3"
          }
       ]
    }
@@ -117,7 +117,7 @@ List all lines. The resource ``/lines`` is only for to list
                "links" : [
                   {
                      "rel": "lines_sip",
-                     "href": "https://xivoserver:50051/1.1/lines_sip/1"
+                     "href": "https://xivoserver/1.1/lines_sip/1"
                   }
                ]
            },
@@ -129,7 +129,7 @@ List all lines. The resource ``/lines`` is only for to list
                "links" : [
                   {
                      "rel": "lines_custom",
-                     "href": "https://xivoserver:50051/1.1/lines_custom/2"
+                     "href": "https://xivoserver/1.1/lines_custom/2"
                   }
                ]
            },
@@ -141,7 +141,7 @@ List all lines. The resource ``/lines`` is only for to list
                "links" : [
                   {
                      "rel": "lines_sccp",
-                     "href": "https://xivoserver:50051/1.1/lines_sccp/3"
+                     "href": "https://xivoserver/1.1/lines_sccp/3"
                   }
                ]
            }
@@ -219,7 +219,7 @@ context
       "links" : [
          {
             "rel": "lines_sip",
-            "href": "https://xivoserver:50051/1.1/lines_sip/1"
+            "href": "https://xivoserver/1.1/lines_sip/1"
          }
       ]
    }
@@ -268,7 +268,7 @@ interface
       "links" : [
          {
             "rel": "lines_custom",
-            "href": "https://xivoserver:50051/1.1/lines_custom/2"
+            "href": "https://xivoserver/1.1/lines_custom/2"
          }
       ]
    }

@@ -322,15 +322,15 @@ Get Lines Associated to User
                "links" : [
                    {
                        "rel": "users",
-                       "href": "https://xivoserver:50051/1.1/users/42"
+                       "href": "https://xivoserver/1.1/users/42"
                    },
                    {
                        "rel": "lines",
-                       "href": "https://xivoserver:50051/1.1/lines_sip/42324"
+                       "href": "https://xivoserver/1.1/lines_sip/42324"
                    },
                    {
                        "rel": "extensions",
-                       "href": "https://xivoserver:50051/1.1/extensions/2132"
+                       "href": "https://xivoserver/1.1/extensions/2132"
                    }
                ]
            }
@@ -396,7 +396,7 @@ line ID):
        "links" : [
            {
                "rel": "user_links",
-               "href": "https://xivoserver:50051/1.1/user_links/63"
+               "href": "https://xivoserver/1.1/user_links/63"
            }
        ]
    }
@@ -445,7 +445,7 @@ Get Voicemail Associated to User
        "links" : [
            {
                "rel": "voicemails",
-               "href": "https://xivoserver:50051/1.1/voicemails/42"
+               "href": "https://xivoserver/1.1/voicemails/42"
            }
        ]
    }
