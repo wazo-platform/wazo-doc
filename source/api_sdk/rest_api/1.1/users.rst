@@ -266,16 +266,16 @@ The user will also be removed from all queues, groups or other XiVO entities who
    HTTP/1.1 204 No Content
 
 
-Get Lines Associated to User
-============================
+Get the Lines Associated to a User
+==================================
 
 ::
 
-   GET /1.1/user_links/<userid>
+   GET /1.1/users/<user_id>/user_links
 
 **Example request**::
 
-   GET /1.1/user_links/1/
+   GET /1.1/users/42/user_links
    Host: xivoserver
    Accept: application/json
 
@@ -283,7 +283,7 @@ Get Lines Associated to User
 
    HTTP/1.1 200 OK
    Content-Type: application/json
-   Link: http://xivoserver/user_links/42
+   Location: http://xivoserver/1.1/users/42/user_links
 
    {
        "total": 1,
@@ -318,17 +318,55 @@ or, if no line is associated to the user::
    HTTP/1.1 404 Not Found
 
 
+Get a User-Line Association
+===========================
+
+::
+
+   GET /1.1/user_links/<user_link_id>
+
+**Example request**::
+
+   GET /1.1/user_links/1/
+   Host: xivoserver
+   Accept: application/json
+
+**Example response**::
+
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+   Location: http://xivoserver/user_links/42
+
+   {
+       "id": "83"
+       "user_id": "42",
+       "line_id": "42324",
+       "extension_id": "2132",
+       "main_user": true,
+       "main_line": true,
+       "links" : [
+           {
+               "rel": "users",
+               "href": "https://xivoserver/1.1/users/42"
+           },
+           {
+               "rel": "lines",
+               "href": "https://xivoserver/1.1/lines_sip/42324"
+           },
+           {
+               "rel": "extensions",
+               "href": "https://xivoserver/1.1/extensions/2132"
+           }
+       ]
+   }
+
+or, if no line is associated to the user::
+
+   HTTP/1.1 404 Not Found
+
+
 Associate Line to User
 ======================
-
-Associate (or update) a line to a user.
-
-Note that, on update, if the user is associated to a different line (i.e. different
-line ID):
-
-* the user old line is not deleted.
-* the user old line must still be in a valid state, i.e. with 1 main user if
-  the line has at least 1 secondary user, else an error is returned.
 
 ::
 
