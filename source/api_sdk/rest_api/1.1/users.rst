@@ -438,6 +438,8 @@ If the user is the main user of the line and there is at least 1 secondary user 
 Get Voicemail Associated to User
 ================================
 
+.. warning:: Not implemented yet.
+
 ::
 
    GET /1.1/users/<id>/voicemail
@@ -472,6 +474,8 @@ or, if no voicemail is associated to the user::
 Associate Voicemail to User
 ===========================
 
+.. warning:: Not implemented yet.
+
 Associate (or update) a voicemail to a user.
 
 Note that, on update, if the user is associated to a different voicemail (i.e.
@@ -498,6 +502,8 @@ different voicemail ID), the user old voicemail is not deleted.
 
 Deassociate Voicemail From User
 ===============================
+
+.. warning:: Not implemented yet.
 
 Deassociate a voicemail from a user.
 
