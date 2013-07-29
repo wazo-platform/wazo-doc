@@ -442,7 +442,13 @@ Get Voicemail Associated to User
    Link: http://xivoserver/voicemails/3;rel=voicemail
 
    {
-      "id": 42
+      "id": 42,
+      "links" : [
+         {
+            "rel": "user_links",
+            "href": "https://xivoserver:50051/1.1/voicemails/42"
+         }
+      ]
    }
 
 or, if no voicemail is associated to the user::
