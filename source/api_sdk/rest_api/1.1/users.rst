@@ -57,12 +57,12 @@ include
 
    By default, no additional information is included.
 
-   Valid values: ``line``, ``voicemail``.
+   Valid values: ``voicemail``.
 
-   Example: ``include=line,voicemail``
+   Example: ``include=voicemail``
 
 
-.. warning:: filters on the line number have not been implemeneted yet
+.. warning:: filtering on the line number is not implemented yet
 
 **Example request**::
 
@@ -94,7 +94,7 @@ include
        ]
    }
 
-Response if the query parameter ``include=line,voicemail`` is included::
+Response if the query parameter ``include=voicemail`` is included::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
@@ -108,14 +108,6 @@ Response if the query parameter ``include=line,voicemail`` is included::
                "firstname": "John",
                "lastname": "Doe",
                "userfield": "",
-               "lines":
-               [
-                    {
-                        "id": 2,
-                        "number": "1001",
-                        "main_user": true
-                    }
-               ],
                "voicemail": {
                   "voicemail_id": 3
                }
@@ -125,7 +117,6 @@ Response if the query parameter ``include=line,voicemail`` is included::
                "firstname": "Alice",
                "lastname": "Houet",
                "userfield": "",
-               "lines": [],
                "voicemail": null
            }
        ]
@@ -142,13 +133,7 @@ Get User
 **Parameters**
 
 include
-   A comma separated list of additional information to include for each user.
-
-   By default, no additional information is included.
-
-   Valid values: ``line``, ``voicemail``.
-
-   Example: ``include=line,voicemail``
+   See `List Users`_.
 
 **Example request**::
 
