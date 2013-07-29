@@ -11,25 +11,17 @@ User Representation
 
 **Description**
 
-id
-   *read-only* **integer**
-
-firstname
-   **string**
-
-   If the user has no firstname, then this field is an empty string.
-
-lastname
-   **string**
-
-   If the user has no lastname, then this field is an empty string.
-
-userfield
-   **string**
-
-   A custom field which purpose is left to the client.
-
-   If the user has no userfield, then this field is an empty string.
++-----------+---------+-----------------------------------------------------------------------------------------------------------------------+
+| Field     | Values  | Description                                                                                                           |
++===========+=========+=======================================================================================================================+
+| id        | int     | Read-only                                                                                                             |
++-----------+---------+-----------------------------------------------------------------------------------------------------------------------+
+| firstname | string  | If the user has no firstname, then this field is an empty string.                                                     |
++-----------+---------+-----------------------------------------------------------------------------------------------------------------------+
+| lastname  | string  | If the user has no lastname, then this field is an empty string.                                                      |
++-----------+---------+-----------------------------------------------------------------------------------------------------------------------+
+| userfield | boolean | A custom field which purpose is left to the client. If the user has no userfield, then this field is an empty string. |
++-----------+---------+-----------------------------------------------------------------------------------------------------------------------+
 
 **Example**::
 
@@ -186,14 +178,15 @@ Create User
 
 **Input**
 
-firstname
-   *required* **string**
-
-lastname
-   *optional* **string**
-
-userfield
-   *optional* **string**
++-----------+----------+--------+
+| Field     | Required | Values |
++===========+==========+========+
+| firstname | yes      | string |
++-----------+----------+--------+
+| lastname  | no       | string |
++-----------+----------+--------+
+| userfield | no       | string |
++-----------+----------+--------+
 
 **Example request**::
 
