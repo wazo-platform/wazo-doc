@@ -193,7 +193,13 @@ Create User
    Content-Type: application/json
 
    {
-       "id": 1
+       "id": 1,
+       "links" : [
+           {
+               "rel": "users",
+               "href": "https://xivoserver/1.1/users/1"
+           }
+       ]
    }
 
 
