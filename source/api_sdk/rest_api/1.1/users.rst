@@ -268,17 +268,17 @@ The user will also be removed from all queues, groups or other XiVO entities who
 
 **Errors**
 
-+------------+---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| Error code | Error message                                                                               | Description                                                                                          |
-+============+=============================================================================================+======================================================================================================+
-| 404        | empty                                                                                       | The requested user was not found                                                                     |
-+------------+---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| 412        | Cannot remove a user with a voicemail. Delete the voicemail or dissociate it from the user. | The user owns a voicemail, so it cannot be deleted unless you specify the deleteVoicemail parameter  |
-+------------+---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| 500        | The user was deleted but the device could not be reconfigured.                              | provd returned an error when trying to reconfigure the user's device                                 |
-+------------+---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| 500        | The user was deleted but the voicemail content could not be removed.                        | sysconfd returned an error when trying to delete the user's voicemail.                               |
-+------------+---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
++------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| Error code | Error message                                                                               | Description                                                                                         |
++============+=============================================================================================+=====================================================================================================+
+| 404        | empty                                                                                       | The requested user was not found                                                                    |
++------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| 412        | Cannot remove a user with a voicemail. Delete the voicemail or dissociate it from the user. | The user owns a voicemail, so it cannot be deleted unless you specify the deleteVoicemail parameter |
++------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| 500        | The user was deleted but the device could not be reconfigured.                              | provd returned an error when trying to reconfigure the user's device                                |
++------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| 500        | The user was deleted but the voicemail content could not be removed.                        | sysconfd returned an error when trying to delete the user's voicemail.                              |
++------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
 
 **Example request**::
 
@@ -295,11 +295,11 @@ Get Lines Associated to User
 
 ::
 
-   GET /1.1/users/<id>/lines
+   GET /1.1/user_links/<userid>
 
 **Example request**::
 
-   GET /1.1/users/1/lines
+   GET /1.1/user_links/1/
    Host: xivoserver
    Accept: application/json
 
@@ -307,16 +307,33 @@ Get Lines Associated to User
 
    HTTP/1.1 200 OK
    Content-Type: application/json
-   Link: http://xivoserver/lines/42;rel=line
+   Link: http://xivoserver/user_links/42
 
    {
       "total": 1,
       "items":
       [
            {
-               "id": 42,
-               "number": "1234",
-               "main_user": true
+               "id": "83"
+               "user_id": "42",
+               "line_id": "42324",
+               "extension_id": "2132",
+               "main_user": true,
+               "main_line": true,
+               "links" : [
+                  {
+                     "rel": "users",
+                     "href": "https://xivoserver:50051/1.1/users/42"
+                  },
+                  {
+                     "rel": "lines",
+                     "href": "https://xivoserver:50051/1.1/lines_sip/42324"
+                  },
+                  {
+                     "rel": "extensions",
+                     "href": "https://xivoserver:50051/1.1/extensions/2132"
+                  }
+               ]
            }
       ]
    }
@@ -331,9 +348,6 @@ Associate Line to User
 
 Associate (or update) a line to a user.
 
-The user will be the main user of the line if no other user is currently
-associated to the line. Else, the user will be a seconday user.
-
 Note that, on update, if the user is associated to a different line (i.e. different
 line ID):
 
@@ -343,48 +357,64 @@ line ID):
 
 ::
 
-   PUT /1.1/users/<id>/line
+   POST /1.1/user_links
+
+**Input**
+
++--------------+----------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Field        | Required | Values  | Description                                                                                                                                                                                                               |
++==============+==========+=========+===========================================================================================================================================================================================================================+
+| user_id      | yes      | int     | Must be an existing id                                                                                                                                                                                                    |
++--------------+----------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| line_id      | yes      | int     | Must be an existing id                                                                                                                                                                                                    |
++--------------+----------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| extension_id | yes      | int     | Must be an existing id                                                                                                                                                                                                    |
++--------------+----------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| main_user    | no       | boolean | May always be true, may not be false if the user has no line yet. If not given, the user will be the main user of the line if no other user is currently associated to the line. Else, the user will be a secondary user. |
++--------------+----------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 **Example request**::
 
-   POST /1.1/users/1/line
+   POST /1.1/user_links
    Host: xivoserver
    Content-Type: application/json
 
    {
-       "id": 42,
-       "number": "1234"
+      "user_id": "42",
+      "line_id": "42324",
+      "extension_id": "2132",
+      "main_user": true
    }
 
 **Example response**::
 
-   HTTP/1.1 204 No Content
+   HTTP/1.1 201 Created
+   Location: /1.1/user_links/63
+   Content-Type: application/json
+
+   {
+      "id": 63,
+      "links" : [
+         {
+            "rel": "user_links",
+            "href": "https://xivoserver:50051/1.1/user_links/63"
+         }
+      ]
+   }
 
 
 Deassociate Line From User
 ==========================
 
-Deassociate a line from a user.
-
-If the user is the main user of the line and there is at least 1 secondary user
-associated to this line and the deleteLine parameter is not included, an error
-is returned.
+If the user is the main user of the line and there is at least 1 secondary user associated to this line, an error is returned.
 
 ::
 
-   DELETE /1.1/users/<id>/line
-
-**Parameters**
-
-deleteLine
-   If present (whatever the value), the line is also deleted.
-
-   Be careful when using this parameter since a line can be associated to
-   more than 1 user.
+   DELETE /1.1/user_links/<user_link_id>
 
 **Example request**::
 
-   DELETE /1.1/users/1/line HTTP/1.1
+   DELETE /1.1/user_links/42 HTTP/1.1
    Host: xivoserver
 
 **Example response**::
