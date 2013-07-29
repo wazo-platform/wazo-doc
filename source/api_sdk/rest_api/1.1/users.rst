@@ -44,8 +44,6 @@ userfield
 List Users
 ==========
 
-List users.
-
 The users are listed in ascending order on lastname, then firstname.
 
 ::
@@ -58,8 +56,7 @@ The users are listed in ascending order on lastname, then firstname.
 q
    List only users matching this filter.
 
-   The filter is done on the firstname, lastname, firstname + lastname
-   and line number, and is case insensitive.
+   The filter is done on the firstname, lastname and firstname + lastname and is case insensitive.
 
    Example: ``q=john``
 
@@ -146,15 +143,11 @@ Response if the query parameter ``include=line,voicemail`` is included::
 Get User
 ========
 
-Return a user.
-
 ::
 
    GET /1.1/users/<id>
 
 **Parameters**
-
-.. FIXME this is duplicated from List Users
 
 include
    A comma separated list of additional information to include for each user.
@@ -186,8 +179,6 @@ include
 
 Create User
 ===========
-
-Create a new user.
 
 ::
 
@@ -231,11 +222,9 @@ userfield
 Update User
 ===========
 
-Update a user.
+The update does not need to set all the fields of the edited user. The update only needs to set the modified fields.
 
 If the firstname or the lastname is modified, the associated voicemail is also updated.
-
-.. XXX explicit that it supports partial update or something like that
 
 ::
 
@@ -438,7 +427,7 @@ Get Voicemail Associated to User
 
    HTTP/1.1 200 OK
    Content-Type: application/json
-   Link: http://xivoserver/voicemails/3;rel=voicemail
+   Link: http://xivoserver/voicemails/42
 
    {
        "id": 42,

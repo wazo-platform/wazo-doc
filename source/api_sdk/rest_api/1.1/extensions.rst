@@ -60,7 +60,7 @@ List all extensions.
    Content-Type: application/json
 
    {
-       "total": 3,
+       "total": 2,
        "items": [
            {
                "id": 1,
