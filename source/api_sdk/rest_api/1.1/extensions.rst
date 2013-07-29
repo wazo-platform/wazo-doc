@@ -26,16 +26,16 @@ The representation of a extension.
 **Example**::
 
    {
-      "id": 1,
-      "context": "default",
-      "exten": "1234",
-      "commented": 0,
-      "links" : [
-         {
-            "rel": "extensions",
-            "href": "https://xivoserver:50051/1.1/extensions/1"
-         }
-      ]
+       "id": 1,
+       "context": "default",
+       "exten": "1234",
+       "commented": 0,
+       "links" : [
+           {
+               "rel": "extensions",
+               "href": "https://xivoserver:50051/1.1/extensions/1"
+           }
+       ]
    }
 
 
@@ -68,10 +68,10 @@ List all extensions.
                "exten": "1234",
                "commented": 0,
                "links" : [
-                  {
-                     "rel": "extensions",
-                     "href": "https://xivoserver:50051/1.1/extensions/1"
-                  }
+                   {
+                       "rel": "extensions",
+                       "href": "https://xivoserver:50051/1.1/extensions/1"
+                   }
                ]
            },
            {
@@ -80,10 +80,10 @@ List all extensions.
                "exten": "6789",
                "commented": 1,
                "links" : [
-                  {
-                     "rel": "extensions",
-                     "href": "https://xivoserver:50051/1.1/extensions/2"
-                  }
+                   {
+                       "rel": "extensions",
+                       "href": "https://xivoserver:50051/1.1/extensions/2"
+                   }
                ]
            }
        ]
@@ -109,10 +109,10 @@ Get Extension
    Content-Type: application/json
 
    {
-      "id": 1,
-      "context": "default",
-      "exten": "1234",
-      "commented": 0
+       "id": 1,
+       "context": "default",
+       "exten": "1234",
+       "commented": 0
    }
 
 
@@ -155,13 +155,13 @@ Create Extension
    Content-Type: application/json
 
    {
-      "id": 1,
-      "links" : [
-         {
-            "rel": "extensions",
-            "href": "https://xivoserver:50051/1.1/extensions/1"
-         }
-      ]
+       "id": 1,
+       "links" : [
+           {
+               "rel": "extensions",
+               "href": "https://xivoserver:50051/1.1/extensions/1"
+           }
+       ]
    }
 
 

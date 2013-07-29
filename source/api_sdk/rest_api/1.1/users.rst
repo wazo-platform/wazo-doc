@@ -248,7 +248,7 @@ If the firstname or the lastname is modified, the associated voicemail is also u
    Content-Type: application/json
 
    {
-     "firstname": "Jonathan"
+       "firstname": "Jonathan"
    }
 
 **Example response**::
@@ -310,9 +310,8 @@ Get Lines Associated to User
    Link: http://xivoserver/user_links/42
 
    {
-      "total": 1,
-      "items":
-      [
+       "total": 1,
+       "items": [
            {
                "id": "83"
                "user_id": "42",
@@ -321,21 +320,21 @@ Get Lines Associated to User
                "main_user": true,
                "main_line": true,
                "links" : [
-                  {
-                     "rel": "users",
-                     "href": "https://xivoserver:50051/1.1/users/42"
-                  },
-                  {
-                     "rel": "lines",
-                     "href": "https://xivoserver:50051/1.1/lines_sip/42324"
-                  },
-                  {
-                     "rel": "extensions",
-                     "href": "https://xivoserver:50051/1.1/extensions/2132"
-                  }
+                   {
+                       "rel": "users",
+                       "href": "https://xivoserver:50051/1.1/users/42"
+                   },
+                   {
+                       "rel": "lines",
+                       "href": "https://xivoserver:50051/1.1/lines_sip/42324"
+                   },
+                   {
+                       "rel": "extensions",
+                       "href": "https://xivoserver:50051/1.1/extensions/2132"
+                   }
                ]
            }
-      ]
+       ]
    }
 
 or, if no line is associated to the user::
@@ -380,10 +379,10 @@ line ID):
    Content-Type: application/json
 
    {
-      "user_id": "42",
-      "line_id": "42324",
-      "extension_id": "2132",
-      "main_user": true
+       "user_id": "42",
+       "line_id": "42324",
+       "extension_id": "2132",
+       "main_user": true
    }
 
 **Example response**::
@@ -393,13 +392,13 @@ line ID):
    Content-Type: application/json
 
    {
-      "id": 63,
-      "links" : [
-         {
-            "rel": "user_links",
-            "href": "https://xivoserver:50051/1.1/user_links/63"
-         }
-      ]
+       "id": 63,
+       "links" : [
+           {
+               "rel": "user_links",
+               "href": "https://xivoserver:50051/1.1/user_links/63"
+           }
+       ]
    }
 
 
@@ -442,13 +441,13 @@ Get Voicemail Associated to User
    Link: http://xivoserver/voicemails/3;rel=voicemail
 
    {
-      "id": 42,
-      "links" : [
-         {
-            "rel": "user_links",
-            "href": "https://xivoserver:50051/1.1/voicemails/42"
-         }
-      ]
+       "id": 42,
+       "links" : [
+           {
+               "rel": "voicemails",
+               "href": "https://xivoserver:50051/1.1/voicemails/42"
+           }
+       ]
    }
 
 or, if no voicemail is associated to the user::
