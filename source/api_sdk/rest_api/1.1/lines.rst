@@ -2,49 +2,48 @@
 Lines
 *****
 
-Line Representation
-===================
+The resource ``/lines`` only provides read operations. Modifications can only be done on
+protocol-specific lines (see below).
 
-The representation of a line slightly differs depending on its protocol.
+
+Generic Lines
+=============
+
+
+Line Representation
+-------------------
 
 **Description**
 
-id
-   *read-only* **integer**
++-----------+-----------------------------+---------------------------------+
+| Field     | Values                      | Description                     |
++===========+=============================+=================================+
+| id        | int                         | Read-only                       |
++-----------+-----------------------------+---------------------------------+
+| context   | string                      | The name of an internal context |
++-----------+-----------------------------+---------------------------------+
+| protocol  | string, only value: ``sip`` | Read-only                       |
++-----------+-----------------------------+---------------------------------+
+| interface | string                      |                                 |
++-----------+-----------------------------+---------------------------------+
+| links     | list                        | The links to the resource       |
++-----------+-----------------------------+---------------------------------+
 
-context
-   **string**
+**SIP example**
 
-   The name of an internal context.
-
-protocol
-   *read-only* **string**
-
-   Must be ``sip`` for now.
-
-interface
-   **string**
-
-   The interface of the custom line. Example: ``SIP/abcdef`` or ``Local/123@default``.
-
-links
-   **list**
-   
-   The link to the resource.
-
-**SIP example**::
+::
 
    {
-      "id": 1,
-      "context": "default",
-      "protocol": "sip",
-      "interface": "sip/abcdef",
-      "links" : [
-         {
-            "rel": "lines_sip",
-            "href": "https://xivoserver/1.1/lines_sip/1"
-         }
-      ]
+       "id": 1,
+       "context": "default",
+       "protocol": "sip",
+       "interface": "sip/abcdef",
+       "links" : [
+           {
+               "rel": "lines_sip",
+               "href": "https://xivoserver/1.1/lines_sip/1"
+           }
+       ]
    }
 
 **Custom example**
@@ -52,18 +51,18 @@ links
 .. warning:: Not yet implemented
 
 ::
-   
+
    {
-      "id": 2,
-      "context": "default",
-      "protocol": "custom",
-      "interface": "Local/123@default",
-      "links" : [
-         {
-            "rel": "lines_custom",
-            "href": "https://xivoserver/1.1/lines_custom/2"
-         }
-      ]
+       "id": 2,
+       "context": "default",
+       "protocol": "custom",
+       "interface": "Local/123@default",
+       "links" : [
+           {
+               "rel": "lines_custom",
+               "href": "https://xivoserver/1.1/lines_custom/2"
+           }
+       ]
    }
 
 **SCCP example**
@@ -73,23 +72,21 @@ links
 ::
 
    {
-      "id": 3,
-      "context": "default",
-      "protocol": "sccp",
-      "interface": "sccp/1234",
-      "links" : [
-         {
-            "rel": "lines_sccp",
-            "href": "https://xivoserver/1.1/lines_sccp/3"
-         }
-      ]
+       "id": 3,
+       "context": "default",
+       "protocol": "sccp",
+       "interface": "sccp/1234",
+       "links" : [
+           {
+               "rel": "lines_sccp",
+               "href": "https://xivoserver/1.1/lines_sccp/3"
+           }
+       ]
    }
 
 
 List Lines
-==========
-
-List all lines. The resource ``/lines`` is only for to list 
+----------
 
 ::
 
@@ -115,10 +112,10 @@ List all lines. The resource ``/lines`` is only for to list
                "protocol": "sip",
                "interface": "sip/abcdef",
                "links" : [
-                  {
-                     "rel": "lines_sip",
-                     "href": "https://xivoserver/1.1/lines_sip/1"
-                  }
+                   {
+                       "rel": "lines_sip",
+                       "href": "https://xivoserver/1.1/lines_sip/1"
+                   }
                ]
            },
            {
@@ -127,10 +124,10 @@ List all lines. The resource ``/lines`` is only for to list
                "protocol": "custom",
                "interface": "Local/123@default"
                "links" : [
-                  {
-                     "rel": "lines_custom",
-                     "href": "https://xivoserver/1.1/lines_custom/2"
-                  }
+                   {
+                       "rel": "lines_custom",
+                       "href": "https://xivoserver/1.1/lines_custom/2"
+                   }
                ]
            },
            {
@@ -139,20 +136,138 @@ List all lines. The resource ``/lines`` is only for to list
                "protocol": "sccp",
                "interface": "sccp/1234"
                "links" : [
-                  {
-                     "rel": "lines_sccp",
-                     "href": "https://xivoserver/1.1/lines_sccp/3"
-                  }
+                   {
+                       "rel": "lines_sccp",
+                       "href": "https://xivoserver/1.1/lines_sccp/3"
+                   }
                ]
            }
        ]
    }
 
 
-Get SIP Line
-============
+Get Line
+--------
 
-Return a SIP line.
+::
+
+   GET /1.1/lines/<line_id>
+
+**Example request**::
+
+   GET /1.1/lines/42 HTTP/1.1
+   Host: xivoserver
+   Accept: application/json
+
+**Example response**::
+
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+
+   {
+       "id": 42,
+       "context": "default",
+       "protocol": "sip",
+       "interface": "sip/abcdef",
+       "links" : [
+           {
+               "rel": "lines_sip",
+               "href": "https://xivoserver/1.1/lines_sip/42"
+           }
+       ]
+   }
+
+
+SIP Lines
+=========
+
+
+SIP Line Representation
+-----------------------
+
+**Description**
+
++------------------------------+------------------------------+-----------------------------------+
+| Field                        | Value                        | Description                       |
++==============================+==============================+===================================+
+| id                           | int                          | Read-only                         |
++------------------------------+------------------------------+-----------------------------------+
+| context                      | string                       |                                   |
++------------------------------+------------------------------+-----------------------------------+
+| interface                    | string                       | Read-only                         |
++------------------------------+------------------------------+-----------------------------------+
+| username                     | string                       | Read-only                         |
++------------------------------+------------------------------+-----------------------------------+
+| secret                       | string                       | Read-only                         |
++------------------------------+------------------------------+-----------------------------------+
+| provisioning_extension       | string                       | Read-only                         |
++------------------------------+------------------------------+-----------------------------------+
+| commented                    | boolean                      | If True the extension is disabled |
++------------------------------+------------------------------+-----------------------------------+
+| description                  | string                       |                                   |
++------------------------------+------------------------------+-----------------------------------+
+| links                        | list                         | The link to the resource          |
++------------------------------+------------------------------+-----------------------------------+
+
+
+List SIP Lines
+--------------
+
+::
+
+   GET /1.1/lines_sip
+
+**Example request**::
+
+   GET /1.1/lines_sip HTTP/1.1
+   Host: xivoserver
+   Accept: application/json
+
+**Example response**::
+
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+
+   {
+       "total": 2,
+       "items": [
+           {
+               "id": 1,
+               "context": "default",
+               "interface": "sip/abcdef",
+               "username": "abcdef",
+               "secret": "password",
+               "provisioning_extension": "123456",
+               "commented": 0,
+               "description": "line blue",
+               "links" : [
+                   {
+                       "rel": "lines_sip",
+                       "href": "https://xivoserver/1.1/lines_sip/1"
+                   }
+               ]
+           },
+           {
+               "id": 2,
+               "context": "default",
+               "interface": "sip/stuvwx",
+               "username": "stuvwx",
+               "secret": "password",
+               "provisioning_extension": "987456",
+               "commented": 0,
+               "description": "line red",
+               "links" : [
+                   {
+                       "rel": "lines_sip",
+                       "href": "https://xivoserver/1.1/lines_sip/2"
+                   }
+               ]
+           }
+       ]
+   }
+
+Get SIP Line
+------------
 
 ::
 
@@ -170,23 +285,21 @@ Return a SIP line.
    Content-Type: application/json
 
    {
-      "id": 1,
-      "context": "default",
-      "interface": "sip/abcdef",
-      "username": "abcdef",
-      "secret": "password",
-      "provisioning_extension": "123456",
-      "commented": 0,
-      "description": "line blue"
+       "id": 1,
+       "context": "default",
+       "interface": "sip/abcdef",
+       "username": "abcdef",
+       "secret": "password",
+       "provisioning_extension": "123456",
+       "commented": 0,
+       "description": "line blue"
    }
 
 
 Create SIP Line
-===============
+---------------
 
-Create a SIP line.
-
-The SIP username and password are autogenerated.
+The SIP username and secret and the provisioning_extension are autogenerated.
 
 ::
 
@@ -194,8 +307,11 @@ The SIP username and password are autogenerated.
 
 **Input**
 
-context
-   *required*
++---------+----------+-------------+
+| Field   | Required | Description |
++---------+----------+-------------+
+| context | yes      |             |
++---------+----------+-------------+
 
 **Example request**::
 
@@ -211,26 +327,78 @@ context
 **Example response**::
 
    HTTP/1.1 201 Created
-   Location: /1.1/lines/1
+   Location: /1.1/lines_sip/1
+   Content-Type: application/json
+
+    {
+        "id": 1,
+        "links" : [
+            {
+                "rel": "lines_sip",
+                "href": "https://xivoserver/1.1/lines_sip/1"
+            }
+        ]
+    }
+
+
+Update a SIP Line
+-----------------
+
+The update does not need to set all the fields of the edited SIP line. The update only needs to set
+the modified fields.
+
+::
+
+   PUT /1.1/lines_sip/<id>
+
+**Example request**::
+
+   PUT /1.1/lines_sip/67 HTTP/1.1
+   Host: xivoserver
    Content-Type: application/json
 
    {
-      "id": 1,
-      "links" : [
-         {
-            "rel": "lines_sip",
-            "href": "https://xivoserver/1.1/lines_sip/1"
-         }
-      ]
+       "context": "my_context"
    }
+
+**Example response**::
+
+   HTTP/1.1 204 No Content
+
+
+Delete SIP Line
+---------------
+
+Delete a SIP line.
+
+For every user that is associated to the line, the association between the line and the user is
+removed.
+
+If the line is provisioned to a device, the association between the line and the device is
+removed. If that device had exactly 1 line provisioned on it, the device goes back in autoprov mode.
+
+::
+
+   DELETE /1.1/lines_sip/<id>
+
+**Example request**::
+
+   DELETE /1.1/lines_sip/1 HTTP/1.1
+   Host: xivoserver
+
+**Example response**::
+
+   HTTP/1.1 204 No Content
+
+
+Custom Line
+===========
 
 
 Create Custom Line
-==================
+------------------
 
 .. warning:: Not yet implemented
-
-Create a custom line.
 
 ::
 
@@ -238,12 +406,13 @@ Create a custom line.
 
 **Input**
 
-context
-   *required*
-
-interface
-   *required*
-
++-----------+----------+-------------+
+| Field     | Required | Description |
++-----------+----------+-------------+
+| context   | yes      |             |
++-----------+----------+-------------+
+| interface | yes      |             |
++-----------+----------+-------------+
 
 **Example request**::
 
@@ -263,38 +432,12 @@ interface
    Location: /1.1/lines_custom/2
    Content-Type: application/json
 
-   {
-      "id": 2,
-      "links" : [
-         {
-            "rel": "lines_custom",
-            "href": "https://xivoserver/1.1/lines_custom/2"
-         }
-      ]
-   }
-
-
-Delete SIP Line
-===============
-
-Delete a SIP line.
-
-For every user that is associated to the line, the association between the
-line and the user is removed.
-
-If the line is provisioned to a device, the association between the line
-and the device is removed. If that device had exactly 1 line provisioned
-on it, the device goes back in autoprov mode.
-
-::
-
-   DELETE /1.1/lines_sip/<id>
-
-**Example request**::
-
-   DELETE /1.1/lines_sip/1 HTTP/1.1
-   Host: xivoserver
-
-**Example response**::
-
-   HTTP/1.1 204 No Content
+    {
+        "id": 2,
+        "links" : [
+            {
+                "rel": "lines_custom",
+                "href": "https://xivoserver/1.1/lines_custom/2"
+            }
+        ]
+    }
