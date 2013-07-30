@@ -2,17 +2,15 @@
 Extensions
 **********
 
-Representation
-==============
-
-The representation of a extension.
+Extension Representation
+========================
 
 **Description**
 
 +-----------+---------+------------------------------------+
 | Field     | Values  | Description                        |
 +===========+=========+====================================+
-| id        | int     |                                    |
+| id        | int     | Read-only                          |
 +-----------+---------+------------------------------------+
 | exten     | string  |                                    |
 +-----------+---------+------------------------------------+
@@ -41,8 +39,6 @@ The representation of a extension.
 
 List Extension
 ==============
-
-List all extensions.
 
 ::
 
@@ -163,6 +159,31 @@ Create Extension
            }
        ]
    }
+
+
+Update an Extension
+===================
+
+The update does not need to set all the fields of the edited extension. The update only needs to set
+the modified fields.
+
+::
+
+   PUT /1.1/extensions/<id>
+
+**Example request**::
+
+   PUT /1.1/extensions/42 HTTP/1.1
+   Host: xivoserver
+   Content-Type: application/json
+
+   {
+       "context": "my_context"
+   }
+
+**Example response**::
+
+   HTTP/1.1 204 No Content
 
 
 Delete Extension
