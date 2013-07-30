@@ -139,8 +139,8 @@ Create Extension
    Content-Type: application/json
 
    {
-       "exten": "1234"
-       "context": "default"
+       "exten": "1234",
+       "context": "default",
        "commented": false
    }
 

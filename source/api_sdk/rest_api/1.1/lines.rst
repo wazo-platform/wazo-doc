@@ -122,7 +122,7 @@ List Lines
                "id": 2,
                "context": "default",
                "protocol": "custom",
-               "interface": "Local/123@default"
+               "interface": "Local/123@default",
                "links" : [
                    {
                        "rel": "lines_custom",
@@ -134,7 +134,7 @@ List Lines
                "id": 3,
                "context": "default",
                "protocol": "sccp",
-               "interface": "sccp/1234"
+               "interface": "sccp/1234",
                "links" : [
                    {
                        "rel": "lines_sccp",

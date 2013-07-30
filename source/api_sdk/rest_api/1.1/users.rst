@@ -152,7 +152,7 @@ include
    Content-Type: application/json
 
    {
-       "id": 1
+       "id": 1,
        "firstname": "John",
        "lastname": "Doe",
        "userfield": ""
@@ -353,7 +353,7 @@ List the Lines Associated to a User
        "total": 1,
        "items": [
            {
-               "id": 83
+               "id": 83,
                "user_id": 42,
                "line_id": 42324,
                "extension_id": 2132,
@@ -408,7 +408,7 @@ List the Users Using a Line
        "total": 1,
        "items": [
            {
-               "id": 83
+               "id": 83,
                "user_id": 63,
                "line_id": 42,
                "extension_id": 68,
@@ -463,7 +463,7 @@ List the Users Using an Extension
        "total": 1,
        "items": [
            {
-               "id": 83
+               "id": 83,
                "user_id": 63,
                "line_id": 89,
                "extension_id": 42,
@@ -515,7 +515,7 @@ Get a User-Line Association
    Content-Type: application/json
 
    {
-       "id": 83
+       "id": 83,
        "user_id": 42,
        "line_id": 42324,
        "extension_id": 2132,
