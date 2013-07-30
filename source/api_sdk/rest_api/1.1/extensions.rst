@@ -27,7 +27,7 @@ Extension Representation
        "id": 1,
        "context": "default",
        "exten": "1234",
-       "commented": 0,
+       "commented": false,
        "links" : [
            {
                "rel": "extensions",
@@ -62,7 +62,7 @@ List Extension
                "id": 1,
                "context": "default",
                "exten": "1234",
-               "commented": 0,
+               "commented": false,
                "links" : [
                    {
                        "rel": "extensions",
@@ -74,7 +74,7 @@ List Extension
                "id": 2,
                "context": "default",
                "exten": "6789",
-               "commented": 1,
+               "commented": true,
                "links" : [
                    {
                        "rel": "extensions",
@@ -108,7 +108,7 @@ Get Extension
        "id": 1,
        "context": "default",
        "exten": "1234",
-       "commented": 0
+       "commented": false
    }
 
 
@@ -141,7 +141,7 @@ Create Extension
    {
        "exten": "1234"
        "context": "default"
-       "commented": 0
+       "commented": false
    }
 
 **Example response**::

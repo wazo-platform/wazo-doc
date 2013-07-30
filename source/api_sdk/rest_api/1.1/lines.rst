@@ -238,7 +238,7 @@ List SIP Lines
                "username": "abcdef",
                "secret": "password",
                "provisioning_extension": "123456",
-               "commented": 0,
+               "commented": false,
                "description": "line blue",
                "links" : [
                    {
@@ -254,7 +254,7 @@ List SIP Lines
                "username": "stuvwx",
                "secret": "password",
                "provisioning_extension": "987456",
-               "commented": 0,
+               "commented": false,
                "description": "line red",
                "links" : [
                    {
@@ -291,7 +291,7 @@ Get SIP Line
        "username": "abcdef",
        "secret": "password",
        "provisioning_extension": "123456",
-       "commented": 0,
+       "commented": false,
        "description": "line blue"
    }
 
