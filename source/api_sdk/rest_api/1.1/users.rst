@@ -6,8 +6,12 @@ Users
    user vs secondary user and related constraint) or add a link to where this is
    documented
 
+Users
+=====
+
+
 User Representation
-===================
+-------------------
 
 **Description**
 
@@ -35,7 +39,7 @@ User Representation
 
 
 List Users
-==========
+----------
 
 The users are listed in ascending order on lastname, then firstname.
 
@@ -125,7 +129,7 @@ Response if the query parameter ``include=voicemail`` is included::
 
 
 Get User
-========
+--------
 
 ::
 
@@ -156,7 +160,7 @@ include
 
 
 Create User
-===========
+-----------
 
 ::
 
@@ -232,7 +236,7 @@ If the firstname or the lastname is modified, the associated voicemail is also u
 
 
 Delete User
-===========
+-----------
 
 The user will not be removed if he is associated to a line and an extension. You must delete the
 association first.
@@ -274,8 +278,61 @@ The user will also be removed from all queues, groups or other XiVO entities who
    HTTP/1.1 204 No Content
 
 
-Get the Lines Associated to a User
-==================================
+Users-Lines Association
+=======================
+
+
+User-Line Representation
+------------------------
+
+**Description**
+
++--------------+---------+---------------------------+
+| Field        | Value   | Description               |
++==============+=========+===========================+
+| id           | int     | Read-only                 |
++--------------+---------+---------------------------+
+| user_id      | int     |                           |
++--------------+---------+---------------------------+
+| line_id      | int     |                           |
++--------------+---------+---------------------------+
+| extension_id | int     |                           |
++--------------+---------+---------------------------+
+| main_user    | boolean |                           |
++--------------+---------+---------------------------+
+| main_line    | boolean |                           |
++--------------+---------+---------------------------+
+| links        | list    | The links to the resource |
++--------------+---------+---------------------------+
+
+**Example**::
+
+   {
+       "id": "83"
+       "user_id": "42",
+       "line_id": "42324",
+       "extension_id": "2132",
+       "main_user": true,
+       "main_line": true,
+       "links" : [
+           {
+               "rel": "users",
+               "href": "https://xivoserver/1.1/users/42"
+           },
+           {
+               "rel": "lines",
+               "href": "https://xivoserver/1.1/lines_sip/42324"
+           },
+           {
+               "rel": "extensions",
+               "href": "https://xivoserver/1.1/extensions/2132"
+           }
+       ]
+   }
+
+
+List the Lines Associated to a User
+-----------------------------------
 
 ::
 
@@ -291,7 +348,6 @@ Get the Lines Associated to a User
 
    HTTP/1.1 200 OK
    Content-Type: application/json
-   Location: http://xivoserver/1.1/users/42/user_links
 
    {
        "total": 1,
@@ -304,6 +360,10 @@ Get the Lines Associated to a User
                "main_user": true,
                "main_line": true,
                "links" : [
+                   {
+                       "rel": "user_links",
+                       "href": "https://xivoserver/1.1/user_links/83"
+                   },
                    {
                        "rel": "users",
                        "href": "https://xivoserver/1.1/users/42"
@@ -326,16 +386,16 @@ or, if no line is associated to the user::
    HTTP/1.1 404 Not Found
 
 
-Get a User-Line Association
-===========================
+List the Users Using a Line
+---------------------------
 
 ::
 
-   GET /1.1/user_links/<user_link_id>
+   GET /1.1/lines/<line_id>/user_links
 
 **Example request**::
 
-   GET /1.1/user_links/1/
+   GET /1.1/lines/42/user_links
    Host: xivoserver
    Accept: application/json
 
@@ -343,7 +403,116 @@ Get a User-Line Association
 
    HTTP/1.1 200 OK
    Content-Type: application/json
-   Location: http://xivoserver/user_links/42
+
+   {
+       "total": 1,
+       "items": [
+           {
+               "id": "83"
+               "user_id": "63",
+               "line_id": "42",
+               "extension_id": "68",
+               "main_user": true,
+               "main_line": true,
+               "links" : [
+                   {
+                       "rel": "user_links",
+                       "href": "https://xivoserver/1.1/user_links/83"
+                   },
+                   {
+                       "rel": "users",
+                       "href": "https://xivoserver/1.1/users/63"
+                   },
+                   {
+                     "rel": "lines",
+                       "href": "https://xivoserver/1.1/lines_sip/42"
+                   },
+                   {
+                       "rel": "extensions",
+                       "href": "https://xivoserver/1.1/extensions/68"
+                   }
+               ]
+           }
+       ]
+   }
+
+or, if no line is associated to the user::
+
+   HTTP/1.1 404 Not Found
+
+
+List the Users Using an Extension
+---------------------------------
+
+::
+
+   GET /1.1/extensions/<extension_id>/user_links
+
+**Example request**::
+
+   GET /1.1/extensions/42/user_links
+   Host: xivoserver
+   Accept: application/json
+
+**Example response**::
+
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+
+   {
+       "total": 1,
+       "items": [
+           {
+               "id": "83"
+               "user_id": "63",
+               "line_id": "89",
+               "extension_id": "42",
+               "main_user": true,
+               "main_line": true,
+               "links" : [
+                   {
+                       "rel": "user_links",
+                       "href": "https://xivoserver/1.1/user_links/83"
+                   },
+                   {
+                       "rel": "users",
+                       "href": "https://xivoserver/1.1/users/63"
+                   },
+                   {
+                     "rel": "lines",
+                       "href": "https://xivoserver/1.1/lines_sip/89"
+                   },
+                   {
+                       "rel": "extensions",
+                       "href": "https://xivoserver/1.1/extensions/42"
+                   }
+               ]
+           }
+       ]
+   }
+
+or, if no line is associated to the user::
+
+   HTTP/1.1 404 Not Found
+
+
+Get a User-Line Association
+---------------------------
+
+::
+
+   GET /1.1/user_links/<user_link_id>
+
+**Example request**::
+
+   GET /1.1/user_links/1
+   Host: xivoserver
+   Accept: application/json
+
+**Example response**::
+
+   HTTP/1.1 200 OK
+   Content-Type: application/json
 
    {
        "id": "83"
@@ -374,7 +543,7 @@ or, if no line is associated to the user::
 
 
 Associate Line to User
-======================
+----------------------
 
 ::
 
@@ -428,7 +597,7 @@ Associate Line to User
 
 
 Deassociate Line From User
-==========================
+--------------------------
 
 If the user is the main user of the line and there is at least 1 secondary user associated to this
 line, an error is returned.
@@ -447,8 +616,12 @@ line, an error is returned.
    HTTP/1.1 204 No Content
 
 
+Users-Voicemails Association
+============================
+
+
 Get Voicemail Associated to User
-================================
+--------------------------------
 
 .. warning:: Not implemented yet.
 
@@ -484,7 +657,7 @@ or, if no voicemail is associated to the user::
 
 
 Associate Voicemail to User
-===========================
+---------------------------
 
 .. warning:: Not implemented yet.
 
@@ -513,7 +686,7 @@ different voicemail ID), the user old voicemail is not deleted.
 
 
 Deassociate Voicemail From User
-===============================
+-------------------------------
 
 .. warning:: Not implemented yet.
 
