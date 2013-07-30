@@ -252,20 +252,17 @@ The user will also be removed from all queues, groups or other XiVO entities who
 +------------+-------------------------------------------+-----------------------------------------+
 | Error code | Error message                             | Description                             |
 +============+===========================================+=========================================+
-| 400        | error during deletion: explanation        | The requested user is probably          |
+| 400        | Error during deletion: <explanation>      | The requested user is probably          |
 |            |                                           | associated to other objects.            |
 +------------+-------------------------------------------+-----------------------------------------+
-| 404        | empty                                     | The requested user was not found        |
+| 404        | Empty                                     | The requested user was not found        |
 +------------+-------------------------------------------+-----------------------------------------+
 | 412        | Cannot remove a user with a               | The user owns a voicemail, so it cannot |
-|            | voicemail. Delete the voicemail or        | be deleted unless you specify the       |
-|            | dissociate it from the user.              | deleteVoicemail parameter               |
+|            | voicemail. Delete the voicemail or        | be deleted.                             |
+|            | dissociate it from the user.              |                                         |
 +------------+-------------------------------------------+-----------------------------------------+
 | 500        | The user was deleted but the device could | provd returned an error when trying to  |
 |            | not be reconfigured.                      | reconfigure the user's device           |
-+------------+-------------------------------------------+-----------------------------------------+
-| 500        | The user was deleted but the voicemail    | sysconfd returned an error when trying  |
-|            | content could not be removed.             | to delete the user's voicemail.         |
 +------------+-------------------------------------------+-----------------------------------------+
 
 **Example request**::
@@ -287,23 +284,23 @@ User-Line Representation
 
 **Description**
 
-+--------------+---------+---------------------------+
-| Field        | Value   | Description               |
-+==============+=========+===========================+
-| id           | int     | Read-only                 |
-+--------------+---------+---------------------------+
-| user_id      | int     |                           |
-+--------------+---------+---------------------------+
-| line_id      | int     |                           |
-+--------------+---------+---------------------------+
-| extension_id | int     |                           |
-+--------------+---------+---------------------------+
-| main_user    | boolean |                           |
-+--------------+---------+---------------------------+
-| main_line    | boolean |                           |
-+--------------+---------+---------------------------+
-| links        | list    | The links to the resource |
-+--------------+---------+---------------------------+
++--------------+---------+-----------------------------------------+
+| Field        | Value   | Description                             |
++==============+=========+=========================================+
+| id           | int     | Read-only                               |
++--------------+---------+-----------------------------------------+
+| user_id      | int     |                                         |
++--------------+---------+-----------------------------------------+
+| line_id      | int     |                                         |
++--------------+---------+-----------------------------------------+
+| extension_id | int     |                                         |
++--------------+---------+-----------------------------------------+
+| main_user    | boolean | May only be true once for the same line |
++--------------+---------+-----------------------------------------+
+| main_line    | boolean | May only be true once for the same user |
++--------------+---------+-----------------------------------------+
+| links        | list    | The links to the related resources      |
++--------------+---------+-----------------------------------------+
 
 **Example**::
 
@@ -315,6 +312,10 @@ User-Line Representation
        "main_user": true,
        "main_line": true,
        "links" : [
+           {
+               "rel": "user_links",
+               "href": "https://xivoserver/1.1/user_links/83"
+           },
            {
                "rel": "users",
                "href": "https://xivoserver/1.1/users/42"

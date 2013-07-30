@@ -369,8 +369,6 @@ the modified fields.
 Delete SIP Line
 ---------------
 
-Delete a SIP line.
-
 For every user that is associated to the line, the association between the line and the user is
 removed.
 
@@ -408,7 +406,7 @@ Create Custom Line
 
 +-----------+----------+-------------+
 | Field     | Required | Description |
-+-----------+----------+-------------+
++===========+==========+=============+
 | context   | yes      |             |
 +-----------+----------+-------------+
 | interface | yes      |             |
