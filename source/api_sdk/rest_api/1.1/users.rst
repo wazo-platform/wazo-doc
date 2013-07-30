@@ -308,10 +308,10 @@ User-Line Representation
 **Example**::
 
    {
-       "id": "83"
-       "user_id": "42",
-       "line_id": "42324",
-       "extension_id": "2132",
+       "id": 83
+       "user_id": 42,
+       "line_id": 42324,
+       "extension_id": 2132,
        "main_user": true,
        "main_line": true,
        "links" : [
@@ -353,10 +353,10 @@ List the Lines Associated to a User
        "total": 1,
        "items": [
            {
-               "id": "83"
-               "user_id": "42",
-               "line_id": "42324",
-               "extension_id": "2132",
+               "id": 83
+               "user_id": 42,
+               "line_id": 42324,
+               "extension_id": 2132,
                "main_user": true,
                "main_line": true,
                "links" : [
@@ -408,10 +408,10 @@ List the Users Using a Line
        "total": 1,
        "items": [
            {
-               "id": "83"
-               "user_id": "63",
-               "line_id": "42",
-               "extension_id": "68",
+               "id": 83
+               "user_id": 63,
+               "line_id": 42,
+               "extension_id": 68,
                "main_user": true,
                "main_line": true,
                "links" : [
@@ -463,10 +463,10 @@ List the Users Using an Extension
        "total": 1,
        "items": [
            {
-               "id": "83"
-               "user_id": "63",
-               "line_id": "89",
-               "extension_id": "42",
+               "id": 83
+               "user_id": 63,
+               "line_id": 89,
+               "extension_id": 42,
                "main_user": true,
                "main_line": true,
                "links" : [
@@ -515,10 +515,10 @@ Get a User-Line Association
    Content-Type: application/json
 
    {
-       "id": "83"
-       "user_id": "42",
-       "line_id": "42324",
-       "extension_id": "2132",
+       "id": 83
+       "user_id": 42,
+       "line_id": 42324,
+       "extension_id": 2132,
        "main_user": true,
        "main_line": true,
        "links" : [
@@ -573,9 +573,9 @@ Associate Line to User
    Content-Type: application/json
 
    {
-       "user_id": "42",
-       "line_id": "42324",
-       "extension_id": "2132",
+       "user_id": 42,
+       "line_id": 42324,
+       "extension_id": 2132,
        "main_user": true
    }
 
