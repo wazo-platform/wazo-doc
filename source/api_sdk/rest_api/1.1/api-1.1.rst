@@ -11,7 +11,6 @@ REST API 1.1
 
 .. toctree::
 
-   agents
    extensions
    lines
    users
@@ -40,7 +39,3 @@ Configuration
 * The API is accessible via HTTPS on port 443 instead of 50051.
 * The API is accessible via HTTP on port 80 instead of 50050 (localhost only).
 * The API remains accessible on the original port until the 1.0 API is removed.
-
-Agents API
-
-* Listing agents now support paging. The returned body has been updated.
