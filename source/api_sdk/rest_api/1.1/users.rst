@@ -11,17 +11,18 @@ User Representation
 
 **Description**
 
-+-----------+---------+-----------------------------------------------------------------------------------------------------------------------+
-| Field     | Values  | Description                                                                                                           |
-+===========+=========+=======================================================================================================================+
-| id        | int     | Read-only                                                                                                             |
-+-----------+---------+-----------------------------------------------------------------------------------------------------------------------+
-| firstname | string  | If the user has no firstname, then this field is an empty string.                                                     |
-+-----------+---------+-----------------------------------------------------------------------------------------------------------------------+
-| lastname  | string  | If the user has no lastname, then this field is an empty string.                                                      |
-+-----------+---------+-----------------------------------------------------------------------------------------------------------------------+
-| userfield | boolean | A custom field which purpose is left to the client. If the user has no userfield, then this field is an empty string. |
-+-----------+---------+-----------------------------------------------------------------------------------------------------------------------+
++-----------+---------+----------------------------------------------------------------------------+
+| Field     | Values  | Description                                                                |
++===========+=========+============================================================================+
+| id        | int     | Read-only                                                                  |
++-----------+---------+----------------------------------------------------------------------------+
+| firstname | string  | If the user has no firstname, then this field is an empty string.          |
++-----------+---------+----------------------------------------------------------------------------+
+| lastname  | string  | If the user has no lastname, then this field is an empty string.           |
++-----------+---------+----------------------------------------------------------------------------+
+| userfield | boolean | A custom field which purpose is left to the client. If the user has no     |
+|           |         | userfield, then this field is an empty string.                             |
++-----------+---------+----------------------------------------------------------------------------+
 
 **Example**::
 
@@ -204,9 +205,10 @@ Create User
 
 
 Update User
-===========
+-----------
 
-The update does not need to set all the fields of the edited user. The update only needs to set the modified fields.
+The update does not need to set all the fields of the edited user. The update only needs to set the
+modified fields.
 
 If the firstname or the lastname is modified, the associated voicemail is also updated.
 
@@ -232,7 +234,8 @@ If the firstname or the lastname is modified, the associated voicemail is also u
 Delete User
 ===========
 
-The user will not be removed if he is associated to a line and an extension. You must delete the association first.
+The user will not be removed if he is associated to a line and an extension. You must delete the
+association first.
 
 The user will also be removed from all queues, groups or other XiVO entities whom he is member.
 
@@ -242,19 +245,24 @@ The user will also be removed from all queues, groups or other XiVO entities who
 
 **Errors**
 
-+------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-| Error code | Error message                                                                               | Description                                                                                         |
-+============+=============================================================================================+=====================================================================================================+
-| 400        | error during deletion: explanation                                                          | The requested user is probably associated to other objects.                                         |
-+------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-| 404        | empty                                                                                       | The requested user was not found                                                                    |
-+------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-| 412        | Cannot remove a user with a voicemail. Delete the voicemail or dissociate it from the user. | The user owns a voicemail, so it cannot be deleted unless you specify the deleteVoicemail parameter |
-+------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-| 500        | The user was deleted but the device could not be reconfigured.                              | provd returned an error when trying to reconfigure the user's device                                |
-+------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-| 500        | The user was deleted but the voicemail content could not be removed.                        | sysconfd returned an error when trying to delete the user's voicemail.                              |
-+------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
++------------+-------------------------------------------+-----------------------------------------+
+| Error code | Error message                             | Description                             |
++============+===========================================+=========================================+
+| 400        | error during deletion: explanation        | The requested user is probably          |
+|            |                                           | associated to other objects.            |
++------------+-------------------------------------------+-----------------------------------------+
+| 404        | empty                                     | The requested user was not found        |
++------------+-------------------------------------------+-----------------------------------------+
+| 412        | Cannot remove a user with a               | The user owns a voicemail, so it cannot |
+|            | voicemail. Delete the voicemail or        | be deleted unless you specify the       |
+|            | dissociate it from the user.              | deleteVoicemail parameter               |
++------------+-------------------------------------------+-----------------------------------------+
+| 500        | The user was deleted but the device could | provd returned an error when trying to  |
+|            | not be reconfigured.                      | reconfigure the user's device           |
++------------+-------------------------------------------+-----------------------------------------+
+| 500        | The user was deleted but the voicemail    | sysconfd returned an error when trying  |
+|            | content could not be removed.             | to delete the user's voicemail.         |
++------------+-------------------------------------------+-----------------------------------------+
 
 **Example request**::
 
@@ -374,17 +382,20 @@ Associate Line to User
 
 **Input**
 
-+--------------+----------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Field        | Required | Values  | Description                                                                                                                                                                                                                     |
-+==============+==========+=========+=================================================================================================================================================================================================================================+
-| user_id      | yes      | int     | Must be an existing id                                                                                                                                                                                                          |
-+--------------+----------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| line_id      | yes      | int     | Must be an existing id                                                                                                                                                                                                          |
-+--------------+----------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| extension_id | yes      | int     | Must be an existing id                                                                                                                                                                                                          |
-+--------------+----------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| main_user    | no       | boolean | May always be true, may only be false when the user has already a line. If not given, the user will be the main user of the line if no other user is currently associated to the line. Else, the user will be a secondary user. |
-+--------------+----------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------+----------+---------+--------------------------------------------------------------+
+| Field        | Required | Values  | Description                                                  |
++==============+==========+=========+==============================================================+
+| user_id      | yes      | int     | Must be an existing id                                       |
++--------------+----------+---------+--------------------------------------------------------------+
+| line_id      | yes      | int     | Must be an existing id                                       |
++--------------+----------+---------+--------------------------------------------------------------+
+| extension_id | yes      | int     | Must be an existing id                                       |
++--------------+----------+---------+--------------------------------------------------------------+
+| main_user    | no       | boolean | May always be true, may only be false when the user already  |
+|              |          |         | has a line. If not given, the user will be the main user of  |
+|              |          |         | the line if no other user is currently associated to the     |
+|              |          |         | line. Else, the user will be a secondary user.               |
++--------------+----------+---------+--------------------------------------------------------------+
 
 **Example request**::
 
@@ -419,7 +430,8 @@ Associate Line to User
 Deassociate Line From User
 ==========================
 
-If the user is the main user of the line and there is at least 1 secondary user associated to this line, an error is returned.
+If the user is the main user of the line and there is at least 1 secondary user associated to this
+line, an error is returned.
 
 ::
 
