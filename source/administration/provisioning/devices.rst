@@ -12,89 +12,42 @@ XiVO provides official support for the following phones. These phones will be su
 Aastra
 ------
 
-6700i and 9000i series:
+6700i series:
 
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-6730i    |n|         8          |y|
 6731i    |y|         8          |y|
 6735i    |y|         26         |y|
 6737i    |y|         30         |y|
 6739i    |y|         55         |y|
-6751i    |n|         |u|        |y|
-6753i    |y|         6          |y|
 6755i    |y|         26         |y|
 6757i    |y|         30         |y|
-6757i CT |n|         30         |y|
-9143i    |y|         7          |y|
-9480i    |n|         6          |y|
-9480i CT |n|         6          |y|
 ======== =========== ========== ============
 
 The M670i and M675i expansion modules are supported.
 
+DECT Infrastructure:
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+RFP35    |n| [4]_    0          |n|
+RFP36    |n| [4]_    0          |n|
+======== =========== ========== ============
+
 
 Cisco
 -----
-
-
-Cisco Small Business SPA300 series:
-
-======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
-======== =========== ========== ============
-SPA301   |n|         1          |n|
-SPA303   |n|         3          |n|
-======== =========== ========== ============
-
-.. note:: Function keys are shared with line keys for all SPA phones
-
-Cisco Small Business SPA500 series:
-
-======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
-======== =========== ========== ============
-SPA501G  |y|         8          |n|
-SPA502G  |n|         1          |n|
-SPA504G  |y|         4          |n|
-SPA508G  |y|         8          |n|
-SPA509G  |n|         12         |n|
-SPA525G  |y|         5          |n|
-SPA525G2 |n|         5          |n|
-======== =========== ========== ============
-
-The SPA500 expansion module is supported.
-
-Cisco Small Business IP Phones (previously known as Linksys IP Phones)
-
-======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
-======== =========== ========== ============
-SPA901   |n|         1          |n|
-SPA921   |n|         1          |n|
-SPA922   |n|         1          |n|
-SPA941   |n|         4          |n|
-SPA942   |y|         4          |n|
-SPA962   |y|         6          |n|
-======== =========== ========== ============
-
-.. note::
-   You must install the firmware of each SPA9xx phones you are using since they
-   reboot in loop when they can't find their firmware.
-
-The SPA932 expansion module is supported.
 
 ATAs:
 
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-PAP2T    |n|         0          |n|
-SPA2102  |n|         0          |n|
-SPA3102  |n|         0          |n|
+PA122    |n| [4]_    0          |n|
+SPA3102  |n| [4]_    0          |n|
 SPA8000  |y|         0          |n|
-SPA8800  |n|         0          |n|
 ======== =========== ========== ============
 
 .. note::
@@ -114,7 +67,7 @@ SPA8800  |n|         0          |n|
 
       * *ATA_IP*    is the IP address of the ATA,
       * *XIVO_IP*   is the IP address of your XiVO,
-      * *CONF_FILE* is one of ``spa2102.cfg``, ``spa3102.cfg``, ``spa8000.cfg``
+      * *CONF_FILE* is one of ``spa3102.cfg``, ``spa8000.cfg``
 
 
 Cisco 7900 series (*SCCP* mode only):
@@ -122,7 +75,7 @@ Cisco 7900 series (*SCCP* mode only):
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-7905G    |n|         0          |n|
+7905G    |n| [4]_    0          |n|
 7906G    |y|         0          |y|
 7911G    |y|         0          |y|
 7912G    |y|         0          |y|
@@ -174,7 +127,7 @@ Digium phones:
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
 D40      |y|         2          |n|
-D50      |n|         14         |n|
+D50      |n| [4]_    14         |n|
 D70      |y|         106        |n|
 ======== =========== ========== ============
 
@@ -199,21 +152,12 @@ SoundPoint IP:
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-SPIP301  |y|         0          |n|
-SPIP320  |n|         0          |n|
-SPIP321  |n|         0          |n|
-SPIP330  |n|         0          |n|
-SPIP331  |n|         0          |n|
+SPIP331  |n| [4]_    0          |n|
 SPIP335  |y|         0          |n|
-SPIP430  |n|         0          |n|
 SPIP450  |y|         2          |n|
-SPIP501  |y|         0          |n|
 SPIP550  |y|         3          |n|
-SPIP560  |n|         3          |n|
-SPIP600  |n|         0          |n|
-SPIP601  |n|         0          |n|
-SPIP650  |n|         47         |n|
-SPIP670  |n|         47         |n|
+SPIP560  |n| [4]_    3          |n|
+SPIP650  |n| [4]_    47         |n|
 ======== =========== ========== ============
 
 SoundStation IP:
@@ -221,10 +165,9 @@ SoundStation IP:
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-SPIP4000 |n|         0          |n|
-SPIP5000 |n|         0          |n|
+SPIP5000 |n| [4]_    0          |n|
 SPIP6000 |y|         0          |n|
-SPIP7000 |n|         0          |n|
+SPIP7000 |n| [4]_    0          |n|
 ======== =========== ========== ============
 
 Others:
@@ -232,8 +175,13 @@ Others:
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-VVX1500  |n|         0          |n|
+VVX300   |n| [4]_    |u|        |n|
+VVX400   |n| [4]_    |u|        |n|
+VVX500   |n| [4]_    |u|        |n|
+VVX600   |n| [4]_    |u|        |n|
 ======== =========== ========== ============
+
+Polycom® SoundPoint® IP Backlit Expansion Module are supported.
 
 
 Snom
@@ -242,19 +190,18 @@ Snom
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-300      |n|         6          |y|
-320      |y|         12         |y|
-360      |n|         |u|        |y|
-370      |n|         12         |y|
+370      |n| [4]_    12         |y|
 710      |y|         5          |y|
 720      |y|         18         |y|
 760      |y|         12         |y|
 820      |y|         4          |y|
-821      |n|         |u|        |y|
+821      |n| [4]_    |u|        |y|
 870      |y|         15         |y|
-MP       |n|         |u|        |y|
-PA1      |n|         0          |y|
 ======== =========== ========== ============
+
+Snom Vision – the expansion module for snom 8xx series VoIP telephones are supported.
+
+Snom extension modules V2.0 are supported.
 
 .. note:: For some models, function keys are shared with line keys
 
@@ -271,22 +218,45 @@ Yealink
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-T20P     |n|         2          |n|
-T22P     |n|         3          |n|
-T26P     |n|         13         |n|
+T18P     |n| [4]_    |u|        |n|
+T22P     |n| [4]_    3          |n|
 T28P     |y|         16         |n|
-T32G     |n|         3          |n|
+T32G     |n| [4]_    3          |n|
 T38G     |y|         16         |n|
+T42G     |n| [4]_    |u|        |n|
+T46G     |n| [4]_    |u|        |n|
+W52P     |y|         |u|        |n|
 ======== =========== ========== ============
 
 .. note:: Some function keys are shared with line keys
 
+The EXP38 and EXP39 expansion modules are supported.
 
 
 Community support
 =================
 
 The following phones are only supported by the community. In other words, maintenance, bug corrections and features are developed by members of the XiVO community. XiVO does not officially endorse support for these phones.
+
+
+Aastra
+------
+
+6700i and 9000i series:
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+6730i    |n|         8          |y|
+6751i    |n|         |u|        |y|
+6753i    |y|         6          |y|
+6757i    |y|         30         |y|
+9143i    |y|         7          |y|
+9480i    |n|         6          |y|
+9480CT   |n|         6          |y|
+======== =========== ========== ============
+
+
 
 Alcatel-Lucent
 --------------
@@ -321,6 +291,82 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
 
 
+Cisco
+-----
+
+Cisco Small Business SPA300 series:
+
+=========== =========== ========== ============
+Model       Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+=========== =========== ========== ============
+SPA301      |n|         1          |n|
+SPA303      |n|         3          |n|
+=========== =========== ========== ============
+
+.. note:: Function keys are shared with line keys for all SPA phones
+
+Cisco Small Business SPA500 series:
+
+=========== =========== ========== ============
+Model       Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+=========== =========== ========== ============
+SPA501G     |y|         8          |n|
+SPA502G     |n|         1          |n|
+SPA504G     |y|         4          |n|
+SPA508G     |y|         8          |n|
+SPA509G     |n|         12         |n|
+SPA525G     |y|         5          |n|
+SPA525G2    |n|         5          |n|
+=========== =========== ========== ============
+
+The SPA500 expansion module is supported.
+
+Cisco Small Business IP Phones (previously known as Linksys IP Phones)
+
+=========== =========== ========== ============
+Model       Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+=========== =========== ========== ============
+SPA901      |n|         1          |n|
+SPA921      |n|         1          |n|
+SPA922      |n|         1          |n|
+SPA941      |n|         4          |n|
+SPA942      |y|         4          |n|
+SPA962      |y|         6          |n|
+=========== =========== ========== ============
+
+.. note:: You must install the firmware of each SPA9xx phones you are using since they reboot in
+          loop when they can’t find their firmware.
+
+The SPA932 expansion module is supported.
+
+ATAs:
+
+=========== =========== ========== ============
+Model       Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+=========== =========== ========== ============
+PAP2        |n|         0          |n|
+SPA2102     |n|         0          |n|
+SPA8800     |n|         0          |n|
+=========== =========== ========== ============
+
+   For best results, activate :ref:`dhcp-integration` on your XiVO.
+
+.. note::
+   These devices can be used to connect Faxes. For better success with faxes some parameters
+   must be changed. You can read the :ref:`fax-analog-gateway` section.
+
+.. note::
+   If you want to manually resynchronize the configuration from the ATA device 
+   you should use the following url::
+
+     http://ATA_IP/admin/resync?http://XIVO_IP:8667/CONF_FILE
+
+   where :
+
+      * *ATA_IP*    is the IP address of the ATA,
+      * *XIVO_IP*   is the IP address of your XiVO,
+      * *CONF_FILE* is one of ``spa2102.cfg``, ``spa8000.cfg``
+
 
 Gigaset
 -------
@@ -353,9 +399,9 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 Jitsi    |y|         |u|        |n|
 ======== =========== ========== ============
 
+
 Panasonic
 ---------
-
 
 Panasonic KX-HTXXX series:
 
@@ -371,6 +417,62 @@ KX-HT136   |n|         |u|         |n|
 .. note:: This phone is for testing for the moment
 
 
+Polycom
+-------
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+SPIP320  |n|         0          |n|
+SPIP321  |n|         0          |n|
+SPIP330  |n|         0          |n|
+SPIP430  |n|         0          |n|
+SPIP501  |y|         0          |n|
+SPIP600  |n|         0          |n|
+SPIP601  |n|         0          |n|
+SPIP670  |n|         47         |n|
+======== =========== ========== ============
+
+SoundStation IP:
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+SPIP4000 |n|         0          |n|
+======== =========== ========== ============
+
+Others:
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+VVX1500  |n|         0          |n|
+======== =========== ========== ============
+
+
+Snom
+----
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+300      |n|         6          |y|
+320      |y|         12         |y|
+360      |n|         |u|        |y|
+820      |y|         4          |y|
+MP       |n|         |u|        |y|
+PA1      |n|         0          |y|
+======== =========== ========== ============
+
+.. note:: For some models, function keys are shared with line keys
+
+.. warning:: If you are using Snom phones with HA, you should not assign multiple lines to the same device.
+
+There's a known issue with the provisioning of Snom phones in XiVO:
+
+* After a factory reset of a phone, if no language and timezone are set for the "default config device" in :menuselection:`XiVO --> Configuration --> Provisioning --> Template device`, you will be forced to select a default language and timezone on the phone UI.
+
+
 Technicolor
 -----------
 
@@ -384,6 +486,19 @@ ST2030   |y|         10         |n|
 ======== =========== ========== ============
 
 .. note:: Function keys are shared with line keys
+
+
+yealink
+-------
+
+======== =========== ========== ============
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+======== =========== ========== ============
+T20P     |n|         2          |n|
+T26P     |n|         13         |n|
+======== =========== ========== ============
+
+.. note:: Some function keys are shared with line keys
 
 
 Zenitel
@@ -404,6 +519,8 @@ Caption :
        keys the device has (for example, a 6757i has 12 physical keys but you can configure 30
        function keys because of the page system).
 .. [3] ``XiVO HA`` means the device is confirmed to work with :ref:`XiVO HA <high-availability>`.
+.. [4] These devices are marked as ``Not Tested`` because other similar models using the same firmware have been tested instead.
+       If these devices ever present any bugs, they will be troubleshooted by the XiVO support team.
 
 .. |y| replace:: Yes
 .. |n| replace:: No
