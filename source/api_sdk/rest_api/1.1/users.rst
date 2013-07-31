@@ -57,16 +57,6 @@ q
 
    Example: ``q=john``
 
-include
-   A comma separated list of additional information to include for each user.
-
-   By default, no additional information is included.
-
-   Valid values: ``voicemail``.
-
-   Example: ``include=voicemail``
-
-
 .. warning:: filtering on the line number is not implemented yet
 
 **Example request**::
@@ -95,34 +85,6 @@ include
                "firstname": "Alice",
                "lastname": "Houet",
                "userfield": ""
-           }
-       ]
-   }
-
-Response if the query parameter ``include=voicemail`` is included::
-
-   HTTP/1.1 200 OK
-   Content-Type: application/json
-
-   {
-       "total": 2,
-       "items":
-       [
-           {
-               "id": 1,
-               "firstname": "John",
-               "lastname": "Doe",
-               "userfield": "",
-               "voicemail": {
-                  "voicemail_id": 3
-               }
-           },
-           {
-               "id": 2,
-               "firstname": "Alice",
-               "lastname": "Houet",
-               "userfield": "",
-               "voicemail": null
            }
        ]
    }
