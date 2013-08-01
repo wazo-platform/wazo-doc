@@ -131,6 +131,10 @@ Create Extension
 | commented | no       | boolean | If True the extension is disabled. |
 +-----------+----------+---------+------------------------------------+
 
+.. warning:: The values of ``exten`` and ``context`` are not yet checked for validity. No errors
+   will be returned if the ``context`` is inexistant or if the ``exten`` is outside of all extension
+   ranges of the context.
+
 **Example request**::
 
    POST /1.1/extensions HTTP/1.1
