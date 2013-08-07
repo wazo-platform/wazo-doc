@@ -297,6 +297,8 @@ User-Line Representation
 List the Lines Associated to a User
 -----------------------------------
 
+.. warning:: Not implemented yet.
+
 ::
 
    GET /1.1/users/<user_id>/user_links
@@ -352,6 +354,8 @@ or, if no line is associated to the user::
 List the Users Using a Line
 ---------------------------
 
+.. warning:: Not implemented yet.
+
 ::
 
    GET /1.1/lines/<line_id>/user_links
@@ -406,6 +410,8 @@ or, if no line is associated to the user::
 
 List the Users Using an Extension
 ---------------------------------
+
+.. warning:: Not implemented yet.
 
 ::
 
