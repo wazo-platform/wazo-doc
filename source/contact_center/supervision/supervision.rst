@@ -162,7 +162,8 @@ will not be readable.
 You can change the font size of this Xlet by giving a configuration file when
 launching the XiVO Client::
 
-   $ xivoclient -stylesheet big_fonts.qss
+   > xivoclient -stylesheet big_fonts.qss   # Windows and Mac
+   $ xivoclient -- -stylesheet big_fonts.qss   # GNU/Linux
 
 The :file:`big_fonts.qss` file should contain::
 
