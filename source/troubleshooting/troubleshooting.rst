@@ -67,7 +67,7 @@ this example) : if a fax is detected, receive it otherwise route the call normal
     same  =   n(return),Return()
 
     exten = fax,1,NoOp(Fax detected from ${CALLERID(num)} towards ${XIVO_DSTNUM} - will be sent upon reception to ${XIVO_USEREMAIL})
-    same  =     n,GotoIf($["${CHANNEL(channeltype)}" = "DAHDI"]?changeechocan:continue))
+    same  =     n,GotoIf($["${CHANNEL(channeltype)}" = "DAHDI"]?changeechocan:continue)
     same  =     n(changeechocan),Set(CHANNEL(echocan_mode)=fax) ; if chan type is dahdi set echo canceller in fax mode
     same  =     n(continue),Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
 
