@@ -45,7 +45,7 @@ The users are listed in ascending order on lastname, then firstname.
 
 ::
 
-   GET /1.1/users
+   GET /1.1/users/
 
 
 **Parameters**
@@ -61,7 +61,7 @@ q
 
 **Example request**::
 
-   GET /1.1/users HTTP/1.1
+   GET /1.1/users/ HTTP/1.1
    Host: xivoserver
    Accept: application/json
 
@@ -126,7 +126,7 @@ Create User
 
 ::
 
-   POST /1.1/users
+   POST /1.1/users/
 
 **Input**
 
@@ -142,7 +142,7 @@ Create User
 
 **Example request**::
 
-   POST /1.1/users HTTP/1.1
+   POST /1.1/users/ HTTP/1.1
    Host: xivoserver
    Accept: application/json
    Content-Type: application/json
@@ -297,6 +297,8 @@ User-Line Representation
 List the Lines Associated to a User
 -----------------------------------
 
+.. warning:: Not implemented yet.
+
 ::
 
    GET /1.1/users/<user_id>/user_links
@@ -352,6 +354,8 @@ or, if no line is associated to the user::
 List the Users Using a Line
 ---------------------------
 
+.. warning:: Not implemented yet.
+
 ::
 
    GET /1.1/lines/<line_id>/user_links
@@ -406,6 +410,8 @@ or, if no line is associated to the user::
 
 List the Users Using an Extension
 ---------------------------------
+
+.. warning:: Not implemented yet.
 
 ::
 
@@ -510,7 +516,7 @@ Associate Line to User
 
 ::
 
-   POST /1.1/user_links
+   POST /1.1/user_links/
 
 **Input**
 
@@ -531,7 +537,7 @@ Associate Line to User
 
 **Example request**::
 
-   POST /1.1/user_links
+   POST /1.1/user_links/
    Host: xivoserver
    Content-Type: application/json
 
