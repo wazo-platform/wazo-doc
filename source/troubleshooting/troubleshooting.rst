@@ -42,16 +42,11 @@ this example) : if a fax is detected, receive it otherwise route the call normal
 .. note:: This workaround works only :
 
     * on incoming calls towards an User (and an User only),
-    * if the incoming trunk is a DAHDI trunk,
+    * if the incoming trunk is a DAHDI or a SIP trunk,
     * if the user has a voicemail which is activated and with the email field filled
+    * XiVO >= 13.08 (needs asterisk 11)
 
     Be aware that this workaround will probably not survive any upgrade.
-
-#. Activate fax detection in DAHDI configuration by editing :file:`/etc/asterisk/chan_dahdi.conf` and
-   adding the following lines **before** the line ``#include dahdi-channels.conf``::
-
-    ;; Workaround Fax detection
-    faxdetect = yes
 
 #. In the Web Interface and under :menuselection:`Services --> IPBX --> IPBX configuration -->
    Configuration files` add a new file named *fax-detection.conf* containing the following
@@ -60,10 +55,11 @@ this example) : if a fax is detected, receive it otherwise route the call normal
     ;; Fax Detection
     [pre-user-global-faxdetection]
     exten = s,1,NoOp(Answer call to be able to detect fax if call is external AND user has an email configured)
+    same  =   n,Set(FAXOPT(faxdetect)=yes) ; Activate dynamically fax detection
     same  =   n,GotoIf($["${XIVO_CALLORIGIN}" = "extern"]?:return)
     same  =   n,GotoIf(${XIVO_USEREMAIL}?:return)
     same  =   n,Answer()
-    same  =   n,Wait(4) ; You can change the number of seconds that it'll wait for Fax
+    same  =   n,Wait(4) ; You can change the number of seconds it will wait for fax (4 to 6 is good)
     same  =   n(return),Return()
 
     exten = fax,1,NoOp(Fax detected from ${CALLERID(num)} towards ${XIVO_DSTNUM} - will be sent upon reception to ${XIVO_USEREMAIL})
