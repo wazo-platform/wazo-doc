@@ -42,11 +42,11 @@ List Extension
 
 ::
 
-   GET /1.1/extensions/
+   GET /1.1/extensions
 
 **Example request**::
 
-   GET /1.1/extensions/ HTTP/1.1
+   GET /1.1/extensions HTTP/1.1
    Host: xivoserver
    Accept: application/json
 
@@ -117,7 +117,7 @@ Create Extension
 
 ::
 
-   POST /1.1/extensions/
+   POST /1.1/extensions
 
 **Input**
 
@@ -137,7 +137,7 @@ Create Extension
 
 **Example request**::
 
-   POST /1.1/extensions/ HTTP/1.1
+   POST /1.1/extensions HTTP/1.1
    Host: xivoserver
    Accept: application/json
    Content-Type: application/json
