@@ -25,3 +25,13 @@ URL
 ---
 
 * Occurences of ``1.0`` have been replaced for ``1.1``
+* Trailing slashes have been removed.
+
+  For example, in 1.0, the URL to list users is::
+
+     /1.0/users/
+
+  In 1.1, it is::
+
+     /1.1/users
+
