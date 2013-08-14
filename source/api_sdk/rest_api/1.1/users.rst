@@ -15,18 +15,18 @@ User Representation
 
 **Description**
 
-+-----------+---------+----------------------------------------------------------------------------+
-| Field     | Values  | Description                                                                |
-+===========+=========+============================================================================+
-| id        | int     | Read-only                                                                  |
-+-----------+---------+----------------------------------------------------------------------------+
-| firstname | string  | If the user has no firstname, then this field is an empty string.          |
-+-----------+---------+----------------------------------------------------------------------------+
-| lastname  | string  | If the user has no lastname, then this field is an empty string.           |
-+-----------+---------+----------------------------------------------------------------------------+
-| userfield | boolean | A custom field which purpose is left to the client. If the user has no     |
-|           |         | userfield, then this field is an empty string.                             |
-+-----------+---------+----------------------------------------------------------------------------+
++-----------+---------+------------------------------------------------------------------------+
+| Field     | Values  | Description                                                            |
++===========+=========+========================================================================+
+| id        | int     | Read-only                                                              |
++-----------+---------+------------------------------------------------------------------------+
+| firstname | string  | If the user has no firstname, then this field is an empty string.      |
++-----------+---------+------------------------------------------------------------------------+
+| lastname  | string  | If the user has no lastname, then this field is an empty string.       |
++-----------+---------+------------------------------------------------------------------------+
+| userfield | boolean | A custom field which purpose is left to the client. If the user has no |
+|           |         | userfield, then this field is an empty string.                         |
++-----------+---------+------------------------------------------------------------------------+
 
 **Example**::
 
@@ -211,21 +211,14 @@ The user will also be removed from all queues, groups or other XiVO entities who
 
 **Errors**
 
-+------------+-------------------------------------------+-----------------------------------------+
-| Error code | Error message                             | Description                             |
-+============+===========================================+=========================================+
-| 400        | Error during deletion: <explanation>      | The requested user is probably          |
-|            |                                           | associated to other objects.            |
-+------------+-------------------------------------------+-----------------------------------------+
-| 404        | Empty                                     | The requested user was not found        |
-+------------+-------------------------------------------+-----------------------------------------+
-| 412        | Cannot remove a user with a               | The user owns a voicemail, so it cannot |
-|            | voicemail. Delete the voicemail or        | be deleted.                             |
-|            | dissociate it from the user.              |                                         |
-+------------+-------------------------------------------+-----------------------------------------+
-| 500        | The user was deleted but the device could | provd returned an error when trying to  |
-|            | not be reconfigured.                      | reconfigure the user's device           |
-+------------+-------------------------------------------+-----------------------------------------+
++------------+--------------------------------------+----------------------------------+
+| Error code | Error message                        | Description                      |
++============+======================================+==================================+
+| 400        | Error during deletion: <explanation> | The requested user is probably   |
+|            |                                      | associated to other objects.     |
++------------+--------------------------------------+----------------------------------+
+| 404        | Empty                                | The requested user was not found |
++------------+--------------------------------------+----------------------------------+
 
 **Example request**::
 
@@ -296,8 +289,6 @@ User-Line Representation
 
 List the Lines Associated to a User
 -----------------------------------
-
-.. warning:: Not implemented yet.
 
 ::
 
@@ -520,20 +511,20 @@ Associate Line to User
 
 **Input**
 
-+--------------+----------+---------+--------------------------------------------------------------+
-| Field        | Required | Values  | Description                                                  |
-+==============+==========+=========+==============================================================+
-| user_id      | yes      | int     | Must be an existing id                                       |
-+--------------+----------+---------+--------------------------------------------------------------+
-| line_id      | yes      | int     | Must be an existing id                                       |
-+--------------+----------+---------+--------------------------------------------------------------+
-| extension_id | yes      | int     | Must be an existing id                                       |
-+--------------+----------+---------+--------------------------------------------------------------+
-| main_user    | no       | boolean | May always be true, may only be false when the user already  |
-|              |          |         | has a line. If not given, the user will be the main user of  |
-|              |          |         | the line if no other user is currently associated to the     |
-|              |          |         | line. Else, the user will be a secondary user.               |
-+--------------+----------+---------+--------------------------------------------------------------+
++--------------+----------+---------+-------------------------------------------------------------+
+| Field        | Required | Values  | Description                                                 |
++==============+==========+=========+=============================================================+
+| user_id      | yes      | int     | Must be an existing id                                      |
++--------------+----------+---------+-------------------------------------------------------------+
+| line_id      | yes      | int     | Must be an existing id                                      |
++--------------+----------+---------+-------------------------------------------------------------+
+| extension_id | yes      | int     | Must be an existing id                                      |
++--------------+----------+---------+-------------------------------------------------------------+
+| main_user    | no       | boolean | May always be true, may only be false when the user already |
+|              |          |         | has a line. If not given, the user will be the main user of |
+|              |          |         | the line if no other user is currently associated to the    |
+|              |          |         | line. Else, the user will be a secondary user.              |
++--------------+----------+---------+-------------------------------------------------------------+
 
 **Example request**::
 
