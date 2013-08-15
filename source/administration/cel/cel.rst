@@ -1,6 +1,6 @@
-**********
+*********
 Call Logs
-**********
+*********
 
 Call logs can be accessed using the menu :menuselection:`Services --> IPBX --> Call management --> Call Logs` page.
 
