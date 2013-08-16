@@ -505,6 +505,9 @@ or, if no line is associated to the user::
 Associate Line to User
 ----------------------
 
+.. warning:: Deleting a user from the Web interface will always remove his associated line, main
+             user or not.
+
 ::
 
    POST /1.1/user_links
