@@ -502,11 +502,13 @@ or, if no line is associated to the user::
    HTTP/1.1 404 Not Found
 
 
+.. _associate_line_to_user:
+
 Associate Line to User
 ----------------------
 
-.. warning:: Deleting a user from the Web interface will always remove his associated line, main
-             user or not.
+.. warning:: Deleting a user from the Web interface will always remove his associated lines, whether he be a main
+             user or not. As a result, any other user associated to the given line will also have his line deleted.
 
 ::
 

@@ -106,11 +106,18 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes
 =============
 
-13.15
+13.16
 -----
 
+* Consult the `13.16 Roadmap <https://projects.xivo.fr/versions/182>`_
+* A migration script modifies the user and line related-tables and the way users, lines and extensions are associated. As a consequence of this script, it is not possible any more to associate a user and a line without extensions. Existing associations between users and one or more lines having no extensions will be removed. Users and lines will still exist unassociated.
 * The :ref:`call logs <call_logs>` page is able to display partial results of big queries, instead of displaying a blank page.
+* Two new CEL messages are now enabled : LINKEDID_END and BRIDGE_UPDATE. Those events will only exist in CEL for calls passed after upgrading to XiVO 13.16.
+* The new REST API now makes possible to associate multiple user to a given line and/or extension. There are currently some limitations on how those users and lines can be manipulated using the web interface. Please read the :ref:`REST API 1.1 documentation <rest-api-1.1>` and more precisely the :ref:`Associate Line to User <associate_line_to_user>` section for monre information.
 
+13.15
+-----
+* There was no production release of XiVO 13.15. All 13.15 developments are included in the official 13.16 release.
 
 13.14
 -----
