@@ -121,7 +121,7 @@ Upgrade Notes
 * The new REST API now makes possible to associate multiple user to a given line and/or
   extension. There are currently some limitations on how those users and lines can be manipulated
   using the web interface. Please read the :ref:`REST API 1.1 documentation <rest-api-1.1>` and more
-  precisely the :ref:`Associate Line to User <associate_line_to_user>` section for monre
+  precisely the :ref:`Associate Line to User <associate_line_to_user>` section for more
   information.
 
 13.15
