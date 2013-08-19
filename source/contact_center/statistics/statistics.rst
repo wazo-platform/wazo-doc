@@ -121,19 +121,22 @@ By clicking on a queue name you may display detailed queue statistics
 
 Statistics can be displayed :
 
-* By week
+By week
+-------
 
 .. figure:: images/statistic_queue_week.png
    :scale: 85%
    :alt: Queue statistic week
 
-* By month
+By month
+--------
 
 .. figure:: images/statistic_queue_month.png
    :scale: 85%
    :alt: Queue statistic month
 
-* By year
+By year
+-------
 
 .. figure:: images/statistic_queue_year.png
    :scale: 85%
@@ -186,3 +189,70 @@ Counters
 .. warning:: Data generated before XiVO 12.19 might have erroneous results for the Login time counter
 .. note:: The Pause time counter only supports **PAUSEALL** and **UNPAUSEALL** command from cticlient
 .. note:: Wrapup time events were added to XiVO in version 12.21
+
+Agent summary
+-------------
+
+.. figure:: images/statistic_agent_summary.png
+    :alt: Performance Agents statistic summary
+
+Agent per day
+-------------
+
+.. figure:: images/statistic_agent_day.png
+    :alt: Performance Agents statistic per day
+
+Agent per week
+--------------
+
+.. figure:: images/statistic_agent_week.png
+    :alt: Performance Agents statistic per week
+
+Agent per month
+---------------
+
+.. figure:: images/statistic_agent_month.png
+    :alt: Performance Agents statistic per month
+
+Agent per year
+--------------
+
+.. figure:: images/statistic_agent_year.png
+    :alt: Performance Agents statistic per year
+
+
+Period details
+==============
+Display by period defined in configuration, i.e. between 0 and 10s, 10s and 30s etc ...
+the number of handled calls and the number of abandonned calls
+
+
+.. figure:: images/statistic_period_details.png
+    :alt: Queue period details
+
+
+You may click on a queue name to get more information for this queue
+
+Period details by day
+---------------------
+
+.. figure:: images/statistic_period_details_day.png
+    :alt: Queue period details for a specific day
+
+Period details by week
+----------------------
+
+.. figure:: images/statistic_period_details_week.png
+    :alt: Queue period details for a week
+
+Period details by month
+-----------------------
+
+.. figure:: images/statistic_period_details_month.png
+    :alt: Queue period details for a month
+
+Period details by year
+----------------------
+
+.. figure:: images/statistic_period_details_year.png
+    :alt: Queue period details for a year

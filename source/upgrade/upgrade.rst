@@ -106,6 +106,29 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes
 =============
 
+13.16
+-----
+
+* Consult the `13.16 Roadmap <https://projects.xivo.fr/versions/182>`_
+* A migration script modifies the user and line related-tables and the way users, lines and
+  extensions are associated. As a consequence of this script, it is not possible any more to
+  associate a user and a line without extensions. Existing associations between users and one or
+  more lines having no extensions will be removed. Users and lines will still exist unassociated.
+* The :ref:`call logs <call_logs>` page is able to display partial results of big queries, instead
+  of displaying a blank page.
+* Two new CEL messages are now enabled : LINKEDID_END and BRIDGE_UPDATE. Those events will only
+  exist in CEL for calls passed after upgrading to XiVO 13.16.
+* The new REST API now makes possible to associate multiple user to a given line and/or
+  extension. There are currently some limitations on how those users and lines can be manipulated
+  using the web interface. Please read the :ref:`REST API 1.1 documentation <rest-api-1.1>` and more
+  precisely the :ref:`Associate Line to User <associate_line_to_user>` section for more
+  information.
+
+13.15
+-----
+* There was no production release of XiVO 13.15. All 13.15 developments are included in the official
+  13.16 release.
+
 13.14
 -----
 
@@ -114,6 +137,7 @@ Upgrade Notes
 * The latest Polycom plugin enables the phone lock feature with a default user password of '123'. All Polycom phones used with XiVO also have a default admin password. In order for the phone lock feature to be secure, one should change every phone's admin AND user passwords.
 * WebServices for SIP trunks/lines: field ``nat``: value ``yes`` changed to ``force_rport,comedia``
 * The database has beed updated in order to remove deprecated tables (generalfeatures, extenumbers, extenhash, cost_center).
+
 
 13.13
 -----
@@ -190,7 +214,7 @@ Please consult the following detailed upgrade notes for more information:
 -----
 
 * Consult the `13.07 Roadmap <https://projects.xivo.fr/versions/173>`_
-* Agent Status Dashboard has more features and less limitations. See related :ref:`dashboard xlet documentation <dashboard-xlet>`
+* Agent Status Dashboard has more features and less limitations. See related :ref:`agent status dashboard documentation <agent_dashboard>`
 * XiVO call centers have no more notion of 'disabled agents'. All previously disabled agents in web interface will become active agents after upgrading.
 * asterisk has been upgraded from version 1.8.20.1 to 1.8.21.0. Please note that in XiVO 13.08, asterisk will be upgraded to version 11.
 * DAHDI has been upgraded from version 2.6.1 to 2.6.2.

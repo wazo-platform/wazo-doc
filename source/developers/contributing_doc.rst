@@ -179,4 +179,4 @@ Others
 * There must be no warning nor error messages when building the documentation with ``make html``.
 * There should be one and only one newline character at the end of each file
 * There should be no trailing whitespace at the end of lines
-* Lines should be at most 104 characters
+* Paragraphs must be wrapped and lines should be at most 100 characters long
