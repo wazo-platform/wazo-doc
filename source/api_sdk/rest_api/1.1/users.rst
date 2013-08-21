@@ -124,6 +124,14 @@ include
 Create User
 -----------
 
+**Errors**
+
++------------+------------------------------------------+--------------------------------+
+| Error code | Error message                            | Description                    |
++============+==========================================+================================+
+| 400        | error while creating User: <explanation> | See explanation for more infos |
++------------+------------------------------------------+--------------------------------+
+
 ::
 
    POST /1.1/users
@@ -178,6 +186,14 @@ modified fields.
 
 If the firstname or the lastname is modified, the associated voicemail is also updated.
 
+**Errors**
+
++------------+-----------------------------------------+--------------------------------+
+| Error code | Error message                           | Description                    |
++============+=========================================+================================+
+| 400        | error while editing User: <explanation> | See explanation for more infos |
++------------+-----------------------------------------+--------------------------------+
+
 ::
 
    PUT /1.1/users/<id>
@@ -211,14 +227,14 @@ The user will also be removed from all queues, groups or other XiVO entities who
 
 **Errors**
 
-+------------+--------------------------------------+----------------------------------+
-| Error code | Error message                        | Description                      |
-+============+======================================+==================================+
-| 400        | Error during deletion: <explanation> | The requested user is probably   |
-|            |                                      | associated to other objects.     |
-+------------+--------------------------------------+----------------------------------+
-| 404        | Empty                                | The requested user was not found |
-+------------+--------------------------------------+----------------------------------+
++------------+------------------------------------------+-------------------------------------------------------------+
+| Error code | Error message                            | Description                                                 |
++============+==========================================+=============================================================+
+| 400        | error while deleting User: <explanation> | The requested user is probably associated to other objects. |
+|            |                                          | See explanation for more infos                              |
++------------+------------------------------------------+-------------------------------------------------------------+
+| 404        | Empty                                    | The requested user was not found                            |
++------------+------------------------------------------+-------------------------------------------------------------+
 
 **Example request**::
 
@@ -566,6 +582,16 @@ Deassociate Line From User
 
 If the user is the main user of the line and there is at least 1 secondary user associated to this
 line, an error is returned.
+
+**Errors**
+
++------------+-----------------------------------------------+----------------------------------------------------+
+| Error code | Error message                                 | Description                                        |
++============+===============================================+====================================================+
+| 400        | There are other users associated to this line | The requested user_link is associated to main_user |
++------------+-----------------------------------------------+----------------------------------------------------+
+| 404        | Not found                                     | The requested user_link was not found              |
++------------+-----------------------------------------------+----------------------------------------------------+
 
 ::
 

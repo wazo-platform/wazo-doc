@@ -115,6 +115,14 @@ Get Extension
 Create Extension
 ================
 
+**Errors**
+
++------------+-----------------------------------------------+--------------------------------+
+| Error code | Error message                                 | Description                    |
++============+===============================================+================================+
+| 400        | error while creating Extension: <explanation> | See explanation for more infos |
++------------+-----------------------------------------------+--------------------------------+
+
 ::
 
    POST /1.1/extensions
@@ -171,6 +179,14 @@ Update an Extension
 The update does not need to set all the fields of the edited extension. The update only needs to set
 the modified fields.
 
+**Errors**
+
++------------+----------------------------------------------+--------------------------------+
+| Error code | Error message                                | Description                    |
++============+==============================================+================================+
+| 400        | error while editing Extension: <explanation> | See explanation for more infos |
++------------+----------------------------------------------+--------------------------------+
+
 ::
 
    PUT /1.1/extensions/<id>
@@ -192,6 +208,17 @@ the modified fields.
 
 Delete Extension
 ================
+
+**Errors**
+
++------------+-----------------------------------------------+------------------------------------------------------------------+
+| Error code | Error message                                 | Description                                                      |
++============+===============================================+==================================================================+
+| 400        | error while deleting Extension: <explanation> | The requested extension is probably associated to other objects. |
+|            |                                               | See explanation for more infos                                   |
++------------+-----------------------------------------------+------------------------------------------------------------------+
+| 404        | Not found                                     | The requested extension was not found                            |
++------------+-----------------------------------------------+------------------------------------------------------------------+
 
 ::
 
