@@ -1298,3 +1298,6 @@ connect to it is not that secure.
       brctl addif br0 wlan0
       brctl addif br0 eth0.341
       ip link set br0 up
+
+#. If you are using virtualbox and your guest interface is bridged to eth0.341, you'll need to
+   change its configuration and bridge it with br0 instead, else it won't work properly.
