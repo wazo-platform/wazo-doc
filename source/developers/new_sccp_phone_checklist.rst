@@ -19,6 +19,8 @@ Basic functionnality
 
 * Register on Asterisk
 * SCCP reset [restart]
+* Call history
+* Date time display
 
 
 Telephony
@@ -31,7 +33,7 @@ These test should be done with and without direct media enabled
 * Receive and transfer a call
 * Emit a call and transfer the call
 * Hold and resume a call
-* Features (*0 et autre)
+* Features (\*0 and others)
 * Receive 2 calls simultaneously
 * Emit 2 calls simultaneously
 * DTMF on an external IVR
