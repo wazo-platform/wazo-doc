@@ -12,6 +12,7 @@ REST API 1.1
 
 .. toctree::
 
+   call_logs
    extensions
    lines
    users
