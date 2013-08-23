@@ -353,15 +353,9 @@ List the Lines Associated to a User
        ]
    }
 
-or, if no line is associated to the user::
-
-   HTTP/1.1 404 Not Found
-
 
 List the Users Using a Line
 ---------------------------
-
-.. warning:: Not implemented yet.
 
 ::
 
@@ -410,15 +404,9 @@ List the Users Using a Line
        ]
    }
 
-or, if no line is associated to the user::
-
-   HTTP/1.1 404 Not Found
-
 
 List the Users Using an Extension
 ---------------------------------
-
-.. warning:: Not implemented yet.
 
 ::
 
@@ -467,10 +455,6 @@ List the Users Using an Extension
        ]
    }
 
-or, if no line is associated to the user::
-
-   HTTP/1.1 404 Not Found
-
 
 Get a User-Line Association
 ---------------------------
@@ -512,11 +496,6 @@ Get a User-Line Association
            }
        ]
    }
-
-or, if no line is associated to the user::
-
-   HTTP/1.1 404 Not Found
-
 
 .. _associate_line_to_user:
 
@@ -641,10 +620,6 @@ Get Voicemail Associated to User
            }
        ]
    }
-
-or, if no voicemail is associated to the user::
-
-   HTTP/1.1 404 Not Found
 
 
 Associate Voicemail to User
