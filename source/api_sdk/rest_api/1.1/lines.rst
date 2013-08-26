@@ -178,13 +178,18 @@ Get Line
    }
 
 
+User-Line-Extension Association
+-------------------------------
+
+See :ref:`user-line-extension-association`.
+
+
 SIP Lines
 =========
 
 
 Restrictions
 ------------
-
 
 * Lines created via the REST API can not be used to provision devices automatically.
 * Lines created via the REST API will have an empty Caller ID.

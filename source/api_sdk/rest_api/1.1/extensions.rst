@@ -206,6 +206,12 @@ the modified fields.
    HTTP/1.1 204 No Content
 
 
+User-Line-Extension Association
+===============================
+
+See :ref:`user-line-extension-association`.
+
+
 Delete Extension
 ================
 

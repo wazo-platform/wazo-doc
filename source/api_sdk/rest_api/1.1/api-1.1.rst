@@ -15,6 +15,7 @@ REST API 1.1
    extensions
    lines
    users
+   user_links
 
 
 Migration from 1.0
