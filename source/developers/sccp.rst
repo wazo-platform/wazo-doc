@@ -117,8 +117,6 @@ Network Configuration for 7920/7921
 Here's how to to configure a hostapd based AP on a Debian host so that both
 a 7920 and 7921 Wi-Fi phone can connect to it.
 
-.. note:: The 7920 and 7921 are not officially supported by XiVO.
-
 The 7920 is older than the 7921 and is pretty limited in its Wi-Fi functionnality:
 
 * 802.11b
