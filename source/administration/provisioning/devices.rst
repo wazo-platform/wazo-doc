@@ -259,7 +259,6 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
 
 
-
 Alcatel-Lucent
 --------------
 
@@ -490,7 +489,7 @@ ST2030   |y|         10         |n|
 .. note:: Function keys are shared with line keys
 
 
-yealink
+Yealink
 -------
 
 ======== =========== ========== ============
