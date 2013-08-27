@@ -38,12 +38,12 @@ List Extension
 
    GET /1.1/call_logs HTTP/1.1
    Host: xivoserver
-   Accept: application/json
+   Accept: text/csv
 
 **Example response**::
 
    HTTP/1.1 200 OK
-   Content-Type: text/csv
+   Content-Type: text/csv; charset=utf8
 
    Call Date,Caller,Called,Period,user Field
    01/01/2013 00:00:00,source1 (1001),2001,1,
