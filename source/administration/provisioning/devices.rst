@@ -79,6 +79,8 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 7906G    |y|         0          |y|
 7911G    |y|         0          |y|
 7912G    |y|         0          |y|
+7920     |y|         0          |y|
+7921G    |y|         0          |y|
 7940G    |y|         0          |y|
 7941G    |y|         0          |y|
 7941G-GE |y|         0          |y|
