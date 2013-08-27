@@ -11,5 +11,5 @@ page.
 
 .. figure:: images/paging.png
 
-When adding a new paging extension, the number can be anything; to call it,
+When adding a new paging extension, the number can be any numeric value; to call it,
 you just need to prefix the paging number with ``*11``.
