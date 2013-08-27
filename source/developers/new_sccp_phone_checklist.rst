@@ -39,7 +39,6 @@ These test should be done with and without direct media enabled
 * DTMF on an external IVR
 
 
-
 Function keys
 ^^^^^^^^^^^^^
 
