@@ -1,3 +1,5 @@
+.. _restapi-call-logs:
+
 *********
 Call Logs
 *********
@@ -27,8 +29,10 @@ Call Logs Representation
    01/02/2013 00:00:00,source2 (1002),2002,2,userfield
 
 
-List Extension
+List Call logs
 ==============
+
+.. note:: For now, call logs need to be generated before listing. See :ref:`next-gen-call-logs`.
 
 ::
 
