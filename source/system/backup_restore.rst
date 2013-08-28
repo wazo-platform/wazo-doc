@@ -181,12 +181,9 @@ restore xivo database provided you restore the following tables :
 
 ::
 
-   sudo -u postgres pg_restore -d xivo -t entity -c xivo-*.dump
-   sudo -u postgres pg_restore -d xivo -t entity_id_seq -c xivo-*.dump
-   sudo -u postgres pg_restore -d xivo -t ldapserver -c xivo-*.dump
-   sudo -u postgres pg_restore -d xivo -t ldapserver_id_seq -c xivo-*.dump
-   sudo -u postgres pg_restore -d xivo -t stats_conf -c xivo-*.dump
-   sudo -u postgres pg_restore -d xivo -t stats_conf_id_seq -c xivo-*.dump
+   sudo -u postgres pg_restore -d xivo -t entity -t entity_id_seq -c xivo-*.dump
+   sudo -u postgres pg_restore -d xivo -t ldapserver -t ldapserver_id_seq -c xivo-*.dump
+   sudo -u postgres pg_restore -d xivo -t stats_conf -t stats_conf_id_seq -c xivo-*.dump
    sudo -u postgres pg_restore -d xivo -t stats_conf_agent -c xivo-*.dump
    sudo -u postgres pg_restore -d xivo -t stats_conf_group -c xivo-*.dump
    sudo -u postgres pg_restore -d xivo -t stats_conf_incall -c xivo-*.dump
