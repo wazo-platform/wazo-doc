@@ -1286,8 +1286,18 @@ connect to it is not that secure.
 
       ifup wlan0=wlan-sccp
 
-#. Configure your 7920/7921 to connect to the network. When asked for the authentication
-   mode, select something like "Auto" or "AKM".
+#. Configure your 7920/7921 to connect to the network.
+
+   To unlock the phone's configuration menu on the 7921:
+
+   * Press the Navigation Button downwards to enter SETTINGS mode
+   * Navigate to and select Network Profiles
+   * Unlock the IP phone's configuration menu by pressing \*\*#. The padlock icon
+     on the top-right of the screen will change from closed to open.
+
+   When asked for the authentication mode, select something like "Auto" or "AKM".
+
+   You don't have to enter anything for the username/password.
 
 #. You'll probably want to bridge your wlan0 interface with another interface,
    for example a VLAN interface::
