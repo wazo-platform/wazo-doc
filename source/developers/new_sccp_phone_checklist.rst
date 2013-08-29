@@ -21,6 +21,7 @@ Basic functionnality
 * SCCP reset [restart]
 * Call history
 * Date time display
+* HA
 
 
 Telephony
