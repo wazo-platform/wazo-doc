@@ -32,7 +32,7 @@ Call Logs Representation
 List Call logs
 ==============
 
-.. note:: For now, call logs need to be generated before listing. See :ref:`next-gen-call-logs`.
+.. note:: For now, call logs need to be generated before listing. See :ref:`call_logs`.
 
 ::
 
