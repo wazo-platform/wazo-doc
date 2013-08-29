@@ -106,6 +106,12 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes
 =============
 
+13.17
+-----
+
+* Consult the `13.17 Roadmap <https://projects.xivo.fr/versions/183>`_
+* There is a major change to call logs. They are no longer available as a web report but only as a csv export. See the :ref:`call logs documentation <call_logs>`. Call logs are now generated from the new REST API. See :ref:`restapi-call-logs`.
+
 13.16
 -----
 
