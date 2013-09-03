@@ -358,6 +358,11 @@ channel status update
 * class : getlist
 * function : updatestatus
 * listname : channels
+* status
+
+  * direction : (in,out ...)
+  * state : (Down, Ring, Unknown ...)
+  * commstatus : (ready, calling, ringing ...)
 
 .. code-block:: javascript
 
@@ -376,7 +381,7 @@ Example of phone messages received when a phone is ringing :
 
    {"status": {"timestamp": 1361447017.22, "holded": false, "commstatus": "ready", "parked": false, "state": "Down"}, "tid": "SIP/barometrix_jyldev-0000000a"}
    {"status": {"timestamp": 1361447017.29, "holded": false, "commstatus": "ready", "parked": false, "state": "Unknown"}, "tid": "SIP/x2gjtw-0000000b"}
-   {"status": {"direction": "out", "timestamp": 1361447017.29, "holded": false, "talkingto_id": "SIP/x2gjtw-0000000b", "state": "Ring", "parked": false, "commstatus": "calling"}, "tid": "SIP/barometrix_jyldev-0000000a", "class": "getlist"}
+   {"status": {"talkingto_kind": "channel", "direction": "out", "timestamp": 1361447017.29, "holded": false, "talkingto_id": "SIP/x2gjtw-0000000b", "state": "Ring", "parked": false, "commstatus": "calling"}, "tid": "SIP/barometrix_jyldev-0000000a", "class": "getlist"}
    {"status": {"direction": "in", "timestamp": 1361447017.29, "holded": false, "talkingto_id": "SIP/barometrix_jyldev-0000000a", "state": "Down", "parked": false, "commstatus": "ringing"}, "tid": "SIP/x2gjtw-0000000b", "class": "getlist"}
 
 
