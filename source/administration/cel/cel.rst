@@ -24,6 +24,9 @@ Call logs can be accessed using the menu :menuselection:`Services --> IPBX --> C
 Call logs are presented in a CSV file. The CSV specifications are detailed in :ref:`the REST API
 documentation <call-logs-format>`.
 
+Specifying no start date returns all available call logs. Specifying a start date and no end date
+returns all call logs from start date until now.
+
 
 REST API
 --------
