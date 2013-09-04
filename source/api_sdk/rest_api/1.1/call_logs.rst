@@ -29,6 +29,19 @@ Call Logs Representation
    01/02/2013 00:00:00,source2 (1002),2002,2,userfield
 
 
+.. _call-logs-format:
+
+Format
+------
+
+Call logs are presented in CSV format, with the following specifications:
+
+* field names are listed on the first line
+* fields are separated by commas: ``,``
+* if there is a comma in a field value, the value is surrounded by double quotes: ``"``
+* the CSV file uses the character encoding UTF-8
+
+
 List Call logs
 ==============
 
