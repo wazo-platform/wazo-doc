@@ -12,7 +12,7 @@ Call Logs Representation
 +------------+---------+--------------------------------------------------+
 | Field      | Values  | Description                                      |
 +============+=========+==================================================+
-| Call date  | date    | MM/DD/YYYY HH:MM:SS                              |
+| Call date  | date    | YYYY-MM-DDTHH:MM:SS                              |
 +------------+---------+--------------------------------------------------+
 | Caller     | string  |                                                  |
 +------------+---------+--------------------------------------------------+
@@ -26,7 +26,7 @@ Call Logs Representation
 **Example**::
 
    Call Date,Caller,Called,Period,user Field
-   01/02/2013 00:00:00,source2 (1002),2002,2,userfield
+   2013-01-02T00:00:00,source2 (1002),2002,2,userfield
 
 
 .. _call-logs-format:
@@ -63,8 +63,8 @@ List Call logs
    Content-Type: text/csv; charset=utf8
 
    Call Date,Caller,Called,Period,user Field
-   01/01/2013 00:00:00,source1 (1001),2001,1,
-   01/02/2013 00:00:00,source2 (1002),2002,2,userfield
+   2013-01-01T00:00:00,source1 (1001),2001,1,
+   2013-01-02T00:00:00,source2 (1002),2002,2,userfield
 
 
 Filtering by period
@@ -91,5 +91,5 @@ date and time. ``start_date`` and ``end_date`` must be given together ; the REST
    Content-Type: text/csv; charset=utf8
 
    Call Date,Caller,Called,Period,user Field
-   01/01/2013 01:00:00,source1 (1001),2001,1,
-   01/02/2013 00:00:00,source2 (1002),2002,2,userfield
+   2013-01-01T01:00:00,source1 (1001),2001,1,
+   2013-01-02T00:00:00,source2 (1002),2002,2,userfield
