@@ -11,7 +11,13 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+13.17
+-----
+
+* for messages of class ``login_capas`` from server to client: the key ``presence`` has been removed.
+
 13.14
+-----
 
 * for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary has changed values:
 
@@ -23,6 +29,7 @@ Protocol Changelog
     * ``on_call_non_acd_outgoing_external``
 
 13.12
+-----
 
 * for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary has changed values:
 
@@ -31,6 +38,7 @@ Protocol Changelog
 
 
 13.10
+-----
 
 * for messages of class ``getlist`` and function ``updateconfig``, the ``config`` object/dictionary
   does not have a ``rules_order`` key anymore.
