@@ -96,6 +96,10 @@ To install firmware for xivo-cisco-sccp plugins, you need to manually download
 the firmware files from the Cisco website and save them in the
 :file:`/var/lib/xivo-provd/plugins/$plugin-name/var/cache` directory.
 
+.. note:: 
+   The directory is created by XiVO when you install the plugin (i.e. xivo-cisco-sccp-legacy).
+   If you create the directory manually, the installation may fail!
+
 For example, if you have installed the ``xivo-cisco-sccp-legacy`` plugin and you want to install the ``7940-7960-fw``, ``networklocale`` and ``userlocale_fr_FR`` package, you must:
 
 * Go to http://www.cisco.com
