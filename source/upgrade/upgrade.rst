@@ -110,8 +110,10 @@ Upgrade Notes
 -----
 
 * Consult the `13.17 Roadmap <https://projects.xivo.fr/versions/183>`_
-* There is a major change to call logs. They are no longer available as a web report but only as a csv export. See the :ref:`call logs documentation <call_logs>`. Furthermore, call logs are now fetched with the new REST API. See :ref:`restapi-call-logs`.
-* Paging group numbers are now exclusively numeric. All non-numeric paging group numbers are converted to their numeric-only equivalent while upgrading to XiVO 13.17 (*58 becomes 58, for example).
+* There is a major change to call logs. They are no longer available as a web report but only as a csv export. See the :ref:`call logs documentation <call_logs>`.
+  Furthermore, call logs are now fetched with the new REST API. See :ref:`restapi-call-logs`.
+* Paging group numbers are now exclusively numeric. All non-numeric paging group numbers are converted to their numeric-only equivalent
+  while upgrading to XiVO 13.17 ( \*58 becomes 58, for example).
 
 13.16
 -----
