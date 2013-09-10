@@ -1043,6 +1043,7 @@ Send back a table of calls :
 callcampaign
 
 chitchat
+^^^^^^^^
 
 .. code-block:: javascript
 
@@ -1060,7 +1061,32 @@ featuresget
 featuresput
 
 directory
+^^^^^^^^^
+Request directory information, names matching pattern ignore case.
 
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {
+      "class": "directory",
+      "commandid": 1079140548,
+      "pattern": "pau"
+   }
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {
+      "class": "directory",
+      "headers": ["Nom", "Num\u00e9ro", "Mobile", "Autre num\u00e9ro", "E-mail", "Fonction", "Site", "Source"],
+      "replyid": 1079140548,
+      "resultlist": ["Claire Mapaurtal;;+33644558899;31256;cmapaurtal@societe.com;;;",
+                     "Paul Salvadier;+33445236988;+33678521430;31406;psalvadier@societe.com;;;"],
+      "status": "ok",
+      "timenow": 1378798928.26
+   }
 
 parking
 
