@@ -17,6 +17,7 @@ REST API 1.1
    lines
    users
    user_links
+   devices
 
 
 Migration from 1.0
