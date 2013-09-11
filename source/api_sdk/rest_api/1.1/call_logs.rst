@@ -45,7 +45,7 @@ Call logs are presented in CSV format, with the following specifications:
 List Call logs
 ==============
 
-.. note:: For now, call logs need to be generated before listing. See :ref:`call_logs`.
+.. note:: Call logs are generated automatically, but not immediately. See :ref:`call_logs`.
 
 ::
 
