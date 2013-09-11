@@ -433,8 +433,8 @@ line_id
     HTTP/1.1 204 No Content
 
 
-Remove a line to a device
-=========================
+Remove a line from a device
+===========================
 
 Remove a line from a device. After removing a line, the device needs to be synchronized for the changes to take effect. Please see `Synchronize a device`_
 
@@ -448,7 +448,7 @@ line_id
 
 ::
 
-    GET /1.1/devices/<id>/associate_line/<lineid>
+    GET /1.1/devices/<id>/remove_line/<lineid>
 
 **Example request**::
 
