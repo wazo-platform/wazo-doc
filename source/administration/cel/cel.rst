@@ -8,13 +8,14 @@ Call logs must be pre-generated from CEL entries. To do so, log on to the target
 
    xivo-call-logs
 
-The call logs generation is currently limited to the N last CEL entries (default 20,000), which means that you can
-not see any call older than the (N/10)th or so most recent call.
-
 You can specify the number of CEL entries to consider. For example, to generate calls using the
-100,000 last CEL entries::
+100,000 last unprocessed CEL entries::
 
    xivo-call-logs -c 100000
+
+The call logs generation is limited to the N last unprocessed CEL entries (default 20,000). This
+means that successive calls to ``xivo-call-logs`` will process N more CELs, making about N/10 more
+calls available in call logs, going further back in history, while processing new calls as well.
 
 
 Search Dashboard
