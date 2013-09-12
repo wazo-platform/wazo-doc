@@ -2,6 +2,12 @@
 Web Services
 *************
 
+.. warning:: **XiVO web services are now DEPRECATED and will NO LONGER BE SUPPORTED in the near future.**
+
+ A new REST API is gradually being developed as a replacement.
+ Once a new service is available in REST API, it will no longer be available in the web services.
+ Please refer to :ref:`rest-api` for more details.
+
 This page only describes ways to access XiVO Web services.
 
 If you want the description of the data sent and received from Web Services,
