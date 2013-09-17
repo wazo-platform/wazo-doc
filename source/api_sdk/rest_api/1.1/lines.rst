@@ -210,8 +210,6 @@ SIP Line Representation
 +------------------------+---------+-----------------------------------+
 | commented              | boolean | If True the extension is disabled |
 +------------------------+---------+-----------------------------------+
-| description            | string  |                                   |
-+------------------------+---------+-----------------------------------+
 | links                  | list    | The link to the resource          |
 +------------------------+---------+-----------------------------------+
 
@@ -245,7 +243,6 @@ List SIP Lines
                "secret": "password",
                "provisioning_extension": "123456",
                "commented": false,
-               "description": "line blue",
                "links" : [
                    {
                        "rel": "lines_sip",
@@ -261,7 +258,6 @@ List SIP Lines
                "secret": "password",
                "provisioning_extension": "987456",
                "commented": false,
-               "description": "line red",
                "links" : [
                    {
                        "rel": "lines_sip",
@@ -297,8 +293,7 @@ Get SIP Line
        "username": "abcdef",
        "secret": "password",
        "provisioning_extension": "123456",
-       "commented": false,
-       "description": "line blue"
+       "commented": false
    }
 
 
