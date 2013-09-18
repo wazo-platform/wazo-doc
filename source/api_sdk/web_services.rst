@@ -6,14 +6,11 @@ Web Services
 
 .. warning:: **XiVO web services are now DEPRECATED and will NO LONGER BE SUPPORTED in the near future.**
 
- A new REST API is gradually being developed as a replacement.
- Once a new service is available in REST API, it will no longer be available in the web services.
- Please refer to :ref:`rest-api` for more details.
-
  Here is a list of web services that are no longer supported:
 
  - Devices
 
+ A new REST API is gradually being developed as a replacement. Please refer to :ref:`rest-api` for more details.
 
 Here's a few guidelines on how to use the XiVO web services.
 
