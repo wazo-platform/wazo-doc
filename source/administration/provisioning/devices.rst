@@ -69,6 +69,7 @@ SPA8000  |y|         0          |n|
       * *XIVO_IP*   is the IP address of your XiVO,
       * *CONF_FILE* is one of ``spa3102.cfg``, ``spa8000.cfg``
 
+.. warning:: SCCP phones are supported, but limited to the features supported in XIVO's SCCP implementation. 
 
 Cisco 7900 series (*SCCP* mode only):
 
@@ -181,8 +182,8 @@ Others:
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-VVX300   |n| [4]_    |u|        |n|
-VVX400   |n| [4]_    |u|        |n|
+VVX300   |n| [4]_    6          |n|
+VVX400   |n| [4]_    12         |n|
 VVX500   |n| [4]_    |u|        |n|
 VVX600   |n| [4]_    |u|        |n|
 ======== =========== ========== ============
@@ -198,10 +199,9 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
 370      |n| [4]_    12         |y|
 710      |y|         5          |y|
-720      |y|         18         |y|
+721      |y|         18         |y|
 760      |y|         12         |y|
-820      |y|         4          |y|
-821      |n| [4]_    |u|        |y|
+821      |ny|        |u|        |u|
 870      |y|         15         |y|
 ======== =========== ========== ============
 
@@ -230,7 +230,7 @@ T28P     |y|         16         |n|
 T32G     |n| [4]_    3          |n|
 T38G     |y|         16         |n|
 T42G     |n| [4]_    |u|        |n|
-T46G     |n| [4]_    |u|        |n|
+T46G     |ny|        |u|        |u|
 W52P     |y|         |u|        |n|
 ======== =========== ========== ============
 
@@ -529,4 +529,5 @@ Caption :
 
 .. |y| replace:: Yes
 .. |n| replace:: No
+.. |ny| replace:: Not Yet
 .. |u| replace:: ---
