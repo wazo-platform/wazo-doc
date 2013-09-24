@@ -106,6 +106,12 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes
 =============
 
+13.19
+-----
+
+* Call logs are now generated automatically, incrementally and regularly. Call logs generated before
+  13.19 will be erased one last time.
+
 13.17
 -----
 
