@@ -1,8 +1,8 @@
 .. _devices:
 
-*****************
-Supported Devices
-*****************
+*******
+Devices
+*******
 
 Official support
 ================
