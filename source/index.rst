@@ -26,6 +26,7 @@ We are also working on a fully `Open XiVO Hardware`_.
    upgrade/upgrade
    cti_client/cti_client
    system/system
+   ecosystem/ecosystem
    administration/administration
    contact_center/contact_center
    high_availability/high_availability
