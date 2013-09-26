@@ -24,7 +24,6 @@ Administration
    parking
    phonebook
    provisioning/provisioning
-   recordings/recording_campaigns
    sccp/sccp
    schedules/schedules
    sound_files
