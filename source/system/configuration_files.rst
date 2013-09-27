@@ -2,24 +2,25 @@
 Configuration Files
 *******************
 
-This section describes some of the configuration files present in XiVO.
+This section describes some of the XiVO configuration files.
 
 
 xivo_ring.conf
 ==============
 
-File :file:`/etc/pf-xivo/asterisk/xivo_ring.conf`.
+* Path: :file:`/etc/pf-xivo/asterisk/xivo_ring.conf`
+* Purpose: This file can be used to change the ringtone played by the phone depending on the 
+  origin of the call.
 
-This file can be used to change the ringtone used by the phone depending on the 
-origin of the call.
+.. warning:: Note that this feature has not been tested for all phones and all call flows.
+  This page describes how you can customize this file but does not intend to list all validated
+  call flows or phones.
+  
 
-.. warning:: Note that this features has not been tested for all phones and all call flows.
-  This page describes how you can customize this file but does not intend to 
+This file :file:`xivo_ring.conf` consists of :
 
-This file consists of :
-
-* profiles of configuration (profiles examples by brands are already included (``[aastra]``,
-  ``[snom]`` etc.))
+* profiles of configuration (some examples for different brands are already included: ``[aastra]``,
+  ``[snom]`` etc.)
 * one section named ``[number]`` where you apply the profile to an extension or a context etc.
 
 Here is the process you should follow if you want to use/customize this feature :
@@ -28,13 +29,13 @@ Here is the process you should follow if you want to use/customize this feature 
   
     [myprofile-aastra]
 
-#. Change the phonetype accordingly, in our example::
+#. Change the ``phonetype`` accordingly, in our example::
 
     [myprofile-aastra]
     phonetype = aastra
 
-#. Chose the ringtone for the different type of calls (note that the ringtone names is brand
-   specific)::
+#. Chose the ringtone for the different type of calls (note that the ringtone names are 
+   brand-specific)::
 
     [myprofile-aastra]
     phonetype = aastra
