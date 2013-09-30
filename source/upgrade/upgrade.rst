@@ -106,12 +106,28 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes
 =============
 
+13.19
+-----
+* Since XiVO 13.18 was not released, the 13.19 release contains all
+  developments of both 13.18 and 13.19, therefore please consult both Roadmaps
+  :
+
+ * Consult the `13.19 Roadmap <https://projects.xivo.fr/versions/185>`_
+ * Consult the `13.18 Roadmap <https://projects.xivo.fr/versions/184>`_
+
+* Call logs are now generated automatically, incrementally and regularly. Call logs generated before
+  13.19 will be erased one last time.
+* The database was highly modified for everything related to devices : table devicefeatures does not exist
+  anymore and now relies on information from xivo-provd.
+
 13.17
 -----
 
 * Consult the `13.17 Roadmap <https://projects.xivo.fr/versions/183>`_
-* There is a major change to call logs. They are no longer available as a web report but only as a csv export. See the :ref:`call logs documentation <call_logs>`. Furthermore, call logs are now fetched with the new REST API. See :ref:`restapi-call-logs`.
-* Paging group numbers are now exclusively numeric. All non-numeric paging group numbers are converted to their numeric-only equivalent while upgrading to XiVO 13.17 (*58 becomes 58, for example).
+* There is a major change to call logs. They are no longer available as a web report but only as a csv export. See the :ref:`call logs documentation <call_logs>`.
+  Furthermore, call logs are now fetched with the new REST API. See :ref:`restapi-call-logs`.
+* Paging group numbers are now exclusively numeric. All non-numeric paging group numbers are converted to their numeric-only equivalent
+  while upgrading to XiVO 13.17 ( \*58 becomes 58, for example).
 
 13.16
 -----
@@ -140,7 +156,6 @@ Upgrade Notes
 -----
 
 * Consult the `13.14 Roadmap <https://projects.xivo.fr/versions/180>`_
-* Recording campaigns are now in the xivo-recording-campaigns package. Consult :ref:`Recording Campaigns <recording-campaigns>` if you are using the recording campaign feature to install the package after the upgrade.
 * The latest Polycom plugin enables the phone lock feature with a default user password of '123'. All Polycom phones used with XiVO also have a default admin password. In order for the phone lock feature to be secure, one should change every phone's admin AND user passwords.
 * WebServices for SIP trunks/lines: field ``nat``: value ``yes`` changed to ``force_rport,comedia``
 * The database has beed updated in order to remove deprecated tables (generalfeatures, extenumbers, extenhash, cost_center).

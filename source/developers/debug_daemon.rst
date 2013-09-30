@@ -77,7 +77,7 @@ sysconfd
 
 ::
 
-   sysconfd -l debug -f
+   xivo-sysconfd -l debug -f
 
 * -l debug for debug level logging
 * -f for foreground

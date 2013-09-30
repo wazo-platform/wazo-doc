@@ -206,3 +206,12 @@ Telephone
 +-------------+-------------+------------------+--------------+
 
 An unsupported device won't be able to connect to Asterisk (channel sccp) at all.
+
+
+Hand written configuration
+--------------------------
+
+The `sccp.conf.sample`_ file can be consulted for an example of an hand written
+configuration file.
+
+.. _sccp.conf.sample: https://gitorious.org/xivo/xivo-libsccp/source/0b94d4bd7efae2dd5a3ff52b3cde8993982c76d1:xivo-libsccp/configs/sccp.conf.sample

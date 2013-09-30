@@ -113,7 +113,8 @@ Other optional properties can be added later.
 Getting An Object
 ^^^^^^^^^^^^^^^^^
 
-Format returned is a list of properties.
+Format returned is a list of properties. The object should always have the same attributes set, the
+default value being the equivalent to NULL in the content-type format.
 
 ``GET /1.0/objects/<id>/``
 
@@ -131,10 +132,10 @@ Data sent to the REST server
 ----------------------------
 
 The XiVO REST server implements POST and PUT methods for item creation and update respectively.
-Data is created using the POST method via a root URL and is
-updated using the PUT method via a root URL suffixed by /<id>/.
-The server expects to receive JSON encoded data.
-Only one item can be processed per request. The data format and required data fields are illustrated in the following example:
+Data is created using the POST method via a root URL and is updated using the PUT method via a root
+URL suffixed by /<id>/. The server expects to receive JSON encoded data. Only one item can be
+processed per request. The data format and required data fields are illustrated in the following
+example:
 
 ``Request data format``
 

@@ -11,7 +11,13 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+13.17
+-----
+
+* for messages of class ``login_capas`` from server to client: the key ``presence`` has been removed.
+
 13.14
+-----
 
 * for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary has changed values:
 
@@ -23,6 +29,7 @@ Protocol Changelog
     * ``on_call_non_acd_outgoing_external``
 
 13.12
+-----
 
 * for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary has changed values:
 
@@ -31,6 +38,7 @@ Protocol Changelog
 
 
 13.10
+-----
 
 * for messages of class ``getlist`` and function ``updateconfig``, the ``config`` object/dictionary
   does not have a ``rules_order`` key anymore.
@@ -1035,6 +1043,7 @@ Send back a table of calls :
 callcampaign
 
 chitchat
+^^^^^^^^
 
 .. code-block:: javascript
 
@@ -1052,7 +1061,32 @@ featuresget
 featuresput
 
 directory
+^^^^^^^^^
+Request directory information, names matching pattern ignore case.
 
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {
+      "class": "directory",
+      "commandid": 1079140548,
+      "pattern": "pau"
+   }
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {
+      "class": "directory",
+      "headers": ["Nom", "Num\u00e9ro", "Mobile", "Autre num\u00e9ro", "E-mail", "Fonction", "Site", "Source"],
+      "replyid": 1079140548,
+      "resultlist": ["Claire Mapaurtal;;+33644558899;31256;cmapaurtal@societe.com;;;",
+                     "Paul Salvadier;+33445236988;+33678521430;31406;psalvadier@societe.com;;;"],
+      "status": "ok",
+      "timenow": 1378798928.26
+   }
 
 parking
 

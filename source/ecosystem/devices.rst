@@ -1,11 +1,11 @@
 .. _devices:
 
-*****************
-Supported Devices
-*****************
+*******
+Devices
+*******
 
-Official support
-================
+Supported device (Official support)
+===================================
 
 XiVO provides official support for the following phones. These phones will be supported across upgrades and phone features are guaranteed to be supported on the latest version.
 
@@ -45,7 +45,7 @@ ATAs:
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-PA122    |n| [4]_    0          |n|
+SPA122   |n| [4]_    0          |n|
 SPA3102  |n| [4]_    0          |n|
 SPA8000  |y|         0          |n|
 ======== =========== ========== ============
@@ -69,6 +69,7 @@ SPA8000  |y|         0          |n|
       * *XIVO_IP*   is the IP address of your XiVO,
       * *CONF_FILE* is one of ``spa3102.cfg``, ``spa8000.cfg``
 
+.. warning:: SCCP phones are supported, but limited to the features supported in XIVO's SCCP implementation.
 
 Cisco 7900 series (*SCCP* mode only):
 
@@ -95,6 +96,10 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 To install firmware for xivo-cisco-sccp plugins, you need to manually download
 the firmware files from the Cisco website and save them in the
 :file:`/var/lib/xivo-provd/plugins/$plugin-name/var/cache` directory.
+
+.. note::
+   The directory is created by XiVO when you install the plugin (i.e. xivo-cisco-sccp-legacy).
+   If you create the directory manually, the installation may fail!
 
 For example, if you have installed the ``xivo-cisco-sccp-legacy`` plugin and you want to install the ``7940-7960-fw``, ``networklocale`` and ``userlocale_fr_FR`` package, you must:
 
@@ -177,8 +182,8 @@ Others:
 ======== =========== ========== ============
 Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 ======== =========== ========== ============
-VVX300   |n| [4]_    |u|        |n|
-VVX400   |n| [4]_    |u|        |n|
+VVX300   |n| [4]_    6          |n|
+VVX400   |n| [4]_    12         |n|
 VVX500   |n| [4]_    |u|        |n|
 VVX600   |n| [4]_    |u|        |n|
 ======== =========== ========== ============
@@ -196,8 +201,7 @@ Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 710      |y|         5          |y|
 720      |y|         18         |y|
 760      |y|         12         |y|
-820      |y|         4          |y|
-821      |n| [4]_    |u|        |y|
+821      |ny|        |u|        |u|
 870      |y|         15         |y|
 ======== =========== ========== ============
 
@@ -226,7 +230,7 @@ T28P     |y|         16         |n|
 T32G     |n| [4]_    3          |n|
 T38G     |y|         16         |n|
 T42G     |n| [4]_    |u|        |n|
-T46G     |n| [4]_    |u|        |n|
+T46G     |ny|        |u|        |u|
 W52P     |y|         |u|        |n|
 ======== =========== ========== ============
 
@@ -235,8 +239,8 @@ W52P     |y|         |u|        |n|
 The EXP38 and EXP39 expansion modules are supported.
 
 
-Community support
-=================
+Compatible device (Community support)
+=====================================
 
 The following phones are only supported by the community. In other words, maintenance, bug corrections and features are developed by members of the XiVO community. XiVO does not officially endorse support for these phones.
 
@@ -525,4 +529,5 @@ Caption :
 
 .. |y| replace:: Yes
 .. |n| replace:: No
+.. |ny| replace:: Not Yet
 .. |u| replace:: ---

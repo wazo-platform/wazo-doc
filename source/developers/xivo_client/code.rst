@@ -323,7 +323,7 @@ To get profiling informations on the XiVO Client:
 * Compile the XiVO Client with debugging symbols
 * Run the command::
 
-    LD_LIBRARY_PATH=bin valgrind --tool callgrind bin/xivoclient
+    LD_LIBRARY_PATH=bin valgrind --tool=callgrind bin/xivoclient
 
 * Quit the client
 * Open the generated file :file:`callgrind.out.<pid>` with KCacheGrind
