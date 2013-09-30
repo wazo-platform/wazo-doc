@@ -106,6 +106,20 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes
 =============
 
+13.19
+-----
+* Since XiVO 13.18 was not released, the 13.19 release contains all
+  developments of both 13.18 and 13.19, therefore please consult both Roadmaps
+  :
+
+ * Consult the `13.19 Roadmap <https://projects.xivo.fr/versions/185>`_
+ * Consult the `13.18 Roadmap <https://projects.xivo.fr/versions/184>`_
+
+* Call logs are now generated automatically, incrementally and regularly. Call logs generated before
+  13.19 will be erased one last time.
+* The database was highly modified for everything related to devices : table devicefeatures does not exist
+  anymore and now relies on information from xivo-provd.
+
 13.17
 -----
 
