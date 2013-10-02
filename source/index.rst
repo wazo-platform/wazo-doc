@@ -41,15 +41,13 @@ Table of Contents
    api_sdk/api_sdk
    developers/developers
    troubleshooting/troubleshooting
+   changelog
 
 
 Changelog
 =========
 
-.. git_changelog::
-    :rev-list: squeeze-xivo-skaro-13.18~2..
-    :show-tags: yes
-
+The :ref:`changelog` is available.
 
 
 Indices and tables
