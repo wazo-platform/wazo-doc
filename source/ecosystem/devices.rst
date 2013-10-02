@@ -402,15 +402,11 @@ Digium phones:
 | Paging                                     | NYT   | NYT   | NYT   |
 +--------------------------------------------+-------+-------+-------+
 
-
-
-
 .. note:: Some function keys are shared with line keys
 
 Particularities:
 
 * For best results, activate :ref:`dhcp-integration` on your XiVO.
-* English is the only language supported, other languages (e.g. french) are not supported.
 * Impossible to do directed pickup using a BLF function key.
 * Only supports DTMF in RFC2833 mode.
 * Does not work reliably with Cisco ESW520 PoE switch. When connected to such a switch, the D40 tends to reboot randomly, and the D70 does not boot at all.
