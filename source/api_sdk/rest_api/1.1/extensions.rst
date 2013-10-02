@@ -5,7 +5,8 @@ Extensions
 Extension Representation
 ========================
 
-**Description**
+Description
+-----------
 
 +-----------+---------+-----------------------------------+
 | Field     | Values  | Description                       |
@@ -21,7 +22,10 @@ Extension Representation
 | links     | list    | The link to the resource          |
 +-----------+---------+-----------------------------------+
 
-**Example**::
+Example
+-------
+
+::
 
    {
        "id": 1,
@@ -40,17 +44,26 @@ Extension Representation
 List Extension
 ==============
 
+Query
+-----
+
 ::
 
    GET /1.1/extensions
 
-**Example request**::
+Example request
+---------------
+
+::
 
    GET /1.1/extensions HTTP/1.1
    Host: xivoserver
    Accept: application/json
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
@@ -89,17 +102,26 @@ List Extension
 Get Extension
 =============
 
+Query
+-----
+
 ::
 
    GET /1.1/extensions/<id>
 
-**Example request**::
+Example request
+---------------
+
+::
 
    GET /1.1/extensions/1 HTTP/1.1
    Host: xivoserver
    Accept: application/json
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
@@ -115,19 +137,15 @@ Get Extension
 Create Extension
 ================
 
-**Errors**
-
-+------------+-----------------------------------------------+--------------------------------+
-| Error code | Error message                                 | Description                    |
-+============+===============================================+================================+
-| 400        | error while creating Extension: <explanation> | See explanation for more infos |
-+------------+-----------------------------------------------+--------------------------------+
+Query
+-----
 
 ::
 
    POST /1.1/extensions
 
-**Input**
+Input
+-----
 
 +-----------+----------+---------+------------------------------------+
 | Field     | Required | Values  | Description                        |
@@ -143,7 +161,19 @@ Create Extension
    will be returned if the ``context`` is inexistant or if the ``exten`` is outside of all extension
    ranges of the context.
 
-**Example request**::
+Errors
+------
+
++------------+-----------------------------------------------+--------------------------------+
+| Error code | Error message                                 | Description                    |
++============+===============================================+================================+
+| 400        | error while creating Extension: <explanation> | See explanation for more infos |
++------------+-----------------------------------------------+--------------------------------+
+
+Example request
+---------------
+
+::
 
    POST /1.1/extensions HTTP/1.1
    Host: xivoserver
@@ -156,7 +186,10 @@ Create Extension
        "commented": false
    }
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 201 Created
    Location: /1.1/extensions/1
@@ -179,7 +212,15 @@ Update an Extension
 The update does not need to set all the fields of the edited extension. The update only needs to set
 the modified fields.
 
-**Errors**
+Query
+-----
+
+::
+
+   PUT /1.1/extensions/<id>
+
+Errors
+------
 
 +------------+----------------------------------------------+--------------------------------+
 | Error code | Error message                                | Description                    |
@@ -187,11 +228,10 @@ the modified fields.
 | 400        | error while editing Extension: <explanation> | See explanation for more infos |
 +------------+----------------------------------------------+--------------------------------+
 
+Example request
+---------------
+
 ::
-
-   PUT /1.1/extensions/<id>
-
-**Example request**::
 
    PUT /1.1/extensions/42 HTTP/1.1
    Host: xivoserver
@@ -201,7 +241,10 @@ the modified fields.
        "context": "my_context"
    }
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 204 No Content
 
@@ -215,7 +258,15 @@ See :ref:`user-line-extension-association`.
 Delete Extension
 ================
 
-**Errors**
+Query
+-----
+
+::
+
+   DELETE /1.1/extensions/<id>
+
+Errors
+------
 
 +------------+-----------------------------------------------+------------------------------------------------------------------+
 | Error code | Error message                                 | Description                                                      |
@@ -226,15 +277,17 @@ Delete Extension
 | 404        | Not found                                     | The requested extension was not found                            |
 +------------+-----------------------------------------------+------------------------------------------------------------------+
 
+Example request
+---------------
+
 ::
-
-   DELETE /1.1/extensions/<id>
-
-**Example request**::
 
    DELETE /1.1/extensions/1 HTTP/1.1
    Host: xivoserver
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 204 No Content
