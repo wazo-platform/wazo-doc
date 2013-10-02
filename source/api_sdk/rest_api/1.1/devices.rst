@@ -73,6 +73,10 @@ limit
 skip
     number of devices to skip over before starting the list
 
+search
+    Search devices. Only devices with a field containing the search term
+    will be listed.
+
 
 **Errors**
 
@@ -95,9 +99,23 @@ skip
    GET /1.1/devices
 
 
-**Example request**::
+**Example requests**
+
+List all devices::
 
    GET /1.1/devices HTTP/1.1
+   Host: xivoserver
+   Accept: application/json
+
+List 10 devices, sorted by mac address::
+
+   GET /1.1/devices?limit=10&order=mac HTTP/1.1
+   Host: xivoserver
+   Accept: application/json
+
+Search for devices containing the term "aastra"::
+
+   GET /1.1/devices?search=aastra HTTP/1.1
    Host: xivoserver
    Accept: application/json
 
