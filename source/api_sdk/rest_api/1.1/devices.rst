@@ -5,7 +5,8 @@ Devices
 Device Representation
 =====================
 
-**Description**
+Description
+-----------
 
 +-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | Field       | Values                                                | Description                                                                                                                                 |
@@ -34,7 +35,10 @@ Device Representation
 +-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-**Example**::
+Example
+-------
+
+::
 
    {
        "id": "412c212cff500cc158f373ff00e078f7",
@@ -58,8 +62,15 @@ Device Representation
 Device list
 ===========
 
+Query
+-----
 
-**Parameters**
+::
+
+   GET /1.1/devices
+
+Parameters
+----------
 
 order
     Sort devices using the specified field (e.g. "mac")
@@ -78,7 +89,8 @@ search
     will be listed.
 
 
-**Errors**
+Errors
+------
 
 
 +------------+----------------------------------------------------------------------+--------------------------------------------------------------------------+
@@ -94,12 +106,8 @@ search
 +------------+----------------------------------------------------------------------+--------------------------------------------------------------------------+
 
 
-::
-
-   GET /1.1/devices
-
-
-**Example requests**
+Example requests
+----------------
 
 List all devices::
 
@@ -119,7 +127,10 @@ Search for devices containing the term "aastra"::
    Host: xivoserver
    Accept: application/json
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
@@ -168,12 +179,21 @@ Search for devices containing the term "aastra"::
 Get Device
 ==========
 
-**Parameters**
+Query
+-----
+
+::
+
+   GET /1.1/devices/<id>
+
+Parameters
+----------
 
 id
     Device's id
 
-**Errors**
+Errors
+------
 
 +------------+-----------------------------------------------+------------------------------------------------------------------+
 | Error code | Error message                                 | Description                                                      |
@@ -181,17 +201,19 @@ id
 | 404        | Not found                                     | The requested device was not found                               |
 +------------+-----------------------------------------------+------------------------------------------------------------------+
 
+Example request
+---------------
+
 ::
-
-   GET /1.1/devices/<id>
-
-**Example request**::
 
    GET /1.1/devices/412c212cff500cc158f373ff00e078f7 HTTP/1.1
    Host: xivoserver
    Accept: application/json
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
@@ -218,7 +240,15 @@ id
 Create a Device
 ===============
 
-**Input**
+Query
+-----
+
+::
+
+   POST /1.1/devices
+
+Input
+-----
 
 +-------------+----------+--------+-------------+
 | Field       | Required | Values | Description |
@@ -240,7 +270,8 @@ Create a Device
 | template_id | no       | string | (see above) |
 +-------------+----------+--------+-------------+
 
-**Errors**
+Errors
+------
 
 +------------+------------------------------------------------------------------+--------------------------------------------------------------+
 | Error code | Error message                                                    | Description                                                  |
@@ -258,12 +289,10 @@ Create a Device
 | 400        | Nonexistent parameters: template_id <template_id> does not exist | the selected device template does not exist                  |
 +------------+------------------------------------------------------------------+--------------------------------------------------------------+
 
+Example request
+---------------
+
 ::
-
-   POST /1.1/devices
-
-
-**Example request**::
 
    POST /1.1/devices HTTP/1.1
    Host: xivoserver
@@ -280,7 +309,10 @@ Create a Device
        "template_id": "defaultconfigdevice",
    }
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 201 Created
    Location: /1.1/devices/412c212cff500cc158f373ff00e078f7
@@ -308,28 +340,36 @@ Create a Device
 Update a Device
 ===============
 
-The update does not need to set all the fields for the device. Only the fields that need to be updated
-must be set.
-
-**Parameters**
-
-id
-    Device's id
-
-**Input**
-
-Same as for creating a device. Please see `Create a Device`_
-
-**Errors**
-
-Same as for creating a device. Please see `Create a Device`_
-
+Query
+-----
 
 ::
 
    PUT /1.1/devices/<id>
 
-**Example request**::
+The update does not need to set all the fields for the device. Only the fields that need to be updated
+must be set.
+
+Parameters
+----------
+
+id
+    Device's id
+
+Input
+-----
+
+Same as for creating a device. Please see `Create a Device`_
+
+Errors
+------
+
+Same as for creating a device. Please see `Create a Device`_
+
+Example request
+---------------
+
+::
 
    PUT /1.1/devices/42 HTTP/1.1
    Host: xivoserver
@@ -339,7 +379,10 @@ Same as for creating a device. Please see `Create a Device`_
        "ip": "10.0.0.1"
    }
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 204 No Content
 
@@ -347,7 +390,15 @@ Same as for creating a device. Please see `Create a Device`_
 Delete a Device
 ===============
 
-**Errors**
+Query
+-----
+
+::
+
+   DELETE /1.1/devices/<id>
+
+Errors
+------
 
 +------------+-----------------------------------------------+------------------------------------------------------------------+
 | Error code | Error message                                 | Description                                                      |
@@ -357,16 +408,19 @@ Delete a Device
 | 404        | Not found                                     | The requested device was not found                               |
 +------------+-----------------------------------------------+------------------------------------------------------------------+
 
+
+Example request
+---------------
+
 ::
-
-   DELETE /1.1/devices/<id>
-
-**Example request**::
 
    DELETE /1.1/devices/412c212cff500cc158f373ff00e078f7 HTTP/1.1
    Host: xivoserver
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 204 No Content
 
@@ -374,25 +428,37 @@ Delete a Device
 Reset a device to autoprov
 ==========================
 
-Resets a device into 'autoprov' mode. Once in autoprov, a device can be reprovisionned using another provisioning code.
-
 .. warning:: The device's configuration will be lost when reset to autoprov mode.
 
-**Parameters**
+Resets a device into 'autoprov' mode. Once in autoprov, a device can be reprovisionned using another provisioning code.
 
-id
-    Device's id
+
+Query
+-----
 
 ::
 
     GET /1.1/devices/<id>/autoprov
 
-**Example request**::
+
+Parameters
+----------
+
+id
+    Device's id
+
+Example request
+---------------
+
+::
 
     GET /1.1/devices/412c212cff500cc158f373ff00e078f7/autoprov
     Host: xivoserver
 
-**Example response**::
+Example response
+----------------
+
+::
 
     HTTP/1.1 204 No Content
 
@@ -402,21 +468,31 @@ Synchronize a device
 
 Synchronize a device's configuration. Used when a configuration has been modified and the changes need to be sent to the device.
 
-**Parameters**
-
-id
-    Device's id
+Query
+-----
 
 ::
 
     GET /1.1/devices/<id>/synchronize
 
-**Example request**::
+Parameters
+----------
+
+id
+    Device's id
+
+Example request
+---------------
+
+::
 
     GET /1.1/devices/412c212cff500cc158f373ff00e078f7/synchronize
     Host: xivoserver
 
-**Example response**::
+Example response
+----------------
+
+::
 
     HTTP/1.1 204 No Content
 
@@ -429,7 +505,15 @@ Associate a line to a device
 After associating a line, the device needs to be synchronized for the changes to take effect. Please
 see `Synchronize a device`_
 
-**Parameters**
+Query
+-----
+
+::
+
+    GET /1.1/devices/<id>/associate_line/<lineid>
+
+Parameters
+----------
 
 id
     Device's id
@@ -437,17 +521,18 @@ id
 line_id
     Line id
 
+Example request
+---------------
 
 ::
-
-    GET /1.1/devices/<id>/associate_line/<lineid>
-
-**Example request**::
 
     GET /1.1/devices/412c212cff500cc158f373ff00e078f7/associate_line/2
     Host: xivoserver
 
-**Example response**::
+Example response
+----------------
+
+::
 
     HTTP/1.1 204 No Content
 
@@ -460,7 +545,15 @@ Remove a line from a device
 After removing a line, the device needs to be synchronized for the changes to take effect. Please
 see `Synchronize a device`_
 
-**Parameters**
+Query
+-----
+
+::
+
+    GET /1.1/devices/<id>/remove_line/<lineid>
+
+Parameters
+----------
 
 id
     Device's id
@@ -468,15 +561,17 @@ id
 line_id
     Line id
 
+Example request
+---------------
+
 ::
-
-    GET /1.1/devices/<id>/remove_line/<lineid>
-
-**Example request**::
 
     GET /1.1/devices/412c212cff500cc158f373ff00e078f7/remove_line/2
     Host: xivoserver
 
-**Example response**::
+Example response
+----------------
+
+::
 
     HTTP/1.1 204 No Content
