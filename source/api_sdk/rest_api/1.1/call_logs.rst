@@ -7,7 +7,8 @@ Call Logs
 Call Logs Representation
 ========================
 
-**Description**
+Description
+-----------
 
 +------------+---------+--------------------------------------------------+
 | Field      | Values  | Description                                      |
@@ -23,7 +24,10 @@ Call Logs Representation
 | user Field | string  |                                                  |
 +------------+---------+--------------------------------------------------+
 
-**Example**::
+Example
+-------
+
+::
 
    Call Date,Caller,Called,Period,user Field
    2013-01-02T00:00:00,source2 (1002),2002,2,userfield
@@ -47,17 +51,26 @@ List Call logs
 
 .. note:: Call logs are generated automatically, but not immediately. See :ref:`call_logs`.
 
+Query
+-----
+
 ::
 
    GET /1.1/call_logs
 
-**Example request**::
+Example request
+---------------
+
+::
 
    GET /1.1/call_logs HTTP/1.1
    Host: xivoserver
    Accept: text/csv
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 200 OK
    Content-Type: text/csv; charset=utf8
@@ -68,7 +81,10 @@ List Call logs
 
 
 Filtering by period
--------------------
+===================
+
+Query
+-----
 
 ::
 
@@ -79,13 +95,19 @@ Filtering by period
 date and time. ``start_date`` and ``end_date`` must be given together ; the REST API will not accept
 ``start_date`` without ``end_date`` and vice-versa.
 
-**Example request**::
+Example request
+---------------
+
+::
 
    GET /1.1/call_logs?start_date=2013-01-01T00:12:34&end_date=2013-01-02T06:54:32 HTTP/1.1
    Host: xivoserver
    Accept: text/csv
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 200 OK
    Content-Type: text/csv; charset=utf8
