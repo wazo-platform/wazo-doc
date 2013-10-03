@@ -34,6 +34,8 @@ Description
 +-----------------+---------+------------------------------------------------------------------------------------------------------------------------------+
 | delete_messages | boolean | Delete messages once they have been listened to.                                                                             |
 +-----------------+---------+------------------------------------------------------------------------------------------------------------------------------+
+| ask_password    | boolean | Ask for password when accessing the voicemail menu.                                                                          |
++-----------------+---------+------------------------------------------------------------------------------------------------------------------------------+
 
 
 Example
@@ -53,6 +55,7 @@ Example
        "max_messages": 10,
        "attach_audio: false,
        "delete_messages": false,
+       "ask_password": true,
        "links": [
             {
                 "rel": "voicemails",
@@ -154,6 +157,7 @@ Example response
                 "max_messages": null,
                 "attach_audio: false,
                 "delete_messages": false,
+                "ask_password": false,
                 "links": [
                     {
                         "rel": "voicemails",
@@ -173,6 +177,7 @@ Example response
                 "max_messages": 20,
                 "attach_audio: false,
                 "delete_messages": false,
+                "ask_password": false,
                 "links": [
                     {
                         "rel": "voicemails",
@@ -223,6 +228,7 @@ Example response
         "max_messages": null,
         "attach_audio: false,
         "delete_messages": false,
+        "ask_password": false,
         "links": [
             {
                 "rel": "voicemails",
@@ -267,6 +273,8 @@ Input
 | attach_audio    | no       | boolean | Default value is `false`                                                                                                                |
 +-----------------+----------+---------+-----------------------------------------------------------------------------------------------------------------------------------------+
 | delete_messages | no       | boolean | Default value is `false`                                                                                                                |
++-----------------+----------+---------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| ask_password    | no       | boolean | Default value is `false`                                                                                                                |
 +-----------------+----------+---------+-----------------------------------------------------------------------------------------------------------------------------------------+
 
 Errors
@@ -329,6 +337,7 @@ Example response
         "max_messages": null,
         "attach_audio: false,
         "delete_messages": false,
+        "ask_password": false,
         "links": [
             {
                 "rel": "voicemails",
