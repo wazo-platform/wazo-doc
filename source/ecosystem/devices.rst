@@ -466,9 +466,9 @@ SoundPoint IP:
 +--------------------------------------------+---------+---------+---------+---------+---------+---------+----------+----------+----------+--------+--------+--------+--------+
 | **Transfers Functions**                                                                                |          |          |          |        |        |        |        |
 +--------------------------------------------+---------+---------+---------+---------+---------+---------+----------+----------+----------+--------+--------+--------+--------+
-| Blind transfer                             | NYT     | NYT     | NYT     | NYT     | NYT     | NYT     | NYT      | NYT      | NYT      | NYT    | HK     | NYT    | NYT    |
+| Blind transfer                             | NYT     | NYT     | NYT     | NYT     | NYT     | NYT     | NYT      | NYT      | NYT      | NYT    | HK     | SK     | NYT    |
 +--------------------------------------------+---------+---------+---------+---------+---------+---------+----------+----------+----------+--------+--------+--------+--------+
-| Indirect transfer                          | NYT     | NYT     | NYT     | NYT     | NYT     | NYT     | NYT      | NYT      | NYT      | NYT    | HK     | NYT    | NYT    |
+| Indirect transfer                          | NYT     | NYT     | NYT     | NYT     | NYT     | NYT     | NYT      | NYT      | NYT      | NYT    | HK     | SK     | NYT    |
 +--------------------------------------------+---------+---------+---------+---------+---------+---------+----------+----------+----------+--------+--------+--------+--------+
 | **Forwards Functions**                                                                                 |          |          |          |        |        |        |        |
 +--------------------------------------------+---------+---------+---------+---------+---------+---------+----------+----------+----------+--------+--------+--------+--------+
@@ -534,79 +534,79 @@ Snom
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
 |                                            |      **Supported programmable keys**           |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| User with supervision function             | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| User with supervision function             | NYT    | NYT   | N     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Group                                      | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Group                                      | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Queue                                      | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Queue                                      | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Conference Room with supervision function  | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Conference Room with supervision function  | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
 | **General Functions**                                                                       |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Online call recording                      | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Online call recording                      | NYT    | NYT   | N     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Phone status                               | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Phone status                               | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Sound recording                            | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Sound recording                            | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Call recording                             | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Call recording                             | NYT    | NYT   | N     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Incoming call filtering                    | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Incoming call filtering                    | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Do not disturb                             | NYT    | NYT   | NYT   | HK    | NYT   | HK    |
+| Do not disturb                             | NYT    | NYT   | HK    | HK    | NYT   | HK    |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Group interception                         | NYT    | NYT   | NYT   | Y     | NYT   | N     |
+| Group interception                         | NYT    | NYT   | Y     | Y     | NYT   | N     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Listen to online calls                     | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Listen to online calls                     | NYT    | NYT   | N     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Directory access                           | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Directory access                           | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Filtering Boss - Secretary                 | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Filtering Boss - Secretary                 | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
 | **Transfers Functions**                                                                     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Blind transfer                             | NYT    | NYT   | NYT   | HK    | NYT   | HK    |
+| Blind transfer                             | NYT    | NYT   | HK    | HK    | NYT   | HK    |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Indirect transfer                          | NYT    | NYT   | NYT   | N     | NYT   | HK    |
+| Indirect transfer                          | NYT    | NYT   | N     | N     | NYT   | HK    |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
 | **Forwards Functions**                                                                      |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Disable all forwarding                     | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Disable all forwarding                     | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Enable/Disable forwarding on no answer     | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Enable/Disable forwarding on no answer     | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Enable/Disable forwarding on busy          | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Enable/Disable forwarding on busy          | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Enable/Disable forwarding unconditional    | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Enable/Disable forwarding unconditional    | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
 | **Voicemail Functions**                                                                     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Enable voicemail with supervision function | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Enable voicemail with supervision function | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Activate voicemail                         | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Activate voicemail                         | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Reach the voicemail                        | NYT    | NYT   | NYT   | HK    | NYT   | HK    |
+| Reach the voicemail                        | NYT    | NYT   | HK    | HK    | NYT   | HK    |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Delete messages from voicemail             | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Delete messages from voicemail             | NYT    | NYT   | N     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
 | **Agent Functions**                                                                         |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Connect/Disconnect a static agent          | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Connect/Disconnect a static agent          | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Connect a static agent                     | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Connect a static agent                     | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Disconnect a static agent                  | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Disconnect a static agent                  | NYT    | NYT   | Y     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
 | **Parking Functions**                                                                       |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Parking                                    | NYT    | NYT   | NYT   | N     | NYT   | N     |
+| Parking                                    | NYT    | NYT   | N     | N     | NYT   | N     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Parking position                           | NYT    | NYT   | NYT   | N     | NYT   | N     |
+| Parking position                           | NYT    | NYT   | N     | N     | NYT   | N     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
 | **Paging Functions**                                                                        |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Paging                                     | NYT    | NYT   | NYT   | Y     | NYT   | Y     |
+| Paging                                     | NYT    | NYT   | N     | Y     | NYT   | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
 
 
