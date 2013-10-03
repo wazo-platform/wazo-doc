@@ -11,11 +11,11 @@ Association Representation
 Description
 -----------
 
-+--------------+-------+-------------+
-| Field        | Value | Description |
-+==============+=======+=============+
-| voicemail_id | int   |             |
-+--------------+-------+-------------+
++--------------+-------+----------------+
+| Field        | Value | Description    |
++==============+=======+================+
+| voicemail_id | int   | Voicemail's ID |
++--------------+-------+----------------+
 
 
 Get a Voicemail from an User
@@ -35,6 +35,7 @@ Example request
 
     GET /1.1/users/20/voicemails
     Host: xivoserver
+    Accept: application/json
 
 Example response
 ----------------
@@ -84,7 +85,7 @@ Example request
     Content-Type: application/json
 
     {
-        "voicemail_id": 432,
+        "voicemail_id": 432
     }
 
 Example response
