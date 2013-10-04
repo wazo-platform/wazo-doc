@@ -51,7 +51,8 @@ Example response
            {
                "rel": "voicemails",
                "href": "https://xivoserver/1.1/voicemails/432"
-           },
+           }
+        ]
     }
 
 
