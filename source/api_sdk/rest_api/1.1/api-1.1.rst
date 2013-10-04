@@ -19,7 +19,6 @@ REST API 1.1
    lines
    users
    user_links
-   voicemails
 
 
 Migration from 1.0
@@ -39,4 +38,3 @@ URL
   In 1.1, it is::
 
      /1.1/users
-
