@@ -130,46 +130,46 @@ the generated file from qt-designer :
 
 On the second part of the tab, you can configure the fields to appear on the sheet. Each field is represented by the following parameters :
 
- * Field title : name of your line used as label on the sheet.
- * Field type : define the type of field displayed on the sheet. Supported field types :
+* Field title : name of your line used as label on the sheet.
+* Field type : define the type of field displayed on the sheet. Supported field types :
 
-   * title : to create a title on your sheet
-   * text : show a text
-   * url : a simple url link, open your default browser.
-   * urlx : an url button
-   * picture : show a picture from an internal user in your sheet, you need to use {xivo-picture} variable.
-   * phone : create a tel: link, you can click to call on your sheet.
-   * form : show the form from an ui predefined. It's an xml ui. You need to define qtui in display format.
+  * title : to create a title on your sheet
+  * text : show a text
+  * url : a simple url link, open your default browser.
+  * urlx : an url button
+  * picture : show a picture from an internal user in your sheet, you need to use {xivo-picture} variable.
+  * phone : create a tel: link, you can click to call on your sheet.
+  * form : show the form from an ui predefined. It's an xml ui. You need to define qtui in display format.
 
- * Default value : if given, this value will be used when all substitutions in the display value field fail.
- * Display value : you can define text, variables or both. Three kinds of variables are available :
+* Default value : if given, this value will be used when all substitutions in the display value field fail.
+* Display value : you can define text, variables or both. Three kinds of variables are available :
 
-   * `xivo-` prefix is reserved and set inside the CTI server:
+  * `xivo-` prefix is reserved and set inside the CTI server:
 
-     * `xivo-where` for sheet events, event triggering the sheet
-     * `xivo-origin` place from where the lookup is requested (did, internal, forcelookup)
-     * `xivo-direction` incoming or internal
-     * `xivo-did` DID number
-     * `xivo-calleridnum`
-     * `xivo-calleridname`
-     * `xivo-calleridrdnis` contains information whether there was a transfer
-     * `xivo-calleridton` Type Of Network (national, international)
-     * `xivo-calledidnum`
-     * `xivo-calledidname`
-     * `xivo-ipbxid` (`xivo-astid` in 1.1)
-     * `xivo-directory` : for directory requests, it is the directory database the item has been found
-     * `xivo-queuename` queue called
-     * `xivo-agentnumber` agent number called
-     * `xivo-date` formatted date string
-     * `xivo-time` formatted time string
-     * `xivo-channel` asterisk channel value (for advanced users)
-     * `xivo-uniqueid` asterisk uniqueid value (for advanced users)
+    * `xivo-where` for sheet events, event triggering the sheet
+    * `xivo-origin` place from where the lookup is requested (did, internal, forcelookup)
+    * `xivo-direction` incoming or internal
+    * `xivo-did` DID number
+    * `xivo-calleridnum`
+    * `xivo-calleridname`
+    * `xivo-calleridrdnis` contains information whether there was a transfer
+    * `xivo-calleridton` Type Of Network (national, international)
+    * `xivo-calledidnum`
+    * `xivo-calledidname`
+    * `xivo-ipbxid` (`xivo-astid` in 1.1)
+    * `xivo-directory` : for directory requests, it is the directory database the item has been found
+    * `xivo-queuename` queue called
+    * `xivo-agentnumber` agent number called
+    * `xivo-date` formatted date string
+    * `xivo-time` formatted time string
+    * `xivo-channel` asterisk channel value (for advanced users)
+    * `xivo-uniqueid` asterisk uniqueid value (for advanced users)
 
-   * `dp-` prefixed ones are the variables set through the dialplan (through
+  * `dp-` prefixed ones are the variables set through the dialplan (through
      UserEvent application)
 
-For example if you want to access from the dialplan to a variable dp-test you
-need to add in your dialplan this line (in a subroutine)::
+  For example if you want to access from the dialplan to a variable dp-test you
+  need to add in your dialplan this line (in a subroutine)::
 
    UserEvent(dialplan2cti,UNIQUEID: ${UNIQUEID},CHANNEL: ${CHANNEL},VARIABLE: test,VALUE: "Salut")
 
