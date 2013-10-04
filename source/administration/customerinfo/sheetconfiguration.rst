@@ -165,6 +165,13 @@ On the second part of the tab, you can configure the fields to appear on the she
     * `xivo-channel` asterisk channel value (for advanced users)
     * `xivo-uniqueid` asterisk uniqueid value (for advanced users)
 
+  * `db-` prefixed variables are defined when the reverse lookup returns a result.
+
+  For example if you want to access to the reverse lookup full name, you need to define a field
+  ``fullname`` in the directory definition, mapping to the full name field in your directory. The
+  ``{db-fullname}`` will be replaced by the caller full name. Every field of the directory is
+  accessible this way.
+
   * `dp-` prefixed ones are the variables set through the dialplan (through
      UserEvent application)
 
