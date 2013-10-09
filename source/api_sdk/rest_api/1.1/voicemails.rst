@@ -81,7 +81,7 @@ Parameters
 
 
 order
-   Sort the list using a field (e.g. "number")
+   Sort the list using a field (e.g. "number"). Allowed fields: name, number, context, email, language, timezone.
 
 direction
     'asc' or 'desc'. Sort list in ascending (asc) or descending (desc) order
