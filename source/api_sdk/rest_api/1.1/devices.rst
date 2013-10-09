@@ -73,7 +73,8 @@ Parameters
 ----------
 
 order
-    Sort devices using the specified field (e.g. "mac")
+    Sort devices using the specified field (e.g. "mac"). Allowed fields: ip, mac, plugin, model,
+    vendor, version.
 
 direction
     'asc' or 'desc'. Sort list in ascending (asc) or descending (desc) order
