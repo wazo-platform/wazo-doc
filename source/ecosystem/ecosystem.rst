@@ -6,4 +6,3 @@ Ecosystem
    :maxdepth: 2
 
    devices
-   fkeys
