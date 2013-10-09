@@ -81,16 +81,16 @@ Parameters
 
 
 order
-   Sort the list using a field (e.g. "number"). Allowed fields: name, number, context, email, language, timezone.
+   Sort the list using a column (e.g. "number"). Columns allowed: name, number, context, email, language, timezone.
 
 direction
     'asc' or 'desc'. Sort list in ascending (asc) or descending (desc) order
 
 limit
-    total number of voicemails to show in the list
+    total number of voicemails to show in the list. Must be a positive integer
 
 skip
-    number of voicemails to skip over before starting the list
+    number of voicemails to skip over before starting the list. Must be a positive integer
 
 search
     Search voicemails. Only voicemails with a field containing the search term
