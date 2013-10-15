@@ -3,7 +3,7 @@ Contributing to the Documentation
 *********************************
 
 XiVO documentation is generated with Sphinx. The source code is available on
-gitorious at https://gitorious.org/xivo/xivo-doc
+GitHub at https://github.com/xivo-pbx/xivo-doc
 
 Provided you already have Python installed on your system. You need first to install Sphinx_ : ``easy_install -U Sphinx`` [1]_.
 

@@ -55,11 +55,11 @@ library to access Web Services, named ``xivo-ws``.
   ``xivo-ws``, and find the appropriate data format there.
 
 ``xivo-ws`` source code is available in the ``xivo-ws`` `Git repository on
-Gitorious <http://gitorious.org/xivo/xivo-ws>`_.
+GitHub <https://github.com/xivo-pbx/xivo-ws>`_.
 
 If you want information about the users Web Services, for example, go look at
 the file :file:`xivo_ws/objects/tests/test_user.py` (`online version
-<http://gitorious.org/xivo/xivo-ws/blobs/master/xivo_ws/objects/tests/test_user.py>`_).
+<https://github.com/xivo-pbx/xivo-ws/blob/master/xivo_ws/objects/tests/test_user.py>`_).
 
 The function ``test_from_obj_dict`` tests the conversion of data received from
 ``view`` action into the ``xivo-ws`` format. So the ``obj_dict`` variable in

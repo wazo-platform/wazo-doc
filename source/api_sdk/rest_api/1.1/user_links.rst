@@ -1,33 +1,39 @@
 .. _user-line-extension-association:
 
+*******************************
 User-Line-Extension Association
-===============================
+*******************************
 
 
 Association Representation
---------------------------
+==========================
 
-**Description**
+Description
+-----------
 
-+--------------+---------+-----------------------------------------+
-| Field        | Value   | Description                             |
-+==============+=========+=========================================+
-| id           | int     | Read-only                               |
-+--------------+---------+-----------------------------------------+
-| user_id      | int     |                                         |
-+--------------+---------+-----------------------------------------+
-| line_id      | int     |                                         |
-+--------------+---------+-----------------------------------------+
-| extension_id | int     |                                         |
-+--------------+---------+-----------------------------------------+
-| main_user    | boolean | May only be true once for the same line |
-+--------------+---------+-----------------------------------------+
-| main_line    | boolean | May only be true once for the same user |
-+--------------+---------+-----------------------------------------+
-| links        | list    | The links to the related resources      |
-+--------------+---------+-----------------------------------------+
++--------------+---------+-------------------------------------------------------------------------+
+| Field        | Value   | Description                                                             |
++==============+=========+=========================================================================+
+| id           | int     | Read-only                                                               |
++--------------+---------+-------------------------------------------------------------------------+
+| user_id      | int     |                                                                         |
++--------------+---------+-------------------------------------------------------------------------+
+| line_id      | int     |                                                                         |
++--------------+---------+-------------------------------------------------------------------------+
+| extension_id | int     |                                                                         |
++--------------+---------+-------------------------------------------------------------------------+
+| main_user    | boolean | Read-only. True if the user is the first to have been associated to the |
+|              |         | line.                                                                   |
++--------------+---------+-------------------------------------------------------------------------+
+| main_line    | boolean | Read-only. To be implemented later. Always true.                        |
++--------------+---------+-------------------------------------------------------------------------+
+| links        | list    | The links to the related resources                                      |
++--------------+---------+-------------------------------------------------------------------------+
 
-**Example**::
+Example
+-------
+
+::
 
    {
        "id": 83
@@ -58,19 +64,28 @@ Association Representation
 
 
 List the Lines Associated to a User
------------------------------------
+===================================
+
+Query
+-----
 
 ::
 
    GET /1.1/users/<user_id>/user_links
 
-**Example request**::
+Example request
+---------------
+
+::
 
    GET /1.1/users/42/user_links
    Host: xivoserver
    Accept: application/json
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
@@ -109,19 +124,28 @@ List the Lines Associated to a User
 
 
 List the Users Using a Line
----------------------------
+===========================
+
+Query
+-----
 
 ::
 
    GET /1.1/lines/<line_id>/user_links
 
-**Example request**::
+Example request
+---------------
+
+::
 
    GET /1.1/lines/42/user_links
    Host: xivoserver
    Accept: application/json
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
@@ -160,19 +184,28 @@ List the Users Using a Line
 
 
 List the Users Using an Extension
----------------------------------
+=================================
+
+Query
+-----
 
 ::
 
    GET /1.1/extensions/<extension_id>/user_links
 
-**Example request**::
+Example request
+---------------
+
+::
 
    GET /1.1/extensions/42/user_links
    Host: xivoserver
    Accept: application/json
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
@@ -211,19 +244,28 @@ List the Users Using an Extension
 
 
 Get a User-Line Association
----------------------------
+===========================
+
+Query
+-----
 
 ::
 
    GET /1.1/user_links/<user_link_id>
 
-**Example request**::
+Example request
+---------------
+
+::
 
    GET /1.1/user_links/1
    Host: xivoserver
    Accept: application/json
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 200 OK
    Content-Type: application/json
@@ -254,16 +296,20 @@ Get a User-Line Association
 .. _associate_line_to_user:
 
 Associate Line to User
-----------------------
+======================
 
 .. warning:: Deleting a user from the Web interface will always remove his associated lines, whether he be a main
              user or not. As a result, any other user associated to the given line will also have his line deleted.
+
+Query
+-----
 
 ::
 
    POST /1.1/user_links
 
-**Input**
+Input
+-----
 
 +--------------+----------+---------+-------------------------------------------------------------+
 | Field        | Required | Values  | Description                                                 |
@@ -274,13 +320,11 @@ Associate Line to User
 +--------------+----------+---------+-------------------------------------------------------------+
 | extension_id | yes      | int     | Must be an existing id                                      |
 +--------------+----------+---------+-------------------------------------------------------------+
-| main_user    | no       | boolean | May always be true, may only be false when the user already |
-|              |          |         | has a line. If not given, the user will be the main user of |
-|              |          |         | the line if no other user is currently associated to the    |
-|              |          |         | line. Else, the user will be a secondary user.              |
-+--------------+----------+---------+-------------------------------------------------------------+
 
-**Example request**::
+Example request
+---------------
+
+::
 
    POST /1.1/user_links
    Host: xivoserver
@@ -289,11 +333,13 @@ Associate Line to User
    {
        "user_id": 42,
        "line_id": 42324,
-       "extension_id": 2132,
-       "main_user": true
+       "extension_id": 2132
    }
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 201 Created
    Location: /1.1/user_links/63
@@ -311,12 +357,20 @@ Associate Line to User
 
 
 Deassociate Line From User
---------------------------
+==========================
 
 If the user is the main user of the line and there is at least 1 secondary user associated to this
 line, an error is returned.
 
-**Errors**
+Query
+-----
+
+::
+
+   DELETE /1.1/user_links/<user_link_id>
+
+Errors
+------
 
 +------------+-----------------------------------------------+----------------------------------------------------+
 | Error code | Error message                                 | Description                                        |
@@ -326,15 +380,17 @@ line, an error is returned.
 | 404        | Not found                                     | The requested user_link was not found              |
 +------------+-----------------------------------------------+----------------------------------------------------+
 
+Example request
+---------------
+
 ::
-
-   DELETE /1.1/user_links/<user_link_id>
-
-**Example request**::
 
    DELETE /1.1/user_links/42 HTTP/1.1
    Host: xivoserver
 
-**Example response**::
+Example response
+----------------
+
+::
 
    HTTP/1.1 204 No Content

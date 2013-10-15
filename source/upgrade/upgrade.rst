@@ -106,8 +106,16 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes
 =============
 
+13.20
+-----
+
+* Consult the `13.20 Roadmap <https://projects.xivo.fr/versions/186>`_
+* xivo-libsccp now supports direct media on wifi phone 7920 and 7921
+* xivo-restapi now implements a voicemail list
+
 13.19
 -----
+
 * Since XiVO 13.18 was not released, the 13.19 release contains all
   developments of both 13.18 and 13.19, therefore please consult both Roadmaps
   :

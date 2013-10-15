@@ -11,13 +11,15 @@ REST API 1.1
    See :ref:`rest-api-1.0` for the current production version.
 
 .. toctree::
+   :maxdepth: 2
 
    call_logs
+   devices
    extensions
    lines
    users
    user_links
-   devices
+   voicemails
 
 
 Migration from 1.0
@@ -37,4 +39,3 @@ URL
   In 1.1, it is::
 
      /1.1/users
-

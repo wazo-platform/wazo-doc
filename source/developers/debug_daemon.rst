@@ -66,7 +66,7 @@ provd
 
 ::
 
-   twistd -no xivo-provd -s -v
+   twistd -no -r epoll xivo-provd -s -v
 
 * -s for logging to stderr
 * -v for verbose
