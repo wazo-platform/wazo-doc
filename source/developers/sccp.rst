@@ -26,7 +26,7 @@ The following packages are required to compile libsccp on a XiVO.
 
 ::
 
-   git clone git://gitorious.org/xivo/xivo-libsccp.git
+   git clone https://github.com/xivo-pbx/xivo-libsccp.git
    cd xivo-libsccp/xivo-libsccp/
    autoreconf -fvi
    ./configure

@@ -3,13 +3,13 @@ CTI Proxy
 *********
 
 Here's how to run the various CTI client-server development/debugging
-tools. These tools can be found on Gitorious, in the `XiVO project`_.
+tools. These tools can be found on GitHub, in the `XiVO project`_.
 
-.. _XiVO project: http://gitorious.org/xivo/xivo-tools
+.. _XiVO project: https://github.com/xivo-pbx/xivo-tools
 
 You can get the scripts by using Git::
 
-   $ git clone git://gitorious.org/xivo/xivo-tools.git
+   $ git clone https://github.com/xivo-pbx/xivo-tools.git
 
 General Information
 ===================
