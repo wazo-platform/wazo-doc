@@ -4,15 +4,19 @@
 Translating XiVO
 ****************
 
-We are now using a centralized tool for the XiVO translation. It's Transifex and the web access is :
+Supported languages are French and English. This means that they are always maintained by
+Avencall. Other languages are provided by the community.
+
+We are now using a centralized tool for the XiVO translation. It's Transifex and the web
+access is :
 
 * https://www.transifex.net/projects/p/xivo
 
-For each project we have a reference file fetched by transiflex in our git. This file is always by default in english and translated with transifex.
+For the XiVO Client, we have a reference file pushed regularly to Transifex. This file is always by
+default in english and translated in Transifex.
 
-.. image:: images/translation_transifex.png
-
-.. note:: For now, the Jenkins part is replaced with manual actions from developers.
+New strings to be translated are uploaded to Transifex every release. Translated string are
+downloaded from Transifex every release.
 
 
 XiVO Prompts
@@ -39,7 +43,9 @@ XiVO Client
 
 All translations are in Transifex.
 
+
 Web Interface
 =============
 
-Translations are currently available in French and English. Nothing is currently being done to translate the Web Interface in other languages.
+Translations are currently available in French and English. Nothing is currently being done to
+translate the Web Interface in other languages.
