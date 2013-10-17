@@ -172,8 +172,7 @@ On the second part of the tab, you can configure the fields to appear on the she
   ``{db-fullname}`` will be replaced by the caller full name. Every field of the directory is
   accessible this way.
 
-  * `dp-` prefixed ones are the variables set through the dialplan (through
-     UserEvent application)
+  * `dp-` prefixed ones are the variables set through the dialplan (through UserEvent application)
 
   For example if you want to access from the dialplan to a variable dp-test you
   need to add in your dialplan this line (in a subroutine)::

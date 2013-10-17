@@ -1155,7 +1155,7 @@ refuse
 CTI server implementation
 =========================
 
-In the git repository ``git://git.xivo.fr/official/xivo-ctid.git``, under `xivo_ctid/`
+In the git repository ``git://github.com/xivo-pbx/xivo-ctid.git``, under `xivo_ctid/`
 
 * `cti_config` handles the configuration coming from the WEBI
 * `interfaces/interface_ami`, together with `asterisk_ami_definitions`, `amiinterpret` and `xivo_ami` handle the AMI connections (asterisk)

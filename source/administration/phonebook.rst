@@ -149,7 +149,13 @@ Reverse lookup
 ==============
 
 It's possible to do reverse lookups on incoming calls to show a better caller ID name when
-the caller is in our phonebook.
+the caller is in one of our directories.
+
+Reverse lookup will only be tried if at least one of the following conditions is true:
+* The caller ID name is the same as the caller ID number
+* The caller ID name is "unknown"
+
+Also, reverse lookup is performed after :ref:`caller ID number normalization <callerid_num_normalization>` (since XiVO 13.11).
 
 Some configuration must be in place to enable reverse directory lookups.
 
