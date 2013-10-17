@@ -152,6 +152,7 @@ It's possible to do reverse lookups on incoming calls to show a better caller ID
 the caller is in one of our directories.
 
 Reverse lookup will only be tried if at least one of the following conditions is true:
+
 * The caller ID name is the same as the caller ID number
 * The caller ID name is "unknown"
 
