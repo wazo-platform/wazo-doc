@@ -190,7 +190,7 @@ Example response
 
 
 Get Voicemail
-============= 
+=============
 
 Query
 -----
@@ -403,10 +403,10 @@ Example response
 Delete a Voicemail
 ==================
 
-Deletes a voicemail. Any user who is using the voicemail must be unassociated before deletion.
+Any user who is using the voicemail must be unassociated before deletion.
 
 .. warning::
-    Any extension that redirects to the voicemail (e.g. an Incoming call) will be deactivated after deleting.
+    Any extension that redirects to the voicemail (e.g. an Incoming call) will be disabled after deletion.
 
 Errors
 ------
@@ -462,7 +462,7 @@ Example request
 ---------------
 
 ::
-    
+
    GET /1.1/voicemails/languages HTTP/1.1
    Host: xivoserver
    Content-Type: application/json
@@ -507,7 +507,7 @@ Example request
 ---------------
 
 ::
-    
+
    GET /1.1/voicemails/timezones HTTP/1.1
    Host: xivoserver
    Content-Type: application/json
