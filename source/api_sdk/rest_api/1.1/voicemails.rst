@@ -399,16 +399,23 @@ Example response
 Delete a Voicemail
 ==================
 
+Deletes a voicemail. Any user who is using the voicemail must be unassociated before deletion.
+
+.. warning::
+    Any extension that redirects to the voicemail (e.g. an Incoming call) will be deactivated after deleting.
+
 Errors
 ------
 
-+------------+-----------------------------------------------+------------------------------------------------------------------+
-| Error code | Error message                                 | Description                                                      |
-+============+===============================================+==================================================================+
-| 400        | error while deleting Voicemail <explanation>  | See explanation for more infos                                   |
-+------------+-----------------------------------------------+------------------------------------------------------------------+
-| 404        | Not found                                     | The requested voicemail was not found or does not exist          |
-+------------+-----------------------------------------------+------------------------------------------------------------------+
++------------+--------------------------------------------------------------------------------+-------------------------------------------------------------------+
+| Error code | Error message                                                                  | Description                                                       |
++============+================================================================================+===================================================================+
+| 400        | error while deleting Voicemail <explanation>                                   | See explanation for more infos                                    |
++------------+--------------------------------------------------------------------------------+-------------------------------------------------------------------+
+| 400        | error while deleting Voicemail: Cannot delete a voicemail associated to a user | You must unassociate a user from his voicemail before deleting it |
++------------+--------------------------------------------------------------------------------+-------------------------------------------------------------------+
+| 404        | Not found                                                                      | The requested voicemail was not found or does not exist           |
++------------+--------------------------------------------------------------------------------+-------------------------------------------------------------------+
 
 Query
 -----
