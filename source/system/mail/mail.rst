@@ -12,7 +12,7 @@ In :menuselection:`Configuration --> Network --> Mail`, the following options ca
 
 * :guilabel:`Domain Name messaging` : the server's displayed domain. Will appear in "Received" mail headers.
 * :guilabel:`Source address of the server` : domain part of headers "Return-Path" and "From".
-* :guilabel:`Relay SMTP and FallBack relay SMTP` : relay mail servers.
+* :guilabel:`Relay SMTP` and :guilabel:`FallBack relay SMTP` : relay mail servers.
 * :guilabel:`Rewriting shipping addresses` : Canonical address Rewriting. See `Postfix caononical documentation <http://www.postfix.org/ADDRESS_REWRITING_README.html#canonical>`_ for more info.
 
 .. warning::
