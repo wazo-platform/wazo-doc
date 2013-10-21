@@ -351,6 +351,8 @@ Example response
 Update a Voicemail
 ==================
 
+.. warning:: Not yet implemented.
+
 Only the fields that need to be updated must be sent during an update
 
 Query
@@ -445,6 +447,8 @@ Example response
 Voicemail Languages
 ===================
 
+.. warning:: Not yet implemented.
+
 Returns a list of languages that can be used when creating or updating a voicemail.
 
 Query
@@ -487,6 +491,8 @@ Example response
 
 Voicemail Timezones
 ===================
+
+.. warning:: Not yet implemented.
 
 Returns a list of timezones that can be used when creating or updating a voicemail.
 
