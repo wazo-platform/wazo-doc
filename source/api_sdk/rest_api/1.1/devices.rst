@@ -391,6 +391,9 @@ Example response
 Delete a Device
 ===============
 
+A device can not be deleted if it is linked to a line. You must deassociate the line and the device
+first.
+
 Query
 -----
 
