@@ -78,7 +78,7 @@ SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use di
 
 Then you must issue the command in Asterisk CLI::
 
-    > module reload chan_sccp
+   module reload chan_sccp
 
 .. warning::
 
@@ -157,13 +157,17 @@ Features
 +------------------------------+-----------+
 | Group listen                 | Yes       |
 +------------------------------+-----------+
+| Caller ID                    | Yes       |
++------------------------------+-----------+
+| Connected line ID            | Yes       |
++------------------------------+-----------+
 | Group pickup                 | Not yet   |
 +------------------------------+-----------+
 | Hotline (auto-provisioning)  | Not yet   |
 +------------------------------+-----------+
 | Multi line                   | Not yet   |
 +------------------------------+-----------+
-| Codec selection              | Not yet   |
+| Codec selection              | Manual    |
 +------------------------------+-----------+
 | NAT traversal                | Not yet   |
 +------------------------------+-----------+
@@ -171,6 +175,7 @@ Features
 .. warning::
 
    ** Speeddial and BLF doesn't work on 7911 and 7906 yet.
+
 
 Telephone
 ---------
