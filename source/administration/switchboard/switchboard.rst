@@ -154,6 +154,8 @@ The switchboard plugin must be set on the user's device.
   command does not activate the phone's speaker, your network configuration will
   have to be *fixed* before you can be able to use the Snom switchboard.
 
+.. warning:: When using a Snom switchboard you should not use the first function key.
+
 
 Create an Agent for the Operator
 --------------------------------
