@@ -137,6 +137,8 @@ Example response
 Create Extension
 ================
 
+The extension number must be included in one of the extension ranges for the given context.
+
 Query
 -----
 
@@ -160,11 +162,13 @@ Input
 Errors
 ------
 
-+------------+-----------------------------------------------+--------------------------------+
-| Error code | Error message                                 | Description                    |
-+============+===============================================+================================+
-| 400        | error while creating Extension: <explanation> | See explanation for more infos |
-+------------+-----------------------------------------------+--------------------------------+
++------------+------------------------------------------------------+--------------------------------+
+| Error code | Error message                                        | Description                    |
++============+======================================================+================================+
+| 400        | exten <number> not inside range of context <context> |                                |
++------------+------------------------------------------------------+--------------------------------+
+| 400        | error while creating Extension: <explanation>        | See explanation for more infos |
++------------+------------------------------------------------------+--------------------------------+
 
 Example request
 ---------------
@@ -206,7 +210,9 @@ Update an Extension
 ===================
 
 The update does not need to set all the fields of the edited extension. The update only needs to set
-the modified fields.
+the modified fields. The new extension number must be included in one of the extension ranges for
+the new context.
+
 
 Query
 -----
@@ -218,11 +224,15 @@ Query
 Errors
 ------
 
-+------------+----------------------------------------------+--------------------------------+
-| Error code | Error message                                | Description                    |
-+============+==============================================+================================+
-| 400        | error while editing Extension: <explanation> | See explanation for more infos |
-+------------+----------------------------------------------+--------------------------------+
++------------+----------------------------------------------+---------------------------------------+
+| Error code | Error message                                | Description                           |
++============+==============================================+=======================================+
+| 400        | error while editing Extension: <explanation> | See explanation for more infos        |
++------------+----------------------------------------------+---------------------------------------+
+| 400        | exten <number> not inside range of <context> |                                       |
++------------+----------------------------------------------+---------------------------------------+
+| 404        | Not found                                    | The requested extension was not found |
++------------+----------------------------------------------+---------------------------------------+
 
 Example request
 ---------------
