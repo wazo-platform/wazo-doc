@@ -6,13 +6,14 @@ Introduction
 ============
 
 SCCP (or skinny) is a stimulus protocol used to fully interact with Cisco phones.
-What is libsccp ? It's a channel driver written for Asterisk by Avencall based on the channel skinny.
+
+What is xivo-libsccp ? It's a SCCP channel driver written for Asterisk by Avencall based on the channel skinny.
 
 
 Installation
 ============
 
-The following packages are required to compile libsccp on a XiVO.
+The following packages are required to compile xivo-libsccp on a XiVO.
 
 * build-essential
 * autoconf
@@ -37,54 +38,9 @@ The following packages are required to compile libsccp on a XiVO.
 Configuration
 =============
 
-example /etc/asterisk/sccp.conf:
+See `sccp.conf.sample`_ for a configuration file example.
 
-::
-
-   [general]
-   bindaddr=10.97.8.5
-   dateformat=D.M.Y
-
-   keepalive=10
-   authtimeout=10
-   dialtimeout=3
-   context=default
-
-   [lines]
-
-   [100]
-   cid_num=100
-   cid_name=Bob
-
-   [devices]
-
-   [SEP00164766A428]
-   device=SEP00164766A428
-   line=100
-   voicemail=200
-
-.. warning::
-    The option 'context' is very important. If you get it wrong, you won't be
-    able to call or receive call. If you are unsure in what context your
-    extension is configured, you can do:
-
-::
-
-   nibskaro*CLI> dialplan show 107@
-   [ Context 'xivo-callme' created by 'pbx_config' ]
-     '_X.' =>          1. Gosub(xivo-pickup,0,1)                     [pbx_config]
-                       2. While(1)                                   [pbx_config]
-                       3. Playback(hello-world)                      [pbx_config]
-                       4. Wait(2)                                    [pbx_config]
-                       5. EndWhile()                                 [pbx_config]
-
-   [ Context 'default' created by 'pbx_config' ]
-     '107' =>          1. Dial(SCCP/107)                             [pbx_config]
-
-   -= 2 extensions (6 priorities) in 2 contexts. =-
-
-
-We see that the extention 107 is effectively configured in the context 'default'.
+.. _sccp.conf.sample: https://raw.github.com/xivo-pbx/xivo-libsccp/master/xivo-libsccp/configs/sccp.conf.sample
 
 
 FAQ
