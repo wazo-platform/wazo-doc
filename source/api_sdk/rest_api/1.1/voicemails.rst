@@ -351,9 +351,8 @@ Example response
 Update a Voicemail
 ==================
 
-.. warning:: Not yet implemented.
-
-Only the fields that need to be updated must be sent during an update
+Only the fields that need to be updated must be sent during an update. A voicemail
+can only be updated if it isn't associated to a user.
 
 Query
 -----
@@ -376,7 +375,15 @@ Same as for creating a voicemail. Please see `Create a Voicemail`_
 Errors
 ------
 
-Same as for creating a voicemail. Please see `Create a Voicemail`_
+Same as creating a voicemail (See `Create a Voicemail`_) with the following additions:
+
+
++------------+-----------------------------------------------------------------------------+-------------+
+| Error code | Error message                                                               | Description |
++============+=============================================================================+=============+
+| 400        | Error while editing Voicemail: cannot edit a voicemail associated to a user |             |
++------------+-----------------------------------------------------------------------------+-------------+
+
 
 Example request
 ---------------
