@@ -351,8 +351,6 @@ Example response
 Update a Voicemail
 ==================
 
-.. warning:: Not yet implemented.
-
 Only the fields that need to be updated must be sent during an update. A voicemail
 can only be updated if it isn't associated to a user.
 
