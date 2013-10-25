@@ -637,6 +637,21 @@ Phone status
       "status": {"channels": [], "groups": [], "hintstatus": "0", "queues": []},
       "tid": "1", "timenow": 1364994093.48, "tipbxid": "xivo"}
 
+Queue status
+^^^^^^^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"commandid":17,"class":"getlist","tid":"8","tipbxid":"xivo","function":"updatestatus","listname":"queues"}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {"function": "updatestatus", "listname": "queues", "tipbxid": "xivo", "timenow": 1382710430.54,
+      "status": {"agentmembers": ["1","5"], "phonemembers": ["8"]},
+      "tid": "8", "class": "getlist"}
 
 Agent status
 ^^^^^^^^^^^^
