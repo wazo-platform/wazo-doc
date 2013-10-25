@@ -521,6 +521,33 @@ queues
 
    {"class": "getlist", "commandid": 719950939, "function": "listid", "listname": "queues", "tipbxid": "xivo"}
 
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {"function": "listid", "listname": "queues", "tipbxid": "xivo",
+         "list": ["1", "10", "3", "2", "5", "4", "7", "6", "9", "8"], "timenow": 1382704649.64, "class": "getlist"}
+
+queue
+^^^^^
+tid is the id returned in the list field of the getlist response message
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"commandid":7,"class":"getlist","tid":"3","tipbxid":"xivo","function":"updateconfig","listname":"queues"}
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {
+    "function": "updateconfig", "listname": "queues", "tipbxid": "xivo", "timenow": 1382704649.69, "tid": "3",
+      "config":
+         {"displayname": "red", "name": "red", "context": "default", "number": "3002"},
+    "class": "getlist"}
+
 voicemails
 ^^^^^^^^^^
 ``Client -> Server``
