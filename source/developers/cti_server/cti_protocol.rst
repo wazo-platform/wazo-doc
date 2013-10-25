@@ -564,6 +564,16 @@ queuemembers
 
    {"class": "getlist", "commandid": 964899043, "function": "listid", "listname": "queuemembers", "tipbxid": "xivo"}
 
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {"function": "listid", "listname": "queuemembers", "tipbxid": "xivo",
+      "list": ["Agent/2501,blue", "Agent/2500,yellow", "Agent/2002,yellow", "Agent/2003,__switchboard",
+               "Agent/2003,blue", "Agent/108,blue", "Agent/2002,blue"],
+      "timenow": 1382717016.23,
+      "class": "getlist"}
+
 Status messages
 ---------------
 
