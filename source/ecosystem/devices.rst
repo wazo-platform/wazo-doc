@@ -4,6 +4,8 @@
 Devices
 *******
 
+.. _official-devices:
+
 Supported device (Official support)
 ===================================
 
@@ -724,6 +726,8 @@ Yealink
 
 The EXP38 and EXP39 expansion modules are supported.
 
+
+.. _compatible-devices:
 
 Compatible device (Community support)
 =====================================
