@@ -109,6 +109,8 @@ on the vendor website.
 It's good practice to only install the plugins you need and no more.
 
 
+.. _alternative-plugins-repo:
+
 Alternative plugins repository
 ------------------------------
 

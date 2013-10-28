@@ -11,6 +11,8 @@ Supported device (Official support)
 
 XiVO provides official support for the following phones. These phones will be supported across upgrades and phone features are guaranteed to be supported on the latest version.
 
+``xivo-provd`` plugins for these devices can be installed from the
+:ref:`"officially supported devices" repository <alternative-plugins-repo>`.
 
 .. warning::
 
@@ -734,6 +736,8 @@ Compatible device (Community support)
 
 The following phones are only supported by the community. In other words, maintenance, bug corrections and features are developed by members of the XiVO community. XiVO does not officially endorse support for these phones.
 
+``xivo-provd`` plugins for these devices can be installed from the
+:ref:`"community supported devices" repository <alternative-plugins-repo>`.
 
 Aastra
 ------
