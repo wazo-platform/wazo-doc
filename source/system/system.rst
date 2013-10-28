@@ -13,3 +13,4 @@ System
    backup_restore
    DHCP Server <dhcp/dhcp>
    ntp
+   Mail <mail/mail>

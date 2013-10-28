@@ -109,6 +109,29 @@ on the vendor website.
 It's good practice to only install the plugins you need and no more.
 
 
+.. _alternative-plugins-repo:
+
+Alternative plugins repository
+------------------------------
+
+By default, the list of plugins available for installation are the stable plugins for the
+officially supported devices.
+
+This can be changed in the :menuselection:`Configuration --> Provisioning --> General`
+page, by setting the :guilabel:`URL` field to one of the following value:
+
+* ``http://provd.xivo.fr/plugins/1/stable/`` -- :ref:`officially supported devices <official-devices>` "stable" repository (*default*)
+* ``http://provd.xivo.fr/plugins/1/testing/`` -- officially supported devices "testing" repository
+* ``http://provd.xivo.fr/plugins/1/addons/stable/`` -- :ref:`community supported devices <compatible-devices>` "stable" repository
+* ``http://provd.xivo.fr/plugins/1/addons/testing/`` -- community supported devices "testing" repository
+
+The difference between the stable and testing repositories is that the latter might contain plugins
+that are not working properly or are still in developement.
+
+After setting a new URL, you must refresh the list of installable plugins by clicking the update icon
+of the :menuselection:`Configuration --> Provisioning --> Plugin` page.
+
+
 How to manually tell the phones to get their configuration
 ==========================================================
 

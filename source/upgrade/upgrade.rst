@@ -106,6 +106,12 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes
 =============
 
+13.21
+-----
+
+* Consult the `13.21 Roadmap <https://projects.xivo.fr/versions/187>`_
+* It is no more possible to delete a device associated to a line using REST API.
+
 13.20
 -----
 

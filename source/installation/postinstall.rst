@@ -15,6 +15,8 @@ To achieve this you must change the following SIP options:
     * Send the Remote-Party-ID: select ``PAI``
 
 
+.. _callerid_num_normalization:
+
 Incoming caller number display
 ==============================
 

@@ -63,6 +63,7 @@ The supported phones for the switchboard are:
 
 * Aastra 6755i
 * Aastra 6757i
+* Snom 720
 
 
 Create a Queue for Your Switchboard
@@ -133,17 +134,27 @@ The following configuration is mandatory for switchboard users
 Set the Switchboard Plugin on your Phone
 ----------------------------------------
 
-The provisioning plugin for the switchboard must be *xivo-aastra-switchboard*.
+The provisioning plugin for the switchboard must be *xivo-aastra-switchboard* or *xivo-snom-switchboard*.
 
 See :ref:`provd-plugins-mgmt` for more details.
 
-This *xivo-aastra-switchboard* plugin must be set on the user's phone
+The switchboard plugin must be set on the user's device.
 
 * Edit device associated to your user in :menuselection:`Services --> Devices`
-* Select a *xivo-aastra-switchboard* plugin and save
+* Select the appropriate switchboard plugin and save
 * Synchronize you phone to apply the changes
 
 .. figure:: images/device_plugin_switchboard.png
+
+.. warning::
+  To be able to use a Snom phone for the switchboard, you have to be able to do
+  the appropriate HTTP request from the XiVO to the device's web service.
+  The following command should work from your XiVO's bash command line
+  `wget http://guest:guest@<phone IP address>/command.htm?key=SPEAKER`. If this
+  command does not activate the phone's speaker, your network configuration will
+  have to be *fixed* before you can be able to use the Snom switchboard.
+
+.. warning:: When using a Snom switchboard you should not use the first function key.
 
 
 Create an Agent for the Operator

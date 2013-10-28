@@ -521,6 +521,33 @@ queues
 
    {"class": "getlist", "commandid": 719950939, "function": "listid", "listname": "queues", "tipbxid": "xivo"}
 
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {"function": "listid", "listname": "queues", "tipbxid": "xivo",
+         "list": ["1", "10", "3", "2", "5", "4", "7", "6", "9", "8"], "timenow": 1382704649.64, "class": "getlist"}
+
+queue
+^^^^^
+tid is the id returned in the list field of the getlist response message
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"commandid":7,"class":"getlist","tid":"3","tipbxid":"xivo","function":"updateconfig","listname":"queues"}
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {
+    "function": "updateconfig", "listname": "queues", "tipbxid": "xivo", "timenow": 1382704649.69, "tid": "3",
+      "config":
+         {"displayname": "red", "name": "red", "context": "default", "number": "3002"},
+    "class": "getlist"}
+
 voicemails
 ^^^^^^^^^^
 ``Client -> Server``
@@ -536,6 +563,16 @@ queuemembers
 .. code-block:: javascript
 
    {"class": "getlist", "commandid": 964899043, "function": "listid", "listname": "queuemembers", "tipbxid": "xivo"}
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {"function": "listid", "listname": "queuemembers", "tipbxid": "xivo",
+      "list": ["Agent/2501,blue", "Agent/2500,yellow", "Agent/2002,yellow", "Agent/2003,__switchboard",
+               "Agent/2003,blue", "Agent/108,blue", "Agent/2002,blue"],
+      "timenow": 1382717016.23,
+      "class": "getlist"}
 
 Status messages
 ---------------
@@ -610,6 +647,21 @@ Phone status
       "status": {"channels": [], "groups": [], "hintstatus": "0", "queues": []},
       "tid": "1", "timenow": 1364994093.48, "tipbxid": "xivo"}
 
+Queue status
+^^^^^^^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"commandid":17,"class":"getlist","tid":"8","tipbxid":"xivo","function":"updatestatus","listname":"queues"}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {"function": "updatestatus", "listname": "queues", "tipbxid": "xivo", "timenow": 1382710430.54,
+      "status": {"agentmembers": ["1","5"], "phonemembers": ["8"]},
+      "tid": "8", "class": "getlist"}
 
 Agent status
 ^^^^^^^^^^^^
@@ -1155,7 +1207,7 @@ refuse
 CTI server implementation
 =========================
 
-In the git repository ``git://git.xivo.fr/official/xivo-ctid.git``, under `xivo_ctid/`
+In the git repository ``git://github.com/xivo-pbx/xivo-ctid.git``, under `xivo_ctid/`
 
 * `cti_config` handles the configuration coming from the WEBI
 * `interfaces/interface_ami`, together with `asterisk_ami_definitions`, `amiinterpret` and `xivo_ami` handle the AMI connections (asterisk)

@@ -158,6 +158,7 @@ The following describes how to configure your XiVO and your Berofos.
 #. Create a cron to launch the script every minutes :file:`/etc/cron.d/berofos-cron-workaround`::
 
     # Workaround to berofos integration
+    MAILTO=""
 
     */1 * * * * root /usr/local/sbin/berofos-workaround 
 
