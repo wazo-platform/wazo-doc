@@ -121,6 +121,24 @@ Log file: ``/var/log/daemon.log``. Lines start with ``xivo-provd``.
     Oct 29 06:24:05 hostname xivo-provd[8596]: <14> Routing request to plugin xivo-cisco-sccp-9.0.3
 
 
+restapi
+=======
+
+::
+
+    xivo-restapid -f -d
+
+* -s for foreground
+* -d for debug messages
+
+Log file: ``/var/log/xivo-restapid.log``
+
+::
+
+        2013-10-28 10:02:00,352 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): POST http://127.0.0.1:50050/1.1/devices with data {"mac":"00:00:00:00:00:00","template_id":"defaultconfigdevice","description":""} 
+        2013-10-28 10:04:35,815 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): GET http://127.0.0.1:50050/1.1/devices
+
+
 sysconfd
 ========
 
