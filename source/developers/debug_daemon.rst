@@ -19,6 +19,13 @@ agentd
 * -f for foreground
 * -v for verbose
 
+Log file: ``/var/log/xivo-agentd.log``
+
+::
+
+    2013-10-29 11:03:55,799 [25830] (INFO): Starting xivo-agentd
+    2013-10-29 11:03:58,632 [25830] (INFO): Executing statuses command
+
 
 agid
 ====
@@ -30,6 +37,14 @@ agid
 * -f for foreground
 * -d for debug
 
+Log file: ``/var/log/daemon.log``. Lines start with ``xivo-agid``.
+
+::
+
+    Oct 29 11:03:53 hostname xivo-agid[25724]: xivo-agid starting...
+    Oct 29 11:03:54 hostname xivo-agid[25724]: executing update command 'update-config'
+    Oct 29 11:03:54 hostname xivo-agid[25724]: executing update command 'update-phonebook'
+
 
 confgend
 ========
@@ -39,6 +54,14 @@ confgend
    twistd -no --python=/usr/bin/xivo-confgend
 
 No debug mode in confgend.
+
+Log file: ``/var/log/xivo-confgend.log``
+
+::
+
+    2013-10-29 11:03:50-0400 [-] Starting factory <xivo_confgen.confgen.ConfgendFactory instance at 0x8ef970c>
+    2013-10-29 11:03:55-0400 [Confgen,0,127.0.0.1] serving asterisk/features.conf
+    2013-10-29 11:03:55-0400 [Confgen,1,127.0.0.1] serving asterisk/musiconhold.conf
 
 
 ctid
@@ -50,6 +73,14 @@ ctid
 
 * -d for foreground and debug
 
+Log file: ``/var/log/xivo-ctid.log``
+
+::
+
+    2013-10-29 11:03:58,789 xivo-ctid[25914] (INFO) (main): CTI Fully Booted in 0.660311 seconds
+    2013-10-29 11:03:58,789 xivo-ctid[25914] (INFO) (interface_ami): Asterisk Call Manager/1.3
+    2013-10-29 11:03:58,827 xivo-ctid[25914] (INFO) (AMI logger): Event received:Privilege=>system,all ModuleLoadStatus=>Done Event=>ModuleLoadReport ModuleCount=>169 ModuleSelection=>All
+
 
 dxtora
 ======
@@ -59,6 +90,13 @@ dxtora
    dxtora -f
 
 * -f for foreground
+
+Log file: ``/var/log/daemon.log``. Lines start with ``xivo-dxtora``.
+
+::
+
+    Oct 28 09:24:48 hostname xivo-dxtora[1399]: Received signal, exiting.
+    Oct 28 09:24:58 hostname xivo-dxtora[8562]: Pulling DHCP info from unix socket
 
 
 provd
@@ -72,6 +110,17 @@ provd
 * -v for verbose
 
 
+Log file: ``/var/log/daemon.log``. Lines start with ``xivo-provd``.
+
+::
+
+    Oct 29 06:24:05 hostname xivo-provd[8596]: TFTP read request from ('192.168.1.1', 53014)
+    Oct 29 06:24:05 hostname xivo-provd[8596]: Processing TFTP request: i18n/france/7960-tones.xml
+    Oct 29 06:24:05 hostname xivo-provd[8596]: <14> Extracted device info: {u'ip': u'192.168.1.1'}
+    Oct 29 06:24:05 hostname xivo-provd[8596]: <14> Retrieved device id: caddf5dcfcc34e088687a6589b638554
+    Oct 29 06:24:05 hostname xivo-provd[8596]: <14> Routing request to plugin xivo-cisco-sccp-9.0.3
+
+
 sysconfd
 ========
 
@@ -81,3 +130,12 @@ sysconfd
 
 * -l debug for debug level logging
 * -f for foreground
+
+Log file: ``/var/log/daemon.log``. Lines start with ``xivo-sysconfd``.
+
+::
+
+    Oct 29 11:03:45 hostname xivo-sysconfd[24522]: locking PID
+    Oct 29 11:03:45 hostname xivo-sysconfd[24522]: pidfile ok
+    Oct 29 11:03:45 hostname xivo-sysconfd[24522]: will now serve
+    Oct 29 11:04:33 hostname xivo-sysconfd[24522]: 'GET /status-check HTTP/1.1' 200 17
