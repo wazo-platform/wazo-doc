@@ -4,7 +4,10 @@
 User-Line-Extension Association
 *******************************
 
-
+.. warning:: The User-Line-Extension association is deprecated. It cannot be used on a
+   production system as it is to be replaced soon.
+ 
+ 
 Association Representation
 ==========================
 
