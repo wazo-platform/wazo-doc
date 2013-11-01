@@ -11,6 +11,12 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+
+13.22
+-----
+
+* the ``actionfiche`` message was renamed ``call_form_result``.
+
 13.17
 -----
 
