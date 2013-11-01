@@ -1053,6 +1053,24 @@ record
 REGCOMMANDS
 -----------
 
+call_form_result
+^^^^^^^^^^^^^^^^
+
+This message is received when a `call form` is submitted from a client to the XiVO.
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+    {
+        "class": "call_form_result",
+        "commandid": <commandid>,
+        "infos": {"buttonname": "saveandclose",
+                  "variables": {"XIVOFORM_varname1": "value1",
+                                "XIVOFORM_varname2": "value2"}}
+    }
+
+
 history
 ^^^^^^^
 * mode
@@ -1092,8 +1110,6 @@ Send back a table of calls :
    }
 
 
-callcampaign
-
 chitchat
 ^^^^^^^^
 
@@ -1105,8 +1121,6 @@ chitchat
        "to": "<xivoid>/<userfeaturesid>",
        "commandid": <commandid>
     }
-
-actionfiche
 
 featuresget
 
