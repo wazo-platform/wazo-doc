@@ -115,7 +115,9 @@ These backups are created in the :file:`/var/backups/xivo` directory and are kep
 Before Restoring the System
 ===========================
 
-Before restoring a XiVO on a fresh install you have to setup XiVO using the installation wizard.
+.. warning::
+
+    Before restoring a XiVO on a fresh install you have to setup XiVO using the wizard (see :ref:`configuration_wizard` section).
 
 Stop monit and all the xivo services::
 
