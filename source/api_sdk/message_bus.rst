@@ -52,9 +52,6 @@ Here's an example of a simple client, in python, listening for the
    channel.basic_consume(callback, queue=queue_name)
    channel.start_consuming()
 
-.. XXX should add a link to a more complete example (with init script, daemonize (or supervisord)
-   and lost connection handling)
-
 If you are new to AMQP, you might want to look at the
 `RabbitMQ tutorial <http://previous.rabbitmq.com/v2_8_x/getstarted.html>`_.
 
