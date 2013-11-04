@@ -27,6 +27,8 @@ The description allow the administrator to give an overview of a given sheet.
    :scale: 85%
 
 
+.. _custom-call-form:
+
 Sheets
 ======
 
@@ -127,6 +129,7 @@ the generated file from qt-designer :
   <connections/>
   </ui>
 
+When a CTI client submits a custom sheet, a :ref:`bus-call_form_result` event is published on the bus.
 
 On the second part of the tab, you can configure the fields to appear on the sheet. Each field is represented by the following parameters :
 
