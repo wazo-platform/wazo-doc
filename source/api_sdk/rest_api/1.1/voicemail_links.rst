@@ -13,11 +13,13 @@ Association Representation
 Description
 -----------
 
-+--------------+-------+----------------+
-| Field        | Value | Description    |
-+==============+=======+================+
-| voicemail_id | int   | Voicemail's ID |
-+--------------+-------+----------------+
++--------------+-------+---------------------------+
+| Field        | Value | Description               |
++==============+=======+===========================+
+| voicemail_id | int   | Voicemail's ID            |
++--------------+-------+---------------------------+
+| enable       | bool  | Enable voicemail for user |
++--------------+-------+---------------------------+
 
 
 Get the Voicemail associated to a User
@@ -59,6 +61,7 @@ Example response
     {
         "voicemail_id": 132,
         "user_id": 20,
+        "enable": true,
         "links": [
            {
                "rel": "voicemails",
@@ -91,6 +94,9 @@ Input
 +==============+==========+========+========================+
 | voicemail_id | yes      | int    | Must be an existing id |
 +--------------+----------+--------+------------------------+
+| enable       | no       | bool   | Default value : true   |
++--------------+----------+--------+------------------------+
+
 
 Errors
 ------
@@ -115,7 +121,8 @@ Example request
     Content-Type: application/json
 
     {
-        "voicemail_id": 432
+        "voicemail_id": 432,
+        "enable": false,
     }
 
 Example response
@@ -129,6 +136,7 @@ Example response
     {
         "voicemail_id": 432,
         "user_id": 59,
+        "enable": false,
         "links": [
            {
                "rel": "voicemails",
