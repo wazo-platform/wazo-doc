@@ -18,7 +18,7 @@ Description
 +==============+=======+===========================+
 | voicemail_id | int   | Voicemail's ID            |
 +--------------+-------+---------------------------+
-| enable       | bool  | Enable voicemail for user |
+| enabled      | bool  | Enable voicemail for user |
 +--------------+-------+---------------------------+
 
 
@@ -61,7 +61,7 @@ Example response
     {
         "voicemail_id": 132,
         "user_id": 20,
-        "enable": true,
+        "enabled": true,
         "links": [
            {
                "rel": "voicemails",
@@ -94,7 +94,7 @@ Input
 +==============+==========+========+========================+
 | voicemail_id | yes      | int    | Must be an existing id |
 +--------------+----------+--------+------------------------+
-| enable       | no       | bool   | Default value : true   |
+| enabled      | no       | bool   | Default value : true   |
 +--------------+----------+--------+------------------------+
 
 
@@ -122,7 +122,7 @@ Example request
 
     {
         "voicemail_id": 432,
-        "enable": false,
+        "enabled": false,
     }
 
 Example response
@@ -136,7 +136,7 @@ Example response
     {
         "voicemail_id": 432,
         "user_id": 59,
-        "enable": false,
+        "enabled": false,
         "links": [
            {
                "rel": "voicemails",
