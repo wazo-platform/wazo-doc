@@ -1,4 +1,4 @@
-.. _voicemail-links-association-api:
+.. _user-voicemail-association:
 
 *********************
 Voicemail Association
