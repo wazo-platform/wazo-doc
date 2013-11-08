@@ -156,8 +156,6 @@ Example response
 Deassociate a User from a Voicemail
 ===================================
 
-.. warning:: This service has not been implemented yet
-
 
 Query
 -----
