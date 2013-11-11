@@ -110,8 +110,9 @@ Upgrade Notes
 -----
 
 * Consult the `13.22 Roadmap <https://projects.xivo.fr/versions/188>`_
-* PostgreSQL is upgraded from 9.0 to 9.1. The upgrade of XiVO will take longer than usual, depending
-  on the size of the database. Usually, the database grows with the number of calls processed by XiVO.
+* PostgreSQL will be upgraded from 9.0 to 9.1. The upgrade of XiVO will take longer than usual, depending
+  on the size of the database. Usually, the database grows with the number of calls processed by XiVO. 
+  The upgrade will be stopped if not enough space is available on the XiVO server.
 
 13.21
 -----
