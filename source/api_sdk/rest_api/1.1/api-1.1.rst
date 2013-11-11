@@ -20,6 +20,7 @@ REST API 1.1
    users
    user_links
    voicemails
+   voicemail_links
 
 
 Migration from 1.0

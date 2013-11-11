@@ -5,8 +5,9 @@ API and SDK
 .. toctree::
    :maxdepth: 2
 
-   queue_log
-   web_services
-   subroutine
    cel
+   message_bus
+   queue_log
    rest_api/rest_api
+   subroutine
+   web_services
