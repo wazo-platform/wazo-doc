@@ -157,7 +157,7 @@ ATAs:
 +-------------------+--------+---------+---------+
 |                   | SPA122 | SPA3102 | SPA8000 |
 +===================+========+=========+=========+
-| Provisioning [1]_ | N [4]_ | N [4]_  | Y       |
+| Provisioning [1]_ | N [4]_ | Y       | Y       |
 +-------------------+--------+---------+---------+
 | H-A [3]_          | N      | N       | N       |
 +-------------------+--------+---------+---------+
@@ -523,6 +523,9 @@ Particularities:
   user and the supervised user in the same call pickup group.
 * VVX: the french translation is incomplete.
 
+.. note:: (XiVO HA cluster) BLF function key saved on the master node are not available.
+
+
 Polycom® SoundPoint® IP Backlit Expansion Module are supported.
 
 
@@ -552,7 +555,7 @@ Snom
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
 | **General Functions**                                                                       |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
-| Online call recording                      | Y      | N     | N     | N     | N     | N     |
+| Online call recording                      | N      | N     | N     | N     | N     | N     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
 | Phone status                               | Y      | Y     | Y     | Y     | Y     | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+
