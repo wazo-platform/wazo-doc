@@ -56,3 +56,27 @@ Here is the process you should follow if you want to use/customize this feature 
 5. Restart ``xivo-agid`` service::
 
     service xivo-agid restart
+
+
+ipbx.ini
+==============
+
+* Path: :file:`/etc/pf-xivo/xivo-web-interface/ipbx.ini`
+* Purpose: This file specifies various configuration options and paths related 
+  to Asterisk and used by the web interface.
+
+Here is a partial glimpse of what can be configured in file :file:`ipbx.ini` :
+
+#. Enable/Disable modification of SIP line username and password::
+
+      [user]
+      readonly-idpwd = "true"
+
+  By default (readonly-idpwd = "true") when editing a SIP line, username and 
+  password fields cannot be modified via the web interface. Set this option to 
+  false to activate the  edition of both fields.
+
+.. warning:: This feature is not fully tested. It should be used only when 
+  absolutely necessary and with great care.
+
+
