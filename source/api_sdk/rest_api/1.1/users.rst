@@ -403,6 +403,12 @@ User-Line-Extension Association
 See :ref:`user-line-extension-association`.
 
 
+User-Line Association
+=====================
+
+See :ref:`user-line-association`.
+
+
 Users-Voicemails Association
 ============================
 

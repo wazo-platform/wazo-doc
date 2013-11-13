@@ -18,6 +18,7 @@ REST API 1.1
    extensions
    lines
    users
+   user_line
    user_links
    voicemails
    voicemail_links
