@@ -82,7 +82,6 @@ Query
 
    GET /1.1/users
 
-
 Parameters
 ----------
 
@@ -204,8 +203,8 @@ Example response
    }
 
 
-Create User
-===========
+Create a User
+=============
 
 Query
 -----
@@ -306,13 +305,12 @@ Example response
    }
 
 
-Update User
-===========
+Update a User
+=============
 
-The update does not need to set all the fields of the edited user. The update only needs to set the
-modified fields.
+Only the fields that need to be modified can be set.
 
-If the firstname or the lastname is modified, the associated voicemail is also updated.
+If the firstname or the lastname is modified, the name of associated voicemail is also updated.
 
 Query
 -----
@@ -321,14 +319,17 @@ Query
 
    PUT /1.1/users/<id>
 
+Input
+-----
+
+Same as for creating a User. Please see `Create a User`_
+
+
 Errors
 ------
 
-+------------+-----------------------------------------+--------------------------------+
-| Error code | Error message                           | Description                    |
-+============+=========================================+================================+
-| 400        | error while editing User: <explanation> | See explanation for more infos |
-+------------+-----------------------------------------+--------------------------------+
+Same as for creating a User. Please see `Create a User`_
+
 
 Example request
 ---------------
@@ -342,6 +343,7 @@ Example request
    {
        "firstname": "Jonathan"
    }
+
 
 Example response
 ----------------
