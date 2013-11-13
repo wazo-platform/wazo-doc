@@ -7,10 +7,10 @@ in the web interface. Once a sheet is defined, it has to be assigned to an event
 in the :menuselection:`Services --> CTI Server --> Events` menu.
 
 Model
-   The model is the content of the displayed sheet.
+   The model contains the content of the displayed sheet.
 Event
-   Events are action that trigger the defined sheet. A sheet can be assigned to
-   many events. In that case, the sheet will be raised for each events.
+   Events are actions that trigger the defined sheet. A sheet can be assigned to many events. In
+   that case, the sheet will be raised for each event.
 
 .. figure:: images/sheets_configuration.png
    :scale: 85%
@@ -19,12 +19,13 @@ Event
 General settings
 ================
 
-In the first tab the name of your model can be configured.
-When you checkbox focus is checked, your xivo client focus when you received a sheet.
-The description allow the administrator to give an overview of a given sheet.
-
 .. figure:: images/sheets_configuration_general.png
    :scale: 85%
+
+You must give a name to your sheet to be able to select it later.
+
+The ``Focus`` checkbox makes the XiVO Client pop up when the sheet is displayed, if the XiVO Client
+was hidden.
 
 
 .. _custom-call-form:
@@ -32,106 +33,67 @@ The description allow the administrator to give an overview of a given sheet.
 Sheets
 ======
 
-This tab is dedicated for the form/information of your sheet. You can define an
-external form created with qt-designer.
+There are two different ways to configure the contents of the sheet:
 
-.. warning:: In qt-designer, one must set 'vertical layout' on the top widget
-   (right click on the top widget > Lay out > Vertical layout).
+* creating a custom sheet from the Qt designer. This gives you a total control on the layout of the
+  information and allows you to save and process data entered during or after a call.
+* listing the different fields and their content. The information will be automatically laid out in
+  a linear fashion and will be read-only.
 
-You can configure the path to a ``file://`` or ``http://``. The check box is for
-activated this ui. The qt file is an xml file.
 
-Here an example of a small form develop with qt-designer.
+Custom sheet
+------------
+
+Configuring the sheet
+^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: images/sheets_configuration_sheet_custom.png
+
+The ``Qt interface`` field is the path to the UI file created by the Qt Designer. The path can
+either be a local file on your XiVO starting with ``file://``, or a HTTP URL.
+
+You must add a field with type ``form`` and display value ``qtui`` for the form to be displayed.
+
+Create a custom sheet with Qt Designer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Qt Designer is part of the Qt development kit and is also available in the Qt Creator. They are
+available on the `Qt project website`_.
+
+.. _Qt project website: http://qt-project.org/downloads
+
+Here is an example of a small form created with Qt Designer.
 
 .. figure:: images/sheets_configuration_qtui.png
    :scale: 85%
 
-The qt-designer screenshot.
+The Qt Designer screenshot.
 
 .. figure:: images/sheets_configuration_qtdesigner.png
    :scale: 85%
 
-the generated file from qt-designer :
+.. warning:: In Qt Designer, one must set 'vertical layout' on the top widget (right click on the
+   top widget > Lay out > Vertical layout).
 
-.. code-block:: javascript
 
- <?xml version="1.0" encoding="UTF-8"?>
- <ui version="4.0">
-  <class>widget</class>
-  <widget class="QWidget" name="widget">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>225</width>
-     <height>146</height>
-    </rect>
-   </property>
-   <property name="windowTitle">
-    <string>Form</string>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <layout class="QGridLayout">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Nom</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Prenom</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Sexe</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="XIVOFORM_lastname_2"/>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="XIVOFORM_name"/>
-      </item>
-      <item row="3" column="1">
-       <widget class="QPushButton" name="save">
-        <property name="text">
-         <string>Envoyer</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QComboBox" name="comboBox">
-        <item>
-         <property name="text">
-          <string>Masculin</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Féminin</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
-  <resources/>
-  <connections/>
-  </ui>
+You can download the file generated by this example from Qt Designer:
+:download:`example-form.ui<resources/example-form.ui>`
 
-When a CTI client submits a custom sheet, a :ref:`bus-call_form_result` event is published on the bus.
 
-On the second part of the tab, you can configure the fields to appear on the sheet. Each field is represented by the following parameters :
+List of fields
+--------------
+
+Default XiVO sheet example :
+
+.. figure:: images/sheets_configuration_sheet.png
+   :scale: 85%
+
+Example showing all kinds of fields:
+
+.. figure:: images/sheets_configuration_sheet_demo.png
+   :scale: 85%
+
+Each field is represented by the following parameters :
 
 * Field title : name of your line used as label on the sheet.
 * Field type : define the type of field displayed on the sheet. Supported field types :
@@ -184,19 +146,21 @@ On the second part of the tab, you can configure the fields to appear on the she
 
 The ``{dp-test}`` displays Salut.
 
-.. warning:: fields of type 'form' work differently from other field
-   types. Fields `Field title` and `Default value` are not used and
-   field `Display value` MUST be set to ``qtui``.
 
-Default XiVO sheet example :
+Sending informations during/after a call
+----------------------------------------
 
-.. figure:: images/sheets_configuration_sheet.png
-   :scale: 85%
+After showing a sheet, the XiVO Client can also send back information to XiVO for post-processing or
+archiving.
 
-Other example with more bells and whistles :
+Here are the requirements:
 
-.. figure:: images/sheets_configuration_sheet_demo.png
-   :scale: 85%
+* The sheet must contain a button named ``save`` or ``saveandclose`` to submit information
+* Only the values in text fields are submitted
+* Fields must have their name starting with ``XIVOFORM_``
+
+When a CTI client submits a custom sheet, a :ref:`bus-call_form_result` event is published on the
+event bus.
 
 
 Systray
