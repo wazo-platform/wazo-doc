@@ -158,7 +158,7 @@ Query
 
 ::
 
-    DELETE /1.1/users/<user_id>/lines
+    DELETE /1.1/users/<user_id>/lines/<line_id>
 
 
 Errors
@@ -178,13 +178,9 @@ Example request
 
 ::
 
-    DELETE /1.1/users/59/lines
+    DELETE /1.1/users/59/lines/598
     Host: xivoserver
     Content-Type: application/json
-
-    {
-        "line_id": 432
-    }
 
 Example response
 ----------------
