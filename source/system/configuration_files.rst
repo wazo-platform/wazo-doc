@@ -72,9 +72,9 @@ Here is a partial glimpse of what can be configured in file :file:`ipbx.ini` :
       [user]
       readonly-idpwd = "true"
 
-  By default (readonly-idpwd = "true") when editing a SIP line, username and 
-  password fields cannot be modified via the web interface. Set this option to 
-  false to activate the  edition of both fields.
+  When editing a SIP line, the username and password fields cannot be modified 
+  via the web interface. Set this option to false to enable the modification of 
+  both fields. This option is set to "true" by default.
 
 .. warning:: This feature is not fully tested. It should be used only when 
   absolutely necessary and with great care.
