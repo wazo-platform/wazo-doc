@@ -165,8 +165,10 @@ Here are the requirements:
   * QDateTime
   * QDateTimeEdit
   * QDoubleSpinBox
+  * QLabel
   * QLineEdit
   * QList
+  * QPlainTextEdit
   * QRadioButton
   * QSpinBox
   * QTimeEdit
