@@ -87,17 +87,27 @@ All XiVO databases are backuped (xivo and asterisk).
 Creating a database backup file manually
 ========================================
 
-You can manually create a database backup file named :file:`db-manual.tgz` by issuing the following commands::
+.. warning::
+    
+    A backup file may take a lot of space on the disk.
+    You should check the free space on the partition before doing it.
 
-   xivo-backup db db-manual
+You can manually create a *database* backup file named :file:`db-manual.tgz` in :file:`/var/tmp` by issuing the following commands::
+
+   xivo-backup db /var/tmp/db-manual
 
 
 Creating a data backup file manually
 ====================================
 
-You can manually create a data backup file named :file:`data-manual.tgz` by issuing the following commands::
+.. warning:: 
+    
+    A backup file may take a lot of space on the disk.
+    You should check the free space on the partition before doing it.
 
-   xivo-backup data data-manual
+You can manually create a *data* backup file named :file:`data-manual.tgz` in :file:`/var/tmp` by issuing the following commands::
+
+   xivo-backup data /var/tmp/data-manual
 
 
 *******
@@ -141,7 +151,9 @@ Restoring the databases
 
 .. warning::
 
-   This will destroy all the current data in your databases
+    * This will destroy all the current data in your databases.
+    * You have to check the free space on your system partition before extracting the backups.
+
 
 Databases backups are created as :file:`db.tgz` files in the :file:`/var/backups/xivo` directory.
 These tarballs contains a dump of the two databases used in XiVO.
@@ -149,11 +161,11 @@ These tarballs contains a dump of the two databases used in XiVO.
 In this example, we'll restore the databases from a backup file named :file:`db.tgz`
 placed in the home directory of root.
 
-Then, extract the content of the :file:`db.tgz` file into the /tmp directory and go inside
+Then, extract the content of the :file:`db.tgz` file into the :file:`/var/tmp` directory and go inside
 the newly created directory::
 
-   tar xvf db.tgz -C /tmp
-   cd /tmp/pg-backup
+   tar xvf db.tgz -C /var/tmp
+   cd /var/tmp/pg-backup
 
 Drop the asterisk database and restore it with the one from the backup::
 
