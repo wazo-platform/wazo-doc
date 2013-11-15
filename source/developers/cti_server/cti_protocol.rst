@@ -1056,6 +1056,36 @@ record
    {"command": "record", "replyid": 1423579492, "class": "ipbxcommand", "ipbxreply": true, "timenow": 1361801751.87}
    {"replyid": 1423579492, "command": "record", "class": "ipbxcommand", "timenow": 1361798879.13, "response": "ok"}
 
+Statistics
+----------
+
+subscribetoqueuesstats
+^^^^^^^^^^^^^^^^^^^^^^
+This message can be sent from the client to enable statitics update on queues
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"commandid":36,"class":"subscribetoqueuesstats"}
+
+ ``Server > Client``
+
+getqueuesstats
+^^^^^^^^^^^^^^
+When statistic update is enable by sending message `subscribetoqueuesstats`_.
+
+The first element of the message is the queue id
+
+.. code-block:: javascript
+
+   {"stats": {"10": {"Xivo-LoggedAgents": 0}},
+      "class": "getqueuesstats", "timenow": 1384509582.88}
+   {"stats": {"1": {"Xivo-WaitingCalls": 0}},
+      "class": "getqueuesstats", "timenow": 1384509582.89}
+   {"stats": {"1": {"Xivo-TalkingAgents": "0", "Xivo-AvailableAgents": "1", "Xivo-EWT": "6"}},
+      "class": "getqueuesstats", "timenow": 1384512350.25}
+
 REGCOMMANDS
 -----------
 
@@ -1163,8 +1193,6 @@ Request directory information, names matching pattern ignore case.
 parking
 
 logfromclient
-
-getqueuesstats
 
 keepalive
 
