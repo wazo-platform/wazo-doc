@@ -144,7 +144,7 @@ Restoring the databases
    This will destroy all the current data in your databases
 
 Databases backups are created as :file:`db.tgz` files in the :file:`/var/backups/xivo` directory.
-These tarballs contains a dump of the two databases used in XiVO 1.2.
+These tarballs contains a dump of the two databases used in XiVO.
 
 In this example, we'll restore the databases from a backup file named :file:`db.tgz`
 placed in the home directory of root.
