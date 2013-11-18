@@ -186,6 +186,15 @@ Here are the requirements:
 
 * Fields must have their name starting with ``XIVOFORM_``
 
+If you want to send information that is not visible, you can make the widget invisible on the sheet:
+
+* change the maximumWidth or maximumHeight property to 0
+* edit the ``.ui`` file and add the following property to the widget::
+
+   <property name="visible">
+     <bool>false</bool>
+   </property>
+
 When a CTI client submits a custom sheet, a :ref:`bus-call_form_result` event is published on the
 event bus.
 
