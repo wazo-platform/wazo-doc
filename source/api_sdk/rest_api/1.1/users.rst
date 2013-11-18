@@ -12,18 +12,40 @@ User Representation
 Description
 -----------
 
-+-----------+---------+------------------------------------------------------------------------+
-| Field     | Values  | Description                                                            |
-+===========+=========+========================================================================+
-| id        | int     | Read-only                                                              |
-+-----------+---------+------------------------------------------------------------------------+
-| firstname | string  | If the user has no firstname, then this field is an empty string.      |
-+-----------+---------+------------------------------------------------------------------------+
-| lastname  | string  | If the user has no lastname, then this field is an empty string.       |
-+-----------+---------+------------------------------------------------------------------------+
-| userfield | boolean | A custom field which purpose is left to the client. If the user has no |
-|           |         | userfield, then this field is an empty string.                         |
-+-----------+---------+------------------------------------------------------------------------+
++-----------------------+--------+------------------------------------------------------------------------+
+| Field                 | Values | Description                                                            |
++=======================+========+========================================================================+
+| id                    | int    | Read-only                                                              |
++-----------------------+--------+------------------------------------------------------------------------+
+| firstname             | string | User's first name                                                      |
++-----------------------+--------+------------------------------------------------------------------------+
+| lastname              | string | User's last name                                                       |
++-----------------------+--------+------------------------------------------------------------------------+
+| timezone              | string | User's timezone                                                        |
++-----------------------+--------+------------------------------------------------------------------------+
+| language              | string | User's language                                                        |
++-----------------------+--------+------------------------------------------------------------------------+
+| description           | string | Additional information about the user                                  |
++-----------------------+--------+------------------------------------------------------------------------+
+| caller_id             | string | Name that appears on the phone when calling                            |
++-----------------------+--------+------------------------------------------------------------------------+
+| outgoing_caller_id    | string | Caller id to use when calling through a trunk                          |
++-----------------------+--------+------------------------------------------------------------------------+
+| mobile_phone_number   | string | Phone number for the user's mobile device                              |
++-----------------------+--------+------------------------------------------------------------------------+
+| username              | string | username for connecting to the CTI                                     |
++-----------------------+--------+------------------------------------------------------------------------+
+| password              | string | password for connecting to the CTI                                     |
++-----------------------+--------+------------------------------------------------------------------------+
+| music_on_hold         | string | Name of the MOH category to use for music on hold                      |
++-----------------------+--------+------------------------------------------------------------------------+
+| preprocess_subroutine | string | Name of the subroutine to execute in asterisk before receiving a call  |
++-----------------------+--------+------------------------------------------------------------------------+
+| userfield             | string | A custom field which purpose is left to the client. If the user has no |
+|                       |        | userfield, then this field is an empty string.                         |
++-----------------------+--------+------------------------------------------------------------------------+
+
+
 
 Example
 -------
@@ -34,6 +56,16 @@ Example
        "id": 1,
        "firstname": "John",
        "lastname": "Doe",
+       "timezone": "America/Montreal",
+       "language": "fr_FR",
+       "description": "The most common name in America",
+       "caller_id": "Johnny",
+       "outgoing_caller_id": "default",
+       "mobile_phone_number": "5554151234",
+       "username": "john",
+       "password": "supersecretpassword",
+       "music_on_hold": "waiting",
+       "preprocess_subroutine": "ivr",
        "userfield": ""
    }
 
@@ -49,7 +81,6 @@ Query
 ::
 
    GET /1.1/users
-
 
 Parameters
 ----------
@@ -89,16 +120,36 @@ Example response
        "items":
        [
            {
-               "id": 1,
-               "firstname": "John",
-               "lastname": "Doe",
-               "userfield": ""
+                "id": 1,
+                "firstname": "John",
+                "lastname": "Doe",
+                "timezone": "",
+                "language": "en_US",
+                "description": "",
+                "caller_id": "\"John Doe\"",
+                "outgoing_caller_id": "default",
+                "mobile_phone_number": "",
+                "username": "",
+                "password": "",
+                "music_on_hold": "default",
+                "preprocess_subroutine": "",
+                "userfield": ""
            },
            {
-               "id": 2,
-               "firstname": "Alice",
-               "lastname": "Houet",
-               "userfield": ""
+                "id": 2,
+                "firstname": "Mary",
+                "lastname": "Sue",
+                "timezone": "",
+                "language": "fr_FR",
+                "description": "",
+                "caller_id": "\"Mary Sue\"",
+                "outgoing_caller_id": "default",
+                "mobile_phone_number": "",
+                "username": "",
+                "password": "",
+                "music_on_hold": "default",
+                "preprocess_subroutine": "",
+                "userfield": ""
            }
        ]
    }
@@ -135,15 +186,25 @@ Example response
    Content-Type: application/json
 
    {
-       "id": 1,
-       "firstname": "John",
-       "lastname": "Doe",
-       "userfield": ""
+                "id": 1,
+                "firstname": "John",
+                "lastname": "Doe",
+                "timezone": "",
+                "language": "en_US",
+                "description": "",
+                "caller_id": "\"John Doe\"",
+                "outgoing_caller_id": "default",
+                "mobile_phone_number": "",
+                "username": "",
+                "password": "",
+                "music_on_hold": "default",
+                "preprocess_subroutine": "",
+                "userfield": ""
    }
 
 
-Create User
-===========
+Create a User
+=============
 
 Query
 -----
@@ -155,15 +216,35 @@ Query
 Input
 -----
 
-+-----------+----------+--------+
-| Field     | Required | Values |
-+===========+==========+========+
-| firstname | yes      | string |
-+-----------+----------+--------+
-| lastname  | no       | string |
-+-----------+----------+--------+
-| userfield | no       | string |
-+-----------+----------+--------+
++-----------------------+----------+--------------------------------------+
+| Field                 | Required | Values                               |
++=======================+==========+======================================+
+| firstname             | yes      | string                               |
++-----------------------+----------+--------------------------------------+
+| lastname              | no       | string                               |
++-----------------------+----------+--------------------------------------+
+| timezone              | no       | string. Must be a valid timezone     |
++-----------------------+----------+--------------------------------------+
+| language              | no       | string. Must be a valid language     |
++-----------------------+----------+--------------------------------------+
+| description           | no       | string                               |
++-----------------------+----------+--------------------------------------+
+| caller_id             | no       | string                               |
++-----------------------+----------+--------------------------------------+
+| outgoing_caller_id    | no       | string: default, anonymous or custom |
++-----------------------+----------+--------------------------------------+
+| mobile_phone_number   | no       | string of digits                     |
++-----------------------+----------+--------------------------------------+
+| username              | no       | string                               |
++-----------------------+----------+--------------------------------------+
+| password              | no       | string. Minimum of 4 characters      |
++-----------------------+----------+--------------------------------------+
+| music_on_hold         | no       | string. Must be a valid category     |
++-----------------------+----------+--------------------------------------+
+| preprocess_subroutine | no       | string                               |
++-----------------------+----------+--------------------------------------+
+| userfield             | no       | string                               |
++-----------------------+----------+--------------------------------------+
 
 Errors
 ------
@@ -202,6 +283,19 @@ Example response
 
    {
        "id": 1,
+       "firstname": "John",
+       "lastname": "Doe",
+       "timezone": "",
+       "language": "en_US",
+       "description": "",
+       "caller_id": "\"John Doe\"",
+       "outgoing_caller_id": "default",
+       "mobile_phone_number": "",
+       "username": "",
+       "password": "",
+       "music_on_hold": "default",
+       "preprocess_subroutine": "",
+       "userfield": ""
        "links" : [
            {
                "rel": "users",
@@ -211,13 +305,12 @@ Example response
    }
 
 
-Update User
-===========
+Update a User
+=============
 
-The update does not need to set all the fields of the edited user. The update only needs to set the
-modified fields.
+Only the fields that need to be modified can be set.
 
-If the firstname or the lastname is modified, the associated voicemail is also updated.
+If the firstname or the lastname is modified, the name of associated voicemail is also updated.
 
 Query
 -----
@@ -226,14 +319,17 @@ Query
 
    PUT /1.1/users/<id>
 
+Input
+-----
+
+Same as for creating a User. Please see `Create a User`_
+
+
 Errors
 ------
 
-+------------+-----------------------------------------+--------------------------------+
-| Error code | Error message                           | Description                    |
-+============+=========================================+================================+
-| 400        | error while editing User: <explanation> | See explanation for more infos |
-+------------+-----------------------------------------+--------------------------------+
+Same as for creating a User. Please see `Create a User`_
+
 
 Example request
 ---------------
@@ -247,6 +343,7 @@ Example request
    {
        "firstname": "Jonathan"
    }
+
 
 Example response
 ----------------
