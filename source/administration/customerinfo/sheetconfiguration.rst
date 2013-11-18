@@ -155,8 +155,24 @@ archiving.
 
 Here are the requirements:
 
-* The sheet must contain a button named ``save`` or ``saveandclose`` to submit information
-* Only the values in text fields are submitted
+* The sheet must contain a button named ``save`` to submit information
+* Supported widgets:
+
+  * QCalendarWidget
+  * QCheckBox
+  * QComboBox
+  * QDateEdit
+  * QDateTime
+  * QDateTimeEdit
+  * QDoubleSpinBox
+  * QLabel
+  * QLineEdit
+  * QList
+  * QPlainTextEdit
+  * QRadioButton
+  * QSpinBox
+  * QTimeEdit
+
 * Fields must have their name starting with ``XIVOFORM_``
 
 When a CTI client submits a custom sheet, a :ref:`bus-call_form_result` event is published on the
