@@ -27,17 +27,17 @@ Description
 +-----------------------+--------+------------------------------------------------------------------------+
 | description           | string | Additional information about the user                                  |
 +-----------------------+--------+------------------------------------------------------------------------+
-| caller_id             | string | Name that appears on the phone when calling                            |
+| callerid              | string | Name that appears on the phone when calling                            |
 +-----------------------+--------+------------------------------------------------------------------------+
-| outgoing_caller_id    | string | Caller id to use when calling through a trunk                          |
+| outcallerid           | string | Caller id to use when calling through a trunk                          |
 +-----------------------+--------+------------------------------------------------------------------------+
-| mobile_phone_number   | string | Phone number for the user's mobile device                              |
+| mobilephonenumber     | string | Phone number for the user's mobile device                              |
 +-----------------------+--------+------------------------------------------------------------------------+
 | username              | string | username for connecting to the CTI                                     |
 +-----------------------+--------+------------------------------------------------------------------------+
 | password              | string | password for connecting to the CTI                                     |
 +-----------------------+--------+------------------------------------------------------------------------+
-| music_on_hold         | string | Name of the MOH category to use for music on hold                      |
+| musiconhold           | string | Name of the MOH category to use for music on hold                      |
 +-----------------------+--------+------------------------------------------------------------------------+
 | preprocess_subroutine | string | Name of the subroutine to execute in asterisk before receiving a call  |
 +-----------------------+--------+------------------------------------------------------------------------+
@@ -59,12 +59,12 @@ Example
        "timezone": "America/Montreal",
        "language": "fr_FR",
        "description": "The most common name in America",
-       "caller_id": "Johnny",
-       "outgoing_caller_id": "default",
-       "mobile_phone_number": "5554151234",
+       "callerid": "Johnny",
+       "outcallerid": "default",
+       "mobilephonenumber": "5554151234",
        "username": "john",
        "password": "supersecretpassword",
-       "music_on_hold": "waiting",
+       "musiconhold": "waiting",
        "preprocess_subroutine": "ivr",
        "userfield": ""
    }
@@ -126,12 +126,12 @@ Example response
                 "timezone": "",
                 "language": "en_US",
                 "description": "",
-                "caller_id": "\"John Doe\"",
-                "outgoing_caller_id": "default",
-                "mobile_phone_number": "",
+                "callerid": "\"John Doe\"",
+                "outcallerid": "default",
+                "mobilephonenumber": "",
                 "username": "",
                 "password": "",
-                "music_on_hold": "default",
+                "musiconhold": "default",
                 "preprocess_subroutine": "",
                 "userfield": ""
            },
@@ -142,12 +142,12 @@ Example response
                 "timezone": "",
                 "language": "fr_FR",
                 "description": "",
-                "caller_id": "\"Mary Sue\"",
-                "outgoing_caller_id": "default",
-                "mobile_phone_number": "",
+                "callerid": "\"Mary Sue\"",
+                "outcallerid": "default",
+                "mobilephonenumber": "",
                 "username": "",
                 "password": "",
-                "music_on_hold": "default",
+                "musiconhold": "default",
                 "preprocess_subroutine": "",
                 "userfield": ""
            }
@@ -192,12 +192,12 @@ Example response
                 "timezone": "",
                 "language": "en_US",
                 "description": "",
-                "caller_id": "\"John Doe\"",
-                "outgoing_caller_id": "default",
-                "mobile_phone_number": "",
+                "callerid": "\"John Doe\"",
+                "outcallerid": "default",
+                "mobilephonenumber": "",
                 "username": "",
                 "password": "",
-                "music_on_hold": "default",
+                "musiconhold": "default",
                 "preprocess_subroutine": "",
                 "userfield": ""
    }
@@ -229,17 +229,17 @@ Input
 +-----------------------+----------+--------------------------------------+
 | description           | no       | string                               |
 +-----------------------+----------+--------------------------------------+
-| caller_id             | no       | string                               |
+| callerid              | no       | string                               |
 +-----------------------+----------+--------------------------------------+
-| outgoing_caller_id    | no       | string: default, anonymous or custom |
+| outcallerid           | no       | string: default, anonymous or custom |
 +-----------------------+----------+--------------------------------------+
-| mobile_phone_number   | no       | string of digits                     |
+| mobilephonenumber     | no       | string of digits                     |
 +-----------------------+----------+--------------------------------------+
 | username              | no       | string                               |
 +-----------------------+----------+--------------------------------------+
 | password              | no       | string. Minimum of 4 characters      |
 +-----------------------+----------+--------------------------------------+
-| music_on_hold         | no       | string. Must be a valid category     |
+| musiconhold           | no       | string. Must be a valid category     |
 +-----------------------+----------+--------------------------------------+
 | preprocess_subroutine | no       | string                               |
 +-----------------------+----------+--------------------------------------+
@@ -288,12 +288,12 @@ Example response
        "timezone": "",
        "language": "en_US",
        "description": "",
-       "caller_id": "\"John Doe\"",
-       "outgoing_caller_id": "default",
-       "mobile_phone_number": "",
+       "callerid": "\"John Doe\"",
+       "outcallerid": "default",
+       "mobilephonenumber": "",
        "username": "",
        "password": "",
-       "music_on_hold": "default",
+       "musiconhold": "default",
        "preprocess_subroutine": "",
        "userfield": ""
        "links" : [
