@@ -68,6 +68,7 @@ Example response
 
    [
       {
+           "user_id": 20,
            "line_id": 132,
            "main_user": true,
            "main_line": true,
@@ -75,6 +76,10 @@ Example response
               {
                   "rel": "lines",
                   "href": "https://xivoserver/1.1/lines/132"
+              },
+              {
+                  "rel": "users",
+                  "href": "https://xivoserver/1.1/users/20"
               }
            ]
        }
@@ -137,6 +142,7 @@ Example response
     Location: /1.1/users/59/lines
 
     {
+        "user_id": 59,
         "line_id": 432,
         "main_user": true,
         "main_line": true,
@@ -144,6 +150,10 @@ Example response
            {
                "rel": "lines",
                "href": "https://xivoserver/1.1/lines/432"
+           },
+           {
+               "rel": "users",
+               "href": "https://xivoserver/1.1/users/59"
            }
         ]
     }
