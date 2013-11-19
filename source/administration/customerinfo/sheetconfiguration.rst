@@ -137,7 +137,7 @@ Three kinds of variables are available :
     * `xivo-queuename` queue called
     * `xivo-agentnumber` agent number called
     * `xivo-date` formatted date string
-    * `xivo-time` formatted time string
+    * `xivo-time` formatted time string, when the sheet was triggered
     * `xivo-channel` asterisk channel value (for advanced users)
     * `xivo-uniqueid` asterisk uniqueid value (for advanced users)
 
