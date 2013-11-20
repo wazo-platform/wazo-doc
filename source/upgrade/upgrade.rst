@@ -106,13 +106,24 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes
 =============
 
+13.23
+-----
+
+* The *New call* button has been remove from SCCP phones in *connected* state.  To start a new call, the user
+  will have to press *Hold* then *New call*. This is the same behavior as a *Call Manager*.
+* Some key have been moved on SCCP phones. We tried to keep the keys in the same position at any given time.
+  As an example, the *transfer* key will not become *End call* while transfering a call. Note that this is a
+  work in progress and some models still need some tweaking.
+
+
 13.22
 -----
 
 * Consult the `13.22 Roadmap <https://projects.xivo.fr/versions/188>`_
 * PostgreSQL will be upgraded from 9.0 to 9.1. The upgrade of XiVO will take longer than usual, depending
-  on the size of the database. Usually, the database grows with the number of calls processed by XiVO. 
+  on the size of the database. Usually, the database grows with the number of calls processed by XiVO.
   The upgrade will be stopped if not enough space is available on the XiVO server.
+
 
 13.21
 -----
@@ -120,12 +131,14 @@ Upgrade Notes
 * Consult the `13.21 Roadmap <https://projects.xivo.fr/versions/187>`_
 * It is no more possible to delete a device associated to a line using REST API.
 
+
 13.20
 -----
 
 * Consult the `13.20 Roadmap <https://projects.xivo.fr/versions/186>`_
 * xivo-libsccp now supports direct media on wifi phone 7920 and 7921
 * xivo-restapi now implements a voicemail list
+
 
 13.19
 -----
@@ -142,6 +155,7 @@ Upgrade Notes
 * The database was highly modified for everything related to devices : table devicefeatures does not exist
   anymore and now relies on information from xivo-provd.
 
+
 13.17
 -----
 
@@ -150,6 +164,7 @@ Upgrade Notes
   Furthermore, call logs are now fetched with the new REST API. See :ref:`restapi-call-logs`.
 * Paging group numbers are now exclusively numeric. All non-numeric paging group numbers are converted to their numeric-only equivalent
   while upgrading to XiVO 13.17 ( \*58 becomes 58, for example).
+
 
 13.16
 -----
@@ -169,10 +184,12 @@ Upgrade Notes
   precisely the :ref:`Associate Line to User <associate_line_to_user>` section for more
   information.
 
+
 13.15
 -----
 * There was no production release of XiVO 13.15. All 13.15 developments are included in the official
   13.16 release.
+
 
 13.14
 -----
