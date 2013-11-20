@@ -109,9 +109,9 @@ Upgrade Notes
 13.23
 -----
 
-* The *New call* button has been remove from SCCP phones in *connected* state.  To start a new call, the user
+* The *New call* softkey has been removed from SCCP phones in *connected* state.  To start a new call, the user
   will have to press *Hold* then *New call*. This is the same behavior as a *Call Manager*.
-* Some key have been moved on SCCP phones. We tried to keep the keys in the same position at any given time.
+* Some softkeys have been moved on SCCP phones. We tried to keep the keys in the same position at any given time.
   As an example, the *transfer* key will not become *End call* while transfering a call. Note that this is a
   work in progress and some models still need some tweaking.
 
