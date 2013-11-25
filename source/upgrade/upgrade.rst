@@ -109,6 +109,7 @@ Upgrade Notes
 13.23
 -----
 
+* Consult the `13.23 Roadmap <https://projects.xivo.fr/versions/189>`_
 * The *New call* softkey has been removed from SCCP phones in *connected* state.  To start a new call, the user
   will have to press *Hold* then *New call*. This is the same behavior as a *Call Manager*.
 * Some softkeys have been moved on SCCP phones. We tried to keep the keys in the same position at any given time.
