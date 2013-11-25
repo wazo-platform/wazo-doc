@@ -299,7 +299,7 @@ share the exact same clock.
 
 If you do this, you need to load the DAHDI module with the ``timingcable=1`` option.
 
-Create :file:`/etc/modprobe.d/xivo-timingcable` file and insert line::
+Create :file:`/etc/modprobe.d/xivo-timingcable.conf` file and insert line::
 
    options <module> timingcable=1
 

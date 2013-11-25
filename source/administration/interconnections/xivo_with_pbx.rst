@@ -220,7 +220,7 @@ Create the interconnections
 You have to create two interconnections :
 
 * provider side : dahdi/g0
-* PBX side : dahdi/g1
+* PBX side : dahdi/g2
 
 In the menu :menuselection:`Services --> IPBX --> Trunk management --> Customized` page ::
 
