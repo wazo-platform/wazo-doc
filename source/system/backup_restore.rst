@@ -69,8 +69,8 @@ The following files/folders are excluded from this backup:
 
 * log files, coredump files,
 * audio recordings,
-* and, files greater than 10Mo or folders containing more than 100 files
-  if they belong to one of these folders:
+* and, files greater than 10 MiB or folders containing more than 100 files if they belong to one of
+  these folders:
 
   * :file:`/var/lib/pf-xivo/sounds`
   * :file:`/var/lib/asterisk/sounds/custom`
@@ -89,7 +89,7 @@ Creating a database backup file manually
 ========================================
 
 .. warning::
-    
+
     A backup file may take a lot of space on the disk.
     You should check the free space on the partition before doing it.
 
@@ -101,8 +101,8 @@ You can manually create a *database* backup file named :file:`db-manual.tgz` in 
 Creating a data backup file manually
 ====================================
 
-.. warning:: 
-    
+.. warning::
+
     A backup file may take a lot of space on the disk.
     You should check the free space on the partition before doing it.
 
