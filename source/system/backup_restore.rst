@@ -47,12 +47,12 @@ Here is the list of the folder and files backuped:
 * :file:`/etc/asterisk`
 * :file:`/etc/dahdi`
 * :file:`/etc/dhcp`
-* :file:`/etc/pf-xivo`
-* :file:`/etc/wanpipe`
-* :file:`/etc/network/interfaces`
-* :file:`/etc/resolv.conf`
-* :file:`/etc/hosts`
 * :file:`/etc/hostname`
+* :file:`/etc/hosts`
+* :file:`/etc/network/interfaces`
+* :file:`/etc/pf-xivo`
+* :file:`/etc/resolv.conf`
+* :file:`/etc/wanpipe`
 * :file:`/var/lib/asterisk/`
 * :file:`/var/lib/pf-xivo/`
 * :file:`/var/lib/xivo-provd`
