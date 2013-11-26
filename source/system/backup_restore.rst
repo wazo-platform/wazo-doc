@@ -50,6 +50,7 @@ Here is the list of the folder and files backuped:
 * :file:`/etc/hostname`
 * :file:`/etc/hosts`
 * :file:`/etc/network/interfaces`
+* :file:`/etc/ntp.conf`
 * :file:`/etc/pf-xivo`
 * :file:`/etc/resolv.conf`
 * :file:`/etc/wanpipe`
