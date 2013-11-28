@@ -80,13 +80,6 @@ Then you must issue the command in Asterisk CLI::
 
    module reload chan_sccp
 
-.. warning::
-
-   Direct media is currently only supported between SCCP phones on a same XiVO.
-
-   If your are using your SCCP phones to make/receive calls through a SIP trunk
-   for example, then you must disable the direct media option.
-
 
 .. _resync_sccp_device:
 
@@ -167,7 +160,7 @@ Features
 +------------------------------+-----------+
 | Multi line                   | Not yet   |
 +------------------------------+-----------+
-| Codec selection              | Manual    |
+| Codec selection              | Yes       |
 +------------------------------+-----------+
 | NAT traversal                | Not yet   |
 +------------------------------+-----------+
