@@ -64,25 +64,27 @@ Example response
     HTTP/1.1 200 OK
     Content-Type: application/json
 
-   [
-      {
-           "user_id": 20,
-           "line_id": 132,
-           "main_user": true,
-           "main_line": true,
-           "links": [
-              {
-                  "rel": "lines",
-                  "href": "https://xivoserver/1.1/lines/132"
-              },
-              {
-                  "rel": "users",
-                  "href": "https://xivoserver/1.1/users/20"
-              }
-           ]
-       }
-    ]
-
+   {
+        "total": 1,
+        "items": [
+            {
+                "user_id": 20,
+                "line_id": 132,
+                "main_user": true,
+                "main_line": true,
+                "links": [
+                    {
+                        "rel": "lines",
+                        "href": "https://xivoserver/1.1/lines/132"
+                    },
+                    {
+                        "rel": "users",
+                        "href": "https://xivoserver/1.1/users/20"
+                    }
+                ]
+            }
+        ]
+   }
 
 
 Associate a Line to a User
