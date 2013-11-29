@@ -8,7 +8,7 @@ The XiVO REST API is the new and privileged way to programmatically interact wit
 
 In the future, this web API will replace the existing :ref:`web services <web-services-api>`.
 
-The current API version is :ref:`1.0 <rest-api-1.0>`.
+The current API version is :ref:`1.1 <rest-api-1.1>`.
 
 
 Configuration
@@ -21,7 +21,7 @@ webservices user in the web interface (Configuration/Management/Web Services Acc
 * if you choose not to specify an IP address for the user, you can connect to the REST API with a HTTP Digest authentication, using the user name and password you provided.
   For instance, the following command line allows to retrieve XiVO users through the REST API, using the login **admin** and the password **passadmin**::
 
-     curl --digest --insecure -u admin:passadmin https://<xivo_address>:50051/1.0/users/
+     curl --digest --insecure -u admin:passadmin https://<xivo_address>:50051/1.1/users
 
 The REST API is also available on the loopback interface via HTTP on port 50050, with no
 authentication needed.
@@ -47,18 +47,31 @@ __ http://www.iana.org/assignments/http-status-codes/http-status-codes.xml
 General URL parameters
 ======================
 
-All URL's starts by /1.0/, 1.0 is the current protocol version.
+All URL's starts by /1.1/, 1.1 is the current protocol version.
 
-Pagination::
+Example usage of general parameters::
 
-   GET http://127.0.0.1:50050/1.0/users/?_page=X&_pagesize=Y
+   GET http://127.0.0.1:50050/1.1/voicemails?limit=X&skip=Y
 
-Parameters:
- * _page - page number (items from X \* _page to (X+1) \* _pagesize)
- * _pagesize - number of items per page
+Parameters
+----------
 
-.. note:: Parameters starting by an _ means that it is not relevant to the data definition, but used
-          to control how objects are sent back from the server to the client.
+
+order
+   Sort the list using a column (e.g. "number"). See specific resource documentation for columns allowed.
+
+direction
+    'asc' or 'desc'. Sort list in ascending (asc) or descending (desc) order
+
+limit
+    total number of resources to show in the list. Must be a positive integer
+
+skip
+    number of resources to skip over before starting the list. Must be a positive integer
+
+search
+    Search resources. Only resources with a field containing the search term
+    will be listed.
 
 
 Data representation
@@ -81,7 +94,7 @@ JSON is used to encode returned or sent data. Therefore, the following headers a
 Getting object lists
 ^^^^^^^^^^^^^^^^^^^^
 
-``GET /1.0/objects/``
+``GET /1.1/objects``
 
 When returning lists the format is as follows:
  * total - number of items in total in the system configuration (optional)
@@ -116,7 +129,7 @@ Getting An Object
 Format returned is a list of properties. The object should always have the same attributes set, the
 default value being the equivalent to NULL in the content-type format.
 
-``GET /1.0/objects/<id>/``
+``GET /1.1/objects/<id>``
 
 ``Response data format``
 
@@ -133,7 +146,7 @@ Data sent to the REST server
 
 The XiVO REST server implements POST and PUT methods for item creation and update respectively.
 Data is created using the POST method via a root URL and is updated using the PUT method via a root
-URL suffixed by /<id>/. The server expects to receive JSON encoded data. Only one item can be
+URL suffixed by /<id. The server expects to receive JSON encoded data. Only one item can be
 processed per request. The data format and required data fields are illustrated in the following
 example:
 
@@ -178,14 +191,7 @@ The error messages are contained in a JSON list, even if there is only one error
 API
 ===
 
-Production version:
-
-.. toctree::
-   :maxdepth: 1
-
-   1.0/api-1.0
-
-Development version:
+Beta version:
 
 .. toctree::
    :maxdepth: 1
