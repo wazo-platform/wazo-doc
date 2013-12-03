@@ -140,9 +140,9 @@ Features
 +------------------------------+-----------+
 | Redial                       | Yes       |
 +------------------------------+-----------+
-| Speed dial                   | Yes**     |
+| Speed dial                   | Yes       |
 +------------------------------+-----------+
-| BLF (Supervision)            | Yes**     |
+| BLF (Supervision)            | Yes       |
 +------------------------------+-----------+
 | Resync device configuration  | Yes       |
 +------------------------------+-----------+
@@ -166,10 +166,6 @@ Features
 +------------------------------+-----------+
 | Type of Service (TOS)        | Yes       |
 +------------------------------+-----------+
-
-.. warning::
-
-   ** Speeddial and BLF doesn't work on 7911 and 7906 yet.
 
 
 Telephone
