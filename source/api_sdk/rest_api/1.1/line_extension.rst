@@ -79,7 +79,7 @@ Query
 
 ::
 
-    POST /lines/<line_id>/extensions
+    POST /lines/<line_id>/extension
 
 
 Input
