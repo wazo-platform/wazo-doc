@@ -258,7 +258,7 @@ The following events are available :
 
  * Dial: When a new call enters the queue (all the members of the queue will be notified, even if they are not logged)
  * Link: When a user or agent answers a call
- * Unlink: When a user or agent hangup a call
+ * Unlink: When a user or agent hangup a call received from a queue
  * Incoming DID: Received a call in a DID
  * Hangup: Hangup the call
 
