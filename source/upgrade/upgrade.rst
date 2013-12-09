@@ -106,6 +106,14 @@ Here are the steps for upgrading a cluster:
 Upgrade Notes
 =============
 
+13.24
+-----
+
+* Consult the `13.24 Roadmap <https://projects.xivo.fr/versions/190>`_
+* Default Quality of Service (QoS) settings have been changed for SCCP. The IP packets containing
+  audio media are now marked with the EF DSCP.
+
+
 13.23
 -----
 
