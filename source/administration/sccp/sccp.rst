@@ -80,13 +80,6 @@ Then you must issue the command in Asterisk CLI::
 
    module reload chan_sccp
 
-.. warning::
-
-   Direct media is currently only supported between SCCP phones on a same XiVO.
-
-   If your are using your SCCP phones to make/receive calls through a SIP trunk
-   for example, then you must disable the direct media option.
-
 
 .. _resync_sccp_device:
 
@@ -147,9 +140,9 @@ Features
 +------------------------------+-----------+
 | Redial                       | Yes       |
 +------------------------------+-----------+
-| Speed dial                   | Yes**     |
+| Speed dial                   | Yes       |
 +------------------------------+-----------+
-| BLF (Supervision)            | Yes**     |
+| BLF (Supervision)            | Yes       |
 +------------------------------+-----------+
 | Resync device configuration  | Yes       |
 +------------------------------+-----------+
@@ -167,14 +160,12 @@ Features
 +------------------------------+-----------+
 | Multi line                   | Not yet   |
 +------------------------------+-----------+
-| Codec selection              | Manual    |
+| Codec selection              | Yes       |
 +------------------------------+-----------+
 | NAT traversal                | Not yet   |
 +------------------------------+-----------+
-
-.. warning::
-
-   ** Speeddial and BLF doesn't work on 7911 and 7906 yet.
+| Type of Service (TOS)        | Manual    |
++------------------------------+-----------+
 
 
 Telephone

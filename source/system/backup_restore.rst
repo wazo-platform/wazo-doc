@@ -47,12 +47,13 @@ Here is the list of the folder and files backuped:
 * :file:`/etc/asterisk`
 * :file:`/etc/dahdi`
 * :file:`/etc/dhcp`
-* :file:`/etc/pf-xivo`
-* :file:`/etc/wanpipe`
-* :file:`/etc/network/interfaces`
-* :file:`/etc/resolv.conf`
-* :file:`/etc/hosts`
 * :file:`/etc/hostname`
+* :file:`/etc/hosts`
+* :file:`/etc/network/interfaces`
+* :file:`/etc/ntp.conf`
+* :file:`/etc/pf-xivo`
+* :file:`/etc/resolv.conf`
+* :file:`/etc/wanpipe`
 * :file:`/var/lib/asterisk/`
 * :file:`/var/lib/pf-xivo/`
 * :file:`/var/lib/xivo-provd`
@@ -68,8 +69,8 @@ The following files/folders are excluded from this backup:
 
 * log files, coredump files,
 * audio recordings,
-* and, files greater than 10Mo or folders containing more than 100 files
-  if they belong to one of these folders:
+* and, files greater than 10 MiB or folders containing more than 100 files if they belong to one of
+  these folders:
 
   * :file:`/var/lib/pf-xivo/sounds`
   * :file:`/var/lib/asterisk/sounds/custom`
@@ -88,7 +89,7 @@ Creating a database backup file manually
 ========================================
 
 .. warning::
-    
+
     A backup file may take a lot of space on the disk.
     You should check the free space on the partition before doing it.
 
@@ -100,8 +101,8 @@ You can manually create a *database* backup file named :file:`db-manual.tgz` in 
 Creating a data backup file manually
 ====================================
 
-.. warning:: 
-    
+.. warning::
+
     A backup file may take a lot of space on the disk.
     You should check the free space on the partition before doing it.
 
