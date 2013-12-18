@@ -103,6 +103,15 @@ Here are the steps for upgrading a cluster:
 #. Reactivate the cronjobs (see steps 1 and 2)
 
 
+Upgrading to/from an archive version
+====================================
+
+.. toctree::
+   :maxdepth: 1
+
+   archives
+
+
 Upgrade Notes
 =============
 
