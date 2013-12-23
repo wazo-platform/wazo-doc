@@ -36,6 +36,7 @@ Enter the following information:
    When editing an LDAP server, you'll have to restart the CTI server
    for the changes to be taken into account.
 
+.. _ldaps:
 
 Notes on SSL/TLS usage
 ----------------------
