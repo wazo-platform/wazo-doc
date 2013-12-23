@@ -40,15 +40,20 @@ Enter the following information:
 Notes on SSL/TLS usage
 ----------------------
 
-If you are using SSL with an LDAP server that is using a CA certificate from
-an unknown certificate authority, you'll have to add the CA certificate to the
-:file:`/etc/ssl/certs/ca-certificates.crt` file, modify the :file:`/etc/ldap/ldap.conf`
-to add the line ``TLS_CACERT /etc/ssl/certs/ca-certificates.crt`` and restart spawn-fcgi
-with ``/etc/init.d/spawn-fcgi restart``.
+If you are using SSL with an LDAP server that is using a CA certificate from an
+unknown certificate authority, you'll have to put the certificate file as a
+single file ending with ``.crt`` into :file:`/usr/local/share/ca-certificates`
+and run ``update-ca-certificates``.
+
+You also need to make sure that the :file:`/etc/ldap/ldap.conf` file contains a
+line ``TLS_CACERT /etc/ssl/certs/ca-certificates.crt``.
+
+After that, restart spawn-fcgi with ``/etc/init.d/spawn-fcgi restart``.
 
 Also, make sure to use the :abbr:`FQDN (Fully Qualified Domain Name)` of the server
 in the host field when using SSL. The host field must match exactly what's in the CN
 attribute of the server certificate.
+
 
 .. _add-ldap-filter:
 
