@@ -117,8 +117,8 @@ Add static network routes
 -------------------------
 
 Static route can't be currently added via the web interface.
-If you want static routes in your XiVO you should do the following the steps described below.
-It would ensure that your static routes are applied at startup (in fact each time a network interface goes up).
+If you want static routes in your XiVO you should do the following steps described below.
+It would ensure that your static routes are applied at startup (in fact each time the network interface goes up).
 
 #. Create the file :file:`/etc/network/if-up.d/xivo-routes`::
 
@@ -128,14 +128,25 @@ It would ensure that your static routes are applied at startup (in fact each tim
 #. Insert the following content::
 
     #!/bin/sh
+    
+    if [ "${IFACE}" = "<network interface>" ]; then
+        ip route add <destination> via <gateway>
+        ip route add <destination> via <gateway>
+    fi
 
-    ip route add <destination> via <gateway> 
-    ip route add <destination> via <gateway>
+#. Fields <network interface>, <destination> and <gateway> should be replaced by your specific configuration.
+   For example, if you want to add a route for 192.168.50.128/25 via 192.168.17.254 which should be added
+   when eth0.100 goes up::
+    
+    #!/bin/sh
+    
+    if [ "${IFACE}" = "eth0.100" ]; then
+        ip route add 192.168.50.128/25 via 192.168.17.254
+    fi
 
-.. note:: 
-   <destination> and <gateway> should be replaced by your specific configuration.
-   For example `192.168.50.128/25 via 192.168.17.254`
-   or `91.195.18.20 via 192.168.17.254`
+.. note:: You need to check which interface goes up to add routes only if the right interface goes up.
+    Otherwise the system will try to set the routes each time any interface goes up.
+
 
 Change interface MTU
 --------------------

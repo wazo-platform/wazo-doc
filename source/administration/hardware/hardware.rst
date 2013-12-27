@@ -22,7 +22,7 @@ Load the correct DAHDI modules
 
 .. highlight:: none
 
-* Know which card is in your server :
+* Know which card is in your server: 
 
 You can see which cards are detected by issuing the ``dahdi_hardware`` command::
 
@@ -32,11 +32,21 @@ You can see which cards are detected by issuing the ``dahdi_hardware`` command::
 
 * Then you have to comment all the unused modules in :file:`/etc/dahdi/modules`.
 
-For example, if you have one B410P and one TE205P you should comment every modules in 
-:file:`/etc/dahdi/modules` except::
+For example, if you have one B410P and one TE205P you should comment every modules in :file:`/etc/dahdi/modules` except::
 
     wcb4xxp
     wct4xxp
+
+* **If this is a TE13X card** (``wcte13xp`` module) you **MUST** create a configuration file to set the line mode
+  as E1 (or T1).
+
+Contrarily to other cards there is no jumper to change the line mode. The configuration below
+sets the card in E1 mode::
+
+    cat << EOF > /etc/modprobe.d/xivo-wcte13xp.conf
+    # set wcte13xp cards in E1/T2 mode
+    options wcte13xp default_linemode=e1
+    EOF
 
 * Then, restart dahdi::
 
@@ -81,7 +91,7 @@ You can search for ``digium`` occurences in the available packages::
 
 * Install the package :
 
-In ou example, you install the package named ``digium-oct6114-064``::
+In our example, we install the package named ``digium-oct6114-064``::
 
    xivo-fetchfw install digium-oct6114-064
 
@@ -252,11 +262,13 @@ PRI card configuration
 Verifications
 -------------
 
-Verify that one of the ``{wct1xxp,wcte11xp,wcte12xp,wct4xxp}`` module is uncommented in
+Verify that one of the ``{wct1xxp,wcte11xp,wcte12xp,wcte13xp,wct4xxp}`` module is uncommented in
 :file:`/etc/dahdi/modules` depending on the card you installed in your server.
 
 If it wasn't, do again the step :ref:`load_dahdi_modules`
 
+.. warning:: Be aware that TE3XP cards' dahdi module need a specific configuration.
+    See :ref:`load_dahdi_modules` paragraph.
 
 Generate DAHDI configuration
 ----------------------------
@@ -297,14 +309,20 @@ Sync cable
 You can link several PRI Digium card between themselves with a sync cable to
 share the exact same clock.
 
-If you do this, you need to load the DAHDI module with the ``timingcable=1`` option.
+If you do this, you need to:
 
-Create :file:`/etc/modprobe.d/xivo-timingcable.conf` file and insert line::
+* use the coding wheel on the Digium cards to give them an order of recognition in DAHDI/Asterisk (see Digium_telephony_cards_support_),
+* daisy-chain the cards with a sync cable (see Digium_telephony_cards_support_),
+* load the DAHDI module with the ``timingcable=1`` option.
+
+Create :file:`/etc/modprobe.d/xivo-timingcable.conf` file and insert the line::
 
    options <module> timingcable=1
 
 Where <module> is the DAHDI module name of your card (e.g. wct4xxp for a TE205P).
 
+
+.. _Digium_telephony_cards_support: http://www.digium.com/en/support/telephony-cards
 
 Analog card configuration
 =========================

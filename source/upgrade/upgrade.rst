@@ -103,8 +103,31 @@ Here are the steps for upgrading a cluster:
 #. Reactivate the cronjobs (see steps 1 and 2)
 
 
+Upgrading to/from an archive version
+====================================
+
+.. toctree::
+   :maxdepth: 1
+
+   archives
+
+
 Upgrade Notes
 =============
+
+13.25
+-----
+
+* Consult the `13.25 Roadmap <https://projects.xivo.fr/versions/191>`_
+* Debian has been upgraded from version 6 (Squeeze) to 7 (Wheezy), which is essentially a complete
+  system upgrade.
+
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   wheezy
 
 13.24
 -----
