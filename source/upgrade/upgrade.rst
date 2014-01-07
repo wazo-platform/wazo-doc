@@ -69,6 +69,15 @@ When upgrading from XiVO 13.03 or earlier, you must do the following, before the
    wget http://mirror.xivo.fr/xivo_current.key -O - | apt-key add -
 
 
+Specific procedure: XiVO 12.13 and before
+=========================================
+
+When upgrading from XiVO 12.13 or earlier, you must do the following, before the normal upgrade::
+
+   apt-get update
+   apt-get install debian-archive-keyring
+
+
 Specific procedure: XiVO 1.2.1 and before
 =========================================
 
