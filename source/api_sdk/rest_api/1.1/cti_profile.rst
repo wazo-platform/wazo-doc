@@ -73,3 +73,36 @@ Example response
            }
        ]
    }
+
+
+Get CTI Profile
+===============
+
+Query
+-----
+
+::
+
+   GET /1.1/cti_profiles/<id>
+
+Example request
+---------------
+
+::
+
+   GET /1.1/cti_profiles/1 HTTP/1.1
+   Host: xivoserver
+   Accept: application/json
+
+Example response
+----------------
+
+::
+
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+
+   {
+        "id": 1,
+        "name": "Client"
+   }
