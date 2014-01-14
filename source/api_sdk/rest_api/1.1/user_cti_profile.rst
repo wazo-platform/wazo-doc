@@ -134,7 +134,7 @@ Example response
 
     {
         "user_id": 75,
-        "cti_profile_id": 2,
+        "cti_profile_id": 3,
         "links": [
            {
                "rel": "users",
@@ -142,14 +142,14 @@ Example response
            },
            {
                "rel": "cti_profiles",
-               "href": "https://xivoserver/1.1/cti_profiles/2"
+               "href": "https://xivoserver/1.1/cti_profiles/3"
            }
         ]
     }
 
 
-Dissociate an CTI Profile from a User
-=====================================
+Dissociate a CTI Profile from a User
+====================================
 
 
 Query

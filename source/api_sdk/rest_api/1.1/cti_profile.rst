@@ -13,9 +13,9 @@ Description
 +-------+---------+-------------------------+
 | Field | Values  | Description             |
 +=======+=========+=========================+
-| id    | integer | (Read-only)             |
+| id    | integer | Read-only               |
 +-------+---------+-------------------------+
-| name  | string  | name of the CTI profile |
+| name  | string  | Display name            |
 +-------+---------+-------------------------+
 
 
