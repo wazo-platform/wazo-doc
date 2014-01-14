@@ -14,17 +14,17 @@ REST API 1.1
    :maxdepth: 2
 
    call_logs
+   cti_profile
    devices
    extensions
    lines
    line_extension
    users
+   user_cti_profile
    user_line
    user_links
    voicemails
    voicemail_links
-   cti_profile
-   user_cti_profile
 
 
 Migration from 1.0
