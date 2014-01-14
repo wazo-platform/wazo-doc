@@ -413,3 +413,8 @@ Users-Voicemails Association
 ============================
 
 See :ref:`user-voicemail-association`.
+
+Users-CTI profiles Association
+==============================
+
+See :ref:`user-cti-profile-association`.

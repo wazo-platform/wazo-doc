@@ -24,6 +24,7 @@ REST API 1.1
    voicemails
    voicemail_links
    cti_profile
+   user_cti_profile
 
 
 Migration from 1.0
