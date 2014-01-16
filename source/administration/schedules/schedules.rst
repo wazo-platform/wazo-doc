@@ -52,6 +52,6 @@ being actually redirected to the closed action of the schedule.
 
 If you don't want this prompt to be played, you can change the behaviour by:
 
-#. editing the :file:`/etc/pf-xivo/asterisk/xivo_globals.conf` file and setting the
+#. editing the :file:`/etc/xivo/asterisk/xivo_globals.conf` file and setting the
    ``XIVO_FWD_SCHEDULE_OUT_ISDA`` to ``1``
 #. reloading the asterisk dialplan with an ``asterisk -rx "dialplan reload"``.

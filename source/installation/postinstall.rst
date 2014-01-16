@@ -21,7 +21,7 @@ Incoming caller number display
 ==============================
 
 The display of caller number on incoming calls depends on what is sent by your operator.
-You can modify it via the file :file:`/etc/pf-xivo/asterisk/xivo_in_callerid.conf`.
+You can modify it via the file :file:`/etc/xivo/asterisk/xivo_in_callerid.conf`.
 
 .. note:: this is this modified caller id number which will be used in the reverse directory lookup
 

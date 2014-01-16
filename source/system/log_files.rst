@@ -54,13 +54,13 @@ web-interface
 -------------
 The web-interface's log file is managed by logrotate.
 
-It's configuration file is '/etc/logrotate.d/pf-xivo-web-interface'
+It's configuration file is '/etc/logrotate.d/xivo-web-interface'
 
 Default configuration
 
 * Rotation frequence: Daily
 * Number of archived files: 21
-* File location: /var/log/pf-xivo-web-interface/\*.log
+* File location: /var/log/xivo-web-interface/\*.log
 
 
 xivo-confgend

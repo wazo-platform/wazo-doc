@@ -49,7 +49,7 @@ dhcp-update
 
 *This step is needed if you use the DHCP server of the XiVO. Otherwise the DHCP configuration won't be correct.*
 
-Proxy information is set via the :file:`/etc/pf-xivo/dhcpd-update.conf` file.
+Proxy information is set via the :file:`/etc/xivo/dhcpd-update.conf` file.
 
 Edit the file and look for the ``[proxy]`` section.
 
@@ -59,7 +59,7 @@ xivo-fetchfw
 
 *This step is not needed if you don't use xivo-fetchfw.*
 
-Proxy information is set via the :file:`/etc/pf-xivo/xivo-fetchfw.conf` file.
+Proxy information is set via the :file:`/etc/xivo/xivo-fetchfw.conf` file.
 
 Edit the file and look for the ``[proxy]`` section.
 

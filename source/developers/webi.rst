@@ -7,7 +7,7 @@ Configuration for development
 
 Default error level for XiVO web interface is E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED & ~E_RECOVERABLE_ERROR & ~E_STRICT
 
-If you want to display warning or other error in your browser, edit the :file:`/etc/pf-xivo/xivo-web-interface/xivo.ini`
+If you want to display warning or other error in your browser, edit the :file:`/etc/xivo/web-interface/xivo.ini`
 and replace report_type level to 3::
 
    [error]
@@ -18,7 +18,7 @@ and replace report_type level to 3::
    email = john.doe@example.com
    file = /var/log/xivo-web-interface/error.log
 
-You may also edit :file:`/etc/pf-xivo/web-interface/php.ini` and change the error level, but you will need to restart the cgi::
+You may also edit :file:`/etc/xivo/web-interface/php.ini` and change the error level, but you will need to restart the cgi::
 
    /etc/init.d/spawn-fcgi restart
 

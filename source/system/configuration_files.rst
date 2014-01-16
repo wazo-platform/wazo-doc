@@ -8,7 +8,7 @@ This section describes some of the XiVO configuration files.
 xivo_ring.conf
 ==============
 
-* Path: :file:`/etc/pf-xivo/asterisk/xivo_ring.conf`
+* Path: :file:`/etc/xivo/asterisk/xivo_ring.conf`
 * Purpose: This file can be used to change the ringtone played by the phone depending on the 
   origin of the call.
 
@@ -61,7 +61,7 @@ Here is the process you should follow if you want to use/customize this feature 
 ipbx.ini
 ==============
 
-* Path: :file:`/etc/pf-xivo/xivo-web-interface/ipbx.ini`
+* Path: :file:`/etc/xivo/web-interface/ipbx.ini`
 * Purpose: This file specifies various configuration options and paths related 
   to Asterisk and used by the web interface.
 

@@ -62,7 +62,7 @@ To apply your changes, go in ``provd_pycli`` and run::
 Disable plugin caching
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Edit :file:`/etc/pf-xivo/provd/provd.conf` and add the line::
+Edit :file:`/etc/xivo/provd/provd.conf` and add the line::
 
     cache_plugin: True
 
