@@ -124,6 +124,16 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.01
+-----
+
+* Consult the `14.01 Roadmap <https://projects.xivo.fr/versions/192>`_
+* The following paths have been renamed:
+
+  * :file:`/etc/pf-xivo` to :file:`/etc/xivo`
+  * :file:`/var/lib/pf-xivo` to :file:`/var/lib/xivo`
+  * :file:`/usr/share/pf-xivo` to :file:`/usr/share/xivo`
+
 13.25
 -----
 
