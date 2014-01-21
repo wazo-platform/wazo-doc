@@ -134,6 +134,9 @@ Upgrade Notes
   * :file:`/var/lib/pf-xivo` to :file:`/var/lib/xivo`
   * :file:`/usr/share/pf-xivo` to :file:`/usr/share/xivo`
 
+You must update any dialplan or configuration file using these paths
+
+
 13.25
 -----
 
@@ -147,6 +150,7 @@ Please consult the following detailed upgrade notes for more information:
    :maxdepth: 1
 
    wheezy
+
 
 13.24
 -----
