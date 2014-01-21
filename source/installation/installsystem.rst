@@ -33,11 +33,11 @@ for Debian squeeze can be found at http://www.debian.org/distrib/.
 
 Once you have your Debian squeeze properly installed, log into it and download the XiVO installation script::
 
-   wget http://mirror.xivo.fr/fai/xivo-migration/xivo_install_skaro.sh
+   wget http://mirror.xivo.fr/fai/xivo-migration/xivo_install_current.sh
 
 And run it::
 
-   bash xivo_install_skaro.sh
+   bash xivo_install_current.sh
 
 .. note::
 
@@ -47,11 +47,11 @@ And run it::
 
    To install the release candidate version::
 
-      bash xivo_install_skaro.sh -r
+      bash xivo_install_current.sh -r
 
    To install the developement version::
 
-      bash xivo_install_skaro.sh -d
+      bash xivo_install_current.sh -d
 
 
 Installing from a PXE

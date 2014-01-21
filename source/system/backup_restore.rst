@@ -51,11 +51,11 @@ Here is the list of the folder and files backuped:
 * :file:`/etc/hosts`
 * :file:`/etc/network/interfaces`
 * :file:`/etc/ntp.conf`
-* :file:`/etc/pf-xivo`
+* :file:`/etc/xivo`
 * :file:`/etc/resolv.conf`
 * :file:`/etc/wanpipe`
 * :file:`/var/lib/asterisk/`
-* :file:`/var/lib/pf-xivo/`
+* :file:`/var/lib/xivo/`
 * :file:`/var/lib/xivo-provd`
 * :file:`/var/log/asterisk/`
 * :file:`/var/spool/asterisk/`
@@ -72,7 +72,7 @@ The following files/folders are excluded from this backup:
 * and, files greater than 10 MiB or folders containing more than 100 files if they belong to one of
   these folders:
 
-  * :file:`/var/lib/pf-xivo/sounds`
+  * :file:`/var/lib/xivo/sounds`
   * :file:`/var/lib/asterisk/sounds/custom`
   * :file:`/var/lib/asterisk/moh`
   * :file:`/var/spool/asterisk/voicemail`

@@ -69,6 +69,15 @@ When upgrading from XiVO 13.03 or earlier, you must do the following, before the
    wget http://mirror.xivo.fr/xivo_current.key -O - | apt-key add -
 
 
+Specific procedure: XiVO 12.13 and before
+=========================================
+
+When upgrading from XiVO 12.13 or earlier, you must do the following, before the normal upgrade::
+
+   apt-get update
+   apt-get install debian-archive-keyring
+
+
 Specific procedure: XiVO 1.2.1 and before
 =========================================
 
@@ -114,6 +123,16 @@ Upgrading to/from an archive version
 
 Upgrade Notes
 =============
+
+14.01
+-----
+
+* Consult the `14.01 Roadmap <https://projects.xivo.fr/versions/192>`_
+* The following paths have been renamed:
+
+  * :file:`/etc/pf-xivo` to :file:`/etc/xivo`
+  * :file:`/var/lib/pf-xivo` to :file:`/var/lib/xivo`
+  * :file:`/usr/share/pf-xivo` to :file:`/usr/share/xivo`
 
 13.25
 -----

@@ -33,8 +33,8 @@ To change this you must create a custom-template:
 
 #. Create a custom template for the :file:`dhcpd_subnet.conf.head` file::
 
-     mkdir -p /etc/pf-xivo/custom-templates/dhcp/etc/dhcp/
-     cd /etc/pf-xivo/custom-templates/dhcp/etc/dhcp/
+     mkdir -p /etc/xivo/custom-templates/dhcp/etc/dhcp/
+     cd /etc/xivo/custom-templates/dhcp/etc/dhcp/
      cp /usr/share/xivo-config/templates/dhcp/etc/dhcp/dhcpd_subnet.conf.head .
 
 #. Edit the custom template::
@@ -66,8 +66,8 @@ If you want your XiVO DHCP server to serve also unknown hosts (like PCs) follow 
 
 #. Create a custom template for the :file:`dhcpd_subnet.conf.tail` file::
      
-     mkdir -p /etc/pf-xivo/custom-templates/dhcp/etc/dhcp/
-     cd /etc/pf-xivo/custom-templates/dhcp/etc/dhcp/
+     mkdir -p /etc/xivo/custom-templates/dhcp/etc/dhcp/
+     cd /etc/xivo/custom-templates/dhcp/etc/dhcp/
      cp /usr/share/xivo-config/templates/dhcp/etc/dhcp/dhcpd_subnet.conf.tail .
 
 #. Edit the custom template::

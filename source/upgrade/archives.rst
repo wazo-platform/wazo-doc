@@ -24,9 +24,7 @@ Upgrade to current version from an archive
 ::
 
    apt-get update
-   apt-get install xivo-fai
-   apt-get update
-   apt-get install xivo-fai
+   apt-get install xivo-fai/squeeze-xivo-skaro-$(cat /usr/share/xivo/XIVO-VERSION) xivo-fai-skaro
    apt-get update
    xivo-upgrade
 

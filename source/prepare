@@ -28,11 +28,11 @@ class RetrieveGitInfos(object):
         except (OSError, subprocess.CalledProcessError):
             raise "Error while executing %s" % comman_list_tags.join(' ')
 
-        valid_tag = re.compile(r"^squeeze-xivo-skaro-([0-9\.]*)$")
+        valid_tag = re.compile(r"^(squeeze-)?xivo-(skaro-)?([0-9\.]+)$")
         if p.stdout:
             for tag in p.stdout.readlines():
                 if valid_tag.match(tag):
-                    tag_version = valid_tag.match(tag).group(1)
+                    tag_version = valid_tag.match(tag).group(3)
                     self.list_tag.append(tag_version)
                     Prepare(tag_version)
         return self.list_tag[-1]

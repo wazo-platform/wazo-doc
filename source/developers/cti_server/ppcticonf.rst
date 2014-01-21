@@ -4,7 +4,7 @@ ppcticonf
 
 `ppcticonf` is a small utility used to pretty print the CTI server configuration.
 
-The utility is installed by default with XiVO. It comes with the pf-xivo-utils package.
+The utility is installed by default with XiVO. It comes with the xivo-utils package.
 
 In fact, `ppcticonf` can be used to pretty print any URL or file that contains a JSON document.
 
@@ -19,7 +19,7 @@ The simplest invocation is:
    {
        "agentstatus": [], 
        "bench": 0.077938079833984, 
-       "certfile": "/var/lib/pf-xivo/certificates/test2.crt", 
+       "certfile": "/var/lib/xivo/certificates/test2.crt", 
        "channelstatus": [], 
        "contexts": {
            "*": {
@@ -86,7 +86,7 @@ Alternatively, you can pass a file path as an argument:
    {
        "agentstatus": [], 
        "bench": 0.078904151916504003, 
-       "certfile": "/var/lib/pf-xivo/certificates/test2.crt", 
+       "certfile": "/var/lib/xivo/certificates/test2.crt", 
        "channelstatus": [], 
        "contexts": {
            "*": {

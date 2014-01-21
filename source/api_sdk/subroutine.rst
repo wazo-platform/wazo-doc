@@ -41,7 +41,7 @@ Don't forget to finish your subroutine by a Return().
 Global subroutine
 =================
 
-There is predefined subroutine for this feature, you can find the name and the activation in the :file:`/etc/pf-xivo/asterisk/xivo_globals.conf`.
+There is predefined subroutine for this feature, you can find the name and the activation in the :file:`/etc/xivo/asterisk/xivo_globals.conf`.
 The variables are::
 
    ; Global Preprocess subroutine

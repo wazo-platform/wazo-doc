@@ -46,6 +46,25 @@ Log file: ``/var/log/daemon.log``. Lines start with ``xivo-agid``.
     Oct 29 11:03:54 hostname xivo-agid[25724]: executing update command 'update-phonebook'
 
 
+amid
+======
+
+::
+
+   xivo-amid -f -v
+
+* -f for foreground
+* -v for verbose
+
+Log file: ``/var/log/xivo-amid.log``
+
+::
+
+    2014-01-15 10:36:42,372 [5252] (INFO): Starting xivo-amid
+    2014-01-15 10:36:42,372 [5252] (INFO): Connecting socket
+    2014-01-15 10:36:42,372 [5252] (INFO): Connecting AMI client to localhost:5038
+
+
 confgend
 ========
 

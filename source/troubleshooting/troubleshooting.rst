@@ -67,7 +67,7 @@ this example) : if a fax is detected, receive it otherwise route the call normal
     same  =     n(changeechocan),Set(CHANNEL(echocan_mode)=fax) ; if chan type is dahdi set echo canceller in fax mode
     same  =     n(continue),Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
 
-#. In the file :file:`/etc/pf-xivo/asterisk/xivo_globals.conf` set the global user subroutine to
+#. In the file :file:`/etc/xivo/asterisk/xivo_globals.conf` set the global user subroutine to
    ``pre-user-global-faxdetection`` : this subroutine will be executed each time a user is called::
 
     XIVO_PRESUBR_GLOBAL_USER = pre-user-global-faxdetection

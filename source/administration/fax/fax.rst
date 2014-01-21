@@ -36,7 +36,7 @@ user-specified address with the incoming fax attached as a PDF document.
 Starting with XiVO 1.1.15, more advanced features have been added, like the
 ability of sending a PDF copy of a fax via FTP, printing it, changing the email body,
 or doing more than one action at the same time. These advanced features are unfortunately
-not available from the web-interface but only by editing the `/etc/pf-xivo/asterisk/xivo_fax.conf`
+not available from the web-interface but only by editing the `/etc/xivo/asterisk/xivo_fax.conf`
 configuration file.
 
 
@@ -61,7 +61,7 @@ call range in the used context.
 Changing the email body
 -----------------------
 
-You can change the body of the email sent upon fax reception by editing the :file:`/etc/pf-xivo/mail.txt`
+You can change the body of the email sent upon fax reception by editing the :file:`/etc/xivo/mail.txt`
 file.
 
 The following variable can be included in the mail body:
@@ -78,7 +78,7 @@ The ``agid`` service must be restarted to apply changes::
 Changing the email subject
 --------------------------
 
-You can change the subject of the email sent upon fax reception by editing the :file:`/etc/pf-xivo/asterisk/xivo_fax.conf` file.
+You can change the subject of the email sent upon fax reception by editing the :file:`/etc/xivo/asterisk/xivo_fax.conf` file.
 
 Look for the ``[mail]`` section, and in this section, modify the value of the ``subject`` option.
 
@@ -92,7 +92,7 @@ The ``agid`` service must be restarted to apply changes::
 Using the advanced features
 ---------------------------
 
-The following features are only available via the :file:`/etc/pf-xivo/asterisk/xivo_fax.conf`
+The following features are only available via the :file:`/etc/xivo/asterisk/xivo_fax.conf`
 configuration file.
 They are not available from the web-interface.
 
@@ -108,7 +108,7 @@ The way it works is the following:
   when someone calls the 100 DID, you might want the `ftp_example_org` and `mail` backend to be run,
   but otherwise, you only want the `mail` backend to be run.
 
-Here's an example of a valid :file:`/etc/pf-xivo/asterisk/xivo_fax.conf` configuration file::
+Here's an example of a valid :file:`/etc/xivo/asterisk/xivo_fax.conf` configuration file::
 
    [general]
    tiff2pdf = /usr/bin/tiff2pdf
@@ -117,7 +117,7 @@ Here's an example of a valid :file:`/etc/pf-xivo/asterisk/xivo_fax.conf` configu
    
    [mail]
    subject = FAX reception to %(dstnum)s
-   content_file = /etc/pf-xivo/mail.txt
+   content_file = /etc/xivo/mail.txt
    
    [ftp_example_org]
    host = example.org
@@ -134,7 +134,7 @@ Here's an example of a valid :file:`/etc/pf-xivo/asterisk/xivo_fax.conf` configu
 There's destination named ``dstnum_default`` is special because it represent the default actions to be
 taken when no DID-specific action are defined.
 
-After editing the :file:`/etc/pf-xivo/asterisk/xivo_fax.conf` file, you need to restart the agid server
+After editing the :file:`/etc/xivo/asterisk/xivo_fax.conf` file, you need to restart the agid server
 for the changes to be applied::
 
    $ /etc/init.d/xivo-agid restart
