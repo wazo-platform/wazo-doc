@@ -12,7 +12,7 @@ Description
 +-------------+---------+-----------------------------------------+
 | Field       | Values  | Description                             |
 +=============+=========+=========================================+
-| live_reolad | boolean | Enable live reload of the configuration |
+| live_reload | boolean | Enable live reload of the configuration |
 +-------------+---------+-----------------------------------------+
 
 
@@ -22,7 +22,7 @@ Example
 ::
 
    {
-       "live_reolad": true
+       "live_reload": true
        "links": [
             {
                 "rel": "xivo_main_config",
@@ -61,7 +61,7 @@ Example response
    Content-Type: application/json
 
    {
-       "live_reolad": true
+       "live_reload": true
        "links": [
             {
                 "rel": "xivo_main_config",
@@ -91,7 +91,7 @@ Example request
     Content-Type: application/json
     
     {
-       "live_reolad": true
+       "live_reload": true
     }
 
 Example response
