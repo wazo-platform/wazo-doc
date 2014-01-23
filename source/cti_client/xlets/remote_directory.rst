@@ -8,7 +8,7 @@ Remote Directory Xlet
 Overview
 ========
 
-The remote directory xlet allow the user to search through the configured directories of the CTI server.
+The remote directory xlet allows the user to search through the configured directories of the CTI server.
 
 .. figure:: ./images/cti_client-remote_directory.png
 
@@ -16,8 +16,14 @@ The remote directory xlet allow the user to search through the configured direct
 Usage
 =====
 
-Type the searched string in the search box and click the search button. If the search box is empty, all
+Type the search term in the search box and click on the search button. If the search box is empty, all
 phonebook entries will be displayed.
+
+Results can be sorted by clicking on one of the column headers.
+
+.. figure:: ./images/cti_client-remote_directory_sorted.png
+
+    Example of contacts sorted by name
 
 .. warning::
 
