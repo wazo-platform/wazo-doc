@@ -22,7 +22,7 @@ REST API 1.1
    user_line
    voicemails
    voicemail_links
-   xivo_main_config
+   configuration
 
 
 Migration from 1.0
