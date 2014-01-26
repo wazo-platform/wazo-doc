@@ -1273,7 +1273,7 @@ Add::
         "context": {
             "name": "default",
             "displayname": "Appels internes",
-            "entity": "skaro",
+            "entity": "XiVO",
             "contexttype":"internal",
             "description": ""
         },

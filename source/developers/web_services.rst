@@ -23,7 +23,7 @@ Curl
 
 The ``curl`` command to query WS is::
 
-   curl -k --data-binary @test_line.txt -u admin:proformatique -H 'Content-Type:application/json' --write-out '%{http_code}\n' 'https://skaro/service/ipbx/json.php/restricted/pbx_settings/lines/?act=edit&id=150'
+   curl -k --data-binary @test_line.txt -u admin:proformatique -H 'Content-Type:application/json' --write-out '%{http_code}\n' 'https://xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=edit&id=150'
 
 Explanations:
 
@@ -33,7 +33,7 @@ Explanations:
 * ``-u user:password`` handles the authentification, according to the WS access settings in XiVO
 * ``-H 'Content-Type:application/json'`` explicits the data type
 * ``--write-out '%{http_code}\n'`` makes ``curl`` print the HTTP response code
-* ``'https://skaro/service/ipbx/json.php/restricted/pbx_settings/lines/?act=edit&id=150'`` is the WS URL (don't forget the simple quotes to escape the URL from the shell)
+* ``'https://xivo/service/ipbx/json.php/restricted/pbx_settings/lines/?act=edit&id=150'`` is the WS URL (don't forget the simple quotes to escape the URL from the shell)
 
 
 xivo_ws
