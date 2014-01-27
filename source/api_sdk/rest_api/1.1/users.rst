@@ -37,8 +37,6 @@ Description
 +-----------------------+--------+------------------------------------------------------------------------+
 | password              | string | password for connecting to the CTI                                     |
 +-----------------------+--------+------------------------------------------------------------------------+
-| enable_client         | bool   | Activate or not the CTI client                                         |
-+-----------------------+--------+------------------------------------------------------------------------+
 | music_on_hold         | string | Name of the MOH category to use for music on hold                      |
 +-----------------------+--------+------------------------------------------------------------------------+
 | preprocess_subroutine | string | Name of the subroutine to execute in asterisk before receiving a call  |
@@ -66,7 +64,6 @@ Example
        "mobile_phone_number": "5554151234",
        "username": "john",
        "password": "supersecretpassword",
-       "enable_client": true,
        "music_on_hold": "waiting",
        "preprocess_subroutine": "ivr",
        "userfield": ""
@@ -134,7 +131,6 @@ Example response
                 "mobile_phone_number": "",
                 "username": "",
                 "password": "",
-                "enable_client": false,
                 "music_on_hold": "default",
                 "preprocess_subroutine": "",
                 "userfield": ""
@@ -151,7 +147,6 @@ Example response
                 "mobile_phone_number": "",
                 "username": "",
                 "password": "",
-                "enable_client": false,
                 "music_on_hold": "default",
                 "preprocess_subroutine": "",
                 "userfield": ""
@@ -202,7 +197,6 @@ Example response
                 "mobile_phone_number": "",
                 "username": "",
                 "password": "",
-                "enable_client": false,
                 "music_on_hold": "default",
                 "preprocess_subroutine": "",
                 "userfield": ""
@@ -299,7 +293,6 @@ Example response
        "mobile_phone_number": "",
        "username": "",
        "password": "",
-       "enable_client": false,
        "music_on_hold": "default",
        "preprocess_subroutine": "",
        "userfield": ""
@@ -424,4 +417,4 @@ See :ref:`user-voicemail-association`.
 Users-CTI profiles Association
 ==============================
 
-See :ref:`user-cti-profile-association`.
+See :ref:`user-cti-configuration`.

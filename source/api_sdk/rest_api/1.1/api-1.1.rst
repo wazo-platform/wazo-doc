@@ -20,7 +20,7 @@ REST API 1.1
    lines
    line_extension
    users
-   user_cti_profile
+   user_cti
    user_line
    user_links
    voicemails
