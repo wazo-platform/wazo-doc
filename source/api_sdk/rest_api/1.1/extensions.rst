@@ -291,3 +291,9 @@ Example response
 ::
 
    HTTP/1.1 204 No Content
+
+
+Line-Extension Association
+==========================
+
+See :ref:`line-extension-association`.
