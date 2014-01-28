@@ -22,7 +22,6 @@ REST API 1.1
    users
    user_cti_profile
    user_line
-   user_links
    voicemails
    voicemail_links
 
