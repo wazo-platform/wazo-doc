@@ -178,12 +178,6 @@ Get Line
    }
 
 
-User-Line-Extension Association
--------------------------------
-
-See :ref:`user-line-extension-association`.
-
-
 SIP Lines
 =========
 
