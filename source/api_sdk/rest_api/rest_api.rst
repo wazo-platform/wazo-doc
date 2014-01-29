@@ -4,9 +4,7 @@
 REST API
 ********
 
-The XiVO REST API is the new and privileged way to programmatically interact with XiVO.
-
-In the future, this web API will replace the existing :ref:`web services <web-services-api>`.
+The XiVO REST API is the privileged way to programmatically interact with XiVO.
 
 The current API version is :ref:`1.1 <rest-api-1.1>`.
 
