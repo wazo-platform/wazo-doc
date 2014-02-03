@@ -88,6 +88,34 @@ data
     this is assumed to be null.
 
 
+AMI
+---
+
+AMI related events are sent to the ``xivo-ami`` exchange, which is an exchange of type topic.
+
+To subscribe to event with name X, you must create a binding between the exchange
+and your queue with the binding/routing key X.
+
+Example event with binding key QueueMemberStatus::
+
+   {
+       "name": "QueueMemberStatus",
+       "data": {
+           "Status": "1",
+           "Penalty": "0",
+           "CallsTaken": "0",
+           "Skills": "",
+           "MemberName": "sip\/m3ylhs",
+           "Queue": "petak",
+           "LastCall": "0",
+           "Membership": "static",
+           "Location": "sip\/m3ylhs",
+           "Privilege": "agent,all",
+           "Paused": "0",
+           "StateInterface": "sip\/m4ylhs"
+       }
+   }
+
 CTI
 ---
 

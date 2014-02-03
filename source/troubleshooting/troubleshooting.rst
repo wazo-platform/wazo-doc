@@ -163,7 +163,7 @@ The following describes how to configure your XiVO and your Berofos.
     */1 * * * * root /usr/local/sbin/berofos-workaround 
 
 
-Upgrading from Skaro-1.2.3
+Upgrading from XiVO 1.2.3
 --------------------------
 
 #. There is an issue with ``xivo-libsccp`` and ``pf-xivo-base-config`` during an upgrade from 1.2.3::

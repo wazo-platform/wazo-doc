@@ -5,7 +5,7 @@ Jitsi
 Jitsi (http://jitsi.org/) is an opensource softphone (previously SIP Communicator).
 
 
-XiVO Skaro 1.2 now support Jitsi sofphones provisioning. Here are the steps to follow :
+XiVO now support Jitsi sofphones provisioning. Here are the steps to follow :
 
 Requirements
 ============

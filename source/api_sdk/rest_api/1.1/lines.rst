@@ -178,12 +178,6 @@ Get Line
    }
 
 
-User-Line-Extension Association
--------------------------------
-
-See :ref:`user-line-extension-association`.
-
-
 SIP Lines
 =========
 
@@ -418,3 +412,9 @@ removed. If that device had exactly 1 line provisioned on it, the device goes ba
 **Example response**::
 
    HTTP/1.1 204 No Content
+
+
+Line-Extension Association
+==========================
+
+See :ref:`line-extension-association`.

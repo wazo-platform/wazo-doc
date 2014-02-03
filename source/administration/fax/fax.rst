@@ -88,6 +88,17 @@ The ``agid`` service must be restarted to apply changes::
 
  /etc/init.d/xivo-agid restart
 
+Changing the email from 
+-----------------------
+
+You can change the from of the email sent upon fax reception by editing the :file:`/etc/xivo/asterisk/xivo_fax.conf` file.
+
+Look for the ``[mail]`` section, and in this section, modify the value of the ``email_from`` option.
+
+The ``agid`` service must be restarted to apply changes::
+
+ /etc/init.d/xivo-agid restart
+
 
 Using the advanced features
 ---------------------------
@@ -118,6 +129,7 @@ Here's an example of a valid :file:`/etc/xivo/asterisk/xivo_fax.conf` configurat
    [mail]
    subject = FAX reception to %(dstnum)s
    content_file = /etc/xivo/mail.txt
+   email_from = no-reply+fax@xivo.fr
    
    [ftp_example_org]
    host = example.org

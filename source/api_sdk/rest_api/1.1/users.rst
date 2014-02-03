@@ -397,12 +397,6 @@ Example response
    HTTP/1.1 204 No Content
 
 
-User-Line-Extension Association
-===============================
-
-See :ref:`user-line-extension-association`.
-
-
 User-Line Association
 =====================
 
@@ -413,3 +407,8 @@ Users-Voicemails Association
 ============================
 
 See :ref:`user-voicemail-association`.
+
+Users-CTI profiles Association
+==============================
+
+See :ref:`user-cti-configuration`.

@@ -1,3 +1,5 @@
+.. _line-extension-association:
+
 **************************
 Line Extension Association
 **************************
