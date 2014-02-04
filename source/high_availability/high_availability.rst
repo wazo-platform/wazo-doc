@@ -66,9 +66,9 @@ You can configure the master and slave in whatever order you want.
 
 SIP expiry value on master and slave will be automatically updated:
 
-* min: 20 seconds
-* max: 2 minutes
-* default: 40 seconds
+* min: 3 minutes
+* max: 5 minutes
+* default: 4 minutes
 
 .. figure:: images/general_settings_sip_expiry.png
 
