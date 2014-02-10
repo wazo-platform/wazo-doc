@@ -104,7 +104,7 @@ Please consult the following detailed upgrade notes for more information:
 * The new REST API now makes possible to associate multiple user to a given line and/or
   extension. There are currently some limitations on how those users and lines can be manipulated
   using the web interface. Please read the :ref:`REST API 1.1 documentation <rest-api-1.1>` and more
-  precisely the :ref:`Associate Line to User <associate_line_to_user>` section for more
+  precisely the :ref:`Associate Line to User <user-line-association>` section for more
   information.
 
 
@@ -227,7 +227,7 @@ Please consult the following detailed upgrade notes for more information:
 -----
 
 * Consult the `13.04 Roadmap <https://projects.xivo.fr/versions/170>`_
-* Upgrade procedure for HA Cluster has changed. Refer to `Specific Procedure : Upgrading a Cluster`_.
+* Upgrade procedure for HA Cluster has changed. Refer to :ref:`Specific Procedure : Upgrading a Cluster <upgrading-a-cluster>`.
 * Configuration of switchboards has changed. Since the directory xlet can now display any column from the lookup source, a display filter has to be configured and assigned to the __switchboard_directory context. Refer to :ref:`Directory xlet documenttion <directory-xlet>`.
 * There is no more context field directly associated with a call filter. Boss and secretary users associated with a call filter must necessarily be in the same context.
 

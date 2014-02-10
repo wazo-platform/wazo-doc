@@ -24,7 +24,6 @@ Component specific information:
    provisioning/provisioning
    sccp
    webi
-   web_services
    xivo_client/xivo_client
 
 Checklist:

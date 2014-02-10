@@ -87,6 +87,7 @@ Upgrading from 1.2.0 or 1.2.1 requires a special procedure before executing ``xi
    apt-get install xivo-upgrade
    /usr/bin/xivo-upgrade
 
+.. _upgrading-a-cluster:
 
 Specific Procedure : Upgrading a Cluster
 ========================================
