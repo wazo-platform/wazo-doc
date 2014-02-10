@@ -14,6 +14,7 @@ REST API 1.1
    cti_profile
    devices
    extensions
+   func_keys
    lines
    line_extension
    users
