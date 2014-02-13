@@ -4,8 +4,8 @@
 REST API 1.1
 ************
 
-.. warning:: The 1.1 API is currently in beta version. Although it is rather stable, some minor 
-   changes could still happen and new ressources will be added over time.
+.. warning:: The 1.1 API is currently in beta version. Although it is rather stable, some minor
+   changes could still happen and new resources will be added over time.
 
 .. toctree::
    :maxdepth: 2
@@ -14,6 +14,7 @@ REST API 1.1
    cti_profile
    devices
    extensions
+   func_keys
    lines
    line_extension
    users
