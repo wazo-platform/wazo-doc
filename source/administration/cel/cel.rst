@@ -4,8 +4,9 @@
 Call Logs
 *********
 
-Call logs are pre-generated from CEL entries. The generation is done automatically and
-progressively, every 5 minutes, beginning with the latest calls.
+Call logs are pre-generated from CEL entries. The generation is done automatically
+by xivo-call-logd. xivo-call-logs is also run nightly to generate call logs from
+CEL that were missed by xivo-call-logd.
 
 
 Search Dashboard
