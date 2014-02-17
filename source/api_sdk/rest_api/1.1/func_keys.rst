@@ -230,6 +230,9 @@ Example response
 Get a Function Key
 ==================
 
+.. warning:: Not implemented yet
+
+
 Query
 -----
 
@@ -270,6 +273,8 @@ Example response
 
 Create a Function Key
 =====================
+
+.. warning:: Not implemented yet
 
 Query
 -----
@@ -350,6 +355,8 @@ Example response
 Update a Function Key
 =====================
 
+.. warning:: Not implemented yet
+
 Only the fields that need to be updated must be sent during an update.
 
 Query
@@ -401,6 +408,8 @@ Example response
 
 Delete a Function Key
 =====================
+
+.. warning:: Not implemented yet
 
 Errors
 ------
