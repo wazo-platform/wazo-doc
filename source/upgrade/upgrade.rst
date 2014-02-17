@@ -125,6 +125,17 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.03
+-----
+
+* Consult the `14.03 Roadmap <https://projects.xivo.fr/versions/194>`_
+* Two new daemons are now operationnal, xivo-amid and xivo-call-logd:
+  
+  * xivo-amid constantly reads the AMI and sends AMI events to the RabbitMQ bus
+  * xivo-call-logd generates call-logs in real time based on AMI LINKEDID_END events read on the bus
+* An increase in load average is expected with the addition of these two new daemons.
+* The cron job calling xivo-call-logs now runs once a day at 4:25 instead of every 5 minutes.
+
 14.02
 -----
 
