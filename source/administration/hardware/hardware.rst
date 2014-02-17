@@ -118,11 +118,11 @@ If you have an hardware echo-canceller it can be used to detect the DTMF.
 Create the file :file:`/etc/modprobe.d/xivo-hwec-dtmf.conf` with the following content (replace the
 ``<dahdi_module_name>`` word by the DAHDI module name)::
 
-   option <dahdi_module_name> vpmdtmfsupport=1
+   options <dahdi_module_name> vpmdtmfsupport=1
 
 Thus, for a Digium card which uses the ``wct4xxp`` module, the content of the file will be::
 
-   option wct4xxp vpmdtmfsupport=1
+   options wct4xxp vpmdtmfsupport=1
 
 .. note:: You MUST restart dahdi for the new configuration to be enabled
 
