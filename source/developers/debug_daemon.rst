@@ -47,7 +47,7 @@ Log file: ``/var/log/daemon.log``. Lines start with ``xivo-agid``.
 
 
 amid
-======
+====
 
 ::
 
@@ -63,6 +63,24 @@ Log file: ``/var/log/xivo-amid.log``
     2014-01-15 10:36:42,372 [5252] (INFO): Starting xivo-amid
     2014-01-15 10:36:42,372 [5252] (INFO): Connecting socket
     2014-01-15 10:36:42,372 [5252] (INFO): Connecting AMI client to localhost:5038
+
+
+call-logd
+=========
+
+::
+
+   xivo-call-logd -f -v
+
+* -f for foreground
+* -v for verbose
+
+Log file: ``/var/log/xivo-call-logd.log``
+
+::
+
+    2014-02-12 14:58:05,051 [14650] (INFO): Starting xivo-call-logd
+    2014-02-12 14:58:05,178 [14650] (INFO): Running...
 
 
 confgend

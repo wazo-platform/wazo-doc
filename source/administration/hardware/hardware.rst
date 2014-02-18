@@ -53,16 +53,21 @@ sets the card in E1 mode::
    xivo-service restart
 
 
+.. _hwec_configuration:
+
 Hardware Echo-cancellation
 ==========================
 
 It is *recommended* to use telephony cards with an hardware echo-canceller module.
 
+.. warning:: with **TE13X** cards, you **MUST** install the echo-canceller firmware.
+    Otherwise the card won't work properly.
+
 
 Hardware Echo-cancellation Module
 ---------------------------------
 
-If you have an hardware echo-canceller module you have to install its firmware.
+If you have an hardware echo-canceller module you **HAVE TO** install its firmware.
 This can be achieved via the ``xivo-fetchfw`` tool :
 
 * Know which firmware you need :
@@ -118,11 +123,11 @@ If you have an hardware echo-canceller it can be used to detect the DTMF.
 Create the file :file:`/etc/modprobe.d/xivo-hwec-dtmf.conf` with the following content (replace the
 ``<dahdi_module_name>`` word by the DAHDI module name)::
 
-   option <dahdi_module_name> vpmdtmfsupport=1
+   options <dahdi_module_name> vpmdtmfsupport=1
 
 Thus, for a Digium card which uses the ``wct4xxp`` module, the content of the file will be::
 
-   option wct4xxp vpmdtmfsupport=1
+   options wct4xxp vpmdtmfsupport=1
 
 .. note:: You MUST restart dahdi for the new configuration to be enabled
 
@@ -267,8 +272,10 @@ Verify that one of the ``{wct1xxp,wcte11xp,wcte12xp,wcte13xp,wct4xxp}`` module i
 
 If it wasn't, do again the step :ref:`load_dahdi_modules`
 
-.. warning:: Be aware that TE3XP cards' dahdi module need a specific configuration.
-    See :ref:`load_dahdi_modules` paragraph.
+.. warning:: **TE13XP** cards :
+    
+    * these cards need a specific dahdi module configuration. See :ref:`load_dahdi_modules` paragraph,
+    * you **MUST** install the correct echo-canceller firmware to be able to use these cards. See :ref:`hwec_configuration` paragraph.
 
 Generate DAHDI configuration
 ----------------------------

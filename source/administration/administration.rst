@@ -19,6 +19,7 @@ Administration
    Groups <group/group>
    Group Pickup <group_pickup/group_pickup>
    Hardware <hardware/hardware>
+   incall
    interconnections/interconnections
    paging
    parking

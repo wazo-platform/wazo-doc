@@ -115,8 +115,8 @@ Creating "extra subnet" configuration files
 First thing to do is to create a directory and to copy into it the configuration files::
 
    mkdir /etc/dhcp/dhcpd_sites/
-   cp /etc/dhcp/dhcpd_subnet.conf /etc/dhcp/dhcpd_sites/dhpcd_siteXXX.conf 
-   cp /etc/dhcp/dhcpd_subnet.conf /etc/dhcp/dhcpd_sites/dhpcd_lanDATA.conf  
+   cp /etc/dhcp/dhcpd_subnet.conf /etc/dhcp/dhcpd_sites/dhcpd_siteXXX.conf 
+   cp /etc/dhcp/dhcpd_subnet.conf /etc/dhcp/dhcpd_sites/dhcpd_lanDATA.conf  
 
 .. note::
   In this case we'll create 2 files for 2 differents subnets. 
@@ -127,8 +127,8 @@ First thing to do is to create a directory and to copy into it the configuration
 After creating one or several files in :file:`/etc/dhcp/dhcpd_sites/`, you have to edit the file 
 :file:`/etc/dhcp/dhcpd_extra.conf` and add the according include statement like::
 
-  include "/etc/dhcp/dhcpd_sites/dhpcd_siteXXX.conf";
-  include "/etc/dhcp/dhcpd_sites/dhpcd_lanDATA.conf";
+  include "/etc/dhcp/dhcpd_sites/dhcpd_siteXXX.conf";
+  include "/etc/dhcp/dhcpd_sites/dhcpd_lanDATA.conf";
 
 
 Adjusting Options of the DHCP server

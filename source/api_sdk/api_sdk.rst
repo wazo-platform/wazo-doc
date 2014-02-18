@@ -10,4 +10,3 @@ API and SDK
    queue_log
    rest_api/rest_api
    subroutine
-   web_services
