@@ -387,10 +387,10 @@ the modified fields.
 Delete SIP Line
 ---------------
 
-A SIP line can not be deleted if it is still associated with a user and an extension.
-
-If the line is provisioned to a device, the association between the line and the device is
-removed. If that device had exactly 1 line provisioned on it, the device goes back in autoprov mode.
+A SIP line can not be deleted if it is still associated with a user, an extesion, or a device.
+Any user, extension, or device attached to the line must be dissociated first.
+Consult the documentation on :ref:`user-line-association`, :ref:`line-extension-association`
+and :ref:`restapi-device` for further explanations.
 
 **Query**::
 
@@ -398,14 +398,15 @@ removed. If that device had exactly 1 line provisioned on it, the device goes ba
 
 **Errors**
 
-+------------+------------------------------------------+-------------------------------------------------------------+
-| Error code | Error message                            | Description                                                 |
-+============+==========================================+=============================================================+
-| 400        | error while deleting Line: <explanation> | The requested line is probably associated to other objects. |
-|            |                                          | See explanation for more infos                              |
-+------------+------------------------------------------+-------------------------------------------------------------+
-| 404        | Not found                                | The requested line was not found                            |
-+------------+------------------------------------------+-------------------------------------------------------------+
++------------+--------------------------------------------------+----------------------------------------------------------------------------------+
+| Error code | Error message                                    | Description                                                                      |
++============+==================================================+==================================================================================+
+| 400        | error while deleting Line: <explanation>         | See error message for more details                                               |
++------------+--------------------------------------------------+----------------------------------------------------------------------------------+
+| 400        | Error while deleting Line: line still has a link | Line is still associated to a user, extension, or device (see explanation above) |
++------------+--------------------------------------------------+----------------------------------------------------------------------------------+
+| 404        | Not found                                        | The requested line was not found                                                 |
++------------+--------------------------------------------------+----------------------------------------------------------------------------------+
 
 
 **Example request**::

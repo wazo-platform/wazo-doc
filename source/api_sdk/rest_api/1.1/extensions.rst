@@ -258,6 +258,10 @@ Example response
 Delete Extension
 ================
 
+An extension can not be deleted if it is associated to a line.
+You must delete the association first. Consult the documentation on :ref:`line-extension-association`
+for further details.
+
 Query
 -----
 
@@ -268,14 +272,15 @@ Query
 Errors
 ------
 
-+------------+-----------------------------------------------+------------------------------------------------------------------+
-| Error code | Error message                                 | Description                                                      |
-+============+===============================================+==================================================================+
-| 400        | error while deleting Extension: <explanation> | The requested extension is probably associated to other objects. |
-|            |                                               | See explanation for more infos                                   |
-+------------+-----------------------------------------------+------------------------------------------------------------------+
-| 404        | Not found                                     | The requested extension was not found                            |
-+------------+-----------------------------------------------+------------------------------------------------------------------+
++------------+------------------------------------------------------------+---------------------------------------+
+| Error code | Error message                                              | Description                           |
++============+============================================================+=======================================+
+| 400        | error while deleting Extension: <explanation>              | See error message for more details    |
++------------+------------------------------------------------------------+---------------------------------------+
+| 400        | Error while deleting Extension: extension still has a link | See explanation above                 |
++------------+------------------------------------------------------------+---------------------------------------+
+| 404        | Not found                                                  | The requested extension was not found |
++------------+------------------------------------------------------------+---------------------------------------+
 
 Example request
 ---------------

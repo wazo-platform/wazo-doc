@@ -1,3 +1,5 @@
+.. _restapi-device:
+
 *******
 Devices
 *******
