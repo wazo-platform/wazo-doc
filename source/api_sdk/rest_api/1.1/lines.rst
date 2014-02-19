@@ -15,19 +15,23 @@ Line Representation
 
 **Description**
 
-+-----------+-----------------------------+---------------------------------+
-| Field     | Values                      | Description                     |
-+===========+=============================+=================================+
-| id        | int                         | Read-only                       |
-+-----------+-----------------------------+---------------------------------+
-| context   | string                      | The name of an internal context |
-+-----------+-----------------------------+---------------------------------+
-| protocol  | string, only value: ``sip`` | Read-only                       |
-+-----------+-----------------------------+---------------------------------+
-| interface | string                      |                                 |
-+-----------+-----------------------------+---------------------------------+
-| links     | list                        | The links to the resource       |
-+-----------+-----------------------------+---------------------------------+
++------------------------+-----------------------------+---------------------------------+
+| Field                  | Values                      | Description                     |
++========================+=============================+=================================+
+| id                     | int                         | Read-only                       |
++------------------------+-----------------------------+---------------------------------+
+| context                | string                      | The name of an internal context |
++------------------------+-----------------------------+---------------------------------+
+| name                   | string                      | The name of the line            |
++------------------------+-----------------------------+---------------------------------+
+| protocol               | string, only value: ``sip`` | Read-only                       |
++------------------------+-----------------------------+---------------------------------+
+| provisioning_extension | int                         | Code used to provision a device |
++------------------------+-----------------------------+---------------------------------+
+| device_slot            | int                         | line's position on the device   |
++------------------------+-----------------------------+---------------------------------+
+| links                  | list                        | The links to the resource       |
++------------------------+-----------------------------+---------------------------------+
 
 **SIP example**
 
@@ -36,8 +40,10 @@ Line Representation
    {
        "id": 1,
        "context": "default",
+       "name": "a1b2c4",
        "protocol": "sip",
-       "interface": "sip/abcdef",
+       "provisioning_extension": 342395,
+       "device_slot": 1,
        "links" : [
            {
                "rel": "lines_sip",
@@ -55,8 +61,10 @@ Line Representation
    {
        "id": 2,
        "context": "default",
+       "name": "custom",
        "protocol": "custom",
-       "interface": "Local/123@default",
+       "provisioning_extension": 438111,
+       "device_slot": 2,
        "links" : [
            {
                "rel": "lines_custom",
@@ -74,8 +82,10 @@ Line Representation
    {
        "id": 3,
        "context": "default",
+       "name": "SCCP/1234",
        "protocol": "sccp",
-       "interface": "sccp/1234",
+       "provisioning_extension": 382731,
+       "device_slot": 1,
        "links" : [
            {
                "rel": "lines_sccp",
@@ -109,8 +119,10 @@ List Lines
            {
                "id": 1,
                "context": "default",
+               "name": "a1b2c4",
                "protocol": "sip",
-               "interface": "sip/abcdef",
+               "provisioning_extension": 342395,
+               "device_slot": 1,
                "links" : [
                    {
                        "rel": "lines_sip",
@@ -121,8 +133,10 @@ List Lines
            {
                "id": 2,
                "context": "default",
+               "name": "custom",
                "protocol": "custom",
-               "interface": "Local/123@default",
+               "provisioning_extension": 438111,
+               "device_slot": 2,
                "links" : [
                    {
                        "rel": "lines_custom",
@@ -133,8 +147,10 @@ List Lines
            {
                "id": 3,
                "context": "default",
+               "name": "SCCP/1234",
                "protocol": "sccp",
-               "interface": "sccp/1234",
+               "provisioning_extension": 382731,
+               "device_slot": 1,
                "links" : [
                    {
                        "rel": "lines_sccp",
@@ -167,8 +183,10 @@ Get Line
    {
        "id": 42,
        "context": "default",
+       "name": "a1b2c4",
        "protocol": "sip",
-       "interface": "sip/abcdef",
+       "provisioning_extension": 342395,
+       "device_slot": 1,
        "links" : [
            {
                "rel": "lines_sip",
@@ -194,15 +212,15 @@ SIP Line Representation
 +------------------------+---------+-----------------------------------+
 | context                | string  |                                   |
 +------------------------+---------+-----------------------------------+
-| interface              | string  | Read-only                         |
-+------------------------+---------+-----------------------------------+
 | username               | string  | Read-only                         |
 +------------------------+---------+-----------------------------------+
 | secret                 | string  | Read-only                         |
 +------------------------+---------+-----------------------------------+
 | provisioning_extension | int     | Read-only                         |
 +------------------------+---------+-----------------------------------+
-| commented              | boolean | If True the extension is disabled |
+| device_slot            | int     | Line's position on the device     |
++------------------------+---------+-----------------------------------+
+| callerid               | string  | Read-only                         |
 +------------------------+---------+-----------------------------------+
 | links                  | list    | The link to the resource          |
 +------------------------+---------+-----------------------------------+
@@ -232,11 +250,11 @@ List SIP Lines
            {
                "id": 1,
                "context": "default",
-               "interface": "sip/abcdef",
                "username": "abcdef",
-               "secret": "password",
+               "secret": "secret_password",
                "provisioning_extension": 123456,
-               "commented": false,
+               "device_slot": 1,
+               "callerid": "\"John Doe\" <1002>",
                "links" : [
                    {
                        "rel": "lines_sip",
@@ -247,11 +265,11 @@ List SIP Lines
            {
                "id": 2,
                "context": "default",
-               "interface": "sip/stuvwx",
                "username": "stuvwx",
-               "secret": "password",
+               "secret": "super_secret_password",
                "provisioning_extension": 987456,
-               "commented": false,
+               "device_slot"; 1,
+               "callerid": "\"Mary Lin\" <1003>",
                "links" : [
                    {
                        "rel": "lines_sip",
@@ -281,20 +299,26 @@ Get SIP Line
    Content-Type: application/json
 
    {
-       "id": 1,
-       "context": "default",
-       "interface": "sip/abcdef",
-       "username": "abcdef",
-       "secret": "password",
-       "provisioning_extension": 123456,
-       "commented": false
+        "id": 1,
+        "context": "default",
+        "username": "abcdef",
+        "secret": "secret_password",
+        "provisioning_extension": 123456,
+        "device_slot": 1,
+        "callerid": "\"John Doe\" <1002>",
+        "links": [
+            {
+                "rel": "lines_sip",
+                "href": "https://xivoserver/1.1/lines_sip/1"
+            }
+        ]
    }
 
 
 Create SIP Line
 ---------------
 
-The SIP username and secret and the provisioning_extension are autogenerated.
+The username, secret and provisioning_extension are autogenerated.
 
 **Query**::
 
@@ -312,11 +336,15 @@ The SIP username and secret and the provisioning_extension are autogenerated.
 
 **Errors**
 
-+------------+------------------------------------------+--------------------------------+
-| Error code | Error message                            | Description                    |
-+============+==========================================+================================+
-| 400        | error while creating Line: <explanation> | See explanation for more infos |
-+------------+------------------------------------------+--------------------------------+
++------------+------------------------------------------------------+-------------------------------------------+
+| Error code | Error message                                        | Description                               |
++============+======================================================+===========================================+
+| 400        | error while creating Line: <explanation>             | See explanation for more details          |
++------------+------------------------------------------------------+-------------------------------------------+
+| 400        | Invalid parameters: context <context> does not exist |                                           |
++------------+------------------------------------------------------+-------------------------------------------+
+| 400        | Invalid parameters: device_slot must be numeric      | Use a positive number for the device slot |
++------------+------------------------------------------------------+-------------------------------------------+
 
 **Example request**::
 
@@ -339,9 +367,11 @@ The SIP username and secret and the provisioning_extension are autogenerated.
     {
         "id": 1,
         "context": "default",
+        "username": "abcdef",
+        "secret": "secret_password",
         "provisioning_extension": 123456,
-        "secret": "12abcd34",
-        "username": "abcdefgh",
+        "device_slot": 1,
+        "callerid": "\"John Doe\" <1002>",
         "links" : [
             {
                 "rel": "lines_sip",
@@ -354,8 +384,8 @@ The SIP username and secret and the provisioning_extension are autogenerated.
 Update a SIP Line
 -----------------
 
-The update does not need to set all the fields of the edited SIP line. The update only needs to set
-the modified fields.
+Only fields that need to be updated should be sent. All other fields will remain
+unmodified during the update.
 
 **Query**::
 
@@ -363,11 +393,8 @@ the modified fields.
 
 **Errors**
 
-+------------+--------------------------------------+--------------------------------+
-| Error code | Error message                        | Description                    |
-+============+======================================+================================+
-| 400        | error while edit Line: <explanation> | See explanation for more infos |
-+------------+--------------------------------------+--------------------------------+
+Same as for creating a SIP line. Please see `Create SIP line`_
+
 
 **Example request**::
 
@@ -418,6 +445,11 @@ and :ref:`restapi-device` for further explanations.
 
    HTTP/1.1 204 No Content
 
+
+User-Line Association
+=====================
+
+See :ref:`user-line-association`
 
 Line-Extension Association
 ==========================
