@@ -85,6 +85,8 @@ Package
 
 To create the Debian package, usable on Debian and Ubuntu::
 
+   $ qmake -spec linux-g++
+   $ make
    $ make pack
 
 This will result in a ``.deb`` file in the current directory.
