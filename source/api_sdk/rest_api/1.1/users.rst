@@ -250,11 +250,11 @@ Errors
 ------
 
 
-+------------+------------------------------------------+--------------------------------+
-| Error code | Error message                            | Description                    |
-+============+==========================================+================================+
-| 400        | error while creating User: <explanation> | See explanation for more infos |
-+------------+------------------------------------------+--------------------------------+
++------------+------------------------------------------+------------------------------------+
+| Error code | Error message                            | Description                        |
++============+==========================================+====================================+
+| 400        | error while creating User: <explanation> | See error message for more details |
++------------+------------------------------------------+------------------------------------+
 
 Example request
 ---------------
@@ -356,8 +356,10 @@ Example response
 Delete User
 ===========
 
-The user will not be removed if he is associated to a line and an extension. You must delete the
-association first.
+A user can not be deleted if he is associated to a line or a voicemail. 
+Any line or voicemail attached to the user must be dissociated first. 
+Consult the documentation on :ref:`user-line-association` 
+and :ref:`user-voicemail-association` for further details.
 
 The user will also be removed from all queues, groups or other XiVO entities whom he is member.
 
@@ -372,14 +374,17 @@ Query
 Errors
 ------
 
-+------------+------------------------------------------+-------------------------------------------------------------+
-| Error code | Error message                            | Description                                                 |
-+============+==========================================+=============================================================+
-| 400        | error while deleting User: <explanation> | The requested user is probably associated to other objects. |
-|            |                                          | See explanation for more infos                              |
-+------------+------------------------------------------+-------------------------------------------------------------+
-| 404        | Empty                                    | The requested user was not found                            |
-+------------+------------------------------------------+-------------------------------------------------------------+
++------------+-----------------------------------------------------------------+-------------------------------------+
+| Error code | Error message                                                   | Description                         |
++============+=================================================================+=====================================+
+| 400        | error while deleting User: <explanation>                        | See error message for more details  |
++------------+-----------------------------------------------------------------+-------------------------------------+
+| 400        | Error while deleting User: user still associated to a line      | See explanation above               |
++------------+-----------------------------------------------------------------+-------------------------------------+
+| 400        | Error while deleting User: user still associated to a voicemail | See explanation above               |
++------------+-----------------------------------------------------------------+-------------------------------------+
+| 404        | Empty                                                           | The requested user was not found    |
++------------+-----------------------------------------------------------------+-------------------------------------+
 
 Example request
 ---------------

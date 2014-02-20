@@ -410,7 +410,9 @@ Example response
 Delete a Voicemail
 ==================
 
-Any user who is using the voicemail must be unassociated before deletion.
+A voicemail can not be deleted if it is still attached to a user.
+The user must be dissociated first.
+Consult the documentation on :ref:`user-voicemail-association` for futher details.
 
 .. warning::
     Any extension that redirects to the voicemail (e.g. an Incoming call) will be disabled after deletion.
@@ -421,7 +423,7 @@ Errors
 +------------+--------------------------------------------------------------------------------+-------------------------------------------------------------------+
 | Error code | Error message                                                                  | Description                                                       |
 +============+================================================================================+===================================================================+
-| 400        | error while deleting Voicemail <explanation>                                   | See explanation for more infos                                    |
+| 400        | error while deleting Voicemail <explanation>                                   | See error message for more details                                |
 +------------+--------------------------------------------------------------------------------+-------------------------------------------------------------------+
 | 400        | error while deleting Voicemail: Cannot delete a voicemail associated to a user | You must unassociate a user from his voicemail before deleting it |
 +------------+--------------------------------------------------------------------------------+-------------------------------------------------------------------+
