@@ -285,14 +285,20 @@ Call flow
 Answering an incoming call
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When the switchboard receives a call, the new call is added to the *Incoming Calls* list on the left. The user can answer this call **only when his phone is ringing**, by:
+When the switchboard receives a call, the new call is added to the *Incoming Calls* list on the left
+and the phone starts ringing. The user can answer this call **only when his phone is ringing**, by:
 
-* clicking on the first call in the list
+* clicking on any call in the list
 * clicking the *Answer* button
 * pressing the *Enter* key
 
 .. note:: The XiVO Client must be the active window for the keyboard shortcuts
           to be handled
+
+The operator can select which call to answer by:
+
+* clicking directly on the incoming call
+* pressing *F10* to select the incoming calls frame and pressing the up and down arrow keys
 
 Once the call has been answered, it is removed from the incoming calls list and
 displayed in the *Current Call* frame.
