@@ -383,7 +383,7 @@ Errors
 +------------+-----------------------------------------------------------------+-------------------------------------+
 | 400        | Error while deleting User: user still associated to a voicemail | See explanation above               |
 +------------+-----------------------------------------------------------------+-------------------------------------+
-| 404        | Empty                                                           | The requested user was not found    |
+| 404        | User with id=X does not exist                                   | The requested user was not found    |
 +------------+-----------------------------------------------------------------+-------------------------------------+
 
 Example request

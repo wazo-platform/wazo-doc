@@ -427,7 +427,7 @@ Errors
 +------------+--------------------------------------------------------------------------------+-------------------------------------------------------------------+
 | 400        | error while deleting Voicemail: Cannot delete a voicemail associated to a user | You must unassociate a user from his voicemail before deleting it |
 +------------+--------------------------------------------------------------------------------+-------------------------------------------------------------------+
-| 404        | Not found                                                                      | The requested voicemail was not found or does not exist           |
+| 404        | Voicemail with uniqueid=X does not exist                                       | The requested voicemail was not found or does not exist           |
 +------------+--------------------------------------------------------------------------------+-------------------------------------------------------------------+
 
 Query

@@ -432,7 +432,7 @@ and :ref:`restapi-device` for further explanations.
 +------------+--------------------------------------------------+----------------------------------------------------------------------------------+
 | 400        | Error while deleting Line: line still has a link | Line is still associated to a user, extension, or device (see explanation above) |
 +------------+--------------------------------------------------+----------------------------------------------------------------------------------+
-| 404        | Not found                                        | The requested line was not found                                                 |
+| 404        | Line with line_id=X does not exist               | The requested line was not found                                                 |
 +------------+--------------------------------------------------+----------------------------------------------------------------------------------+
 
 
