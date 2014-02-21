@@ -149,7 +149,7 @@ Example response
 Dissociate an Extension from a Line
 ===================================
 
-Any devices that are attached the line must be removed before dissociating an extension from its
+Any devices that are attached to the line must be removed before dissociating an extension from its
 line. A device can be dissociated be resetting it to autoprov mode.
 Consult the documentation on :ref:`restapi-device` for further details.
 
