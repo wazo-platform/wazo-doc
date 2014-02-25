@@ -22,6 +22,7 @@ REST API 1.1
    user_line
    voicemails
    voicemail_links
+   configuration
 
 
 Migration from 1.0
