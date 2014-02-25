@@ -2,6 +2,14 @@
 Managing Plugins
 ****************
 
+Git Repository
+==============
+
+Most plugin-related files are available in the 
+`xivo-provd-plugins repository <https://github.com/xivo-pbx/xivo-provd-plugins.git>`_.
+Following examples are relative to the repository directory tree. Any modifications
+should be preceeded by a `git pull`.
+
 Updating a Plugin
 =================
 
@@ -35,6 +43,22 @@ You can modifiy the file :file:`plugin-info` to change the version number:
 
    If ever you modify the folder :file:`common`, you must increment the version number of all the models.
 
+
+Use Case: Update Firmwares for a given plugin
+---------------------------------------------
+
+Let us suppose we want to update firmwares for xivo-snom from 8.7.3.25 to 
+8.7.3.25 5. Here are the steps to follow :
+
+1. Copy folder plugins/xivo-snom/8.7.3.25 to plugins/xivo-snom/8.7.3.25.5
+#. Update VERSION number in plugins/xivo-snom/8.7.3.25.5/entry.py
+#. Update VERSION number in plugins/xivo-snom/8.7.3.25.5/plugin-info
+#. Download new firmwares (.bin files from `snom website <http://wiki.snom.com/Firmware/V8/Patch>`_)
+#. Update VERSION number and URIs in plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db 
+   (with uris of downloaded files from snom website)
+#. Update sizes && sha1sums in plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db (using
+   helper script xivo-tools/dev-tools/check_fw)
+#. Update plugins/xivo-snom/build.py (duplicate and update section 8.7.3.25 > 8.7.3.25.5)
 
 Test your changes
 -----------------
@@ -76,6 +100,10 @@ Uploading to testing
 Before updating a plugin, it must be passed through the testing phase.
 Once it has been approved it can be uploaded to the production server
 
+.. important::
+
+  Before uploading a plugin in the testing provd repository, make sure to git pull the xivo-provd-plugins git repository.
+  
 To upload the modified plugin in the testing repo on `provd.xivo.fr`,
 you can execute the following command::
 
@@ -88,6 +116,35 @@ Afterwards, in the web-interface, you must modify the URL in section
 
 You can then update the list of plugins and check the version number for the plugin that you modified.
 Don't forget to install the plugin to test it.
+
+Mass-install all firmwares related to a given plugin
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Using provd_pycli on a xivo server, one can mass-install firmwares. Following
+example installs all firmwares for xivo-snom 8.7.3.25.5 plugin 
+(note the auto-completion)::
+
+    provpy> plugins.installed().keys()
+    [u'xivo-snom-8.7.3.15',
+     u'xivo-cisco-sccp-legacy',
+     u'xivo-snom-8.4.35',
+     u'xivo-snom-8.7.3.25',
+     u'xivo-aastra-switchboard',
+     u'xivo-aastra-3.2.2-SP3',
+     u'xivo-aastra-3.2.2.1136',
+     u'xivo-cisco-sccp-9.0.3',
+     u'null',
+     u'xivo-snom-8.7.3.25.5']
+    provpy> p = plugins['xivo-snom-8.7.3.25.5']
+    provpy> p
+    <provd.rest.pycli.pyclient.Plugin object at 0xb6e2968c>
+    provpy> p.
+    p.install(        p.install_all(    p.installable(    p.installed(      p.parameters(     p.uninstall(      p.uninstall_all(  p.update(         p.upgrade(        
+    provpy> p.install_all()
+
+
+Uploading to stable
+^^^^^^^^^^^^^^^^^^^
 
 Once checked, you must synchronize the plugin from `dev` to `stable`
 
