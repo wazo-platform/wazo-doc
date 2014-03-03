@@ -125,22 +125,32 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.04
+-----
+
+* Consult the `14.04 Roadmap <https://projects.xivo.fr/versions/195>`_
+* Live reload of the configuration can be enabled and disabled using the REST API
+* The generation of call logs for unanswered calls from the XiVO client have
+  been improved.
+
+
 14.03
 -----
 
 * Consult the `14.03 Roadmap <https://projects.xivo.fr/versions/194>`_
-* A migration script adds an index on the linkedid field in the cel table. 
-  Tests have shown that this operation can last up to 11.5 minutes on a XiVO 
+* A migration script adds an index on the linkedid field in the cel table.
+  Tests have shown that this operation can last up to 11.5 minutes on a XiVO
   Corporate with 18 millions CELs. xivo-upgrade will thus be slightly longer.
 * Two new daemons are now operationnal, xivo-amid and xivo-call-logd:
-  
+
   * xivo-amid constantly reads the AMI and sends AMI events to the RabbitMQ bus
-  * xivo-call-logd generates call-logs in real time based on AMI LINKEDID_END 
+  * xivo-call-logd generates call-logs in real time based on AMI LINKEDID_END
     events read on the bus
-* An increase in load average is expected with the addition of these two new 
+* An increase in load average is expected with the addition of these two new
   daemons.
-* The cron job calling xivo-call-logs now runs once a day at 4:25 instead of 
+* The cron job calling xivo-call-logs now runs once a day at 4:25 instead of
   every 5 minutes.
+
 
 14.02
 -----
@@ -149,6 +159,7 @@ Upgrade Notes
 * PHP Web services has been removed from documentation
 * REST API 1.0 Web services has been removed from documentation
 * REST API 1.1 User-Line-Extension service is replaced by User-Line and Line-Extension services
+
 
 14.01
 -----
@@ -161,6 +172,7 @@ Upgrade Notes
   * :file:`/usr/share/pf-xivo` to :file:`/usr/share/xivo`
 
 You must update any dialplan or configuration file using these paths
+
 
 Archives
 --------
