@@ -272,6 +272,8 @@ Example response
 Create a Function Key
 =====================
 
+.. warning:: Not implemented yet
+
 Query
 -----
 
