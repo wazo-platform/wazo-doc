@@ -348,59 +348,6 @@ Example response
         ]
    }
 
-Update a Function Key
-=====================
-
-.. warning:: Not implemented yet
-
-Only the fields that need to be updated must be sent during an update.
-
-Query
------
-
-::
-
-   PUT /1.1/func_keys/<id>
-
-Parameters
-----------
-
-id
-    Function Key's id
-
-Input
------
-
-Same as for creating a function key. Please see `Create a Function Key`_.
-
-Errors
-------
-
-Same as for creating a function key. Please see `Create a Function Key`_.
-
-
-
-Example request
----------------
-
-::
-
-   PUT /1.1/func_keys/1 HTTP/1.1
-   Host: xivoserver
-   Content-Type: application/json
-
-   {
-        "destination": "queue",
-        "destination_id": 24
-   }
-
-Example response
-----------------
-
-::
-
-   HTTP/1.1 204 No Content
-
 
 Delete a Function Key
 =====================
