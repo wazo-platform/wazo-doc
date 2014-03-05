@@ -5,10 +5,9 @@ DAHDI 2.9.0 Upgrade Notes
 These notes only apply to Digium TE133 or TE134 cards that are in firmware version 770017 or earlier.
 
 
-Before the upgrade
-==================
+.. warning::
 
-* The system will need to be power cycled after the upgrade. Your cards will not be usable until then.
+   The system will need to be power cycled after the upgrade. Your cards will not be usable until then.
 
 
 After the upgrade
