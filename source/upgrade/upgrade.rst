@@ -129,6 +129,7 @@ Upgrade Notes
 -----
 
 * Consult the `14.05 Roadmap <https://projects.xivo.fr/versions/196>`_
+* the ``unhold_switchboard`` cti command was renamed ``resume_switchboard``.
 
 Please consult the following detailed updated notes for more information:
 
@@ -136,13 +137,6 @@ Please consult the following detailed updated notes for more information:
    :maxdepth: 1
 
    dahdi_2.9.0
-
-
-14.05
------
-
-* Consult the `14.05 Roadmap <https://projects.xivo.fr/versions/196>`_
-* the ``unhold_switchboard`` cti command was renamed ``resume_switchboard``.
 
 
 14.04
