@@ -12,6 +12,11 @@ Protocol Changelog
    to check that the protocol did not change before upgrading XiVO
 
 
+14.05
+-----
+
+* the ``unhold_switchboard`` command was renamed ``resume_switchboard``.
+
 13.22
 -----
 
