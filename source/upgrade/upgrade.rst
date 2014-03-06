@@ -129,7 +129,7 @@ Upgrade Notes
 -----
 
 * Consult the `14.05 Roadmap <https://projects.xivo.fr/versions/196>`_
-* the ``unhold_switchboard`` cti command was renamed ``resume_switchboard``.
+* The :ref:`cti-protocol` has been updated.
 
 Please consult the following detailed updated notes for more information:
 
