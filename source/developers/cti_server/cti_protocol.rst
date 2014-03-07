@@ -1091,6 +1091,18 @@ The first element of the message is the queue id
    {"stats": {"1": {"Xivo-TalkingAgents": "0", "Xivo-AvailableAgents": "1", "Xivo-EWT": "6"}},
       "class": "getqueuesstats", "timenow": 1384512350.25}
 
+Switchboard
+-----------
+
+answer
+^^^^^^
+
+This allows the switchboard operator to answer an incoming call or unhold a call on-hold.
+
+.. code-block:: javascript
+
+   {"class": "answer", "uniqueid": "12345667.89"}
+
 REGCOMMANDS
 -----------
 
