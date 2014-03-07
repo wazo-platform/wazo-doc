@@ -298,7 +298,7 @@ and the phone starts ringing. The user can answer this call **only when his phon
 The operator can select which call to answer by:
 
 * clicking directly on the incoming call
-* pressing *F10* to select the incoming calls frame and pressing the up and down arrow keys
+* pressing *F6* to select the incoming calls frame and pressing the up and down arrow keys
 
 Selecting a call to answer while talking will not answer the call.
 
