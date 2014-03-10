@@ -76,35 +76,6 @@ Direct Media
 SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use directmedia, one must enable the directmedia option in SCCP general settings:
  :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
 
-Then you must issue the command in Asterisk CLI::
-
-   module reload chan_sccp
-
-
-.. _resync_sccp_device:
-
-Resynchronize an SCCP device
-----------------------------
-
-You must resynchronize a device to apply any user configuration changes. You can either :ref:`synchronize the SCCP device using the web interface <synchronize-device>` or using Asterisk's CLI.
-
-The Asterisk CLI command is: ``sccp resync <DEVICE>``.
-
-Example::
-
-	> sccp show devices 
-	Device           IP               Type     Reg.state     Proto.Version
-	===============  ===============  ======   ==========    ==============
-	SEP001AA289343B  10.97.8.107      7941     Registered    19
-	SEPE84040A3BAF2  -                unknown  Unregistered  0
-	SEP00164766A428  10.97.8.106      7960     Registered    11
-	SEP64AE0C5F9718  10.97.8.102      7911     Registered    19
-	SEP00175A4AA36D  -                unknown  Unregistered  0
-	SEP001AA27ABBFC  10.97.8.100      7912     Registered    8
-	Total: 6 device(s), 4 registered
-
-	> sccp resync SEP001AA289343B
-
 
 Features
 --------
@@ -156,7 +127,7 @@ Features
 +------------------------------+-----------+
 | Group pickup                 | Not yet   |
 +------------------------------+-----------+
-| Hotline (auto-provisioning)  | Not yet   |
+| Auto-provisioning            | Not yet   |
 +------------------------------+-----------+
 | Multi line                   | Not yet   |
 +------------------------------+-----------+

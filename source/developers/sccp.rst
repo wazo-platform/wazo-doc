@@ -16,23 +16,18 @@ Installation
 The following packages are required to compile xivo-libsccp on a XiVO.
 
 * build-essential
-* autoconf
-* automake
-* libtool
 * asterisk-dev
 
 ::
 
-   apt-get update && apt-get install build-essential autoconf automake libtool asterisk-dev
+   apt-get update && apt-get install build-essential asterisk-dev
 
 ::
 
    git clone https://github.com/xivo-pbx/xivo-libsccp.git
    cd xivo-libsccp/xivo-libsccp/
-   autoreconf -fvi
-   ./configure
    make
-   cp ./src/.libs/libsccp.so /usr/lib/asterisk/modules/chan_sccp.so
+   make install
 
 
 Configuration
