@@ -137,6 +137,7 @@ Please consult the following detailed updated notes for more information:
    :maxdepth: 1
 
    dahdi_2.9.0
+   sccp_next
 
 
 14.04
