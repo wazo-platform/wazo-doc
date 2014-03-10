@@ -77,4 +77,3 @@ in sync between each phones.
 
 .. warning::
 	With SCCP phones, you must configure a custom ``Func Keys``.
-	After you set a FuncKey, you must :ref:`resynchronize the SCCP device <resync_sccp_device>`.
