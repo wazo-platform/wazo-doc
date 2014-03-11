@@ -29,7 +29,7 @@ comfortable and usually easier to do on a separate, dedicated machine.
 That said, you'll still need a XiVO near, since we'll be doing the call
 testing part on it and not on a separate asterisk.
 
-So, for the rest of this guide, we'll suppose you are doing your tests on a *Debian squeeze*
+So, for the rest of this guide, we'll suppose you are doing your tests on a *Debian Wheezy*
 with the following configuration:
 
 * Installed packages::
