@@ -2,8 +2,8 @@
 Graphics
 ********
 
-The Services/Graphics section gives an overview of a XiVO system's history.
-Graphics are available for the following ressources :
+The Services/Graphics section gives a historical overview of a XiVO system's activity.
+Graphics are available for the following resources :
 
 * CPU
 * Entropy
@@ -16,7 +16,7 @@ Graphics are available for the following ressources :
 * Swap Usage
 
 Each section is presented as a series of 4 graphics : daily, weekly, monthly
-and yearly history. Each graphic can be clicked to zoom. All information is read only.
+and yearly history. Each graphic can be clicked on to zoom. All information presented is read only.
 
 .. figure:: graphics_overview.png
    :scale: 85%
