@@ -2,6 +2,15 @@
 Function Keys
 *************
 
+Service for managing what a function key will do when pressed. A function
+key will accomplish different actions depending on their type and destination.
+
+This service does not manage how to add a function key to a device. Consult
+the documentation on function key templates for more details on mapping
+a function key to a device.
+
+.. warning:: The function key template service has not been implemented yet
+
 
 Function Key Representation
 ===========================
@@ -44,9 +53,11 @@ Example
 Function Key Types
 ------------------
 
-Function keys can be configured to do different actions
-depending on their type. Here is a list of available types with an explanation
-of what they accomplish:
+Function keys can be configured to do different actions depending on their
+type.
+
+
+Here is a list of available types:
 
 speeddial
     Call another extension. (e.g. a user, a queue, a group, etc).
@@ -76,9 +87,15 @@ app_services
 Function Key Destinations
 -------------------------
 
-A Function Key Destination determines the number to dial when the function key
-is of type 'speeddial' or 'transfer'. A destination is determined by specifying
-the type of destination and its id. Here is a list of available destination types:
+A destination determines the number to dial for 'speeddial' function keys. A
+destination is determined by specifying the type of destination and its id.
+
+Destinations are pre-generated every time a new resource is created. In other
+words, a new destination will appear in the `List of Function Key
+Destinations`_ every time a user, group, queue, etc is created.
+
+
+Here is a list of available destination types:
 
 user
     A User
@@ -108,9 +125,10 @@ paging
 Example
 ~~~~~~~
 
-To create a function key that would dial the extension of user "Bob" who has id
-12, you would use a destination of type "user" with the destination id 12 with
-the following JSON::
+To configure a function key that would dial the extension of user "Bob" (who has the id 12), you
+would have a "destination" of type "user" with the "destination_id" 12.
+
+Here is an example of the JSON representation for this user::
 
     {
         "type": "speeddial",
@@ -119,8 +137,8 @@ the following JSON::
     }
 
 
-List of Function Keys
-=====================
+List of Function Key Destinations
+=================================
 
 Query
 -----
@@ -135,7 +153,7 @@ Parameters
 
 
 order
-   Sort the list using a column (e.g. "destination"). Columns allowed: type, destination, destination_id
+   Sort the list using a column (e.g. "destination"). Columns allowed: type, destination
 
 direction
     'asc' or 'desc'. Sort list in ascending (asc) or descending (desc) order
@@ -169,21 +187,21 @@ Errors
 Example requests
 ----------------
 
-List all available function keys::
+List all available function key destinations::
 
     GET /1.1/func_keys HTTP/1.1
     Host: xivoserver
     Accept: application/json
 
-List function keys, sort by descending number::
+List function key destinations, sort by destination in descending order::
 
     GET /1.1/func_keys?order=destination&direction=desc
     Host: xivoserver
     Accept: application/json
 
-List only the first 10 function keys containing the word "john"::
+List only the first 10 function key destinations containing the word "user"::
 
-    GET /1.1/func_keys?search=john&limit=10
+    GET /1.1/func_keys?search=user&limit=10
     Host: xivoserver
     Accept: application/json
 
@@ -227,8 +245,8 @@ Example response
     }
 
 
-Get a Function Key
-==================
+Get a Function Key Destination
+==============================
 
 
 Query
@@ -269,8 +287,8 @@ Example response
     }
 
 
-Create a Function Key
-=====================
+Create a Function Key Destination
+=================================
 
 .. warning:: Not implemented yet
 
@@ -351,8 +369,8 @@ Example response
    }
 
 
-Delete a Function Key
-=====================
+Delete a Function Key Destination
+=================================
 
 .. warning:: Not implemented yet
 
@@ -360,13 +378,13 @@ Errors
 ------
 
 
-+------------+------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
-| Error code | Error message                                                                            | Description                                                              |
-+============+==========================================================================================+==========================================================================+
-| 400        | error while deleting Function Key: <explanation>                                         | See error message for more details                                       |
-+------------+------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
-| 404        | Not found                                                                                | The requested function key was not found or does not exist               |
-+------------+------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
++------------+--------------------------------------------------+------------------------------------------------------------+
+| Error code | Error message                                    | Description                                                |
++============+==================================================+============================================================+
+| 400        | error while deleting Function Key: <explanation> | See error message for more details                         |
++------------+--------------------------------------------------+------------------------------------------------------------+
+| 404        | Not found                                        | The requested function key was not found or does not exist |
++------------+--------------------------------------------------+------------------------------------------------------------+
 
 Query
 -----
