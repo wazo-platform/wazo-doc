@@ -21,6 +21,7 @@ Administration
    Hardware <hardware/hardware>
    incall
    interconnections/interconnections
+   monitoring/monitoring
    paging
    parking
    phonebook
