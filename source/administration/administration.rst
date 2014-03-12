@@ -16,6 +16,7 @@ Administration
    directories/directories
    directed_pickup/directed_pickup
    fax/fax
+   graphics/graphics
    Groups <group/group>
    Group Pickup <group_pickup/group_pickup>
    Hardware <hardware/hardware>
