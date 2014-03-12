@@ -125,8 +125,8 @@ paging
 Example
 ~~~~~~~
 
-A function key that would dial the extension of user "Bob" (who has the id 12)
-you have a "destination" of type "user" with the "destination_id" 12.
+To configure a function key that would dial the extension of user "Bob" (who has the id 12), you
+would have a "destination" of type "user" with the "destination_id" 12.
 
 Here is an example of the JSON representation for this user::
 
@@ -378,13 +378,13 @@ Errors
 ------
 
 
-+------------+------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
-| Error code | Error message                                                                            | Description                                                              |
-+============+==========================================================================================+==========================================================================+
-| 400        | error while deleting Function Key: <explanation>                                         | See error message for more details                                       |
-+------------+------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
-| 404        | Not found                                                                                | The requested function key was not found or does not exist               |
-+------------+------------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
++------------+--------------------------------------------------+------------------------------------------------------------+
+| Error code | Error message                                    | Description                                                |
++============+==================================================+============================================================+
+| 400        | error while deleting Function Key: <explanation> | See error message for more details                         |
++------------+--------------------------------------------------+------------------------------------------------------------+
+| 404        | Not found                                        | The requested function key was not found or does not exist |
++------------+--------------------------------------------------+------------------------------------------------------------+
 
 Query
 -----
