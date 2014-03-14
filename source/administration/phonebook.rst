@@ -82,7 +82,7 @@ These fields are set in the General tab of the phone book.
 * phonebook.displayname
 * phonebook.email
 * phonebook.firstname
-* phonebook.fullname
+* phonebook.fullname (this value is automatically generated as *"<firstname> <lastname>"*, e.g. *"John Doe"*)
 * phonebook.lastname
 * phonebook.society
 * phonebook.title
@@ -106,7 +106,7 @@ Addresses
 
 Each configured address can be accessed
 
-Address uses the following syntax *phonebookaddress.[location].[field]*.
+Address uses the following syntax *phonebookaddress.[location].[field]*, e.g. *phonebookaddress.office.zipcode*.
 
 
 Locations
@@ -130,7 +130,7 @@ Fields
 Each line is a field that will be displayed in the Remote Directory xlet.
 
 .. figure::  images/phone_book_display.png
-   :scale: 85% 
+   :scale: 85%
 
 
 Adding the fax to the directory display
