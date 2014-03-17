@@ -61,6 +61,19 @@ Typical Upgrade Process
  * and with actual checks like SIP registration, ISDN links status, internal/incoming/outgoing calls, XiVO Client connections etc.
 
 
+Specific procedure: XiVO 14.01, 14.02, 14.03, 14.04 installed from the ISO file
+===============================================================================
+
+In those versions, xivo-upgrade keeps XiVO on the same version. You must do the following, before
+the normal upgrade::
+
+   echo "deb http://mirror.xivo.fr/debian/ xivo-five main" > /etc/apt/sources.list.d/xivo-upgrade.list \
+   && apt-get update \
+   && apt-get install xivo-fai \
+   && rm /etc/apt/sources.list.d/xivo-upgrade.list \
+   && apt-get update
+
+
 Specific procedure: XiVO 13.03 and before
 =========================================
 
@@ -124,6 +137,24 @@ Upgrading to/from an archive version
 
 Upgrade Notes
 =============
+
+14.05
+-----
+
+* Consult the `14.05 Roadmap <https://projects.xivo.fr/versions/196>`_
+* The :ref:`cti-protocol` has been updated.
+* The specification of the 'answered-rate' queue statistic has changed to
+  exclude calls on a closed queue
+* The switchboard can now choose which incoming call to answer
+
+Please consult the following detailed updated notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   dahdi_2.9.0
+   sccp_next
+
 
 14.04
 -----

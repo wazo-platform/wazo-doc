@@ -27,11 +27,11 @@ At the end of the installation, you can continue by running the :ref:`configurat
 Installing from a minimal Debian installation
 =============================================
 
-XiVO can be installed directly over a **32-bit** Debian squeeze. When doing so, you are strongly
-advised to start with a clean and minimal installation of Debian squeeze. The latest installation image
-for Debian squeeze can be found at http://www.debian.org/distrib/.
+XiVO can be installed directly over a **32-bit** Debian Wheezy. When doing so, you are strongly
+advised to start with a clean and minimal installation of Debian Wheeze. The latest installation image
+for Debian Wheezy can be found at http://www.debian.org/distrib/.
 
-Once you have your Debian squeeze properly installed, log into it and download the XiVO installation script::
+Once you have your Debian Wheezy properly installed, log into it and download the XiVO installation script::
 
    wget http://mirror.xivo.fr/fai/xivo-migration/xivo_install_current.sh
 

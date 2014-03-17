@@ -12,6 +12,11 @@ Protocol Changelog
    to check that the protocol did not change before upgrading XiVO
 
 
+14.05
+-----
+
+* the ``unhold_switchboard`` command was renamed ``resume_switchboard``.
+
 13.22
 -----
 
@@ -1085,6 +1090,18 @@ The first element of the message is the queue id
       "class": "getqueuesstats", "timenow": 1384509582.89}
    {"stats": {"1": {"Xivo-TalkingAgents": "0", "Xivo-AvailableAgents": "1", "Xivo-EWT": "6"}},
       "class": "getqueuesstats", "timenow": 1384512350.25}
+
+Switchboard
+-----------
+
+answer
+^^^^^^
+
+This allows the switchboard operator to answer an incoming call or unhold a call on-hold.
+
+.. code-block:: javascript
+
+   {"class": "answer", "uniqueid": "12345667.89"}
 
 REGCOMMANDS
 -----------
