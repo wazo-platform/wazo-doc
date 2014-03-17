@@ -146,6 +146,8 @@ Upgrade Notes
 * The specification of the 'answered-rate' queue statistic has changed to
   exclude calls on a closed queue
 * The switchboard can now choose which incoming call to answer
+* The package versions do not necessarily contain the current XiVO version, it may contain older
+  versions. Only the package ``xivo`` is guaranteed to have the current XiVO version.
 
 Please consult the following detailed updated notes for more information:
 
