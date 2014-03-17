@@ -143,6 +143,9 @@ Upgrade Notes
 
 * Consult the `14.05 Roadmap <https://projects.xivo.fr/versions/196>`_
 * The :ref:`cti-protocol` has been updated.
+* The specification of the 'answered-rate' queue statistic has changed to
+  exclude calls on a closed queue
+* The switchboard can now choose which incoming call to answer
 
 Please consult the following detailed updated notes for more information:
 
