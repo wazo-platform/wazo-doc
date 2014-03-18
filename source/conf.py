@@ -62,7 +62,7 @@ master_doc = u'index'
 # General information about the project.
 project = u'XiVO'
 
-copyright = u'2012-2013, Avencall'
+copyright = u'2012-2014, Avencall'
 
 
 # The version info for the project you're documenting, acts as replacement for
