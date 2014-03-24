@@ -288,9 +288,10 @@ Example response
 Create a Function Key Destination
 =================================
 
-Most function keys are automatically generated upon the creation of a desintation resource (
-See `Function Key Destinations`_ for further details). This action is for creating
-function keys that cannot be pre-generated (i.e. custom function keys).
+Most function keys are automatically generated upon the creation of a
+desintation resource ( See `Function Key destinations for speed dials`_ for further details).
+This action is for creating function keys that cannot be pre-generated (i.e.
+custom speed dials and other types of function keys)
 
 .. warning:: Not implemented yet
 
@@ -376,9 +377,10 @@ Example response
 Delete a Function Key Destination
 =================================
 
-Most function keys are automatically removed upon the deletion of a desintation resource (
-See `Function Key Destinations`_ for further details). This action is for deleting
-function keys that cannot be removed automatically (i.e. custom function keys).
+Most function keys are automatically removed upon the deletion of a desintation
+resource ( See `Function Key destinations for speed dials`_ for further details). This action
+is for deleting function keys that cannot be removed automatically (i.e.
+custom speed dials and other types of function keys)
 
 .. warning:: Not implemented yet
 
