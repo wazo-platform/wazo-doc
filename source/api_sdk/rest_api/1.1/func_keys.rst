@@ -2,12 +2,11 @@
 Function Keys
 *************
 
-Service for managing what a function key will do when pressed. A function
-key will accomplish different actions depending on their type and destination.
+Service for configuring what a function key will do when pressed. A function
+key can accomplish different actions depending on their type and destination.
 
-This service does not manage how to add a function key to a device. Consult
-the documentation on function key templates for more details on mapping
-a function key to a device.
+This service does not add a function key to a device. Consult
+the documentation on function key templates for further details.
 
 .. warning:: The function key template service has not been implemented yet
 
@@ -53,11 +52,8 @@ Example
 Function Key Types
 ------------------
 
-Function keys can be configured to do different actions depending on their
-type.
-
-
-Here is a list of available types:
+A type determines what kind of action a function key can accomplish.
+Here is a list of available types and what action they trigger:
 
 speeddial
     Call another extension. (e.g. a user, a queue, a group, etc).
@@ -87,12 +83,14 @@ app_services
 Function Key Destinations
 -------------------------
 
-A destination determines the number to dial for 'speeddial' function keys. A
-destination is determined by specifying the type of destination and its id.
-
-Destinations are pre-generated every time a new resource is created. In other
-words, a new destination will appear in the `List of Function Key
-Destinations`_ every time a user, group, queue, etc is created.
+A destination determines the number to dial when using 'speeddial' function
+keys. A destination is configured by specifying the type of destination and its
+id.  Destinations are pre-generated every time a new resource is created. In
+other words, a new destination will appear in the `List of Function Key
+Destinations`_ every time a user, group, queue, etc is created. Therefore,
+function keys do not need to be created manually. However, there is an
+exception to this rule: Function keys of type 'custom' cannot be pre-generated
+because the user must manually enter the number to dial.
 
 
 Here is a list of available destination types:
@@ -110,7 +108,7 @@ meetme
     Conference room
 
 custom
-    A custom number defined by the user
+    A custom number to dial, defined by the user
 
 bs_filter
     Boss/Secretary filter
@@ -290,7 +288,13 @@ Example response
 Create a Function Key Destination
 =================================
 
+Most function keys are automatically generated upon the creation of a desintation resource (
+See `Function Key Destinations`_ for further details). This action is for creating
+function keys that cannot be pre-generated (i.e. custom function keys).
+
 .. warning:: Not implemented yet
+
+
 
 Query
 -----
@@ -371,6 +375,10 @@ Example response
 
 Delete a Function Key Destination
 =================================
+
+Most function keys are automatically removed upon the deletion of a desintation resource (
+See `Function Key Destinations`_ for further details). This action is for deleting
+function keys that cannot be removed automatically (i.e. custom function keys).
 
 .. warning:: Not implemented yet
 
