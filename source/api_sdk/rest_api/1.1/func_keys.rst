@@ -17,17 +17,17 @@ Function Key Representation
 Description
 -----------
 
-+----------------+---------+---------------------------------------------------+
-| Field          | Values  | Description                                       |
-+================+=========+===================================================+
-| id             | integer | (Read-only)                                       |
-+----------------+---------+---------------------------------------------------+
-| type           | string  | See `Function Key Types`_ for more details        |
-+----------------+---------+---------------------------------------------------+
-| destination    | string  | See `Function Key Destinations`_ for more details |
-+----------------+---------+---------------------------------------------------+
-| destination_id | integer | See `Function Key Destinations`_ for more details |
-+----------------+---------+---------------------------------------------------+
++----------------+---------+-------------------------------------------------------------------+
+| Field          | Values  | Description                                                       |
++================+=========+===================================================================+
+| id             | integer | (Read-only)                                                       |
++----------------+---------+-------------------------------------------------------------------+
+| type           | string  | See `Function Key Types`_ for more details                        |
++----------------+---------+-------------------------------------------------------------------+
+| destination    | string  | See `Function Key destinations for speed dials`_ for more details |
++----------------+---------+-------------------------------------------------------------------+
+| destination_id | integer | See `Function Key destinations for speed dials`_ for more details |
++----------------+---------+-------------------------------------------------------------------+
 
 
 Example
@@ -80,11 +80,11 @@ app_services
     Start a custom application on the phone.
 
 
-Function Key Destinations
--------------------------
+Function Key destinations for speed dials
+-----------------------------------------
 
 A destination determines the number to dial when using 'speeddial' function
-keys. A destination is configured by specifying the type of destination and its
+keys. Destinations are configured by specifying the type of destination and its
 id.  Destinations are pre-generated every time a new resource is created. In
 other words, a new destination will appear in the `List of Function Key
 Destinations`_ every time a user, group, queue, etc is created. Therefore,
@@ -306,33 +306,33 @@ Query
 Input
 -----
 
-+----------------+----------+---------+---------------------------------------------------+
-| Field          | Required | Values  | Notes                                             |
-+================+==========+=========+===================================================+
-| type           | yes      | string  | See `Function Key Types`_ for more details        |
-+----------------+----------+---------+---------------------------------------------------+
-| destination    | yes      | string  | See `Function Key Destinations`_ for more details |
-+----------------+----------+---------+---------------------------------------------------+
-| destination_id | yes      | integer | destination's id                                  |
-+----------------+----------+---------+---------------------------------------------------+
++----------------+----------+---------+-------------------------------------------------------------------+
+| Field          | Required | Values  | Notes                                                             |
++================+==========+=========+===================================================================+
+| type           | yes      | string  | See `Function Key Types`_ for more details                        |
++----------------+----------+---------+-------------------------------------------------------------------+
+| destination    | yes      | string  | See `Function Key destinations for speed dials`_ for more details |
++----------------+----------+---------+-------------------------------------------------------------------+
+| destination_id | yes      | integer | destination's id                                                  |
++----------------+----------+---------+-------------------------------------------------------------------+
 
 
 Errors
 ------
 
-+------------+---------------------------------------------------------------+--------------------------------------------------------------------------------+
-| Error code | Error message                                                 | Description                                                                    |
-+============+===============================================================+================================================================================+
-| 500        | Error while creating Function Key: <explanation>              | See explanation for more details.                                              |
-+------------+---------------------------------------------------------------+--------------------------------------------------------------------------------+
-| 400        | Missing parameters: <list of missing fields>                  |                                                                                |
-+------------+---------------------------------------------------------------+--------------------------------------------------------------------------------+
-| 400        | Invalid parameters: type <type> does not exist                | Please use one of the function key types listed in `Function Key Types`_       |
-+------------+---------------------------------------------------------------+--------------------------------------------------------------------------------+
-| 400        | Invalid parameters: destination of type <type> does not exist | Please use one of the destination types listed in `Function Key Destinations`_ |
-+------------+---------------------------------------------------------------+--------------------------------------------------------------------------------+
-| 400        | Nonexistent parameters : <destination> <id> does not exist    | The destination you are trying to associate with does not exist                |
-+------------+---------------------------------------------------------------+--------------------------------------------------------------------------------+
++------------+---------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+| Error code | Error message                                                 | Description                                                                                    |
++============+===============================================================+================================================================================================+
+| 500        | Error while creating Function Key: <explanation>              | See explanation for more details.                                                              |
++------------+---------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+| 400        | Missing parameters: <list of missing fields>                  |                                                                                                |
++------------+---------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+| 400        | Invalid parameters: type <type> does not exist                | Please use one of the function key types listed in `Function Key Types`_                       |
++------------+---------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+| 400        | Invalid parameters: destination of type <type> does not exist | Please use one of the destination types listed in `Function Key destinations for speed dials`_ |
++------------+---------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+| 400        | Nonexistent parameters : <destination> <id> does not exist    | The destination you are trying to associate with does not exist                                |
++------------+---------------------------------------------------------------+------------------------------------------------------------------------------------------------+
 
 Example request
 ---------------
