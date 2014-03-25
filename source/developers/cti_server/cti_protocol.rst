@@ -1263,6 +1263,23 @@ intercept
 
 hangup
 
+.. code-block:: javascript
+
+   {
+       "channelids": "chan:xivo/SIP/im2p7kzr-00000003",
+       "class": "ipbxcommand",
+       "command": "hangup",
+       "commandid": 177773016
+   }
+
+   {
+       "class": "ipbxcommand",
+       "command": "hangup",
+       "ipbxreply": 1,
+       "replyid": 177773016,
+       "timenow": 1395756534.64
+   }
+
 answer
 
 cancel
