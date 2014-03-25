@@ -310,6 +310,18 @@ The switchboard operator can do the following operations:
 * Press to confirm the selection and start the call
 
 
+Hanging Up a Call
+^^^^^^^^^^^^^^^^^
+
+The switchboard operator can hang up its current call by either:
+
+* Clicking the *Hangup* button
+* Pressing the *F8* key
+
+If the operator has placed a new call via the *Directory* or *Dial* xlet and that call
+has not yet been answered, he can cancel it in the same way.
+
+
 Distributing a call
 ^^^^^^^^^^^^^^^^^^^
 
