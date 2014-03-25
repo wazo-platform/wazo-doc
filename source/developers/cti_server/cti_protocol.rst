@@ -1087,7 +1087,9 @@ For example:
        "commandid": 177773016
    }
 
- ``Server > Client``
+``Server -> Client``
+
+.. code-block:: javascript
 
    {
        "class": "ipbxcommand",
@@ -1096,6 +1098,7 @@ For example:
        "replyid": 177773016,
        "timenow": 1395756534.64
    }
+
 
 Statistics
 ----------
