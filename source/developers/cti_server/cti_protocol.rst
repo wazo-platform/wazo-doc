@@ -983,7 +983,7 @@ Forward the call to another destination when the user is busy
       }
 
 
-Ipbx Commands
+IPBX Commands
 -------------
 
 
@@ -1037,9 +1037,10 @@ Example:
 
 record
 ^^^^^^
+
 ``Client -> Server``
 
-* subcommand : ``start`` of ``stop``
+* subcommand : ``start`` or ``stop``
 
 
 .. code-block:: javascript
@@ -1060,6 +1061,41 @@ record
 
    {"command": "record", "replyid": 1423579492, "class": "ipbxcommand", "ipbxreply": true, "timenow": 1361801751.87}
    {"replyid": 1423579492, "command": "record", "class": "ipbxcommand", "timenow": 1361798879.13, "response": "ok"}
+
+hangup
+^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {
+       "class": "ipbxcommand",
+       "command": "hangup",
+       "channelids": "chan:xivo/<channel_id>",
+       "commandid": <command_id>
+   }
+
+For example:
+
+.. code-block:: javascript
+
+   {
+       "class": "ipbxcommand",
+       "command": "hangup",
+       "channelids": "chan:xivo/SIP/im2p7kzr-00000003",
+       "commandid": 177773016
+   }
+
+ ``Server > Client``
+
+   {
+       "class": "ipbxcommand",
+       "command": "hangup",
+       "ipbxreply": 1,
+       "replyid": 177773016,
+       "timenow": 1395756534.64
+   }
 
 Statistics
 ----------
@@ -1240,51 +1276,6 @@ ipbxcommand
        "source": "user:special:me"
     }
 
-IPBXCOMMANDS
-------------
-
-hangupme
-
-meetme
-
-sipnotify
-
-mailboxcount
-
-parking
-
-transfer
-
-atxfer
-
-transfercancel
-
-intercept
-
-hangup
-
-.. code-block:: javascript
-
-   {
-       "channelids": "chan:xivo/SIP/im2p7kzr-00000003",
-       "class": "ipbxcommand",
-       "command": "hangup",
-       "commandid": 177773016
-   }
-
-   {
-       "class": "ipbxcommand",
-       "command": "hangup",
-       "ipbxreply": 1,
-       "replyid": 177773016,
-       "timenow": 1395756534.64
-   }
-
-answer
-
-cancel
-
-refuse
 
 CTI server implementation
 =========================
