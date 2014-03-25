@@ -20,12 +20,6 @@ Limitations
 
 .. note::
 
-  It is impossible to cancel a transfer to an invalid number in the dialplan.
-  The operator will have to wait until the prompt is over before trying to
-  transfer again.
-
-.. note::
-
   The shortcut keys of the switchboard do not work on the Mac version of the
   XiVO client.
 
@@ -286,7 +280,7 @@ Answering an incoming call
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When the switchboard receives a call, the new call is added to the *Incoming Calls* list on the left
-and the phone starts ringing. The user can answer this call **only when his phone is ringing**, by:
+and the phone starts ringing. The user can answer this call by:
 
 * clicking on any call in the list
 * clicking the *Answer* button
@@ -314,6 +308,18 @@ The switchboard operator can do the following operations:
 * Press the *Call* button or press *F3*
 * Search for the call destination in the directory xlet
 * Press to confirm the selection and start the call
+
+
+Hanging Up a Call
+^^^^^^^^^^^^^^^^^
+
+The switchboard operator can hang up its current call by either:
+
+* Clicking the *Hangup* button
+* Pressing the *F8* key
+
+If the operator has placed a new call via the *Directory* or *Dial* xlet and that call
+has not yet been answered, he can cancel it in the same way.
 
 
 Distributing a call

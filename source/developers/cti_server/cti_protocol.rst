@@ -12,6 +12,11 @@ Protocol Changelog
    to check that the protocol did not change before upgrading XiVO
 
 
+14.06
+-----
+
+* the ``dial_success`` message was added
+
 14.05
 -----
 
@@ -1016,6 +1021,19 @@ For example :
         "destination": "exten:xivo/1202"
     }
 
+The server will answer with either an error or a success:
+
+.. code-block:: javascript
+
+    {
+        "class": "ipbxcommand",
+        "error_string": "unreachable_extension:1202",
+    }
+
+    {
+        "class": "dial_success",
+        "exten": "1202"
+    }
 
 originate
 ^^^^^^^^^
