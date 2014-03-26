@@ -26,20 +26,8 @@ During the installer, check the package:
 Qt SDK
 ------
 
-You need the development files of the Qt library.
-
-To download the Qt SDK, you might need to create an account on the Nokia website.
-
-`Qt SDK download page <http://www.developer.nokia.com/Develop/Qt/Tools>`_
-
-During the installer:
-
-* choose a Custom installation
-* uncheck all components
-* check only:
-
-  * Development tools / Desktop Qt / Qt 4.8.1 (Desktop) / Desktop Qt 4.8.1 - MinGW
-  * Miscellaneous / MinGW 4.4
+You need the development files of the Qt 5 library, available on the `Qt website
+<http://qt-project.org/downloads>`_.
 
 
 NSIS (optional)
@@ -68,13 +56,9 @@ Building
 Path configuration
 ------------------
 
-If you did not change the default path for installation of Qt and NSIS, you can
-skip this step, because the default paths are used.
-
-If you did, you must change the values in
-:file:`C:\\Cygwin\\home\\user\\xivo-client-qt\\build-deps` to match the paths of
-your installed programs. You must use an editor capable of understanding Unix
-end of lines, such as `Notepad++ <http://notepad-plus-plus.org>`_.
+You must change the values in :file:`C:\\Cygwin\\home\\user\\xivo-client-qt\\build-deps` to match
+the paths of your installed programs. You must use an editor capable of understanding Unix end of
+lines, such as `Notepad++ <http://notepad-plus-plus.org>`_.
 
 Replace ``C:\`` with ``/cygdrive/c`` and backslashes (``\``) with slashes
 (``/``). You must respect the case of the directory names. Paths containing
@@ -107,7 +91,8 @@ Launch
 
 You can launch the built executable with::
 
-   bin/xivoclient
+   source build_deps
+   PATH=$WIN_QT_PATH/bin:$PATH bin/xivoclient
 
 
 Package

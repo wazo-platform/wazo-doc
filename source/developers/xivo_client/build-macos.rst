@@ -23,9 +23,8 @@ to get XCode too, but it is rather big.
 Qt SDK
 ------
 
-`Qt SDK download page <http://qt.nokia.com/downloads>`_
-
-Install the Qt libraries version 4.8 and the Qt Creator.
+You need the development files of the Qt 5 library, available on the `Qt website
+<http://qt-project.org/downloads>`_.
 
 
 Get sources
@@ -39,10 +38,11 @@ In a bash shell, enter::
 Building
 ========
 
+
 Launch qmake to generate the Makefile::
 
    $ cd xivo-client-qt
-   $ qmake -spec macx-g++
+   $ /path/to/qt5/bin/qmake -spec macx-g++
 
 This will also generate a file ``versions.mak`` that contains version
 informations about the code being compiled. It is necessary for compilation and
@@ -78,11 +78,13 @@ Launch
 
 You can launch the built executable with::
 
-   $ DYLD_LIBRARY_PATH=bin open bin/xivoclient.app/Contents/MacOS/xivoclient
+   $ DYLD_LIBRARY_PATH=bin bin/xivoclient.app/Contents/MacOS/xivoclient
 
 
 Package
 =======
+
+You need to have the bin directory of Qt in your $PATH.
 
 To create the app bundle::
 
