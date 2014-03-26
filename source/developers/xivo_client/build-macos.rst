@@ -4,8 +4,7 @@
 Building the XiVO Client on Mac OS
 **********************************
 
-This page explains how to build an executable of the XiVO Client from its
-sources for Mac OS.
+This page explains how to build an executable of the XiVO Client from its sources for Mac OS.
 
 
 Mac OS Prerequisites
@@ -14,10 +13,9 @@ Mac OS Prerequisites
 Developer tools
 ---------------
 
-You will need an Apple developer account to get development tools, such as
-GCC. To log in or sign in, go to http://connect.apple.com. In the Downloads
-section, get the Command line Tools for XCode and install them. You might want
-to get XCode too, but it is rather big.
+You will need an Apple developer account to get development tools, such as GCC. To log in or sign
+in, go to http://connect.apple.com. In the Downloads section, get the Command line Tools for XCode
+and install them. You might want to get XCode too, but it is rather big.
 
 
 Qt SDK
@@ -44,9 +42,8 @@ Launch qmake to generate the Makefile::
    $ cd xivo-client-qt
    $ /path/to/qt5/bin/qmake -spec macx-g++
 
-This will also generate a file ``versions.mak`` that contains version
-informations about the code being compiled. It is necessary for compilation and
-packaging.
+This will also generate a file ``versions.mak`` that contains version informations about the code
+being compiled. It is necessary for compilation and packaging.
 
 You can then launch ``make``::
 

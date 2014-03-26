@@ -4,8 +4,7 @@
 Building the XiVO Client on Windows platforms
 *********************************************
 
-This page explains how to build an executable of the XiVO Client from its
-sources for Windows.
+This page explains how to build an executable of the XiVO Client from its sources for Windows.
 
 
 Windows Prerequisites
@@ -33,8 +32,7 @@ You need the development files of the Qt 5 library, available on the `Qt website
 NSIS (optional)
 ---------------
 
-You will only need NSIS installed if you want to create an installer for the
-XiVO Client.
+You will only need NSIS installed if you want to create an installer for the XiVO Client.
 
 `NSIS download page <http://nsis.sourceforge.net/Download>`_
 
@@ -60,12 +58,10 @@ You must change the values in :file:`C:\\Cygwin\\home\\user\\xivo-client-qt\\bui
 the paths of your installed programs. You must use an editor capable of understanding Unix end of
 lines, such as `Notepad++ <http://notepad-plus-plus.org>`_.
 
-Replace ``C:\`` with ``/cygdrive/c`` and backslashes (``\``) with slashes
-(``/``). You must respect the case of the directory names. Paths containing
-spaces must be enclosed in double quotes (``"``).
+Replace ``C:\`` with ``/cygdrive/c`` and backslashes (``\``) with slashes (``/``). You must respect
+the case of the directory names. Paths containing spaces must be enclosed in double quotes (``"``).
 
-For example, if you installed NSIS in :file:`C:\\Program Files (x86)\\nsis`, you
-should write::
+For example, if you installed NSIS in :file:`C:\\Program Files (x86)\\nsis`, you should write::
 
    WIN_NSIS_PATH="/cygdrive/c/Program files (x86)/nsis"
 

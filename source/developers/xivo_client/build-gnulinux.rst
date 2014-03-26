@@ -4,8 +4,7 @@
 Building the XiVO Client on GNU/Linux platforms
 ***********************************************
 
-This page explains how to build an executable of the XiVO Client from its
-sources for GNU/Linux.
+This page explains how to build an executable of the XiVO Client from its sources for GNU/Linux.
 
 
 Prerequisites
@@ -32,9 +31,8 @@ Launch qmake to generate the Makefile::
    $ cd xivo-client-qt
    $ /path/to/qt5/bin/qmake
 
-This will also generate a file ``versions.mak`` that contains version
-informations about the code being compiled. It is necessary for compilation and
-packaging.
+This will also generate a file ``versions.mak`` that contains version informations about the code
+being compiled. It is necessary for compilation and packaging.
 
 You can then launch ``make``::
 
