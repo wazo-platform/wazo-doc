@@ -4,8 +4,7 @@
 Building the XiVO Client on Windows platforms
 *********************************************
 
-This page explains how to build an executable of the XiVO Client from its
-sources for Windows.
+This page explains how to build an executable of the XiVO Client from its sources for Windows.
 
 
 Windows Prerequisites
@@ -26,27 +25,14 @@ During the installer, check the package:
 Qt SDK
 ------
 
-You need the development files of the Qt library.
-
-To download the Qt SDK, you might need to create an account on the Nokia website.
-
-`Qt SDK download page <http://www.developer.nokia.com/Develop/Qt/Tools>`_
-
-During the installer:
-
-* choose a Custom installation
-* uncheck all components
-* check only:
-
-  * Development tools / Desktop Qt / Qt 4.8.1 (Desktop) / Desktop Qt 4.8.1 - MinGW
-  * Miscellaneous / MinGW 4.4
+You need the development files of the Qt 5 library, available on the `Qt website
+<http://qt-project.org/downloads>`_.
 
 
 NSIS (optional)
 ---------------
 
-You will only need NSIS installed if you want to create an installer for the
-XiVO Client.
+You will only need NSIS installed if you want to create an installer for the XiVO Client.
 
 `NSIS download page <http://nsis.sourceforge.net/Download>`_
 
@@ -68,20 +54,14 @@ Building
 Path configuration
 ------------------
 
-If you did not change the default path for installation of Qt and NSIS, you can
-skip this step, because the default paths are used.
+You must change the values in :file:`C:\\Cygwin\\home\\user\\xivo-client-qt\\build-deps` to match
+the paths of your installed programs. You must use an editor capable of understanding Unix end of
+lines, such as `Notepad++ <http://notepad-plus-plus.org>`_.
 
-If you did, you must change the values in
-:file:`C:\\Cygwin\\home\\user\\xivo-client-qt\\build-deps` to match the paths of
-your installed programs. You must use an editor capable of understanding Unix
-end of lines, such as `Notepad++ <http://notepad-plus-plus.org>`_.
+Replace ``C:\`` with ``/cygdrive/c`` and backslashes (``\``) with slashes (``/``). You must respect
+the case of the directory names. Paths containing spaces must be enclosed in double quotes (``"``).
 
-Replace ``C:\`` with ``/cygdrive/c`` and backslashes (``\``) with slashes
-(``/``). You must respect the case of the directory names. Paths containing
-spaces must be enclosed in double quotes (``"``).
-
-For example, if you installed NSIS in :file:`C:\\Program Files (x86)\\nsis`, you
-should write::
+For example, if you installed NSIS in :file:`C:\\Program Files (x86)\\nsis`, you should write::
 
    WIN_NSIS_PATH="/cygdrive/c/Program files (x86)/nsis"
 
@@ -107,7 +87,8 @@ Launch
 
 You can launch the built executable with::
 
-   bin/xivoclient
+   source build_deps
+   PATH=$WIN_QT_PATH/bin:$PATH bin/xivoclient
 
 
 Package

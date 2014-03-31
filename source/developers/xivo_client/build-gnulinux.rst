@@ -4,14 +4,13 @@
 Building the XiVO Client on GNU/Linux platforms
 ***********************************************
 
-This page explains how to build an executable of the XiVO Client from its
-sources for GNU/Linux.
+This page explains how to build an executable of the XiVO Client from its sources for GNU/Linux.
 
 
 Prerequisites
 =============
 
-* Qt library development files (package ``libqt4-dev`` on Debian and derivatives)
+* Qt5 library development files: `Qt website <http://qt-project.org/downloads>`_
 * Git (package ``git``)
 * Generic software building tools : ``make``, ``g++`` ... (package ``build-essential``)
 
@@ -30,11 +29,10 @@ Building
 Launch qmake to generate the Makefile::
 
    $ cd xivo-client-qt
-   $ qmake
+   $ /path/to/qt5/bin/qmake
 
-This will also generate a file ``versions.mak`` that contains version
-informations about the code being compiled. It is necessary for compilation and
-packaging.
+This will also generate a file ``versions.mak`` that contains version informations about the code
+being compiled. It is necessary for compilation and packaging.
 
 You can then launch ``make``::
 
@@ -83,9 +81,10 @@ You can launch the built executable with::
 Package
 =======
 
-To create the Debian package, usable on Debian and Ubuntu::
+To create the Debian package, usable on Debian and Ubuntu, you first need to modify
+:file:`build-deps` to locate the Qt 5 installation directory::
 
-   $ qmake -spec linux-g++
+   $ /path/to/qt5/bin/qmake -spec linux-g++
    $ make
    $ make pack
 

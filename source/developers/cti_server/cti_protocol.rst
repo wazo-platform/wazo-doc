@@ -12,6 +12,11 @@ Protocol Changelog
    to check that the protocol did not change before upgrading XiVO
 
 
+14.06
+-----
+
+* the ``dial_success`` message was added
+
 14.05
 -----
 
@@ -983,7 +988,7 @@ Forward the call to another destination when the user is busy
       }
 
 
-Ipbx Commands
+IPBX Commands
 -------------
 
 
@@ -1016,6 +1021,19 @@ For example :
         "destination": "exten:xivo/1202"
     }
 
+The server will answer with either an error or a success:
+
+.. code-block:: javascript
+
+    {
+        "class": "ipbxcommand",
+        "error_string": "unreachable_extension:1202",
+    }
+
+    {
+        "class": "dial_success",
+        "exten": "1202"
+    }
 
 originate
 ^^^^^^^^^
@@ -1037,9 +1055,10 @@ Example:
 
 record
 ^^^^^^
+
 ``Client -> Server``
 
-* subcommand : ``start`` of ``stop``
+* subcommand : ``start`` or ``stop``
 
 
 .. code-block:: javascript
@@ -1060,6 +1079,44 @@ record
 
    {"command": "record", "replyid": 1423579492, "class": "ipbxcommand", "ipbxreply": true, "timenow": 1361801751.87}
    {"replyid": 1423579492, "command": "record", "class": "ipbxcommand", "timenow": 1361798879.13, "response": "ok"}
+
+hangup
+^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {
+       "class": "ipbxcommand",
+       "command": "hangup",
+       "channelids": "chan:xivo/<channel_id>",
+       "commandid": <command_id>
+   }
+
+For example:
+
+.. code-block:: javascript
+
+   {
+       "class": "ipbxcommand",
+       "command": "hangup",
+       "channelids": "chan:xivo/SIP/im2p7kzr-00000003",
+       "commandid": 177773016
+   }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {
+       "class": "ipbxcommand",
+       "command": "hangup",
+       "ipbxreply": 1,
+       "replyid": 177773016,
+       "timenow": 1395756534.64
+   }
+
 
 Statistics
 ----------
@@ -1240,34 +1297,6 @@ ipbxcommand
        "source": "user:special:me"
     }
 
-IPBXCOMMANDS
-------------
-
-hangupme
-
-meetme
-
-sipnotify
-
-mailboxcount
-
-parking
-
-transfer
-
-atxfer
-
-transfercancel
-
-intercept
-
-hangup
-
-answer
-
-cancel
-
-refuse
 
 CTI server implementation
 =========================

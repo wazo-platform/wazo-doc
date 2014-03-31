@@ -138,6 +138,14 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.06
+-----
+
+* Consult the `14.06 Roadmap <https://projects.xivo.fr/versions/197>`_
+* The XiVO client now uses Qt 5 instead of Qt 4. There is nothing to be aware of unless you
+  are :ref:`building your own version <build_xivoclient>` of it.
+
+
 14.05
 -----
 

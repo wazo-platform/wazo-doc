@@ -4,8 +4,7 @@
 Building the XiVO Client on Mac OS
 **********************************
 
-This page explains how to build an executable of the XiVO Client from its
-sources for Mac OS.
+This page explains how to build an executable of the XiVO Client from its sources for Mac OS.
 
 
 Mac OS Prerequisites
@@ -14,18 +13,16 @@ Mac OS Prerequisites
 Developer tools
 ---------------
 
-You will need an Apple developer account to get development tools, such as
-GCC. To log in or sign in, go to http://connect.apple.com. In the Downloads
-section, get the Command line Tools for XCode and install them. You might want
-to get XCode too, but it is rather big.
+You will need an Apple developer account to get development tools, such as GCC. To log in or sign
+in, go to http://connect.apple.com. In the Downloads section, get the Command line Tools for XCode
+and install them. You might want to get XCode too, but it is rather big.
 
 
 Qt SDK
 ------
 
-`Qt SDK download page <http://qt.nokia.com/downloads>`_
-
-Install the Qt libraries version 4.8 and the Qt Creator.
+You need the development files of the Qt 5 library, available on the `Qt website
+<http://qt-project.org/downloads>`_.
 
 
 Get sources
@@ -39,14 +36,14 @@ In a bash shell, enter::
 Building
 ========
 
+
 Launch qmake to generate the Makefile::
 
    $ cd xivo-client-qt
-   $ qmake -spec macx-g++
+   $ /path/to/qt5/bin/qmake -spec macx-g++
 
-This will also generate a file ``versions.mak`` that contains version
-informations about the code being compiled. It is necessary for compilation and
-packaging.
+This will also generate a file ``versions.mak`` that contains version informations about the code
+being compiled. It is necessary for compilation and packaging.
 
 You can then launch ``make``::
 
@@ -78,11 +75,13 @@ Launch
 
 You can launch the built executable with::
 
-   $ DYLD_LIBRARY_PATH=bin open bin/xivoclient.app/Contents/MacOS/xivoclient
+   $ DYLD_LIBRARY_PATH=bin bin/xivoclient.app/Contents/MacOS/xivoclient
 
 
 Package
 =======
+
+You need to have the bin directory of Qt in your $PATH.
 
 To create the app bundle::
 
