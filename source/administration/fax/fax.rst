@@ -14,6 +14,10 @@ It's possible to send faxes from XiVO using the fax Xlet in the XiVO client.
 
 The file to send must be in PDF format.
 
+.. warning:: Sending faxes is currently not supported if there is a network equipment that changes
+ TCP port numbers or IP addresses, like a router doing NAT or NAPT, between the CTI client and the
+ CTI server.
+
 
 Fax reception
 =============
