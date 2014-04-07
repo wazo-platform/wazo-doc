@@ -194,8 +194,7 @@ is received.
 Fax detection
 =============
 
-XiVO **does not currently support Fax Detection**. A workaround *for DAHDI trunk only* is described
-in the :ref:`fax-detection` section.
+XiVO **does not currently support Fax Detection**. A workaround is described in the :ref:`fax-detection` section.
 
 
 .. _fax-analog-gateway:
