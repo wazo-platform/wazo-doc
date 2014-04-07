@@ -30,6 +30,13 @@ And *voila*, once the phone has rebooted, your user is ready to make and receive
 No manual editing of configuration files nor fiddling in the phone's web interface.
 
 
+Limitations
+===========
+
+* Device synchronisation does not work in the situation where multiple devices are connected from
+  behind a NAPT network equipment. The devices must be resynchronised manually.
+
+
 External links
 ==============
 
