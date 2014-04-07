@@ -6,38 +6,13 @@ Fax transmission
 ================
 
 It's possible to send faxes from XiVO using the fax Xlet in the XiVO client.
-Sending and receiving a fax on the same XiVO
-
-It's possible to send a fax to the same XiVO you use to receive it.
-This is mostly useful for testing purpose.
-
-* create a new context named fax-context of type "Incall".
-* add an incoming call number to the fax-context context which will be used as the fax extension.
-* modify the default context so that it includes the fax-context context
-* add an incoming call using the following information::
-
-   DID: the fax extension
-   Context: fax-context
-   Destination: Application
-   Application: FaxToMail
-   Email: as you wish
-
-You'll then be able to use your fax extension from your XiVO client
-to send a fax to the same XiVO that you use to receive it.
-
-
-When a fax is received, the default behaviour is to send an email to a
-user-specified address with the incoming fax attached as a PDF document.
 
 .. figure:: images/xivoclient-fax.png
 
    The fax Xlet in the XiVO Client
 
-Starting with XiVO 1.1.15, more advanced features have been added, like the
-ability of sending a PDF copy of a fax via FTP, printing it, changing the email body,
-or doing more than one action at the same time. These advanced features are unfortunately
-not available from the web-interface but only by editing the `/etc/xivo/asterisk/xivo_fax.conf`
-configuration file.
+
+The file to send must be in PDF format.
 
 
 Fax reception
@@ -47,13 +22,14 @@ Adding a fax reception DID
 --------------------------
 
 If you want to receive faxes from XiVO, you need to add incoming calls definition with the
-`Application` destination and the `FaxToMail` application for every DID you want to receive faxes from.
+`Application` destination and the `FaxToMail` application for every DID you want to receive faxes
+from.
 
-This apply even if you want the action to be different from sending an email, like putting it
-on a FTP server. You'll still need to enter an email address in these cases even though it won't be used.
+This applies even if you want the action to be different from sending an email, like putting it on a
+FTP server. You'll still need to enter an email address in these cases even though it won't be used.
 
-Note that, as usual when adding incoming call definitions,, you must first define the incoming
-call range in the used context.
+Note that, as usual when adding incoming call definitions, you must first define the incoming call
+range in the used context.
 
 .. figure:: images/Fax_recv_adding.png
 
@@ -61,13 +37,13 @@ call range in the used context.
 Changing the email body
 -----------------------
 
-You can change the body of the email sent upon fax reception by editing the :file:`/etc/xivo/mail.txt`
-file.
+You can change the body of the email sent upon fax reception by editing :file:`/etc/xivo/mail.txt`.
 
 The following variable can be included in the mail body:
- * ``%(dstnum)s`` -- the DID that received the fax
 
-If you want to include a regular percent character, i.e. "%", you must write it has "%%" in 
+* ``%(dstnum)s``: the DID that received the fax
+
+If you want to include a regular percent character, i.e. ``%``, you must write it as ``%%`` in
 :file:`mail.txt` or an error will occur when trying to do the variables substitution.
 
 The ``agid`` service must be restarted to apply changes::
@@ -78,7 +54,8 @@ The ``agid`` service must be restarted to apply changes::
 Changing the email subject
 --------------------------
 
-You can change the subject of the email sent upon fax reception by editing the :file:`/etc/xivo/asterisk/xivo_fax.conf` file.
+You can change the subject of the email sent upon fax reception by editing
+:file:`/etc/xivo/asterisk/xivo_fax.conf`.
 
 Look for the ``[mail]`` section, and in this section, modify the value of the ``subject`` option.
 
@@ -88,10 +65,12 @@ The ``agid`` service must be restarted to apply changes::
 
  /etc/init.d/xivo-agid restart
 
-Changing the email from 
+
+Changing the email from
 -----------------------
 
-You can change the from of the email sent upon fax reception by editing the :file:`/etc/xivo/asterisk/xivo_fax.conf` file.
+You can change the from of the email sent upon fax reception by editing
+:file:`/etc/xivo/asterisk/xivo_fax.conf`.
 
 Look for the ``[mail]`` section, and in this section, modify the value of the ``email_from`` option.
 
@@ -104,20 +83,18 @@ Using the advanced features
 ---------------------------
 
 The following features are only available via the :file:`/etc/xivo/asterisk/xivo_fax.conf`
-configuration file.
-They are not available from the web-interface.
+configuration file. They are not available from the web-interface.
 
-The configuration file has documentation embedded in it in the form of comments, with some examples
-included, so if you want to use the advanced features, you might also want to take a look at the
-configuration file comments.
+The configuration file has documentation embedded in it in the form of comments, so we recommend you
+reading them before editing the configuration file.
 
 The way it works is the following:
 
-* you first declare some `backends`, i.e. actions to be taken when a fax is received. A backend
-  name looks like ``mail``, ``ftp_example_org`` or ``printer_office``.
-* once your backends are defined, you can use them in your destination numbers. For example,
-  when someone calls the 100 DID, you might want the `ftp_example_org` and `mail` backend to be run,
-  but otherwise, you only want the `mail` backend to be run.
+* you first declare some backends, i.e. actions to be taken when a fax is received. A backend name
+  looks like ``mail``, ``ftp_example_org`` or ``printer_office``.
+* once your backends are defined, you can use them in your destination numbers. For example, when
+  someone calls the DID 100, you might want the ``ftp_example_org`` and ``mail`` backend to be run,
+  but otherwise, you only want the ``mail`` backend to be run.
 
 Here's an example of a valid :file:`/etc/xivo/asterisk/xivo_fax.conf` configuration file::
 
@@ -125,28 +102,27 @@ Here's an example of a valid :file:`/etc/xivo/asterisk/xivo_fax.conf` configurat
    tiff2pdf = /usr/bin/tiff2pdf
    mutt = /usr/bin/mutt
    lp = /usr/bin/lp
-   
+
    [mail]
    subject = FAX reception to %(dstnum)s
    content_file = /etc/xivo/mail.txt
    email_from = no-reply+fax@xivo.fr
-   
+
    [ftp_example_org]
    host = example.org
    username = foo
    password = bar
    directory = /foobar
-   
+
    [dstnum_default]
    dest = mail
-   
+
    [dstnum_100]
    dest = mail, ftp_example_org
 
-There's destination named ``dstnum_default`` is special because it represent the default actions to be
-taken when no DID-specific action are defined.
+The section named ``dstnum_default`` will be used only if no DID-specific actions are defined.
 
-After editing the :file:`/etc/xivo/asterisk/xivo_fax.conf` file, you need to restart the agid server
+After editing :file:`/etc/xivo/asterisk/xivo_fax.conf`, you need to restart the agid server
 for the changes to be applied::
 
    $ /etc/init.d/xivo-agid restart
@@ -157,8 +133,8 @@ Using the FTP backend
 
 The FTP backend is used to send a PDF version of the received fax to an FTP server.
 
-An FTP backend is always defined in a section beginning with the ``ftp`` prefix. Here's an example for
-a backend named ``ftp_example_org``::
+An FTP backend is always defined in a section beginning with the ``ftp`` prefix. Here's an example
+for a backend named ``ftp_example_org``::
 
    [ftp_example_org]
    host = example.org
@@ -167,7 +143,8 @@ a backend named ``ftp_example_org``::
    directory = /foobar
 
 
-The ``directory`` option is optional and if not specified, the document will be put in the user's root directory.
+The ``directory`` option is optional and if not specified, the document will be put in the user's
+root directory.
 
 The uploaded file are named like ``${XIVO_SRCNUM}-${EPOCH}.pdf``.
 
@@ -175,11 +152,11 @@ The uploaded file are named like ``${XIVO_SRCNUM}-${EPOCH}.pdf``.
 Using the printer backend
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To use the printer backend, you must have the `cups-client` package installed on your XiVO::
+To use the printer backend, you must have the ``cups-client`` package installed on your XiVO::
 
    $ apt-get install cups-client
 
-The printer backend use the `lp` command to print fax.
+The printer backend uses the ``lp`` command to print faxes.
 
 A printer backend is always defined in a section beginning with the ``printer`` prefix.
 Here's an example for a backend named ``printer_office``::
@@ -190,31 +167,30 @@ Here's an example for a backend named ``printer_office``::
 
 When a fax will be received, the system command ``lp -d office <faxfile>`` will be executed.
 
-The ``convert_to_pdf`` option is optional and defaults to 1. If it is set to 0, the TIFF file will not
-be converted to PDF before being printed.
+The ``convert_to_pdf`` option is optional and defaults to 1. If it is set to 0, the TIFF file will
+not be converted to PDF before being printed.
 
-.. warning:: You need to have cups server somewhere in you network.
+.. warning:: You need a CUPS server set up somewhere on your network.
 
 
 Using the mail backend
 ^^^^^^^^^^^^^^^^^^^^^^
 
-By default, a mail backend named ``mail`` is defined.
-
-You can define more mail backends if you want. Just look what the default mail backend looks like.
+By default, a mail backend named ``mail`` is defined. You can define more mail backends if you
+want. Just look what the default mail backend looks like.
 
 
 Using the log backend
 ^^^^^^^^^^^^^^^^^^^^^
 
-There's also a log backend available, which can be used to write a line to a file every time a fax is 
-received.
+There's also a log backend available, which can be used to write a line to a file every time a fax
+is received.
 
 
 Fax detection
 =============
 
-XiVO **does not currently support Fax Detection**. A workaround (*for DAHDI trunk only*) is described
+XiVO **does not currently support Fax Detection**. A workaround *for DAHDI trunk only* is described
 in the :ref:`fax-detection` section.
 
 
@@ -223,10 +199,9 @@ in the :ref:`fax-detection` section.
 Using analog gateways
 =====================
 
-XiVO is able to provision Linksys SPA2102, SPA3102 and SPA8000 analog gateways which can be used to 
-connect Fax equipments.
-This type of equipments can handle Fax streams quite successfully if you configure them with the
-correct parameters. This section describes the creation of custom template *for SPA3102* which modifies several parameters
+XiVO is able to provision Linksys SPA2102, SPA3102 and SPA8000 analog gateways which can be used to
+connect fax equipments. This section describes the creation of custom template *for SPA3102* which
+modifies several parameters.
 
 .. note:: Be aware that most of the parameters are or could be country specific, i.e. :
 
@@ -234,9 +209,9 @@ correct parameters. This section describes the creation of custom template *for 
    * FAX Passthru Codec,
    * RTP Packet Size,
    * RTP-Start-Loopback Codec,
-   * Ring Waveform, 
-   * Ring Frequency, 
-   * Ring Voltage, 
+   * Ring Waveform,
+   * Ring Frequency,
+   * Ring Voltage,
    * FXS Port Impedance
 
 #. Create a custom template for the SPA3102 base template::
@@ -247,14 +222,14 @@ correct parameters. This section describes the creation of custom template *for 
 #. Add the following content before the ``</flat-profile>`` tag::
 
     <!-- CUSTOM TPL - for faxes - START -->
-    
+
     {% for line_no, line in sip_lines.iteritems() %}
     <!-- Dial Plan: L{{ line_no }} -->
     <Dial_Plan_{{ line_no }}_ ua="na">([x*#].)</Dial_Plan_{{ line_no }}_>
-    
+
     <Call_Waiting_Serv_{{ line_no }}_ ua="na">No</Call_Waiting_Serv_{{ line_no }}_>
     <Three_Way_Call_Serv_{{ line_no }}_ ua="na">No</Three_Way_Call_Serv_{{ line_no }}_>
-    
+
     <Preferred_Codec_{{ line_no }}_ ua="na">G711a</Preferred_Codec_{{ line_no }}_>
     <Silence_Supp_Enable_{{ line_no }}_ ua="na">No</Silence_Supp_Enable_{{ line_no }}_>
     <Echo_Canc_Adapt_Enable_{{ line_no }}_ ua="na">No</Echo_Canc_Adapt_Enable_{{ line_no }}_>
@@ -262,31 +237,31 @@ correct parameters. This section describes the creation of custom template *for 
     <Echo_Canc_Enable_{{ line_no }}_ ua="na">No</Echo_Canc_Enable_{{ line_no }}_>
     <Use_Pref_Codec_Only_{{ line_no }}_ ua="na">yes</Use_Pref_Codec_Only_{{ line_no }}_>
     <DTMF_Tx_Mode_{{ line_no }}_ ua="na">Normal</DTMF_Tx_Mode_{{ line_no }}_>
-    
+
     <FAX_Enable_T38_{{ line_no }}_ ua="na">Yes</FAX_Enable_T38_{{ line_no }}_>
     <FAX_T38_Redundancy_{{ line_no }}_ ua="na">1</FAX_T38_Redundancy_{{ line_no }}_>
     <FAX_Passthru_Method_{{ line_no }}_ ua="na">ReINVITE</FAX_Passthru_Method_{{ line_no }}_>
     <FAX_Passthru_Codec_{{ line_no }}_ ua="na">G711a</FAX_Passthru_Codec_{{ line_no }}_>
     <FAX_Disable_ECAN_{{ line_no }}_ ua="na">yes</FAX_Disable_ECAN_{{ line_no }}_>
     <FAX_Tone_Detect_Mode_{{ line_no }}_ ua="na">caller or callee</FAX_Tone_Detect_Mode_{{ line_no }}_>
-    
+
     <Network_Jitter_Level_{{ line_no }}_ ua="na">very high</Network_Jitter_Level_{{ line_no }}_>
     <Jitter_Buffer_Adjustment_{{ line_no }}_ ua="na">disable</Jitter_Buffer_Adjustment_{{ line_no }}_>
     {% endfor %}
-    
+
     <!-- SIP Parameters -->
     <RTP_Packet_Size ua="na">0.020</RTP_Packet_Size>
     <RTP-Start-Loopback_Codec ua="na">G711a</RTP-Start-Loopback_Codec>
-    
+
     <!-- Regional parameters -->
     <Ring_Waveform ua="rw">Sinusoid</Ring_Waveform> <!-- options: Sinusoid/Trapezoid -->
     <Ring_Frequency ua="rw">50</Ring_Frequency>
     <Ring_Voltage ua="rw">85</Ring_Voltage>
-    
+
     <FXS_Port_Impedance ua="na">600+2.16uF</FXS_Port_Impedance>
     <Caller_ID_Method ua="na">Bellcore(N.Amer,China)</Caller_ID_Method>
     <Caller_ID_FSK_Standard ua="na">bell 202</Caller_ID_FSK_Standard>
-    
+
     <!-- CUSTOM TPL - for faxes - END -->
 
 #. Reconfigure the devices with::
@@ -298,7 +273,7 @@ correct parameters. This section describes the creation of custom template *for 
     provd_pycli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").synchronize()'
 
 
-Most of this template can be copy/paste for a SP2102 or SPA8000.
+Most of this template can be copy/pasted for a SPA2102 or SPA8000.
 
 
 Using a SIP Trunk
@@ -307,15 +282,16 @@ Using a SIP Trunk
 Fax transmission, to be successful, *MUST* use G.711 codec. Fax streams cannot be encoded with
 lossy compression codecs (like G.729a).
 
-That said, you may want to establish a SIP trunk using G.729a to save bandwith.
-Here's a way to be able to receive a fax in this configuration.
+That said, you may want to establish a SIP trunk using G.729a for all other communications to save
+bandwith. Here's a way to be able to receive a fax in this configuration.
 
-.. note:: There are some prerequisities:
+.. note:: There are some prerequisites:
 
-     * your SIP Trunk MUST offer both G.729a and G.711 codecs,
-     * your fax users MUST have a personnalized outgoing calleridnum (for the codec change is based on this variable),
-     
-#. We assume that outgoing call rules and fax users with their DID are created,
+     * your SIP Trunk must offer both G.729a and G.711 codecs
+     * your fax users must have a customized outgoing calleridnum (for the codec change is based on
+       this variable)
+
+#. We assume that outgoing call rules and fax users with their DID are created
 #. Create the file :file:`/etc/asterisk/extensions_extra.d/fax.conf` with the following content::
 
     ;; For faxes :
@@ -328,7 +304,7 @@ Here's a way to be able to receive a fax in this configuration.
     exten = s,n,Set(__SIP_CODEC_OUTBOUND=alaw)
     exten = s,n,Return()
 
-    ; The following subroutine forces outbound codec to alaw based on outgoing callerid numbe
+    ; The following subroutine forces outbound codec to alaw based on outgoing callerid number
     ; For outbound codec selection we must set the variable with inheritance.
     ; Must be set on each outgoing call rule
     [pre-outcall-fax]
@@ -345,4 +321,3 @@ Here's a way to be able to receive a fax in this configuration.
 #. For each Outgoing call rule add the the following string in the ``Preprocess subroutine`` field::
 
     pre-outcall-fax
-
