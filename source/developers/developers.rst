@@ -10,6 +10,7 @@ General information:
    contributing_doc
    debug_asterisk
    debug_daemon
+   guidelines
    profile_python
    translate
    style_guide
