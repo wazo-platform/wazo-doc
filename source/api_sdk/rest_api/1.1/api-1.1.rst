@@ -17,6 +17,7 @@ REST API 1.1
    func_keys
    lines
    line_extension
+   line_extensions
    users
    user_cti
    user_line
