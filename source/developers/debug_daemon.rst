@@ -165,7 +165,7 @@ restapi
 
     xivo-restapid -f -d
 
-* -s for foreground
+* -f for foreground
 * -d for debug messages
 
 Log file: ``/var/log/xivo-restapid.log``
