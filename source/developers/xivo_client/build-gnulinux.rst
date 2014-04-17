@@ -26,6 +26,8 @@ In a bash shell::
 Building
 ========
 
+You need to have the Qt5 binaries (qmake, lrelease, ...) in your $PATH.
+
 Launch qmake to generate the Makefile::
 
    $ cd xivo-client-qt
