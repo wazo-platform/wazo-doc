@@ -17,7 +17,9 @@ Description
 +-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | ip          | string formatted as an IP address (10.0.0.0)          | IP address                                                                                                                                  |
 +-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| mac         | string formatted as a MAC address (AA:BB:CC:DD:EE:FF) | MAC address                                                                                                                                 |
+| mac         | string formatted as a MAC address (aa:bb:cc:dd:ee:ff) | MAC address                                                                                                                                 |
++-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| sn          | string                                                | Serial number                                                                                                                               |
 +-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | vendor      | string                                                | Vendor name                                                                                                                                 |
 +-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
@@ -46,10 +48,12 @@ Example
        "id": "412c212cff500cc158f373ff00e078f7",
        "ip": "10.0.0.1",
        "mac": "00:00:5e:00:00:01",
+       "sn": null,
        "vendor": "Aastra",
        "model": "6731i",
        "version": "3.2.2",
-       "plugin": "xivo-aastra-3.2.2-SP3"
+       "plugin": "xivo-aastra-3.2.2-SP3",
+       "description": null,
        "status": "configured",
        "template_id": "defaultconfigdevice",
        "links" : [
@@ -145,10 +149,12 @@ Example response
                "id": "412c212cff500cc158f373ff00e078f7",
                "ip": "10.0.0.1",
                "mac": "00:00:5e:00:00:01",
+               "sn": null,
                "vendor": "Aastra",
                "model": "6731i",
                "version": "3.2.2",
                "plugin": "xivo-aastra-3.2.2-SP3"
+               "description": null,
                "status": "configured",
                "template_id": "defaultconfigdevice",
                "links" : [
@@ -162,10 +168,12 @@ Example response
                "id": "6ff76e09a7ab51ec3afe152a63324ff9",
                "ip": "10.0.0.2",
                "mac": "00:00:5e:00:00:02",
+               "sn": null,
                "vendor": "Snom",
                "model": "720",
                "version": "8.7.3.19",
                "plugin": "xivo-snom-8.7.3.19",
+               "description": null,
                "status": "configured",
                "template_id": "defaultconfigdevice",
                "links" : [
@@ -225,10 +233,12 @@ Example response
        "id": "412c212cff500cc158f373ff00e078f7",
        "ip": "10.0.0.1",
        "mac": "00:00:5e:00:00:01",
+       "sn": null,
        "vendor": "Aastra",
        "model": "6731i",
        "version": "3.2.2",
        "plugin": "xivo-aastra-3.2.2-SP3"
+       "description": null,
        "status": "configured",
        "template_id": "defaultconfigdevice",
        "links" : [
@@ -325,9 +335,11 @@ Example response
        "id": "412c212cff500cc158f373ff00e078f7",
        "ip": "10.0.0.1",
        "mac": "00:00:5e:00:00:01",
+       "sn": null,
        "vendor": "Aastra",
        "model": "6731i",
        "version": "3.2.2",
+       "description": null,
        "status": "configured",
        "plugin": "xivo-aastra-3.2.2-SP3"
        "template_id": "defaultconfigdevice",
