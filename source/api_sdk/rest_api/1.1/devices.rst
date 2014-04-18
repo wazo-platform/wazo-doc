@@ -35,6 +35,10 @@ Description
 |             | - autoprov                                            | - autoprov : Device can be provisionned using a provisioning code                                                                           |
 |             | - not_configured                                      | - not_configured : Device has not been completely configured                                                                                |
 +-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| options     | object                                                | List of standard keys:                                                                                                                      |
+|             |                                                       |                                                                                                                                             |
+|             |                                                       | - switchboard : a boolean indicating if this device is a switchboard                                                                        |
++-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | template_id | string                                                | ID of the device template. All devices using a device template will have a certain number of common parameters preconfigured for the device |
 +-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -50,11 +54,12 @@ Example
        "mac": "00:00:5e:00:00:01",
        "sn": null,
        "vendor": "Aastra",
-       "model": "6731i",
+       "model": "6757i",
        "version": "3.2.2",
        "plugin": "xivo-aastra-3.2.2-SP3",
        "description": null,
        "status": "configured",
+       "options": {"switchboard": true},
        "template_id": "defaultconfigdevice",
        "links" : [
            {
@@ -156,6 +161,7 @@ Example response
                "plugin": "xivo-aastra-3.2.2-SP3"
                "description": null,
                "status": "configured",
+               "options": null,
                "template_id": "defaultconfigdevice",
                "links" : [
                    {
@@ -175,6 +181,7 @@ Example response
                "plugin": "xivo-snom-8.7.3.19",
                "description": null,
                "status": "configured",
+               "options": null,
                "template_id": "defaultconfigdevice",
                "links" : [
                    {
@@ -240,6 +247,7 @@ Example response
        "plugin": "xivo-aastra-3.2.2-SP3"
        "description": null,
        "status": "configured",
+       "options": null,
        "template_id": "defaultconfigdevice",
        "links" : [
            {
@@ -280,6 +288,8 @@ Input
 +-------------+----------+--------+-------------+
 | description | no       | string | (see above) |
 +-------------+----------+--------+-------------+
+| options     | no       | object | (see above) |
++-------------+----------+--------+-------------+
 | template_id | no       | string | (see above) |
 +-------------+----------+--------+-------------+
 
@@ -294,6 +304,10 @@ Errors
 | 400        | Invalid parameters: ip                                           | ip address is not formatted correctly                        |
 +------------+------------------------------------------------------------------+--------------------------------------------------------------+
 | 400        | Invalid parameters: mac                                          | mac address is not formatted correctly                       |
++------------+------------------------------------------------------------------+--------------------------------------------------------------+
+| 400        | Invalid parameters: options                                      | options is not an object                                     |
++------------+------------------------------------------------------------------+--------------------------------------------------------------+
+| 400        | Invalid parameters: options.switchboard                          | switchboard option is not a boolean                          |
 +------------+------------------------------------------------------------------+--------------------------------------------------------------+
 | 400        | device <mac> already exists                                      | a device using the same MAC address has already been created |
 +------------+------------------------------------------------------------------+--------------------------------------------------------------+
@@ -342,6 +356,7 @@ Example response
        "description": null,
        "status": "configured",
        "plugin": "xivo-aastra-3.2.2-SP3"
+       "options": null,
        "template_id": "defaultconfigdevice",
        "links" : [
            {
