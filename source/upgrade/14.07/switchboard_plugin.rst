@@ -10,8 +10,11 @@ The upgrade is not done automatically, so please follow the `Upgrade Procedure`_
 section below.
 
 Although you are strongly advised to upgrade your switchboard phone configuration,
-backwards compatiblity with the old system will be maintained for the next few XiVO
-versions.
+backwards compatibility with the old system will be maintained.
+
+Note that if you need to install a switchboard for a previous version of XiVO, the old
+xivo-aastra-switchboard and xivo-snom-switchboard plugins can be found in
+:ref:`the archive repository <alternative-plugins-repo>`.
 
 
 Upgrade Procedure
