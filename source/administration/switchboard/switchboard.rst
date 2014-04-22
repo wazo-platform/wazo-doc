@@ -125,6 +125,8 @@ The following configuration is mandatory for switchboard users
 .. figure:: images/user_general.png
 
 
+.. _switchboard_device_option:
+
 Activate the Switchboard Option for your Phone
 ----------------------------------------------
 
