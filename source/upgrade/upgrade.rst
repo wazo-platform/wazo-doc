@@ -162,8 +162,8 @@ Please consult the following detailed updated notes for more information:
 .. toctree::
    :maxdepth: 1
 
-   dahdi_2.9.0
-   sccp_next
+   14.05/dahdi_2.9.0
+   14.05/sccp_next
 
 
 14.04
