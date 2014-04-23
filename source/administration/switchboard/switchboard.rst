@@ -41,7 +41,7 @@ In order to configure a switchboard on your XiVO, you need to:
 * Create a queue for your switchboard
 * Create a queue for your switchboard's calls on hold
 * Create the users that will be operators
-* Assign the switchboard plugin to your user
+* Activate the switchboard option for your phone
 * Create an agent for your user
 * Assign the incoming calls to the switchboard queue
 * For each operator, add a function key for logging in or logging out from the switchboard queue.
@@ -125,17 +125,19 @@ The following configuration is mandatory for switchboard users
 .. figure:: images/user_general.png
 
 
-Set the Switchboard Plugin on your Phone
-----------------------------------------
+.. _switchboard_device_option:
 
-The provisioning plugin for the switchboard must be *xivo-aastra-switchboard* or *xivo-snom-switchboard*.
+Activate the Switchboard Option for your Phone
+----------------------------------------------
 
-See :ref:`provd-plugins-mgmt` for more details.
+For the switchboard to work properly, your Aastra or Snom phone must use
+a *xivo-aastra* or *xivo-snom* provisioning plugin respectively.
 
-The switchboard plugin must be set on the user's device.
+The switchboard option must also be activated on the phone. It's possible to activate
+this option only on supported phones and plugins.
 
 * Edit device associated to your user in :menuselection:`Services --> Devices`
-* Select the appropriate switchboard plugin and save
+* Check the switchboard checkbox and save
 * Synchronize you phone to apply the changes
 
 .. figure:: images/device_plugin_switchboard.png

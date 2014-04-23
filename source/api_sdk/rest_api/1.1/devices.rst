@@ -17,7 +17,9 @@ Description
 +-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | ip          | string formatted as an IP address (10.0.0.0)          | IP address                                                                                                                                  |
 +-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| mac         | string formatted as a MAC address (AA:BB:CC:DD:EE:FF) | MAC address                                                                                                                                 |
+| mac         | string formatted as a MAC address (aa:bb:cc:dd:ee:ff) | MAC address                                                                                                                                 |
++-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| sn          | string                                                | Serial number                                                                                                                               |
 +-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | vendor      | string                                                | Vendor name                                                                                                                                 |
 +-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
@@ -33,6 +35,10 @@ Description
 |             | - autoprov                                            | - autoprov : Device can be provisionned using a provisioning code                                                                           |
 |             | - not_configured                                      | - not_configured : Device has not been completely configured                                                                                |
 +-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| options     | object                                                | List of standard keys:                                                                                                                      |
+|             |                                                       |                                                                                                                                             |
+|             |                                                       | - switchboard : a boolean indicating if this device is a switchboard                                                                        |
++-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | template_id | string                                                | ID of the device template. All devices using a device template will have a certain number of common parameters preconfigured for the device |
 +-------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -46,11 +52,14 @@ Example
        "id": "412c212cff500cc158f373ff00e078f7",
        "ip": "10.0.0.1",
        "mac": "00:00:5e:00:00:01",
+       "sn": null,
        "vendor": "Aastra",
-       "model": "6731i",
+       "model": "6757i",
        "version": "3.2.2",
-       "plugin": "xivo-aastra-3.2.2-SP3"
+       "plugin": "xivo-aastra-3.2.2-SP3",
+       "description": null,
        "status": "configured",
+       "options": {"switchboard": true},
        "template_id": "defaultconfigdevice",
        "links" : [
            {
@@ -145,11 +154,14 @@ Example response
                "id": "412c212cff500cc158f373ff00e078f7",
                "ip": "10.0.0.1",
                "mac": "00:00:5e:00:00:01",
+               "sn": null,
                "vendor": "Aastra",
                "model": "6731i",
                "version": "3.2.2",
                "plugin": "xivo-aastra-3.2.2-SP3"
+               "description": null,
                "status": "configured",
+               "options": null,
                "template_id": "defaultconfigdevice",
                "links" : [
                    {
@@ -162,11 +174,14 @@ Example response
                "id": "6ff76e09a7ab51ec3afe152a63324ff9",
                "ip": "10.0.0.2",
                "mac": "00:00:5e:00:00:02",
+               "sn": null,
                "vendor": "Snom",
                "model": "720",
                "version": "8.7.3.19",
                "plugin": "xivo-snom-8.7.3.19",
+               "description": null,
                "status": "configured",
+               "options": null,
                "template_id": "defaultconfigdevice",
                "links" : [
                    {
@@ -225,11 +240,14 @@ Example response
        "id": "412c212cff500cc158f373ff00e078f7",
        "ip": "10.0.0.1",
        "mac": "00:00:5e:00:00:01",
+       "sn": null,
        "vendor": "Aastra",
        "model": "6731i",
        "version": "3.2.2",
        "plugin": "xivo-aastra-3.2.2-SP3"
+       "description": null,
        "status": "configured",
+       "options": null,
        "template_id": "defaultconfigdevice",
        "links" : [
            {
@@ -270,6 +288,8 @@ Input
 +-------------+----------+--------+-------------+
 | description | no       | string | (see above) |
 +-------------+----------+--------+-------------+
+| options     | no       | object | (see above) |
++-------------+----------+--------+-------------+
 | template_id | no       | string | (see above) |
 +-------------+----------+--------+-------------+
 
@@ -284,6 +304,10 @@ Errors
 | 400        | Invalid parameters: ip                                           | ip address is not formatted correctly                        |
 +------------+------------------------------------------------------------------+--------------------------------------------------------------+
 | 400        | Invalid parameters: mac                                          | mac address is not formatted correctly                       |
++------------+------------------------------------------------------------------+--------------------------------------------------------------+
+| 400        | Invalid parameters: options                                      | options is not an object                                     |
++------------+------------------------------------------------------------------+--------------------------------------------------------------+
+| 400        | Invalid parameters: options.switchboard                          | switchboard option is not a boolean                          |
 +------------+------------------------------------------------------------------+--------------------------------------------------------------+
 | 400        | device <mac> already exists                                      | a device using the same MAC address has already been created |
 +------------+------------------------------------------------------------------+--------------------------------------------------------------+
@@ -325,11 +349,14 @@ Example response
        "id": "412c212cff500cc158f373ff00e078f7",
        "ip": "10.0.0.1",
        "mac": "00:00:5e:00:00:01",
+       "sn": null,
        "vendor": "Aastra",
        "model": "6731i",
        "version": "3.2.2",
+       "description": null,
        "status": "configured",
        "plugin": "xivo-aastra-3.2.2-SP3"
+       "options": null,
        "template_id": "defaultconfigdevice",
        "links" : [
            {

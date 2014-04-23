@@ -138,6 +138,20 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.07
+-----
+
+* Consult the `14.07 Roadmap <https://projects.xivo.fr/versions/198>`_
+* Configuration for phones used for the switchboard has changed.
+
+Please consult the following detailed updated notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   14.07/switchboard_plugin
+
+
 14.06
 -----
 
@@ -162,8 +176,8 @@ Please consult the following detailed updated notes for more information:
 .. toctree::
    :maxdepth: 1
 
-   dahdi_2.9.0
-   sccp_next
+   14.05/dahdi_2.9.0
+   14.05/sccp_next
 
 
 14.04
