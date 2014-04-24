@@ -186,7 +186,6 @@ System configuration as network interfaces is stored in xivo database. If you
 want to keep this configuration and only restore xivo data you may omit to
 restore xivo database provided you restore the following tables :
 
-* entity
 * stats_conf
 * stats_conf_agent
 * stats_conf_group
@@ -196,7 +195,6 @@ restore xivo database provided you restore the following tables :
 
 ::
 
-   sudo -u postgres pg_restore -d xivo -t entity -t entity_id_seq -c xivo-*.dump
    sudo -u postgres pg_restore -d xivo -t ldapserver -t ldapserver_id_seq -c xivo-*.dump
    sudo -u postgres pg_restore -d xivo -t stats_conf -t stats_conf_id_seq -c xivo-*.dump
    sudo -u postgres pg_restore -d xivo -t stats_conf_agent -c xivo-*.dump
