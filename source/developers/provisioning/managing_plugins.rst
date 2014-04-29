@@ -148,23 +148,28 @@ example installs all firmwares for xivo-snom 8.7.3.25.5 plugin
 Uploading to stable
 ^^^^^^^^^^^^^^^^^^^
 
-Once checked, you must synchronize the plugin from `dev` to `stable`
+Once checked, you must synchronize the plugin from `testing` to `stable`. If applicable, you
+should also update the archive repo.
 
-To download the stable plugins::
+To download the stable and archive plugins::
 
    $ make download-stable
+   $ make download-archive
 
-Go to the `plugins/_build/stable` directory and delete the file that need to be replaced::
+Go to the `plugins/_build` directory and delete the plugins that are going to be updated. Note
+that if you are not updating a plugin but you are instead removing it "once and for all", you
+should instead move it to the archive directory::
 
-   $ rm -fi xivo-cisco-spa*
+   $ rm -fi stable/xivo-cisco-spa*
 
-Copy the files from the directory `dev` to `stable`::
+Copy the files from the directory `testing` to `stable`::
 
-   $ cp ../dev/xivo-cisco-spa* .
+   $ cp testing/xivo-cisco-spa* stable
 
-Go back to the `plugins` directory and upload the files to the stable repo::
+Go back to the `plugins` directory and upload the files to the stable and archive repo::
 
    $ make upload-stable
+   $ make upload-archive
 
 The file are now up to date and you can test by putting back the `stable`
 url in the web-interface's configuration::

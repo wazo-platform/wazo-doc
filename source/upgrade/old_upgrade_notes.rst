@@ -17,7 +17,7 @@ Please consult the following detailed upgrade notes for more information:
 .. toctree::
    :maxdepth: 1
 
-   wheezy
+   13.25/wheezy
 
 
 13.24
@@ -191,8 +191,8 @@ Please consult the following detailed upgrade notes for more information:
 .. toctree::
    :maxdepth: 1
 
-   asterisk_11
-   xivo_subr_switchboard
+   13.08/asterisk_11
+   13.08/xivo_subr_switchboard
 
 
 13.07
@@ -245,7 +245,7 @@ Please consult the following detailed upgrade notes for more information:
 .. toctree::
    :maxdepth: 1
 
-   contactcenter_12.24
+   12.24/contactcenter
 
 Another change is in effect beginning with XiVO 12.24: the field
 ``profileclient`` in the CSV user import sees its values change.

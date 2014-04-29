@@ -723,10 +723,10 @@ Agent status
     * logged_out
     * available
     * unavailable
-    * on_call_non_acd_incoming_internal
-    * on_call_non_acd_incoming_external
-    * on_call_non_acd_outgoing_internal
-    * on_call_non_acd_outgoing_external
+    * on_call_nonacd_incoming_internal
+    * on_call_nonacd_incoming_external
+    * on_call_nonacd_outgoing_internal
+    * on_call_nonacd_outgoing_external
 
 * availability_since is the timestamp of the last availability change
 * queues is the list of queue ids from which the agent receives calls

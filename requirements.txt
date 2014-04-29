@@ -1,0 +1,2 @@
+git+git://github.com/gelendir/sphinx-git.git@tagtitles
+gitpython==0.3.2.RC1
