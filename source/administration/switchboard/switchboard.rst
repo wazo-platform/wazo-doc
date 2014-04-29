@@ -138,7 +138,7 @@ this option only on supported phones and plugins.
 
 * Edit device associated to your user in :menuselection:`Services --> Devices`
 * Check the switchboard checkbox and save
-* Synchronize you phone to apply the changes
+* Synchronize your phone to apply the changes
 
 .. figure:: images/device_plugin_switchboard.png
 

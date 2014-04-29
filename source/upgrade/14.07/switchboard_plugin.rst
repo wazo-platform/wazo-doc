@@ -20,6 +20,9 @@ xivo-aastra-switchboard and xivo-snom-switchboard plugins can be found in
 Upgrade Procedure
 =================
 
+This procedure should be executed after the upgrade to 14.07 or later: the options used in this procedure
+are not available in versions before 14.07.
+
 The following upgrade procedure suppose that you are using an Aastra phone as your
 switchboard phone. The same upgrade procedure apply for Snom phones, with
 the only difference being the different plugin name.
