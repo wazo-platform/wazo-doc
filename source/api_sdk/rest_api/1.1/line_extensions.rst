@@ -67,8 +67,8 @@ Example Response
                 "extension_id": 12,
                 "links": [
                     {
-                        "rel": "lines_sip",
-                        "href": "https://xivoserver/1.1/lines_sip/34"
+                        "rel": "lines",
+                        "href": "https://xivoserver/1.1/lines/34"
                     },
                     {
                         "rel": "extensions",
@@ -81,8 +81,8 @@ Example Response
                 "extension_id": 13,
                 "links": [
                     {
-                        "rel": "lines_sip",
-                        "href": "https://xivoserver/1.1/lines_sip/34"
+                        "rel": "lines",
+                        "href": "https://xivoserver/1.1/lines/34"
                     },
                     {
                         "rel": "extensions",
@@ -141,8 +141,8 @@ Example Response
                 "extension_id": 48,
                 "links": [
                     {
-                        "rel": "lines_sip",
-                        "href": "https://xivoserver/1.1/lines_sip/34"
+                        "rel": "lines",
+                        "href": "https://xivoserver/1.1/lines/34"
                     },
                     {
                         "rel": "extensions",
@@ -155,8 +155,8 @@ Example Response
                 "extension_id": 48,
                 "links": [
                     {
-                        "rel": "lines_sip",
-                        "href": "https://xivoserver/1.1/lines_sip/35"
+                        "rel": "lines",
+                        "href": "https://xivoserver/1.1/lines/35"
                     },
                     {
                         "rel": "extensions",
@@ -236,8 +236,8 @@ Example response
                 "extension_id": 46,
                 "links": [
                     {
-                        "rel": "lines_sip",
-                        "href": "https://xivoserver/1.1/lines_sip/75"
+                        "rel": "lines",
+                        "href": "https://xivoserver/1.1/lines/75"
                     },
                     {
                         "rel": "extensions",
