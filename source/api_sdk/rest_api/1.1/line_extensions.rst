@@ -6,8 +6,17 @@ Line Extension Associations
 
 Connects an extension with a line, allowing the line to be called by dialing a
 number.  A line can be associated with one or more extensions. The context of
-an extension determines from what source a call can arrive (e.g. context
-"from-extern" for incoming DIDs)
+an extension determines from what source a call can arrive
+
+Currently, this service only supports extensions inside the following context
+types:
+
+internal
+    Used for calling a line with an internal number (e.g. "1000@default")
+
+incall
+    Used for calling a line from the outside (e.g. "from-extern" with a DID)
+
 
 Association Representation
 ==========================
