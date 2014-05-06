@@ -125,6 +125,33 @@ To subscribe to event with name X, you must create a binding between the exchang
 and your queue with the binding/routing key X.
 
 
+agent_status_update
+^^^^^^^^^^^^^^^^^^^
+
+The agent_status_update is sent when an agent status changes. This is not the status used
+by the agent status dashboard.
+
+* routing key: agent_status_update
+* event specific data: a dictionary with 2 keys:
+
+  * agent_id: an integer corresponding to the agent ID of the agent who's status changed
+  * status: a string representing the status of an agent:
+
+      * paused
+      * loggedin
+      * loggedout
+
+Example::
+
+   {
+       "name": "agent_status_update",
+       "data": {
+           "agent_id": 42,
+           "status": "paused"
+       }
+   }
+
+
 .. _bus-call_form_result:
 
 call_form_result
