@@ -153,6 +153,31 @@ Example::
    }
 
 
+endpoint_status_update
+^^^^^^^^^^^^^^^^^^^^^^
+
+The endpoint_status_update is sent when an end point status changes. This information is
+based on asterisk hints.
+
+* routing key: endpoint_status_update
+* event specific data: a dictionary with 3 keys
+
+  * endpoint_id: an integer corresponding to the endpoing ID
+  * group: an integer corresponding to the group hint ID  # TODO which one? endpoint's owner? consumers?
+  * status: an integer corresponding to the status ID in a given group
+
+Example::
+
+   {
+       "name": "endpoint_status_update",
+       "data": {
+           "endpoint_id": 67,
+           "group": 3,
+           "status": 9
+       }
+   }
+
+
 user_status_update
 ^^^^^^^^^^^^^^^^^^
 
