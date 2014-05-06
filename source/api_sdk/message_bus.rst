@@ -205,6 +205,8 @@ Example::
    }
 
 
+.. _bus-user_status_update:
+
 user_status_update
 ^^^^^^^^^^^^^^^^^^
 

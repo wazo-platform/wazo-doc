@@ -84,6 +84,88 @@ Here is a non exaustive list of types:
 Class list
 ----------
 
+.. _register_user_status_update_command:
+
+register_user_status_update
+---------------------------
+
+The `register_user_status_update` command is used to register to the status
+updates of a list of user. Once registered to a user's status, the client will
+receive all :ref:`user_status_update_event` events for the registered users.
+
+This command should be sent when a user is displayed in the people xlet to be
+able to update the presence status icon.
+
+The :ref:`unregister_user_status_update_command` command should be used to stop receiving updates.
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "register_user_status_update",
+    "user_ids": [<user_id1>, <user_id2>, ..., <user_idn>],
+    "commandid": <commandid>
+  }
+
+
+.. _unregister_user_status_update_command:
+
+unregister_user_status_update
+-----------------------------
+
+The `unregister_user_status_update` command is used to unregister from the
+status updates of a list of user.
+
+Once unregistered, the client will stop receiving the :ref:`user_status_update_event`
+events for the specified users.
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "unregister_user_status_update",
+    "user_ids": [<user_id1>, <user_id2>, ..., <user_idn>],
+    "commandid": <commandid>
+  }
+
+.. _user_status_update_event:
+
+user_status_update
+------------------
+
+The `user_status_update` event is received when the presence of a user changes.
+
+To receive this event, the user must first register to the event for a specified
+user using the :ref:`register_user_status_update_command` command.
+
+To stop receiving this event, the user must send the
+:ref:`unregister_user_status_update_command` command.
+
+* data, a dictionary containing 3 fields:
+
+  * user_id, is an integer containing the ID of the user affected by this status change
+  * presence, is an integer containing the ID of the presence group of the user
+  * status, is an integer containing the ID of the status within it's presence group
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "user_status_update",
+    "data": {
+      "user_id": 42,
+      "presence": 1,
+      "status": 3
+    }
+  }
+
+The `user_status_update` event contains the same data as the :ref:`bus-user_status_update`.
+The later should be prefered to the former for uses that do not require a
+persistent connection to xivo-ctid.
+
 
 LOGINCOMMANDS
 -------------
