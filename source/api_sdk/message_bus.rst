@@ -151,3 +151,27 @@ Example::
            }
        }
    }
+
+
+user_status_update
+^^^^^^^^^^^^^^^^^^
+
+The user_status_update is sent when a user changes his cti presence using the XiVO client.
+
+* routing key: user_status_upadte
+* event specific data: a dictionary with 3 keys
+
+  * user_id: an integer corresponding to the user ID of the user who changed it's status
+  * presence: the id of the presence group used by this user
+  * status: the id of the new status
+
+Example::
+
+   {
+       "name": "user_status_update",
+       "data": {
+           "user_id": 42,
+           "presence": 1,
+           "status": 3
+       }
+   }
