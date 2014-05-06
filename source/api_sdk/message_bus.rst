@@ -187,8 +187,8 @@ The user_status_update is sent when a user changes his cti presence using the Xi
 * event specific data: a dictionary with 3 keys
 
   * user_id: an integer corresponding to the user ID of the user who changed it's status
-  * presence: the id of the presence group used by this user
-  * status: the id of the new status
+  * presence: an integer corresponding to the ID of the presence group used by this user
+  * status: an integer corresponding to the ID of the new status within it's presence group
 
 Example::
 
