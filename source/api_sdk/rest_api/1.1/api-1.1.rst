@@ -4,8 +4,16 @@
 REST API 1.1
 ************
 
-.. warning:: The 1.1 API is currently in beta version. Although it is rather stable, some minor
-   changes could still happen and new resources will be added over time.
+.. note:: REST API 1.1 is currently evolving. New features and small fixes are
+    regularly being added over time. We invite the reader to periodically check the changelog
+    for an update on new features and changes.
+
+.. warning:: Some services are still being developped and can
+    be changed without prior warning. Use at your own risk. Here is a list
+    of services in BETA stage:
+
+        * Function Keys
+        * Line Extension Associations
 
 .. toctree::
    :maxdepth: 2
@@ -17,6 +25,7 @@ REST API 1.1
    func_keys
    lines
    line_extension
+   line_extensions
    users
    user_cti
    user_line
