@@ -135,11 +135,8 @@ by the agent status dashboard.
 * event specific data: a dictionary with 2 keys:
 
   * agent_id: an integer corresponding to the agent ID of the agent who's status changed
-  * status: a string representing the status of an agent:
-
-      * paused
-      * loggedin
-      * loggedout
+  * color: a string representing the color of the agent icon
+  * status: a string identifying the status
 
 Example::
 
@@ -147,7 +144,8 @@ Example::
        "name": "agent_status_update",
        "data": {
            "agent_id": 42,
-           "status": "paused"
+           "color": "#FF0008",
+           "status": "logged_in"
        }
    }
 
@@ -190,8 +188,9 @@ based on asterisk hints.
 * event specific data: a dictionary with 3 keys
 
   * endpoint_id: an integer corresponding to the endpoing ID
-  * group: an integer corresponding to the group hint ID  # TODO which one? endpoint's owner? consumers?
-  * status: an integer corresponding to the status ID in a given group
+  * color: a string representing the color to display for the new status
+  * display: a string containing the displayed tex
+  * status: a string identifying the status
 
 Example::
 
@@ -199,8 +198,9 @@ Example::
        "name": "endpoint_status_update",
        "data": {
            "endpoint_id": 67,
-           "group": 3,
-           "status": 9
+           "color": "#FF0008",
+           "display": "Busy",
+           "status": "busy"
        }
    }
 
@@ -216,8 +216,9 @@ The user_status_update is sent when a user changes his cti presence using the Xi
 * event specific data: a dictionary with 3 keys
 
   * user_id: an integer corresponding to the user ID of the user who changed it's status
-  * presence: an integer corresponding to the ID of the presence group used by this user
-  * status: an integer corresponding to the ID of the new status within it's presence group
+  * color: a string representing the color to display for the new status
+  * display: a string containing the displayed text
+  * status: a string identifying the status
 
 Example::
 
@@ -225,7 +226,8 @@ Example::
        "name": "user_status_update",
        "data": {
            "user_id": 42,
-           "presence": 1,
-           "status": 3
+           "color": "#FF0008",
+           "display": "Busy",
+           "status": "busy"
        }
    }

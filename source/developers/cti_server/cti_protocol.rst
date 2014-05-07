@@ -146,8 +146,8 @@ To stop receiving this event, the user must send the
 * data, a dictionary containing 3 fields:
 
   * user_id, is an integer containing the ID of the user affected by this status change
-  * presence, is an integer containing the ID of the presence group of the user
-  * status, is an integer containing the ID of the status within it's presence group
+  * color: a string representing the color to display for the new status
+  * display: a string containing the displayed text
 
 ``Server -> Client``
 
@@ -157,13 +157,13 @@ To stop receiving this event, the user must send the
     "class": "user_status_update",
     "data": {
       "user_id": 42,
-      "presence": 1,
-      "status": 3
+      "color": "#001AFF",
+      "display": "Out to lunch",
     }
   }
 
 The `user_status_update` event contains the same data as the :ref:`bus-user_status_update`.
-The later should be prefered to the former for uses that do not require a
+The latter should be prefered to the former for uses that do not require a
 persistent connection to xivo-ctid.
 
 
