@@ -104,7 +104,7 @@ group
 queue
     Calling queue
 
-meetme
+conference
     Conference room
 
 custom
