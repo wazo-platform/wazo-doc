@@ -121,7 +121,7 @@ Here are the steps for upgrading a cluster:
 
 #. When done, launch the database replication manually::
 
-    xivo-master:~$ /usr/sbin/xivo-master-slave-db-replication <slave ip>
+    xivo-master:~$ xivo-master-slave-db-replication <slave ip>
 
 #. Reactivate the cronjobs (see steps 1 and 2)
 
@@ -137,6 +137,22 @@ Upgrading to/from an archive version
 
 Upgrade Notes
 =============
+
+14.08
+-----
+
+* Consult the `14.08 Roadmap <https://projects.xivo.fr/versions/199>`_
+* The ``xivo`` database has been merged into the ``asterisk`` database. The database
+  schema has also been altered in a way that it might make the upgrade longer than
+  usual.
+
+Please consult the following detailed updated notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   14.08/database_merge
+
 
 14.07
 -----
