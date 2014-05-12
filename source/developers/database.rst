@@ -21,3 +21,9 @@ migration script::
    alembic revision -m "<description>"
 
 This will create a file in the :file:`alembic/versions` directory, which you'll have to edit.
+
+When the migration scripts are executed, they use a connection to the database
+with the role/user ``asterisk``. This means that new objects that are created
+in the migration scripts will be owned by the ``asterisk`` role and it is thus
+not necessary (nor recommended) to explicitly grant access to objects to the
+asterisk role (i.e. no "GRANT ALL" command after a "CREATE TABLE" command).
