@@ -108,6 +108,8 @@ You can manually create a *data* backup file named :file:`data-manual.tgz` in :f
    xivo-backup data /var/tmp/data-manual
 
 
+.. _restore:
+
 *******
 Restore
 *******
