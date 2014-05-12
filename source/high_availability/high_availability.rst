@@ -27,7 +27,7 @@ The HA in XiVO only works with telephony devices (i.e. phones) that support
 the notion of a primary and backup telephony server.
 
 * The master and the slave must be in the same subnet
-* If firewalling, the master must be allowed to join the slave on port 5232
+* If firewalling, the master must be allowed to join the slave on port 5432
 * Trunk registration timeout (``expiry``) should be less than 300 seconds (5 minutes)
 
 The HA solution is guaranteed to work correctly with :ref:`the following devices <devices>`.
@@ -50,11 +50,11 @@ That's it you now have a HA configuration, and every hour all the configuration 
 Configuration Details
 =====================
 
-First thing to do is to :ref:`install 2 XiVO <installation>`. Note that every setting in the
-"Configuration" menu are not automatically copied from the master node to the slave.
+First thing to do is to :ref:`install 2 XiVO <installation>`.
 
-.. important:: When you upgrade a node of your cluster, you should also upgrade the other so that
-   they both are running the same version of XiVO.
+.. important:: When you upgrade a node of your cluster, you must also upgrade the other so that
+   they both are running the same version of XiVO. Otherwise, the replication might not work
+   properly.
 
 You must configure the :abbr:`HA (High Availability)` in the Web interface
 (:menuselection:`Configuration --> Management --> High Availability` page).
@@ -125,18 +125,44 @@ In choosing the method ``Slave`` you must enter the IP address of master node.
 
    HA Dashboard Slave
 
+
 Configuration Replication
 -------------------------
 
 Once master slave configuration is completed, XiVO configuration is replicated from the master node
 to the slave every hour (:00).
-Replication can be started manually by running the replication script on the master:
-
-::
+Replication can be started manually by running the replication script on the master::
 
    xivo-master-slave-db-replication <slave_ip>
-   
-   Slave replication completed succesfully
+
+The replication does not copy the full XiVO configuration of the master. Notably, these
+are excluded:
+
+* Call logs
+* Call center statistics
+* All the network configuration (i.e. everything under the
+  :menuselection:`Configuration --> Network` section)
+* All the support configuration (i.e. everything under the
+  :menuselection:`Configuration --> Support` section)
+* HA settings
+
+Less importantly, these are also excluded:
+
+* Queue logs
+* CELs
+
+The replication only includes a (partial) replication of the database used by
+XiVO, so everything that is stored outside the database is also not copied.
+Here's an non exhaustive list of things that are not stored in the database,
+and thus are not copied:
+
+* Certficates
+* Audio files
+* On-hold music
+* Custom dialplan
+* Voicemail messages
+* Provisioning configuration
+
 
 XiVO Client
 -----------
@@ -182,10 +208,10 @@ differently. This includes:
 Note that, on failover and on failback:
 
 * DND, call forwards, call filtering, ..., statuses may be lost if changed recently.
-* If you are statically connected as an agent (i.e. you use "agent callback login"), then
-  you'll need to reconnect as a static agent when the master goes down. Since it's hard to
-  know when the master goes down, if your CTI client disconnect and you can't reconnect it,
-  then it's a sign the master might be down.
+* If you are connected as an agent, then you might need to reconnect as an agent
+  when the master goes down. Since it's hard to know when the master goes down,
+  if your CTI client disconnect and you can't reconnect it, then it's a sign
+  the master might be down.
 
 Additionally, only on failback:
 

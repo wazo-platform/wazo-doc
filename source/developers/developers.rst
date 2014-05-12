@@ -21,6 +21,7 @@ Component specific information:
    :maxdepth: 2
 
    cti_server/cti_server
+   database
    diagrams
    provisioning/provisioning
    sccp

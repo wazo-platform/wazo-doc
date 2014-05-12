@@ -32,11 +32,13 @@ Query
 Errors
 ------
 
-+------------+---------------------------------------+-------------+
-| Error code | Error message                         | Description |
-+============+=======================================+=============+
-| 404        | Line with id=<line_id> does not exist |             |
-+------------+---------------------------------------+-------------+
++------------+---------------------------------------------------+-------------+
+| Error code | Error message                                     | Description |
++============+===================================================+=============+
+| 404        | Line with id=<line_id> does not exist             |             |
++------------+---------------------------------------------------+-------------+
+| 404        | Line with id=<line_id> does not have an extension |             |
++------------+---------------------------------------------------+-------------+
 
 
 Example Request
@@ -68,6 +70,62 @@ Example Response
             {
                 "rel": "extensions",
                 "href": "https://xivoserver/1.1/extensions/12"
+            }
+        ]
+    }
+
+
+Get the Line associated to an Extension
+=======================================
+
+Query
+-----
+
+::
+
+    GET /extensions/<extension_id>/line
+
+Errors
+------
+
++------------+-------------------------------------------------------+-------------+
+| Error code | Error message                                         | Description |
++============+=======================================================+=============+
+| 404        | Extension with id=<extension_id> does not exist       |             |
++------------+-------------------------------------------------------+-------------+
+| 404        | Extension with id=<extension_id> does not have a line |             |
++------------+-------------------------------------------------------+-------------+
+
+
+Example Request
+---------------
+
+::
+
+    GET /extensions/48/line
+    Host: xivoserver
+    Accept: application/json
+
+
+Example Response
+----------------
+
+::
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+        "line_id": 34,
+        "extension_id": 48,
+        "links": [
+            {
+                "rel": "lines_sip",
+                "href": "https://xivoserver/1.1/lines_sip/34"
+            },
+            {
+                "rel": "extensions",
+                "href": "https://xivoserver/1.1/extensions/48"
             }
         ]
     }

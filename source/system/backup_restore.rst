@@ -5,7 +5,7 @@ Backup
 Periodic backup
 ===============
 
-A backup of the databases and the data are launched every day with a logrotate task.
+A backup of the database and the data are launched every day with a logrotate task.
 It is run at 06:25 a.m. and backups are kept for 7 days.
 
 Logrotate task:
@@ -24,7 +24,7 @@ You can retrieve the backup from the web-interface in
 :menuselection:`Services --> IPBX --> IPBX Configuration --> Backup Files` page.
 
 Otherwise with a shell access you can retrieve them in :file:`/var/backups/xivo/`.
-In this directory you will find :file:`db.tgz` and :file:`data.tgz` files for the databases and data
+In this directory you will find :file:`db.tgz` and :file:`data.tgz` files for the database and data
 backup.
 
 Backup script:
@@ -82,9 +82,6 @@ The following files/folders are excluded from this backup:
 Database
 --------
 
-All XiVO databases are backuped (xivo and asterisk).
-
-
 Creating a database backup file manually
 ========================================
 
@@ -111,6 +108,8 @@ You can manually create a *data* backup file named :file:`data-manual.tgz` in :f
    xivo-backup data /var/tmp/data-manual
 
 
+.. _restore:
+
 *******
 Restore
 *******
@@ -118,7 +117,7 @@ Restore
 Introduction
 ============
 
-A backup of both the configuration files and the databases used by a XiVO installation is done
+A backup of both the configuration files and the database used by a XiVO installation is done
 automatically every day.
 These backups are created in the :file:`/var/backups/xivo` directory and are kept for 7 days.
 
@@ -144,22 +143,21 @@ This file contains for example, voicemail files, musics, voice guides, phone set
 
 To restore the file ::
 
-   tar zxvfp /var/backups/xivo/data.tgz -C /
+   tar xvfp /var/backups/xivo/data.tgz -C /
 
 
-Restoring the databases
-=======================
+Restoring the Database
+======================
 
 .. warning::
 
-    * This will destroy all the current data in your databases.
+    * This will destroy all the current data in your database.
     * You have to check the free space on your system partition before extracting the backups.
 
+Database backups are created as :file:`db.tgz` files in the :file:`/var/backups/xivo` directory.
+These tarballs contains a dump of the database used in XiVO.
 
-Databases backups are created as :file:`db.tgz` files in the :file:`/var/backups/xivo` directory.
-These tarballs contains a dump of the two databases used in XiVO.
-
-In this example, we'll restore the databases from a backup file named :file:`db.tgz`
+In this example, we'll restore the database from a backup file named :file:`db.tgz`
 placed in the home directory of root.
 
 Then, extract the content of the :file:`db.tgz` file into the :file:`/var/tmp` directory and go inside
@@ -173,42 +171,28 @@ Drop the asterisk database and restore it with the one from the backup::
    sudo -u postgres dropdb asterisk
    sudo -u postgres pg_restore -C -d postgres asterisk-*.dump
 
-Do the same thing for the xivo database::
-
-   sudo -u postgres dropdb xivo
-   sudo -u postgres pg_restore -C -d postgres xivo-*.dump
-
 
 Restoring and Keeping System Configuration
 ==========================================
 
-System configuration as network interfaces is stored in xivo database. If you
-want to keep this configuration and only restore xivo data you may omit to
-restore xivo database provided you restore the following tables :
+System configuration like network interfaces is stored in the database. It is
+possible to keep this configuration and only restore xivo data.
 
-* entity
-* stats_conf
-* stats_conf_agent
-* stats_conf_group
-* stats_conf_incall
-* stats_conf_queue
-* stats_conf_user
+Rename the asterisk database to asterisk_previous::
 
-::
+   sudo -u postgres psql -c 'ALTER DATABASE asterisk RENAME TO asterisk_previous'
 
-   sudo -u postgres pg_restore -d xivo -t entity -t entity_id_seq -c xivo-*.dump
-   sudo -u postgres pg_restore -d xivo -t ldapserver -t ldapserver_id_seq -c xivo-*.dump
-   sudo -u postgres pg_restore -d xivo -t stats_conf -t stats_conf_id_seq -c xivo-*.dump
-   sudo -u postgres pg_restore -d xivo -t stats_conf_agent -c xivo-*.dump
-   sudo -u postgres pg_restore -d xivo -t stats_conf_group -c xivo-*.dump
-   sudo -u postgres pg_restore -d xivo -t stats_conf_incall -c xivo-*.dump
-   sudo -u postgres pg_restore -d xivo -t stats_conf_queue -c xivo-*.dump
-   sudo -u postgres pg_restore -d xivo -t stats_conf_user -c xivo-*.dump
+Restore the asterisk database from the backup::
 
-Restore the rights on these tables ::
+   sudo -u postgres pg_restore -C -d postgres asterisk-*.dump
 
-   su postgres -c 'psql xivo -c "GRANT ALL ON ALL TABLES IN SCHEMA public TO xivo"'
-   su postgres -c 'psql xivo -c "GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO xivo"'
+Restore the system configuration tables from the asterisk_previous database::
+
+   sudo -u postgres pg_dump -c -t dhcp -t netiface -t resolvconf asterisk_previous | sudo -u postgres psql asterisk
+
+Drop the asterisk_previous database::
+
+   sudo -u postgres dropdb asterisk_previous
 
 .. warning:: Restoring the data.tgz file restore also system files as host
    hostname network interfaces etc... You will need to reapply network

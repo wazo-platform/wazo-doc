@@ -2,6 +2,15 @@
 Extensions
 **********
 
+An extension represents a number that can be dialed on a phone. Once an
+extension is created, it can be associated with different kinds of resources.
+These associations determine where a call will be routed when the extension is
+dialed.
+
+An extension is composed of an "exten" (the number to dial) and a "context" (
+from where are we allowed to dial). The context restrains what source a call
+will come in from. (e.g. DID calls will come from the context "from-extern")
+
 Extension Representation
 ========================
 
