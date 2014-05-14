@@ -50,7 +50,7 @@ Example
    }
 
 
-List Extension
+Extension list
 ==============
 
 Query
@@ -60,14 +60,50 @@ Query
 
    GET /1.1/extensions
 
-Example request
----------------
 
-::
+Parameters
+----------
+
+
+order
+   Sort the list using a column (e.g. "exten"). Columns allowed: exten, context.
+
+direction
+    'asc' or 'desc'. Sort list in ascending (asc) or descending (desc) order.
+
+limit
+    maximum number of items to return in the list. Must be a positive integer.
+
+skip
+    number of extensions to skip over before starting the list. Must be a positive integer.
+
+search
+    Search term. Only extensions with a field containing the search term
+    will be listed.
+
+
+Example requests
+----------------
+
+List all available extensions::
 
    GET /1.1/extensions HTTP/1.1
    Host: xivoserver
    Accept: application/json
+
+List extensions sorted by by exten in descending order::
+
+   GET /1.1/extensions?order=exten&direction=desc HTTP/1.1
+   Host: xivoserver
+   Accept: application/json
+
+List only the first 10 extensions having the number "17" in the exten::
+
+   GET /1.1/extensions?limit=10&search=17 HTTP/1.1
+   Host: xivoserver
+   Accept: application/json
+
+
 
 Example response
 ----------------
