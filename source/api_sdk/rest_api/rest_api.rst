@@ -189,8 +189,6 @@ The error messages are contained in a JSON list, even if there is only one error
 API
 ===
 
-Beta version:
-
 .. toctree::
    :maxdepth: 1
 
