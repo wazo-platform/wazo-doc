@@ -7,7 +7,7 @@ Entities
 Purpose
 =======
 
-In some cases, as the telephony provider, you want different independent organisation to have their
+In some cases, as the telephony provider, you want different independent organisations to have their
 telephony served by your XiVO, e.g. different departments using the same telephony infrastructure,
 but you do not want each organisation to see or edit the configuration of other organisations.
 
@@ -21,3 +21,16 @@ In :menuselection:`Configuration --> Users`, you can select an entity for each a
 
 .. note:: Once an entity is linked with an administrator, it can not be deleted. You have to unlink the entity
           from all administrator to be able to delete it.
+
+Limitations
+===========
+
+Some fields are globally unique and will collide when the same value is used in different entities:
+
+* User CTI login
+* Agent number
+* Queue name
+* Context name
+
+An error message will appear when creating resources with colliding parameters, saying the resource
+already exists, even if the entity-linked administrator can not see them.
