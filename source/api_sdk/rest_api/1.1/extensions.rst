@@ -91,7 +91,7 @@ List all available extensions::
    Host: xivoserver
    Accept: application/json
 
-List extensions sorted by by exten in descending order::
+List extensions sorted by exten in descending order::
 
    GET /1.1/extensions?order=exten&direction=desc HTTP/1.1
    Host: xivoserver
