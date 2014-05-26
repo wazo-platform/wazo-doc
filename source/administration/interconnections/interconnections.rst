@@ -5,6 +5,7 @@ Interconnections
    :maxdepth: 1
 
    two_xivo
+   xivo_with_voip_provider
    xivo_with_pbx
 
 

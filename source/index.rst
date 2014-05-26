@@ -42,6 +42,7 @@ Table of Contents
    high_availability/high_availability
    api_sdk/api_sdk
    developers/developers
+   quality_assurance/quality_assurance
    troubleshooting/troubleshooting
    changelog
 

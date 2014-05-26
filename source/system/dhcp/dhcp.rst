@@ -60,7 +60,7 @@ By default, the XiVO DHCP server serves only known hosts. That is:
 * either hosts which MAC address prefix (the `OUI <http://en.wikipedia.org/wiki/Organizationally_unique_identifier>`_) is known 
 * or hosts which Vendor Identifier is known
 
-Known OUIs and Vendor Class Identifiers are declared in :file:`/etc/dhcpd/dhcpd_update/*` files.
+Known OUIs and Vendor Class Identifiers are declared in :file:`/etc/dhcp/dhcpd_update/*` files.
 
 If you want your XiVO DHCP server to serve also unknown hosts (like PCs) follow these instructions:
 
