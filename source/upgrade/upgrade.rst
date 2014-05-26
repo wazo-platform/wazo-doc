@@ -138,6 +138,14 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.09
+-----
+
+* Consult the `14.09 Roadmap <https://projects.xivo.fr/versions/200>`_
+* Rest API 1.0 is no more. All code, tests and documentation was removed from XiVO.
+  All code developped for Rest API 1.0 must now be adapted to use Rest API 1.1.
+
+
 14.08
 -----
 
