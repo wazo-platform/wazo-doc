@@ -23,11 +23,21 @@ Query
 
 ::
 
-    GET /0.1/directories/lookup
+    GET /0.1/directories/lookup/<profile>
 
 
 Parameters
 ----------
+
+Mandatory
+^^^^^^^^^
+
+profile
+    The lookup profile. It determines which directories to search. The profile is the "Context"
+    listed in :menuselection:`CTI Server --> Direct directories`.
+
+Optional
+^^^^^^^^
 
 order
     Sort results using the specified field
@@ -45,15 +55,60 @@ term
     the search term that we are looking for
 
 user_id
-    the ID of the user doing the search, the `user_id`
+    the ID of the user doing the search, the `user_id`. Used for searching personal directories.
 
 
 Errors
 ------
 
++------------+---------------+-----------------------------------+
+| Error code | Error message | Description                       |
++============+===============+===================================+
+|        404 | Not found     | The lookup profile does not exist |
++------------+---------------+-----------------------------------+
+
 
 Example requests
 ----------------
+
+Search for the term "Bob"::
+
+    GET /0.1/directories/lookup/default?term=Bob HTTP/1.1
+    Host: xivoserver
+    Accept: application/json
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+      "headers": ["Firstname", "Lastname", "Phone number"],
+      "values_type": [null, null, "office"]
+      "results": [
+        {
+          "values": ["Bob", "Marley", "5555555"],
+          "relations": {
+            "agent_id": null,
+            "user_id": null,
+            "endpoint_id": null
+          },
+          "source": "my_ldap_directory"
+        }, {
+          "values": ["Charlie", "Chaplin", "5555556"],
+          "relations": {
+            "agent_id": 12,
+            "user_id": 34,
+            "endpoint_id": 56
+          },
+          "source": "internal"
+        }
+      ]
+    }
 
 
 Reverse lookup
