@@ -85,11 +85,28 @@ Query
 Parameters
 ----------
 
-.. warning:: filtering on the line number is not implemented yet
+.. warning:: parameter 'q' is now **DEPRECATED**. use 'search' instead
 
 q
    List only users matching this filter.
    The filter is done on the firstname, lastname and firstname + lastname and is case insensitive.
+
+search
+    Search term. Only users with a field containing the search term
+    will be listed.
+
+order
+   Sort the list using a column (e.g. "firstname"). Columns allowed: firstname, lastname, caller_id, description, userfield
+
+direction
+    'asc' or 'desc'. Sort list in ascending (asc) or descending (desc) order.
+
+limit
+    maximum number of items to return in the list. Must be a positive integer.
+
+skip
+    number of user to skip over before starting the list. Must be a positive integer.
+
 
 
 Example requests
@@ -103,7 +120,7 @@ Listing all available users::
 
 Searching for a user called "john"::
 
-   GET /1.1/users?q=john HTTP/1.1
+   GET /1.1/users?search=john HTTP/1.1
    Host: xivoserver
    Accept: application/json
 
@@ -162,11 +179,6 @@ Get User
 
    GET /1.1/users/<id>
 
-Parameters
-----------
-
-include
-   See `List Users`_.
 
 Example request
 ---------------
