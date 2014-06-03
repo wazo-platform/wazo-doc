@@ -22,6 +22,13 @@ In :menuselection:`Configuration --> Users`, you can select an entity for each a
 .. note:: Once an entity is linked with an administrator, it can not be deleted. You have to unlink the entity
           from all administrator to be able to delete it.
 
+For the new entity to be useful, you need to create contexts in this entity. You may need:
+
+* an Internal context for users, groups, queues, etc.
+* an Incall context for incoming calls
+* an Outcall context for outgoing calls, which should be included in the Internal context for the
+  users to be able to call external numbers
+
 Limitations
 ===========
 
@@ -34,3 +41,17 @@ Some fields are globally unique and will collide when the same value is used in 
 
 An error message will appear when creating resources with colliding parameters, saying the resource
 already exists, even if the entity-linked administrator can not see them.
+
+Only the following lists may be filtered by entity:
+
+* Lines
+* Users
+* Groups
+* Voicemails
+* Conference Rooms
+* Incoming calls
+* Call filters
+* Call pickups
+* Schedules
+* Agents
+* Queues
