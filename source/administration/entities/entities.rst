@@ -32,6 +32,9 @@ For the new entity to be useful, you need to create contexts in this entity. You
 Limitations
 ===========
 
+Global Fields
+^^^^^^^^^^^^^
+
 Some fields are globally unique and will collide when the same value is used in different entities:
 
 * User CTI login
@@ -41,6 +44,9 @@ Some fields are globally unique and will collide when the same value is used in 
 
 An error message will appear when creating resources with colliding parameters, saying the resource
 already exists, even if the entity-linked administrator can not see them.
+
+Affected Lists
+^^^^^^^^^^^^^^
 
 Only the following lists may be filtered by entity:
 
@@ -55,3 +61,15 @@ Only the following lists may be filtered by entity:
 * Schedules
 * Agents
 * Queues
+
+REST API
+^^^^^^^^
+
+The REST API does not have the notion of entity. When creating a resource without context via REST
+API, the resource will be associated to an arbitrary entity. Affected resources are:
+
+* Contexts
+* Call filters
+* Group pickups
+* Schedules
+* Users
