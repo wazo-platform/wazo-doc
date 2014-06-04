@@ -138,6 +138,14 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.10
+-----
+
+* Consult the `14.10 Roadmap <https://projects.xivo.fr/versions/201>`_
+* Custom MOH have been fixed, but can not be used for playing uploaded MP3 files anymore. See
+  :ref:`moh`.
+
+
 14.09
 -----
 

@@ -18,6 +18,8 @@ To install German sounds you have to execute the following command in the cli::
 Now you may select the newly installed language for yours users.
 
 
+.. _wav_files:
+
 Convert Your Wav File
 =====================
 
