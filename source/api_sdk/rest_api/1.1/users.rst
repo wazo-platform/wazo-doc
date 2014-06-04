@@ -2,10 +2,6 @@
 Users
 *****
 
-.. TODO should either document the user-line association model (i.e. a line's main
-   user vs secondary user and related constraint) or add a link to where this is
-   documented
-
 User Representation
 ===================
 
@@ -96,16 +92,17 @@ search
     will be listed.
 
 order
-   Sort the list using a column (e.g. "firstname"). Columns allowed: firstname, lastname, caller_id, description, userfield
+   Sort the list using a column (e.g. "firstname"). Columns allowed: firstname, lastname, caller_id,
+   description, userfield
 
 direction
     'asc' or 'desc'. Sort list in ascending (asc) or descending (desc) order.
 
 limit
-    maximum number of items to return in the list. Must be a positive integer.
+    maximum number of users to return in the list. Must be a positive integer.
 
 skip
-    number of user to skip over before starting the list. Must be a positive integer.
+    number of users to skip over before starting the list. Must be a positive integer or zero.
 
 
 
