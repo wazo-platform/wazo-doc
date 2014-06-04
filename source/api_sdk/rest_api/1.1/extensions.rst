@@ -106,6 +106,12 @@ List only the first 10 extensions having the number "17" in the exten::
    Host: xivoserver
    Accept: application/json
 
+List extensions of type incall::
+
+   GET /1.1/extensions?type=incall HTTP/1.1
+   Host: xivoserver
+   Accept: application/json
+
 
 
 Example response
