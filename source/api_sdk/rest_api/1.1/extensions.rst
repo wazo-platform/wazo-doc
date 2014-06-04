@@ -81,6 +81,9 @@ search
     Search term. Only extensions with a field containing the search term
     will be listed.
 
+type
+    Only show extensions of a certain type. Types allowed: internal, incall
+
 
 Example requests
 ----------------
