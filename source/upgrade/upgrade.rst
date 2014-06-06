@@ -142,9 +142,10 @@ Upgrade Notes
 -----
 
 * Consult the `14.10 Roadmap <https://projects.xivo.fr/versions/201>`_
-* Custom MOH have been fixed, but can not be used for playing uploaded MP3 files anymore. See
+* Custom MOH have been `fixed`_, but can not be used for playing uploaded files anymore. See
   :ref:`moh`.
 
+.. _fixed: https://projects.xivo.fr/issues/5038
 
 14.09
 -----
