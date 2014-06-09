@@ -16,7 +16,10 @@ Binaries of the XiVO Client are available on our `mirror`_.
 
 .. warning::
 
-   The installed version of the XiVO Client must match the XiVO server's version installation. With our current architecture, there is no way to guarantee that the XiVO server will be retro-compatible with older versions of the XiVO Client. Non-matching XiVO server and XiVO Clients versions will bring inconsistencies.
+   The installed version of the XiVO Client must match the XiVO server's version installation. With
+   our current architecture, there is no way to guarantee that the XiVO server will be
+   retro-compatible with older versions of the XiVO Client. Non-matching XiVO server and XiVO
+   Clients versions will bring inconsistencies.
 
 Choose the version you want and in the right directory, get :
 
@@ -24,7 +27,9 @@ Choose the version you want and in the right directory, get :
 * the ``.deb`` file for Ubuntu or Debian (i386 or amd64, depending on your computer)
 * the ``.dmg`` file for Mac OS
 
-For Windows, double-click on the file and follow the instructions.
+For Windows, double-click on the file and follow the instructions. You can also install it silently::
+
+   xivoclient-14.XX-x86.exe /S
 
 For Ubuntu/Debian, double-click on the file or execute the following command::
 

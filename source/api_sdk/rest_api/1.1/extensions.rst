@@ -81,6 +81,9 @@ search
     Search term. Only extensions with a field containing the search term
     will be listed.
 
+type
+    Only show extensions of a certain type. Types allowed: internal, incall
+
 
 Example requests
 ----------------
@@ -100,6 +103,12 @@ List extensions sorted by exten in descending order::
 List only the first 10 extensions having the number "17" in the exten::
 
    GET /1.1/extensions?limit=10&search=17 HTTP/1.1
+   Host: xivoserver
+   Accept: application/json
+
+List extensions of type incall::
+
+   GET /1.1/extensions?type=incall HTTP/1.1
    Host: xivoserver
    Accept: application/json
 

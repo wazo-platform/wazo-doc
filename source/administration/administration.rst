@@ -24,6 +24,7 @@ Administration
    incall
    interconnections/interconnections
    monitoring/monitoring
+   moh/moh
    paging
    parking
    phonebook

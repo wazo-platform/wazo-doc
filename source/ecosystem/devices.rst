@@ -530,6 +530,9 @@ Particularities:
 
 
 Polycom® SoundPoint® IP Backlit Expansion Module are supported.
+Polycom® VVX® Expansion module are supported.
+
+.. warning:: Polycom® VVX® Camera are not supported.
 
 
 Snom
