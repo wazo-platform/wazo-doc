@@ -140,7 +140,8 @@ Example response
     Content-Type: application/json
 
     {
-      "display": "James Bond",
+      "name": "James Bond",
+      "number": "5555555007",
       "source": <directory_name>
     }
 
