@@ -12,6 +12,60 @@ configured on a XiVO.
    happen and new resources will be added over time.
 
 
+Lookup Headers
+=====================
+
+Query
+-----
+
+::
+
+    GET /0.1/directories/lookup/<profile>/headers
+
+Parameters
+----------
+
+Mandatory
+^^^^^^^^^
+
+profile
+    The lookup profile. It determines which directories to search. The profile is the "Context"
+    listed in :menuselection:`CTI Server --> Direct directories`.
+
+
+Errors
+------
+
++------------+---------------+-----------------------------------+
+| Error code | Error message | Description                       |
++============+===============+===================================+
+|        404 | Not found     | The lookup profile does not exist |
++------------+---------------+-----------------------------------+
+
+Example requests
+----------------
+
+Search for the term "Bob"::
+
+    GET /0.1/directories/lookup/default HTTP/1.1
+    Host: xivoserver
+    Accept: application/json
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+      "headers": ["Firstname", "Lastname", "Phone number"],
+      "values_type": [null, null, "office"]
+    }
+
+
 Lookup Representation
 =====================
 
