@@ -129,11 +129,12 @@ Example response
     Content-Type: application/json
 
     {
-      "headers": ["Firstname", "Lastname", "Phone number"],
-      "values_type": [null, null, "office"]
+      "term": "Bob",
+      "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent"],
+      "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "agent_relation"],
       "results": [
         {
-          "values": ["Bob", "Marley", "5555555"],
+          "column_values": ["Bob", "Marley", "5555555", "5556666", "5553333", "mail@example.com", null],
           "relations": {
             "agent_id": null,
             "user_id": null,
@@ -141,7 +142,7 @@ Example response
           },
           "source": "my_ldap_directory"
         }, {
-          "values": ["Charlie", "Chaplin", "5555556"],
+          "column_values": ["Charlie", "Boblin", "5555556", "5554444", "5552222", "mail2@example.com", null],
           "relations": {
             "agent_id": 12,
             "user_id": 34,
