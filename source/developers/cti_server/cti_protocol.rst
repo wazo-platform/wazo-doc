@@ -84,6 +84,78 @@ Here is a non exaustive list of types:
 Class list
 ----------
 
+
+people_headers
+-------------
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_headers",
+    "commandid": <commandid>
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_headers_result",
+    "commandid": <commandid>,
+    "headers": ["Status", "Name", "Number"],
+    "values_type": [null, null, "number"],
+    "headers": [["Status", "status"],
+                ["Name", "name"],
+                ["Number", "number"]]
+  }
+
+
+people_search
+-------------
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_search",
+    "pattern": <pattern>,
+    "commandid": <commandid>
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_search_result",
+    "commandid": <commandid>
+    "term": "Bob",
+    "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent"],
+    "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "agent_relation"],
+    "results": [
+      {
+        "column_values": ["Bob", "Marley", "5555555", "5556666", "5553333", "mail@example.com", null],
+        "relations": {
+          "agent_id": null,
+          "user_id": null,
+          "endpoint_id": null
+        },
+        "source": "my_ldap_directory"
+      }, {
+        "column_values": ["Charlie", "Boblin", "5555556", "5554444", "5552222", "mail2@example.com", null],
+        "relations": {
+          "agent_id": 12,
+          "user_id": 34,
+          "endpoint_id": 56
+        },
+        "source": "internal"
+      }
+    ]
+  }
+
 .. _register_user_status_update_command:
 
 register_user_status_update
