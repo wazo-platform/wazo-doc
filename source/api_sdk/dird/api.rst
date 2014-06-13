@@ -39,18 +39,6 @@ profile
 Optional
 ^^^^^^^^
 
-order
-    Sort results using the specified field
-
-direction
-    'asc' or 'desc'. Sort list in ascending or descending order
-
-limit
-    number of result to show in the list
-
-skip
-    number of result to skip before starting the list
-
 term
     the search term that we are looking for
 
