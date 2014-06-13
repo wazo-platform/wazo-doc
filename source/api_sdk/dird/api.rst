@@ -61,8 +61,8 @@ Example response
     Content-Type: application/json
 
     {
-      "headers": ["Firstname", "Lastname", "Phone number"],
-      "values_type": [null, null, "office"]
+      "column_headers": ["Firstname", "Lastname", "Phone number"],
+      "column_types": [null, null, "office"]
     }
 
 
@@ -131,7 +131,7 @@ Example response
     {
       "term": "Bob",
       "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent"],
-      "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "agent_relation"],
+      "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent"],
       "results": [
         {
           "column_values": ["Bob", "Marley", "5555555", "5556666", "5553333", "mail@example.com", null],

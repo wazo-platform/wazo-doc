@@ -104,11 +104,8 @@ people_headers
   {
     "class": "people_headers_result",
     "commandid": <commandid>,
-    "headers": ["Status", "Name", "Number"],
-    "values_type": [null, null, "number"],
-    "headers": [["Status", "status"],
-                ["Name", "name"],
-                ["Number", "number"]]
+    "column_headers": ["Status", "Name", "Number"],
+    "column_types": [null, null, "number"],
   }
 
 
@@ -134,7 +131,7 @@ people_search
     "commandid": <commandid>
     "term": "Bob",
     "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent"],
-    "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "agent_relation"],
+    "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent"],
     "results": [
       {
         "column_values": ["Bob", "Marley", "5555555", "5556666", "5553333", "mail@example.com", null],
