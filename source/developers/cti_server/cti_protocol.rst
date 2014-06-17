@@ -86,7 +86,7 @@ Class list
 
 
 people_headers
--------------
+--------------
 
 ``Client -> Server``
 
