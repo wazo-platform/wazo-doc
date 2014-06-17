@@ -13,7 +13,7 @@ configured on a XiVO.
 
 
 Lookup Headers
-=====================
+==============
 
 Query
 -----
@@ -45,9 +45,9 @@ Errors
 Example requests
 ----------------
 
-Search for the term "Bob"::
+::
 
-    GET /0.1/directories/lookup/default HTTP/1.1
+    GET /0.1/directories/lookup/default/headers HTTP/1.1
     Host: xivoserver
     Accept: application/json
 
