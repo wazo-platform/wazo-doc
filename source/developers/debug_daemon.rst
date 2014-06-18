@@ -106,9 +106,10 @@ ctid
 
 ::
 
-   xivo-ctid -d
+   xivo-ctid -f -d
 
-* -d for foreground and debug
+* -d for debug
+* -f for foreground
 
 Log file: ``/var/log/xivo-ctid.log``
 
