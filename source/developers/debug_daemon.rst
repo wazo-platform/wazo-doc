@@ -148,15 +148,12 @@ provd
 * -v for verbose
 
 
-Log file: ``/var/log/daemon.log``. Lines start with ``xivo-provd``.
+Log file: ``/var/log/xivo-provd.log``
 
 ::
 
-    Oct 29 06:24:05 hostname xivo-provd[8596]: TFTP read request from ('192.168.1.1', 53014)
-    Oct 29 06:24:05 hostname xivo-provd[8596]: Processing TFTP request: i18n/france/7960-tones.xml
-    Oct 29 06:24:05 hostname xivo-provd[8596]: <14> Extracted device info: {u'ip': u'192.168.1.1'}
-    Oct 29 06:24:05 hostname xivo-provd[8596]: <14> Retrieved device id: caddf5dcfcc34e088687a6589b638554
-    Oct 29 06:24:05 hostname xivo-provd[8596]: <14> Routing request to plugin xivo-cisco-sccp-9.0.3
+   2014-06-18 12:04:54,299 [8564] (INFO) (provd.main): Binding HTTP REST API service to "0.0.0.0:8666"
+   2014-06-18 12:04:54,320 [8564] (INFO) (twisted): Site starting on 8666
 
 
 restapi
@@ -173,8 +170,8 @@ Log file: ``/var/log/xivo-restapid.log``
 
 ::
 
-        2013-10-28 10:02:00,352 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): POST http://127.0.0.1:50050/1.1/devices with data {"mac":"00:00:00:00:00:00","template_id":"defaultconfigdevice","description":""}
-        2013-10-28 10:04:35,815 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): GET http://127.0.0.1:50050/1.1/devices
+   2013-10-28 10:02:00,352 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): POST http://127.0.0.1:50050/1.1/devices with data {"mac":"00:00:00:00:00:00","template_id":"defaultconfigdevice","description":""}
+   2013-10-28 10:04:35,815 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): GET http://127.0.0.1:50050/1.1/devices
 
 
 sysconfd
