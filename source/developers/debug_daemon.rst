@@ -37,13 +37,13 @@ agid
 * -f for foreground
 * -d for debug
 
-Log file: ``/var/log/daemon.log``. Lines start with ``xivo-agid``.
+Log file: ``/var/log/xivo-agid.log``
 
 ::
 
-    Oct 29 11:03:53 hostname xivo-agid[25724]: xivo-agid starting...
-    Oct 29 11:03:54 hostname xivo-agid[25724]: executing update command 'update-config'
-    Oct 29 11:03:54 hostname xivo-agid[25724]: executing update command 'update-phonebook'
+   2014-06-18 11:01:02,816 [28779] (INFO) (xivo_agid.agid): xivo-agid starting...
+   2014-06-18 11:01:04,479 [28779] (INFO) (xivo_agid.modules.callerid_forphones): executing update command 'update-config'
+   2014-06-18 11:01:04,877 [28779] (INFO) (xivo_agid.modules.callerid_forphones): executing update command 'update-phonebook'
 
 
 amid
@@ -172,7 +172,7 @@ Log file: ``/var/log/xivo-restapid.log``
 
 ::
 
-        2013-10-28 10:02:00,352 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): POST http://127.0.0.1:50050/1.1/devices with data {"mac":"00:00:00:00:00:00","template_id":"defaultconfigdevice","description":""} 
+        2013-10-28 10:02:00,352 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): POST http://127.0.0.1:50050/1.1/devices with data {"mac":"00:00:00:00:00:00","template_id":"defaultconfigdevice","description":""}
         2013-10-28 10:04:35,815 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): GET http://127.0.0.1:50050/1.1/devices
 
 
