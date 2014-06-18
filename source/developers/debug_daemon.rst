@@ -129,12 +129,11 @@ dxtora
 
 * -f for foreground
 
-Log file: ``/var/log/daemon.log``. Lines start with ``xivo-dxtora``.
+Log file: ``/var/log/xivo-dxtora.log``
 
 ::
 
-    Oct 28 09:24:48 hostname xivo-dxtora[1399]: Received signal, exiting.
-    Oct 28 09:24:58 hostname xivo-dxtora[8562]: Pulling DHCP info from unix socket
+   2014-06-18 13:20:17,322 [24028] (INFO) (xivo-dxtora): Pulling DHCP info from unix socket
 
 
 provd
