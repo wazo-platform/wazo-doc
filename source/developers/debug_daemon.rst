@@ -184,11 +184,10 @@ sysconfd
 * -l debug for debug level logging
 * -f for foreground
 
-Log file: ``/var/log/daemon.log``. Lines start with ``xivo-sysconfd``.
+Log file: ``/var/log/xivo-sysconfd.log``
 
 ::
 
-    Oct 29 11:03:45 hostname xivo-sysconfd[24522]: locking PID
-    Oct 29 11:03:45 hostname xivo-sysconfd[24522]: pidfile ok
-    Oct 29 11:03:45 hostname xivo-sysconfd[24522]: will now serve
-    Oct 29 11:04:33 hostname xivo-sysconfd[24522]: 'GET /status-check HTTP/1.1' 200 17
+   2014-06-18 12:00:23,221 [8277] (INFO) (xivo-sysconfd): locking PID
+   2014-06-18 12:00:23,233 [8277] (INFO) (xivo-sysconfd): pidfile ok
+   2014-06-18 12:00:23,237 [8277] (INFO) (http_json_server): will now serve
