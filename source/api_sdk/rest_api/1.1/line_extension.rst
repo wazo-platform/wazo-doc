@@ -4,6 +4,8 @@
 Line Extension Association
 **************************
 
+.. warning:: This service is **DEPRECATED**. Please use :ref:`line-extension-associations` instead.
+
 
 Association Representation
 ==========================
