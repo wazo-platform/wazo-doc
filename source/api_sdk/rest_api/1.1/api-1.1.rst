@@ -13,7 +13,6 @@ REST API 1.1
     of services in BETA stage:
 
         * Function Keys
-        * Line Extension Associations
 
 .. toctree::
    :maxdepth: 2
@@ -24,8 +23,8 @@ REST API 1.1
    extensions
    func_keys
    lines
-   line_extension
    line_extensions
+   Line Extension Association ***DEPRECATED*** <line_extension>
    users
    user_cti
    user_line

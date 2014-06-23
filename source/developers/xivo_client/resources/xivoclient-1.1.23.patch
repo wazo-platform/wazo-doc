@@ -1,0 +1,133 @@
+diff --git a/Makefile b/Makefile
+index cde40ee..e6eb1fb 100644
+--- a/Makefile
++++ b/Makefile
+@@ -127,7 +127,7 @@ all-macos:
+ 	@make macos-plugins
+ 
+ macos-%:
+-	@cd $* && ${QMAKE} -macx && make ${JOPT}
++	@cd $* && ${QMAKE} && make ${JOPT}
+ 
+ packmacos:
+ 	@./cross/macos_pack.sh
+diff --git a/README.txt b/README.txt
+new file mode 100644
+index 0000000..616b605
+--- /dev/null
++++ b/README.txt
+@@ -0,0 +1,9 @@
++Building XiVO Client 1.1.23:
++
++* Edit Makefile and set the variable qmake to the path of your qmake
++* make all
++
++Packaging XiVO Client 1.1.23:
++
++* Edit cross/macos-pack.sh and set QT_PATH
++* ./cross/macos-pack.sh
+diff --git a/baselib/src/baseengine.cpp b/baselib/src/baseengine.cpp
+index 8f1c247..f6714f9 100644
+--- a/baselib/src/baseengine.cpp
++++ b/baselib/src/baseengine.cpp
+@@ -2388,13 +2388,13 @@ void BaseEngine::fileReceivedProxy(const QString &filename)
+     //qDebug() << "fileReceivedProxy" << filename;
+     if(m_download_cb.contains(filename)) {
+         // take & unregister callback
+-        QTriple<QObject*, download_callback, void*> triple = m_download_cb.take(filename);
++        QTriple<XLet*, download_callback, void*> triple = m_download_cb.take(filename);
+ 
+-        triple.second(triple.first, filename, triple.third);
++       ((triple.first)->*(triple.second))(filename, triple.third);
+     }
+ }
+ 
+-void BaseEngine::registerDownload(QString &filename, QObject *target, 
++void BaseEngine::registerDownload(QString &filename, XLet *target, 
+                                   download_callback callback, void *data)
+ {
+     //qDebug() << "fileReceivedRegister" << filename << callback << data;
+diff --git a/baselib/src/baseengine.h b/baselib/src/baseengine.h
+index 250cfc5..76d4dc4 100644
+--- a/baselib/src/baseengine.h
++++ b/baselib/src/baseengine.h
+@@ -50,9 +50,8 @@
+ #include <QApplication>
+ #include <QLibraryInfo>
+ 
+-class Xlet;
+-
+ 
++#include <xlet.h>
+ #include <userinfo.h>
+ #include <phoneinfo.h>
+ #include <agentinfo.h>
+@@ -69,7 +68,7 @@ struct e_callback {
+ };
+ 
+ // file download callback
+-typedef void(*download_callback)(const QObject*, const QString&, void*);
++typedef void(XLet::*download_callback)(const QString&, void*);
+ 
+ class QSocketNotifier;
+ class QTcpSocket;
+@@ -182,13 +181,13 @@ class BASELIB_EXPORT BaseEngine: public QObject
+         void changeTranslation(const QString &);
+         void sendUrlToBrowser(const QString &);
+         void addToDataBase(QVariantMap &);
+-        void registerDownload(QString &, QObject*, download_callback, void*);
++        void registerDownload(QString &, XLet*, download_callback, void*);
+ 
+     private:
+         int callClassEventCallback(QString className, const QVariantMap &map);
+         QMultiHash<QString, e_callback* > m_class_event_cb;
+         void setOSInfos(const QString &);
+-        QHash<QString, QTriple<QObject*, download_callback, void*> > m_download_cb;
++        QHash<QString, QTriple<XLet*, download_callback, void*> > m_download_cb;
+ 
+     public slots:
+         void start();  //!< start the connection process.
+diff --git a/baselib/src/xlet.cpp b/baselib/src/xlet.cpp
+index fd2b7f9..2d40221 100644
+--- a/baselib/src/xlet.cpp
++++ b/baselib/src/xlet.cpp
+@@ -32,6 +32,7 @@
+  */
+ 
+ #include "xlet.h"
++#include <baseengine.h>
+ 
+ XLet::XLet(QWidget *parent)
+     : QWidget(parent)
+diff --git a/baselib/src/xlet.h b/baselib/src/xlet.h
+index f8f8dfc..a666e72 100644
+--- a/baselib/src/xlet.h
++++ b/baselib/src/xlet.h
+@@ -37,7 +37,6 @@
+ #include <baselib_export.h>
+ #include <QVariantMap>
+ #include <QWidget>
+-#include <baseengine.h>
+ 
+ 
+ /*! \brief base class for all XLets
+@@ -70,6 +69,7 @@ class BASELIB_EXPORT XLet : public QWidget
+         void ipbxCommand(const QVariantMap &);
+         void logAction(const QString &);
+     protected:
++        virtual void saveToFile(const QString &, void *) {};
+         void setTitle(const QString &title) { m_title = title; }; //! set title of the XLet
+     private:
+         QString m_title;    //!< title of the XLet
+diff --git a/plugins/datetime/src/datetime.cpp b/plugins/datetime/src/datetime.cpp
+index 43233c0..3f5fa68 100644
+--- a/plugins/datetime/src/datetime.cpp
++++ b/plugins/datetime/src/datetime.cpp
+@@ -31,6 +31,7 @@
+  * $Date$
+  */
+ 
++#include <baseengine.h>
+ 
+ #include "datetime.h"
+ 

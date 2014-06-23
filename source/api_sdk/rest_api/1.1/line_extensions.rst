@@ -103,15 +103,15 @@ Example Response
     }
 
 
-Get the Lines associated to an Extension
-========================================
+Get the Line associated to an Extension
+=======================================
 
 Query
 -----
 
 ::
 
-    GET /extensions/<extension_id>/lines
+    GET /extensions/<extension_id>/line
 
 Errors
 ------
@@ -128,7 +128,7 @@ Example Request
 
 ::
 
-    GET /extensions/48/lines
+    GET /extensions/48/line
     Host: xivoserver
     Accept: application/json
 
@@ -142,36 +142,16 @@ Example Response
     Content-Type: application/json
 
     {
-        "total": 2,
-        "items":
-        [
+        "line_id": 34,
+        "extension_id": 48,
+        "links": [
             {
-                "line_id": 34,
-                "extension_id": 48,
-                "links": [
-                    {
-                        "rel": "lines",
-                        "href": "https://xivoserver/1.1/lines/34"
-                    },
-                    {
-                        "rel": "extensions",
-                        "href": "https://xivoserver/1.1/extensions/48"
-                    }
-                ]
+                "rel": "lines",
+                "href": "https://xivoserver/1.1/lines/34"
             },
             {
-                "line_id": 35,
-                "extension_id": 48,
-                "links": [
-                    {
-                        "rel": "lines",
-                        "href": "https://xivoserver/1.1/lines/35"
-                    },
-                    {
-                        "rel": "extensions",
-                        "href": "https://xivoserver/1.1/extensions/48"
-                    }
-                ]
+                "rel": "extensions",
+                "href": "https://xivoserver/1.1/extensions/48"
             }
         ]
     }

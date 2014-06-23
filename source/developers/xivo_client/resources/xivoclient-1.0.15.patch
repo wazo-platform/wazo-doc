@@ -1,0 +1,104 @@
+diff --git a/Makefile b/Makefile
+index 50709d3..c475112 100644
+--- a/Makefile
++++ b/Makefile
+@@ -9,7 +9,7 @@ JOPT?=-j1
+ DOXYGEN?=doxygen
+ 
+ # WIN32 targets only
+-MAKENSIS=/cygdrive/c/Program\ Files/NSIS/makensis.exe
++MAKENSIS=/cygdrive/c/Program\ Files\ \(x86\)/NSIS/makensis.exe
+ UPXWIN?=/cygdrive/c/upx303w/upx.exe
+ 
+ # Versions Definitions
+@@ -79,11 +79,14 @@ all-win32:
+ # to be executed under a bash/cygwin-like terminal
+ versions-%:
+ 	@${ECHO} -n "version (before update) : " && make -s displayversions
+-	@svn up
++	#@svn up
+ 	@touch baselib/xivoconsts.h $*/mainwidget.cpp
+ 	@rm -f $*/versions.pri
+ 	@${ECHO} -n "_SVNVER_ = " >> $*/versions.pri
+-	@LANG=C svn info | sed -n "/Last Changed Rev/s/.*: //p" >> $*/versions.pri
++	#@LANG=C svn info | sed -n "/Last Changed Rev/s/.*: //p" >> $*/versions.pri
++	@${ECHO} "6558" >> $*/versions.pri
++	@${ECHO} "_XIVOVER_ = 1.0" >> $*/versions.pri
++
+ 	@grep -h "VER_ =" $*/*.pri | sort -r | head -2 > versions.mak
+ 	@${ECHO} -n "_DATEBUILD_ = " >> $*/versions.pri
+ 	@date +%Y-%m-%dT%H:%M:%S >> $*/versions.pri
+@@ -103,11 +106,11 @@ forceversions-%:
+ 
+ # to be executed under a mingw/dos-like terminal
+ win32-%:
+-	@cd $* && ${QMAKE} && ${LRELEASE} $*.pro && make release
++	@cd $* && ${QMAKE} && ${LRELEASE} $*.pro && mingw32-make release
+ 
+ # to be executed under a bash/cygwin-like terminal
+ win32pack-%:
+-	@${UPXWIN} $*/release/$*.exe || true
++	#@${UPXWIN} $*/release/$*.exe || true
+ 	@rm -f delivery/settings.nsh
+ 	@${ECHO} "!define XIVOVER ${_XIVOVER_}" >> delivery/settings.nsh
+ 	@${ECHO} "!define SVNVER ${_SVNVER_}" >> delivery/settings.nsh
+@@ -119,7 +122,7 @@ win32packdyn-%:
+ 	@rm -f delivery/settings.nsh
+ 	@${ECHO} "!define XIVOVER ${_XIVOVER_}" >> delivery/settings.nsh
+ 	@${ECHO} "!define SVNVER ${_SVNVER_}" >> delivery/settings.nsh
+-	@${ECHO} "!define QTBINPATH c:\Qt\4.5.0\bin" >> delivery/settings.nsh
++	@${ECHO} "!define QTBINPATH C:\QtSDK\Desktop\Qt\4.8.1\mingw\bin" >> delivery/settings.nsh
+ 	@${MAKENSIS} delivery/$*.nsi
+ 	@mv delivery/$*-setup-win32.exe $*-setup-${_XIVOVER_}-${_SVNVER_}-win32.exe
+ 
+diff --git a/README.txt b/README.txt
+new file mode 100755
+index 0000000..ba0b87a
+--- /dev/null
++++ b/README.txt
+@@ -0,0 +1,7 @@
++Building XiVO Client 1.0.15:
++
++(cygwin) make all-win32
++(qt cmd) mingw32-make win32-baselib
++(qt cmd) mingw32-make win32-xivoclient
++(qt cmd) mingw32-make win32-plugins
++(cygwin) make win32packdyn-xivoclient
+\ No newline at end of file
+diff --git a/common.pri b/common.pri
+index 6de48fb..2b062ad 100644
+--- a/common.pri
++++ b/common.pri
+@@ -1,4 +1,4 @@
+-_XIVOVER_ = 1.1
++_XIVOVER_ = 1.0
+ _SVNVER_ = 1
+ include(xivoclient/versions.pri)
+ XIVOVER = '\\"$${_XIVOVER_}\\"'
+diff --git a/delivery/xivoclient.nsi b/delivery/xivoclient.nsi
+index 56aa8c4..4000255 100644
+--- a/delivery/xivoclient.nsi
++++ b/delivery/xivoclient.nsi
+@@ -4,7 +4,7 @@
+ # NullSoft Installation System
+ #
+ 
+-!define ODPATH ..\..\openssl-0.9.8g-mingw\openssl-0.9.8g
++!define ODPATH C:\QtSDK\Desktop\Qt\4.8.1\mingw\bin
+ !define REG_UNINST Software\Microsoft\Windows\CurrentVersion\Uninstall\xivoclient
+ !include settings.nsh
+ !define FULLVERSION "${XIVOVER} (svn ${SVNVER})"
+@@ -27,9 +27,10 @@ Page instfiles
+ # Installation of executables
+ Section "Prog"
+ SetOutPath $INSTDIR
+-File C:\MinGW\bin\mingwm10.dll
+-File ${ODPATH}\cryptoeay32-0.9.8.dll
+-File ${ODPATH}\ssleay32-0.9.8.dll
++File C:\QtSDK\mingw\bin\mingwm10.dll
++File C:\QtSDK\mingw\bin\libgcc_s_dw2-1.dll
++File ${ODPATH}\libeay32.dll
++File ${ODPATH}\ssleay32.dll
+ !ifdef QTBINPATH
+ File ${QTBINPATH}\QtCore4.dll
+ File ${QTBINPATH}\QtGui4.dll

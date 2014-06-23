@@ -12,3 +12,12 @@ Building the XiVO Client
    build-win
    build-gnulinux
    build-macos
+
+
+Building old versions
+---------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   build-legacy

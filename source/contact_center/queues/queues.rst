@@ -14,6 +14,7 @@ A queue can be configured with the following options:
 
    * Name : used as an unique id, cannot be ``general``
    * Display name : Displayed on the supervisor screen
+   * On-Hold music: The music the caller will hear. The music is played when waiting and when the call is on hold.
 
 A ring strategy defines how queue members are called when a call enters the queue.
 A queue can use one of the following ring strategies:

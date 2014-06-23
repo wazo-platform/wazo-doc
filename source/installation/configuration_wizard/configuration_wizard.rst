@@ -17,7 +17,7 @@ You first have to select the language you want to use for the wizard.
 .. figure:: images/wizard_step1_lang.png
    :scale: 75%
    :alt: Base configuration
-    
+
    Select the language
 
 
@@ -45,7 +45,9 @@ Configuration
 #. Enter the hostname  (Allowed characters are : ``A-Z a-z 0-9 -``)
 #. Enter the domain name (Allowed characters are : ``A-Z a-z 0-9 - .``)
 #. Enter the password for the ``root`` user of the web interface,
-#. Configure the IP address and gateway used by your XiVO (by default it pre-fills the fields with the current IP and gateway of the network interface on which you are connected).
+#. Configure the IP address and gateway used by your XiVO (by default it pre-fills the fields with the current IP
+   and gateway of the network interface on which you are connected if and only if network interface has a default
+   gateway).
 
    .. note:: The network configuration will be applied at the end of the wizard
 
