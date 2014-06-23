@@ -138,6 +138,13 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.11
+-----
+
+* Consult the `14.11 Roadmap <https://projects.xivo.fr/versions/202>`_
+* The API URL :ref:`/lines/\<id\>/extension <line-extension-association>` is now deprecated. Use
+  :ref:`/lines/\<id\>/extensions <line-extension-associations>` instead.
+
 14.10
 -----
 
