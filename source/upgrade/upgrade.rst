@@ -138,12 +138,23 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.12
+-----
+
+* Consult the `14.12 Roadmap <https://projects.xivo.fr/versions/203>`_
+* Log files have changed for the following daemons (previously in :file:`/var/log/daemon.log`):
+
+  * xivo-provd: :file:`/var/log/xivo-provd.log`
+  * xivo-agid: :file:`/var/log/xivo-agid.log`
+  * xivo-sysconfd: :file:`/var/log/xivo-sysconfd.log`
+
 14.11
 -----
 
 * Consult the `14.11 Roadmap <https://projects.xivo.fr/versions/202>`_
 * The API URL :ref:`/lines/\<id\>/extension <line-extension-association>` is now deprecated. Use
   :ref:`/lines/\<id\>/extensions <line-extension-associations>` instead.
+
 
 14.10
 -----
@@ -153,6 +164,7 @@ Upgrade Notes
   :ref:`moh`.
 
 .. _fixed: https://projects.xivo.fr/issues/5038
+
 
 14.09
 -----
