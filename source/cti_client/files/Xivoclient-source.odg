@@ -8,7 +8,7 @@
 <link rel="edit" title="Edit" href="/index.php?title=File:Xivoclient-source.odg&amp;action=edit" />
 <link rel="shortcut icon" href="/upload/favicon.ico" />
 <link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title=" (en)" />
-<link rel="EditURI" type="application/rsd+xml" href="https://wiki.xivo.fr/api.php?action=rsd" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.xivo.io/api.php?action=rsd" />
 <link rel="alternate" type="application/atom+xml" title=" Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
 <link rel="stylesheet" href="/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cskins.vector&amp;only=styles&amp;skin=vector&amp;*" />
 <meta name="ResourceLoaderDynamicStyles" content="" />
@@ -78,7 +78,7 @@ Expensive parser function count: 0/100
 
 </div>
 <br /><ul>
-<li id="mw-imagepage-reupload-link"><div class="plainlinks"><a class="external" href="https://wiki.xivo.fr/index.php?title=Special:Upload&amp;wpDestFile=Xivoclient-source.odg&amp;wpForReUpload=1">Upload a new version of this file</a></div></li>
+<li id="mw-imagepage-reupload-link"><div class="plainlinks"><a class="external" href="https://wiki.xivo.io/index.php?title=Special:Upload&amp;wpDestFile=Xivoclient-source.odg&amp;wpForReUpload=1">Upload a new version of this file</a></div></li>
 <li id="mw-imagepage-edit-external"><a href="/index.php?title=File:Xivoclient-source.odg&amp;action=edit&amp;externaledit=true&amp;mode=file" title="File:Xivoclient-source.odg">Edit this file using an external application</a> <small>(See the <a rel="nofollow" class="external text" href="//www.mediawiki.org/wiki/Manual:External_editors">setup instructions</a> for more information)</small></li>
 </ul>
 <h2 id="filelinks">File usage</h2>
@@ -96,7 +96,7 @@ Expensive parser function count: 0/100
 				<!-- /bodycontent -->
 								<!-- printfooter -->
 				<div class="printfooter">
-				Retrieved from "<a href="https://wiki.xivo.fr/index.php?title=File:Xivoclient-source.odg&amp;oldid=4698">https://wiki.xivo.fr/index.php?title=File:Xivoclient-source.odg&amp;oldid=4698</a>"				</div>
+				Retrieved from "<a href="https://wiki.xivo.io/index.php?title=File:Xivoclient-source.odg&amp;oldid=4698">https://wiki.xivo.io/index.php?title=File:Xivoclient-source.odg&amp;oldid=4698</a>"				</div>
 				<!-- /printfooter -->
 												<!-- catlinks -->
 				<div id='catlinks' class='catlinks catlinks-allhidden'></div>				<!-- /catlinks -->

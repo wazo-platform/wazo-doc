@@ -8,7 +8,7 @@ Archived Upgrade Notes
 13.25
 -----
 
-* Consult the `13.25 Roadmap <https://projects.xivo.fr/versions/191>`_
+* Consult the `13.25 Roadmap <https://projects.xivo.io/versions/191>`_
 * Debian has been upgraded from version 6 (Squeeze) to 7 (Wheezy), which is essentially a complete
   system upgrade.
 
@@ -23,7 +23,7 @@ Please consult the following detailed upgrade notes for more information:
 13.24
 -----
 
-* Consult the `13.24 Roadmap <https://projects.xivo.fr/versions/190>`_
+* Consult the `13.24 Roadmap <https://projects.xivo.io/versions/190>`_
 * Default Quality of Service (QoS) settings have been changed for SCCP. The IP packets containing
   audio media are now marked with the EF DSCP.
 
@@ -31,7 +31,7 @@ Please consult the following detailed upgrade notes for more information:
 13.23
 -----
 
-* Consult the `13.23 Roadmap <https://projects.xivo.fr/versions/189>`_
+* Consult the `13.23 Roadmap <https://projects.xivo.io/versions/189>`_
 * The *New call* softkey has been removed from SCCP phones in *connected* state.  To start a new call, the user
   will have to press *Hold* then *New call*. This is the same behavior as a *Call Manager*.
 * Some softkeys have been moved on SCCP phones. We tried to keep the keys in the same position at any given time.
@@ -42,7 +42,7 @@ Please consult the following detailed upgrade notes for more information:
 13.22
 -----
 
-* Consult the `13.22 Roadmap <https://projects.xivo.fr/versions/188>`_
+* Consult the `13.22 Roadmap <https://projects.xivo.io/versions/188>`_
 * PostgreSQL will be upgraded from 9.0 to 9.1. The upgrade of XiVO will take longer than usual, depending
   on the size of the database. Usually, the database grows with the number of calls processed by XiVO.
   The upgrade will be stopped if not enough space is available on the XiVO server.
@@ -51,14 +51,14 @@ Please consult the following detailed upgrade notes for more information:
 13.21
 -----
 
-* Consult the `13.21 Roadmap <https://projects.xivo.fr/versions/187>`_
+* Consult the `13.21 Roadmap <https://projects.xivo.io/versions/187>`_
 * It is no more possible to delete a device associated to a line using REST API.
 
 
 13.20
 -----
 
-* Consult the `13.20 Roadmap <https://projects.xivo.fr/versions/186>`_
+* Consult the `13.20 Roadmap <https://projects.xivo.io/versions/186>`_
 * xivo-libsccp now supports direct media on wifi phone 7920 and 7921
 * xivo-restapi now implements a voicemail list
 
@@ -70,8 +70,8 @@ Please consult the following detailed upgrade notes for more information:
   developments of both 13.18 and 13.19, therefore please consult both Roadmaps
   :
 
- * Consult the `13.19 Roadmap <https://projects.xivo.fr/versions/185>`_
- * Consult the `13.18 Roadmap <https://projects.xivo.fr/versions/184>`_
+ * Consult the `13.19 Roadmap <https://projects.xivo.io/versions/185>`_
+ * Consult the `13.18 Roadmap <https://projects.xivo.io/versions/184>`_
 
 * Call logs are now generated automatically, incrementally and regularly. Call logs generated before
   13.19 will be erased one last time.
@@ -82,7 +82,7 @@ Please consult the following detailed upgrade notes for more information:
 13.17
 -----
 
-* Consult the `13.17 Roadmap <https://projects.xivo.fr/versions/183>`_
+* Consult the `13.17 Roadmap <https://projects.xivo.io/versions/183>`_
 * There is a major change to call logs. They are no longer available as a web report but only as a csv export. See the :ref:`call logs documentation <call_logs>`.
   Furthermore, call logs are now fetched with the new REST API. See :ref:`restapi-call-logs`.
 * Paging group numbers are now exclusively numeric. All non-numeric paging group numbers are converted to their numeric-only equivalent
@@ -92,7 +92,7 @@ Please consult the following detailed upgrade notes for more information:
 13.16
 -----
 
-* Consult the `13.16 Roadmap <https://projects.xivo.fr/versions/182>`_
+* Consult the `13.16 Roadmap <https://projects.xivo.io/versions/182>`_
 * A migration script modifies the user and line related-tables and the way users, lines and
   extensions are associated. As a consequence of this script, it is not possible any more to
   associate a user and a line without extensions. Existing associations between users and one or
@@ -118,7 +118,7 @@ Please consult the following detailed upgrade notes for more information:
 13.14
 -----
 
-* Consult the `13.14 Roadmap <https://projects.xivo.fr/versions/180>`_
+* Consult the `13.14 Roadmap <https://projects.xivo.io/versions/180>`_
 * The latest Polycom plugin enables the phone lock feature with a default user password of '123'. All Polycom phones used with XiVO also have a default admin password. In order for the phone lock feature to be secure, one should change every phone's admin AND user passwords.
 * WebServices for SIP trunks/lines: field ``nat``: value ``yes`` changed to ``force_rport,comedia``
 * The database has beed updated in order to remove deprecated tables (generalfeatures, extenumbers, extenhash, cost_center).
@@ -127,13 +127,13 @@ Please consult the following detailed upgrade notes for more information:
 13.13
 -----
 
-* Consult the `13.13 Roadmap <https://projects.xivo.fr/versions/179>`_
+* Consult the `13.13 Roadmap <https://projects.xivo.io/versions/179>`_
 
 
 13.12
 -----
 
-* Consult the `13.12 Roadmap <https://projects.xivo.fr/versions/178>`_
+* Consult the `13.12 Roadmap <https://projects.xivo.io/versions/178>`_
 * CTI protocol: Modified values of agent ``availability``. Read :ref:`CTI Protocol changelog <cti-protocol>`
 * Clean-up was made related to the minimization of the XiVO Client. Some visual differences have been observed on Mac OS X that do not affect the XiVO Client in a functional way.
 
@@ -141,7 +141,7 @@ Please consult the following detailed upgrade notes for more information:
 13.11
 -----
 
-* Consult the `13.11 Roadmap <https://projects.xivo.fr/versions/177>`_
+* Consult the `13.11 Roadmap <https://projects.xivo.io/versions/177>`_
 * Asterisk has been upgraded from version 11.3.0 to 11.4.0
 
 API changes:
@@ -160,7 +160,7 @@ API changes:
 13.10
 -----
 
-* Consult the `13.10 Roadmap <https://projects.xivo.fr/versions/176>`_
+* Consult the `13.10 Roadmap <https://projects.xivo.io/versions/176>`_
 
 API changes:
 
@@ -171,7 +171,7 @@ API changes:
 13.09
 -----
 
-* Consult the `13.09 Roadmap <https://projects.xivo.fr/versions/175>`_
+* Consult the `13.09 Roadmap <https://projects.xivo.io/versions/175>`_
 * The *Restart CTI server* link has been moved from :menuselection:`Services --> CTI Server --> Control`
   to :menuselection:`Services --> IPBX --> Control`.
 * The Agent Status Dashboard has been optimized.
@@ -181,10 +181,10 @@ API changes:
 13.08
 -----
 
-* Consult the `13.08 Roadmap <https://projects.xivo.fr/versions/174>`_
+* Consult the `13.08 Roadmap <https://projects.xivo.io/versions/174>`_
 * asterisk has been upgraded from version 1.8.21.0 to 11.3.0, which is a major asterisk upgrade.
 * The switchboard's queue now requires the *xivo_subr_switchboard* preprocess subroutine.
-* A fix to bug `#4296 <https://projects.xivo.fr/issues/4296>`_ introduced functional changes due to the order in which sub-contexts are included. Please refer to `ticket <https://projects.xivo.fr/issues/4296>`_ for details.
+* A fix to bug `#4296 <https://projects.xivo.io/issues/4296>`_ introduced functional changes due to the order in which sub-contexts are included. Please refer to `ticket <https://projects.xivo.io/issues/4296>`_ for details.
 
 Please consult the following detailed upgrade notes for more information:
 
@@ -198,7 +198,7 @@ Please consult the following detailed upgrade notes for more information:
 13.07
 -----
 
-* Consult the `13.07 Roadmap <https://projects.xivo.fr/versions/173>`_
+* Consult the `13.07 Roadmap <https://projects.xivo.io/versions/173>`_
 * Agent Status Dashboard has more features and less limitations. See related :ref:`agent status dashboard documentation <agent_dashboard>`
 * XiVO call centers have no more notion of 'disabled agents'. All previously disabled agents in web interface will become active agents after upgrading.
 * asterisk has been upgraded from version 1.8.20.1 to 1.8.21.0. Please note that in XiVO 13.08, asterisk will be upgraded to version 11.
@@ -210,23 +210,23 @@ Please consult the following detailed upgrade notes for more information:
 13.06
 -----
 
-* Consult the `13.06 Roadmap <https://projects.xivo.fr/versions/172>`_
+* Consult the `13.06 Roadmap <https://projects.xivo.io/versions/172>`_
 * The new Agent Status Dashboard has a few known limitations. See related :ref:`dashboard xlet known issues section <dashboard-xlet-issues>`
-* Status Since counter in xlet list of agents has changed behavior to better reflect states of agents in queues as seen by asterisk. See `Ticket #4254 <https://projects.xivo.fr/issues/4254>`_ for more details.
+* Status Since counter in xlet list of agents has changed behavior to better reflect states of agents in queues as seen by asterisk. See `Ticket #4254 <https://projects.xivo.io/issues/4254>`_ for more details.
 
 
 13.05
 -----
 
-* Consult the `13.05 Roadmap <https://projects.xivo.fr/versions/171>`_
-* The bug `#4228 <https://projects.xivo.fr/issues/4228>`_ concerning BS filter only applies to 13.04 servers installed from scratch. Please upgrade to 13.05.
+* Consult the `13.05 Roadmap <https://projects.xivo.io/versions/171>`_
+* The bug `#4228 <https://projects.xivo.io/issues/4228>`_ concerning BS filter only applies to 13.04 servers installed from scratch. Please upgrade to 13.05.
 * The order of softkeys on SCCP phones has changed, e.g. the *Bis* button is now at the left.
 
 
 13.04
 -----
 
-* Consult the `13.04 Roadmap <https://projects.xivo.fr/versions/170>`_
+* Consult the `13.04 Roadmap <https://projects.xivo.io/versions/170>`_
 * Upgrade procedure for HA Cluster has changed. Refer to :ref:`Specific Procedure : Upgrading a Cluster <upgrading-a-cluster>`.
 * Configuration of switchboards has changed. Since the directory xlet can now display any column from the lookup source, a display filter has to be configured and assigned to the __switchboard_directory context. Refer to :ref:`Directory xlet documenttion <directory-xlet>`.
 * There is no more context field directly associated with a call filter. Boss and secretary users associated with a call filter must necessarily be in the same context.
@@ -237,7 +237,7 @@ Please consult the following detailed upgrade notes for more information:
 12.24
 -----
 
-* Consult the `12.24 Roadmap <https://projects.xivo.fr/versions/165>`_
+* Consult the `12.24 Roadmap <https://projects.xivo.io/versions/165>`_
 * XiVO 12.24 has some limitations mainly affecting the contact center features due to the rewriting of the code handling agents.
 
 Please consult the following detailed upgrade notes for more information:

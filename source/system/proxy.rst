@@ -67,4 +67,4 @@ Edit the file and look for the ``[proxy]`` section.
 External links
 ==============
 
-* `XiVO 1.1 and proxy server <https://wiki.xivo.fr/index.php/XiVO_1.1-Gallifrey/XiVO_and_proxy_server>`_
+* `XiVO 1.1 and proxy server <https://wiki.xivo.io/index.php/XiVO_1.1-Gallifrey/XiVO_and_proxy_server>`_

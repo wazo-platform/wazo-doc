@@ -1309,7 +1309,7 @@ In the git repository ``git://github.com/xivo-pbx/xivo-ctid.git``, under `xivo_c
 * `interfaces/interface_info` handles the CLI-like connections
 * `interfaces/interface_webi` handles the requests and signals coming from the WEBI
 * `interfaces/interface_cti` handles the clients' connections, with the help of `client_connection`, and it often involves `cti_command` too
-* `interfaces/interface_rcti` handles the connections from the CTI server to other ones in the multi-xivo framework
+* `interfaces/interface_rcti` handles the connections from the CTI server to other ones in the multi-xivo.ioamework
 * `innerdata` is meant to be the place where all statuses are computed and stored
 
 The main loop uses `select()` syscall to dispatch the tasks according to miscellaneous incoming requests.

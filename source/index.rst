@@ -17,11 +17,11 @@ under the *GPLv3 license*.
 .. _free software: http://www.gnu.org/philosophy/free-sw.html
 
 You may also check `XiVO blog`_ and `XiVO wiki`_ for more information.
-XiVO documentation is also available as `an EPUB file <http://documentation.xivo.fr/epub/>`_
-or as `a PDF file <http://documentation.xivo.fr/pdf/>`_
+XiVO documentation is also available as `an EPUB file <http://documentation.xivo.io/epub/>`_
+or as `a PDF file <http://documentation.xivo.io/pdf/>`_
 
-.. _XiVO blog: http://blog.xivo.fr/
-.. _XiVO wiki: http://wiki.xivo.fr/
+.. _XiVO blog: http://blog.xivo.io/
+.. _XiVO wiki: http://wiki.xivo.io/
 
 
 Table of Contents
