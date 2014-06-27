@@ -313,7 +313,7 @@ Delete Extension
 ================
 
 An extension can not be deleted if it is associated to a line.
-You must delete the association first. Consult the documentation on :ref:`line-extension-association`
+You must delete the association first. Consult the documentation on :ref:`line-extension-associations`
 for further details.
 
 Query
@@ -355,4 +355,4 @@ Example response
 Line-Extension Association
 ==========================
 
-See :ref:`line-extension-association`.
+See :ref:`line-extension-associations`.

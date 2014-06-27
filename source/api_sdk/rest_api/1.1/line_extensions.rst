@@ -12,7 +12,7 @@ Currently, this service only supports extensions inside the following context
 types:
 
 internal
-    Used for calling a line with an internal number (e.g. "1000@default")
+    Used for calling a line with an internal number (e.g. "1000\@default")
 
 incall
     Used for calling a line from the outside (e.g. "from-extern" with a DID)
