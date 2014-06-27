@@ -16,7 +16,7 @@ Go in the :menuselection:`IPBX Services -> Phonebook` section and move your mous
 upper right corner. Select *Import a file*.
 
 The file to be imported must be a CSV file, with a pipe character *|* as field delimiter. The file
-must be encoded in UTF-8 (without a `BOM`_).
+must be encoded in UTF-8 (without an initial `BOM`_).
 
 Mandatory headers are :
 
