@@ -113,8 +113,8 @@ custom
 bs_filter
     Boss/Secretary filter
 
-voicemail
-    A voicemail
+service
+    A predefined user service. Currently supported services : enable voicemail, reach voicemail and purge voicemail messages.
 
 paging
     Paging
