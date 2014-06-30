@@ -1301,15 +1301,13 @@ ipbxcommand
 CTI server implementation
 =========================
 
-In the git repository ``git://github.com/xivo-pbx/xivo-ctid.git``, under `xivo_ctid/`
+In the git repository ``git://github.com/xivo-pbx/xivo-ctid.git``
 
 * `cti_config` handles the configuration coming from the WEBI
 * `interfaces/interface_ami`, together with `asterisk_ami_definitions`, `amiinterpret` and `xivo_ami` handle the AMI connections (asterisk)
-* `interfaces/interface_fagi` handles the FAGI connections (still asterisk)
 * `interfaces/interface_info` handles the CLI-like connections
 * `interfaces/interface_webi` handles the requests and signals coming from the WEBI
 * `interfaces/interface_cti` handles the clients' connections, with the help of `client_connection`, and it often involves `cti_command` too
-* `interfaces/interface_rcti` handles the connections from the CTI server to other ones in the multi-xivo framework
 * `innerdata` is meant to be the place where all statuses are computed and stored
 
 The main loop uses `select()` syscall to dispatch the tasks according to miscellaneous incoming requests.
@@ -1322,7 +1320,6 @@ Requirements for `innerdata`:
 
   * the channels (in the asterisk SIP/345-0x12345678 meaning)
   * the group and queue members shall be handled in a special way each
-  * most statuses of the calls should be set inside the channel structure
 
 The purpose of the 'relations' field, in the various structures is to keep track of relations
 and cross-relations between different objects (a phone logged in as an agent, itself in a queue,

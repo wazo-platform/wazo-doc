@@ -18,7 +18,7 @@ hardware.
 Installing from the ISO image
 =============================
 
-The ISO image for XiVO |version| can be found at http://mirror.xivo.fr/iso/xivo-current.
+The ISO image for XiVO |version| can be found at http://mirror.xivo.io/iso/xivo-current.
 Download the iso, boot from it and follow the instructions on the installation prompt. 
 We suggest that you *choose english as locale when prompted*.
 At the end of the installation, you can continue by running the :ref:`configuration wizard. <configuration_wizard>`
@@ -33,7 +33,7 @@ for Debian Wheezy can be found at http://www.debian.org/distrib/.
 
 Once you have your Debian Wheezy properly installed, log into it and download the XiVO installation script::
 
-   wget http://mirror.xivo.fr/fai/xivo-migration/xivo_install_current.sh
+   wget http://mirror.xivo.io/fai/xivo-migration/xivo_install_current.sh
 
 And run it::
 
@@ -57,4 +57,4 @@ And run it::
 Installing from a PXE
 =====================
 
-You can visit the `XiVO blog <http://blog.xivo.fr/index.php?q=pxe>`_ for more details on how to install from a PXE.
+You can visit the `XiVO blog <http://blog.xivo.io/index.php?q=pxe>`_ for more details on how to install from a PXE.
