@@ -189,3 +189,30 @@ Or, if you also want to synchronize (i.e. reboot) them at the same time::
 
 You can check that all went well by looking at the :menuselection:`Services --> IPBX --> Devices`
 page.
+
+
+NAT
+===
+
+The provisioning server has partial support for environment where the telephony devices are behind a
+`NAT`_ equipement.
+
+Only the following devices are currently supported in such an environment:
+
+* Aastra
+* Cisco SPA
+
+For technical information about why other devices are not supported, you can look at `this issue
+<https://projects.xivo.io/issues/5107>`_  on the XiVO bug tracker.
+
+By default, each time the provisioning server receives an HTTP/TFTP request from a device, it makes sure
+that only one device has the source IP address of the request. This is not a desirable behaviour when
+the provisioning server is used in a NAT environment, since in this case, it's normal that more than 1
+devices have the same source IP address (from the point of view of the server).
+
+If *all* your devices used on your XiVO are behind a NAT, you should disable this behaviour by setting the
+``NAT`` option to 1 via the :menuselection:`Configuration --> Provisioning --> General` page.
+
+Enabling the NAT option will also improve the performance of the provisioning server in this scenario.
+
+.. _NAT: http://en.wikipedia.org/wiki/NAT
