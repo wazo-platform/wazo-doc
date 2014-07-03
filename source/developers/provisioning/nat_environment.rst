@@ -121,7 +121,7 @@ Configuration
 
 #. Put all the phones in the "phones" VLAN on your switch
 
-#. Activate the ``NAT`` and ``Monitoring`` options on the lines on your XiVO.
+#. Activate the ``NAT`` and ``Monitoring`` options on the :menuselection:`Services --> IPBX --> General settings --> SIP Protocol` page of your XiVO.
 
 Note that the iptables rules and the IP forwarding setting are not persistent. If you don't make them
 persistent (not documented here), don't forget to reactivate them each time you want to recreate a NAT
