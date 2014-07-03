@@ -195,24 +195,34 @@ NAT
 ===
 
 The provisioning server has partial support for environment where the telephony devices are behind a
-`NAT`_ equipement.
+`NAT`_ equipment.
 
-Only the following devices are currently supported in such an environment:
+.. _NAT: http://en.wikipedia.org/wiki/NAT
 
-* Aastra
-* Cisco SPA
+By default, each time the provisioning server receives an HTTP/TFTP request from a device, it makes
+sure that only one device has the source IP address of the request. This is not a desirable
+behaviour when the provisioning server is used in a NAT environment, since in this case, it's normal
+that more than 1 devices have the same source IP address (from the point of view of the server).
 
-For technical information about why other devices are not supported, you can look at `this issue
-<https://projects.xivo.io/issues/5107>`_  on the XiVO bug tracker.
-
-By default, each time the provisioning server receives an HTTP/TFTP request from a device, it makes sure
-that only one device has the source IP address of the request. This is not a desirable behaviour when
-the provisioning server is used in a NAT environment, since in this case, it's normal that more than 1
-devices have the same source IP address (from the point of view of the server).
-
-If *all* your devices used on your XiVO are behind a NAT, you should disable this behaviour by setting the
-``NAT`` option to 1 via the :menuselection:`Configuration --> Provisioning --> General` page.
+If *all* your devices used on your XiVO are behind a NAT, you should disable this behaviour by
+setting the ``NAT`` option to 1 via the :menuselection:`Configuration --> Provisioning --> General`
+page.
 
 Enabling the NAT option will also improve the performance of the provisioning server in this scenario.
 
-.. _NAT: http://en.wikipedia.org/wiki/NAT
+Limitations
+-----------
+
+* You must only have phones of the following brands:
+
+  * Aastra
+  * Cisco SPA
+
+* All your devices must be behind a NAT equipment (the devices may be grouped behind different NAT
+  equipments, not necessarily the same one)
+* You must provision the devices via the Web interface, i.e. associate the devices from the user
+  form. Using the 6-digit provisioning code on the phone will produce unexpected results (i.e. the
+  wrong device will be provisioned)
+
+For technical information about why other devices are not supported, you can look at `this issue
+<https://projects.xivo.io/issues/5107>`_  on the XiVO bug tracker.
