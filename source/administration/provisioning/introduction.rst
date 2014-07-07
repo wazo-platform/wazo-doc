@@ -40,6 +40,6 @@ Limitations
 External links
 ==============
 
-* `Introduction to provd plugin model <http://blog.xivo.fr/index.php?post/2011/04/11/Introduction-to-the-plugin-model-of-the-new-provisioning-server>`_
-* `HTTP/TFTP requests processing in provd - part 1 <http://blog.xivo.fr/index.php?post/2012/02/09/HTTP/TFTP-requests-processing-in-provd-part-1>`_
-* `HTTP/TFTP requests processing in provd - part 2 <http://blog.xivo.fr/index.php?post/2012/04/12/HTTP/TFTP-requests-processing-in-provd-part-1>`_
+* `Introduction to provd plugin model <http://blog.xivo.io/index.php?post/2011/04/11/Introduction-to-the-plugin-model-of-the-new-provisioning-server>`_
+* `HTTP/TFTP requests processing in provd - part 1 <http://blog.xivo.io/index.php?post/2012/02/09/HTTP/TFTP-requests-processing-in-provd-part-1>`_
+* `HTTP/TFTP requests processing in provd - part 2 <http://blog.xivo.io/index.php?post/2012/04/12/HTTP/TFTP-requests-processing-in-provd-part-1>`_

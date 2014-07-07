@@ -68,7 +68,7 @@ Source and destination archive version between 1.2 to 13.24::
 Source or destination archive version after 13.25::
 
    apt-get update
-   echo "deb http://mirror.xivo.fr/archive xivo-13.25 main" > /etc/apt/sources.list.d/xivo-13.25.list
+   echo "deb http://mirror.xivo.io/archive xivo-13.25 main" > /etc/apt/sources.list.d/xivo-13.25.list
    apt-get update
    apt-get install xivo-fai-13.25
    rm /etc/apt/sources.list.d/xivo-13.25.list

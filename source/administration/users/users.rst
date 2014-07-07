@@ -150,8 +150,11 @@ Function keys
 =============
 
 Function keys can be configured to customize the user's phone keys. Key types are pre-defined and
-can be browsed through the Type drop-down list. The Supervision field allow the key to be
-supervised. A supervised key will light up when enabled.
+can be browsed through the Type drop-down list. The Supervision field allows the key to be
+supervised. A supervised key will light up when enabled. In most cases, a user cannot add multiple
+times exactly the same function key (example : two user function keys pointing to the same user).
+Adding the same function key multiple times can lead to undefined behavior and
+generally will delete one of the two function keys.
 
 .. warning::
 

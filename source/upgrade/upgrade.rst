@@ -50,7 +50,7 @@ There are 2 options you can pass to xivo-upgrade:
 Typical Upgrade Process
 =======================
 
-* Read all `roadmaps <https://projects.xivo.fr/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
+* Read all `roadmaps <https://projects.xivo.io/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
 * Read all existing Upgrade Notes (see below) starting from your current version to the current prod version.
 * If in a specific configuration, follow the specific procedure described below (example : cluster).
 * To download the packages beforehand, run ``xivo-upgrade -d`` (will upgrade xivo-upgrade, xivo-service and download all packages necessary, prior to stopping services for upgrade, making the upgrade faster).
@@ -67,7 +67,7 @@ Specific procedure: XiVO 14.01, 14.02, 14.03, 14.04 installed from the ISO file
 In those versions, xivo-upgrade keeps XiVO on the same version. You must do the following, before
 the normal upgrade::
 
-   echo "deb http://mirror.xivo.fr/debian/ xivo-five main" > /etc/apt/sources.list.d/xivo-upgrade.list \
+   echo "deb http://mirror.xivo.io/debian/ xivo-five main" > /etc/apt/sources.list.d/xivo-upgrade.list \
    && apt-get update \
    && apt-get install xivo-fai \
    && rm /etc/apt/sources.list.d/xivo-upgrade.list \
@@ -79,7 +79,7 @@ Specific procedure: XiVO 13.03 and before
 
 When upgrading from XiVO 13.03 or earlier, you must do the following, before the normal upgrade::
 
-   wget http://mirror.xivo.fr/xivo_current.key -O - | apt-key add -
+   wget http://mirror.xivo.io/xivo_current.key -O - | apt-key add -
 
 
 Specific procedure: XiVO 12.13 and before
@@ -138,26 +138,43 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.12
+-----
+
+* Consult the `14.12 Roadmap <https://projects.xivo.io/versions/203>`_
+* All plugins were modified. Although not mandatory, it is strongly advised to update all used
+  plugins.
+* The function key 'Activate voicemail' was removed as it was a duplicate of existing function key
+  'Enable voicemail'. All users having the 'Activate voicemail' function key will have to be
+  reconfigured with a 'Enable voicemail' function key in order to keep the equivalent feature.
+* Log files have changed for the following daemons (previously in :file:`/var/log/daemon.log`):
+
+  * xivo-provd: :file:`/var/log/xivo-provd.log`
+  * xivo-agid: :file:`/var/log/xivo-agid.log`
+  * xivo-sysconfd: :file:`/var/log/xivo-sysconfd.log`
+
 14.11
 -----
 
-* Consult the `14.11 Roadmap <https://projects.xivo.fr/versions/202>`_
+* Consult the `14.11 Roadmap <https://projects.xivo.io/versions/202>`_
 * The API URL :ref:`/lines/\<id\>/extension <line-extension-association>` is now deprecated. Use
   :ref:`/lines/\<id\>/extensions <line-extension-associations>` instead.
+
 
 14.10
 -----
 
-* Consult the `14.10 Roadmap <https://projects.xivo.fr/versions/201>`_
+* Consult the `14.10 Roadmap <https://projects.xivo.io/versions/201>`_
 * Custom MOH have been `fixed`_, but can not be used for playing uploaded files anymore. See
   :ref:`moh`.
 
-.. _fixed: https://projects.xivo.fr/issues/5038
+.. _fixed: https://projects.xivo.io/issues/5038
+
 
 14.09
 -----
 
-* Consult the `14.09 Roadmap <https://projects.xivo.fr/versions/200>`_
+* Consult the `14.09 Roadmap <https://projects.xivo.io/versions/200>`_
 * Rest API 1.0 is no more. All code, tests and documentation was removed from XiVO.
   All code developped for Rest API 1.0 must now be adapted to use Rest API 1.1.
 
@@ -165,7 +182,7 @@ Upgrade Notes
 14.08
 -----
 
-* Consult the `14.08 Roadmap <https://projects.xivo.fr/versions/199>`_
+* Consult the `14.08 Roadmap <https://projects.xivo.io/versions/199>`_
 * The ``xivo`` database has been merged into the ``asterisk`` database. The database
   schema has also been altered in a way that it might make the upgrade longer than
   usual.
@@ -181,7 +198,7 @@ Please consult the following detailed updated notes for more information:
 14.07
 -----
 
-* Consult the `14.07 Roadmap <https://projects.xivo.fr/versions/198>`_
+* Consult the `14.07 Roadmap <https://projects.xivo.io/versions/198>`_
 * Configuration for phones used for the switchboard has changed.
 
 Please consult the following detailed updated notes for more information:
@@ -195,7 +212,7 @@ Please consult the following detailed updated notes for more information:
 14.06
 -----
 
-* Consult the `14.06 Roadmap <https://projects.xivo.fr/versions/197>`_
+* Consult the `14.06 Roadmap <https://projects.xivo.io/versions/197>`_
 * The XiVO client now uses Qt 5 instead of Qt 4. There is nothing to be aware of unless you
   are :ref:`building your own version <build_xivoclient>` of it.
 
@@ -203,7 +220,7 @@ Please consult the following detailed updated notes for more information:
 14.05
 -----
 
-* Consult the `14.05 Roadmap <https://projects.xivo.fr/versions/196>`_
+* Consult the `14.05 Roadmap <https://projects.xivo.io/versions/196>`_
 * The :ref:`cti-protocol` has been updated.
 * The specification of the 'answered-rate' queue statistic has changed to
   exclude calls on a closed queue
@@ -223,7 +240,7 @@ Please consult the following detailed updated notes for more information:
 14.04
 -----
 
-* Consult the `14.04 Roadmap <https://projects.xivo.fr/versions/195>`_
+* Consult the `14.04 Roadmap <https://projects.xivo.io/versions/195>`_
 * Live reload of the configuration can be enabled and disabled using the REST API
 * The generation of call logs for unanswered calls from the XiVO client have
   been improved.
@@ -232,7 +249,7 @@ Please consult the following detailed updated notes for more information:
 14.03
 -----
 
-* Consult the `14.03 Roadmap <https://projects.xivo.fr/versions/194>`_
+* Consult the `14.03 Roadmap <https://projects.xivo.io/versions/194>`_
 * A migration script adds an index on the linkedid field in the cel table.
   Tests have shown that this operation can last up to 11.5 minutes on a XiVO
   Corporate with 18 millions CELs. xivo-upgrade will thus be slightly longer.
@@ -250,7 +267,7 @@ Please consult the following detailed updated notes for more information:
 14.02
 -----
 
-* Consult the `14.02 Roadmap <https://projects.xivo.fr/versions/193>`_
+* Consult the `14.02 Roadmap <https://projects.xivo.io/versions/193>`_
 * PHP Web services has been removed from documentation
 * REST API 1.0 Web services has been removed from documentation
 * REST API 1.1 User-Line-Extension service is replaced by User-Line and Line-Extension services
@@ -259,7 +276,7 @@ Please consult the following detailed updated notes for more information:
 14.01
 -----
 
-* Consult the `14.01 Roadmap <https://projects.xivo.fr/versions/192>`_
+* Consult the `14.01 Roadmap <https://projects.xivo.io/versions/192>`_
 * The following paths have been renamed:
 
   * :file:`/etc/pf-xivo` to :file:`/etc/xivo`

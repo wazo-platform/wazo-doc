@@ -85,4 +85,4 @@ External links
 ==============
 
 * https://wiki.asterisk.org/wiki/display/AST/Debugging
-* http://blog.xivo.fr/index.php?post/2012/10/24/Visualizing-asterisk-deadlocks
+* http://blog.xivo.io/index.php?post/2012/10/24/Visualizing-asterisk-deadlocks

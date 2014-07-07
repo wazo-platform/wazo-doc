@@ -120,11 +120,11 @@ officially supported devices.
 This can be changed in the :menuselection:`Configuration --> Provisioning --> General`
 page, by setting the :guilabel:`URL` field to one of the following value:
 
-* ``http://provd.xivo.fr/plugins/1/stable/`` -- :ref:`officially supported devices <official-devices>` "stable" repository (*default*)
-* ``http://provd.xivo.fr/plugins/1/testing/`` -- officially supported devices "testing" repository
-* ``http://provd.xivo.fr/plugins/1/archive/`` -- officially supported devices "archive" repository
-* ``http://provd.xivo.fr/plugins/1/addons/stable/`` -- :ref:`community supported devices <compatible-devices>` "stable" repository
-* ``http://provd.xivo.fr/plugins/1/addons/testing/`` -- community supported devices "testing" repository
+* ``http://provd.xivo.io/plugins/1/stable/`` -- :ref:`officially supported devices <official-devices>` "stable" repository (*default*)
+* ``http://provd.xivo.io/plugins/1/testing/`` -- officially supported devices "testing" repository
+* ``http://provd.xivo.io/plugins/1/archive/`` -- officially supported devices "archive" repository
+* ``http://provd.xivo.io/plugins/1/addons/stable/`` -- :ref:`community supported devices <compatible-devices>` "stable" repository
+* ``http://provd.xivo.io/plugins/1/addons/testing/`` -- community supported devices "testing" repository
 
 The difference between the stable and testing repositories is that the latter might contain plugins
 that are not working properly or are still in developement.

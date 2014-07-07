@@ -16,7 +16,8 @@ REST API 1.1
 
 .. toctree::
    :maxdepth: 2
-
+   
+   examples
    call_logs
    cti_profile
    devices

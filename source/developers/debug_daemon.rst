@@ -37,13 +37,13 @@ agid
 * -f for foreground
 * -d for debug
 
-Log file: ``/var/log/daemon.log``. Lines start with ``xivo-agid``.
+Log file: ``/var/log/xivo-agid.log``
 
 ::
 
-    Oct 29 11:03:53 hostname xivo-agid[25724]: xivo-agid starting...
-    Oct 29 11:03:54 hostname xivo-agid[25724]: executing update command 'update-config'
-    Oct 29 11:03:54 hostname xivo-agid[25724]: executing update command 'update-phonebook'
+   2014-06-18 11:01:02,816 [28779] (INFO) (xivo_agid.agid): xivo-agid starting...
+   2014-06-18 11:01:04,479 [28779] (INFO) (xivo_agid.modules.callerid_forphones): executing update command 'update-config'
+   2014-06-18 11:01:04,877 [28779] (INFO) (xivo_agid.modules.callerid_forphones): executing update command 'update-phonebook'
 
 
 amid
@@ -106,9 +106,10 @@ ctid
 
 ::
 
-   xivo-ctid -d
+   xivo-ctid -f -d
 
-* -d for foreground and debug
+* -d for debug
+* -f for foreground
 
 Log file: ``/var/log/xivo-ctid.log``
 
@@ -128,12 +129,11 @@ dxtora
 
 * -f for foreground
 
-Log file: ``/var/log/daemon.log``. Lines start with ``xivo-dxtora``.
+Log file: ``/var/log/xivo-dxtora.log``
 
 ::
 
-    Oct 28 09:24:48 hostname xivo-dxtora[1399]: Received signal, exiting.
-    Oct 28 09:24:58 hostname xivo-dxtora[8562]: Pulling DHCP info from unix socket
+   2014-06-18 13:20:17,322 [24028] (INFO) (xivo-dxtora): Pulling DHCP info from unix socket
 
 
 provd
@@ -147,15 +147,12 @@ provd
 * -v for verbose
 
 
-Log file: ``/var/log/daemon.log``. Lines start with ``xivo-provd``.
+Log file: ``/var/log/xivo-provd.log``
 
 ::
 
-    Oct 29 06:24:05 hostname xivo-provd[8596]: TFTP read request from ('192.168.1.1', 53014)
-    Oct 29 06:24:05 hostname xivo-provd[8596]: Processing TFTP request: i18n/france/7960-tones.xml
-    Oct 29 06:24:05 hostname xivo-provd[8596]: <14> Extracted device info: {u'ip': u'192.168.1.1'}
-    Oct 29 06:24:05 hostname xivo-provd[8596]: <14> Retrieved device id: caddf5dcfcc34e088687a6589b638554
-    Oct 29 06:24:05 hostname xivo-provd[8596]: <14> Routing request to plugin xivo-cisco-sccp-9.0.3
+   2014-06-18 12:04:54,299 [8564] (INFO) (provd.main): Binding HTTP REST API service to "0.0.0.0:8666"
+   2014-06-18 12:04:54,320 [8564] (INFO) (twisted): Site starting on 8666
 
 
 restapi
@@ -172,8 +169,8 @@ Log file: ``/var/log/xivo-restapid.log``
 
 ::
 
-        2013-10-28 10:02:00,352 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): POST http://127.0.0.1:50050/1.1/devices with data {"mac":"00:00:00:00:00:00","template_id":"defaultconfigdevice","description":""} 
-        2013-10-28 10:04:35,815 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): GET http://127.0.0.1:50050/1.1/devices
+   2013-10-28 10:02:00,352 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): POST http://127.0.0.1:50050/1.1/devices with data {"mac":"00:00:00:00:00:00","template_id":"defaultconfigdevice","description":""}
+   2013-10-28 10:04:35,815 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): GET http://127.0.0.1:50050/1.1/devices
 
 
 sysconfd
@@ -186,11 +183,10 @@ sysconfd
 * -l debug for debug level logging
 * -f for foreground
 
-Log file: ``/var/log/daemon.log``. Lines start with ``xivo-sysconfd``.
+Log file: ``/var/log/xivo-sysconfd.log``
 
 ::
 
-    Oct 29 11:03:45 hostname xivo-sysconfd[24522]: locking PID
-    Oct 29 11:03:45 hostname xivo-sysconfd[24522]: pidfile ok
-    Oct 29 11:03:45 hostname xivo-sysconfd[24522]: will now serve
-    Oct 29 11:04:33 hostname xivo-sysconfd[24522]: 'GET /status-check HTTP/1.1' 200 17
+   2014-06-18 12:00:23,221 [8277] (INFO) (xivo-sysconfd): locking PID
+   2014-06-18 12:00:23,233 [8277] (INFO) (xivo-sysconfd): pidfile ok
+   2014-06-18 12:00:23,237 [8277] (INFO) (http_json_server): will now serve

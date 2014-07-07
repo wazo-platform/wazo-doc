@@ -110,7 +110,7 @@ Here's an example of a valid :file:`/etc/xivo/asterisk/xivo_fax.conf` configurat
    [mail]
    subject = FAX reception to %(dstnum)s
    content_file = /etc/xivo/mail.txt
-   email_from = no-reply+fax@xivo.fr
+   email_from = no-reply+fax@xivo.io
 
    [ftp_example_org]
    host = example.org

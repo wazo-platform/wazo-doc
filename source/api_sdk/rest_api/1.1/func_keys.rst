@@ -113,11 +113,27 @@ custom
 bs_filter
     Boss/Secretary filter
 
-voicemail
-    A voicemail
+service
+    A predefined user service [1]_.
 
 paging
     Paging
+
+
+.. [1] List of currently supported services:
+
+        - Phone Status (phonestatus)
+        - Sound Recording (recsnd)
+        - Call recording (callrecord)
+        - Incoming call filtering (incallfilter)
+        - Do not disturbe (enablednd)
+        - Group Interception (pickup)
+        - Listen to online calls (calllistening)
+        - Directory access (directoryaccess)
+        - Disable all forwaring (fwdundoall)
+        - Enable Voicemail (enablevm)
+        - Reach the Voicemail (vmusermsg)
+        - Delete messages from voicemail (vmuserpurge)
 
 
 Example

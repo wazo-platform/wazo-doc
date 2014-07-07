@@ -12,7 +12,7 @@ Getting the XiVO Client
 
 Binaries of the XiVO Client are available on our `mirror`_.
 
-.. _mirror: http://downloads.xivo.fr/xivo_cti_client
+.. _mirror: http://downloads.xivo.io/xivo_cti_client
 
 .. warning::
 

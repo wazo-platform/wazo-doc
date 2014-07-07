@@ -32,3 +32,23 @@ each resource, there are different modules :
   methods, except for computed fields based on other fields in the same object.
 * notifier: private, it knows to whom and in which format events must be sent.
 * validator: private, it checks input parameters from the service module.
+
+
+Definition of XiVO Daemon
+=========================
+
+The goal is to make XiVO as elastic as possible, i.e. the XiVO services need to be able to run on
+separate machines and still talk to each other.
+
+To be in accordance with our goal, a XiVO daemon must (if applicable):
+
+* Offer a REST API (with authentication and accepting cross-site requests)
+* Be able to read and send events on a software bus
+* Be able to run inside a container, such as Docker, and be separated from the XiVO server
+* Offer a configuration file
+* Access the XiVO database through the ``xivo-dao`` library
+* Have a configurable level of logging
+* Have its own log file
+* Be extendable through the use of plugins
+
+Currently, none of the XiVO daemons meet these expectations; it is a work in progress.
