@@ -138,6 +138,11 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.13
+-----
+
+* See the :ref:`changelog <restapi_changelog>` for REST API
+
 14.12
 -----
 
