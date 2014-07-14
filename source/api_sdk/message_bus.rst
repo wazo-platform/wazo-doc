@@ -128,6 +128,8 @@ and your queue with the binding/routing key X.
 agent_status_update
 ^^^^^^^^^^^^^^^^^^^
 
+.. warning:: This message is not implemented
+
 The agent_status_update is sent when an agent status changes. This is not the status used
 by the agent status dashboard.
 
@@ -181,6 +183,8 @@ Example::
 endpoint_status_update
 ^^^^^^^^^^^^^^^^^^^^^^
 
+.. warning:: This message is not implemented
+
 The endpoint_status_update is sent when an end point status changes. This information is
 based on asterisk hints.
 
@@ -209,6 +213,8 @@ Example::
 
 user_status_update
 ^^^^^^^^^^^^^^^^^^
+
+.. warning:: This message is not implemented
 
 The user_status_update is sent when a user changes his cti presence using the XiVO client.
 
