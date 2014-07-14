@@ -125,6 +125,31 @@ To subscribe to event with name X, you must create a binding between the exchang
 and your queue with the binding/routing key X.
 
 
+agent_status_update
+^^^^^^^^^^^^^^^^^^^
+
+The agent_status_update is sent when an agent status changes. This is not the status used
+by the agent status dashboard.
+
+* routing key: agent_status_update
+* event specific data: a dictionary with 2 keys:
+
+  * agent_id: an integer corresponding to the agent ID of the agent who's status changed
+  * color: a string representing the color of the agent icon
+  * status: a string identifying the status
+
+Example::
+
+   {
+       "name": "agent_status_update",
+       "data": {
+           "agent_id": 42,
+           "color": "#FF0008",
+           "status": "logged_in"
+       }
+   }
+
+
 .. _bus-call_form_result:
 
 call_form_result
@@ -149,5 +174,60 @@ Example::
                "firstname": "John",
                "lastname": "Doe"
            }
+       }
+   }
+
+
+endpoint_status_update
+^^^^^^^^^^^^^^^^^^^^^^
+
+The endpoint_status_update is sent when an end point status changes. This information is
+based on asterisk hints.
+
+* routing key: endpoint_status_update
+* event specific data: a dictionary with 3 keys
+
+  * endpoint_id: an integer corresponding to the endpoing ID
+  * color: a string representing the color to display for the new status
+  * display: a string containing the displayed tex
+  * status: a string identifying the status
+
+Example::
+
+   {
+       "name": "endpoint_status_update",
+       "data": {
+           "endpoint_id": 67,
+           "color": "#FF0008",
+           "display": "Busy",
+           "status": "busy"
+       }
+   }
+
+
+.. _bus-user_status_update:
+
+user_status_update
+^^^^^^^^^^^^^^^^^^
+
+The user_status_update is sent when a user changes his cti presence using the XiVO client.
+
+* routing key: user_status_upadte
+* event specific data: a dictionary with 3 keys
+
+  * user_id: an integer corresponding to the user ID of the user who changed it's status
+  * color: a string representing the color to display for the new status
+  * display: a string containing the displayed text
+  * status: a string identifying the status
+
+Example::
+
+   {
+       "name": "user_status_update",
+       "data": {
+           "user_id": 42,
+           "color": "#FF0008",
+           "display": "Busy",
+           "status": "busy"
        }
    }
