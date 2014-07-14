@@ -74,10 +74,6 @@ Operators
 
 Arithmetic and logical operators can be applied to rules :
 
-* operand1 / operand2  (division)
-* operand1 * operand2  (multiplication)
-* operand1 - operand2  (substraction)
-* operand1 + operand2  (addition)
 * operand1 ! operand2  (is not equal)
 * operand1 = operand2  (is equal)
 * operand1 > operand2  (is greater than)
@@ -85,7 +81,7 @@ Arithmetic and logical operators can be applied to rules :
 * operand1 & operand2  (both are true)
 * operand1 | operand2  (at least one of them are true)
 
- '/' is the operator with the higher priority, and '|' the one with the lower
+ '!' is the operator with the higher priority, and '|' the one with the lower
  priority. You can use brackets '()' to overload operator priorities.
 
 
@@ -181,7 +177,7 @@ In the following example language selection is applied to incoming calls.
    :scale: 85%
 
    Apply Rule Set to Incoming Call
-   
+
 :Example:
 
 Configuration file for simple skill selection :
@@ -219,16 +215,16 @@ command ``queue show <queue_name>``::
 You may monitor your skills groups with the command ``queue show skills groups <agent_name>``::
 
    xivo-jylebleu*CLI> queue show skills groups <PRESS TAB>
-   agent-2   agent-3   agent-4   agent-48  agent-7   agent-1   
-   xivo-jylebleu*CLI> queue show skills groups agent-1 
+   agent-2   agent-3   agent-4   agent-48  agent-7   agent-1
+   xivo-jylebleu*CLI> queue show skills groups agent-1
    Skill group 'agent-1':
      - bank           : 50
      - english        : 100
- 
+
 You may monitor your skills rules with the command ``queue show skills rules <rule_name>``::
 
    xivo-jylebleu*CLI> queue show skills rules <PRESS TAB>
-   english      french       select_lang  
-   xivo-jylebleu*CLI> queue show skills rules english 
+   english      french       select_lang
+   xivo-jylebleu*CLI> queue show skills rules english
    Skill rules 'english':
      => english>90
