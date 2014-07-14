@@ -1,3 +1,5 @@
+.. _getting_started:
+
 ***************
 Getting Started
 ***************
@@ -5,7 +7,9 @@ Getting Started
 This section will show you how to create a user with a SIP line. This simple use case covers what a lot of people need to start using a phone.
 You can use these steps for connectinhg a softphone, a Linksys PAP2 or a SIP phone via the web interface.
 
-This tutorial doesn't cover how to automatically provision a supported device. For this, you must refer to the :ref:`provisionning section. <intro-provisioning>`
+This tutorial doesn't cover how to automatically provision a :ref:`supported device
+<official-devices>`. For this, you must refer to the :ref:`provisionning
+section. <intro-provisioning>`
 
 We first need to log into the XiVO web interface. The web interface is where you can administer the whole system.
 
@@ -41,7 +45,7 @@ From here, press on the "plus" sign. A pop up will appear where you can click on
 
 We now have the form that will allow us to create a new user. The three most important fields are 'First name', 'Last name' and 'Language'.
 Fill in the fields and click on `Save` at the bottom. For our example, we will create a used called 'Alice Wonderland'.
- 
+
 .. figure:: images/step-06.png
 
    User information

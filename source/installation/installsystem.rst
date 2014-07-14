@@ -18,10 +18,13 @@ hardware.
 Installing from the ISO image
 =============================
 
-The ISO image for XiVO |version| can be found at http://mirror.xivo.io/iso/xivo-current.
-Download the iso, boot from it and follow the instructions on the installation prompt. 
-We suggest that you *choose english as locale when prompted*.
-At the end of the installation, you can continue by running the :ref:`configuration wizard. <configuration_wizard>`
+* Download the ISO image (`latest version`_) (`all versions`_)
+* Boot from the ISO image, select ``Install`` and follow the instructions.
+* At the end of the installation, you can continue by running the :ref:`configuration
+  wizard. <configuration_wizard>`
+
+.. _all versions: http://mirror.xivo.io/iso/archives
+.. _latest version: http://mirror.xivo.io/iso/xivo-current
 
 
 Installing from a minimal Debian installation
@@ -52,6 +55,9 @@ And run it::
    To install the developement version::
 
       bash xivo_install_current.sh -d
+
+At the end of the installation, you can continue by running the :ref:`configuration
+wizard. <configuration_wizard>`
 
 
 Installing from a PXE
