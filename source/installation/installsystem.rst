@@ -18,8 +18,9 @@ hardware.
 Installing from the ISO image
 =============================
 
-* Download the ISO image (`latest version`_) (`all versions`_)
-* Boot from the ISO image, select ``Install`` and follow the instructions.
+* Download the ISO image. (`latest version`_) (`all versions`_)
+* Boot from the ISO image, select ``Install`` and follow the instructions. You must select a locale
+  with charset UTF-8.
 * At the end of the installation, you can continue by running the :ref:`configuration
   wizard. <configuration_wizard>`
 
@@ -33,6 +34,17 @@ Installing from a minimal Debian installation
 XiVO can be installed directly over a **32-bit** Debian Wheezy. When doing so, you are strongly
 advised to start with a clean and minimal installation of Debian Wheeze. The latest installation image
 for Debian Wheezy can be found at http://www.debian.org/distrib/.
+
+Requirements
+^^^^^^^^^^^^
+
+The installed Debian must:
+
+* be in the architecure ``i386``
+* have a default locale with charset UTF-8
+
+Installation
+^^^^^^^^^^^^
 
 Once you have your Debian Wheezy properly installed, log into it and download the XiVO installation script::
 
