@@ -26,11 +26,6 @@ For the new entity to be useful, you need to create contexts in this entity. You
 * an Incall context for incoming calls
 * an Outcall context for outgoing calls, which should be included in the Internal context for the
   users to be able to call external numbers
-  
-For the devices:
-
-* The devices in autoprov mode and not configured mode, are always shown.
-* The filter applies only to the endings which are associated with a line.
 
 
 Limitations
@@ -56,7 +51,7 @@ Only the following lists may be filtered by entity:
 
 * Lines
 * Users
-* Device
+* Devices
 * Groups
 * Voicemails
 * Conference Rooms
@@ -66,6 +61,11 @@ Only the following lists may be filtered by entity:
 * Schedules
 * Agents
 * Queues
+
+For the devices:
+
+* The filtering only applies to the devices associated with a line.
+* The devices in autoprov mode or not configured mode are visible by every administrator.
 
 REST API
 ^^^^^^^^
