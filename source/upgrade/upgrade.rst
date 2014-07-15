@@ -141,7 +141,13 @@ Upgrade Notes
 14.13
 -----
 
+* Consult the `14.13 Roadmap <https://projects.xivo.io/versions/204>`_
 * See the :ref:`changelog <restapi_changelog>` for REST API
+* Skills-based routing: for an agent which doesn't have the skill X, the rule X < 10 was
+  previously evaluated to true, since not having the skill X was equivalent to having it with a
+  value of 0. This behaviour has changed, and the same expression is now evaluated to false. If you
+  are using skills-based routing, you'll need to check that your rules are still doing what you
+  expect. See :ref:`skill evaluation <skill-evaluation>` for more information.
 
 14.12
 -----

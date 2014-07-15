@@ -194,6 +194,8 @@ Then every ``$lang`` occurrence will be replaced by 'german'.
 * technic ! 0 & ($os > 29 & $lang > 39 | $os > 39 & $lang > 19)
 
 
+.. _skill-evaluation:
+
 Evaluation
 ----------
 
