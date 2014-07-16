@@ -118,9 +118,9 @@ Given:
 * Agent B is logged and not in use
 * There is no call in the queue
 
-When a new call enters the queue, then it is *immediatly* distributed to Agent B.
+When a new call enters the queue, then it is *immediately* distributed to Agent B.
 
-The reason is that when there's no logged agent matching a rule, the next rule is immediatly tried.
+The reason is that when there's no logged agent matching a rule, the next rule is immediately tried.
 
 
 Rules
@@ -128,7 +128,7 @@ Rules
 
 Each rule set is composed of rules, and each rule has two parts, separated by a comma:
 
-* the first part (optional) is the :ref:`"dynamical part" <skill-dynamical-part>`
+* the first part (optional) is the :ref:`"dynamic part" <skill-dynamic-part>`
 * the second part is the :ref:`"skill part" <skill-skill-part>`
 
 Each part contains an expression composed of operators, variables and integer constants.
@@ -152,15 +152,15 @@ Logical operators:
 * operand1 | operand2  (at least one of them are true)
 
 '!' is the operator with the higher priority, and '|' the one with the lower
-priority. You can use parantheses '()' to overload operator priorities.
+priority. You can use parentheses '()' to change the priority of operations.
 
 
-.. _skill-dynamical-part:
+.. _skill-dynamic-part:
 
-Dynamical Part
+Dynamic Part
 --------------
 
-The dynamical part can reference the following variables:
+The dynamic part can reference the following variables:
 
 * WT
 * EWT
@@ -213,7 +213,7 @@ is equivalent to:
 
    english ! 0 | french ! 0
 
-Sometimes, a rule references a skill which is not defined for every agents. For example, given the
+Sometimes, a rule references a skill which is not defined for every agent. For example, given the
 following rule:
 
    english > 0 | english < 1
@@ -231,7 +231,7 @@ english::
      english > 0
    =     <Substituing english with the agent value>
      "undefined" > 0
-   =     <A comparison with "undefined" in at least one operand yield undefined>
+   =     <A comparison with "undefined" in at least one operand yields undefined>
      "undefined"
    =     <In a boolean context, "undefined" is equal to false>
      false
