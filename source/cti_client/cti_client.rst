@@ -10,9 +10,10 @@ This section describes the CTI Client and its various xlets
 Getting the XiVO Client
 =======================
 
-Binaries of the XiVO Client are available on our `mirror`_.
+Binaries of the XiVO Client are available on our mirror. (`latest version`_) (`all versions`_)
 
-.. _mirror: http://downloads.xivo.io/xivo_cti_client
+.. _all versions: http://mirror.xivo.io/iso/archives
+.. _latest version: http://mirror.xivo.io/iso/xivo-current
 
 .. warning::
 
