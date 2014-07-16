@@ -15,3 +15,10 @@ Voicemail - User association
 .. figure:: resources/User_case_Voicemail.png
 
     Download source. :download:`(source) <resources/User_case_Voicemail.odg>`
+
+Multiple users for a line association
+=====================================
+
+.. figure:: resources/n_User_1_device_ULE.png
+
+    Download source. :download:`(source) <resources/n_User_1_device_ULE.odg>`
