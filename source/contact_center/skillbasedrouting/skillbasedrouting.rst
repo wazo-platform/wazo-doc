@@ -103,8 +103,10 @@ seconds of waiting time.
 When another call enters the queue, then after 60 seconds of waiting time, this call will be
 distributed to Agent B (and the first call will still be distributed only to Agent A).
 
-The reason is that when a call is being distributed by the queue to a set of members, no other rule
-is tried as long as there's at least 1 of these members available.
+The reason is that there's a difference between a call that is being distributed (i.e. that is
+making agents ring) and a call that is waiting for being distributed. When a call is being
+distributed to a set of members, no other rule is tried as long as there's at least 1 of these
+members available.
 
 
 Scenario 2
