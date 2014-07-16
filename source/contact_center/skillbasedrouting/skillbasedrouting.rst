@@ -161,9 +161,13 @@ Dynamical Part
 The dynamical part can reference the following variables:
 
 * WT
+* EWT
 
 The waiting time (WT) is the elapsed time since the call entered the queue. The time the call pass
 in an IVR or another queue is not taken into account.
+
+The estimated waiting time (EWT) has never fully worked. It is mentioned here only for historical
+reason. You should not use it. It might be removed in a future XiVO version.
 
 :Examples:
 
