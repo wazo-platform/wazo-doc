@@ -29,27 +29,35 @@ Getting Started
 
 * Create the skills
 * Apply the skills to the agents
-* Create a skill rule sets
+* Create the skill rule sets
 * Assign the skill rule sets using a configuration file
-* Apply the skill rule sets to call qualification, i.e. incoming calls by using the preprocess routine field.
+* Apply the skill rule sets to call qualification, i.e. incoming calls by using the preprocess subroutine field
+
+Note that you shouldn't use skill based routing on a queue with queue members of type user because
+the behaviour is not defined and might change in a future XiVO version.
 
 
 Skills
 ======
 
 Skills are created using the menu :menuselection:`Services --> Call center --> Skills`. Each skill belongs to a category.
-First create the category, and in this category create different skills. Note that the skill names can't contain upper
-case letters.
+First create the category, and in this category create different skills.
+
+Note that a skill name can't contain upper case letters and must be globally unique (i.e. the
+same name can't be used in two different categories).
 
 .. figure:: images/sbr_skills.png
 
    Skills Creation
 
-Once all the skills are created you may apply them to the agents. Agents may have one or more skills from different categories.
+Once all the skills are created you may apply them to agents. Agents may have one or more skills from different categories.
 
 .. figure:: images/sbr_agent_skills.png
 
    Apply Skills to Agents
+
+It is typical to use a value between 0 and 100 inclusively as the weight of a skill, although
+any integer is accepted.
 
 
 Skill Rule Sets
@@ -57,79 +65,126 @@ Skill Rule Sets
 
 Once skills are created, rule sets can be defined.
 
-Rules are the way to reach the right agent.
-Rules can be composed and dynamically modified
+A rule set is a list of rules. Here's an example of a rule set containing 2 rules:
 
-A rule set is a list of rules. Rules are evaluated against each queue member (agent) in order to see if it matches.
-The call is distributed according to the matching rule.
+#. WT < 60, english > 50
+#. english > 0
 
-Each rule has two parts:
+The first rule of this rule set can be read as:
 
-* the first part is a dynamical condition. If its evaluation is false, the next rule is tried;
-* the second part is tested against queue member's skills, to define a selection.
+   If the caller has been waiting for less than 60 seconds (WT < 60), only try to call agents which
+   have the skill "english" set to a value higher than 50; otherwise, go to the next rule.
+
+And the second rule can be read as:
+
+   Only try to call agents which have the skill "english" set to a value higher than 0.
+
+Let's examine some simple scenarios, because there's actually
+some subtilities on how calls are distributed. We will suppose that we have a queue with the default
+settings and the following members:
+
+* Agent A, with skill english set to 75
+* Agent B, with skill english set to 25
+
+
+Scenario 1
+----------
+
+Given:
+
+* Agent A is logged and not in use
+* Agent B is logged and not in use
+* There is no call in the queue
+
+When a new call enters the queue, then it is distributed to Agent A. As long as Agent A is
+available and doesn't answer the call, the call will never be distributed to Agent B, even after 60
+seconds of waiting time.
+
+When another call enters the queue, then after 60 seconds of waiting time, this call will be
+distributed to Agent B (and the first call will still be distributed only to Agent A).
+
+The reason is that there's a difference between a call that is being distributed (i.e. that is
+making agents ring) and a call that is waiting for being distributed. When a call is being
+distributed to a set of members, no other rule is tried as long as there's at least 1 of these
+members available.
+
+
+Scenario 2
+----------
+
+Given:
+
+* Agent A is not logged
+* Agent B is logged and not in use
+* There is no call in the queue
+
+When a new call enters the queue, then it is *immediately* distributed to Agent B.
+
+The reason is that when there's no logged agent matching a rule, the next rule is immediately tried.
+
+
+Rules
+-----
+
+Each rule set is composed of rules, and each rule has two parts, separated by a comma:
+
+* the first part (optional) is the :ref:`"dynamic part" <skill-dynamic-part>`
+* the second part is the :ref:`"skill part" <skill-skill-part>`
+
+Each part contains an expression composed of operators, variables and integer constants.
 
 
 Operators
 ---------
 
-Arithmetic and logical operators can be applied to rules :
+The following operators can be used inside rules:
 
-* operand1 / operand2  (division)
-* operand1 * operand2  (multiplication)
-* operand1 - operand2  (substraction)
-* operand1 + operand2  (addition)
+Comparison operators:
+
 * operand1 ! operand2  (is not equal)
 * operand1 = operand2  (is equal)
 * operand1 > operand2  (is greater than)
 * operand1 < operand2  (is lesser than)
+
+Logical operators:
+
 * operand1 & operand2  (both are true)
 * operand1 | operand2  (at least one of them are true)
 
- '/' is the operator with the higher priority, and '|' the one with the lower
- priority. You can use brackets '()' to overload operator priorities.
+'!' is the operator with the higher priority, and '|' the one with the lower
+priority. You can use parentheses '()' to change the priority of operations.
 
 
-Dynamical Part
+.. _skill-dynamic-part:
+
+Dynamic Part
 --------------
 
-The first part is evaluated after a selection of queue members is created with the rules from the second part.
-The result of this evaluation will determine if this rule can be kept or if the selection is to be done with
-the next rule.
-This can be understood as an ``if`` statement :
+The dynamic part can reference the following variables:
 
-::
+* WT
+* EWT
 
-   if this condition is true then
-      select agents with skills (evaluate second part)
-   else
-      evaluate next rule
+The waiting time (WT) is the elapsed time since the call entered the queue. The time the call pass
+in an IVR or another queue is not taken into account.
 
-On this part, these variables can be used :
+The estimated waiting time (EWT) has never fully worked. It is mentioned here only for historical
+reason. You should not use it. It might be removed in a future XiVO version.
 
-.. warning:: you need two persons waiting in the queue for these variables be taken into account
+:Examples:
 
-* EWT (Estimated Waiting Time)      The waiting time estimated for the current selection of members
-* WT  (Waiting time)                The time that caller has been waiting
+* WT < 60
 
-:Example:
 
-   | WT < 60, french = 100
-   | french > 50
-
-   If the waiting time is less than 60 seconds, select an agent speaking good french (100), otherwise select an agent with low level
-   of french
-
+.. _skill-skill-part:
 
 Skill Part
 ----------
 
-This second part is evaluated against every queue member's skills, to know
-if it is selected or not.
+The skill part can reference any skills name as variables.
 
-Variables are skills names, which you can check with operators above. You can
-also use meta-variables, starting with a '$', to substitute them with data set
-on the Queue() call. For example, if you call Queue() with the skill rule set
-argument equal to::
+You can also use meta-variables, starting with a '$', to substitute them with data set on the
+Queue() call. For example, if you call Queue() with the skill rule set argument equal to::
 
    select_lang(lang=german)
 
@@ -141,27 +196,66 @@ Then every ``$lang`` occurrence will be replaced by 'german'.
 
 :Examples:
 
-::
-
- [tech]
- rule => WT < 60, technic & ($os > 29 & $lang > 39 | $os > 39 & $lang > 19)
- rule => WT < 120, technic & ($os > 19 & $lang > 39 | $os > 29 & $lang > 19)
- rule => WT < 3600, technic & $os > 10 & $lang > 19
- rule => technic
-
- [client-standard]
- rule => technic = 0 & (sympathy > 20 | linux > 10 & windows > 10)
-
- [client-request]
- rule => EWT < 120, technic = 0 & (sympathy > 60)
- rule => technic = 0
+* english > 50
+* technic ! 0 & ($os > 29 & $lang > 39 | $os > 39 & $lang > 19)
 
 
-Apply Skill Rules
-=================
+.. _skill-evaluation:
 
-Once skills, skill rules are created, they can attached to the call using a bit of dialplan.
-This dialplan is stored in a configuration file you may edit using menu :menuselection:`Services --> IPBX --> Configuration Files`.
+Evaluation
+----------
+
+Note that the expression:
+
+   english | french
+
+is equivalent to:
+
+   english ! 0 | french ! 0
+
+Sometimes, a rule references a skill which is not defined for every agent. For example, given the
+following rule:
+
+   english > 0 | english < 1
+
+Then, for an agent which has the skill english defined, the result of this expression is always
+true. For an agent which does not have the skill english defined, the result of this expression is
+always false.
+
+Said differently, an agent without a skill X is not the same as an agent with the skill X set to
+the value 0.
+
+Technically, this is what is happening when evaluating the rule "english > 0" for an agent without the skill
+english::
+
+     english > 0
+   =     <Substituing english with the agent value>
+     "undefined" > 0
+   =     <A comparison with "undefined" in at least one operand yields undefined>
+     "undefined"
+   =     <In a boolean context, "undefined" is equal to false>
+     false
+
+This behaviour applies to every comparison operators.
+
+Also, the syntax that is currently accepted for comparison is always of the form::
+
+   variable cmp_op constant
+
+Where "variable" is a variable name, "cmp_op" is a comparison operator and "constant" is an integer
+constant. This means the following expressions are not accepted:
+
+* 10 < english (but english > 10 is accepted)
+* english < french (the second operand must be a constant)
+* 10 < 11 (the first operand must be a variable name)
+
+
+Apply Skill Rule Sets
+=====================
+
+A skill rule set is attached to a call using a bit of dialplan.  This dialplan is stored in a
+configuration file you may edit using menu :menuselection:`Services --> IPBX --> Configuration
+Files`.
 
 .. figure:: images/sbr_configuration_file.png
    :scale: 85%
@@ -170,10 +264,6 @@ This dialplan is stored in a configuration file you may edit using menu :menusel
 
 In the figure above, 3 different languages are selected using three different subroutines.
 
-.. note::
-
-   Do not forget to issue a dialplan reload in Asterisk CLI after configuration file modification.
-
 Each of this different selections of subroutines can be applied to the call qualifying object.
 In the following example language selection is applied to incoming calls.
 
@@ -181,7 +271,7 @@ In the following example language selection is applied to incoming calls.
    :scale: 85%
 
    Apply Rule Set to Incoming Call
-   
+
 :Example:
 
 Configuration file for simple skill selection :
@@ -195,9 +285,6 @@ Configuration file for simple skill selection :
    [simple_skill_french]
    exten = s,1,Set(XIVO_QUEUESKILLRULESET=french_rule_set)
    same  =   n,Return()
-
-In this example you just need to create two simple skill rule sets, one named english_rule_set with a rule english > 90
-and the other named french_rule_set
 
 
 Monitoring
@@ -219,16 +306,16 @@ command ``queue show <queue_name>``::
 You may monitor your skills groups with the command ``queue show skills groups <agent_name>``::
 
    xivo-jylebleu*CLI> queue show skills groups <PRESS TAB>
-   agent-2   agent-3   agent-4   agent-48  agent-7   agent-1   
-   xivo-jylebleu*CLI> queue show skills groups agent-1 
+   agent-2   agent-3   agent-4   agent-48  agent-7   agent-1
+   xivo-jylebleu*CLI> queue show skills groups agent-1
    Skill group 'agent-1':
      - bank           : 50
      - english        : 100
- 
+
 You may monitor your skills rules with the command ``queue show skills rules <rule_name>``::
 
    xivo-jylebleu*CLI> queue show skills rules <PRESS TAB>
-   english      french       select_lang  
-   xivo-jylebleu*CLI> queue show skills rules english 
+   english      french       select_lang
+   xivo-jylebleu*CLI> queue show skills rules english
    Skill rules 'english':
      => english>90

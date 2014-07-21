@@ -85,6 +85,157 @@ Class list
 ----------
 
 
+people_headers
+--------------
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_headers",
+    "commandid": <commandid>
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_headers_result",
+    "commandid": <commandid>,
+    "column_headers": ["Status", "Name", "Number"],
+    "column_types": [null, null, "number"],
+  }
+
+
+people_search
+-------------
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_search",
+    "pattern": <pattern>,
+    "commandid": <commandid>
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_search_result",
+    "commandid": <commandid>
+    "term": "Bob",
+    "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent"],
+    "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent"],
+    "results": [
+      {
+        "column_values": ["Bob", "Marley", "5555555", "5556666", "5553333", "mail@example.com", null],
+        "relations": {
+          "agent_id": null,
+          "user_id": null,
+          "endpoint_id": null
+        },
+        "source": "my_ldap_directory"
+      }, {
+        "column_values": ["Charlie", "Boblin", "5555556", "5554444", "5552222", "mail2@example.com", null],
+        "relations": {
+          "agent_id": 12,
+          "user_id": 34,
+          "endpoint_id": 56
+        },
+        "source": "internal"
+      }
+    ]
+  }
+
+.. _register_user_status_update_command:
+
+register_user_status_update
+---------------------------
+
+The `register_user_status_update` command is used to register to the status
+updates of a list of user. Once registered to a user's status, the client will
+receive all :ref:`user_status_update_event` events for the registered users.
+
+This command should be sent when a user is displayed in the people xlet to be
+able to update the presence status icon.
+
+The :ref:`unregister_user_status_update_command` command should be used to stop receiving updates.
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "register_user_status_update",
+    "user_ids": [<user_id1>, <user_id2>, ..., <user_idn>],
+    "commandid": <commandid>
+  }
+
+
+.. _unregister_user_status_update_command:
+
+unregister_user_status_update
+-----------------------------
+
+The `unregister_user_status_update` command is used to unregister from the
+status updates of a list of user.
+
+Once unregistered, the client will stop receiving the :ref:`user_status_update_event`
+events for the specified users.
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "unregister_user_status_update",
+    "user_ids": [<user_id1>, <user_id2>, ..., <user_idn>],
+    "commandid": <commandid>
+  }
+
+.. _user_status_update_event:
+
+user_status_update
+------------------
+
+The `user_status_update` event is received when the presence of a user changes.
+
+To receive this event, the user must first register to the event for a specified
+user using the :ref:`register_user_status_update_command` command.
+
+To stop receiving this event, the user must send the
+:ref:`unregister_user_status_update_command` command.
+
+* data, a dictionary containing 3 fields:
+
+  * user_id, is an integer containing the ID of the user affected by this status change
+  * color: a string representing the color to display for the new status
+  * display: a string containing the displayed text
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "user_status_update",
+    "data": {
+      "user_id": 42,
+      "color": "#001AFF",
+      "display": "Out to lunch",
+    }
+  }
+
+The `user_status_update` event contains the same data as the :ref:`bus-user_status_update`.
+The latter should be prefered to the former for uses that do not require a
+persistent connection to xivo-ctid.
+
+
 LOGINCOMMANDS
 -------------
 

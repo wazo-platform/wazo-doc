@@ -138,12 +138,24 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.13
+-----
+
+* Consult the `14.13 Roadmap <https://projects.xivo.io/versions/204>`_
+* See the :ref:`changelog <restapi_changelog>` for REST API
+* Skills-based routing: for an agent which doesn't have the skill X, the rule X < 10 was
+  previously evaluated to true, since not having the skill X was equivalent to having it with a
+  value of 0. This behaviour has changed, and the same expression is now evaluated to false. If you
+  are using skills-based routing, you'll need to check that your rules are still doing what you
+  expect. See :ref:`skill evaluation <skill-evaluation>` for more information.
+
+
 14.12
 -----
 
 * Consult the `14.12 Roadmap <https://projects.xivo.io/versions/203>`_
-* All plugins were modified. Although not mandatory, it is strongly advised to update all used
-  plugins.
+* All provisioning plugins were modified. Although not mandatory, it is strongly advised to update
+  all used plugins.
 * The function key 'Activate voicemail' was removed as it was a duplicate of existing function key
   'Enable voicemail'. All users having the 'Activate voicemail' function key will have to be
   reconfigured with a 'Enable voicemail' function key in order to keep the equivalent feature.
@@ -152,6 +164,7 @@ Upgrade Notes
   * xivo-provd: :file:`/var/log/xivo-provd.log`
   * xivo-agid: :file:`/var/log/xivo-agid.log`
   * xivo-sysconfd: :file:`/var/log/xivo-sysconfd.log`
+
 
 14.11
 -----

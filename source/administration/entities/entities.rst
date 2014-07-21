@@ -2,8 +2,6 @@
 Entities
 ********
 
-.. warning:: This feature is currently under development.
-
 Purpose
 =======
 
@@ -29,6 +27,7 @@ For the new entity to be useful, you need to create contexts in this entity. You
 * an Outcall context for outgoing calls, which should be included in the Internal context for the
   users to be able to call external numbers
 
+
 Limitations
 ===========
 
@@ -52,6 +51,7 @@ Only the following lists may be filtered by entity:
 
 * Lines
 * Users
+* Devices
 * Groups
 * Voicemails
 * Conference Rooms
@@ -61,6 +61,11 @@ Only the following lists may be filtered by entity:
 * Schedules
 * Agents
 * Queues
+
+For the devices:
+
+* The filtering only applies to the devices associated with a line.
+* The devices in autoprov mode or not configured mode are visible by every administrator.
 
 REST API
 ^^^^^^^^

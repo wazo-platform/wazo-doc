@@ -4,20 +4,28 @@
 REST API 1.1
 ************
 
-.. note:: REST API 1.1 is currently evolving. New features and small fixes are
-    regularly being added over time. We invite the reader to periodically check the changelog
+.. note:: REST API 1.1 is currently evolving. New features and small fixes are regularly being added
+    over time. We invite the reader to periodically check the :ref:`changelog <restapi_changelog>`
     for an update on new features and changes.
 
-.. warning:: Some services are still being developped and can
-    be changed without prior warning. Use at your own risk. Here is a list
-    of services in BETA stage:
+.. toctree::
+   :maxdepth: 1
+
+   changelog
+   examples
+
+.. warning:: Some services are still being developped and can be changed without prior warning. Use
+    at your own risk. Here is a list of services in BETA stage:
 
         * Function Keys
 
+
+API reference
+=============
+
 .. toctree::
    :maxdepth: 2
-   
-   examples
+
    call_logs
    cti_profile
    devices

@@ -87,3 +87,5 @@ Congratulations, you now have a fully functional XiVO server.
 
 You can subscribe to the `xivo-announce list <https://lists.proformatique.com/listinfo/xivo-announce>`_
 to always stay informed on the latest upgrades for XiVO.
+
+To start configuring XiVO, see :ref:`getting_started`.
