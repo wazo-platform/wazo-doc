@@ -135,7 +135,10 @@ Aastra
 | Paging                                     | Y     | Y     | Y     | Y     | Y     | Y     |
 +--------------------------------------------+-------+-------+-------+-------+-------+-------+
 
-The M670i and M675i expansion modules are supported.
+module Aastra® M670i  (for Aastra® 35i/37i/39i/53i/55i/57i) are supported.
+
+module Aastra® M675i  (for Aastra® 35i/37i/39i/55i/57i) are supported.
+
 
 DECT Infrastructure:
 
@@ -528,9 +531,12 @@ Particularities:
 
 .. note:: (XiVO HA cluster) BLF function key saved on the master node are not available.
 
+module Polycom® VVX Color Expansion (for Polycom® VVX 300/310/400/410/500/600) are supported.
 
-Polycom® SoundPoint® IP Backlit Expansion Module are supported.
-Polycom® VVX® Expansion module are supported.
+module Polycom® VVX Paper Expansion (for Polycom® VVX 300/310/400/410/500/600) are supported.
+
+module Polycom® SoundPoint IP Backlit (for Polycom® SoundPoint 650) are supported.
+
 
 .. warning:: Polycom® VVX® Camera are not supported.
 
@@ -626,11 +632,8 @@ Snom
 | Paging                                     | Y      | Y     | Y     | Y     | Y     | Y     | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+-------+
 
+module Snom® Vision  (for Snom® 7xx series and Snom® 8xx series) are supported.
 
-
-Snom Vision – the expansion module for snom 8xx series VoIP telephones are supported.
-
-Snom extension modules V2.0 are supported.
 
 .. note:: For some models, function keys are shared with line keys
 
@@ -735,7 +738,11 @@ Yealink
 
 .. note:: Some function keys are shared with line keys
 
-The EXP38 ,EXP39 and EXP40 expansion modules are supported.
+module Yealink® EXP38 (for Yealink® T26P/T28P) are supported.
+
+module Yealink® EXP39 (for Yealink® T26P/T28P) are supported.
+
+module Yealink® EXP40 (forYealink® T46G/T48) are supported.
 
 
 Caption :
