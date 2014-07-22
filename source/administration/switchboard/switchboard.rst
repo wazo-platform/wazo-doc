@@ -152,6 +152,13 @@ this option only on supported phones and plugins.
 
 .. warning:: When using a Snom switchboard you should not use the first function key.
 
+.. note:: The snom switchboard has a timer before answering the phone. The default
+  value is 0.5 second. This value can be modified using the SNOM_SB_ANSWER_DELAY
+  environment variable. This variable can be modified by adding the following
+  line to /etc/default/xivo:
+
+  *export SNOM_SB_ANSWER_DELAY=0.25*
+
 
 Create an Agent for the Operator
 --------------------------------
