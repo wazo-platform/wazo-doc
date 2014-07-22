@@ -32,7 +32,7 @@ Query
 
 ::
 
-    PUT /1.1/agents/<agent_id>/queues/<queue_id>
+    PUT /1.1/queues/<queue_id>/memberships/agents/<agent_id>
 
 
 Errors
@@ -52,7 +52,7 @@ Example request
 
 ::
 
-    PUT /1.1/agent/18/queues/3
+    PUT /1.1/queues/3/memberships/agents/18
     Host: xivoserver
     Content-Type: application/json
     
