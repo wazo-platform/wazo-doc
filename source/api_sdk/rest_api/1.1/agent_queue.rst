@@ -66,10 +66,4 @@ Example response
 
 ::
 
-    HTTP/1.1 200 OK
-    
-    {
-        "agent_id": 18,
-        "queue_id": 3,
-        "penalty": 5
-    }
+    HTTP/1.1 204 OK
