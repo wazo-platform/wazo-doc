@@ -4,6 +4,8 @@
 Agent Queue Association
 ***********************
 
+.. warning:: This service is experimental
+
 Service for associating an agent with a queue.
 
 
@@ -24,6 +26,53 @@ Description
 +----------+-------+-------------------+
 
 
+Get an Agent - Queue association
+================================
+
+Query
+-----
+
+::
+
+    GET /1.1/queues/<queue_id>/memberships/agents/<agent_id>
+
+
+Errors
+------
+
++------------+---------------------------------------------------------------------+-------------+
+| Error code | Error message                                                       | Description |
++============+=====================================================================+=============+
+| 404        | Queue with id=<queue_id> is not associated with agent id=<agent_id> |             |
++------------+---------------------------------------------------------------------+-------------+
+| 404        | Queue with id=<queue_id> does not exist                             |             |
++------------+---------------------------------------------------------------------+-------------+
+
+
+Example request
+---------------
+
+::
+
+    GET /1.1/queues/3/memberships/agents/18
+    Host: xivoserver
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+        "agent_id": 18,
+        "queue_id": 3,
+        "penalty": 5
+    }
+
+
 Edit an Agent - Queue association
 =================================
 
@@ -41,9 +90,9 @@ Errors
 +------------+---------------------------------------------------------------------+-------------+
 | Error code | Error message                                                       | Description |
 +============+=====================================================================+=============+
-| 404        | Agent with id=<agent_id> is not associated with queue id=<queue_id> |             |
+| 404        | Queue with id=<queue_id> is not associated with agent id=<agent_id> |             |
 +------------+---------------------------------------------------------------------+-------------+
-| 404        | Agent with id=<agent_id> does not exist                             |             |
+| 404        | Queue with id=<queue_id> does not exist                             |             |
 +------------+---------------------------------------------------------------------+-------------+
 
 
