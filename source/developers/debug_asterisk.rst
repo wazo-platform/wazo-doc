@@ -10,6 +10,48 @@ To debug asterisk crashes or freezes, you need the following packages on your xi
     of asterisk since it would restart your asterisk
 
 
+So There is a Problem with Asterisk. Now What ?
+===============================================
+
+#. Find out the time of the incident from the people most likely to know
+#. Determine if there was a segfault
+
+   #. The command ``grep segfault /var/log/syslog`` should return a line such as the following::
+
+       Oct 16 16:12:43 xivo-1 kernel: [10295061.047120] asterisk[1255]: segfault at e ip b751aa6b sp b5ef14d4 error 4 in libc-2.11.3.so[b74ad000+140000]
+
+   #. Note the exact time of the incident from the segfault line.
+   #. Follow the `Debugging Asterisk Crash`_ procedure.
+
+#. If you observe some of the following common symtoms, follow the `Debugging Asterisk Freeze`_
+   procedure.
+
+   * The output of command ``service asterisk status`` says Asterisk PBX is running.
+   * No more calls are distributed and Phones go to ``No Service``.
+   * Command ``core show channels`` returns only headers (no data) right before returning
+
+#. Fetch Asterisk logs for the day of the crash (make sure file was not already logrotated)::
+
+    cp -a /var/log/asterisk/full /var/local/`date +"%Y%m%d"`-`hostname`-asterisk-full.log
+
+#. Fetch xivo-ctid logs for the day of the crash (make sure file was not already logrotated)::
+
+    cp -a /var/log/xivo-ctid.log /var/local/`date +"%Y%m%d"`-`hostname`-xivo-ctid.log
+
+#. Open a new issue on the `bugtracker <https://projects.xivo.io/projects/xivo/issues/new>`_ with
+   following information
+
+   * Tracker: Bug
+   * Status: New
+   * Category: Asterisk
+   * In versions: The version of your XiVO installation where the crash/freeze happened
+   * Subject : ``Asterisk Crash`` or ``Asterisk Freeze``
+   * Description : Add as much context as possible, if possible, a scenario that lead to the issue,
+     the date and time of issue, where we can fetch logs and backtrace
+   * Attach logs and backtrace (if available) to the ticket (issue must be saved, then edited and
+     files attached to a comment).
+
+
 Debugging Asterisk Crash
 ========================
 
