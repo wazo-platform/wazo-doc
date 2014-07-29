@@ -19,7 +19,7 @@ webservices user in the web interface (Configuration/Management/Web Services Acc
 * if you choose not to specify an IP address for the user, you can connect to the REST API with a HTTP Digest authentication, using the user name and password you provided.
   For instance, the following command line allows to retrieve XiVO users through the REST API, using the login **admin** and the password **passadmin**::
 
-     curl --digest --insecure -u admin:passadmin https://<xivo_address>:50051/1.1/users
+     curl --digest --insecure --cookie '' -u admin:passadmin https://<xivo_address>:50051/1.1/users
 
 The REST API is also available on the loopback interface via HTTP on port 50050, with no
 authentication needed.
