@@ -42,7 +42,7 @@ separate machines and still talk to each other.
 
 To be in accordance with our goal, a XiVO daemon must (if applicable):
 
-* Offer a REST API (with authentication and accepting cross-site requests)
+* Offer a REST API (with encryption, authentication and accepting cross-site requests)
 * Be able to read and send events on a software bus
 * Be able to run inside a container, such as Docker, and be separated from the XiVO server
 * Offer a configuration file
@@ -51,5 +51,6 @@ To be in accordance with our goal, a XiVO daemon must (if applicable):
 * Have its own log file
 * Be extendable through the use of plugins
 * Not run with system privileges
+* Be installable from source
 
 Currently, none of the XiVO daemons meet these expectations; it is a work in progress.

@@ -2,87 +2,78 @@
 Log Files
 *********
 
-Many XiVO services use the syslog's '/var/log/daemon.log' file to log events.
-
-This log file's configuration is located at '/etc/logrotate.d/rsyslog'
-
-The default configuration for all services using this file is the following
-
-* File location: '/var/log/daemon.log'
-* Rotation frequence: Weekly
-* Number of archived files: 4
-
+Every XiVO service has its own log file, placed in :file:`/var/log`.
 
 agid
 ----
-The agid log files are sent to the system's syslog.
 
-See `log files`_ above for global configuration info.
+* File location: :file:`/var/log/xivo-agid.log`
+* Rotate configuration: :file:`/etc/logrotate.d/xivo-agid`
+* Number of archived files: 15
+* Rotation frequence: Daily
 
 
 asterisk
 --------
 The Asterisk log files are managed by logrotate.
 
-It's configuration files '/etc/logrotate.d/asterisk' and '/etc/asterisk/logger.conf'
+It's configuration files :file:`/etc/logrotate.d/asterisk` and :file:`/etc/asterisk/logger.conf`
 
-The message log level is enabled by default in logger.conf and contains notices, warnings and errors.
-The full log entry is commented in logger.conf and should only be enabled when verbose debugging is required. Using this option in production would VERY large log files.
+The message log level is enabled by default in :file:`logger.conf` and contains notices, warnings
+and errors. The full log entry is commented in :file:`logger.conf` and should only be enabled when
+verbose debugging is required. Using this option in production would produce VERY large log files.
 
-Default configuration
-
-* Files location: '/var/log/asterisk/\*'
+* Files location: :file:`/var/log/asterisk/\*`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
 
 provd
 -----
-Provd logs are send to the system's syslog.
 
-See `log files`_ above for global configuration info.
+* File location: :file:`/var/log/xivo-provd.log`
+* Rotate configuration: :file:`/etc/logrotate.d/xivo-provd`
+* Number of archived files: 15
+* Rotation frequence: Daily
 
 
 sysconfd
 --------
-Sysconfd logs are send to the system's syslog.
 
-See `log files`_ above for global configuration info.
+* File location: :file:`/var/log/xivo-sysconfd.log`
+* Rotate configuration: :file:`/etc/logrotate.d/xivo-sysconfd`
+* Number of archived files: 15
+* Rotation frequence: Daily
 
 
 web-interface
 -------------
-The web-interface's log file is managed by logrotate.
 
-It's configuration file is '/etc/logrotate.d/xivo-web-interface'
-
-Default configuration
-
-* Rotation frequence: Daily
+* File location: :file:`/var/log/xivo-web-interface/\*.log`
+* Rotate configuration: :file:`/etc/logrotate.d/xivo-web-interface`
 * Number of archived files: 21
-* File location: /var/log/xivo-web-interface/\*.log
+* Rotation frequence: Daily
 
 
 xivo-confgend
 -------------
-The xivo-confgend daemon output is sent to the file specified with the --logfile parameter when launched with twistd.
 
-The file location can be changed in '/etc/init.d/xivo-confgen'. Search the line begining with 'logfile=/var/log/xivo-confgend.log' and change it to your liking.
+The xivo-confgend daemon output is sent to the file specified with the ``--logfile`` parameter when
+launched with twistd.
 
-Default configuration
+The file location can be changed in :file:`/etc/init.d/xivo-confgend`. Search the line begining with
+``logfile=/var/log/xivo-confgend.log`` and change it to your liking.
 
-* File location: '/var/log/xivo-confgend.log'
+* File location: :file:`/var/log/xivo-confgend.log`
+* Rotate configuration: :file:`/etc/logrotate.d/xivo-confgend`
+* Number of archived files: 15
+* Rotation frequence: Daily
 
 
 xivo-ctid
 ---------
-The xivo-ctid log file is managed by logrotate.
 
-It's configuration file is '/etc/logrotate.d/xivo-ctid'.
-
-Default configuration
-
-* Max log file size: 100M
+* File location: :file:`/var/log/xivo-ctid.pid`
+* Rotate configuration: :file:`/etc/logrotate.d/xivo-ctid`
 * Number of archived log files: 15
 * Rotation frequence: Daily
-* File location: '/var/log/xivo-ctid.pid'

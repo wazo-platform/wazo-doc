@@ -53,7 +53,9 @@ The queue list is a dashboard displaying queue statistics and real-time counters
    :scale: 90%
 
 
-**Columns**
+**Real-time Columns**
+
+The data of following columns display real-time information.
 
 Queues
    queue name and number if configured to be displayed
@@ -80,6 +82,13 @@ Logged
 Available
    The number of available agents ready to take a call in the queue.
    This column is set to N/A when the queue has just been created and no members have been added.
+
+
+**Last Period Columns**
+
+The data of following columns are based on statistics fetched from a fixed-width window of time,
+e.g. the last 60 minutes or the last 10 minutes. See below to configure the width of the window for
+each queue.
 
 Received
    The number of calls received in this queue during the configured statistical window

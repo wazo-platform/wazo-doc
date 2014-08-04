@@ -4,6 +4,12 @@
 REST API changelog
 ******************
 
+14.14
+=====
+
+* Association :ref:`line-extension <line-extension-associations>`, a same extension can not be
+  associated to multiple lines
+
 14.13
 =====
 

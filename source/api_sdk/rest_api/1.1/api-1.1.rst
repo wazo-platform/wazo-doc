@@ -40,6 +40,7 @@ API reference
    voicemails
    voicemail_links
    configuration
+   agent_queue
 
 
 Migration from 1.0
