@@ -141,6 +141,8 @@ Upgrade Notes
 14.15
 -----
 
+* Consult the `14.15 Roadmap <https://projects.xivo.io/versions/206>`_
+
 Please consult the following detailed updated notes for more information:
 
 .. toctree::
