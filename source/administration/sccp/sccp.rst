@@ -143,21 +143,21 @@ Telephone
 ---------
 
 +-------------+-------------+------------------+--------------+
-| Device type | Supported   | Firmware version | Direct media |
+| Device type | Supported   | Firmware version | Timezone tag |
 +=============+=============+==================+==============+
-| 7905        | Should work |                  | Yes          |
+| 7905        | Should work |                  |              |
 +-------------+-------------+------------------+--------------+
-| 7906        | Should work |                  | Yes          |
+| 7906        | Should work |                  |              |
 +-------------+-------------+------------------+--------------+
 | 7911        | Yes         | SCCP11.8-5-3S    | Yes          |
 +-------------+-------------+------------------+--------------+
-| 7912        | Yes         | 8.0.4(080108A)   | Yes          |
+| 7912        | Yes         | 8.0.4(080108A)   | No           |
 +-------------+-------------+------------------+--------------+
-| 7920        | Yes         | 3.0.2            | Yes          |
+| 7920        | Yes         | 3.0.2            | No           |
 +-------------+-------------+------------------+--------------+
 | 7921        | Yes         | 1.4.5.3          | Yes          |
 +-------------+-------------+------------------+--------------+
-| 7940        | Yes         | 8.1(2.0)         | Yes          |
+| 7940        | Yes         | 8.1(2.0)         | No           |
 +-------------+-------------+------------------+--------------+
 | 7941        | Yes         | SCCP41.9-0-3S    | Yes          |
 +-------------+-------------+------------------+--------------+
@@ -165,7 +165,7 @@ Telephone
 +-------------+-------------+------------------+--------------+
 | 7942        | Yes         | SCCP42.9-0-3S    | Yes          |
 +-------------+-------------+------------------+--------------+
-| 7960        | Yes         | 8.1(2.0)         | Yes          |
+| 7960        | Yes         | 8.1(2.0)         | No           |
 +-------------+-------------+------------------+--------------+
 | 7961        | Yes         | SCCP41.9-0-3S    | Yes          |
 +-------------+-------------+------------------+--------------+
@@ -175,6 +175,12 @@ Telephone
 +-------------+-------------+------------------+--------------+
 
 An unsupported device won't be able to connect to Asterisk (channel sccp) at all.
+
+The "Timezone tag" column indicates if the device supports the timezone tag in its configuration
+file, i.e. in the file that the device request to the provisioning server when it boots.  If you
+have devices that don't support the timezone tag and these devices are in a diffrent timezone than
+the one of the XiVO, you can look at `the issue #5161 <https://projects.xivo.io/issues/5161>`_ for
+a potential solution.
 
 
 Hand written configuration
