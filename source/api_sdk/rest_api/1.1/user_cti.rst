@@ -62,6 +62,7 @@ Example Response
     {
         "user_id": 34,
         "cti_profile_id": 2,
+        "enabled": true,
         "links": [
             {
                 "rel": "users",
