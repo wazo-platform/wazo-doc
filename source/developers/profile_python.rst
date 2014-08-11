@@ -7,26 +7,21 @@ Profiling CPU/Time Usage
 
 Here's an example on how to profile xivo-ctid for CPU/time usage:
 
-#. Add the debian non-free repository to :file:`/etc/apt/sources.list`.
-
-#. Install the ``python-profiler`` package::
-
-      apt-get update
-      apt-get install python-profiler
-
 #. Stop the monit daemon::
 
-      /etc/init.d/monit stop
+      service monit stop
 
 #. Stop the process you want to profile, i.e. xivo-ctid::
 
-      /etc/init.d/xivo-ctid stop
+      service xivo-ctid stop
 
 #. Start the service in foreground mode running with the profiler::
 
       python -m cProfile -o test.profile /usr/bin/xivo-ctid -d
 
    This will create a file named ``test.profile`` when the process terminates.
+
+   Note that profiling multi-threaded program (xivo-agid, xivo-restapid) doesn't work reliably.
 
    The :ref:`debug-daemons` section documents how to launch the various XiVO services
    in foreground/debug mode.
