@@ -66,6 +66,7 @@ The following files/folders are excluded from this backup:
 
   * :file:`/var/spool/asterisk/monitor`
   * :file:`/var/spool/asterisk/meetme`
+  * :file:`/var/lib/xivo-provd/plugins/*/var/cache`
 
 * log files, coredump files
 * audio recordings
