@@ -138,6 +138,14 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.16
+-----
+
+* Consult the `14.16 Roadmap <https://projects.xivo.io/versions/207>`_
+* Asterisk now inserts CEL and queue log entries via the ODBC asterisk modules instead of
+  the pgsql modules.
+
+
 14.15
 -----
 
