@@ -138,15 +138,24 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.16
+-----
+
+* Consult the `14.16 Roadmap <https://projects.xivo.io/versions/207>`_
+* Asterisk now inserts CEL and queue log entries via the ODBC asterisk modules instead of
+  the pgsql modules.
+
+
 14.15
 -----
 
 * Consult the `14.15 Roadmap <https://projects.xivo.io/versions/206>`_
 * Duplicate function keys will be deleted uppon upgrade. If multiple function keys pointing to
   the same destination are detected for a given user, only the one with the lowest position will
-  be kept. To see the list of deleted function keys, check the xivo-upgrade log file such as ::
+  be kept. To see the list of deleted function keys, check the xivo-upgrade log file such as::
 
-    grep "MIGRATE_FK" /var/log/xivo-upgrade.log
+     grep MIGRATE_FK /var/log/xivo-upgrade.log
+
 .. toctree::
    :maxdepth: 1
 
