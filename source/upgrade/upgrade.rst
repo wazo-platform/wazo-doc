@@ -167,8 +167,8 @@ Upgrade Notes
 
 * Consult the `14.14 Roadmap <https://projects.xivo.io/versions/205>`_
 * See the :ref:`changelog <restapi_changelog>` for REST API
-* Upon a important freeze of Asterisk, Asterisk will be restarted. See the `associated ticket
-  <https://projects.xivo.io/issues/5165>`_ for more informations.
+* Upon an important freeze of Asterisk, Asterisk will be restarted. See the `associated ticket
+  <https://projects.xivo.io/issues/5165>`_ for more information.
 
 
 14.13
