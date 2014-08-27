@@ -102,7 +102,7 @@ group
     Conference group
 
 queue
-    Calling queue
+    Call queue
 
 conference
     Conference room
