@@ -116,6 +116,9 @@ bs_filter
 service
     A predefined user service [1]_.
 
+forward
+    Forward a call towards another number
+
 paging
     Paging
 
