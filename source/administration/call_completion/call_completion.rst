@@ -1,0 +1,137 @@
+***************
+Call Completion
+***************
+
+.. XXX how should we name this feature ? CCSS ? Call Completion Supplementary Service ? Automatic recall ?
+
+The call completion feature in XiVO allow for a caller to be automatically called back when a called party has
+become available.
+
+To illustrate, let's say Alice attemps to call Bob. Bob is currently on a phone call with Carol,
+though, so Bob rejects the call from Alice, and Alice hears a message saying that Bob is busy. Alice
+then dial \*40 to request call completion. Once Bob has finished his phone call, Alice will be
+automatically called back. When she answers, Bob will be called on her behalf.
+
+.. XXX ok, this is inspired from the CCSS doc on asterisk wiki... how should we underline this fact ?
+
+This feature has been introduced in XiVO in version 14.17.
+
+.. note:: The call completion feature is currently being developed.
+
+
+Description
+===========
+
+Call completion can be used in two scenarios:
+
+* when the called party is busy (Call Completion on Busy Subscriber)
+* when the called party doesn't answer (Call Completion on No Response)
+
+We have already discussed the busy scenario in the introduction section.
+
+Let's now illustrate the no answer scenario:
+
+#. Alice attemps to call Bob.
+#. Bob doesn't answer the phone. Alternatively, Alice hangs up before Bob has the time to answer the
+   call.
+#. Alice then dial \*40 to request call completion.
+#. When Bob's phone becomes busy and then is no longer busy, Alice is automatically called back.
+#. When she answers, Bob will be called on her behalf.
+
+.. XXX on utilise pas les meme temps de verbe dans cette illustration vs celle de l'intro
+
+The important thing to note here is step #4. Bob's phone needs to become busy and then no longer
+busy for Alice to be called back. This means that if Bob was away when Alice called him, but when he
+came back he did not received nor placed any call, then Alice will not be called back.
+
+In fact, in all scenarios, after call completion has been requested by the caller, the called phone
+needs to transition from busy to no longer busy for the caller to be called back.  This means that
+in the following scenario:
+
+#. Alice attemps to call Bob.
+#. Bob is currently on a phone call, so he doesn't answer the call from Alice.
+#. Bob finish his call a few seconds later.
+#. Alice then dial \*40 to request call completion (Bob is not busy anymore).
+
+Then, for Alice to be called back, Bob needs to become busy and then not busy.
+
+If Alice is busy when Bob becomes not busy, then the call completion callback will only happen
+after both Alice and Bob are not busy.
+
+When call completion is active, it can be cancelled by dialing the \*40 extension.
+
+Some timers governs the use of call completion. These are:
+
+* offer timer: the time the caller has to request call completion. Default to 30 seconds.
+* busy available timer: when call completion on busy subscriber is requested, if this timer expires
+  before the called party becomes available, then the call completion attempt will be cancelled.
+  Default to 900 seconds.
+* no response available timer: similar to the "busy available timer", but when call completion on no
+  response is requested. Default to 900 seconds.
+* recall timer: when the caller who requested call completion is called back, how long the original
+  caller's phone ring before giving up. Default to 30.
+
+
+Special Scenarios
+-----------------
+
+When the caller is called back in the context of call completion, XiVO attempt to call the callee
+in a way similar to directly calling the user.
+
+This means that if, for example, the callee has enabled the do not disturb functionality, then the
+call completion call back will ultimately fail to reach the callee. The behaviour is similar if the
+user has an unconditonal forward, a schedule, a call right or a preprocess subroutine,
+etc.
+
+In the following scenario:
+
+#. Alice attemps to call Bob.
+#. Bob is currently on a phone call, so he doesn't answer the call from Alice.
+#. Bob has enabled a forward on no answer to Carol, so Alice is redirected to Carol.
+#. Carol begins to ring.
+#. Alice hangs up.
+#. Alice then dial \*40 to request call completion.
+
+The call completion request will monitor the first phone that was called, i.e. it will monitor Bob's
+phone. When Bob becomes not busy, the call completion callback will try to call Bob's on behalf of Alice.
+
+
+Limitations
+-----------
+
+Call completion can only be used with SIP lines. It can't be used with SCCP lines.
+
+It can't be used with outgoing calls and incoming calls, except if these calls are passing through a
+customized trunk of type Local.
+
+It can't be used with groups or queues.
+
+
+Configuration
+=============
+
+The call completion feature is by default disabled.
+
+To be able to use it, you must enable the call completion general setting and the call completion
+extension. The call completation feature can't be enabled only for a few users; either all users
+have access to it, or none.
+
+Currently, enabling the call completion general setting is done via the following commands::
+
+   sudo -u postgres psql -c "UPDATE call_completion SET enabled = TRUE" asterisk
+   asterisk -rx "sip reload"
+
+If you then want to disable it, use these commands::
+
+   sudo -u postgres psql -c "UPDATE call_completion SET enabled = FALSE" asterisk
+   asterisk -rx "sip reload"
+
+The call completion extension is enabled via the :menuselection:`Services --> IPBX --> IPBX
+services --> Extensions` page, in the :guilabel:`General` tab.
+
+.. figure:: images/cc_extension.png
+
+   Call Completion Extension
+
+If your XiVO has been installed in version 14.16 or earlier, then this extension is by default
+disabled. Otherwise, this extension is by default enabled.
