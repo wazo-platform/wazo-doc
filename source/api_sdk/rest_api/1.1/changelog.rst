@@ -4,6 +4,15 @@
 REST API changelog
 ******************
 
+14.16
+=====
+
+* Association :ref:`user-voicemail <user-voicemail-association>`, when associating a voicemail whose
+  id does not exist:
+
+  * before: error 404
+  * after: error 400
+
 14.14
 =====
 
