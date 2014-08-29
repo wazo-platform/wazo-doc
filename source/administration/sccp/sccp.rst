@@ -77,6 +77,8 @@ SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use di
  :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
 
 
+.. _sccp-features:
+
 Features
 --------
 
@@ -147,9 +149,9 @@ Telephone
 +=============+=============+==================+==============+
 | 7905        | Should work |                  |              |
 +-------------+-------------+------------------+--------------+
-| 7906        | Should work |                  |              |
+| 7906        | Yes         | SCCP11.9-0-3S    | Yes          |
 +-------------+-------------+------------------+--------------+
-| 7911        | Yes         | SCCP11.8-5-3S    | Yes          |
+| 7911        | Yes         | SCCP11.9-0-3S    | Yes          |
 +-------------+-------------+------------------+--------------+
 | 7912        | Yes         | 8.0.4(080108A)   | No           |
 +-------------+-------------+------------------+--------------+

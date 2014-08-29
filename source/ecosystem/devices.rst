@@ -191,7 +191,7 @@ ATAs:
       * *XIVO_IP*   is the IP address of your XiVO,
       * *CONF_FILE* is one of ``spa3102.cfg``, ``spa8000.cfg``
 
-.. warning:: SCCP phones are supported, but limited to the features supported in XIVO's SCCP implementation.
+.. warning:: SCCP phones are supported, but limited to the :ref:`features supported in XIVO's SCCP implementation <sccp-features>`.
 
 .. warning:: Access to CISCO firmware updates requires a CISCO account with sufficient privileges.
    The account requires paying for the service and remains under the responsibility of the client or partner.
@@ -202,11 +202,11 @@ Cisco 7900 series (*SCCP* mode only):
 +--------------------------------------------+--------+-------+--------+-------+-------+-------+-------+-------+----------+-------+-------+-------+-------+
 |                                            | 7905G  | 7906G | 7911G  | 7912G | 7920  | 7921G | 7940G | 7941G | 7941G-GE | 7942G | 7960G | 7961G | 7962G |
 +============================================+========+=======+========+=======+=======+=======+=======+=======+==========+=======+=======+=======+=======+
-| Provisioning [1]_                          | N [4]_ | N     | N [4]_ | Y     | Y     | Y     | Y     | Y     | Y        | Y     | Y     | Y     | Y     |
+| Provisioning [1]_                          | N [4]_ | Y     | Y [4]_ | Y     | Y     | Y     | Y     | Y     | Y        | Y     | Y     | Y     | Y     |
 +--------------------------------------------+--------+-------+--------+-------+-------+-------+-------+-------+----------+-------+-------+-------+-------+
 | H-A [3]_                                   | N      | Y     | Y      | Y     | NT    | NT    | Y     | Y     | Y        | Y     | Y     | Y     | Y     |
 +--------------------------------------------+--------+-------+--------+-------+-------+-------+-------+-------+----------+-------+-------+-------+-------+
-| Directory XIVO                             | N      | N     | N      | FK    | N     | N     | FK    | FK    | FK       | FK    | FK    | FK    | FK    |
+| Directory XIVO                             | N      | FK    | FK     | FK    | N     | N     | FK    | FK    | FK       | FK    | FK    | FK    | FK    |
 +--------------------------------------------+--------+-------+--------+-------+-------+-------+-------+-------+----------+-------+-------+-------+-------+
 | Funckeys [2]_                              | N      | 4     | 4      | 4     | 0     | 0     | 1     | 1     | 1        | 1     | 5     | 5     | 5     |
 +--------------------------------------------+--------+-------+--------+-------+-------+-------+-------+-------+----------+-------+-------+-------+-------+
