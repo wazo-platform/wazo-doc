@@ -183,12 +183,3 @@ file, i.e. in the file that the device request to the provisioning server when i
 have devices that don't support the timezone tag and these devices are in a different timezone than
 the one of the XiVO, you can look at `the issue #5161 <https://projects.xivo.io/issues/5161>`_ for
 a potential solution.
-
-
-Hand written configuration
---------------------------
-
-The `sccp.conf.sample`_ file can be consulted for an example of an hand written
-configuration file.
-
-.. _sccp.conf.sample: https://raw.github.com/xivo-pbx/xivo-libsccp/master/xivo-libsccp/configs/sccp.conf.sample
