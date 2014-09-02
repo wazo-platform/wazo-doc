@@ -138,15 +138,27 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.16
+-----
+
+* Consult the `14.16 Roadmap <https://projects.xivo.io/versions/207>`_
+* See the :ref:`changelog <restapi_changelog>` for REST API
+* DAHDI is upgraded to 2.10.0. If the upgrade process asks about :file:`/etc/dahdi/modules`, we
+  recommend that you keep the old version of the file.
+* Asterisk now inserts CEL and queue log entries via the ODBC asterisk modules instead of
+  the pgsql modules.
+
+
 14.15
 -----
 
 * Consult the `14.15 Roadmap <https://projects.xivo.io/versions/206>`_
 * Duplicate function keys will be deleted uppon upgrade. If multiple function keys pointing to
   the same destination are detected for a given user, only the one with the lowest position will
-  be kept. To see the list of deleted function keys, check the xivo-upgrade log file such as ::
+  be kept. To see the list of deleted function keys, check the xivo-upgrade log file such as::
 
-    grep "MIGRATE_FK" /var/log/xivo-upgrade.log
+     grep MIGRATE_FK /var/log/xivo-upgrade.log
+
 .. toctree::
    :maxdepth: 1
 
@@ -158,8 +170,8 @@ Upgrade Notes
 
 * Consult the `14.14 Roadmap <https://projects.xivo.io/versions/205>`_
 * See the :ref:`changelog <restapi_changelog>` for REST API
-* Upon a important freeze of Asterisk, Asterisk will be restarted. See the `associated ticket
-  <https://projects.xivo.io/issues/5165>`_ for more informations.
+* Upon an important freeze of Asterisk, Asterisk will be restarted. See the `associated ticket
+  <https://projects.xivo.io/issues/5165>`_ for more information.
 
 
 14.13
@@ -212,8 +224,8 @@ Upgrade Notes
 -----
 
 * Consult the `14.09 Roadmap <https://projects.xivo.io/versions/200>`_
-* Rest API 1.0 is no more. All code, tests and documentation was removed from XiVO.
-  All code developped for Rest API 1.0 must now be adapted to use Rest API 1.1.
+* REST API 1.0 is no more. All code, tests and documentation was removed from XiVO.
+  All code developped for REST API 1.0 must now be adapted to use REST API 1.1.
 
 
 14.08

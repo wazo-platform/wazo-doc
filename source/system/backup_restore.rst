@@ -23,9 +23,9 @@ Retrieve the backup
 You can retrieve the backup from the web-interface in
 :menuselection:`Services --> IPBX --> IPBX Configuration --> Backup Files` page.
 
-Otherwise with a shell access you can retrieve them in :file:`/var/backups/xivo/`.
+Otherwise, with shell access, you can retrieve them in :file:`/var/backups/xivo/`.
 In this directory you will find :file:`db.tgz` and :file:`data.tgz` files for the database and data
-backup.
+backups.
 
 Backup script:
 
@@ -36,13 +36,13 @@ Backup location:
     :file:`/var/backups/xivo/`
 
 
-What is actually backuped ?
+What is actually backed-up?
 ===========================
 
 Data
 ----
 
-Here is the list of the folder and files backuped:
+Here is the list of folders and files that are backed-up:
 
 * :file:`/etc/asterisk`
 * :file:`/etc/dahdi`
@@ -64,11 +64,12 @@ The following files/folders are excluded from this backup:
 
 * folders:
 
+  * :file:`/var/lib/xivo-provd/plugins/*/var/cache`
   * :file:`/var/spool/asterisk/monitor`
   * :file:`/var/spool/asterisk/meetme`
 
-* log files, coredump files,
-* audio recordings,
+* log files, coredump files
+* audio recordings
 * and, files greater than 10 MiB or folders containing more than 100 files if they belong to one of
   these folders:
 
@@ -88,7 +89,7 @@ Creating a database backup file manually
 .. warning::
 
     A backup file may take a lot of space on the disk.
-    You should check the free space on the partition before doing it.
+    You should check the free space on the partition before creating one.
 
 You can manually create a *database* backup file named :file:`db-manual.tgz` in :file:`/var/tmp` by issuing the following commands::
 
@@ -101,7 +102,7 @@ Creating a data backup file manually
 .. warning::
 
     A backup file may take a lot of space on the disk.
-    You should check the free space on the partition before doing it.
+    You should check the free space on the partition before creating one.
 
 You can manually create a *data* backup file named :file:`data-manual.tgz` in :file:`/var/tmp` by issuing the following commands::
 
@@ -160,7 +161,7 @@ These tarballs contains a dump of the database used in XiVO.
 In this example, we'll restore the database from a backup file named :file:`db.tgz`
 placed in the home directory of root.
 
-Then, extract the content of the :file:`db.tgz` file into the :file:`/var/tmp` directory and go inside
+First, extract the content of the :file:`db.tgz` file into the :file:`/var/tmp` directory and go inside
 the newly created directory::
 
    tar xvf db.tgz -C /var/tmp
@@ -194,15 +195,15 @@ Drop the asterisk_previous database::
 
    sudo -u postgres dropdb asterisk_previous
 
-.. warning:: Restoring the data.tgz file restore also system files as host
-   hostname network interfaces etc... You will need to reapply network
-   configuration if you restore the data.tgz file
+.. warning:: Restoring the data.tgz file also restores system files such as host
+   hostname, network interfaces, etc. You will need to reapply the network
+   configuration if you restore the data.tgz file.
 
 
 After Restoring The System
 ==========================
 
-Restart the services you stopped at the first step::
+Restart the services you stopped in the first step::
 
    xivo-service start
 
