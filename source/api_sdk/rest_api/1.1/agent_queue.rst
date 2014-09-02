@@ -72,6 +72,108 @@ Example response
         "penalty": 5
     }
 
+Associate an Agent to a Queue
+=============================
+
+Query
+-----
+
+::
+
+    POST /1.1/queues/<queue_id>/memberships/agents
+
+Input
+-----
+
++-----------+----------+---------+------------------------+
+| Field     | Required | Values  | Description            |
++===========+==========+=========+========================+
+| agent_id  | yes      | int     | Must be an existing id |
++-----------+----------+---------+------------------------+
+| penalty   | yes      | int     | >  0                   |
++-----------+----------+---------+------------------------+
+
+Errors
+------
+
++------------+---------------------------------------------------------------------+-------------+
+| Error code | Error message                                                       | Description |
++============+=====================================================================+=============+
+| 404        | Queue with id=<queue_id> does not exist                             |             |
++------------+---------------------------------------------------------------------+-------------+
+| 400        | Agent with id=<agent_id> does not exist                             |             |
++------------+---------------------------------------------------------------------+-------------+
+| 400        | Invalid parameters: agent is already associated to this queue       |             |
++------------+---------------------------------------------------------------------+-------------+
+
+
+Example request
+---------------
+
+::
+
+    POST /1.1/queues/3/memberships/agents
+    Host: xivoserver
+    Content-Type: application/json
+
+    {
+        "agent_id" : 32,
+        "penalty": 12
+    }
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 201
+    Location: /1.1/queues/3/memberships/agents/32
+
+    {
+        "agent_id": 32,
+        "queue_id": 3,
+        "penalty": 12
+    }
+
+Remove Agent from a Queue
+=========================
+
+Query
+-----
+
+::
+
+    DELETE /1.1/queues/<queue_id>/memberships/agents/<agent_id>
+
+Errors
+------
+
++------------+---------------------------------------------------------------------+-------------+
+| Error code | Error message                                                       | Description |
++============+=====================================================================+=============+
+| 404        | Queue with id=<queue_id> does not exist                             |             |
++------------+---------------------------------------------------------------------+-------------+
+| 404        | Agent with id=<agent_id> does not exist                             |             |
++------------+---------------------------------------------------------------------+-------------+
+| 404        | Invalid parameters: agent is not associated to this queue           |             |
++------------+---------------------------------------------------------------------+-------------+
+
+Example request
+---------------
+
+::
+
+    DELETE /1.1/queues/3/memberships/agents/18
+    Host: xivoserver
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 204 NO CONTENT
+
 
 Edit an Agent - Queue association
 =================================
@@ -116,3 +218,4 @@ Example response
 ::
 
     HTTP/1.1 204 OK
+
