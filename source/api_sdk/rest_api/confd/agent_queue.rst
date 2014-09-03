@@ -34,7 +34,7 @@ Query
 
 ::
 
-    GET /1.1/queues/<queue_id>/memberships/agents/<agent_id>
+    GET /1.1/queues/<queue_id>/members/agents/<agent_id>
 
 
 Errors
@@ -54,7 +54,7 @@ Example request
 
 ::
 
-    GET /1.1/queues/3/memberships/agents/18
+    GET /1.1/queues/3/members/agents/18
     Host: xivoserver
 
 
@@ -80,7 +80,7 @@ Query
 
 ::
 
-    POST /1.1/queues/<queue_id>/memberships/agents
+    POST /1.1/queues/<queue_id>/members/agents
 
 Input
 -----
@@ -112,7 +112,7 @@ Example request
 
 ::
 
-    POST /1.1/queues/3/memberships/agents
+    POST /1.1/queues/3/members/agents
     Host: xivoserver
     Content-Type: application/json
 
@@ -127,7 +127,7 @@ Example response
 ::
 
     HTTP/1.1 201
-    Location: /1.1/queues/3/memberships/agents/32
+    Location: /1.1/queues/3/members/agents/32
 
     {
         "agent_id": 32,
@@ -143,7 +143,7 @@ Query
 
 ::
 
-    DELETE /1.1/queues/<queue_id>/memberships/agents/<agent_id>
+    DELETE /1.1/queues/<queue_id>/members/agents/<agent_id>
 
 Errors
 ------
@@ -163,7 +163,7 @@ Example request
 
 ::
 
-    DELETE /1.1/queues/3/memberships/agents/18
+    DELETE /1.1/queues/3/members/agents/18
     Host: xivoserver
 
 
@@ -183,7 +183,7 @@ Query
 
 ::
 
-    PUT /1.1/queues/<queue_id>/memberships/agents/<agent_id>
+    PUT /1.1/queues/<queue_id>/members/agents/<agent_id>
 
 
 Errors
@@ -203,7 +203,7 @@ Example request
 
 ::
 
-    PUT /1.1/queues/3/memberships/agents/18
+    PUT /1.1/queues/3/members/agents/18
     Host: xivoserver
     Content-Type: application/json
     
