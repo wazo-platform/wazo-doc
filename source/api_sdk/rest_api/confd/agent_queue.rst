@@ -75,6 +75,8 @@ Example response
 Associate an Agent to a Queue
 =============================
 
+Position in queue is set to max position + 1 or 0 if it is the first member of the queue
+
 Query
 -----
 
