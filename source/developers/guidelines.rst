@@ -45,7 +45,7 @@ To be in accordance with our goal, a XiVO daemon must (if applicable):
 * Offer a REST API (with encryption, authentication and accepting cross-site requests)
 * Be able to read and send events on a software bus
 * Be able to run inside a container, such as Docker, and be separated from the XiVO server
-* Offer a configuration file
+* Offer a configuration file in YAML format.
 * Access the XiVO database through the ``xivo-dao`` library
 * Have a configurable level of logging
 * Have its own log file
