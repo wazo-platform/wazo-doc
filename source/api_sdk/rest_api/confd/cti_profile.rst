@@ -1,4 +1,4 @@
-.. _restapi-cti-profile:
+.. _confd-cti-profile:
 
 ************
 CTI Profiles

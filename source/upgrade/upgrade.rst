@@ -142,7 +142,7 @@ Upgrade Notes
 -----
 
 * Consult the `14.16 Roadmap <https://projects.xivo.io/versions/207>`_
-* See the :ref:`changelog <restapi_changelog>` for REST API
+* See the :ref:`changelog <confd_changelog>` for REST API
 * DAHDI is upgraded to 2.10.0. If the upgrade process asks about :file:`/etc/dahdi/modules`, we
   recommend that you keep the old version of the file.
 * Asterisk now inserts CEL and queue log entries via the ODBC asterisk modules instead of
@@ -169,7 +169,7 @@ Upgrade Notes
 -----
 
 * Consult the `14.14 Roadmap <https://projects.xivo.io/versions/205>`_
-* See the :ref:`changelog <restapi_changelog>` for REST API
+* See the :ref:`changelog <confd_changelog>` for REST API
 * Upon an important freeze of Asterisk, Asterisk will be restarted. See the `associated ticket
   <https://projects.xivo.io/issues/5165>`_ for more information.
 
@@ -178,7 +178,7 @@ Upgrade Notes
 -----
 
 * Consult the `14.13 Roadmap <https://projects.xivo.io/versions/204>`_
-* See the :ref:`changelog <restapi_changelog>` for REST API
+* See the :ref:`changelog <confd_changelog>` for REST API
 * Skills-based routing: for an agent which doesn't have the skill X, the rule X < 10 was
   previously evaluated to true, since not having the skill X was equivalent to having it with a
   value of 0. This behaviour has changed, and the same expression is now evaluated to false. If you

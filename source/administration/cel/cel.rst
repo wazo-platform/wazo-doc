@@ -28,7 +28,7 @@ returns all call logs from start date until now.
 REST API
 --------
 
-Call logs are also available from the REST API. See :ref:`restapi-call-logs`.
+Call logs are also available from the REST API. See :ref:`confd-call-logs`.
 
 
 Manual generation

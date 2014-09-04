@@ -1,4 +1,4 @@
-.. _restapi-device:
+.. _confd-device:
 
 *******
 Devices
