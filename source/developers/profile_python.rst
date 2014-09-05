@@ -21,7 +21,7 @@ Here's an example on how to profile xivo-ctid for CPU/time usage:
 
    This will create a file named ``test.profile`` when the process terminates.
 
-   Note that profiling multi-threaded program (xivo-agid, xivo-restapid) doesn't work reliably.
+   Note that profiling multi-threaded program (xivo-agid, xivo-confd) doesn't work reliably.
 
    The :ref:`debug-daemons` section documents how to launch the various XiVO services
    in foreground/debug mode.

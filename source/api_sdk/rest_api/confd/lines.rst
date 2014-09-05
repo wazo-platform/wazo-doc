@@ -1,4 +1,4 @@
-.. _restapi_lines:
+.. _confd_lines:
 
 *****
 Lines
@@ -426,7 +426,7 @@ Delete SIP Line
 A SIP line can not be deleted if it is still associated with a user, an extesion, or a device.
 Any user, extension, or device attached to the line must be dissociated first.
 Consult the documentation on :ref:`user-line-association`, :ref:`line-extension-associations`
-and :ref:`restapi-device` for further explanations.
+and :ref:`confd-device` for further explanations.
 
 **Query**::
 

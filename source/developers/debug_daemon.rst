@@ -155,22 +155,22 @@ Log file: ``/var/log/xivo-provd.log``
    2014-06-18 12:04:54,320 [8564] (INFO) (twisted): Site starting on 8666
 
 
-restapi
-=======
+confd
+=====
 
 ::
 
-    xivo-restapid -f -d
+    xivo-confd -f -d
 
 * -f for foreground
 * -d for debug messages
 
-Log file: ``/var/log/xivo-restapid.log``
+Log file: ``/var/log/xivo-confd.log``
 
 ::
 
-   2013-10-28 10:02:00,352 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): POST http://127.0.0.1:50050/1.1/devices with data {"mac":"00:00:00:00:00:00","template_id":"defaultconfigdevice","description":""}
-   2013-10-28 10:04:35,815 xivo-restapid[8905] (INFO) (xivo_restapi.flask_http_server): GET http://127.0.0.1:50050/1.1/devices
+   2013-10-28 10:02:00,352 xivo-confd[8905] (INFO) (xivo_confd.flask_http_server): POST http://127.0.0.1:50050/1.1/devices with data {"mac":"00:00:00:00:00:00","template_id":"defaultconfigdevice","description":""}
+   2013-10-28 10:04:35,815 xivo-confd[8905] (INFO) (xivo_confd.flask_http_server): GET http://127.0.0.1:50050/1.1/devices
 
 
 sysconfd

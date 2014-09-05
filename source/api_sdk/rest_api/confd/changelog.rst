@@ -1,4 +1,4 @@
-.. _restapi_changelog:
+.. _confd_changelog:
 
 ******************
 REST API changelog
@@ -22,4 +22,4 @@ REST API changelog
 14.13
 =====
 
-* Resource :ref:`line <restapi_lines>`, field ``provisioning_extension``: type changed from ``int`` to ``string``
+* Resource :ref:`line <confd_lines>`, field ``provisioning_extension``: type changed from ``int`` to ``string``
