@@ -191,3 +191,4 @@ API
 
    confd/api
    dird/api
+   sysconfd/api
