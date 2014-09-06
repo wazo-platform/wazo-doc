@@ -227,7 +227,7 @@ Example request
         'auto': True,
         'up': True,
         'options': [['dns-search', 'toto.tld tutu.tld'],
-                   ['dns-nameservers', '127.0.0.1 192.168.0.254']]i
+                   ['dns-nameservers', '127.0.0.1 192.168.0.254']]
     }
 
 Change state
