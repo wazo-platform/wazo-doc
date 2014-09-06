@@ -161,7 +161,7 @@ Query
 
 ::
 
-    POST /modify_physical_eth_ipv4/eth0
+    POST /modify_physical_eth_ipv4/<interface>
 
 Example request
 ---------------
@@ -184,7 +184,7 @@ Query
 
 ::
 
-    POST /replace_virtual_eth_ipv4/eth0:0
+    POST /replace_virtual_eth_ipv4/<virtual_interface>
 
 Example request
 ---------------
@@ -208,7 +208,27 @@ Query
 
 ::
 
-    POST /modify_eth_ipv4
+    POST /modify_eth_ipv4/<interface>
+
+Example request
+---------------
+
+::
+
+    POST /modify_eth_ipv4/eth0 HTTP/1.1
+    Host: xivoserver
+    Content-Type: application/json
+    {
+        'address': '192.168.0.1',
+        'netmask': '255.255.255.0',
+        'broadcast': '192.168.0.255',
+        'gateway': '192.168.0.254',
+        'mtu': 1500,
+        'auto': True,
+        'up': True,
+        'options': [['dns-search', 'toto.tld tutu.tld'],
+                   ['dns-nameservers', '127.0.0.1 192.168.0.254']]i
+    }
 
 Change state
 ============
@@ -218,7 +238,18 @@ Query
 
 ::
 
-    POST /change_state_eth_ipv4
+    POST /change_state_eth_ipv4/<interface>
+
+Example request
+---------------
+
+::
+
+    POST /change_state_eth_ipv4/eth0 HTTP/1.1
+    Host: xivoserver
+    Content-Type: application/json
+    {
+    }
 
 Delete interface ipv4
 =====================
@@ -229,3 +260,12 @@ Query
 ::
 
     GET /delete_eth_ipv4
+
+Example request
+---------------
+
+::
+
+    GET /delete_eth_ipv4/eth0 HTTP/1.1
+    Host: xivoserver
+    Content-Type: application/json
