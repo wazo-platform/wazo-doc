@@ -28,3 +28,4 @@ API reference
    services
    xivo_services
    handlers
+   status_check
