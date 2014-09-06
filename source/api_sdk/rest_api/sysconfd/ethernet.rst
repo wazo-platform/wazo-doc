@@ -15,6 +15,17 @@ Query
     GET /discover_netifaces
 
 
+Get interface
+=============
+
+Query
+-----
+
+::
+
+    GET /netiface
+
+
 
 Get interface from dst
 ======================
