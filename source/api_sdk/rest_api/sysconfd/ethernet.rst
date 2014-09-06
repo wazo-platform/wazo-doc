@@ -116,7 +116,7 @@ Query
 
 ::
 
-    GET /netiface_from_dst_address
+    POST /netiface_from_dst_address
 
 Example request
 ---------------
@@ -138,7 +138,20 @@ Query
 
 ::
 
-    GET /netiface_from_src_address
+    POST /netiface_from_src_address
+
+Example request
+---------------
+
+::
+
+    POST /netiface_from_src_address HTTP/1.1
+    Host: xivoserver
+    Content-Type: application/json
+    {
+        "address":   ["192.168.0.1", "172.16.1.1"]
+    }
+
 
 Modify interface
 ================
@@ -148,7 +161,20 @@ Query
 
 ::
 
-    POST /modify_physical_eth_ipv4
+    POST /modify_physical_eth_ipv4/eth0
+
+Example request
+---------------
+
+::
+
+    POST /modify_physical_eth_ipv4/eth0 HTTP/1.1
+    Host: xivoserver
+    Content-Type: application/json
+    {
+        'method': 'dhcp',
+        'auto':   True
+    }
 
 Replace virtual interface
 =========================
@@ -158,7 +184,21 @@ Query
 
 ::
 
-    POST /replace_virtual_eth_ipv4
+    POST /replace_virtual_eth_ipv4/eth0:0
+
+Example request
+---------------
+
+::
+
+    POST /replace_physical_eth_ipv4/eth0:0 HTTP/1.1
+    Host: xivoserver
+    Content-Type: application/json
+    {
+        'ifname': 'eth0:0',
+        'method': 'dhcp',
+        'auto': True
+    }
 
 Modify interface
 ================
