@@ -249,6 +249,7 @@ Example request
     Host: xivoserver
     Content-Type: application/json
     {
+        'state': True
     }
 
 Delete interface ipv4
