@@ -259,7 +259,7 @@ Query
 
 ::
 
-    GET /delete_eth_ipv4
+    GET /delete_eth_ipv4/<interface>
 
 Example request
 ---------------
