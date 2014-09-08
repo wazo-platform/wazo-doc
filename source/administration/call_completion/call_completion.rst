@@ -71,27 +71,66 @@ Some timers governs the use of call completion. These are:
 Special Scenarios
 -----------------
 
-When the caller is called back in the context of call completion, XiVO attempts to call the callee
-in a way similar to directly calling the user.
+There are four special scenarios:
 
-This means that if, for example, the callee has enabled the `Do Not Disturb` functionality, then the
-call completion callback will ultimately fail to reach the callee. The behaviour is similar if the
-user has an unconditional call forwarding, a schedule, a call permission or a preprocess subroutine,
-etc.
+* the call completion will not activate
+* the call completion will activate and call back for the original called party
+* the call completion will activate and call back for the rerouted called party
+* the call completion will activate and call back for the original called party but fail to join him
 
-In the following scenario:
+Call completion will not activate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Alice attemps to call Bob.
-#. Bob is currently on a phone call, so he doesn't answer the call from Alice.
-#. Bob has enabled a forward on no answer to Carol, so Alice is redirected to Carol.
-#. Carol begins to ring.
-#. Alice hangs up.
-#. Alice then dial \*40 to request call completion.
+Scenario: Alice tries to call Bob, but the call is redirected to Charlie. When activating call
+completion, Alice hears that the call completion can not be activated.
 
-The call completion request will monitor the first phone that was called, i.e. it will monitor Bob's
-phone. When Bob becomes not busy, the call completion callback will try to call Bob's on behalf of
-Alice.
+This occurs when Bob redirects/rejects the call with any of the following:
 
+* Unconditional call forwarding towards Charlie
+* Closed schedule towards Charlie
+* Call permission forbidding Alice to call Bob
+* Preprocess subroutine forwarding the call towards Charlie
+
+Call completion will activate and call back for the original called party
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Scenario: Alice tries to call Bob, but the call is redirected to Charlie. When activating call
+completion, Alice hears that the call completion is activated and eventually Alice is called back to
+speak with Bob.
+
+This occurs when Bob redirects/rejects the call with any of the following:
+
+* No-answer call forwarding towards Charlie
+* Busy call forwarding towards Charlie
+
+Call completion will activate and call back for the rerouted called party
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Scenario: Alice tries to call Bob, but the call is redirected to Charlie. When activating call
+completion, Alice hears that the call completion is activated and eventually Alice is called back to
+speak with Charlie.
+
+This occurs when Bob redirects the call with any of the following:
+
+* Boss-Secretary filter to the secretary Charlie
+
+Call completion will activate and call back for the original called party but fail to join him
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Scenario: Alice tries to call Bob, but the call is redirected to Charlie. When activating call
+completion, Alice hears that the call completion is activated and eventually Alice is called back to
+speak with Bob. But when Alice answers, Bob is not called. If Alice activates call completion again,
+she will hear that the call completion was cancelled.
+
+This occurs when Bob redirects/rejects the call with any of the following:
+
+* Do Not Disturb mode
+* a new call forwarding rule that was applied after Alice activated call completion:
+
+  * Unconditional call forwarding towards Charlie
+  * Closed schedule towards Charlie
+  * Call permission forbidding Alice to call Bob
+  * Preprocess subroutine forwarding the call towards Charlie
 
 Limitations
 -----------
