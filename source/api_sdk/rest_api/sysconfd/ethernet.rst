@@ -139,45 +139,6 @@ Example response
     }
 
 
-Get interface from dst
-======================
-
-Query
------
-
-::
-
-    GET /netiface_from_dst_address/<ip_address>
-
-Example request
----------------
-
-::
-
-    GET /netiface_from_dst_address/192.168.0.1 HTTP/1.1
-    Host: xivoserver
-    Content-Type: application/json
-
-Get interface from src 
-=======================
-
-Query
------
-
-::
-
-    GET /netiface_from_src_address/<ip_address>
-
-Example request
----------------
-
-::
-
-    GET /netiface_from_src_address/192.168.1.1 HTTP/1.1
-    Host: xivoserver
-    Content-Type: application/json
-
-
 Modify interface
 ================
 
