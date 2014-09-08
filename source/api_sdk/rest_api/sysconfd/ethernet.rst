@@ -93,18 +93,49 @@ Query
 
 ::
 
-    POST /netiface
+    GET /netiface/<interface>
 
 Example request
 ---------------
 
 ::
 
-    POST /netiface HTTP/1.1
+    GET /netiface/eth0 HTTP/1.1
     Host: xivoserver
     Content-Type: application/json
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
     {
-        "iface":   ["lo", "eth0"]
+       "eth0":
+       {
+           "alias-raw-device": null,
+           "family": "inet",
+           "hwaddress": "36:76:70:29:69:c2",
+           "vlan-id": null,
+           "network": "172.17.0.0",
+           "physicalif": false,
+           "vlan-raw-device": null,
+           "vlanif": false,
+           "type": "eth",
+           "aliasif": false,
+           "broadcast": "172.17.255.255",
+           "netmask": "255.255.0.0",
+           "address": "172.17.0.101",
+           "typeid": 6,
+           "name": "eth0",
+           "hwtypeid": 1,
+           "dummyif": false,
+           "mtu": 1500,
+           "carrier": true,
+           "flags": 3,
+           "options": null
+       }
     }
 
 
@@ -116,19 +147,16 @@ Query
 
 ::
 
-    POST /netiface_from_dst_address
+    GET /netiface_from_dst_address/<ip_address>
 
 Example request
 ---------------
 
 ::
 
-    POST /netiface_from_dst_address HTTP/1.1
+    GET /netiface_from_dst_address/192.168.0.1 HTTP/1.1
     Host: xivoserver
     Content-Type: application/json
-    {
-        "address":   ["192.168.0.1", "172.16.1.1"]
-    }
 
 Get interface from src 
 =======================
@@ -138,19 +166,16 @@ Query
 
 ::
 
-    POST /netiface_from_src_address
+    GET /netiface_from_src_address/<ip_address>
 
 Example request
 ---------------
 
 ::
 
-    POST /netiface_from_src_address HTTP/1.1
+    GET /netiface_from_src_address/192.168.1.1 HTTP/1.1
     Host: xivoserver
     Content-Type: application/json
-    {
-        "address":   ["192.168.0.1", "172.16.1.1"]
-    }
 
 
 Modify interface
@@ -161,17 +186,18 @@ Query
 
 ::
 
-    POST /modify_physical_eth_ipv4/<interface>
+    PUT /modify_physical_eth_ipv4
 
 Example request
 ---------------
 
 ::
 
-    POST /modify_physical_eth_ipv4/eth0 HTTP/1.1
+    PUT /modify_physical_eth_ipv4 HTTP/1.1
     Host: xivoserver
     Content-Type: application/json
     {
+        'ifname': 'eth0'
         'method': 'dhcp',
         'auto':   True
     }
@@ -184,18 +210,19 @@ Query
 
 ::
 
-    POST /replace_virtual_eth_ipv4/<virtual_interface>
+    PUT /replace_virtual_eth_ipv4
 
 Example request
 ---------------
 
 ::
 
-    POST /replace_physical_eth_ipv4/eth0:0 HTTP/1.1
+    PUT /replace_physical_eth_ipv4 HTTP/1.1
     Host: xivoserver
     Content-Type: application/json
     {
-        'ifname': 'eth0:0',
+        'ifname': 'eth0:0'
+        'new_ifname': 'eth0:1',
         'method': 'dhcp',
         'auto': True
     }
@@ -208,17 +235,18 @@ Query
 
 ::
 
-    POST /modify_eth_ipv4/<interface>
+    PUT /modify_eth_ipv4
 
 Example request
 ---------------
 
 ::
 
-    POST /modify_eth_ipv4/eth0 HTTP/1.1
+    PUT /modify_eth_ipv4 HTTP/1.1
     Host: xivoserver
     Content-Type: application/json
     {
+        'ifname' : 'eth0'
         'address': '192.168.0.1',
         'netmask': '255.255.255.0',
         'broadcast': '192.168.0.255',
@@ -238,17 +266,18 @@ Query
 
 ::
 
-    POST /change_state_eth_ipv4/<interface>
+    PUT /change_state_eth_ipv4
 
 Example request
 ---------------
 
 ::
 
-    POST /change_state_eth_ipv4/eth0 HTTP/1.1
+    PUT /change_state_eth_ipv4 HTTP/1.1
     Host: xivoserver
     Content-Type: application/json
     {
+        'ifname' : 'eth0',
         'state': True
     }
 
