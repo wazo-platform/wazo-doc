@@ -151,7 +151,7 @@ Upgrade Notes
 -----
 
 * Consult the `14.16 Roadmap <https://projects.xivo.io/versions/207>`_
-* See the :ref:`changelog <confd_changelog>` for REST API
+* See the :ref:`changelog <confd_changelog>` for xivo-confd's REST API
 * DAHDI is upgraded to 2.10.0. If the upgrade process asks about :file:`/etc/dahdi/modules`, we
   recommend that you keep the old version of the file.
 * Asterisk now inserts CEL and queue log entries via the ODBC asterisk modules instead of
