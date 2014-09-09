@@ -1,0 +1,7 @@
+/var/log/xivo-testd.log {
+    daily
+    rotate 15
+    compress
+    copytruncate
+    missingok
+}

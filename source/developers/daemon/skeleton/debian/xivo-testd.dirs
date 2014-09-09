@@ -1,0 +1,3 @@
+etc/xivo/xivo-testd
+tmp/xivo-testd
+var/run/xivo-testd
