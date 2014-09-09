@@ -206,8 +206,7 @@ Example request
     Content-Type: application/json
     
     {
-        "extension": "2312",
-        "context": "office-1"
+        "number": "2312"
     }
     
 
