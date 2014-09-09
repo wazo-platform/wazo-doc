@@ -22,7 +22,7 @@ Load the correct DAHDI modules
 
 .. highlight:: none
 
-* Know which card is in your server: 
+* Know which card is in your server:
 
 You can see which cards are detected by issuing the ``dahdi_hardware`` command::
 
@@ -30,12 +30,14 @@ You can see which cards are detected by issuing the ``dahdi_hardware`` command::
    pci:0000:05:0d.0     wcb4xxp+     d161:b410 Digium Wildcard B410P
    pci:0000:05:0e.0     wct4xxp+     d161:0205 Wildcard TE205P (4th Gen)
 
-* Then you have to comment all the unused modules in :file:`/etc/dahdi/modules`.
+* Then you have to generate file :file:`/etc/dahdi/modules`.
 
-For example, if you have one B410P and one TE205P you should comment every modules in :file:`/etc/dahdi/modules` except::
+For example, if you have one B410P and one TE205P, your :file:`/etc/dahdi/modules` file should contain the following lines::
 
     wcb4xxp
     wct4xxp
+
+You can find a sample :file:`/etc/dahdi/modules` in :file:`/usr/share/dahdi/modules`
 
 * **If this is a TE13X card** (``wcte13xp`` module) you **MUST** create a configuration file to set the line mode
   as E1 (or T1).
@@ -79,12 +81,12 @@ firmware does DAHDI request at startup::
    [    7.781192] wct4xxp 0000:05:0e.0: firmware: requesting dahdi-fw-oct6114-064.bin
 
 Otherwise you can also issue (with DAHDI >= 2.5.0) the ``cat /proc/dahdi/1`` command
-(assuming that the span 1 is a PRI port) and you should see lines containing something like 
+(assuming that the span 1 is a PRI port) and you should see lines containing something like
 ``EC: VPMOCT64`` which tells you the echo-canceller module you have::
 
-   cat /proc/dahdi/1 
-   Span 1: TE2/0/1 "T2XXP (PCI) Card 0 Span 1" HDB3/CCS ClockSource 
-   
+   cat /proc/dahdi/1
+   Span 1: TE2/0/1 "T2XXP (PCI) Card 0 Span 1" HDB3/CCS ClockSource
+
    1 TE2/0/1/1 Clear (In use) (EC: VPMOCT064 - INACTIVE)
    .....................................................
 
@@ -109,9 +111,9 @@ Get help on xivo-fetchfw::
 Activate the Hardware Echo-cancellation
 ---------------------------------------
 
-To use the hardware echo-canceller of the card you must activate it in 
+To use the hardware echo-canceller of the card you must activate it in
 :file:`/etc/asterisk/chan_dahdi.conf` file::
-    
+
     echocancel = 1
 
 
@@ -149,7 +151,7 @@ Generate DAHDI configuration
 ----------------------------
 
 Issue the command::
-  
+
   dahdi_genconf
 
 .. warning:: it will erase all existing configuration in :file:`/etc/dahdi/system.conf`
@@ -168,34 +170,34 @@ Configure
  Following is **an example** :file:`/etc/dahdi/system.conf` file for a B410P 4 ports for French network
  (check the comments and see the :ref:`system_conf` section !)::
 
-    # Span 1: B4/0/1 "B4XXP (PCI) Card 0 Span 1" (MASTER) RED 
-    # span=1 (this is the first span), 
+    # Span 1: B4/0/1 "B4XXP (PCI) Card 0 Span 1" (MASTER) RED
+    # span=1 (this is the first span),
     #      1 (this is the primary clock source)
     #      0 (-)
     #      ccs (use ccs framing)
     #      ami (use ami coding )
-    span=1,1,0,ccs,ami 
+    span=1,1,0,ccs,ami
     # termtype: te
     bchan=1-2
     hardhdlc=3
     echocanceller=mg2,1-2
-    
-    # Span 2: B4/0/2 "B4XXP (PCI) Card 0 Span 2" RED 
+
+    # Span 2: B4/0/2 "B4XXP (PCI) Card 0 Span 2" RED
     span=2,2,0,ccs,ami
     # termtype: te
     bchan=4-5
     hardhdlc=6
     echocanceller=mg2,4-5
 
-    # Span 3: B4/0/3 "B4XXP (PCI) Card 0 Span 3" RED 
+    # Span 3: B4/0/3 "B4XXP (PCI) Card 0 Span 3" RED
     span=3,3,0,ccs,ami
     # termtype: te
     bchan=7-8
     hardhdlc=9
     echocanceller=mg2,7-8
 
-    # Span 4: B4/0/4 "B4XXP (PCI) Card 0 Span 4" RED 
-    # span=4 (this is the fourth span), 
+    # Span 4: B4/0/4 "B4XXP (PCI) Card 0 Span 4" RED
+    # span=4 (this is the fourth span),
     #      0 (won't use this span as a sync source)
     #      0 (-)
     #      ccs (use ccs framing)
@@ -210,10 +212,10 @@ Configure
 * Modify the :file:`/etc/asterisk/dahdi-channels.conf` file :
 
  * remove the unused lines like::
- 
+
      context = default
      group = 63
-  
+
  * Change the ``context`` lines if needed,
  * The ``signaling`` should be one of ``{bri_net,bri_cpe,bri_net_ptmp,bri_cpe_ptmp}``.
 
@@ -226,21 +228,21 @@ Configure
     switchtype = euroisdn
     signalling = bri_cpe    ; use 'bri_cpe' signaling
     channel => 1-2          ; the above configuration applies to channels 1 and 2
-    
+
     ; Span 2: B4/0/2 "B4XXP (PCI) Card 0 Span 2" RED
     group=0,12
     context=from-extern
     switchtype = euroisdn
     signalling = bri_cpe
     channel => 4-5
-    
+
     ; Span 3: B4/0/3 "B4XXP (PCI) Card 0 Span 3" RED
     group=0,13
     context=from-extern
     switchtype = euroisdn
     signalling = bri_cpe
     channel => 7-8
-    
+
     ; Span 4: B4/0/4 "B4XXP (PCI) Card 0 Span 4" RED
     group=1,14              ; belongs to groups 1 and 14
     context=default         ; incoming call to this span will be sent in 'defaul' context
@@ -252,10 +254,10 @@ Configure
 Special cases
 -------------
 
-Here are some special cases where you might need to modify the default options : 
+Here are some special cases where you might need to modify the default options :
 
-* if your telecom operator brings layer 1 down when the line is idle, you should add the following 
-  option in :file:`/etc/asterisk/chan_dahdi.conf` and restart asterisk (works with XiVO 12.20 and 
+* if your telecom operator brings layer 1 down when the line is idle, you should add the following
+  option in :file:`/etc/asterisk/chan_dahdi.conf` and restart asterisk (works with XiVO 12.20 and
   above)::
 
      layer2_persistence=keep_up
@@ -273,7 +275,7 @@ Verify that one of the ``{wct1xxp,wcte11xp,wcte12xp,wcte13xp,wct4xxp}`` module i
 If it wasn't, do again the step :ref:`load_dahdi_modules`
 
 .. warning:: **TE13XP** cards :
-    
+
     * these cards need a specific dahdi module configuration. See :ref:`load_dahdi_modules` paragraph,
     * you **MUST** install the correct echo-canceller firmware to be able to use these cards. See :ref:`hwec_configuration` paragraph.
 
@@ -281,7 +283,7 @@ Generate DAHDI configuration
 ----------------------------
 
 Issue the command::
-  
+
   dahdi_genconf
 
 .. warning:: it will erase all existing configuration in :file:`/etc/dahdi/system.conf`
@@ -300,10 +302,10 @@ Configure
 * Modify the :file:`/etc/asterisk/dahdi-channels.conf` file :
 
  * remove the unused lines like::
- 
+
      context = default
      group = 63
-  
+
  * Change the ``context`` lines if needed,
  * The ``signaling`` should be one of ``{pri_net,pri_cpe}``.
 
@@ -347,7 +349,7 @@ Generate DAHDI configuration
 ----------------------------
 
 Issue the command::
-  
+
   dahdi_genconf
 
 .. warning:: it will erase all existing configuration in :file:`/etc/dahdi/system.conf`
@@ -378,9 +380,9 @@ Where <module> is the DAHDI module name of your card (e.g. wctdm for a TDM400P).
 #. Modify the :file:`/etc/asterisk/dahdi-channels.conf` file :
 
   * remove the unused lines like::
-  
+
      context = default
-     group = 63 
+     group = 63
 
   * Change the ``context`` lines if needed
 
@@ -418,7 +420,7 @@ Example::
    cat << EOF > /etc/modprobe.d/xivo-transcode.conf
    options wctc4xxp mode=g729
    EOF
-   
+
 After having applied the configuration (see `Apply configuration`_ section) you can verify that the
 card is correctly seen by asterisk with the ``transcoder show`` CLI command - this command should show
 the encoders/decoders registered by the TC400 card::
@@ -454,9 +456,9 @@ If the *IRQ misses* counter increments, it's not good::
    cat /proc/dahdi/1
    Span 1: WCTDM/0 "Wildcard TDM800P Board 1" (MASTER)
    IRQ misses: 1762187
-     1 WCTDM/0/0 FXOKS (In use) 
-     2 WCTDM/0/1 FXOKS (In use) 
-     3 WCTDM/0/2 FXOKS (In use) 
+     1 WCTDM/0/0 FXOKS (In use)
+     2 WCTDM/0/1 FXOKS (In use)
+     3 WCTDM/0/2 FXOKS (In use)
      4 WCTDM/0/3 FXOKS (In use)
 
 Digium gives some hints in their *Knowledge Base* here : http://kb.digium.com/entry/1/63/
