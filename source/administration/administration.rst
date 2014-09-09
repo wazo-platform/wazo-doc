@@ -7,6 +7,7 @@ Administration
 
    advanced_configuration/advanced_configuration
    boss_secretary_filter
+   call_completion/call_completion
    callright/callright
    cel/cel
    conference_room/conference_room
