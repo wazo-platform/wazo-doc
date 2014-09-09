@@ -2,19 +2,17 @@
 Call Completion
 ***************
 
-The call completion feature (or CCSS, for Call Completion Supplementary Service) in XiVO allows for
+The call completion feature (or CCSS, for Call Completion Supplementary Services) in XiVO allows for
 a caller to be automatically called back when a called party has become available.
 
-#. To illustrate, let's say Alice attemps to call Bob.
+#. To illustrate, let's say Alice attempts to call Bob.
 #. Bob is currently on a phone call with Carol, though, so Bob rejects the call from Alice, and
    Alice hears a message saying that Bob is busy.
 #. Alice then dials \*40 to request call completion.
-#. Once Bob has finished his phone call, Alice will be automatically called back.
+#. Once Bob has finished his phone call, Alice will be automatically called back by the system.
 #. When she answers, Bob will be called on her behalf.
 
 This feature has been introduced in XiVO in version 14.17.
-
-.. note:: The call completion feature is currently being developed.
 
 
 Description
@@ -29,7 +27,7 @@ We have already discussed the busy scenario in the introduction section.
 
 Let's now illustrate the no answer scenario:
 
-#. Alice attemps to call Bob.
+#. Alice attempts to call Bob.
 #. Bob doesn't answer the phone. Alternatively, Alice hangs up before Bob has the time to answer the
    call.
 #. Alice then dial \*40 to request call completion.
@@ -44,7 +42,7 @@ In fact, in all scenarios, after call completion has been requested by the calle
 needs to transition from busy to no longer busy for the caller to be called back.  This means that
 in the following scenario:
 
-#. Alice attemps to call Bob.
+#. Alice attempts to call Bob.
 #. Bob is currently on a phone call, so he doesn't answer the call from Alice.
 #. Bob finish his call a few seconds later.
 #. Alice then dials \*40 to request call completion (Bob is not busy anymore).
@@ -66,6 +64,8 @@ Some timers governs the use of call completion. These are:
   response is requested. Defaults to 900 (seconds).
 * recall timer: when the caller who requested call completion is called back, how long the original
   caller's phone rings before giving up. Defaults to 30 (seconds).
+
+It's currently impossible to modify the value of these timers in XiVO.
 
 
 Special Scenarios
