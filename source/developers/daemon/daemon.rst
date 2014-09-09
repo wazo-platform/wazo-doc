@@ -10,7 +10,7 @@ Example for xivo-testd
 - /etc/xivo/xivo-testd/testd.yml
 - /var/log/xivo-testd.log
 - /var/run/xivo-testd/xivo-testd.pid
-- /tmp/xivo-testd/xivo-testd.sock
+- /tmp/xivo-testd/rest-api.sock
 
 - bin/
 - bin/xivo-test

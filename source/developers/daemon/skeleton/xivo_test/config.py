@@ -13,7 +13,7 @@ class ConfigTestd(object):
 
     LOG_FILENAME = '/var/log/{}.log'.format(_DAEMONNAME)
     PID_FILENAME = '/var/run/{daemon}/{daemon}.pid'.format(daemon=_DAEMONNAME)
-    SOCKET_FILENAME = '/tmp/{}.sock'.format(_DAEMONNAME)
+    SOCKET_FILENAME = '/tmp/{daemon}/rest-api.sock'.format(_DAEMONNAME)
 
     def __init__(self, d):
         for k in d:
