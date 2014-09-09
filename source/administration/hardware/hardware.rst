@@ -30,14 +30,14 @@ You can see which cards are detected by issuing the ``dahdi_hardware`` command::
    pci:0000:05:0d.0     wcb4xxp+     d161:b410 Digium Wildcard B410P
    pci:0000:05:0e.0     wct4xxp+     d161:0205 Wildcard TE205P (4th Gen)
 
-* Then you have to generate file :file:`/etc/dahdi/modules`.
+* Then you have to create the file :file:`/etc/dahdi/modules` according to your hardware. You can
+  copy and edit the sample file from :file:`/usr/share/dahdi/modules.sample`, leaving only the
+  needed modules.
 
 For example, if you have one B410P and one TE205P, your :file:`/etc/dahdi/modules` file should contain the following lines::
 
     wcb4xxp
     wct4xxp
-
-You can find a sample :file:`/etc/dahdi/modules` in :file:`/usr/share/dahdi/modules.sample`
 
 * **If this is a TE13X card** (``wcte13xp`` module) you **MUST** create a configuration file to set the line mode
   as E1 (or T1).
