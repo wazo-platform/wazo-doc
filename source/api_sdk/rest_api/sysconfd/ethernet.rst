@@ -158,9 +158,9 @@ Example request
     Host: xivoserver
     Content-Type: application/json
     {
-        'ifname': 'eth0'
+        'ifname': 'eth0',
         'method': 'dhcp',
-        'auto':   True
+        'auto': True
     }
 
 Replace virtual interface
