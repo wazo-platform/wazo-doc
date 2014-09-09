@@ -34,19 +34,21 @@ Query
 
 ::
 
-    GET /1.1/queues/<queue_id>/memberships/agents/<agent_id>
+    GET /1.1/queues/<queue_id>/members/agents/<agent_id>
 
 
 Errors
 ------
 
-+------------+---------------------------------------------------------------------+-------------+
-| Error code | Error message                                                       | Description |
-+============+=====================================================================+=============+
-| 404        | Queue with id=<queue_id> is not associated with agent id=<agent_id> |             |
-+------------+---------------------------------------------------------------------+-------------+
-| 404        | Queue with id=<queue_id> does not exist                             |             |
-+------------+---------------------------------------------------------------------+-------------+
++------------+-------------------------------------------------------------------------------------------------+-------------+
+| Error code | Error message                                                                                   | Description |
++============+=================================================================================================+=============+
+| 404        | Resource Not Found - QueueMember was not found ('agent_id': <agent_id>, 'queue_id': <queue_id>) |             |
++------------+-------------------------------------------------------------------------------------------------+-------------+
+| 404        | Resource Not Found - Queue was not found ('queue_id': <queue_id>)                               |             |
++------------+-------------------------------------------------------------------------------------------------+-------------+
+| 404        | Resource Not Found - Agent was not found ('agent_id': <agent_id>)                               |             |
++------------+-------------------------------------------------------------------------------------------------+-------------+
 
 
 Example request
@@ -54,7 +56,7 @@ Example request
 
 ::
 
-    GET /1.1/queues/3/memberships/agents/18
+    GET /1.1/queues/3/members/agents/18
     Host: xivoserver
 
 
@@ -72,6 +74,110 @@ Example response
         "penalty": 5
     }
 
+Associate an Agent to a Queue
+=============================
+
+Position in queue is set to max position + 1 or 0 if it is the first member of the queue
+
+Query
+-----
+
+::
+
+    POST /1.1/queues/<queue_id>/members/agents
+
+Input
+-----
+
++-----------+----------+---------+------------------------+
+| Field     | Required | Values  | Description            |
++===========+==========+=========+========================+
+| agent_id  | yes      | int     | Must be an existing id |
++-----------+----------+---------+------------------------+
+| penalty   | yes      | int     | >  0                   |
++-----------+----------+---------+------------------------+
+
+Errors
+------
+
++------------+---------------------------------------------------------------------+-------------+
+| Error code | Error message                                                       | Description |
++============+=====================================================================+=============+
+| 404        | Resource Not Found - Queue was not found ('queue_id': <queue_id>)   |             |
++------------+---------------------------------------------------------------------+-------------+
+| 400        | Input Error - field 'agent_id': Agent was not found                 |             |
++------------+---------------------------------------------------------------------+-------------+
+| 400        | Resource Error - Agent is associated with a Queue                   |             |
++------------+---------------------------------------------------------------------+-------------+
+
+
+Example request
+---------------
+
+::
+
+    POST /1.1/queues/3/members/agents
+    Host: xivoserver
+    Content-Type: application/json
+
+    {
+        "agent_id" : 32,
+        "penalty": 12
+    }
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 201
+    Location: /1.1/queues/3/members/agents/32
+
+    {
+        "agent_id": 32,
+        "queue_id": 3,
+        "penalty": 12
+    }
+
+Remove Agent from a Queue
+=========================
+
+Query
+-----
+
+::
+
+    DELETE /1.1/queues/<queue_id>/members/agents/<agent_id>
+
+Errors
+------
+
++------------+-------------------------------------------------------------------------------------------------+-------------+
+| Error code | Error message                                                                                   | Description |
++============+=================================================================================================+=============+
+| 404        | Resource Not Found - QueueMember was not found ('agent_id': <agent_id>, 'queue_id': <queue_id>) |             |
++------------+-------------------------------------------------------------------------------------------------+-------------+
+| 404        | Resource Not Found - Queue was not found ('queue_id': <queue_id>)                               |             |
++------------+-------------------------------------------------------------------------------------------------+-------------+
+| 404        | Resource Not Found - Agent was not found ('agent_id': <agent_id>)                               |             |
++------------+-------------------------------------------------------------------------------------------------+-------------+
+
+Example request
+---------------
+
+::
+
+    DELETE /1.1/queues/3/members/agents/18
+    Host: xivoserver
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 204 NO CONTENT
+
 
 Edit an Agent - Queue association
 =================================
@@ -81,19 +187,21 @@ Query
 
 ::
 
-    PUT /1.1/queues/<queue_id>/memberships/agents/<agent_id>
+    PUT /1.1/queues/<queue_id>/members/agents/<agent_id>
 
 
 Errors
 ------
 
-+------------+---------------------------------------------------------------------+-------------+
-| Error code | Error message                                                       | Description |
-+============+=====================================================================+=============+
-| 404        | Queue with id=<queue_id> is not associated with agent id=<agent_id> |             |
-+------------+---------------------------------------------------------------------+-------------+
-| 404        | Queue with id=<queue_id> does not exist                             |             |
-+------------+---------------------------------------------------------------------+-------------+
++------------+-------------------------------------------------------------------------------------------------+-------------+
+| Error code | Error message                                                                                   | Description |
++============+=================================================================================================+=============+
+| 404        | Resource Not Found - QueueMember was not found ('agent_id': <agent_id>, 'queue_id': <queue_id>) |             |
++------------+-------------------------------------------------------------------------------------------------+-------------+
+| 404        | Resource Not Found - Queue was not found ('queue_id': <queue_id>)                               |             |
++------------+-------------------------------------------------------------------------------------------------+-------------+
+| 404        | Resource Not Found - Agent was not found ('agent_id': <agent_id>)                               |             |
++------------+-------------------------------------------------------------------------------------------------+-------------+
 
 
 Example request
@@ -101,7 +209,7 @@ Example request
 
 ::
 
-    PUT /1.1/queues/3/memberships/agents/18
+    PUT /1.1/queues/3/members/agents/18
     Host: xivoserver
     Content-Type: application/json
     
@@ -116,3 +224,4 @@ Example response
 ::
 
     HTTP/1.1 204 OK
+
