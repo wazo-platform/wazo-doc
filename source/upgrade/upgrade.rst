@@ -143,7 +143,7 @@ Upgrade Notes
 
 * Consult the `14.17 Roadmap <https://projects.xivo.io/versions/208>`_
 * DAHDI configuration file :file:`/etc/dahdi/modules` is no more created by default and must now be
-  maintained manually. No action is needed uppon upgrade but be aware that the upstream sample file
+  maintained manually. No action is needed upon upgrade but be aware that the upstream sample file
   is now available in :file:`/usr/share/dahdi/modules.sample`. See
   :ref:`dahdi modules documentation <load_dahdi_modules>` for detailed info.
 
