@@ -5,7 +5,7 @@ import os
 import yaml
 
 _DAEMONNAME = 'xivo-testd'
-_CONF_DIR = '/etc/xivo/xivo-testd'
+_CONF_DIR = '/etc/xivo/{}'.format(_DAEMONNAME)
 _CONF_FILENAME = '{}.yml'.format(_DAEMONNAME)
 
 

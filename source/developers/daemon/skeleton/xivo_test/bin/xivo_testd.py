@@ -26,6 +26,8 @@ def main():
 
 
 def _run():
+    _init_signal()
+
     ...
 
     logger.debug('WSGIServer starting with uid %s', os.getuid())
