@@ -34,13 +34,14 @@ You can see which cards are detected by issuing the ``dahdi_hardware`` command::
   copy and edit the sample file from :file:`/usr/share/dahdi/modules.sample`, leaving only the
   needed modules.
 
-For example, if you have one B410P and one TE205P, your :file:`/etc/dahdi/modules` file should contain the following lines::
+For example, if you have one B410P and one TE205P, your :file:`/etc/dahdi/modules` file should
+contain the following lines::
 
     wcb4xxp
     wct4xxp
 
-* **If this is a TE13X card** (``wcte13xp`` module) you **MUST** create a configuration file to set the line mode
-  as E1 (or T1).
+* **If this is a TE13X card** (``wcte13xp`` module) you **MUST** create a configuration file to set
+  the line mode as E1 (or T1).
 
 Contrarily to other cards there is no jumper to change the line mode. The configuration below
 sets the card in E1 mode::
