@@ -37,7 +37,7 @@ For example, if you have one B410P and one TE205P, your :file:`/etc/dahdi/module
     wcb4xxp
     wct4xxp
 
-You can find a sample :file:`/etc/dahdi/modules` in :file:`/usr/share/dahdi/modules`
+You can find a sample :file:`/etc/dahdi/modules` in :file:`/usr/share/dahdi/modules.sample`
 
 * **If this is a TE13X card** (``wcte13xp`` module) you **MUST** create a configuration file to set the line mode
   as E1 (or T1).
