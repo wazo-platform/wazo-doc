@@ -38,7 +38,7 @@ Example request
 
 ::
 
-    PUT /1.1/add_to_queue
+    POST /1.1/add_to_queue
     Host: xivoserver
     Content-Type: application/json
     
@@ -93,7 +93,7 @@ Example request
 
 ::
 
-    PUT /1.1/remove_from_queue
+    POST /1.1/remove_from_queue
     Host: xivoserver
     Content-Type: application/json
     
@@ -148,7 +148,7 @@ Example request
 
 ::
 
-    PUT /1.1/login_with_extension_context
+    POST /1.1/login_with_extension_context
     Host: xivoserver
     Content-Type: application/json
     
@@ -201,7 +201,7 @@ Example request
 
 ::
 
-    PUT /1.1/login_with_number
+    POST /1.1/login_with_number
     Host: xivoserver
     Content-Type: application/json
     
@@ -253,7 +253,7 @@ Example request
 
 ::
 
-    PUT /1.1/logoff_with_id
+    POST /1.1/logoff_with_id
     Host: xivoserver
     Content-Type: application/json
     
