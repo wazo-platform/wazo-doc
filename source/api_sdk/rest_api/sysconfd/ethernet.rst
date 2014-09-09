@@ -206,14 +206,14 @@ Example request
 
 ::
 
-    PUT /replace_physical_eth_ipv4 HTTP/1.1
+    PUT /replace_virtual_eth_ipv4 HTTP/1.1
     Host: xivoserver
     Content-Type: application/json
     {
-        'ifname': 'eth0:0'
-        'new_ifname': 'eth0:1',
-        'method': 'dhcp',
-        'auto': True
+        "ifname": "eth0:0",
+        "new_ifname": "eth0:1",
+        "method": "dhcp",
+        "auto": "True"
     }
 
 Modify interface
