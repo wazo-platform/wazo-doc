@@ -41,12 +41,12 @@ Example request
     POST /0.1/add_to_queue
     Host: xivoserver
     Content-Type: application/json
-    
+
     {
         "agent_id": 5,
         "queue_id": 15
     }
-    
+
 
 Example response
 ----------------
@@ -96,12 +96,12 @@ Example request
     POST /0.1/remove_from_queue
     Host: xivoserver
     Content-Type: application/json
-    
+
     {
         "agent_id": 5,
         "queue_id": 15
     }
-    
+
 
 Example response
 ----------------
@@ -151,12 +151,12 @@ Example request
     POST /0.1/login_with_extension_context
     Host: xivoserver
     Content-Type: application/json
-    
+
     {
         "extension": "2312",
         "context": "office-1"
     }
-    
+
 
 Example response
 ----------------
@@ -204,11 +204,11 @@ Example request
     POST /0.1/login_with_number
     Host: xivoserver
     Content-Type: application/json
-    
+
     {
         "number": "2312"
     }
-    
+
 
 Example response
 ----------------
@@ -256,11 +256,11 @@ Example request
     POST /0.1/logoff_with_id
     Host: xivoserver
     Content-Type: application/json
-    
+
     {
         "agent_id": 2231
     }
-    
+
 
 Example response
 ----------------
