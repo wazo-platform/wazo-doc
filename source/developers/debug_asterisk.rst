@@ -2,11 +2,11 @@
 Debugging Asterisk
 ******************
 
-To debug asterisk crashes or freezes, you need the following packages on your xivo::
+To debug asterisk crashes or freezes, you need the following packages on your XiVO::
 
-   apt-get install gdb asterisk-dbg xivo-libsccp-dbg
+   apt-get install gdb asterisk-dbg libc6-dbg xivo-libsccp-dbg
 
-.. warning:: When installing theses packages you should take care that it doesn't drag a new version
+.. warning:: When installing these packages you should take care that it doesn't drag a new version
     of asterisk since it would restart your asterisk
 
 
@@ -23,11 +23,11 @@ So There is a Problem with Asterisk. Now What ?
    #. Note the exact time of the incident from the segfault line.
    #. Follow the `Debugging Asterisk Crash`_ procedure.
 
-#. If you observe some of the following common symtoms, follow the `Debugging Asterisk Freeze`_
+#. If you observe some of the following common symptoms, follow the `Debugging Asterisk Freeze`_
    procedure.
 
    * The output of command ``service asterisk status`` says Asterisk PBX is running.
-   * No more calls are distributed and Phones go to ``No Service``.
+   * No more calls are distributed and phones go to ``No Service``.
    * Command ``core show channels`` returns only headers (no data) right before returning
 
 #. Fetch Asterisk logs for the day of the crash (make sure file was not already logrotated)::
@@ -85,12 +85,12 @@ Optionally, other information that can be interesting:
 Recompiling Asterisk
 ====================
 
-It's relatively straightforward to recompile the asterisk version of your xivo with the
+It's relatively straightforward to recompile the asterisk version of your XiVO with the
 DEBUG_THREADS and DONT_OPTIMIZE flag, which make debugging an asterisk problem easier.
 
 The steps are:
 
-#. Uncomment the ``deb-src`` line for the xivo sources::
+#. Uncomment the ``deb-src`` line for the XiVO sources::
 
       sed -i 's/^#deb-src/deb-src/' /etc/apt/sources.list.d/xivo*
 
