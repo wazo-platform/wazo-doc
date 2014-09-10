@@ -18,12 +18,12 @@ class ConfigTestd(object):
     def __init__(self, d):
         for k in d:
             if isinstance(d[k], dict):
-                self.__dict__[k] = ConfigXivoAMId(d[k])
+                self.__dict__[k] = ConfigTestd(d[k])
             elif isinstance(d[k], (list, tuple)):
                 l = []
                 for v in d[k]:
                     if isinstance(v, dict):
-                        l.append(ConfigXivoAMId(v))
+                        l.append(ConfigTestd(v))
                     else:
                         l.append(v)
                 self.__dict__[k] = l
