@@ -41,7 +41,7 @@ class ConfigTestd(object):
         return pprint.pformat(self.__dict__)
 
 
-def get_arg_parsed():
+def _get_cli_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-f',
                         '--foreground',
@@ -65,12 +65,14 @@ def get_arg_parsed():
     return parser.parse_args()
 
 
-def _get_config_dict(config_path):
+def _get_file_config(config_path):
     path = os.path.join(config_path, _CONF_FILENAME)
     with open(path) as fobj:
         return yaml.load(fobj)
 
-args_parsed = get_arg_parsed()
-data = _get_config_dict(args_parsed.config_path)
-data.update(vars(args_parsed))
-config = ConfigTestd(data)
+
+def fetch_and_merge_config():
+    parsed_cli_args = _get_cli_args()
+    raw_file_config = _get_file_config(parsed_cli_args.config_path)
+    raw_file_config.update(vars(parsed_cli_args))
+    return ConfigTestd(raw_file_config)
