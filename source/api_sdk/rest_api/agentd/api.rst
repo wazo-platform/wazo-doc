@@ -20,19 +20,19 @@ Query
 
 ::
 
-    POST /0.1/add_to_queue
+    POST /0.1/members
 
 
 Parameters
 ----------
 
-+----------+-------+----------------+
-| Field    | Value | Description    |
-+==========+=======+================+
-| agent_id | int   | Agent's ID     |
-+----------+-------+----------------+
-| queue_id | int   | The Queue's id |
-+----------+-------+----------------+
++----------+-------+-------------+
+| Field    | Value | Description |
++==========+=======+=============+
+| agent_id | int   | Agent's ID  |
++----------+-------+-------------+
+| queue_id | int   | Queue's ID  |
++----------+-------+-------------+
 
 
 Example request
@@ -40,7 +40,7 @@ Example request
 
 ::
 
-    POST /0.1/add_to_queue
+    POST /0.1/members
     Host: xivoserver
     Content-Type: application/json
 
@@ -76,19 +76,19 @@ Query
 
 ::
 
-    POST /0.1/remove_from_queue
+    DELETE /0.1/members
 
 
 Parameters
 ----------
 
-+----------+-------+----------------+
-| Field    | Value | Description    |
-+==========+=======+================+
-| agent_id | int   | Agent's ID     |
-+----------+-------+----------------+
-| queue_id | int   | The Queue's id |
-+----------+-------+----------------+
++----------+-------+-------------+
+| Field    | Value | Description |
++==========+=======+=============+
+| agent_id | int   | Agent's ID  |
++----------+-------+-------------+
+| queue_id | int   | Queue's ID  |
++----------+-------+-------------+
 
 
 Example request
@@ -96,7 +96,7 @@ Example request
 
 ::
 
-    POST /0.1/remove_from_queue
+    DELETE /0.1/members
     Host: xivoserver
     Content-Type: application/json
 
@@ -124,15 +124,15 @@ Errors
 +------------+---------------+-----------------------------+
 
 
-Login an agent with extension and context
-=========================================
+Login an agent with number to extension and context
+===================================================
 
 Query
 -----
 
 ::
 
-    POST /0.1/login_with_extension_context
+    POST /0.1/agents/by-number/<agent_number>/login
 
 
 Parameters
@@ -152,7 +152,7 @@ Example request
 
 ::
 
-    POST /0.1/login_with_extension_context
+    POST /0.1/agents/by-number/<agent_number>/login
     Host: xivoserver
     Content-Type: application/json
 
@@ -180,25 +180,27 @@ Errors
 +------------+---------------+-----------------------------+
 
 
-Login an agent with number
-==========================
+Login an agent with ID to extension and context
+===============================================
 
 Query
 -----
 
 ::
 
-    POST /0.1/login_with_number
+    POST /0.1/agents/<agent_id>/login
 
 
 Parameters
 ----------
 
-+--------+--------+---------------------+
-| Field  | Value  | Description         |
-+========+========+=====================+
-| number | string | Number of the agent |
-+--------+--------+---------------------+
++-----------+--------+----------------------------+
+| Field     | Value  | Description                |
++===========+========+============================+
+| extension | string | Extension to log the agent |
++-----------+--------+----------------------------+
+| context   | string | Context to log the agent   |
++-----------+--------+----------------------------+
 
 
 Example request
@@ -206,13 +208,53 @@ Example request
 
 ::
 
-    POST /0.1/login_with_number
+    POST /0.1/agents/<agent_id>/login
     Host: xivoserver
     Content-Type: application/json
 
     {
-        "number": "2312"
+        "extension": "2312",
+        "context": "office-1"
     }
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 204 OK
+
+
+Errors
+------
+
++------------+---------------+-----------------------------+
+| Error code | Error message | Description                 |
++============+===============+=============================+
+| 404        | Not found     | The resource does not exist |
++------------+---------------+-----------------------------+
+
+
+Relog all agents
+================
+
+Query
+-----
+
+::
+
+    POST /0.1/agents/all/relog
+
+
+Example request
+---------------
+
+::
+
+    POST /0.1/agents/all/relog
+    Host: xivoserver
+    Content-Type: application/json
 
 
 Example response
@@ -241,17 +283,7 @@ Query
 
 ::
 
-    POST /0.1/logoff_with_id
-
-
-Parameters
-----------
-
-+----------+-------+-------------+
-| Field    | Value | Description |
-+==========+=======+=============+
-| agent_id | int   | Agent's ID  |
-+----------+-------+-------------+
+    POST /0.1/agents/<agent_id>/logoff
 
 
 Example request
@@ -259,13 +291,9 @@ Example request
 
 ::
 
-    POST /0.1/logoff_with_id
+    POST /0.1/agents/<agent_id>/logoff
     Host: xivoserver
     Content-Type: application/json
-
-    {
-        "agent_id": 2231
-    }
 
 
 Example response
@@ -274,6 +302,306 @@ Example response
 ::
 
     HTTP/1.1 204 OK
+
+
+Errors
+------
+
++------------+---------------+-----------------------------+
+| Error code | Error message | Description                 |
++============+===============+=============================+
+| 404        | Not found     | The resource does not exist |
++------------+---------------+-----------------------------+
+
+
+Logoff an agent with number
+===========================
+
+Query
+-----
+
+::
+
+    POST /0.1/agents/by-number/<agent_number>/logoff
+
+
+Example request
+---------------
+
+::
+
+    POST /0.1/agents/by-number/<agent_number>/logoff
+    Host: xivoserver
+    Content-Type: application/json
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 204 OK
+
+
+Errors
+------
+
++------------+---------------+-----------------------------+
+| Error code | Error message | Description                 |
++============+===============+=============================+
+| 404        | Not found     | The resource does not exist |
++------------+---------------+-----------------------------+
+
+
+Logoff all agents
+=================
+
+Query
+-----
+
+::
+
+    POST /0.1/agents/all/logoff
+
+
+Example request
+---------------
+
+::
+
+    POST /0.1/agents/all/logoff
+    Host: xivoserver
+    Content-Type: application/json
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 204 OK
+
+
+Errors
+------
+
++------------+---------------+-----------------------------+
+| Error code | Error message | Description                 |
++============+===============+=============================+
+| 404        | Not found     | The resource does not exist |
++------------+---------------+-----------------------------+
+
+
+Pause an agent with number
+==========================
+
+Query
+-----
+
+::
+
+    POST /0.1/agents/by-number/<agent_number>/pause
+
+
+Example request
+---------------
+
+::
+
+    POST /0.1/agents/by-number/<agent_number>/pause
+    Host: xivoserver
+    Content-Type: application/json
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 204 OK
+
+
+Errors
+------
+
++------------+---------------+-----------------------------+
+| Error code | Error message | Description                 |
++============+===============+=============================+
+| 404        | Not found     | The resource does not exist |
++------------+---------------+-----------------------------+
+
+
+Unpause an agent with number
+============================
+
+Query
+-----
+
+::
+
+    POST /0.1/agents/by-number/<agent_number>/unpause
+
+
+Example request
+---------------
+
+::
+
+    POST /0.1/agents/by-number/<agent_number>/unpause
+    Host: xivoserver
+    Content-Type: application/json
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 204 OK
+
+
+Errors
+------
+
++------------+---------------+-----------------------------+
+| Error code | Error message | Description                 |
++============+===============+=============================+
+| 404        | Not found     | The resource does not exist |
++------------+---------------+-----------------------------+
+
+
+Get agent status with ID
+========================
+
+Query
+-----
+
+::
+
+    GET /0.1/agents/<agent_id>/status
+
+
+Example request
+---------------
+
+::
+
+    GET /0.1/agents/<agent_id>/status
+    Host: xivoserver
+    Content-Type: application/json
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 200 OK
+ 
+    {
+      "id":  54,
+      "number": "2312",
+      "logged": True,
+      "extension": "43563",
+      "context": "office-1"
+    }
+
+
+Errors
+------
+
++------------+---------------+-----------------------------+
+| Error code | Error message | Description                 |
++============+===============+=============================+
+| 404        | Not found     | The resource does not exist |
++------------+---------------+-----------------------------+
+
+
+Get agent status with number
+============================
+
+Query
+-----
+
+::
+
+    GET /0.1/agents/by-number/<agent_number>/status
+
+
+Example request
+---------------
+
+::
+
+    GET /0.1/agents/by-number/<agent_number>/status
+    Host: xivoserver
+    Content-Type: application/json
+    
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 200 OK
+    
+    {
+      "id":  54,
+      "number": "2312",
+      "logged": True,
+      "extension": "43563",
+      "context": "office-1"
+    }
+
+
+Errors
+------
+
++------------+---------------+-----------------------------+
+| Error code | Error message | Description                 |
++============+===============+=============================+
+| 404        | Not found     | The resource does not exist |
++------------+---------------+-----------------------------+
+
+
+Get all agent statuses
+======================
+
+Query
+-----
+
+::
+
+    GET /0.1/agents/by-number/<agent_number>/status
+
+
+Example request
+---------------
+
+::
+
+    GET /0.1/agents/by-number/<agent_number>/status
+    Host: xivoserver
+    Content-Type: application/json
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 200 OK
+    
+    [
+       {
+         "id":  54,
+         "number": "2312",
+         "logged": True,
+         "extension": "43563",
+         "context": "office-1"
+       },
+    ]
 
 
 Errors
