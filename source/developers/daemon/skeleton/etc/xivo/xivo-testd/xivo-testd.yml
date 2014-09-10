@@ -1,0 +1,7 @@
+  debug: False
+
+  test:
+      host: localhost
+      port: 7621
+      username: xivo
+      password: xivo

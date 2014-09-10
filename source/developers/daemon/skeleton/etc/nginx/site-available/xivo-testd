@@ -1,0 +1,11 @@
+  server {
+      listen 0.0.0.0:500XX default_server;
+      server_name $domain;
+      location / { try_files $uri @xivo-testd; }
+      location @xivo-testd {
+           include fastcgi_params;
+           fastcgi_param PATH_INFO $fastcgi_script_name;
+           fastcgi_param SCRIPT_NAME "";
+           fastcgi_pass unix:/tmp/rest-api.sock;
+      }
+  }

@@ -21,6 +21,7 @@ Component specific information:
    :maxdepth: 2
 
    cti_server/cti_server
+   daemon/daemon
    database
    diagrams
    provisioning/provisioning
