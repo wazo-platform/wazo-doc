@@ -21,6 +21,7 @@ Query
 
     POST /0.1/add_to_queue
 
+
 Parameters
 ----------
 
@@ -75,6 +76,7 @@ Query
 ::
 
     POST /0.1/remove_from_queue
+
 
 Parameters
 ----------
@@ -131,6 +133,7 @@ Query
 
     POST /0.1/login_with_extension_context
 
+
 Parameters
 ----------
 
@@ -186,6 +189,7 @@ Query
 
     POST /0.1/login_with_number
 
+
 Parameters
 ----------
 
@@ -237,6 +241,7 @@ Query
 ::
 
     POST /0.1/logoff_with_id
+
 
 Parameters
 ----------
