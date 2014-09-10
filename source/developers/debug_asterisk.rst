@@ -123,8 +123,45 @@ This will create a couple of .deb files in the parent directory, which you can i
 via dpkg.
 
 
+Running Asterisk under Valgrind
+===============================
+
+#. Install valgrind::
+
+      apt-get install valgrind
+
+#. Recompile asterisk with the DONT_OPTIMIZE flag.
+#. Edit :file:`/etc/asterisk/modules.conf` so that asterisk doesn't load unnecessary modules.
+   This step is optional. It makes asterisk start (noticeably) faster and often makes the
+   output of valgrind easier to analyze, since there's less noise.
+#. Edit :file:`/etc/asterisk/asterisk.conf` and comment the ``highpriority`` option. This step
+   is optional.
+#. Stop monit and asterisk::
+
+      monit quit
+      service asterisk stop
+
+#. Stop all unneeded XiVO services. For example, it can be useful to stop xivo-ctid, so that
+   it won't interact with asterisk via the AMI.
+#. Copy the valgrind.supp file into /tmp. The valgrind.supp file is located in the contrib
+   directory of the asterisk source code.
+#. Execute valgrind in the /tmp directory::
+
+      cd /tmp
+      valgrind --leak-check=full --log-file=valgrind.txt --suppressions=valgrind.supp --vgdb=no asterisk -G asterisk -U asterisk -fnc
+
+Note that when you terminate asterisk with Control-C, asterisk does not unload the modules before
+exiting. What this means is that you might have lots of "possibly lost" memory errors due to that.
+If you already know which modules is responsible for the memory leak/bug, you should explicitly
+unload it before terminating asterisk.
+
+It is suggested to have 768 MiB of RAM or more, since running asterisk under valgrind takes a lots
+of extra memory.
+
+
 External links
 ==============
 
 * https://wiki.asterisk.org/wiki/display/AST/Debugging
 * http://blog.xivo.io/index.php?post/2012/10/24/Visualizing-asterisk-deadlocks
+* https://wiki.asterisk.org/wiki/display/AST/Valgrind
