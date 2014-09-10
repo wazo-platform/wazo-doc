@@ -1260,3 +1260,59 @@ connect to it is not that secure.
 
 #. If you are using virtualbox and your guest interface is bridged to eth0.341, you'll need to
    change its configuration and bridge it with br0 instead, else it won't work properly.
+
+
+Adding Support for a New Phone
+==============================
+
+This section describes the requirements to consider that a SCCP phone is working
+with XiVO libsccp.
+
+
+Basic functionality
+-------------------
+
+* Register on Asterisk
+* SCCP reset [restart]
+* Call history
+* Date time display
+* HA
+
+
+Telephony
+---------
+
+These test should be done with and without direct media enabled
+
+* Emit a call
+* Receive a call
+* Receive and transfer a call
+* Emit a call and transfer the call
+* Hold and resume a call
+* Features (\*0 and others)
+* Receive 2 calls simultaneously
+* Emit 2 calls simultaneously
+* DTMF on an external IVR
+
+
+Function keys
+-------------
+
+* Redial
+* DND
+* Hold
+* Resume
+* New call
+* End call
+* Call forward (Enable)
+* Call forward (Disable)
+* Try each button in each mode (on hook, in progress, etc)
+
+
+Optional options to test and document
+-------------------------------------
+
+* Phone book
+* Caller ID and other display i18n
+* MWI
+* Speeddial/BLF

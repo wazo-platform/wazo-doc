@@ -28,10 +28,3 @@ Component specific information:
    sccp
    webi
    xivo_client/xivo_client
-
-Checklist:
-
-.. toctree::
-   :maxdepth: 1
-
-   new_sccp_phone_checklist
