@@ -4,8 +4,9 @@
 XiVO Agentd API
 ***************
 
-Call center in XiVO are managed by the xivo-agentd daemon. This service provides a public API that
-can be used to query the directories that are configured on a XiVO.
+Agent statuses in XiVO are managed by the xivo-agentd daemon. This service
+provides a public API that can be used to query and update agent login and pause
+statuses on a XiVO.
 
 .. warning:: The 0.1 API is currently in development. Major changes could still
    happen and new resources will be added over time.
