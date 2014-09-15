@@ -60,7 +60,7 @@ Please consult the following detailed upgrade notes for more information:
 
 * Consult the `13.20 Roadmap <https://projects.xivo.io/versions/186>`_
 * xivo-libsccp now supports direct media on wifi phone 7920 and 7921
-* xivo-restapi now implements a voicemail list
+* xivo-confd now implements a voicemail list
 
 
 13.19
@@ -84,7 +84,7 @@ Please consult the following detailed upgrade notes for more information:
 
 * Consult the `13.17 Roadmap <https://projects.xivo.io/versions/183>`_
 * There is a major change to call logs. They are no longer available as a web report but only as a csv export. See the :ref:`call logs documentation <call_logs>`.
-  Furthermore, call logs are now fetched with the new REST API. See :ref:`restapi-call-logs`.
+  Furthermore, call logs are now fetched with the new REST API. See :ref:`confd-call-logs`.
 * Paging group numbers are now exclusively numeric. All non-numeric paging group numbers are converted to their numeric-only equivalent
   while upgrading to XiVO 13.17 ( \*58 becomes 58, for example).
 
@@ -103,7 +103,7 @@ Please consult the following detailed upgrade notes for more information:
   exist in CEL for calls passed after upgrading to XiVO 13.16.
 * The new REST API now makes possible to associate multiple user to a given line and/or
   extension. There are currently some limitations on how those users and lines can be manipulated
-  using the web interface. Please read the :ref:`REST API 1.1 documentation <rest-api-1.1>` and more
+  using the web interface. Please read the :ref:`REST API 1.1 documentation <confd-api>` and more
   precisely the :ref:`Associate Line to User <user-line-association>` section for more
   information.
 

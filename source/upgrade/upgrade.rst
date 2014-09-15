@@ -138,11 +138,23 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.17
+-----
+
+* Consult the `14.17 Roadmap <https://projects.xivo.io/versions/208>`_
+* DAHDI configuration file :file:`/etc/dahdi/modules` is no more created by default and must now be
+  maintained manually. No action is needed upon upgrade but be aware that the upstream sample file
+  is now available in :file:`/usr/share/dahdi/modules.sample`. See
+  :ref:`dahdi modules documentation <load_dahdi_modules>` for detailed info.
+* The new :ref:`CCSS feature <ccss>` will not be enabled upon upgrade, you must explicitly enable it
+  in the :menuselection:`IPBX --> IPBX Services --> Extensions` menu.
+
+
 14.16
 -----
 
 * Consult the `14.16 Roadmap <https://projects.xivo.io/versions/207>`_
-* See the :ref:`changelog <restapi_changelog>` for REST API
+* See the :ref:`changelog <confd_changelog>` for xivo-confd's REST API
 * DAHDI is upgraded to 2.10.0. If the upgrade process asks about :file:`/etc/dahdi/modules`, we
   recommend that you keep the old version of the file.
 * Asterisk now inserts CEL and queue log entries via the ODBC asterisk modules instead of
@@ -169,7 +181,7 @@ Upgrade Notes
 -----
 
 * Consult the `14.14 Roadmap <https://projects.xivo.io/versions/205>`_
-* See the :ref:`changelog <restapi_changelog>` for REST API
+* See the :ref:`changelog <confd_changelog>` for REST API
 * Upon an important freeze of Asterisk, Asterisk will be restarted. See the `associated ticket
   <https://projects.xivo.io/issues/5165>`_ for more information.
 
@@ -178,7 +190,7 @@ Upgrade Notes
 -----
 
 * Consult the `14.13 Roadmap <https://projects.xivo.io/versions/204>`_
-* See the :ref:`changelog <restapi_changelog>` for REST API
+* See the :ref:`changelog <confd_changelog>` for REST API
 * Skills-based routing: for an agent which doesn't have the skill X, the rule X < 10 was
   previously evaluated to true, since not having the skill X was equivalent to having it with a
   value of 0. This behaviour has changed, and the same expression is now evaluated to false. If you

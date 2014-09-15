@@ -2,11 +2,11 @@
 Debugging Asterisk
 ******************
 
-To debug asterisk crashes or freezes, you need the following packages on your xivo::
+To debug asterisk crashes or freezes, you need the following packages on your XiVO::
 
-   apt-get install gdb asterisk-dbg xivo-libsccp-dbg
+   apt-get install gdb asterisk-dbg libc6-dbg xivo-libsccp-dbg
 
-.. warning:: When installing theses packages you should take care that it doesn't drag a new version
+.. warning:: When installing these packages you should take care that it doesn't drag a new version
     of asterisk since it would restart your asterisk
 
 
@@ -23,11 +23,11 @@ So There is a Problem with Asterisk. Now What ?
    #. Note the exact time of the incident from the segfault line.
    #. Follow the `Debugging Asterisk Crash`_ procedure.
 
-#. If you observe some of the following common symtoms, follow the `Debugging Asterisk Freeze`_
+#. If you observe some of the following common symptoms, follow the `Debugging Asterisk Freeze`_
    procedure.
 
    * The output of command ``service asterisk status`` says Asterisk PBX is running.
-   * No more calls are distributed and Phones go to ``No Service``.
+   * No more calls are distributed and phones go to ``No Service``.
    * Command ``core show channels`` returns only headers (no data) right before returning
 
 #. Fetch Asterisk logs for the day of the crash (make sure file was not already logrotated)::
@@ -85,12 +85,12 @@ Optionally, other information that can be interesting:
 Recompiling Asterisk
 ====================
 
-It's relatively straightforward to recompile the asterisk version of your xivo with the
+It's relatively straightforward to recompile the asterisk version of your XiVO with the
 DEBUG_THREADS and DONT_OPTIMIZE flag, which make debugging an asterisk problem easier.
 
 The steps are:
 
-#. Uncomment the ``deb-src`` line for the xivo sources::
+#. Uncomment the ``deb-src`` line for the XiVO sources::
 
       sed -i 's/^#deb-src/deb-src/' /etc/apt/sources.list.d/xivo*
 
@@ -123,8 +123,45 @@ This will create a couple of .deb files in the parent directory, which you can i
 via dpkg.
 
 
+Running Asterisk under Valgrind
+===============================
+
+#. Install valgrind::
+
+      apt-get install valgrind
+
+#. Recompile asterisk with the DONT_OPTIMIZE flag.
+#. Edit :file:`/etc/asterisk/modules.conf` so that asterisk doesn't load unnecessary modules.
+   This step is optional. It makes asterisk start (noticeably) faster and often makes the
+   output of valgrind easier to analyze, since there's less noise.
+#. Edit :file:`/etc/asterisk/asterisk.conf` and comment the ``highpriority`` option. This step
+   is optional.
+#. Stop monit and asterisk::
+
+      monit quit
+      service asterisk stop
+
+#. Stop all unneeded XiVO services. For example, it can be useful to stop xivo-ctid, so that
+   it won't interact with asterisk via the AMI.
+#. Copy the valgrind.supp file into /tmp. The valgrind.supp file is located in the contrib
+   directory of the asterisk source code.
+#. Execute valgrind in the /tmp directory::
+
+      cd /tmp
+      valgrind --leak-check=full --log-file=valgrind.txt --suppressions=valgrind.supp --vgdb=no asterisk -G asterisk -U asterisk -fnc
+
+Note that when you terminate asterisk with Control-C, asterisk does not unload the modules before
+exiting. What this means is that you might have lots of "possibly lost" memory errors due to that.
+If you already know which modules is responsible for the memory leak/bug, you should explicitly
+unload it before terminating asterisk.
+
+It is suggested to have 768 MiB of RAM or more, since running asterisk under valgrind takes a lots
+of extra memory.
+
+
 External links
 ==============
 
 * https://wiki.asterisk.org/wiki/display/AST/Debugging
 * http://blog.xivo.io/index.php?post/2012/10/24/Visualizing-asterisk-deadlocks
+* https://wiki.asterisk.org/wiki/display/AST/Valgrind

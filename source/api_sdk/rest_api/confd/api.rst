@@ -1,11 +1,11 @@
-.. _rest-api-1.1:
+.. _confd-api:
 
-************
-REST API 1.1
-************
+**************
+XiVO confd API
+**************
 
-.. note:: REST API 1.1 is currently evolving. New features and small fixes are regularly being added
-    over time. We invite the reader to periodically check the :ref:`changelog <restapi_changelog>`
+.. note:: REST API 1.1 for confd is currently evolving. New features and small fixes are regularly being added
+    over time. We invite the reader to periodically check the :ref:`changelog <confd_changelog>`
     for an update on new features and changes.
 
 .. toctree::

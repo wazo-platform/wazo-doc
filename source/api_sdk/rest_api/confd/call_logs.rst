@@ -1,4 +1,4 @@
-.. _restapi-call-logs:
+.. _confd-call-logs:
 
 *********
 Call Logs

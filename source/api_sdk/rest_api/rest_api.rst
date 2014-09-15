@@ -6,13 +6,10 @@ REST API
 
 The XiVO REST API is the privileged way to programmatically interact with XiVO.
 
-The current API version is :ref:`1.1 <rest-api-1.1>`.
-
-
 Configuration
 =============
 
-The REST API is available via HTTPS on port 50051. Accessing the REST API requires to create a
+The REST API is available via HTTPS or HTTP on port offer by the daemon. Accessing to the REST API requires to create a
 webservices user in the web interface (Configuration/Management/Web Services Access):
 
 * if an IP address is specified for the user, no authentication is needed
@@ -192,4 +189,6 @@ API
 .. toctree::
    :maxdepth: 1
 
-   1.1/api-1.1
+   confd/api
+   dird/api
+   sysconfd/api

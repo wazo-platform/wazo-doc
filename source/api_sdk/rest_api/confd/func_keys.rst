@@ -102,7 +102,7 @@ group
     Conference group
 
 queue
-    Calling queue
+    Call queue
 
 conference
     Conference room
@@ -115,6 +115,9 @@ bs_filter
 
 service
     A predefined user service [1]_.
+
+forward
+    Forward a call towards another number
 
 paging
     Paging
