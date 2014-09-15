@@ -146,6 +146,9 @@ Upgrade Notes
   maintained manually. No action is needed upon upgrade but be aware that the upstream sample file
   is now available in :file:`/usr/share/dahdi/modules.sample`. See
   :ref:`dahdi modules documentation <load_dahdi_modules>` for detailed info.
+* The new :ref:`CCSS feature <ccss>` will not be enabled upon upgrade, you must explicitly enable it
+  in the :menuselection:`IPBX --> IPBX Services --> Extensions` menu.
+
 
 14.16
 -----
