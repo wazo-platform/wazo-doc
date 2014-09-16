@@ -44,36 +44,36 @@ Copy all these lines in the newly created configuration file (in our case, dp-iv
    [dp-ivr-exemple]
 
    exten = s,1,NoOp(### dp-ivr-exemple.conf ###)
-   same = n,NoOp(the system pick up the call and wait for 1 seconde before continue)
+   same = n,NoOp(the system answers the call and waits for 1 second before continuing)
    same = n,Answer(1000)
 
-   same = n,NoOp(the system play the first part of the audio file « welcome to … »)
+   same = n,NoOp(the system plays the first part of the audio file "welcome to ...")
    same = n(first),Playback(${GV_DIRECTORY_SOUNDS}/svi-exemple-welcome-sound)
 
-   same = n,NoOp(variable « counter » is set to 0)
+   same = n,NoOp(variable "counter" is set to 0)
    same = n(begining),Set(counter=0)
 
-   same = n,NoOp(variable "counter" is uptated +1 and the label "start" is define)
+   same = n,NoOp(variable "counter" is incremented and the label "start" is defined)
    same = n(start),Set(counter=$[${counter} + 1])
 
    same = n,NoOp(counter variable is now = ${counter})
-   same = n,NoOp(waiting for 1 seconde before read the message that indicate all choices)
+   same = n,NoOp(waiting for 1 second before reading the message that indicate all choices)
    same = n,Wait(1)
-   same = n,NoOp(spreading the message ivr-exemple-choices that contain all choices)
+   same = n,NoOp(play the message ivr-exemple-choices that contain all choices)
    same = n,Background(/var/lib/xivo/sounds/customer-sounds/ivr-exemple-choices)
    same = n,NoOp(waiting for DTMF during 5s)
    same = n,Waitexten(5)
 
    ;##### CHOICE 1 #####
-   exten = 1,1,NoOp(pressed digit is 1, redirect to the 8000 in ${XIVO_BASE_CONTEXT} context)
+   exten = 1,1,NoOp(pressed digit is 1, redirect to 8000 in ${XIVO_BASE_CONTEXT} context)
    exten = 1,n,goto(${XIVO_BASE_CONTEXT},8000,1)
 
    ;##### CHOICE 2 #####
-   exten = 2,1,NoOp(pressed digit is 2, redirect to the 8833 in ${XIVO_BASE_CONTEXT} context)
+   exten = 2,1,NoOp(pressed digit is 2, redirect to 8833 in ${XIVO_BASE_CONTEXT} context)
    exten = 2,n,goto(${XIVO_BASE_CONTEXT},8833,1)
 
    ;##### CHOICE 3 #####
-   exten = 3,1,NoOp(pressed digit is 3, redirect to the 8547 in ${XIVO_BASE_CONTEXT} context)
+   exten = 3,1,NoOp(pressed digit is 3, redirect to 8547 in ${XIVO_BASE_CONTEXT} context)
    exten = 3,n,goto(${XIVO_BASE_CONTEXT},8547,1)
 
 
@@ -82,18 +82,18 @@ Copy all these lines in the newly created configuration file (in our case, dp-iv
    exten = 4,n,goto(s,start)
 
    ;##### TIMEOUT #####
-   exten = t,1,NoOp(no digit pressed until 5s, call is redirected to the 8000)
+   exten = t,1,NoOp(no digit pressed until 5s, call is redirected to 8000)
    exten = t,n,goto(${XIVO_BASE_CONTEXT},8000,1)
 
 
    ;##### INVALID CHOICE #####
-   exten = i,n,NoOp(counter variable is less than 3, then goto label "start" else goto "s")
+   exten = i,n,NoOp(if counter variable is less than 3, then goto label "start" else goto "s")
    exten = i,n(fail),Gotoif($[${counter}<3]?s,start)
    exten = i,n,NoOp(more than 3 errors, then the guide ivr-exemple-error is played)
    exten = i,n,Playback(${GV_DIRECTORY_SOUNDS}/ivr-exemple-error)
    exten = i,n,NoOp(call is now hang up)
    exten = i,n,Hangup()
-   exten = i,1,NoOp(pressed digit is unvalid and less than 3 errors : the guide ivr-exemple-invalid-choice now is played)
+   exten = i,1,NoOp(pressed digit is invalid and less than 3 errors : the guide ivr-exemple-invalid-choice now is played)
    exten = i,n,Playback(${GV_DIRECTORY_SOUNDS}/ivr-exemple-invalid-choice)
 
 
@@ -167,32 +167,32 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
    [dp-ivr-exemple]
 
    exten = s,1,NoOp(### dp-ivr-exemple.conf ###)
-   same = n,NoOp(the system pick up the call and wait for 1 seconde before continue)
+   same = n,NoOp(the system answers the call and waits for 1 second before continuing)
    same = n,Answer(1000)
 
-   same = n,NoOp(the system play the first part of the audio file « welcome to … »)
+   same = n,NoOp(the system plays the first part of the audio file "welcome to ...")
    same = n(first),Playback(${GV_DIRECTORY_SOUNDS}/svi-exemple-welcome-sound)
 
-   same = n,NoOp(variable « counter » is set to 0)
+   same = n,NoOp(variable "counter" is set to 0)
    same = n(begining),Set(counter=0)
 
-   same = n,NoOp(variable "counter" is uptated +1 and the label "start" is define)
+   same = n,NoOp(variable "counter" is incremented and the label "start" is defined)
    same = n(start),Set(counter=$[${counter} + 1])
 
    same = n,NoOp(counter variable is now = ${counter})
-   same = n,NoOp(waiting for 1 seconde before read the message that indicate all choices)
+   same = n,NoOp(waiting for 1 second before reading the message that indicate all choices)
    same = n,Wait(1)
-   same = n,NoOp(spreading the message ivr-exemple-choices that contain all choices)
+   same = n,NoOp(play the message ivr-exemple-choices that contain all choices)
    same = n,Background(/var/lib/xivo/sounds/customer-sounds/ivr-exemple-choices)
    same = n,NoOp(waiting for DTMF during 5s)
    same = n,Waitexten(5)
 
    ;##### CHOICE 1 #####
-   exten = 1,1,NoOp(pressed digit is 1, redirect to the 8000 in ${XIVO_BASE_CONTEXT} context)
+   exten = 1,1,NoOp(pressed digit is 1, redirect to 8000 in ${XIVO_BASE_CONTEXT} context)
    exten = 1,n,goto(${XIVO_BASE_CONTEXT},8000,1)
 
    ;##### CHOICE 2 #####
-   exten = 2,1,NoOp(pressed digit is 2, redirect to the 8833 in ${XIVO_BASE_CONTEXT} context)
+   exten = 2,1,NoOp(pressed digit is 2, redirect to 8833 in ${XIVO_BASE_CONTEXT} context)
    exten = 2,n,goto(${XIVO_BASE_CONTEXT},8833,1)
 
    ;##### CHOICE 3 #####
@@ -205,35 +205,35 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
    exten = 4,n,goto(s,start)
 
    ;##### TIMEOUT #####
-   exten = t,1,NoOp(no digit pressed until 5s, call is redirected to the 8000)
+   exten = t,1,NoOp(no digit pressed until 5s, call is redirected to 8000)
    exten = t,n,goto(${XIVO_BASE_CONTEXT},8000,1)
 
 
    ;##### INVALID CHOICE #####
-   exten = i,n,NoOp(counter variable is less than 3, then goto label "start" else goto "s")
+   exten = i,n,NoOp(if counter variable is less than 3, then goto label "start" else goto "s")
    exten = i,n(fail),Gotoif($[${counter}<3]?s,start)
    exten = i,n,NoOp(more than 3 errors, then the guide ivr-exemple-error is played)
    exten = i,n,Playback(${GV_DIRECTORY_SOUNDS}/ivr-exemple-error)
    exten = i,n,NoOp(call is now hang up)
    exten = i,n,Hangup()
-   exten = i,1,NoOp(pressed digit is unvalid and less than 3 errors : the guide ivr-exemple-invalid-choice now is played)
+   exten = i,1,NoOp(pressed digit is invalid and less than 3 errors : the guide ivr-exemple-invalid-choice now is played)
    exten = i,n,Playback(${GV_DIRECTORY_SOUNDS}/ivr-exemple-invalid-choice)
 
 
    [dp-ivr-submenu]
 
    exten = s,1,NoOp(### dp-ivr-submenu ###)
-   same = n,NoOp(the system pick up the call and wait for 1 seconde before continue)
+   same = n,NoOp(the system pick up the call and wait for 1 second before continue)
    same = n,Answer(1000)
 
-   same = n,NoOp(variable « counter » is set to 0)
+   same = n,NoOp(variable "counter" is set to 0)
    same = n(begining),Set(counter=0)
 
    same = n,NoOp(variable "counter" is uptated +1 and the label "start" is define)
    same = n(start),Set(counter=$[${counter} + 1])
 
    same = n,NoOp(counter variable is now = ${counter})
-   same = n,NoOp(waiting for 1 seconde before read the message that indicate all choices)
+   same = n,NoOp(waiting for 1 second before read the message that indicate all choices)
    same = n,Wait(1)
    same = n,NoOp(spreading the message ivr-exemple-choices that contain all choices)
    same = n,Background(/var/lib/xivo/sounds/customer-sounds/ivr-exemple-submenu-choices)
