@@ -113,7 +113,7 @@ context.  The best way is add the number in the file xivo-extrafeatures.conf.
 IVR external dial
 -----------------
 
-To call the script dp-ivr-exemple from an external phone, you must create an Incoming
+To call the script dp-ivr-exemple from an external phone, you must create an incoming
 call and redirect the call to the script dp-ivr-exemple with the command :
 
 ::
