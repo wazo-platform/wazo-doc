@@ -113,9 +113,8 @@ context.  The best way is add the number in the file xivo-extrafeatures.conf.
 IVR external dial
 -----------------
 
-To call the script dp-ivr-exemple from an external phone, you must create an entry in the
-"Incoming calls" section (1). Then create the DID number conforme as your range of externals
-numbers (2) and redirect the call to the script dp-ivr-exemple with the command :
+To call the script dp-ivr-exemple from an external phone, you must create an Incoming
+call and redirect the call to the script dp-ivr-exemple with the command :
 
 ::
 
