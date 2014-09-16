@@ -1,8 +1,8 @@
 .. _ivr:
 
-***************************
-Interractive Voice Response
-***************************
+**************************
+Interactive Voice Response
+**************************
 
 Introduction
 ============
@@ -32,12 +32,12 @@ Configuration File and Dialplan
 -------------------------------
 
 First step, you need to create a configuration file, that contain an asterisk context and your IVR
-dialpan. In our exemple, both (file and context) are named dp-ivr-exemple.
+dialpan. In our example, both (file and context) are named dp-ivr-exemple.
 
 .. figure:: images/ivr1.png
 
 
-Copy all these lines in the newly created configuration file (in our case, dp-ivr-example) :
+Copy all these lines in the newly created configuration file (in our case, dp-ivr-exemple) :
 
 ::
 
@@ -139,7 +139,7 @@ Flowchart
 Create Schedule
 ---------------
 
-First step, create your shcedule (1) from the menu Call management | Schedules
+First step, create your schedule (1) from the menu Call management | Schedules
 In the General tab, give a name (3) to your schedule and configure the open’s hours (4) and select the sound which is played when the company is closed.
 
 In the Closed hours tab (6), configure all special closed days (7) and select the sound that indicate to the caller that the company is exceptionally closed.
