@@ -37,3 +37,5 @@ sets the card in E1 mode::
 * Then, restart dahdi::
 
    xivo-service restart
+
+Next step is to :ref:`configure the echo canceller <hwec_configuration>`.
