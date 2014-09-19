@@ -8,8 +8,9 @@ Agent statuses in XiVO are managed by the xivo-agentd daemon. This service
 provides a public API that can be used to query and update agent login and pause
 statuses on a XiVO.
 
-.. warning:: The 0.1 API is currently in development. Major changes could still
-   happen and new resources will be added over time.
+.. warning:: This API is currently in development. Major changes could still happen.
+
+   None of this has been implemented yet.
 
 
 Add an Agent to a Queue
