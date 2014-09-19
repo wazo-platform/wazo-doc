@@ -597,4 +597,8 @@ Example response
          "extension": "43563",
          "context": "office-1"
        },
+       {
+         "id":  55,
+         "logged": False
+       },
     ]
