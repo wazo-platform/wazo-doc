@@ -132,64 +132,8 @@ Errors
 +------------+--------------------+-----------------------------+
 
 
-Login an Agent with Number to Extension and Context
-===================================================
-
-Query
------
-
-::
-
-    POST /0.1/agents/by-number/<agent_number>/login
-
-
-Parameters
-----------
-
-+-----------+--------+----------------------------+
-| Field     | Value  | Description                |
-+===========+========+============================+
-| extension | string | Extension to log the agent |
-+-----------+--------+----------------------------+
-| context   | string | Context to log the agent   |
-+-----------+--------+----------------------------+
-
-
-Example request
----------------
-
-::
-
-    POST /0.1/agents/by-number/<agent_number>/login
-    Host: xivoserver
-    Content-Type: application/json
-
-    {
-        "extension": "2312",
-        "context": "office-1"
-    }
-
-
-Example response
-----------------
-
-::
-
-    HTTP/1.1 204 OK
-
-
-Errors
-------
-
-+------------+---------------+-----------------------------+
-| Error code | Error message | Description                 |
-+============+===============+=============================+
-| 404        | No such agent |                             |
-+------------+---------------+-----------------------------+
-
-
-Login an Agent with ID to Extension and Context
-===============================================
+Login an Agent with ID
+======================
 
 Query
 -----
@@ -244,15 +188,27 @@ Errors
 +------------+---------------+-----------------------------+
 
 
-Relog All Agents
-================
+Login an Agent with Number
+==========================
 
 Query
 -----
 
 ::
 
-    POST /0.1/agents/all/relog
+    POST /0.1/agents/by-number/<agent_number>/login
+
+
+Parameters
+----------
+
++-----------+--------+----------------------------+
+| Field     | Value  | Description                |
++===========+========+============================+
+| extension | string | Extension to log the agent |
++-----------+--------+----------------------------+
+| context   | string | Context to log the agent   |
++-----------+--------+----------------------------+
 
 
 Example request
@@ -260,9 +216,14 @@ Example request
 
 ::
 
-    POST /0.1/agents/all/relog
+    POST /0.1/agents/by-number/<agent_number>/login
     Host: xivoserver
     Content-Type: application/json
+
+    {
+        "extension": "2312",
+        "context": "office-1"
+    }
 
 
 Example response
@@ -271,6 +232,16 @@ Example response
 ::
 
     HTTP/1.1 204 OK
+
+
+Errors
+------
+
++------------+---------------+-----------------------------+
+| Error code | Error message | Description                 |
++============+===============+=============================+
+| 404        | No such agent |                             |
++------------+---------------+-----------------------------+
 
 
 Logoff an Agent with ID
@@ -372,6 +343,35 @@ Example request
 ::
 
     POST /0.1/agents/all/logoff
+    Host: xivoserver
+    Content-Type: application/json
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 204 OK
+
+
+Relog All Agents
+================
+
+Query
+-----
+
+::
+
+    POST /0.1/agents/all/relog
+
+
+Example request
+---------------
+
+::
+
+    POST /0.1/agents/all/relog
     Host: xivoserver
     Content-Type: application/json
 
