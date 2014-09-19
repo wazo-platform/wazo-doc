@@ -1,7 +1,7 @@
 .. _agentd-api:
 
 ***************
-XiVO Agentd API
+XiVO agentd API
 ***************
 
 Agent statuses in XiVO are managed by the xivo-agentd daemon. This service
@@ -12,8 +12,8 @@ statuses on a XiVO.
    happen and new resources will be added over time.
 
 
-Add agent to a queue
-====================
+Add an Agent to a Queue
+=======================
 
 Query
 -----
@@ -68,8 +68,8 @@ Errors
 +------------+---------------+-----------------------------+
 
 
-Remove an agent to a queue
-==========================
+Remove an Agent from a Queue
+============================
 
 Query
 -----
@@ -124,7 +124,7 @@ Errors
 +------------+---------------+-----------------------------+
 
 
-Login an agent with number to extension and context
+Login an Agent with Number to Extension and Context
 ===================================================
 
 Query
@@ -180,7 +180,7 @@ Errors
 +------------+---------------+-----------------------------+
 
 
-Login an agent with ID to extension and context
+Login an Agent with ID to Extension and Context
 ===============================================
 
 Query
@@ -236,7 +236,7 @@ Errors
 +------------+---------------+-----------------------------+
 
 
-Relog all agents
+Relog All Agents
 ================
 
 Query
@@ -314,7 +314,7 @@ Errors
 +------------+---------------+-----------------------------+
 
 
-Logoff an agent with number
+Logoff an Agent with Number
 ===========================
 
 Query
@@ -353,7 +353,7 @@ Errors
 +------------+---------------+-----------------------------+
 
 
-Logoff all agents
+Logoff All Agents
 =================
 
 Query
@@ -431,7 +431,7 @@ Errors
 +------------+---------------+-----------------------------+
 
 
-Unpause an agent with number
+Unpause an Agent with Number
 ============================
 
 Query
@@ -470,7 +470,7 @@ Errors
 +------------+---------------+-----------------------------+
 
 
-Get agent status with ID
+Get Agent Status with ID
 ========================
 
 Query
@@ -517,7 +517,7 @@ Errors
 +------------+---------------+-----------------------------+
 
 
-Get agent status with number
+Get Agent Status with Number
 ============================
 
 Query
@@ -565,7 +565,7 @@ Errors
 +------------+---------------+-----------------------------+
 
 
-Get all agent statuses
+Get All Agent Statuses
 ======================
 
 Query
