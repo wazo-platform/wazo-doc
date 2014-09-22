@@ -1,3 +1,5 @@
+.. _card_configuration:
+
 ******************
 Card configuration
 ******************
