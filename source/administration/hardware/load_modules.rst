@@ -1,41 +1,90 @@
 .. _load_dahdi_modules:
 
+******************************
 Load the correct DAHDI modules
-==============================
+******************************
 
 .. highlight:: none
 
-* Know which card is in your server:
+For your Digium card to work properly you must load the appropriate DAHDI kernel module.
+This is done via the file :file:`/etc/dahdi/modules` and this page will guide you through its configuration.
+
+
+Know which card is in your server
+=================================
 
 You can see which cards are detected by issuing the ``dahdi_hardware`` command::
 
    dahdi_hardware
-   pci:0000:05:0d.0     wcb4xxp+     d161:b410 Digium Wildcard B410P
-   pci:0000:05:0e.0     wct4xxp+     d161:0205 Wildcard TE205P (4th Gen)
+   pci:0000:05:0d.0     wcb4xxp-     d161:b410 Digium Wildcard B410P
+   pci:0000:05:0e.0     wct4xxp-     d161:0205 Wildcard TE205P (4th Gen)
 
-* Then you have to create the file :file:`/etc/dahdi/modules` according to your hardware. You can
-  copy and edit the sample file from :file:`/usr/share/dahdi/modules.sample`, leaving only the
-  needed modules.
+This command gives the card name detected and, more importantly, the DAHDI kernel module
+needed for this card. In the above example you can see that two cards are detected in the system and:
 
-For example, if you have one B410P and one TE205P, your :file:`/etc/dahdi/modules` file should
-contain the following lines::
+* a Digium B410P *which needs* the ``wcb4xxp`` module
+* and a Digium TE205P *which needs* the ``wct4xxp`` module
+
+
+Create the configuration file
+=============================
+
+Now that we know the modules we need, we can create our configuration file:
+
+#. Create the file :file:`/etc/dahdi/modules`::
+    
+    touch /etc/dahdi/modules
+
+#. Fill it with the modules name you found with the ``dahdi_hardware`` command (one module per line). In our example,
+   your :file:`/etc/dahdi/modules` file should contain the following lines::
 
     wcb4xxp
     wct4xxp
 
-* **If this is a TE13X card** (``wcte13xp`` module) you **MUST** create a configuration file to set
-  the line mode as E1 (or T1).
+#. Then, restart the services::
+   
+    xivo-service restart
 
-Contrarily to other cards there is no jumper to change the line mode. The configuration below
-sets the card in E1 mode::
 
-    cat << EOF > /etc/modprobe.d/xivo-wcte13xp.conf
-    # set wcte13xp cards in E1/T2 mode
-    options wcte13xp default_linemode=e1
-    EOF
+.. note::
+  In the :file:`/usr/share/dahdi/modules.sample` file you can find all the modules supported in your 
+  XiVO version.
 
-* Then, restart dahdi::
 
-   xivo-service restart
+E1/T1 cards : select the line mode
+==================================
 
+With E1/T1 cards you must select the correct line mode between:
+
+* E1 : the European standard,
+* and T1 : North American standard
+
+For old generation cards (TE12x, TE20x, TE40x series) the line mode is selected via a physical jumper.
+
+
+TE13x, TE23x, TE4x
+------------------
+
+For new generation card like T13x, T23x, T43x series the line mode is selected by configuration.
+
+If you're configuring one of these **TE3x, T23x, T43x** then you **MUST** create a configuration file to set
+the line mode to E1:
+
+#. Create the file :file:`/etc/modprobe.d/xivo-wcte-linemode.conf`::
+
+    touch /etc/modprobe.d/xivo-wcte-linemode.conf
+
+#. Fill it with the following lines replacing ``MODULE_NAME`` by the correct module name 
+   (``wcte13xp``, ``wcte43x`` ...)::
+
+    # set the card in E1/T1 mode
+    options MODULE_NAME default_linemode=e1
+
+#. Then, restart dahdi::
+
+    xivo-service restart
+
+
+Next step
+=========
 Next step is to :ref:`configure the echo canceller <hwec_configuration>`.
