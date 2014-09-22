@@ -41,18 +41,34 @@ Now that we know the modules we need, we can create our configuration file:
     wcb4xxp
     wct4xxp
 
-#. Then, restart the services::
-   
-    xivo-service restart
-
-
 .. note::
   In the :file:`/usr/share/dahdi/modules.sample` file you can find all the modules supported in your 
   XiVO version.
 
 
-E1/T1 cards : select the line mode
-==================================
+Apply the configuration
+=======================
+
+To apply the configuration, restart the services::
+
+  xivo-service restart
+
+
+Next step
+=========
+
+The next step is to :ref:`configure the echo canceller <hwec_configuration>`.
+
+
+Specific configuration
+======================
+
+This some specific configuration. You should not follow them
+unless you have a specific need.
+
+
+TE13x, TE23x, TE43x: E1/T1 selection
+------------------------------------
 
 With E1/T1 cards you must select the correct line mode between:
 
@@ -61,30 +77,23 @@ With E1/T1 cards you must select the correct line mode between:
 
 For old generation cards (TE12x, TE20x, TE40x series) the line mode is selected via a physical jumper.
 
+For new generation card like TE13x, TE23x, TE43x series the line mode is selected by configuration.
 
-TE13x, TE23x, TE4x
-------------------
-
-For new generation card like T13x, T23x, T43x series the line mode is selected by configuration.
-
-If you're configuring one of these **TE3x, T23x, T43x** then you **MUST** create a configuration file to set
+If you're configuring one of these **TE13x, T23x, T43x** then you **MUST** create a configuration file to set
 the line mode to E1:
 
 #. Create the file :file:`/etc/modprobe.d/xivo-wcte-linemode.conf`::
 
     touch /etc/modprobe.d/xivo-wcte-linemode.conf
 
-#. Fill it with the following lines replacing ``MODULE_NAME`` by the correct module name 
+#. Fill it with the following lines replacing ``DAHDI_MODULE_NAME`` by the correct module name 
    (``wcte13xp``, ``wcte43x`` ...)::
 
     # set the card in E1/T1 mode
-    options MODULE_NAME default_linemode=e1
+    options DAHDI_MODULE_NAME default_linemode=e1
 
 #. Then, restart dahdi::
 
     xivo-service restart
 
 
-Next step
-=========
-Next step is to :ref:`configure the echo canceller <hwec_configuration>`.
