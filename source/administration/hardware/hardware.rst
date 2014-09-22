@@ -6,15 +6,15 @@ This section describes how to configure the telephony hardware on a XiVO server.
 
 .. note:: Currently XiVO support only Digium Telephony Interface cards
 
-The configration process is the following :
+The configuration process is the following :
 
 .. toctree::
    :maxdepth: 1
 
-   load_modules
-   echo_canceller
-   Configure Your Card <card_configuration>
-   apply_configuration
+   First, load the correct DAHDI modules <load_modules>
+   Then, configure and install the Echo-canceller <echo_canceller>
+   Configure the card <card_configuration>
+   And finally, apply the configuration <apply_configuration>
 
 At the end of this page you will also find some general notes and DAHDI.
 
