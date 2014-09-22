@@ -12,7 +12,7 @@ The configuration process is the following :
    :maxdepth: 1
 
    First, load the correct DAHDI modules <load_modules>
-   Then, configure and install the Echo-canceller <echo_canceller>
+   Then, configure and install the echo-canceller <echo_canceller>
    Configure the card <card_configuration>
    And finally, apply the configuration <apply_configuration>
 
