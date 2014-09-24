@@ -78,16 +78,31 @@ Downgrades are not supported: you can only upgrade to a greater version.
 We only support upgrades to archive versions >= 13.25, e.g. you can upgrade a 12.16 to 14.16, but
 not 12.16 to 13.16
 
-Source and destination archive version between 1.2 to 13.24
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Source archive version between 1.2 to 13.02 (here 1.2.3 to 14.16)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
+   cat > /usr/share/xivo-upgrade/pre-upgrade.d/99-archive-version <<EOF
+   #!/bin/sh
+   apt-get install -y xivo-fai-14.16
+   apt-get purge -y xivo-fai xivo-fai-skaro
    apt-get update
-   apt-get install xivo-fai-skaro-13.24
-   apt-get purge xivo-fai-skaro-13.02
+   EOF
+   chmod +x /usr/share/xivo-upgrade/pre-upgrade.d/99-archive-version
+
    apt-get update
-   xivo-upgrade
+   apt-get install -y -t squeeze-xivo-skaro-1.2.3 xivo-fai xivo-fai-skaro
+   apt-get purge -y pf-fai-xivo-1.2-skaro-1.2.3
+   apt-get update
+   apt-get install -y xivo-fai-14.16
+   apt-get purge -y xivo-fai
+   # redirect stderr to stdout to avoid desync between them
+   xivo-upgrade 2>&1 <<-EOF
+   y
+   Y
+   EOF
+   rm -r /usr/share/xivo-upgrade/pre-upgrade.d/99-archive-version
 
 
 Source archive version after 13.03 (here 13.03 to 14.16)
