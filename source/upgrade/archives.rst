@@ -48,26 +48,26 @@ Upgrade from an installed production version to a newer archive version
 
 Downgrades are not supported: you can only upgrade to a greater version.
 
-Installed version between 1.2 and 13.24::
+We only support upgrades to archive versions >= 13.25, e.g. you can upgrade a 12.16 to 14.16, but
+not 12.16 to 13.16
 
-   apt-get update
-   apt-get install xivo-fai-skaro-13.23
-   apt-get purge xivo-fai-skaro
-   apt-get update
+Installed version before 14.18 (here 13.25)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Installed version after 13.25::
+::
 
-   apt-get update
    apt-get install xivo-fai-13.25
-   apt-get purge xivo-fai
-   apt-get update
 
-Installed version after 14.18::
+You are now considered in an archived version, see the section `Upgrade from an older archive
+version to a newer archive version`_ below.
+
+Source archive version after 14.18
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
 
    xivo-dist xivo-15.12
    xivo-upgrade
-
-As a result, xivo-upgrade will not upgrade XiVO to a greater version than the archive you chose.
 
 
 Upgrade from an older archive version to a newer archive version
