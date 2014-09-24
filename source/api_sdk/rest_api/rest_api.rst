@@ -192,4 +192,5 @@ API
    agentd/api
    confd/api
    dird/api
+   provd/api
    sysconfd/api
