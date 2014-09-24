@@ -21,7 +21,7 @@ Archive packages are named as follow:
 Upgrade from an archive to current version
 ==========================================
 
-Archive version < 13.25 (here 13.02)::
+Archive version < 13.25::
 
    apt-get update
    apt-get install -t squeeze-xivo-skaro-$(cat /usr/share/xivo/XIVO-VERSION) xivo-fai xivo-fai-skaro
@@ -30,7 +30,7 @@ Archive version < 13.25 (here 13.02)::
 .. We need the old xivo-fai (squeeze), because the new xivo-fai (xivo-five) conflicts with
    xivo-fai-skaro. We need xivo-fai-skaro at least to download postgresql-9.1.
 
-Archive version >= 13.25 and < 14.18 (here 13.25)::
+Archive version >= 13.25 and < 14.18::
 
    apt-get update
    apt-get install xivo-fai
