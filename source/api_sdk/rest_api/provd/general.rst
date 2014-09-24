@@ -21,7 +21,7 @@ Get Current Status
 Query
 ^^^^^
 
-::
+.. code-block:: http
 
    GET <uri>
 
@@ -29,7 +29,7 @@ Query
 Example request
 ^^^^^^^^^^^^^^^
 
-::
+.. code-block:: http
 
    GET <uri> HTTP/1.1
    Host: xivoserver
@@ -39,7 +39,7 @@ Example request
 Example response
 ^^^^^^^^^^^^^^^^
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -75,7 +75,7 @@ memory.
 Query
 ^^^^^
 
-::
+.. code-block:: http
 
    DELETE <uri>
 
@@ -83,7 +83,7 @@ Query
 Example request
 ^^^^^^^^^^^^^^^
 
-::
+.. code-block:: http
 
    DELETE <uri> HTTP/1.1
    Host: xivoserver
@@ -92,7 +92,7 @@ Example request
 Example response
 ^^^^^^^^^^^^^^^^
 
-::
+.. code-block:: http
 
    HTTP/1.1 204 No Content
 
@@ -108,7 +108,7 @@ Get the Configuration
 Query
 ^^^^^
 
-::
+.. code-block:: http
 
    GET <uri>
 
@@ -118,7 +118,7 @@ Example request
 
 Example request for the configuration service of the :ref:`provd manager <provd-api-provd-mgr>`.
 
-::
+.. code-block:: http
 
    GET /provd/configure HTTP/1.1
    Host: xivoserver
@@ -128,7 +128,7 @@ Example request for the configuration service of the :ref:`provd manager <provd-
 Example response
 ^^^^^^^^^^^^^^^^
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -211,7 +211,7 @@ Get the Value of a Parameter
 Query
 ^^^^^
 
-::
+.. code-block:: http
 
    GET <uri>
 
@@ -221,7 +221,7 @@ Example request
 
 Example request for the NAT option of the configuration service of the provd entry point.
 
-::
+.. code-block:: http
 
    GET /provd/configure/NAT HTTP/1.1
    Host: xivoserver
@@ -249,7 +249,7 @@ Set the Value of a Parameter
 Query
 ^^^^^
 
-::
+.. code-block:: http
 
    PUT <uri>
 
@@ -260,7 +260,7 @@ Example request
 Example request for the NAT option of the configuration service of the :ref:`provd manager
 <provd-api-provd-mgr>`.
 
-::
+.. code-block:: http
 
    PUT /provd/configure/NAT HTTP/1.1
    Host: xivoserver
@@ -276,7 +276,7 @@ Example request for the NAT option of the configuration service of the :ref:`pro
 Example response
 ^^^^^^^^^^^^^^^^
 
-::
+.. code-block:: http
 
    HTTP/1.1 204 No Content
    Content-Type: application/vnd.proformatique.provd+json
@@ -293,7 +293,7 @@ Get the Installation Service
 Query
 ^^^^^
 
-::
+.. code-block:: http
 
    GET <uri>
 
@@ -303,7 +303,7 @@ Example request
 
 Example request for the installation service of the :ref:`plugin manager <provd-api-pg-mgr>`.
 
-::
+.. code-block:: http
 
    GET /provd/pg_mgr/install HTTP/1.1
    Host: xivoserver
@@ -313,7 +313,7 @@ Example request for the installation service of the :ref:`plugin manager <provd-
 Example response
 ^^^^^^^^^^^^^^^^
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -356,7 +356,7 @@ Install a Package
 Query
 ^^^^^
 
-::
+.. code-block:: http
 
    POST <uri>
 
@@ -366,7 +366,7 @@ Example request
 
 Example request for the installation service of the plugin manager.
 
-::
+.. code-block:: http
 
    POST /provd/pg_mgr/install/install HTTP/1.1
    Host: xivoserver
@@ -380,7 +380,7 @@ Example request for the installation service of the plugin manager.
 Example response
 ^^^^^^^^^^^^^^^^
 
-::
+.. code-block:: http
 
    HTTP/1.1 201 Created
    Location: /provd/pg_mgr/install/install/1
@@ -395,7 +395,7 @@ Uninstall a Package
 Query
 ^^^^^
 
-::
+.. code-block:: http
 
    POST <uri>
 
@@ -405,7 +405,7 @@ Example request
 
 Example request for the installation service of the plugin manager.
 
-::
+.. code-block:: http
 
    POST /provd/pg_mgr/install/uninstall HTTP/1.1
    Host: xivoserver
@@ -419,7 +419,7 @@ Example request for the installation service of the plugin manager.
 Example response
 ^^^^^^^^^^^^^^^^
 
-::
+.. code-block:: http
 
    HTTP/1.1 204 No Content
    Content-Type: application/vnd.proformatique.provd+json
@@ -431,7 +431,7 @@ Upgrade a Package
 Query
 ^^^^^
 
-::
+.. code-block:: http
 
    POST <uri>
 
@@ -441,7 +441,7 @@ Example request
 
 Example request for the installation service of the plugin manager.
 
-::
+.. code-block:: http
 
    POST /provd/pg_mgr/install/upgrade HTTP/1.1
    Host: xivoserver
@@ -455,7 +455,7 @@ Example request for the installation service of the plugin manager.
 Example response
 ^^^^^^^^^^^^^^^^
 
-::
+.. code-block:: http
 
    HTTP/1.1 201 Created
    Location: /provd/pg_mgr/install/upgrade/1
@@ -470,7 +470,7 @@ Update the List of Installable Packages
 Query
 ^^^^^
 
-::
+.. code-block:: http
 
    POST <uri>
 
@@ -480,7 +480,7 @@ Example request
 
 Example request for the installation service of the plugin manager.
 
-::
+.. code-block:: http
 
    POST /provd/pg_mgr/install/update HTTP/1.1
    Host: xivoserver
@@ -492,7 +492,7 @@ Example request for the installation service of the plugin manager.
 Example response
 ^^^^^^^^^^^^^^^^
 
-::
+.. code-block:: http
 
    HTTP/1.1 201 Created
    Location: /provd/pg_mgr/install/update/1
@@ -507,7 +507,7 @@ List Installable Packages
 Query
 ^^^^^
 
-::
+.. code-block:: http
 
    GET <uri>
 
@@ -517,7 +517,7 @@ Example request
 
 Example request for the installation service of the plugin manager.
 
-::
+.. code-block:: http
 
    GET /provd/pg_mgr/install/installable HTTP/1.1
    Host: xivoserver
@@ -527,7 +527,7 @@ Example request for the installation service of the plugin manager.
 Example response
 ^^^^^^^^^^^^^^^^
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -596,7 +596,7 @@ List Installed Packages
 Query
 ^^^^^
 
-::
+.. code-block:: http
 
    GET <uri>
 
@@ -606,7 +606,7 @@ Example request
 
 Example request for the installation service of the plugin manager.
 
-::
+.. code-block:: http
 
    GET /provd/pg_mgr/install/installed HTTP/1.1
    Host: xivoserver
@@ -616,7 +616,7 @@ Example request for the installation service of the plugin manager.
 Example response
 ^^^^^^^^^^^^^^^^
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json

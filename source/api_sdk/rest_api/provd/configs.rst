@@ -16,7 +16,7 @@ The config manager links to the following resources:
 Query
 -----
 
-::
+.. code-block:: http
 
    GET /provd/cfg_mgr
 
@@ -24,7 +24,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    GET /provd/cfg_mgr HTTP/1.1
    Host: xivoserver
@@ -34,7 +34,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -62,7 +62,7 @@ List Configs
 Query
 -----
 
-::
+.. code-block:: http
 
    GET /provd/cfg_mgr/configs
 
@@ -76,7 +76,7 @@ These are the :ref:`same parameters as for the list devices <provd-api-list-devi
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    GET /provd/cfg_mgr/configs HTTP/1.1
    Host: xivoserver
@@ -86,7 +86,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -145,7 +145,7 @@ Create a Config
 Query
 -----
 
-::
+.. code-block:: http
 
    POST /provd/cfg_mgr/configs
 
@@ -153,7 +153,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    POST /provd/cfg_mgr/configs HTTP/1.1
    Host: xivoserver
@@ -183,7 +183,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 201 Created
    Content-Type: application/vnd.proformatique.provd+json
@@ -201,7 +201,7 @@ Get a Config
 Query
 -----
 
-::
+.. code-block:: http
 
    GET /provd/cfg_mgr/configs/<config_id>
 
@@ -209,7 +209,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    GET /provd/cfg_mgr/configs/77839d0f05c84662864b0ae5c27b33e4 HTTP/1.1
    Host: xivoserver
@@ -219,7 +219,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -252,7 +252,7 @@ Get a Raw Config
 Query
 -----
 
-::
+.. code-block:: http
 
    GET /provd/cfg_mgr/configs/<config_id>/raw
 
@@ -260,7 +260,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    GET /provd/cfg_mgr/configs/77839d0f05c84662864b0ae5c27b33e4/raw HTTP/1.1
    Host: xivoserver
@@ -270,7 +270,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -303,7 +303,7 @@ Update a Config
 Query
 -----
 
-::
+.. code-block:: http
 
    PUT /provd/cfg_mgr/configs/<config_id>
 
@@ -311,7 +311,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    PUT /provd/cfg_mgr/configs/77839d0f05c84662864b0ae5c27b33e4 HTTP/1.1
    Host: xivoserver
@@ -342,7 +342,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 204 No Content
 
@@ -353,7 +353,7 @@ Delete a Config
 Query
 -----
 
-::
+.. code-block:: http
 
    DELETE /provd/cfg_mgr/configs/<config_id>
 
@@ -361,7 +361,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    DELETE /provd/cfg_mgr/configs/77839d0f05c84662864b0ae5c27b33e4
    Host: xivoserver
@@ -370,7 +370,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 204 No Content
 
@@ -386,7 +386,7 @@ This service is used to create a new config from the config that has the ``autoc
 Query
 -----
 
-::
+.. code-block:: http
 
    POST /provd/cfg_mgr/autocreate
 
@@ -394,7 +394,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    POST /provd/cfg_mgr/autocreate HTTP/1.1
    Host: xivoserver
@@ -406,7 +406,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 201 Created
    Content-Type: application/vnd.proformatique.provd+json

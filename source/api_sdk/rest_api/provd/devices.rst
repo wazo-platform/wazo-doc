@@ -18,7 +18,7 @@ The device manager links to the following resources:
 Query
 -----
 
-::
+.. code-block:: http
 
    GET /provd/dev_mgr
 
@@ -26,7 +26,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    GET /provd/dev_mgr HTTP/1.1
    Host: xivoserver
@@ -36,7 +36,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -71,7 +71,7 @@ List Devices
 Query
 -----
 
-::
+.. code-block:: http
 
    GET /provd/dev_mgr/devices
 
@@ -100,7 +100,7 @@ Query Parameters
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    GET /provd/dev_mgr/devices HTTP/1.1
    Host: xivoserver
@@ -110,7 +110,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -141,7 +141,7 @@ Create a Device
 Query
 -----
 
-::
+.. code-block:: http
 
    POST /provd/dev_mgr/devices
 
@@ -149,7 +149,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    POST /provd/dev_mgr/devices HTTP/1.1
    Host: xivoserver
@@ -166,7 +166,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 201 Created
    Content-Type: application/vnd.proformatique.provd+json
@@ -184,7 +184,7 @@ Get a Device
 Query
 -----
 
-::
+.. code-block:: http
 
    GET /provd/dev_mgr/devices/<device_id>
 
@@ -192,7 +192,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    GET /provd/dev_mgr/devices/68b10c99945b4fb889f22a7559fc3271 HTTP/1.1
    Host: xivoserver
@@ -202,7 +202,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -231,7 +231,7 @@ Update a Device
 Query
 -----
 
-::
+.. code-block:: http
 
    PUT /provd/dev_mgr/devices/<device_id>
 
@@ -239,7 +239,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    PUT /provd/dev_mgr/devices/68b10c99945b4fb889f22a7559fc3271 HTTP/1.1
    Host: xivoserver
@@ -266,7 +266,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 204 No Content
 
@@ -277,7 +277,7 @@ Delete a Device
 Query
 -----
 
-::
+.. code-block:: http
 
    DELETE /provd/dev_mgr/devices/<device_id>
 
@@ -285,7 +285,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    DELETE /provd/dev_mgr/devices/68b10c99945b4fb889f22a7559fc3271 HTTP/1.1
    Host: xivoserver
@@ -294,7 +294,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 204 No Content
 
@@ -307,7 +307,7 @@ Synchronize a Device
 Query
 -----
 
-::
+.. code-block:: http
 
    POST /provd/dev_mgr/synchronize
 
@@ -315,7 +315,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    POST /provd/dev_mgr/synchronize HTTP/1.1
    Host: xivoserver
@@ -329,7 +329,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 201 Created
    Location: /provd/dev_mgr/synchronize/42
@@ -345,7 +345,7 @@ Reconfigure a Device
 Query
 -----
 
-::
+.. code-block:: http
 
    POST /provd/dev_mgr/reconfigure
 
@@ -363,7 +363,7 @@ Errors
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    POST /provd/dev_mgr/reconfigure HTTP/1.1
    Host: xivoserver
@@ -377,7 +377,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 204 No Content
 
@@ -390,7 +390,7 @@ Push DHCP Request Information
 Query
 -----
 
-::
+.. code-block:: http
 
    POST /provd/dev_mgr/dhcpinfo
 
@@ -398,7 +398,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    POST /provd/dev_mgr/dhcpinfo HTTP/1.1
    Host: xivoserver
@@ -419,6 +419,6 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 204 No Content

@@ -18,7 +18,7 @@ The plugin manager links to the following resources:
 Query
 -----
 
-::
+.. code-block:: http
 
    GET /provd/pg_mgr
 
@@ -26,7 +26,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    GET /provd/pg_mgr HTTP/1.1
    Host: xivoserver
@@ -36,7 +36,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -72,7 +72,7 @@ If you want to install/uninstall plugins, you need to go trough the plugin insta
 Query
 -----
 
-::
+.. code-block:: http
 
    GET /provd/pg_mgr/plugins
 
@@ -80,7 +80,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    GET /provd/pg_mgr/plugins HTTP/1.1
    Host: xivoserver
@@ -90,7 +90,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -130,7 +130,7 @@ The plugin links to the following resources:
 Query
 -----
 
-::
+.. code-block:: http
 
    GET /provd/pg_mgr/plugins/<plugin_id>
 
@@ -138,7 +138,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    GET /provd/pg_mgr/plugins/xivo-aastra-3.3.1-SP2 HTTP/1.1
    Host: xivoserver
@@ -148,7 +148,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -175,7 +175,7 @@ Get Information of a Plugin
 Query
 -----
 
-::
+.. code-block:: http
 
    GET /provd/pg_mgr/plugins/<plugin_id>/info
 
@@ -183,7 +183,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    GET /provd/pg_mgr/plugins/xivo-aastra-3.3.1-SP2/info HTTP/1.1
    Host: xivoserver
@@ -193,7 +193,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -253,7 +253,7 @@ the plugin, instead of restarting the xivo-provd application.
 Query
 -----
 
-::
+.. code-block:: http
 
    POST /provd/pg_mgr/reload
 
@@ -261,7 +261,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    POST /provd/pg_mgr/reload HTTP/1.1
    Host: xivoserver
@@ -275,6 +275,6 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 204 No Content

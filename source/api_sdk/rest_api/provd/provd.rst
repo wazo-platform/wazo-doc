@@ -20,7 +20,7 @@ It links to the following resources:
 Query
 -----
 
-::
+.. code-block:: http
 
    GET /provd
 
@@ -28,7 +28,7 @@ Query
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    GET /provd HTTP/1.1
    Host: xivoserver
@@ -38,7 +38,7 @@ Example request
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/vnd.proformatique.provd+json
@@ -63,5 +63,3 @@ Example response
            }
        ]
    }
-
-
