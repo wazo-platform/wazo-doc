@@ -1,6 +1,6 @@
-**********
-Developers
-**********
+************
+Contributors
+************
 
 General information:
 
