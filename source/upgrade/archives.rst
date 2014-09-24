@@ -14,19 +14,32 @@ Archive packages are named as follow:
 +----------------+-----------------------------+
 | 12.14 to 13.24 | xivo-fai-skaro-13.04        |
 +----------------+-----------------------------+
-| from 13.25     | xivo-fai-13.25              |
+| 13.25 to 14.17 | xivo-fai-14.06              |
 +----------------+-----------------------------+
 
 
-Upgrade to current version from an archive
+Upgrade from an archive to current version
 ==========================================
 
-::
+Archive version < 13.25 (here 13.02)::
 
    apt-get update
-   apt-get install xivo-fai/squeeze-xivo-skaro-$(cat /usr/share/xivo/XIVO-VERSION) xivo-fai-skaro
-   apt-get update
+   apt-get install -t squeeze-xivo-skaro-$(cat /usr/share/xivo/XIVO-VERSION) xivo-fai xivo-fai-skaro
    xivo-upgrade
+
+.. We need the old xivo-fai (squeeze), because the new xivo-fai (xivo-five) conflicts with
+   xivo-fai-skaro. We need xivo-fai-skaro at least to download postgresql-9.1.
+
+Archive version >= 13.25 and < 14.18 (here 13.25)::
+
+   apt-get update
+   apt-get install xivo-fai
+   xivo-upgrade
+
+Archive version >= 14.18::
+
+  xivo-dist xivo-five
+  xivo-upgrade
 
 As a result, xivo-upgrade will always upgrade XiVO to the latest stable version.
 
@@ -48,6 +61,11 @@ Current version after 13.25::
    apt-get install xivo-fai-13.25
    apt-get purge xivo-fai
    apt-get update
+
+Current version after 14.18::
+
+   xivo-dist xivo-15.12
+   xivo-upgrade
 
 As a result, xivo-upgrade will not upgrade XiVO to a greater version than the archive you chose.
 
@@ -74,4 +92,9 @@ Source or destination archive version after 13.25::
    rm /etc/apt/sources.list.d/xivo-13.25.list
    apt-get purge xivo-fai-skaro-13.02
    apt-get update
+   xivo-upgrade
+
+Source and destination archive version after 14.18::
+
+   xivo-dist xivo-15.12
    xivo-upgrade
