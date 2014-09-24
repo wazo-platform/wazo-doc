@@ -75,7 +75,13 @@ Upgrade from an older archive version to a newer archive version
 
 Downgrades are not supported: you can only upgrade to a greater version.
 
-Source and destination archive version between 1.2 to 13.24::
+We only support upgrades to archive versions >= 13.25, e.g. you can upgrade a 12.16 to 14.16, but
+not 12.16 to 13.16
+
+Source and destination archive version between 1.2 to 13.24
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
 
    apt-get update
    apt-get install xivo-fai-skaro-13.24
@@ -83,18 +89,36 @@ Source and destination archive version between 1.2 to 13.24::
    apt-get update
    xivo-upgrade
 
-Source or destination archive version after 13.25::
+Source archive version after 13.25 (here 13.25 to 14.16)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   # Workaround for bug #5087
+   cat > /usr/share/xivo-upgrade/pre-stop.d/99-archive-version <<EOF
+   #!/bin/sh
+   apt-get install -y xivo-fai-14.16
+   apt-get purge -y xivo-fai
+   apt-get update
+   EOF
+   chmod +x /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
 
    apt-get update
-   echo "deb http://mirror.xivo.io/archive xivo-13.25 main" > /etc/apt/sources.list.d/xivo-13.25.list
+   apt-get install xivo-fai
+   apt-get purge xivo-fai-13.25
    apt-get update
-   apt-get install xivo-fai-13.25
-   rm /etc/apt/sources.list.d/xivo-13.25.list
-   apt-get purge xivo-fai-skaro-13.02
-   apt-get update
+   /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
    xivo-upgrade
+   rm /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
 
-Source and destination archive version after 14.18::
+xivo-upgrade will prompt you for an installation of the latest version, not for the archive you want
+(bug `#5087 <https://projects.xivo.io/issues/5087>`_). Because of the file we added in
+:file:`/usr/share/xivo-upgrade/pre-stop.d/`, xivo-upgrade will install the archive version you want.
+
+Source archive version after 14.18
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
 
    xivo-dist xivo-15.12
    xivo-upgrade
