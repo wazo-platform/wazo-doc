@@ -18,8 +18,8 @@ Archive packages are named as follow:
 +----------------+-----------------------------+
 
 
-Upgrade from an archive to current version
-==========================================
+Upgrade from an archive to the latest version
+=============================================
 
 Archive version < 13.25::
 
@@ -43,26 +43,26 @@ Archive version >= 14.18::
 
 As a result, xivo-upgrade will always upgrade XiVO to the latest stable version.
 
-From the current version, use an archive version
-================================================
+Upgrade from an installed production version to a newer archive version
+=======================================================================
 
 Downgrades are not supported: you can only upgrade to a greater version.
 
-Current version between 1.2 and 13.24::
+Installed version between 1.2 and 13.24::
 
    apt-get update
    apt-get install xivo-fai-skaro-13.23
    apt-get purge xivo-fai-skaro
    apt-get update
 
-Current version after 13.25::
+Installed version after 13.25::
 
    apt-get update
    apt-get install xivo-fai-13.25
    apt-get purge xivo-fai
    apt-get update
 
-Current version after 14.18::
+Installed version after 14.18::
 
    xivo-dist xivo-15.12
    xivo-upgrade
@@ -70,8 +70,8 @@ Current version after 14.18::
 As a result, xivo-upgrade will not upgrade XiVO to a greater version than the archive you chose.
 
 
-Upgrade from an archive version to another archive version
-==========================================================
+Upgrade from an older archive version to a newer archive version
+================================================================
 
 Downgrades are not supported: you can only upgrade to a greater version.
 
