@@ -485,7 +485,7 @@ Example request
 
     GET /0.1/agents/<agent_id>/status
     Host: xivoserver
-    Content-Type: application/json
+    Accept: application/json
 
 
 Example response
@@ -532,7 +532,7 @@ Example request
 
     GET /0.1/agents/by-number/<agent_number>/status
     Host: xivoserver
-    Content-Type: application/json
+    Accept: application/json
     
 
 
@@ -580,7 +580,7 @@ Example request
 
     GET /0.1/agents/all/statuses
     Host: xivoserver
-    Content-Type: application/json
+    Accept: application/json
 
 
 Example response
