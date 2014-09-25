@@ -138,6 +138,15 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.18
+-----
+
+* Consult the `14.18 Roadmap <https://projects.xivo.io/versions/209>`_
+* xivo-fai packages were replaced with xivo-dist : a new tool to handle repositories sources.
+  Uppon upgrade, xivo-dist is installed and run and all xivo-fai packages are purged.
+  :ref:`Consult xivo-dist use cases <xivo_dist>`
+
+
 14.17
 -----
 
