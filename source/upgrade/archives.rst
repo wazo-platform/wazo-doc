@@ -78,39 +78,12 @@ Downgrades are not supported: you can only upgrade to a greater version.
 We only support upgrades to archive versions >= 13.25, e.g. you can upgrade a 12.16 to 14.16, but
 not 12.16 to 13.16
 
-Source archive version between 1.2 to 13.02 (here 1.2.3 to 14.16)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Source archive version between 1.2 and 13.24 (here 1.2.3 to 14.16)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-   cat > /usr/share/xivo-upgrade/pre-upgrade.d/99-archive-version <<EOF
-   #!/bin/sh
-   apt-get install -y xivo-fai-14.16
-   apt-get purge -y xivo-fai xivo-fai-skaro
-   apt-get update
-   EOF
-   chmod +x /usr/share/xivo-upgrade/pre-upgrade.d/99-archive-version
-
-   apt-get update
-   apt-get install -y -t squeeze-xivo-skaro-1.2.3 xivo-fai xivo-fai-skaro
-   apt-get purge -y pf-fai-xivo-1.2-skaro-1.2.3
-   apt-get update
-   apt-get install -y xivo-fai-14.16
-   apt-get purge -y xivo-fai
-   # redirect stderr to stdout to avoid desync between them
-   xivo-upgrade 2>&1 <<-EOF
-   y
-   Y
-   EOF
-   rm -r /usr/share/xivo-upgrade/pre-upgrade.d/99-archive-version
-
-
-Source archive version after 13.03 (here 13.03 to 14.16)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-::
-
-   # Workaround for bug #5087
+   mkdir -p /usr/share/xivo-upgrade/pre-stop.d
    cat > /usr/share/xivo-upgrade/pre-stop.d/99-archive-version <<EOF
    #!/bin/sh
    apt-get install -y xivo-fai-14.16
@@ -120,13 +93,16 @@ Source archive version after 13.03 (here 13.03 to 14.16)
    chmod +x /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
 
    apt-get update
-   apt-get install -t squeeze-xivo-skaro-13.03 xivo-fai xivo-fai-skaro
-   apt-get purge xivo-fai-skaro-13.03
+   apt-get install -t squeeze-xivo-skaro-1.2.3 xivo-fai xivo-fai-skaro
+   apt-get purge pf-fai-xivo-1.2-skaro-1.2.3
    apt-get update
    apt-get install xivo-fai-14.16
    apt-get purge xivo-fai
    xivo-upgrade
    rm /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
+
+.. We need the old xivo-fai (squeeze), because the new xivo-fai (xivo-five) conflicts with
+   xivo-fai-skaro. We need xivo-fai-skaro at least to download postgresql-9.1.
 
 xivo-upgrade will prompt you for an installation of the latest version, not for the archive you want
 (bug `#5087 <https://projects.xivo.io/issues/5087>`_). Because of the file we added in
