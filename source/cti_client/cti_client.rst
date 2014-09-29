@@ -93,48 +93,59 @@ This page allows the user to set his network information to connect to the xivo-
 * `Try to reconnect interval` is the reconnection delay before the auto-reconnection is tryed.
 * `Keep alive interval` is the number of seconds between keepalives messages.
 
+
 Handling callto: and tel: URLs
 ==============================
 
-The XiVO client can handle telephone number links that appear in web pages. The client will automatically dial
-the number when you click on a link.
+The XiVO client can handle telephone number links that appear in web pages. The client will
+automatically dial the number when you click on a link.
 
-.. note:: You must already be logged in for automatic dialing to work, otherwise the client will simply start up and wait for you to log in.
+.. note:: You must already be logged in for automatic dialing to work, otherwise the client will
+           simply start up and wait for you to log in.
 
-.. warning:: The option in the XiVO Client :menuselection:`GUI Options --> Allow multiple instances of XiVO Client` must be disabled, else you will launch one new XiVO Client with every click.
+.. warning:: The option in the XiVO Client :menuselection:`GUI Options --> Allow multiple instances
+             of XiVO Client` must be disabled, else you will launch one new XiVO Client with every click.
 
 Mac OS
 ------
 
-``callto:`` and ``tel:`` links will work out-of-the-box in Safari and other web browsers after installing the client.
+``callto:`` and ``tel:`` links will work out-of-the-box in Safari and other web browsers after
+installing the client.
 
 Windows
 -------
 
-The following popups might appear When you open a ``callto:`` or ``tel:`` link for the first time in Internet Explorer:
+Currently, ``callto:`` or ``tel:`` links are only supported in Internet Explorer.
+
+The following popups might appear when you open a ``callto:`` or ``tel:`` link for the first time in
+Internet Explorer:
 
 .. figure:: images/ie_warning_1.png
 .. figure:: images/ie_warning_2.png
 
 Simply click on *allow* to dial the number using the XiVO client.
 
-.. note:: If you do not want these warnings to appear each time, do not forget to check/uncheck the checkbox at the bottom of the popups.
+.. note:: If you do not want these warnings to appear each time, do not forget to check/uncheck the
+          checkbox at the bottom of the popups.
 
 Ubuntu
 ------
 
-There is no configuration needed.
+Currently, ``callto:`` or ``tel:`` links are only supported in Firefox. There is no configuration
+needed.
 
 GNU/Linux Debian
 ----------------
 
-If the XiVO Client is not listed in the proposition when you open the link,
-browse your files to find :file:`/usr/bin/xivoclient`.
+Currently, ``callto:`` or ``tel:`` links are only supported in Firefox. If the XiVO Client is not
+listed in the proposition when you open the link, browse your files to find
+:file:`/usr/bin/xivoclient`.
 
-Manual association in firefox
+Manual association in Firefox
 -----------------------------
 
-If, for some reason, firefox does not recognize ``callto:`` or ``tel:`` URIs you can manually associate them to the XiVO client using the following steps:
+If, for some reason, Firefox does not recognize ``callto:`` or ``tel:`` URIs you can manually
+associate them to the XiVO client using the following steps:
 
 1. Type ``about:config`` in the URL bar
 2. Click the *I'll be careful, I promise !* button to close the warning
@@ -143,4 +154,5 @@ If, for some reason, firefox does not recognize ``callto:`` or ``tel:`` URIs you
 5. Select ``false`` as value
 6. Repeat steps 3 to 6, but replace ``callto`` by ``tel`` at step 4
 
-The next time that you click on a telephone link, firefox will ask you to choose an application. You will then be able to choose the XiVO client for handling telephone numbers.
+The next time that you click on a telephone link, Firefox will ask you to choose an application. You
+will then be able to choose the XiVO client for handling telephone numbers.

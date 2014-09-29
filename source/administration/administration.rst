@@ -10,6 +10,7 @@ Administration
    call_completion/call_completion
    callright/callright
    cel/cel
+   cli_tools/cli_tools
    conference_room/conference_room
    ctiserver/ctiserver
    Customer info <customerinfo/customerinfo>

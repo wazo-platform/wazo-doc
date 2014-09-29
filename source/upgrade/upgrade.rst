@@ -138,6 +138,15 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.18
+-----
+
+* Consult the `14.18 Roadmap <https://projects.xivo.io/versions/209>`_
+* xivo-fai packages were replaced with xivo-dist : a new tool to handle repositories sources.
+  Upon upgrade, xivo-dist is installed and run and all xivo-fai packages are purged.
+  :ref:`Consult xivo-dist use cases <xivo_dist>`
+
+
 14.17
 -----
 
@@ -165,7 +174,7 @@ Upgrade Notes
 -----
 
 * Consult the `14.15 Roadmap <https://projects.xivo.io/versions/206>`_
-* Duplicate function keys will be deleted uppon upgrade. If multiple function keys pointing to
+* Duplicate function keys will be deleted upon upgrade. If multiple function keys pointing to
   the same destination are detected for a given user, only the one with the lowest position will
   be kept. To see the list of deleted function keys, check the xivo-upgrade log file such as::
 

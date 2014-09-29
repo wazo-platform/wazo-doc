@@ -41,7 +41,7 @@ Table of Contents
    contact_center/contact_center
    high_availability/high_availability
    api_sdk/api_sdk
-   developers/developers
+   contributors/contributors
    quality_assurance/quality_assurance
    troubleshooting/troubleshooting
    changelog

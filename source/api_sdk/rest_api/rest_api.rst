@@ -189,6 +189,8 @@ API
 .. toctree::
    :maxdepth: 1
 
+   agentd/api
    confd/api
    dird/api
+   provd/api
    sysconfd/api

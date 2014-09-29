@@ -34,6 +34,11 @@ A queue can use one of the following ring strategies:
       ring strategy of a queue to linear, you'll have to delete and create a new
       queue with the right strategy.
 
+  .. note::
+
+     When an agent is a member of many queues. The order of call distribution
+     between multiple queues is nondeterministic and cannot be configured.
+
 
 Timers
 ======
