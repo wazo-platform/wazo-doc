@@ -68,27 +68,27 @@ Copy all these lines in the newly created configuration file (in our case, dp-iv
 
    ;##### CHOICE 1 #####
    exten = 1,1,NoOp(pressed digit is 1, redirect to 8000 in ${IVR_DESTINATION_CONTEXT} context)
-   exten = 1,n,goto(${IVR_DESTINATION_CONTEXT},8000,1)
+   exten = 1,n,Goto(${IVR_DESTINATION_CONTEXT},8000,1)
 
    ;##### CHOICE 2 #####
    exten = 2,1,NoOp(pressed digit is 2, redirect to 8833 in ${IVR_DESTINATION_CONTEXT} context)
-   exten = 2,n,goto(${IVR_DESTINATION_CONTEXT},8833,1)
+   exten = 2,n,Goto(${IVR_DESTINATION_CONTEXT},8833,1)
 
    ;##### CHOICE 3 #####
    exten = 3,1,NoOp(pressed digit is 3, redirect to 8547 in ${IVR_DESTINATION_CONTEXT} context)
-   exten = 3,n,goto(${IVR_DESTINATION_CONTEXT},8547,1)
+   exten = 3,n,Goto(${IVR_DESTINATION_CONTEXT},8547,1)
 
    ;##### CHOICE 4 #####
    exten = 4,1,NoOp(pressed digit is 4, redirect to start label in this context)
-   exten = 4,n,goto(s,start)
+   exten = 4,n,Goto(s,start)
 
    ;##### TIMEOUT #####
    exten = t,1,NoOp(no digit pressed for 5s, call is redirected to 8000)
-   exten = t,n,goto(${IVR_DESTINATION_CONTEXT},8000,1)
+   exten = t,n,Goto(${IVR_DESTINATION_CONTEXT},8000,1)
 
    ;##### INVALID CHOICE #####
    exten = i,1,NoOp(if counter variable is 3 or more, then goto label "error")
-   exten = i,n,Gotoif($[${counter}>=3]?error)
+   exten = i,n,GotoIf($[${counter}>=3]?error)
    exten = i,n,NoOp(pressed digit is invalid and less than 3 errors: the guide ivr-exemple-invalid-choice is now played)
    exten = i,n,Playback(${GV_DIRECTORY_SOUNDS}/ivr-example-invalid-choice)
    exten = i,n,Goto(s,start)
@@ -193,28 +193,28 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
 
    ;##### CHOICE 1 #####
    exten = 1,1,NoOp(pressed digit is 1, redirect to 8000 in ${IVR_DESTINATION_CONTEXT} context)
-   exten = 1,n,goto(${IVR_DESTINATION_CONTEXT},8000,1)
+   exten = 1,n,Goto(${IVR_DESTINATION_CONTEXT},8000,1)
 
    ;##### CHOICE 2 #####
    exten = 2,1,NoOp(pressed digit is 2, redirect to 8833 in ${IVR_DESTINATION_CONTEXT} context)
-   exten = 2,n,goto(${IVR_DESTINATION_CONTEXT},8833,1)
+   exten = 2,n,Goto(${IVR_DESTINATION_CONTEXT},8833,1)
 
    ;##### CHOICE 3 #####
    exten = 3,1,NoOp(pressed digit is 3, redirect to the submenu dp-ivr-submenu)
-   exten = 3,n,goto(dp-ivr-submenu,s,1)
+   exten = 3,n,Goto(dp-ivr-submenu,s,1)
 
 
    ;##### CHOICE 4 #####
    exten = 4,1,NoOp(pressed digit is 4, redirect to start label in this context)
-   exten = 4,n,goto(s,start)
+   exten = 4,n,Goto(s,start)
 
    ;##### TIMEOUT #####
    exten = t,1,NoOp(no digit pressed until 5s, call is redirected to 8000)
-   exten = t,n,goto(${IVR_DESTINATION_CONTEXT},8000,1)
+   exten = t,n,Goto(${IVR_DESTINATION_CONTEXT},8000,1)
 
    ;##### INVALID CHOICE #####
    exten = i,1,NoOp(if counter variable is 3 or more, then goto label "error")
-   exten = i,n,Gotoif($[${counter}>=3]?error)
+   exten = i,n,GotoIf($[${counter}>=3]?error)
    exten = i,n,NoOp(pressed digit is invalid and less than 3 errors: the guide ivr-exemple-invalid-choice is now played)
    exten = i,n,Playback(${GV_DIRECTORY_SOUNDS}/ivr-example-invalid-choice)
    exten = i,n,Goto(s,start)
@@ -244,25 +244,25 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
 
    ;##### CHOICE 1 #####
    exten = 1,1,NoOp(pressed digit is 1, redirect to 8000 in ${IVR_DESTINATION_CONTEXT} context)
-   exten = 1,n,goto(${IVR_DESTINATION_CONTEXT},8000,1)
+   exten = 1,n,Goto(${IVR_DESTINATION_CONTEXT},8000,1)
 
    ;##### CHOICE 2 #####
    exten = 2,1,NoOp(pressed digit is 2, redirect to 8001 in ${IVR_DESTINATION_CONTEXT} context)
-   exten = 2,n,goto(${IVR_DESTINATION_CONTEXT},8001,1)
+   exten = 2,n,Goto(${IVR_DESTINATION_CONTEXT},8001,1)
 
    ;##### CHOICE 3 #####
    exten = 3,1,NoOp(pressed digit is 3, redirect to the previous menu dp-ivr-example)
-   exten = 3,n,goto(dp-ivr-example,s,1)
+   exten = 3,n,Goto(dp-ivr-example,s,1)
 
 
    ;##### TIMEOUT #####
    exten = t,1,NoOp(no digit pressed until 5s, call is redirected to 8000)
-   exten = t,n,goto(${IVR_DESTINATION_CONTEXT},8000,1)
+   exten = t,n,Goto(${IVR_DESTINATION_CONTEXT},8000,1)
 
 
    ;##### INVALID CHOICE #####
    exten = i,1,NoOp(if counter variable is 3 or more, then goto label "error")
-   exten = i,n,Gotoif($[${counter}>=3]?error)
+   exten = i,n,GotoIf($[${counter}>=3]?error)
    exten = i,n,NoOp(pressed digit is invalid and less than 3 errors: the guide ivr-exemple-invalid-choice is now played)
    exten = i,n,Playback(${GV_DIRECTORY_SOUNDS}/ivr-example-invalid-choice)
    exten = i,n,Goto(s,start)
