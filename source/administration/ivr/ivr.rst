@@ -18,8 +18,8 @@ The IVR function is not yet available in graphic mode in XiVO. This functionalit
 supported using scripts, also named dialplan.
 
 
-Use Case : Minimal IVR
-======================
+Use Case: Minimal IVR
+=====================
 
 Flowchart
 ---------
@@ -83,13 +83,13 @@ Copy all these lines in the newly created configuration file (in our case, dp-iv
    exten = 4,n,goto(s,start)
 
    ;##### TIMEOUT #####
-   exten = t,1,NoOp(no digit pressed until 5s, call is redirected to 8000)
+   exten = t,1,NoOp(no digit pressed for 5s, call is redirected to 8000)
    exten = t,n,goto(${IVR_DESTINATION_CONTEXT},8000,1)
 
    ;##### INVALID CHOICE #####
    exten = i,1,NoOp(if counter variable is 3 or more, then goto label "error")
    exten = i,n,Gotoif($[${counter}>=3]?error)
-   exten = i,n,NoOp(pressed digit is invalid and less than 3 errors : the guide ivr-exemple-invalid-choice is now played)
+   exten = i,n,NoOp(pressed digit is invalid and less than 3 errors: the guide ivr-exemple-invalid-choice is now played)
    exten = i,n,Playback(${GV_DIRECTORY_SOUNDS}/ivr-example-invalid-choice)
    exten = i,n,Goto(s,start)
    exten = i,n(error),Playback(${GV_DIRECTORY_SOUNDS}/ivr-example-error)
@@ -114,7 +114,8 @@ IVR internal dial
 -----------------
 
 To call the script dp-ivr-example from an internal phone you must create an entry in the default
-context.  The best way is add the number in the file xivo-extrafeatures.conf.
+context (``xivo-extrafeatures`` is included in ``default``). The best way is to add the extension in
+the file :file:`xivo-extrafeatures.conf`.
 
 .. figure:: images/ivr3.png
 
@@ -123,10 +124,10 @@ context.  The best way is add the number in the file xivo-extrafeatures.conf.
    exten => 8899,1,Goto(dp-ivr-example,s,1)
 
 
-Use Case : IVR with a schedule
-==============================
+Use Case: IVR with a schedule
+=============================
 
-In lot of case, you need to associate your IVR to a schedule to indicate when your company is closed.
+In many cases, you need to associate your IVR to a schedule to indicate when your company is closed.
 
 Flowchart
 ---------
@@ -137,18 +138,20 @@ Flowchart
 Create Schedule
 ---------------
 
-First step, create your schedule (1) from the menu Call management | Schedules
-In the General tab, give a name (3) to your schedule and configure the open’s hours (4) and select the sound which is played when the company is closed.
+First step, create your schedule (1) from the menu :menuselection:`Call management --> Schedules`.
+In the General tab, give a name (3) to your schedule and configure the open hours (4) and select
+the sound which is played when the company is closed.
 
-In the Closed hours tab (6), configure all special closed days (7) and select the sound that indicate to the caller that the company is exceptionally closed.
+In the Closed hours tab (6), configure all special closed days (7) and select the sound that
+indicate to the caller that the company is exceptionally closed.
 
-The IVR script is now only available during workdays
+The IVR script is now only available during workdays.
 
 .. figure:: images/ivr6.png
 
 
-Use Case : IVR with submenu
-===========================
+Use Case: IVR with submenu
+==========================
 
 Flowchart
 ---------
@@ -181,9 +184,9 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
    same = n(start),Set(counter=$[${counter} + 1])
 
    same = n,NoOp(counter variable is now = ${counter})
-   same = n,NoOp(waiting for 1 second before read the message that indicate all choices)
+   same = n,NoOp(waiting for 1 second before reading the message that indicate all choices)
    same = n,Wait(1)
-   same = n,NoOp(spreading the message ivr-example-choices that contain all choices)
+   same = n,NoOp(play the message ivr-example-choices that contain all choices)
    same = n,Background(/var/lib/xivo/sounds/customer-sounds/ivr-example-choices)
    same = n,NoOp(waiting for DTMF during 5s)
    same = n,Waitexten(5)
@@ -212,7 +215,7 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
    ;##### INVALID CHOICE #####
    exten = i,1,NoOp(if counter variable is 3 or more, then goto label "error")
    exten = i,n,Gotoif($[${counter}>=3]?error)
-   exten = i,n,NoOp(pressed digit is invalid and less than 3 errors : the guide ivr-exemple-invalid-choice is now played)
+   exten = i,n,NoOp(pressed digit is invalid and less than 3 errors: the guide ivr-exemple-invalid-choice is now played)
    exten = i,n,Playback(${GV_DIRECTORY_SOUNDS}/ivr-example-invalid-choice)
    exten = i,n,Goto(s,start)
    exten = i,n(error),Playback(${GV_DIRECTORY_SOUNDS}/ivr-example-error)
@@ -225,7 +228,7 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
    same = n,NoOp(the system answers the call and waits for 1 second before continuing)
    same = n,Answer(1000)
 
-   same = n,NoOp(variable « counter » is set to 0)
+   same = n,NoOp(variable "counter" is set to 0)
    same = n(begining),Set(counter=0)
 
    same = n,NoOp(variable "counter" is incremented and the label "start" is defined)
@@ -260,7 +263,7 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
    ;##### INVALID CHOICE #####
    exten = i,1,NoOp(if counter variable is 3 or more, then goto label "error")
    exten = i,n,Gotoif($[${counter}>=3]?error)
-   exten = i,n,NoOp(pressed digit is invalid and less than 3 errors : the guide ivr-exemple-invalid-choice is now played)
+   exten = i,n,NoOp(pressed digit is invalid and less than 3 errors: the guide ivr-exemple-invalid-choice is now played)
    exten = i,n,Playback(${GV_DIRECTORY_SOUNDS}/ivr-example-invalid-choice)
    exten = i,n,Goto(s,start)
    exten = i,n(error),Playback(${GV_DIRECTORY_SOUNDS}/ivr-example-error)
