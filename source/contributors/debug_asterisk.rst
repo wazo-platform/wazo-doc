@@ -15,9 +15,9 @@ To debug asterisk crashes or freezes, you need the following debug packages on y
 +----------------+---------------------------------------------------------------+---------------------------------------------------------------+
 |Commands        |::                                                             |::                                                             |
 |                |                                                               |                                                               |
-|                |   apt-get install xivo-14.12                                  |   xivo-dist xivo-14.18                                        |
+|                |   apt-get install xivo-fai-14.12                              |   xivo-dist xivo-14.18                                        |
 |                |   apt-get update                                              |   apt-get update                                              |
-|                |   apt-get install gdb libc6-dbg                               |   apt-get install gdb libc6-dbg                               |
+|                |   apt-get install gdb                                         |   apt-get install gdb                                         |
 |                |   apt-get install -t xivo-14.12 asterisk-dbg xivo-libsccp-dbg |   apt-get install -t xivo-14.18 asterisk-dbg xivo-libsccp-dbg |
 |                |                                                               |                                                               |
 +----------------+---------------------------------------------------------------+---------------------------------------------------------------+
