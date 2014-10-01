@@ -86,7 +86,7 @@ Copy all these lines in the newly created configuration file (in our case, dp-iv
 
    ;##### TIMEOUT #####
    exten = t,1,NoOp(no digit pressed for 5s, call is redirected to 8000)
-   exten = t,n,Goto(${IVR_DESTINATION_CONTEXT},8000,1)
+   exten = t,n,Goto(i,1)
 
    ;##### INVALID CHOICE #####
    exten = i,1,NoOp(if counter variable is 3 or more, then goto label "error")
@@ -222,7 +222,7 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
 
    ;##### TIMEOUT #####
    exten = t,1,NoOp(no digit pressed until 5s, call is redirected to 8000)
-   exten = t,n,Goto(${IVR_DESTINATION_CONTEXT},8000,1)
+   exten = t,n,Goto(i,1)
 
    ;##### INVALID CHOICE #####
    exten = i,1,NoOp(if counter variable is 3 or more, then goto label "error")
@@ -269,7 +269,7 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
 
    ;##### TIMEOUT #####
    exten = t,1,NoOp(no digit pressed until 5s, call is redirected to 8000)
-   exten = t,n,Goto(${IVR_DESTINATION_CONTEXT},8000,1)
+   exten = t,n,Goto(i,1)
 
 
    ;##### INVALID CHOICE #####
