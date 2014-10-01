@@ -46,6 +46,8 @@ Copy all these lines in the newly created configuration file (in our case, dp-iv
    exten = s,1,NoOp(### dp-ivr-example.conf ###)
    same = n,NoOp(Set the context containing your ivr destinations.)
    same = n,Set(IVR_DESTINATION_CONTEXT=my-ivr-destination-context)
+   same = n,NoOp(Set the directory containing your ivr sounds.)
+   same = n,Set(GV_DIRECTORY_SOUNDS=/var/lib/xivo/sounds/ivr-sounds)
    same = n,NoOp(the system answers the call and waits for 1 second before continuing)
    same = n,Answer(1000)
 
@@ -179,6 +181,8 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
    exten = s,1,NoOp(### dp-ivr-example.conf ###)
    same = n,NoOp(Set the context containing your ivr destinations.)
    same = n,Set(IVR_DESTINATION_CONTEXT=my-ivr-destination-context)
+   same = n,NoOp(Set the directory containing your ivr sounds.)
+   same = n,Set(GV_DIRECTORY_SOUNDS=/var/lib/xivo/sounds/ivr-sounds)
    same = n,NoOp(the system answers the call and waits for 1 second before continuing)
    same = n,Answer(1000)
 
