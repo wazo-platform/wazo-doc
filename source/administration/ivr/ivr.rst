@@ -55,7 +55,7 @@ Copy all these lines in the newly created configuration file (in our case, dp-iv
    same = n(first),Playback(${GV_DIRECTORY_SOUNDS}/ivr-example-welcome-sound)
 
    same = n,NoOp(variable "counter" is set to 0)
-   same = n(begining),Set(counter=0)
+   same = n(beginning),Set(counter=0)
 
    same = n,NoOp(variable "counter" is incremented and the label "start" is defined)
    same = n(start),Set(counter=$[${counter} + 1])
@@ -64,7 +64,7 @@ Copy all these lines in the newly created configuration file (in our case, dp-iv
    same = n,NoOp(waiting for 1 second before reading the message that indicate all choices)
    same = n,Wait(1)
    same = n,NoOp(play the message ivr-example-choices that contain all choices)
-   same = n,Background(/var/lib/xivo/sounds/customer-sounds/ivr-example-choices)
+   same = n,Background(${GV_DIRECTORY_SOUNDS}/ivr-example-choices)
    same = n,NoOp(waiting for DTMF during 5s)
    same = n,Waitexten(5)
 
@@ -85,7 +85,7 @@ Copy all these lines in the newly created configuration file (in our case, dp-iv
    exten = 4,n,Goto(s,start)
 
    ;##### TIMEOUT #####
-   exten = t,1,NoOp(no digit pressed for 5s, call is redirected to 8000)
+   exten = t,1,NoOp(no digit pressed for 5s, process it like an error)
    exten = t,n,Goto(i,1)
 
    ;##### INVALID CHOICE #####
@@ -190,7 +190,7 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
    same = n(first),Playback(${GV_DIRECTORY_SOUNDS}/ivr-example-welcome-sound)
 
    same = n,NoOp(variable "counter" is set to 0)
-   same = n(begining),Set(counter=0)
+   same = n(beginning),Set(counter=0)
 
    same = n,NoOp(variable "counter" is incremented and the label "start" is defined)
    same = n(start),Set(counter=$[${counter} + 1])
@@ -199,7 +199,7 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
    same = n,NoOp(waiting for 1 second before reading the message that indicate all choices)
    same = n,Wait(1)
    same = n,NoOp(play the message ivr-example-choices that contain all choices)
-   same = n,Background(/var/lib/xivo/sounds/customer-sounds/ivr-example-choices)
+   same = n,Background(${GV_DIRECTORY_SOUNDS}/ivr-example-choices)
    same = n,NoOp(waiting for DTMF during 5s)
    same = n,Waitexten(5)
 
@@ -221,7 +221,7 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
    exten = 4,n,Goto(s,start)
 
    ;##### TIMEOUT #####
-   exten = t,1,NoOp(no digit pressed until 5s, call is redirected to 8000)
+   exten = t,1,NoOp(no digit pressed for 5s, process it like an error)
    exten = t,n,Goto(i,1)
 
    ;##### INVALID CHOICE #####
@@ -241,7 +241,7 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
    same = n,Answer(1000)
 
    same = n,NoOp(variable "counter" is set to 0)
-   same = n(begining),Set(counter=0)
+   same = n(beginning),Set(counter=0)
 
    same = n,NoOp(variable "counter" is incremented and the label "start" is defined)
    same = n(start),Set(counter=$[${counter} + 1])
@@ -250,7 +250,7 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
    same = n,NoOp(waiting for 1 second before reading the message that indicate all choices)
    same = n,Wait(1)
    same = n,NoOp(play the message ivr-example-choices that contain all choices)
-   same = n,Background(/var/lib/xivo/sounds/customer-sounds/ivr-example-submenu-choices)
+   same = n,Background(${GV_DIRECTORY_SOUNDS}/ivr-example-submenu-choices)
    same = n,NoOp(waiting for DTMF during 5s)
    same = n,Waitexten(5)
 
@@ -264,11 +264,11 @@ Copy all these lines (2 contexts) in a configuration file on your XiVO server :
 
    ;##### CHOICE 3 #####
    exten = 3,1,NoOp(pressed digit is 3, redirect to the previous menu dp-ivr-example)
-   exten = 3,n,Goto(dp-ivr-example,s,1)
+   exten = 3,n,Goto(dp-ivr-example,s,beginning)
 
 
    ;##### TIMEOUT #####
-   exten = t,1,NoOp(no digit pressed until 5s, call is redirected to 8000)
+   exten = t,1,NoOp(no digit pressed for 5s, process it like an error)
    exten = t,n,Goto(i,1)
 
 
