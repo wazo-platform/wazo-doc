@@ -149,6 +149,14 @@ The IVR script is now only available during workdays.
 
 .. figure:: images/ivr6.png
 
+Assign Schedule to Incall
+-------------------------
+
+Return editing your Incall (:menuselection:`Call management --> Incoming calls`) and assign the
+newly created schedule in the "Schedules" tab
+
+.. figure:: images/ivr6-2.png
+
 
 Use Case: IVR with submenu
 ==========================
