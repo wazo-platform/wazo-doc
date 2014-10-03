@@ -4,7 +4,7 @@ Server/Hardware
 
 This section describes how to configure the telephony hardware on a XiVO server.
 
-.. note:: Currently XiVO support only Digium Telephony Interface cards
+.. note:: Currently XiVO supports only Digium Telephony Interface cards
 
 The configuration process is the following :
 
