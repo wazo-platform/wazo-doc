@@ -60,7 +60,7 @@ Next step
 Now that you have loaded the correct module for your card you must:
 
 #. check if you need to follow one of the :ref:`dahdi_modules_specific_conf` sections below,
-#. and ontinue with the next configuration step which is to :ref:`configure the echo canceller <hwec_configuration>`.
+#. and continue with the next configuration step which is to :ref:`configure the echo canceller <hwec_configuration>`.
 
 
 .. _dahdi_modules_specific_conf:
