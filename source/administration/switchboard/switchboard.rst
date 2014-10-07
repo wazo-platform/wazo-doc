@@ -55,6 +55,8 @@ Supported Devices
 
 The supported phones for the switchboard are:
 
+* Aastra 6735i
+* Aastra 6737i
 * Aastra 6755i
 * Aastra 6757i
 * Snom 720
