@@ -525,8 +525,13 @@ SoundPoint IP:
 
 Particularities:
 
-* Directed pickup doesn't work when using a BLF function key. The workaround is to put both the
-  user and the supervised user in the same call pickup group.
+* For directed call pickup to work via the BLF function keys, you need to make sure that the option
+  :guilabel:`Set caller-id in dialog-info+xml notify` is enabled on your XiVO. This option is located on
+  the :menuselection:`Services --> IPBX --> General settings --> SIP Protocol` page, in the
+  :guilabel:`Signaling` tab.
+
+  Also, directed call pickup via a BLF function key will not work if the extension number of the
+  supervised user is different from its caller ID number.
 * VVX: the french translation is incomplete.
 
 .. note:: (XiVO HA cluster) BLF function key saved on the master node are not available.
