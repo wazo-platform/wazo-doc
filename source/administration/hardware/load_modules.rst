@@ -97,7 +97,7 @@ the line mode to E1:
     # set the card in E1/T1 mode
     options DAHDI_MODULE_NAME default_linemode=e1
 
-#. Then, restart dahdi::
+#. Then, restart the services::
 
     xivo-service restart
 

@@ -15,29 +15,32 @@ Know which firmware you need
 
 If you have an hardware echo-canceller module you **HAVE TO** install its firmware.
 
-You first need to know which firmware you need.
+You first need to know which firmware you have to install.
 The simplest way is to restart dahdi and then to lookup in the dmesg which
 firmware does DAHDI request at startup::
 
+   xivo-service restart
    dmesg |grep firmware
-   [    7.781192] wct4xxp 0000:05:0e.0: firmware: requesting dahdi-fw-oct6114-064.bin
+   [5461540.738209] wct4xxp 0000:01:0e.0: firmware: agent aborted loading dahdi-fw-oct6114-064.bin (not found?)
+   [5461540.738310] wct4xxp 0000:01:0e.0: VPM450: firmware dahdi-fw-oct6114-064.bin not available from userspace
 
 In the example above you can see that the module ``wct4xxp`` requested the ``dahdi-fw-oct6114-064.bin``
-firmware file.
+firmware file but did not found it.
+But you now know that you need the ``dahdi-fw-oct6114-064.bin`` firmware.
 
 
 Install the firmware
 ====================
 
-You can install the firmware via the ``xivo-fetchfw`` utility.
+When you know which firmware you need you can install it with ``xivo-fetchfw`` utility.
 
-#. Use xivo-fetchfw to find the name of the package. You can search for ``digium`` 
+#. Use ``xivo-fetchfw`` to find the name of the package. You can search for ``digium`` 
    occurences in the available packages::
 
     xivo-fetchfw search digium
 
-#. Install the package. In our example, we install the package 
-   named ``digium-oct6114-064``::
+#. Find the package name which matches the firmware file you need. In our example, we need the 
+   ``dahdi-fw-oct6114-064.bin`` file which is supplied by the package named ``digium-oct6114-064``::
 
     xivo-fetchfw install digium-oct6114-064
 
@@ -45,8 +48,8 @@ You can install the firmware via the ``xivo-fetchfw`` utility.
 Activate the Hardware Echo-cancellation
 =======================================
 
-To use the hardware echo-canceller of the card you must activate it in
-:file:`/etc/asterisk/chan_dahdi.conf` file::
+Know that you installed the firmware hardware echo-canceller you must activate it 
+in :file:`/etc/asterisk/chan_dahdi.conf` file::
 
     echocancel = 1
 
@@ -62,8 +65,13 @@ To apply the configuration, restart the services::
 Next step
 =========
 
-The next step is to :ref:`configure your card <card_configuration>` according to the operator links.
+Now that you have loaded the correct module for your card you must:
 
+#. check if you need to follow one of the :ref:`echo_can_specific_conf` sections below,
+#. and continue with the next configuration step which is to :ref:`configure your card <card_configuration>` according to the operator links.
+
+
+.. _echo_can_specific_conf:
 
 Specific configuration
 ======================
@@ -77,16 +85,16 @@ Use the Hardware Echo-canceller for DTMF detection
 
 If you have an hardware echo-canceller it can be used to detect the DTMF.
 
-Create the file :file:`/etc/modprobe.d/xivo-hwec-dtmf.conf` with the following content (replace the
-``DAHDI_MODULE_NAME`` word by the DAHDI module name)::
+#. Create the file :file:`/etc/modprobe.d/xivo-hwec-dtmf.conf`::
 
-   options DAHDI_MODULE_NAME vpmdtmfsupport=1
+     touch /etc/modprobe.d/xivo-hwec-dtmf.conf
+  
+#. Fill it with the following lines replacing ``DAHDI_MODULE_NAME`` by the correct module name
+   (``wcte13xp``, ``wct4xxp`` ...)::
 
-Thus, for a Digium card which uses the ``wct4xxp`` module, the content of the file will be::
+     options DAHDI_MODULE_NAME vpmdtmfsupport=1
 
-   options wct4xxp vpmdtmfsupport=1
+#. Then, restart the services::
 
-.. note:: You MUST restart dahdi for the new configuration to be enabled
+     xivo-service restart
 
-.. warning:: Don't forget the extension ``.conf`` for the filename.
-    Otherwise it won't be taken into account.
