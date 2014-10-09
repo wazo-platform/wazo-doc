@@ -101,3 +101,21 @@ It is not generated via the ``dahdi_genconf`` command.
 
 This file contains the parameters of each channel.
 It is generated via the ``dahdi_genconf`` command.
+
+Below is an example of span definition::
+
+  group=0,11
+  context=from-extern
+  switchtype = euroisdn
+  signalling = pri_cpe
+  channel => 1-15,17-31
+
+Note that parameters are read from top to bottom in a last match fashion and are applied to the
+given channels when it reads a line ``channel =>``.
+
+Here the channels 1 to 15 and 17 to 31 (it is a typical E1) are set:
+
+* in groups 0 and 11 (see :ref:`interco_dahdi_conf`)
+* in context ``from-extern`` : all calls received on these channels will be sent in the context ``from-extern``
+* and configured with switchtype euroisdn and signaling pri_cpe
+
