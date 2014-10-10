@@ -1,3 +1,5 @@
+.. _switchboard:
+
 ***********
 Switchboard
 ***********
@@ -27,7 +29,11 @@ Limitations
 
   The enter shortcut to answer a call will not work if the focus is currently
   on a widget that will consume the key press. ie: a text field, a drop down
-  list or a button.
+
+.. note::
+
+  The call center statistics are not applicable to the switchboard queues. The only valid
+  counter is the 'received' calls counter.
 
 
 Configuration
