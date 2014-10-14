@@ -138,6 +138,12 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.19
+-----
+
+* Consult the `14.19 Roadmap <https://projects.xivo.io/versions/210>`_
+
+
 14.18
 -----
 
