@@ -25,6 +25,7 @@ Administration
    Hardware <hardware/hardware>
    incall
    interconnections/interconnections
+   ivr/ivr
    monitoring/monitoring
    moh/moh
    paging

@@ -110,8 +110,6 @@ Aastra
 +--------------------------------------------+-------+-------+-------+-------+-------+-------+
 | Enable voicemail with supervision function | Y     | Y     | Y     | Y     | Y     | Y     |
 +--------------------------------------------+-------+-------+-------+-------+-------+-------+
-| Activate voicemail                         | Y     | Y     | Y     | Y     | Y     | Y     |
-+--------------------------------------------+-------+-------+-------+-------+-------+-------+
 | Reach the voicemail                        | Y     | Y     | Y     | HK    | Y     | Y     |
 +--------------------------------------------+-------+-------+-------+-------+-------+-------+
 | Delete messages from voicemail             | Y     | Y     | Y     | Y     | Y     | Y     |
@@ -262,8 +260,6 @@ Cisco 7900 series (*SCCP* mode only):
 +--------------------------------------------+--------+-------+--------+-------+-------+-------+-------+-------+----------+-------+-------+-------+-------+
 | Enable voicemail with supervision function | NT     | N     | N      | N     | N     | N     | N     | N     | N        | N     | N     | N     | N     |
 +--------------------------------------------+--------+-------+--------+-------+-------+-------+-------+-------+----------+-------+-------+-------+-------+
-| Activate voicemail                         | NT     | N     | N      | N     | N     | N     | Y     | Y     | Y        | Y     | Y     | Y     | Y     |
-+--------------------------------------------+--------+-------+--------+-------+-------+-------+-------+-------+----------+-------+-------+-------+-------+
 | Reach the voicemail                        | NT     | N     | N      | SK    | N     | N     | HK    | HK    | HK       | NY    | HK    | HK    | HK    |
 +--------------------------------------------+--------+-------+--------+-------+-------+-------+-------+-------+----------+-------+-------+-------+-------+
 | Delete messages from voicemail             | NT     | N     | N      | Y     | N     | N     | Y     | Y     | Y        | Y     | Y     | Y     | Y     |
@@ -391,8 +387,6 @@ Digium phones:
 +--------------------------------------------+-------+-------+-------+
 | Enable voicemail with supervision function | Y     | NYT   | Y     |
 +--------------------------------------------+-------+-------+-------+
-| Activate voicemail                         | Y     | NYT   | Y     |
-+--------------------------------------------+-------+-------+-------+
 | Reach the voicemail                        | HK    | NYT   | HK    |
 +--------------------------------------------+-------+-------+-------+
 | Delete messages from voicemail             | Y     | NYT   | Y     |
@@ -498,8 +492,6 @@ SoundPoint IP:
 +--------------------------------------------+---------+---------+---------+---------+---------+---------+----------+----------+----------+--------+--------+--------+--------+--------+--------+
 | Enable voicemail with supervision function | NYT     | N       | NYT     | Y       | NYT     | NYT     | NYT      | NYT      | NYT      | Y      | Y      | Y      | Y      | Y      | NYT    |
 +--------------------------------------------+---------+---------+---------+---------+---------+---------+----------+----------+----------+--------+--------+--------+--------+--------+--------+
-| Activate voicemail                         | NYT     | N       | NYT     | Y       | NYT     | NYT     | NYT      | NYT      | NYT      | Y      | Y      | Y      | Y      | Y      | NYT    |
-+--------------------------------------------+---------+---------+---------+---------+---------+---------+----------+----------+----------+--------+--------+--------+--------+--------+--------+
 | Reach the voicemail                        | NYT     | SK      | NYT     | HK      | NYT     | NYT     | NYT      | NYT      | NYT      | HK     | HK     | HK     | HK     | SK     | NYT    |
 +--------------------------------------------+---------+---------+---------+---------+---------+---------+----------+----------+----------+--------+--------+--------+--------+--------+--------+
 | Delete messages from voicemail             | NYT     | N       | NYT     | Y       | NYT     | NYT     | NYT      | NYT      | NYT      | Y      | Y      | Y      | Y      | Y      | NYT    |
@@ -525,8 +517,13 @@ SoundPoint IP:
 
 Particularities:
 
-* Directed pickup doesn't work when using a BLF function key. The workaround is to put both the
-  user and the supervised user in the same call pickup group.
+* For directed call pickup to work via the BLF function keys, you need to make sure that the option
+  :guilabel:`Set caller-id in dialog-info+xml notify` is enabled on your XiVO. This option is located on
+  the :menuselection:`Services --> IPBX --> General settings --> SIP Protocol` page, in the
+  :guilabel:`Signaling` tab.
+
+  Also, directed call pickup via a BLF function key will not work if the extension number of the
+  supervised user is different from its caller ID number.
 * VVX: the french translation is incomplete.
 
 .. note:: (XiVO HA cluster) BLF function key saved on the master node are not available.
@@ -607,8 +604,6 @@ Snom
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+-------+
 | Enable voicemail with supervision function | Y      | Y     | Y     | Y     | Y     | Y     | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+-------+
-| Activate voicemail                         | Y      | Y     | Y     | Y     | Y     | Y     | Y     |
-+--------------------------------------------+--------+-------+-------+-------+-------+-------+-------+
 | Reach the voicemail                        | HK     | HK    | HK    | HK    | HK    | HK    | HK    |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+-------+
 | Delete messages from voicemail             | Y      | Y     | Y     | Y     | Y     | Y     | Y     |
@@ -650,91 +645,102 @@ Yealink
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
 |                                            | T19P | T20P | T21P | T22P | T26P | T28P | T32G    | T38G | T41P | T42G | T46G | W52P |
 +============================================+======+======+======+======+======+======+=========+======+======+======+======+======+
-| Provisioning [1]_                          | Y    | Y    | Y    | Y    | Y    | NT   | NT [4]_ | Y    | Y    | Y    | Y    | NT   |
+| Provisioning [1]_                          | Y    | Y    | Y    | Y    | Y    | NT   | NT [4]_ | Y    | Y    | Y    | Y    | Y    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| H-A [3]_                                   | Y    | Y    | Y    | Y    | Y    | Y    | N       | N    | Y    | Y    | Y    | N    |
+| H-A [3]_                                   | Y    | Y    | Y    | Y    | Y    | Y    | N       | N    | Y    | Y    | Y    | Y    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Directory XIVO                             | MN   | N    | MN   | MN   | MN   | SK   | NT      | SK   | MN   | MN   | N    | NT   |
+| Directory XIVO                             | N    | N    | MN   | MN   | MN   | SK   | NT      | SK   | N    | N    | N    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Funckeys [2]_                              | N    | 2    | 2    | 3    | 13   | 16   | 3       | 16   | 15   | 15   | 27   | NT   |
+| Funckeys [2]_                              | 0    | 2    | 2    | 3    | 13   | 16   | 3       | 16   | 15   | 15   | 27   | 0    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
 |                                            | **Supported programmable keys**                                                      |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| User with supervision function             | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| User with supervision function             | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Group                                      | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Group                                      | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Queue                                      | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Queue                                      | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Conference Room with supervision function  | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Conference Room with supervision function  | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
 | **General Functions**                                                                                                             |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Online call recording                      | N    | N    | N    | N    | N    | N    | NYT     | N    | N    | N    | N    | NYT  |
+| Online call recording                      | N    | N    | N    | N    | N    | N    | NYT     | N    | N    | N    | N    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Phone status                               | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Phone status                               | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Sound recording                            | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Sound recording                            | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Call recording                             | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Call recording                             | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Incoming call filtering                    | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Incoming call filtering                    | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Do not disturb                             | N    | Y    | SK   | SK   | SK   | SK   | NYT     | SK   | SK   | SK   | SK   | NYT  |
+| Do not disturb                             | N    | Y    | SK   | SK   | SK   | SK   | NYT     | SK   | SK   | SK   | SK   | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Group interception                         | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Group interception                         | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Listen to online calls                     | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Listen to online calls                     | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Directory access                           | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Directory access                           | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Filtering Boss - Secretary                 | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Filtering Boss - Secretary                 | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
 | **Transfers Functions**                                                                                                           |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Blind transfer                             | N    | HK   | HK   | HK   | HK   | HK   | NYT     | HK   | SK   | SK   | HK   | NYT  |
+| Blind transfer                             | N    | HK   | HK   | HK   | HK   | HK   | NYT     | HK   | SK   | SK   | HK   | SK   |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Indirect transfer                          | N    | HK   | HK   | HK   | HK   | HK   | NYT     | HK   | SK   | SK   | HK   | NYT  |
+| Indirect transfer                          | N    | HK   | HK   | HK   | HK   | HK   | NYT     | HK   | SK   | SK   | HK   | SK   |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
 | **Forwards Functions**                                                                                                            |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Disable all forwarding                     | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Disable all forwarding                     | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Enable/Disable forwarding on no answer     | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Enable/Disable forwarding on no answer     | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Enable/Disable forwarding on busy          | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Enable/Disable forwarding on busy          | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Enable/Disable forwarding unconditional    | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Enable/Disable forwarding unconditional    | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
 | **Voicemail Functions**                                                                                                           |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Enable voicemail with supervision function | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Enable voicemail with supervision function | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Activate voicemail                         | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Reach the voicemail                        | N    | HK   | HK   | HK   | HK   | HK   | NYT     | HK   | HK   | HK   | HK   | HK   |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Reach the voicemail                        | N    | HK   | HK   | HK   | HK   | HK   | NYT     | HK   | HK   | HK   | HK   | NYT  |
-+--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Delete messages from voicemail             | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Delete messages from voicemail             | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
 | **Agent Functions**                                                                                                               |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Connect/Disconnect a static agent          | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Connect/Disconnect a static agent          | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Connect a static agent                     | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Connect a static agent                     | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Disconnect a static agent                  | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | NYT  |
+| Disconnect a static agent                  | N    | Y    | Y    | Y    | Y    | Y    | NYT     | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
 | **Parking Functions**                                                                                                             |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Parking                                    | N    | Y    | Y    | Y    | Y    | Y    | NYT     | N    | Y    | Y    | Y    | NYT  |
+| Parking                                    | N    | Y    | Y    | Y    | Y    | Y    | NYT     | N    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Parking position                           | N    | Y    | Y    | Y    | Y    | Y    | NYT     | N    | Y    | Y    | Y    | NYT  |
+| Parking position                           | N    | Y    | Y    | Y    | Y    | Y    | NYT     | N    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
 | **Paging Functions**                                                                                                              |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
-| Paging                                     | N    | Y    | Y    | Y    | Y    | Y    | NYT     | NYT  | Y    | Y    | Y    | NYT  |
+| Paging                                     | N    | Y    | Y    | Y    | Y    | Y    | NYT     | NYT  | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+------+------+------+------+------+---------+------+------+------+------+------+
 
+Regarding the W52P (DECT), there is firmware for both the base station and the handset. The base and the
+handset are `probably going to work if they are not using the same firmware version
+<http://forum.yealink.com/forum/showthread.php?tid=2489>`_, although this does not seem to be officially
+recommended. By default, a base station will try to upgrade the firmware of an handset over the air
+(OTA) if the following conditions are met:
+
+* Handset with firmware 26.40.0.15 or later
+* Base station with firmware 25.40.0.15 or later
+* Handset with hardware 26.0.0.6 or later
+
+Otherwise, you'll have to manually upgrade the handset firmware via USB.
+
+In all cases, you should consult the Yealink documentation on `Upgrading W52x Handset Firmware`_.
 
 .. note:: Some function keys are shared with line keys
 
@@ -742,7 +748,7 @@ module Yealink® EXP38 (for Yealink® T26P/T28P) are supported.
 
 module Yealink® EXP39 (for Yealink® T26P/T28P) are supported.
 
-module Yealink® EXP40 (forYealink® T46G/T48) are supported.
+module Yealink® EXP40 (for Yealink® T46G/T48) are supported.
 
 
 Caption :
@@ -771,5 +777,4 @@ Compatible device (Community support)
 See `XiVO wiki`_
 
 .. _XiVO wiki: http://wiki.xivo.io/index.php/Devices
-
-
+.. _Upgrading W52x Handset Firmware: http://www.yealink.com/Upload/W52P/2013124/Upgrading%20W52x%20Handset%20Firmware.zip

@@ -1,3 +1,5 @@
+.. _switchboard:
+
 ***********
 Switchboard
 ***********
@@ -27,7 +29,11 @@ Limitations
 
   The enter shortcut to answer a call will not work if the focus is currently
   on a widget that will consume the key press. ie: a text field, a drop down
-  list or a button.
+
+.. note::
+
+  The call center statistics are not applicable to the switchboard queues. The only valid
+  counter is the 'received' calls counter.
 
 
 Configuration
@@ -55,6 +61,8 @@ Supported Devices
 
 The supported phones for the switchboard are:
 
+* Aastra 6735i
+* Aastra 6737i
 * Aastra 6755i
 * Aastra 6757i
 * Snom 720

@@ -2,12 +2,25 @@
 Debugging Asterisk
 ******************
 
-To debug asterisk crashes or freezes, you need the following packages on your XiVO::
+Precondition
+============
 
-   apt-get install gdb asterisk-dbg libc6-dbg xivo-libsccp-dbg
+To debug asterisk crashes or freezes, you need the following debug packages on your XiVO:
 
-.. warning:: When installing these packages you should take care that it doesn't drag a new version
-    of asterisk since it would restart your asterisk
++----------------+---------------------------------------------------------------+---------------------------------------------------------------+
+|General rule    |XiVO < 14.18                                                   |XiVO >= 14.18                                                  |
+|                |                                                               |                                                               |
++================+===============================================================+===============================================================+
+|Example version |14.12                                                          |14.18                                                          |
++----------------+---------------------------------------------------------------+---------------------------------------------------------------+
+|Commands        |::                                                             |::                                                             |
+|                |                                                               |                                                               |
+|                |   apt-get install xivo-fai-14.12                              |   xivo-dist xivo-14.18                                        |
+|                |   apt-get update                                              |   apt-get update                                              |
+|                |   apt-get install gdb                                         |   apt-get install gdb                                         |
+|                |   apt-get install -t xivo-14.12 asterisk-dbg xivo-libsccp-dbg |   apt-get install -t xivo-14.18 asterisk-dbg xivo-libsccp-dbg |
+|                |                                                               |                                                               |
++----------------+---------------------------------------------------------------+---------------------------------------------------------------+
 
 
 So There is a Problem with Asterisk. Now What ?

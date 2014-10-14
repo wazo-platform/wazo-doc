@@ -26,40 +26,47 @@ You may also edit :file:`/etc/xivo/web-interface/php.ini` and change the error l
 Interactive debugging in Eclipse
 ================================
 
+Instructions for Eclipse 4.3.
+
 On your XiVO:
 
 #. Install php5-xdebug::
 
-      $ apt-get install php5-xdebug
+      apt-get install php5-xdebug
 
-#. Edit the :file:`/etc/php5/conf.d/xdebug.ini` and add these lines at the end::
+#. Edit the :file:`/etc/php5/conf.d/20-xdebug.ini` and add these lines at the end::
 
-      xdebug.remote_enable=On
+      xdebug.remote_enable=1
       xdebug.remote_host="<dev_host_ip>"
-      xdebug.remote_port=9000
-      xdebug.remote_handler="dbgp"
 
-      where ``<dev_host_ip>`` is the IP address of your machine where Eclipse is installed.
-      Of course, your XiVO must be able to reach this IP address.
+   where ``<dev_host_ip>`` is the IP address of your machine where Eclipse is installed.
 
 #. Restart spawn-fcgi::
 
-      $ /etc/init.d/spawn-fcgi restart
+      service spawn-fcgi restart
 
 On your machine where Eclipse is installed:
 
-#. Make sure you have `Eclipse PDT <http://www.eclipse.org/pdt/downloads/>`_ installed
-#. In the Eclipse preferences, on the PHP / Debug page:
+#. Make sure you have Eclipse PDT installed
+#. Create a PHP project named ``xivo-web-interface``:
+
+   * Choose "Create project at existing location", using the :file:`xivo-web-interface/src` directory
+
+#. In the Window / Preferences menu, on the PHP / Debug page:
 
    * Set the PHP Debugger to XDebug
    * Add a new PHP server with the following information:
 
       * Name: anything you want
       * Base URL: ``https://<xivo_ip>``
+      * Path Mapping:
+
+        * Path on Server: :file:`/usr/share/xivo-web-interface`
+        * Path in Workspace: :file:`/xivo-web-interface`
 
 #. Create a new ``PHP Web Application`` debug configuration:
 
-   * Choose the PHP server you create on last step
+   * Choose the PHP server you created in last step
    * Pick some file, which can be anything if you don't "break at first line"
    * Uncheck "Auto Generate", and set the path you want your browser to open when you'll
      launch this debug configuration.
