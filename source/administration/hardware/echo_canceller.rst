@@ -13,7 +13,7 @@ It is *recommended* to use telephony cards with an hardware echo-canceller modul
 Know which firmware you need
 ============================
 
-If you have an hardware echo-canceller module you **HAVE TO** install its firmware.
+If you have an hardware echo-canceller module you **have to** install its firmware.
 
 You first need to know which firmware you have to install.
 The simplest way is to restart dahdi and then to lookup in the dmesg which
