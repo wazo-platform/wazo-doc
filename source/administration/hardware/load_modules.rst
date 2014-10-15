@@ -72,6 +72,8 @@ This section lists some specific configuration.
 You should not follow them unless you have a specific need.
 
 
+.. _dahdi_linemode_selection:
+
 TE13x, TE23x, TE43x: E1/T1 selection
 ------------------------------------
 
