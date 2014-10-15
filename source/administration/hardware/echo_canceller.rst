@@ -48,7 +48,7 @@ When you know which firmware you need you can install it with ``xivo-fetchfw`` u
 Activate the Hardware Echo-cancellation
 =======================================
 
-Know that you installed the firmware hardware echo-canceller you must activate it 
+Now that you installed hardware echo-canceller firmware you must activate it 
 in :file:`/etc/asterisk/chan_dahdi.conf` file::
 
     echocancel = 1
@@ -83,7 +83,8 @@ unless you have a specific need.
 Use the Hardware Echo-canceller for DTMF detection
 --------------------------------------------------
 
-If you have an hardware echo-canceller it can be used to detect the DTMF.
+If you have an hardware echo-canceller you *may* want to use it to detect the DTMF signal
+(instead of asterisk).
 
 #. Create the file :file:`/etc/modprobe.d/xivo-hwec-dtmf.conf`::
 
