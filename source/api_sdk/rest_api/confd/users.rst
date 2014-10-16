@@ -169,6 +169,83 @@ Example response
    }
 
 
+List Users with a view
+======================
+
+The users are listed with specific representation.
+
+Representation
+--------------
+
++---------------------+--------+-------------------------------------------+
+| Field               | Values | Description                               |
++=====================+========+===========================================+
+| id                  | int    | User's ID                                 |
++---------------------+--------+-------------------------------------------+
+| line_id             | int    | Line's ID                                 |
++---------------------+--------+-------------------------------------------+
+| agent_id            | int    | Agent's ID                                |
++---------------------+--------+-------------------------------------------+
+| firstname           | string | User's first name                         |
++---------------------+--------+-------------------------------------------+
+| lastname            | string | User's last name                          |
++---------------------+--------+-------------------------------------------+
+| exten               | string | User's phone number                       |
++---------------------+--------+-------------------------------------------+
+| mobile_phone_number | string | Phone number for the user's mobile device |
++---------------------+--------+-------------------------------------------+
+
+Query
+-----
+
+::
+
+   GET /1.1/users?view=directory
+
+
+Example requests
+----------------
+
+Listing all available users with directory view::
+
+   GET /1.1/users?view=directory HTTP/1.1
+   Host: xivoserver
+   Accept: application/json
+
+Example response
+----------------
+
+::
+
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+
+   {
+       "total": 2,
+       "items":
+       [
+           {
+                "id": 1,
+                "line_id": 1,
+                "agent_id": 1,
+                "firstname": "John",
+                "lastname": "Doe",
+                "exten": "1234",
+                "mobile_phone_number": "+14184765458"
+           },
+           {
+                "id": 2,
+                "line_id": null,
+                "agent_id": null,
+                "firstname": "Mary",
+                "lastname": "Sue",
+                "exten": "",
+                "mobile_phone_number": ""
+           }
+       ]
+   }
+
+
 Get User
 --------
 
@@ -383,17 +460,17 @@ Query
 Errors
 ------
 
-+------------+-----------------------------------------------------------------+-------------------------------------+
-| Error code | Error message                                                   | Description                         |
-+============+=================================================================+=====================================+
-| 400        | error while deleting User: <explanation>                        | See error message for more details  |
-+------------+-----------------------------------------------------------------+-------------------------------------+
-| 400        | Error while deleting User: user still associated to a line      | See explanation above               |
-+------------+-----------------------------------------------------------------+-------------------------------------+
-| 400        | Error while deleting User: user still associated to a voicemail | See explanation above               |
-+------------+-----------------------------------------------------------------+-------------------------------------+
-| 404        | User with id=X does not exist                                   | The requested user was not found    |
-+------------+-----------------------------------------------------------------+-------------------------------------+
++------------+-----------------------------------------------------------------+------------------------------------+
+| Error code | Error message                                                   | Description                        |
++============+=================================================================+====================================+
+| 400        | error while deleting User: <explanation>                        | See error message for more details |
++------------+-----------------------------------------------------------------+------------------------------------+
+| 400        | Error while deleting User: user still associated to a line      | See explanation above              |
++------------+-----------------------------------------------------------------+------------------------------------+
+| 400        | Error while deleting User: user still associated to a voicemail | See explanation above              |
++------------+-----------------------------------------------------------------+------------------------------------+
+| 404        | User with id=X does not exist                                   | The requested user was not found   |
++------------+-----------------------------------------------------------------+------------------------------------+
 
 Example request
 ---------------
