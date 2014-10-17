@@ -29,10 +29,9 @@ Configuration file
    log_filename: /var/log/xivo-dird.log
    pid_filename: /var/run/xivo-dird/xivo-dird.pid
    user: www-data
-   wsgi_socket: /var/run/xivo-dird/xivo-dird.sock
 
    rest_api:
-       static_folder: /usr/share/xivo-dird/static
+       wsgi_socket: /var/run/xivo-dird/xivo-dird.sock
 
    services:
        lookup:
