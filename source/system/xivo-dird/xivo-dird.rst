@@ -50,10 +50,11 @@ Service plugin
 
 * Methods:
 
-  * ``load(args)``
+  * ``load(args)``: set up resources used by the plugin, depending on the config.
     ``args`` is a dictionary containing:
 
     * key ``config``: the content of the whole configuration, in dict form
+  * ``unload()``: free resources used by the plugin.
 
 
 Example
