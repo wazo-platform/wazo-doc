@@ -54,9 +54,6 @@ Service plugin
     ``args`` is a dictionary containing:
 
     * key ``config``: the content of the whole configuration, in dict form
-    * key ``http_app``: the Flask application object
-    * key ``http_api``: the Flask-Restful API object
-    * key ``http_namespace``: the Flask-Restplus namespace object
 
 
 Example
