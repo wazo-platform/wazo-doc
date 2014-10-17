@@ -104,7 +104,7 @@ Example
    logger = logging.getLogger(__name__)
 
    class DummyServicePlugin(object):
-       name = 'dummy'
+
        def __init__(self):
            logger.info('dummy created')
 
