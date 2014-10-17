@@ -7,14 +7,19 @@ CLI arguments
 
 ::
 
-   usage: xivo-dird [-h] [-c CONFIG_FILE] [-f] [-u USER]
+   usage: xivo-dird [-h] [-c CONFIG_FILE] [-d] [-f] [-l LOG_LEVEL] [-u USER]
 
    optional arguments:
      -h, --help            show this help message and exit
      -c CONFIG_FILE, --config-file CONFIG_FILE
                            The path where is the config file. Default: /etc/xivo
                            /xivo-dird/xivo-dird.yml
+     -d, --debug           Log debug messages. Overrides log_level. Default:
+                           False
      -f, --foreground      Foreground, don't daemonize. Default: False
+     -l LOG_LEVEL, --log-level LOG_LEVEL
+                           Logs messages with LOG_LEVEL details. Must be one of:
+                           critical, error, warning, info, debug. Default: info
      -u USER, --user USER  The owner of the process.
 
 
@@ -27,6 +32,7 @@ Configuration file
    debug: False
    foreground: False
    log_filename: /var/log/xivo-dird.log
+   log_level: info
    pid_filename: /var/run/xivo-dird/xivo-dird.pid
    user: www-data
 
