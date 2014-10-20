@@ -109,6 +109,8 @@ Service plugin
 
     * key ``config``: the section of the configuration file for this service in dict form
     * key ``sources``: a dictionary of source names to sources
+
+    ``load`` must return a callable, which will be made available in the view plugins.
   * ``unload()``: free resources used by the plugin.
 
 
