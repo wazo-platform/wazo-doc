@@ -40,12 +40,15 @@ Configuration file
        wsgi_socket: /var/run/xivo-dird/xivo-dird.sock
 
    enabled_plugins:
-      - csv
-      - ldap
-      - phonebook
-      - default_json
-      - aastra_xml
-      - lookup
+      backends:
+          - csv
+          - ldap
+          - phonebook
+      services:
+          - lookup
+      views:
+          - aastra_xml
+          - default_json
 
    views:
        displays:
