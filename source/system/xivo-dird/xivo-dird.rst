@@ -39,11 +39,56 @@ Configuration file
    rest_api:
        wsgi_socket: /var/run/xivo-dird/xivo-dird.sock
 
+   enabled_plugins:
+      - csv
+      - ldap
+      - phonebook
+      - default_json
+      - aastra_xml
+      - lookup
+
+   views:
+       displays:
+           switchboard_display:
+               -
+                   title: Firstname
+                   default: Unknown
+                   field: firstname
+               -
+                   title: Lastname
+                   default: Unknown
+                   field: lastname
+               -
+                   type: status
+           default_display:
+               -
+                   title: Firstname
+                   field: fn
+               -
+                   title: Localtion
+                   default: Canada
+                   field: country
+               -
+                   title: Number
+                   field: number
+        profile_to_display:
+            default: default_display
+            switchboard: switchboard_display
+
    services:
        lookup:
-           enabled: True
-       reverse-lookup:
-           enabled: True
+           default:
+               sources:
+                   - my_csv
+                   - ldap_quebec
+                timeout: 0.5
+            switchboard:
+                sources:
+                    - my_csv
+                    - xivo_phonebook
+                    - ldap_quebec
+                timeout: 1
+
 
 
 Service plugin
@@ -59,7 +104,8 @@ Service plugin
   * ``load(args)``: set up resources used by the plugin, depending on the config.
     ``args`` is a dictionary containing:
 
-    * key ``config``: the content of the whole configuration, in dict form
+    * key ``config``: the section of the configuration file for this service in dict form
+    * key ``sources``: a dictionary of source names to sources
   * ``unload()``: free resources used by the plugin.
 
 
@@ -116,3 +162,52 @@ Example
 
        def load(self, args):
            logger.info('dummy loaded')
+
+
+Backend plugin
+==============
+
+A backend implements the api to acces a directory source. Each backend instance
+is called a source.
+
+Given a ldap backend I can configure a source going to alpha.example.com and another
+on beta.example.com.
+
+
+* Namespace: ``xivo_dird.backends``
+
+* Methods:
+
+  * ``name``: the name of the source, retrieved from the configuration file
+
+  * ``load(args)``: set up resources used by the plugin, depending on the config.
+    ``args`` is a dictionary containing:
+
+    * key ``config``: the source configuration for this instance of the backend
+  * ``unload()``: free resources used by the plugin.
+
+
+Configuration
+-------------
+
+A typical source configuration file will contain the following fields:
+
+* type: is the name of the backend name found in the setup.py
+* name: is the name of this configuration
+* unique_columns: is used to distinguish between 2 entries favorites are based on unique columns
+* search_columns: are the columns used to compare to a searched term
+* columns_map: is a mapping between the source columns and the display columns configured in the views
+
+.. code-block:: yaml
+   :linenos:
+
+   type: csv
+   name: csv_customers
+   unique_columns:
+       - id
+   search_columns:
+       - firstname
+   columns_maps:
+       lastname: ln
+       firstname: fn
+       number: telephoneNumber
