@@ -61,8 +61,6 @@ Configuration file
                    title: Lastname
                    default: Unknown
                    field: lastname
-               -
-                   type: status
            default_display:
                -
                    title: Firstname
@@ -216,3 +214,27 @@ A typical source configuration file will contain the following fields:
        lastname: ln
        firstname: fn
        number: telephoneNumber
+
+
+HTTP views plugin
+=================
+
+A view plugin adds URLs to the HTTP server in dird and are responsible of
+transforming the results from services to the expected format for that URL.
+
+A use case for a view plugin would be to add support for a new phone's directory
+function.
+
+* Namespace: ``xivo_dird.http_views``
+
+* Methods:
+
+  * ``load(args)``: add the routes to the http app
+    ``args`` is a dictionary containing:
+
+    * key ``config``: the views configuration contained in the main xivo-dird
+      configuration file.
+    * key ``http_app``: the flask application of the core
+    * key ``services``: a dictionnary of services
+
+  * ``unload``: free resources used by the plugin.
