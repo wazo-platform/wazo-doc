@@ -212,7 +212,7 @@ A typical source configuration file will contain the following fields:
        - id
    search_columns:
        - firstname
-   columns_maps:
+   source_to_display_columns:
        lastname: ln
        firstname: fn
        number: telephoneNumber
