@@ -2,8 +2,13 @@
 xivo-dird
 =========
 
-CLI arguments
-=============
+xivo-dird is the directory server for XiVO. It offers a simple REST interface
+to query all directories that are configured. xivo-dird is meant to be
+extendable with plugins.
+
+
+Launching xivo-dird
+===================
 
 ::
 
@@ -21,6 +26,81 @@ CLI arguments
                            Logs messages with LOG_LEVEL details. Must be one of:
                            critical, error, warning, info, debug. Default: info
      -u USER, --user USER  The owner of the process.
+
+
+Plugins
+=======
+
+At the moment, there are three extension points in xivo-dird:
+
+* backends
+* services
+* views
+
+
+backends
+--------
+
+Backend plugins allow xivo-dird to query many kinds of directories, see
+:ref:`backend-plugins` for more information about the implementation of a new
+backend plugin.
+
+
+services
+--------
+
+Service plugins add new internal functionality to the core of xivo-dird. For
+example, the lookup service allows views to execute a directory lookup in all
+configured sources. See :ref:`service-plugins` for more information about the
+implementation of a new service plugin.
+
+
+views
+-----
+
+View plugins add new route to the HTTP application in xivo-dird. The view is
+responsible to format the result for the consumer. Supporting the directory
+function of a phone is generally a matter of adding a new view for the format
+that the phone consumes. See :ref:`view-plugins` for more information about the
+implementation of a new view plugin.
+
+
+Plugins in xivo-dird use python's entry points. That means that installing a new
+plugin to xivo-dird requires an entry point in the plugins setup.py. Each entry
+point `namespace` are documented in there respective documentation xivo-dird
+will be able to discover the plugin and load it with the documented arguments.
+
+Here is an example ``setup.py`` with an ``entry_points`` section:
+
+.. code-block:: python
+   :linenos:
+
+   #!/usr/bin/env python
+   # -*- coding: utf-8 -*-
+
+   from setuptools import setup
+   from setuptools import find_packages
+
+
+   setup(
+       name='xivo_dird_service_dummy_plugin',
+       version='0.0.1',
+
+       description='dummy service for xivo-dird',
+
+       author='Avencall',
+       author_email='dev@avencall.com',
+
+       url='https://github.com/xivo-pbx/xivo-dird',
+
+       packages=find_packages(),
+
+       entry_points={
+           'xivo_dird.services': [
+               'dummy = xivo_dird_service_dummy.dummy:DummyServicePlugin',
+           ],
+       }
+   )
 
 
 Configuration file
@@ -91,6 +171,7 @@ Configuration file
                 timeout: 1
 
 
+.. _service-plugins:
 
 Service plugin
 ==============
@@ -167,6 +248,8 @@ Example
            logger.info('dummy loaded')
 
 
+.. _backend-plugins:
+
 Backend plugin
 ==============
 
@@ -215,6 +298,8 @@ A typical source configuration file will contain the following fields:
        firstname: fn
        number: telephoneNumber
 
+
+.. _view-plugins:
 
 HTTP views plugin
 =================
