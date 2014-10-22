@@ -138,6 +138,13 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.20
+-----
+
+* Consult the `14.20 Roadmap <https://projects.xivo.io/versions/211>`_
+* Default parameters for all Cisco SPA ATA plugins have changed to be better suited for european faxes.
+
+
 14.19
 -----
 
