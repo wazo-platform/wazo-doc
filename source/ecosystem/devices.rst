@@ -161,7 +161,7 @@ ATAs:
 +-------------------+--------+---------+---------+
 |                   | SPA122 | SPA3102 | SPA8000 |
 +===================+========+=========+=========+
-| Provisioning [1]_ | N [4]_ | Y       | Y       |
+| Provisioning [1]_ | Y      | Y       | Y       |
 +-------------------+--------+---------+---------+
 | H-A [3]_          | N      | N       | N       |
 +-------------------+--------+---------+---------+
@@ -178,7 +178,7 @@ ATAs:
    must be changed. You can read the :ref:`fax-analog-gateway` section.
 
 .. note::
-   If you want to manually resynchronize the configuration from the ATA device 
+   If you want to manually resynchronize the configuration from the ATA device
    you should use the following url::
 
      http://ATA_IP/admin/resync?http://XIVO_IP:8667/CONF_FILE
