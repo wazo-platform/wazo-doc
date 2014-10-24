@@ -25,19 +25,22 @@ A queue can use one of the following ring strategies:
    * Round robin memory: call the "next" member after the one who answered.
    * Random: call a member at random
    * Weight random: same as random, but taking the member penalty into account.
-   * Ring all: call all members at the same time.
+   * Ring all: call all members at the same time (*see warning n°2 below*).
 
    .. warning::
 
-      When editing a queue, you can't change the ring strategy to linear. This
-      is due to an asterisk limitation. Unfortunately, if you want to change the
-      ring strategy of a queue to linear, you'll have to delete and create a new
-      queue with the right strategy.
+     #. When editing a queue, you can't change the ring strategy to linear. This
+        is due to an asterisk limitation. Unfortunately, if you want to change the
+        ring strategy of a queue to linear, you'll have to delete and create a new
+        queue with the right strategy.
+
+     #. If you use the *Ring all* ring strategy the Contact center statistics are
+        not reliable anymore.
 
   .. note::
 
-     When an agent is a member of many queues. The order of call distribution
-     between multiple queues is nondeterministic and cannot be configured.
+      When an agent is a member of many queues. The order of call distribution
+      between multiple queues is nondeterministic and cannot be configured.
 
 
 Timers
@@ -65,6 +68,17 @@ Call can be diverted on no answer :
 * Congestion : The number of calls waiting have reach the "Maximum number of people allowed to wait:" limit of advanced tab
 * Fail : No agent was available to answer the call when call entered the queue (join an empty queue condition advanced tab)  or
   the call was queued and no agents was available to answer (Remove callers if there are no agents advanced tab)
+
+
+Advanced
+========
+
+This tab lists the advanced queues options.
+
+* Call a member already on : use this option to call a queue member even if he is already online.
+
+.. warning:: If this option is activated Contact center statistics are not reliable anymore.
+
 
 Diversions
 ==========
