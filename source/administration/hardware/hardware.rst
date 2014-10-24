@@ -18,34 +18,6 @@ The configuration process is the following :
 
 At the end of this page you will also find some general notes and DAHDI.
 
-.. XXX text below should go into its own section, ...
-
-Check IRQ misses
-================
-
-It's always useful to verify if there isn't any *missed IRQ* problem with the cards.
-
-Check::
-
-   cat /proc/dahdi/<span number>
-
-If the *IRQ misses* counter increments, it's not good::
-
-   cat /proc/dahdi/1
-   Span 1: WCTDM/0 "Wildcard TDM800P Board 1" (MASTER)
-   IRQ misses: 1762187
-     1 WCTDM/0/0 FXOKS (In use)
-     2 WCTDM/0/1 FXOKS (In use)
-     3 WCTDM/0/2 FXOKS (In use)
-     4 WCTDM/0/3 FXOKS (In use)
-
-Digium gives some hints in their *Knowledge Base* here : http://kb.digium.com/entry/1/63/
-
-PRI Digium cards needs 1000 interuption per seconds. If the systeme cannot supply them,
-it increment the IRQ missed counter.
-
-As indicated in Digium *KB* you should avoid shared IRQ with other equipments (like HD or NIC interfaces).
-
 
 Notes on configuration files
 ============================
@@ -118,4 +90,34 @@ Here the channels 1 to 15 and 17 to 31 (it is a typical E1) are set:
 * in groups 0 and 11 (see :ref:`interco_dahdi_conf`)
 * in context ``from-extern`` : all calls received on these channels will be sent in the context ``from-extern``
 * and configured with switchtype euroisdn and signaling pri_cpe
+
+
+Debug
+=====
+
+Check IRQ misses
+----------------
+
+It's always useful to verify if there isn't any *missed IRQ* problem with the cards.
+
+Check::
+
+   cat /proc/dahdi/<span number>
+
+If the *IRQ misses* counter increments, it's not good::
+
+   cat /proc/dahdi/1
+   Span 1: WCTDM/0 "Wildcard TDM800P Board 1" (MASTER)
+   IRQ misses: 1762187
+     1 WCTDM/0/0 FXOKS (In use)
+     2 WCTDM/0/1 FXOKS (In use)
+     3 WCTDM/0/2 FXOKS (In use)
+     4 WCTDM/0/3 FXOKS (In use)
+
+Digium gives some hints in their *Knowledge Base* here : http://kb.digium.com/entry/1/63/
+
+PRI Digium cards needs 1000 interuption per seconds. If the systeme cannot supply them,
+it increment the IRQ missed counter.
+
+As indicated in Digium *KB* you should avoid shared IRQ with other equipments (like HD or NIC interfaces).
 
