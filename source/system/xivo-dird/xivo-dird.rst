@@ -85,7 +85,9 @@ Errors
 Example requests
 ----------------
 
-Search for the term "Bob"::
+Search for the term ``Bob``
+
+.. code-block:: http
 
     GET /0.1/directories/lookup/default?term=Bob HTTP/1.1
     Host: xivoserver
@@ -95,10 +97,21 @@ Search for the term "Bob"::
 Example response
 ----------------
 
-::
+Header
+^^^^^^
+
+.. code-block:: http
 
     HTTP/1.1 200 OK
     Content-Type: application/json
+
+
+Content
+^^^^^^^
+
+.. code-block:: javascript
+   :linenos:
+   :emphasize-lines: 7, 15
 
     {
       "term": "Bob",
@@ -121,7 +134,7 @@ Example response
               "xivo_id": "ad2f36c7-b0f3-48da-a63c-37434fed479b"
             },
             "user": {
-              id": 34,
+              "id": 34,
               "xivo_id": "ad2f36c7-b0f3-48da-a63c-37434fed479b"
             },
             "endpoint": {
@@ -181,6 +194,7 @@ Here is an example ``setup.py`` with an ``entry_points`` section:
 
 .. code-block:: python
    :linenos:
+   :emphasize-lines: 20-25
 
    #!/usr/bin/env python
    # -*- coding: utf-8 -*-
