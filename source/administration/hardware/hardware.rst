@@ -41,16 +41,16 @@ Each span has to be declared with the following information::
 
 * ``spannum`` : corresponds to the span number. It starts to 1 and has to be incremented by 1 at each new span.
   This number MUST be unique.
-* ``timing`` : describes the how this span will be considered regarding the synchronisation :
+* ``timing`` : describes the how this span will be considered regarding the synchronization :
 
-  * 0 : do not use this span as a synchronisation source,
-  * 1 : use this span as the primary synchronisation source,
-  * 2 : use this span as the secondary synchronisation source etc.
+  * 0 : do not use this span as a synchronization source,
+  * 1 : use this span as the primary synchronization source,
+  * 2 : use this span as the secondary synchronization source etc.
 
 * ``LBO`` : 0 (not used)
 * ``framing`` : correct values are ``ccs`` or ``cas``.
   For ISDN lines, ``ccs`` is used.
-* ``coding`` : correct valus are ``hdb3`` or ``ami``.
+* ``coding`` : correct values are ``hdb3`` or ``ami``.
   For example, ``hdb3`` is used for an E1 (PRI) link, whereas ``ami`` is used for T0 (french BRI) link.
 * ``crc4`` : this is a framing option for PRI lines.
   For example it is rarely use in France.
@@ -116,7 +116,7 @@ If the *IRQ misses* counter increments, it's not good::
 
 Digium gives some hints in their *Knowledge Base* here : http://kb.digium.com/entry/1/63/
 
-PRI Digium cards needs 1000 interuption per seconds. If the systeme cannot supply them,
+PRI Digium cards needs 1000 interruption per seconds. If the system cannot supply them,
 it increment the IRQ missed counter.
 
 As indicated in Digium *KB* you should avoid shared IRQ with other equipments (like HD or NIC interfaces).

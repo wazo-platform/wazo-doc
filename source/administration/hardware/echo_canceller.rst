@@ -35,7 +35,7 @@ Install the firmware
 When you know which firmware you need you can install it with ``xivo-fetchfw`` utility.
 
 #. Use ``xivo-fetchfw`` to find the name of the package. You can search for ``digium``
-   occurences in the available packages::
+   occurrences in the available packages::
 
     xivo-fetchfw search digium
 

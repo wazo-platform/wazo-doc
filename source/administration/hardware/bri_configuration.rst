@@ -93,7 +93,7 @@ Specific configuration
 You will find below 3 configurations that we recommend for BRI lines.
 These configurations were tested on different type of french BRI lines with success.
 
-.. note:: The pre-requisities are:
+.. note:: The pre-requisites are:
 
   * XiVO >= 14.12,
   * Use per-port dahdi interconnection (see the :ref:`interco_dahdi_conf` section)
@@ -199,7 +199,7 @@ In this mode we will configure asterisk and DAHDI:
 
 Follow theses steps to configure:
 
-#. In file :file:`/etc/asterisk/chan_dahdi.conf` remove all occurences of
+#. In file :file:`/etc/asterisk/chan_dahdi.conf` remove all occurrences of
    ``layer1_presence`` and ``layer2_persistence`` options.
 
 #. In the file :file:`/etc/asterisk/dahdi-channels.conf` use ``bri_cpe`` signalling::
