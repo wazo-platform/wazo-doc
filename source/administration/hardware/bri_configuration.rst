@@ -35,7 +35,7 @@ See detailed explanations of this file in the :ref:`system_conf` section.
 
 
 Below is **an example** for a typical french BRI line span::
-    
+
     # Span 1: B4/0/1 "B4XXP (PCI) Card 0 Span 1" (MASTER) RED
     span=1,1,0,ccs,ami
     # termtype: te
@@ -94,7 +94,7 @@ You will find below 3 configurations that we recommend for BRI lines.
 These configurations were tested on different type of french BRI lines with success.
 
 .. note:: The pre-requisities are:
- 
+
   * XiVO >= 14.12,
   * Use per-port dahdi interconnection (see the :ref:`interco_dahdi_conf` section)
 
@@ -120,7 +120,7 @@ Follow theses steps to configure:
 
 #. **Before** the line ``#include dahdi-channels.conf`` add, in file :file:`/etc/asterisk/chan_dahdi.conf`,
    the following lines::
-     
+
      layer1_presence = ignore
      layer2_persistence = leave_down
 
@@ -129,11 +129,11 @@ Follow theses steps to configure:
      signalling = bri_cpe_ptmp
 
 #. Create the file :file:`/etc/modprobe.d/xivo-wcb4xxp.conf` to deactivate the layer1 persistence::
-   
+
     touch /etc/modprobe.d/xivo-wcb4xxp.conf
 
 #. Fill it with the following content::
-    
+
     options wcb4xxp persistentlayer1=0
 
 #. Then, apply the configuration by restarting the services::
@@ -142,7 +142,7 @@ Follow theses steps to configure:
 
 
 .. note:: Expected behavior:
- 
+
   * The `dahdi show status` command should show the BRI spans in *RED* status if there is no call,
   * For outgoing calls the layer1/layer2 should be brought back up by the XiVO (i.e. asterisk/chan_dahdi),
   * For incoming calls the layer1/layer2 should be brought back up by the operator,
@@ -163,7 +163,7 @@ Follow theses steps to configure:
 
 #. **Before** the line ``#include dahdi-channels.conf`` add, in file :file:`/etc/asterisk/chan_dahdi.conf`,
    the following lines::
-     
+
     layer1_presence = required
     layer2_persistence = keep_up
 
@@ -172,7 +172,7 @@ Follow theses steps to configure:
     signalling = bri_cpe_ptmp
 
 #. If it exists, delete the file :file:`/etc/modprobe.d/xivo-wcb4xxp.conf`::
-   
+
     rm /etc/modprobe.d/xivo-wcb4xxp.conf
 
 #. Then, apply the configuration by restarting the services::
@@ -181,12 +181,12 @@ Follow theses steps to configure:
 
 
 .. note:: Expected behavior:
- 
+
   * The `dahdi show status` command should show the BRI spans in **OK** status even if there is no call,
   * In asterisk CLI you may see the spans going Up/Down/Up : it is *a problem* only if incoming or
     outgoing calls are rejected.
 
- 
+
 .. _bri_card_ptp_wl1l2:
 
 PTP with layer1/layer2 persistence
@@ -207,7 +207,7 @@ Follow theses steps to configure:
     signalling = bri_cpe
 
 #. If it exists, delete the file :file:`/etc/modprobe.d/xivo-wcb4xxp.conf`::
-   
+
     rm /etc/modprobe.d/xivo-wcb4xxp.conf
 
 #. Then, apply the configuration by restarting the services::
@@ -216,7 +216,7 @@ Follow theses steps to configure:
 
 
 .. note:: Expected behavior:
- 
+
   * The `dahdi show status` command should show the BRI spans in **OK** status even if there is no call,
   * In asterisk CLI you should not see the spans going Up and Down : if it happens, it is *a problem* only if incoming or
     outgoing calls are rejected.
