@@ -28,6 +28,113 @@ Launching xivo-dird
      -u USER, --user USER  The owner of the process.
 
 
+API
+===
+
+Lookup
+------
+
+The `lookup` query will return a list of result matching the searched term. The
+result will be retrieved from all configured directories for the given profile.
+
+This route is provided by the `default_json_view` plugin using the `lookup`
+plugin and all configured sources for the given profile.
+
+
+Query
+-----
+
+::
+
+    GET /0.1/directories/lookup/<profile>
+
+
+Parameters
+----------
+
+Mandatory
+^^^^^^^^^
+
+profile
+    The lookup profile. It determines which directories to search. See
+    :ref:`configuration-file`.
+
+
+Optional
+^^^^^^^^
+
+term
+    the search term that we are looking for
+
+`*`
+    any other arguments will be forwarded to the configured source and may be
+    interpreted or ignored. Extra arguments can also be used by other plugins
+    to add other functionnalities.
+
+
+Errors
+------
+
++------------+---------------+-----------------------------------+
+| Error code | Error message | Description                       |
++============+===============+===================================+
+|        404 | Not found     | The lookup profile does not exist |
++------------+---------------+-----------------------------------+
+
+
+Example requests
+----------------
+
+Search for the term "Bob"::
+
+    GET /0.1/directories/lookup/default?term=Bob HTTP/1.1
+    Host: xivoserver
+    Accept: application/json
+
+
+Example response
+----------------
+
+::
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+      "term": "Bob",
+      "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent"],
+      "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent"],
+      "results": [
+        {
+          "column_values": ["Bob", "Marley", "5555555", "5556666", "5553333", "mail@example.com", null],
+          "relations": {
+            "agent": null,
+            "user": null,
+            "endpoint": null
+          },
+          "source": "my_ldap_directory"
+        }, {
+          "column_values": ["Charlie", "Boblin", "5555556", "5554444", "5552222", "mail2@example.com", null],
+          "relations": {
+            "agent": {
+              "id": 12,
+              "xivo_id": "ad2f36c7-b0f3-48da-a63c-37434fed479b"
+            },
+            "user": {
+              id": 34,
+              "xivo_id": "ad2f36c7-b0f3-48da-a63c-37434fed479b"
+            },
+            "endpoint": {
+              "id": 56,
+              "xivo_id": "ad2f36c7-b0f3-48da-a63c-37434fed479b"
+            },
+          },
+          "source": "internal"
+        }
+      ]
+    }
+
+
 Plugins
 =======
 
@@ -102,6 +209,8 @@ Here is an example ``setup.py`` with an ``entry_points`` section:
        }
    )
 
+
+.. _configuration-file:
 
 Configuration file
 ==================
