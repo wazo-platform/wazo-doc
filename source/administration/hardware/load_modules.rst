@@ -32,7 +32,7 @@ Create the configuration file
 Now that we know the modules we need, we can create our configuration file:
 
 #. Create the file :file:`/etc/dahdi/modules`::
-    
+
     touch /etc/dahdi/modules
 
 #. Fill it with the modules name you found with the ``dahdi_hardware`` command (one module name per line).
@@ -42,7 +42,7 @@ Now that we know the modules we need, we can create our configuration file:
     wct4xxp
 
 .. note::
-  In the :file:`/usr/share/dahdi/modules.sample` file you can find all the modules supported in your 
+  In the :file:`/usr/share/dahdi/modules.sample` file you can find all the modules supported in your
   XiVO version.
 
 
@@ -68,7 +68,7 @@ Now that you have loaded the correct module for your card you must:
 Specific configuration
 ======================
 
-This section lists some specific configuration. 
+This section lists some specific configuration.
 You should not follow them unless you have a specific need.
 
 
@@ -93,7 +93,7 @@ the line mode to E1:
 
     touch /etc/modprobe.d/xivo-wcte-linemode.conf
 
-#. Fill it with the following lines replacing ``DAHDI_MODULE_NAME`` by the correct module name 
+#. Fill it with the following lines replacing ``DAHDI_MODULE_NAME`` by the correct module name
    (``wcte13xp``, ``wcte43x`` ...)::
 
     # set the card in E1/T1 mode

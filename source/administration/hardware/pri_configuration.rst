@@ -5,7 +5,7 @@ PRI card configuration
 Verifications
 =============
 
-Verify that the correct module is configured in :file:`/etc/dahdi/modules` 
+Verify that the correct module is configured in :file:`/etc/dahdi/modules`
 depending on the card you installed in your server.
 
 If it wasn't, do again the step :ref:`load_dahdi_modules`
@@ -69,7 +69,7 @@ Then you have to modify the :file:`/etc/asterisk/dahdi-channels.conf` file:
 
 Below is **an example** for a typical french PRI line span::
 
-    ; Span 1: TE2/0/1 "T2XXP (PCI) Card 0 Span 1" CCS/HDB3/CRC4 RED 
+    ; Span 1: TE2/0/1 "T2XXP (PCI) Card 0 Span 1" CCS/HDB3/CRC4 RED
     group = 0,11            ; belongs to group 0 and 11
     context = from-extern   ; incoming call to this span will be sent in 'from-extern' context
     switchtype = euroisdn

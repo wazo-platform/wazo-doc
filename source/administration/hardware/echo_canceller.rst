@@ -34,12 +34,12 @@ Install the firmware
 
 When you know which firmware you need you can install it with ``xivo-fetchfw`` utility.
 
-#. Use ``xivo-fetchfw`` to find the name of the package. You can search for ``digium`` 
+#. Use ``xivo-fetchfw`` to find the name of the package. You can search for ``digium``
    occurences in the available packages::
 
     xivo-fetchfw search digium
 
-#. Find the package name which matches the firmware file you need. In our example, we need the 
+#. Find the package name which matches the firmware file you need. In our example, we need the
    ``dahdi-fw-oct6114-064.bin`` file which is supplied by the package named ``digium-oct6114-064``::
 
     xivo-fetchfw install digium-oct6114-064
@@ -48,7 +48,7 @@ When you know which firmware you need you can install it with ``xivo-fetchfw`` u
 Activate the Hardware Echo-cancellation
 =======================================
 
-Now that you installed hardware echo-canceller firmware you must activate it 
+Now that you installed hardware echo-canceller firmware you must activate it
 in :file:`/etc/asterisk/chan_dahdi.conf` file::
 
     echocancel = 1
@@ -89,7 +89,7 @@ If you have an hardware echo-canceller you *may* want to use it to detect the DT
 #. Create the file :file:`/etc/modprobe.d/xivo-hwec-dtmf.conf`::
 
      touch /etc/modprobe.d/xivo-hwec-dtmf.conf
-  
+
 #. Fill it with the following lines replacing ``DAHDI_MODULE_NAME`` by the correct module name
    (``wcte13xp``, ``wct4xxp`` ...)::
 

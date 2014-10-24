@@ -4,7 +4,7 @@
 Card configuration
 ******************
 
-Now that you have :ref:`loaded the correct DAHDI modules <load_dahdi_modules>` and 
+Now that you have :ref:`loaded the correct DAHDI modules <load_dahdi_modules>` and
 :ref:`configured the echo canceller <hwec_configuration>` you can proceed with the card configuration.
 Follow one of the appropriate link below :
 
