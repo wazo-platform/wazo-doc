@@ -89,7 +89,7 @@ Here the channels 1 to 15 and 17 to 31 (it is a typical E1) are set:
 
 * in groups 0 and 11 (see :ref:`interco_dahdi_conf`)
 * in context ``from-extern`` : all calls received on these channels will be sent in the context ``from-extern``
-* and configured with switchtype euroisdn and signaling pri_cpe
+* and configured with switchtype ``euroisdn`` and signalling ``pri_cpe``
 
 
 Debug

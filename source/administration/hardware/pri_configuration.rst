@@ -62,7 +62,7 @@ Then you have to modify the :file:`/etc/asterisk/dahdi-channels.conf` file:
     group = 63
 
 * change the ``context`` lines if needed,
-* the ``signaling`` should be one of:
+* the ``signalling`` should be one of:
 
   * ``pri_net``
   * ``pri_cpe``
@@ -73,7 +73,7 @@ Below is **an example** for a typical french PRI line span::
     group = 0,11            ; belongs to group 0 and 11
     context = from-extern   ; incoming call to this span will be sent in 'from-extern' context
     switchtype = euroisdn
-    signalling = pri_cpe    ; use 'pri_cpe' signaling
+    signalling = pri_cpe    ; use 'pri_cpe' signalling
     channel => 1-15,17-31   ; the above configuration applies to channels 1 to 15 and 17 to 31
 
 
