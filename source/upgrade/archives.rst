@@ -130,6 +130,12 @@ Source archive version after 13.25 (here 13.25 to 14.16)
    EOF
    chmod +x /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
 
+   cat > /etc/apt/preferences.d/50-xivo-14.16.pref <<EOF
+   Package: *
+   Pin: release a=xivo-14.16
+   Pin-Priority: 700
+   EOF
+
    apt-get update
    apt-get install xivo-fai
    apt-get purge xivo-fai-13.25
@@ -139,13 +145,10 @@ Source archive version after 13.25 (here 13.25 to 14.16)
    apt-get remove xivo-dist
    xivo-upgrade
    rm /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
+   rm /etc/apt/preferences.d/50-xivo-14.16.pref
 
 .. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
    xivo-upgrade, but cancelled the upgrade.
-
-xivo-upgrade will prompt you for an installation of the latest version, not for the archive you want
-(bug `#5087 <https://projects.xivo.io/issues/5087>`_). Because of the file we added in
-:file:`/usr/share/xivo-upgrade/pre-stop.d/`, xivo-upgrade will install the archive version you want.
 
 Source archive version after 14.18
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
