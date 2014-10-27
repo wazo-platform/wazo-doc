@@ -14,6 +14,7 @@ General information:
    profile_python
    translate
    style_guide
+   network
 
 Component specific information:
 

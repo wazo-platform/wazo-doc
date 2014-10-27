@@ -138,6 +138,15 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.20
+-----
+
+* Consult the `14.20 Roadmap <https://projects.xivo.io/versions/211>`_
+* Default parameters for all Cisco SPA ATA plugins have changed to be better suited for european faxes.
+* Following the `POODLE attack <https://www.openssl.org/~bodo/ssl-poodle.pdf>`_ (CVE-2014-3566), SSL 3.0
+  has been disabled for the web interface and the xivo-confd REST API.
+
+
 14.19
 -----
 
