@@ -85,15 +85,6 @@ Source archive version between 1.2 and 13.24 (here 1.2.3 to 14.16)
 
 ::
 
-   # Workaround for bug #5087
-   mkdir -p /usr/share/xivo-upgrade/pre-stop.d
-   cat > /usr/share/xivo-upgrade/pre-stop.d/99-archive-version <<EOF
-   #!/bin/sh
-   apt-get install -y xivo-fai-14.16
-   apt-get update
-   EOF
-   chmod +x /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
-
    cat > /etc/apt/preferences.d/50-xivo-14.16.pref <<EOF
    Package: *
    Pin: release a=xivo-14.16
@@ -101,13 +92,12 @@ Source archive version between 1.2 and 13.24 (here 1.2.3 to 14.16)
    EOF
 
    apt-get update
-   apt-get install -t squeeze-xivo-skaro-1.2.3 xivo-fai xivo-fai-skaro
+   apt-get install {xivo-fai,xivo-fai-skaro}/squeeze-xivo-skaro-1.2.3
    apt-get update
-   /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
+   apt-get install xivo-fai-14.16
+   apt-get update
    apt-get install xivo-upgrade/xivo-14.16
-   apt-get remove xivo-dist
    xivo-upgrade
-   rm -r /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
    rm /etc/apt/preferences.d/50-xivo-14.16.pref
    apt-get update
 
@@ -121,15 +111,6 @@ Source archive version after 13.25 (here 13.25 to 14.16)
 
 ::
 
-   # Workaround for bug #5087
-   cat > /usr/share/xivo-upgrade/pre-stop.d/99-archive-version <<EOF
-   #!/bin/sh
-   apt-get install -y xivo-fai-14.16
-   apt-get purge -y xivo-fai
-   apt-get update
-   EOF
-   chmod +x /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
-
    cat > /etc/apt/preferences.d/50-xivo-14.16.pref <<EOF
    Package: *
    Pin: release a=xivo-14.16
@@ -140,11 +121,10 @@ Source archive version after 13.25 (here 13.25 to 14.16)
    apt-get install xivo-fai
    apt-get purge xivo-fai-13.25
    apt-get update
-   /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
+   apt-get install xivo-fai-14.16
+   apt-get update
    apt-get install xivo-upgrade/xivo-14.16
-   apt-get remove xivo-dist
    xivo-upgrade
-   rm /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
    rm /etc/apt/preferences.d/50-xivo-14.16.pref
 
 .. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
