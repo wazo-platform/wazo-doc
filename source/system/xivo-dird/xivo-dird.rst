@@ -69,7 +69,7 @@ term
 `*`
     any other arguments will be forwarded to the configured source and may be
     interpreted or ignored. Extra arguments can also be used by other plugins
-    to add other functionnalities.
+    to add other functionalities.
 
 
 Errors
@@ -269,7 +269,7 @@ Configuration file
                    title: Firstname
                    field: fn
                -
-                   title: Localtion
+                   title: Location
                    default: Canada
                    field: country
                -
@@ -376,7 +376,7 @@ Example
 Backend plugin
 ==============
 
-A backend implements the api to acces a directory source. Each backend instance
+A backend implements the api to access a directory source. Each backend instance
 is called a source.
 
 Given a ldap backend I can configure a source going to alpha.example.com and another
@@ -443,6 +443,6 @@ function.
     * key ``config``: the views configuration contained in the main xivo-dird
       configuration file.
     * key ``http_app``: the flask application of the core
-    * key ``services``: a dictionnary of services
+    * key ``services``: a dictionary of services
 
   * ``unload``: free resources used by the plugin.
