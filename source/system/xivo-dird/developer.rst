@@ -22,14 +22,152 @@ dird.
 #. :ref:`dird-service`
 #. :ref:`dird-view`
 
-All plugins are instantiated by the core. The core then keeps a catalog of
+All plugins are instantiated by the core. The core then keeps a catalogue of
 loaded extensions that can be supplied to other extensions.
+
+The following setup.py shows an example of a python library that add a plugin
+of each kind to xivo-dird:
+
+.. code-block:: python
+   :linenos:
+   :emphasize-lines: 15-26
+
+   #!/usr/bin/env python
+   # -*- coding: utf-8 -*-
+
+   from setuptools import setup
+   from setuptools import find_packages
+
+
+   setup(
+       name='XiVO dird plugin sample',
+       version='0.0.1',
+
+       description='An example program',
+
+       packages=find_packages(),
+
+       entry_points={
+           'xivo_dird.services': [
+               'my_service = dummy:DummyServicePlugin',
+           ],
+           'xivo_dird.backends': [
+               'my_backend = dummy:DummyBackend',
+           ],
+           'xivo_dird.views': [
+               'my_view = dummy:DummyView',
+           ],
+       }
+   )
 
 
 .. _dird-back-end:
 
 Back-End
 ========
+
+Back-ends are used to query directories. Each back-end implements a way to query
+a given directory. Each instance of a given back-end is called a source. Sources
+are used by the services to get results from each configured directories.
+
+Given a ldap back-end, I can configure a source to point to alpha.example.com
+and another to beta.example.com. Both of these sources use the ldap back-end.
+
+
+Implementation details
+----------------------
+
+* Namespace: ``xivo_dird.backends``
+* Abstract source plugin: `BaseSourcePlugin <https://github.com/xivo-pbx/xivo-dird/blob/5027-dird-daemon-with-plugins/xivo_dird/base_source_plugin.py#L21-L76>`_
+* Methods:
+
+  * ``name``: the name of the source, retrieved from the configuration file
+  * ``load(args)``: set up resources used by the plugin, depending on the config.
+    ``args`` is a dictionary containing:
+    * key ``config``: the source configuration for this instance of the back-end
+  * ``unload()``: free resources used by the plugin.
+  * ``search(term, args)``: The search method returns a list of dictionary
+  * ``list(uids)``: The list method returns a list of dictionary from a list of uids.
+
+The typical configuration file for a given back-end will look like this:
+
+.. code-block:: yaml
+   :linenos:
+
+   type: <back-end name>
+   name: <source-name>
+   unique_columns:
+       - id
+   search_columns:
+       - firstname
+   source_to_display_columns:
+       lastname: ln
+       firstname: fn
+       number: telephoneNumber
+
+
+* type: is the name of the back-end plugin. It should match the extension point in the setup.py
+* name: is the name of this given configuration. The name is used to associate the source to profiles.
+* unique_columns: This list of columns is what make an entry in this source unique.
+* search_columns: This list of columns is used to try and match an entry when searching this source.
+* source_to_display_columns: This section is used to add column names to the result.
+
+The implementation of the back-end should take these values into account and
+return results accordingly. It is possible for a source to have no
+`unique_columns` in that case, it might be impossible to use this source for
+certain actions that are based on the list method. The `unique_columns` are
+used to build the `uid` that is passed to the list method to fetch a list of
+results by unique ids. The `search` and `list` methods *should* apply the
+`source_to_display_columns` transformation to the result before returning.
+
+
+Example
+-------
+
+The following example add a backend that will return random names and number.
+
+``dummy.py``:
+
+.. code-block:: python
+   :linenos:
+   :emphasize-lines: 18-20, 22-23
+
+   # -*- coding: utf-8 -*-
+
+   import logging
+
+   logger = logging.getLogger(__name__)
+
+   class DummyBackendPlugin(object):
+
+       def name(self):
+           return 'my_local_dummy'
+
+       def load(self, args):
+           logger.info('dummy backend loaded')
+
+       def unload(self):
+           logger.info('dummy backend unloaded')
+
+       def search(self, term, args):
+           nb_results = random.randint(1, 20)
+           return _random_list(nb_results)
+
+       def list(self, unique_ids):
+           return _random_list(len(unique_ids))
+
+       def _random_list(self, nb_results):
+           columns = ['Firstname', 'Lastname', 'Number']
+           return [_random_entry(columns) for _ in xrange(nb_results)]
+
+       def _random_entry(self, columns):
+           random_stuff = [_random_string() for _ in xrange(len(columns))]
+           return dict(zip(columns, random_stuff))
+
+       def _random_string(self):
+           return ''.join(random.choice(string.lowercase) for _ in xrange(5))
+
+
 
 
 .. _dird-service:
@@ -72,41 +210,7 @@ Example
 
 The following example adds a service that will return an empty list when used.
 
-``setup.py``:
-
-.. code-block:: python
-   :linenos:
-   :emphasize-lines: 20-25
-
-   #!/usr/bin/env python
-   # -*- coding: utf-8 -*-
-
-   from setuptools import setup
-   from setuptools import find_packages
-
-
-   setup(
-       name='xivo_dird_service_dummy_plugin',
-       version='0.0.1',
-
-       description='dummy service for xivo-dird',
-
-       author='Avencall',
-       author_email='dev@avencall.com',
-
-       url='https://github.com/xivo-pbx/xivo-dird',
-
-       packages=find_packages(),
-
-       entry_points={
-           'xivo_dird.services': [
-               'dummy = xivo_dird_service_dummy.dummy:DummyServicePlugin',
-           ],
-       }
-   )
-
-
-``xivo_dird_service_dummy/dummy.py``:
+``dummy.py``:
 
 .. code-block:: python
    :linenos:
@@ -130,7 +234,7 @@ The following example adds a service that will return an empty list when used.
 
        def load(self, args):
            """
-           Ignores all provided arguments and instanciate a DummyService that
+           Ignores all provided arguments and instantiate a DummyService that
            is returned to the core
            """
            logger.info('dummy loaded')

@@ -39,6 +39,31 @@ Launching xivo-dird
      -u USER, --user USER  The owner of the process.
 
 
+Terminology
+===========
+
+Back-end
+--------
+
+A back-end is a plugin implementation to query a given directory.
+
+
+Source
+------
+
+A source is an instance of a back-end. Given a csv back-end I can have many
+configurations, each of these configurations is called a source. For example,
+I could have the customer-csv and the employee-csv sources. All using the csv
+back-end.
+
+
+Plugins
+-------
+
+A plugin is an extension point in xivo-dird. It is a way to add or modify the
+functionality of xivo-dird.
+
+
 API
 ===
 
@@ -169,14 +194,6 @@ At the moment, there are three extension points in xivo-dird:
 * views
 
 
-backends
---------
-
-Backend plugins allow xivo-dird to query many kinds of directories, see
-:ref:`backend-plugins` for more information about the implementation of a new
-backend plugin.
-
-
 views
 -----
 
@@ -226,55 +243,74 @@ Here is an example ``setup.py`` with an ``entry_points`` section:
    )
 
 
-.. _backend-plugins:
+.. _configuration-file:
 
-Backend plugin
-==============
-
-A backend implements the api to access a directory source. Each backend instance
-is called a source.
-
-Given a ldap backend I can configure a source going to alpha.example.com and another
-on beta.example.com.
-
-
-* Namespace: ``xivo_dird.backends``
-
-* Methods:
-
-  * ``name``: the name of the source, retrieved from the configuration file
-
-  * ``load(args)``: set up resources used by the plugin, depending on the config.
-    ``args`` is a dictionary containing:
-
-    * key ``config``: the source configuration for this instance of the backend
-  * ``unload()``: free resources used by the plugin.
-
-
-Configuration
--------------
-
-A typical source configuration file will contain the following fields:
-
-* type: is the name of the backend name found in the setup.py
-* name: is the name of this configuration
-* unique_columns: is used to distinguish between 2 entries favorites are based on unique columns
-* search_columns: are the columns used to compare to a searched term
-* columns_map: is a mapping between the source columns and the display columns configured in the views
+Configuration file
+==================
 
 .. code-block:: yaml
    :linenos:
 
-   type: csv
-   name: csv_customers
-   unique_columns:
-       - id
-   search_columns:
-       - firstname
-   source_to_display_columns:
-       lastname: ln
-       firstname: fn
-       number: telephoneNumber
+   debug: False
+   foreground: False
+   log_filename: /var/log/xivo-dird.log
+   log_level: info
+   pid_filename: /var/run/xivo-dird/xivo-dird.pid
+   user: www-data
+
+   rest_api:
+       wsgi_socket: /var/run/xivo-dird/xivo-dird.sock
+
+   enabled_plugins:
+      backends:
+          - csv
+          - ldap
+          - phonebook
+      services:
+          - lookup
+      views:
+          - aastra_xml
+          - default_json
+
+   views:
+       displays:
+           switchboard_display:
+               -
+                   title: Firstname
+                   default: Unknown
+                   field: firstname
+               -
+                   title: Lastname
+                   default: Unknown
+                   field: lastname
+           default_display:
+               -
+                   title: Firstname
+                   field: fn
+               -
+                   title: Location
+                   default: Canada
+                   field: country
+               -
+                   title: Number
+                   field: number
+        profile_to_display:
+            default: default_display
+            switchboard: switchboard_display
+
+   services:
+       lookup:
+           default:
+               sources:
+                   - my_csv
+                   - ldap_quebec
+                timeout: 0.5
+            switchboard:
+                sources:
+                    - my_csv
+                    - xivo_phonebook
+                    - ldap_quebec
+                timeout: 1
 
 
 .. _view-plugins:
