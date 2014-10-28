@@ -13,9 +13,11 @@ extendable with plugins.
 
    configuration
    developer
+   stock_plugins
 
 
 .. _xivo-dird-usage:
+
 Launching xivo-dird
 ===================
 

@@ -16,8 +16,7 @@ The command-line options have priority over the main configuration file options.
 Main Configuration File
 =======================
 
-Default location: ``/etc/xivo/xivo-dird/xivo-dird.yml``.
-Format: YAML
+Default location: ``/etc/xivo/xivo-dird/xivo-dird.yml``. Format: YAML
 
 The default location may be overwritten by the command line options.
 
@@ -161,7 +160,7 @@ services section
 
 This section is a dictionary whose keys are the service plugin name and values are the configuration
 of that service. Hence the content of the value is dependent of the service plugin. See the
-documentation of the service plugin.
+documentation of the service plugin (:ref:`stock-plugins`).
 
 
 .. _sources_configuration_directory:
@@ -169,8 +168,7 @@ documentation of the service plugin.
 Sources Configuration Directory
 ===============================
 
-Default location: ``/etc/xivo/xivo-dird/sources.d``
-File format: YAML
+Default location: ``/etc/xivo/xivo-dird/sources.d``. File format: YAML
 
 Each file listed in this directory will be read and used to create a data source for xivo-dird.
 
@@ -200,4 +198,13 @@ name
    The name of the source. The value is arbitrary, but it must be unique across all sources.
 
 The other options are dependent on the source type (the back-end used). See the documentation of the
-back-end plugin.
+back-end plugin (:ref:`stock-plugins`). However, the following keys should be present in all source
+configurations:
+
+searched_columns
+   the columns used for the lookup. Any column containing the search term substring will be a lookup
+   result.
+
+source_to_display:
+   a dictionary describing the mapping between the source column name and the display field
+   identifier.
