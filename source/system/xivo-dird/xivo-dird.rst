@@ -1,10 +1,16 @@
-=========
-xivo-dird
-=========
+.. _xivo-dird:
+===========
+ XiVO dird
+===========
 
 xivo-dird is the directory server for XiVO. It offers a simple REST interface
 to query all directories that are configured. xivo-dird is meant to be
 extendable with plugins.
+
+.. toctree::
+   :maxdepth: 1
+
+   developer
 
 
 Launching xivo-dird
@@ -166,15 +172,6 @@ Backend plugins allow xivo-dird to query many kinds of directories, see
 backend plugin.
 
 
-services
---------
-
-Service plugins add new internal functionality to the core of xivo-dird. For
-example, the lookup service allows views to execute a directory lookup in all
-configured sources. See :ref:`service-plugins` for more information about the
-implementation of a new service plugin.
-
-
 views
 -----
 
@@ -292,83 +289,6 @@ Configuration file
                     - xivo_phonebook
                     - ldap_quebec
                 timeout: 1
-
-
-.. _service-plugins:
-
-Service plugin
-==============
-
-* Namespace: ``xivo_dird.services``
-* Attributes:
-
-  * ``name``: the name of the plugin. It must uniquely identify the plugin.
-
-* Methods:
-
-  * ``load(args)``: set up resources used by the plugin, depending on the config.
-    ``args`` is a dictionary containing:
-
-    * key ``config``: the section of the configuration file for this service in dict form
-    * key ``sources``: a dictionary of source names to sources
-
-    ``load`` must return a callable, which will be made available in the view plugins.
-  * ``unload()``: free resources used by the plugin.
-
-
-Example
--------
-
-``setup.py``:
-
-.. code-block:: python
-   :linenos:
-
-   #!/usr/bin/env python
-   # -*- coding: utf-8 -*-
-
-   from setuptools import setup
-   from setuptools import find_packages
-
-
-   setup(
-       name='xivo_dird_service_dummy_plugin',
-       version='0.0.1',
-
-       description='dummy service for xivo-dird',
-
-       author='Avencall',
-       author_email='dev@avencall.com',
-
-       url='https://github.com/xivo-pbx/xivo-dird',
-
-       packages=find_packages(),
-
-       entry_points={
-           'xivo_dird.services': [
-               'dummy = xivo_dird_service_dummy.dummy:DummyServicePlugin',
-           ],
-       }
-   )
-
-``xivo_dird_service_dummy/dummy.py``:
-
-.. code-block:: python
-   :linenos:
-
-   # -*- coding: utf-8 -*-
-
-   import logging
-
-   logger = logging.getLogger(__name__)
-
-   class DummyServicePlugin(object):
-
-       def __init__(self):
-           logger.info('dummy created')
-
-       def load(self, args):
-           logger.info('dummy loaded')
 
 
 .. _backend-plugins:
