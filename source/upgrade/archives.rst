@@ -24,7 +24,7 @@ Upgrade from an archive to the latest version
 Archive version < 13.25::
 
    apt-get update
-   apt-get install -t squeeze-xivo-skaro-$(cat /usr/share/xivo/XIVO-VERSION) xivo-fai xivo-fai-skaro
+   apt-get install {xivo-fai,xivo-fai-skaro}/squeeze-xivo-skaro-$(cat /usr/share/xivo/XIVO-VERSION)
    xivo-upgrade
 
 .. We need the old xivo-fai (squeeze), because the new xivo-fai (xivo-five) conflicts with
@@ -67,6 +67,8 @@ Source archive version after 14.18
 ::
 
    xivo-dist xivo-15.12
+   apt-get update
+   apt-get install xivo-upgrade/xivo-15.12
    xivo-upgrade
 
 
@@ -83,14 +85,31 @@ Source archive version between 1.2 and 13.24 (here 1.2.3 to 14.16)
 
 ::
 
-   # Workaround for bug #5087
-   mkdir -p /usr/share/xivo-upgrade/pre-stop.d
-   cat > /usr/share/xivo-upgrade/pre-stop.d/99-archive-version <<EOF
-   #!/bin/sh
-   apt-get install -y xivo-fai-14.16
-   apt-get update
+   cat > /etc/apt/preferences.d/50-xivo-14.16.pref <<EOF
+   Package: *
+   Pin: release a=xivo-14.16
+   Pin-Priority: 700
    EOF
-   chmod +x /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
+
+   apt-get update
+   apt-get install {xivo-fai,xivo-fai-skaro}/squeeze-xivo-skaro-1.2.3
+   apt-get update
+   apt-get install xivo-fai-14.16
+   apt-get update
+   apt-get install xivo-upgrade/xivo-14.16
+   xivo-upgrade
+   rm /etc/apt/preferences.d/50-xivo-14.16.pref
+   apt-get update
+
+.. We need the old xivo-fai (squeeze), because the new xivo-fai (xivo-five) conflicts with
+   xivo-fai-skaro. We need xivo-fai-skaro at least to download postgresql-9.1.
+.. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
+   xivo-upgrade, but cancelled the upgrade.
+
+Source archive version after 13.25 (here 13.25 to 14.16)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
 
    cat > /etc/apt/preferences.d/50-xivo-14.16.pref <<EOF
    Package: *
@@ -99,43 +118,17 @@ Source archive version between 1.2 and 13.24 (here 1.2.3 to 14.16)
    EOF
 
    apt-get update
-   apt-get install -t squeeze-xivo-skaro-1.2.3 xivo-fai xivo-fai-skaro
-   apt-get update
-   /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
-   apt-get install xivo-upgrade
-   xivo-upgrade
-   rm -r /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
-   rm /etc/apt/preferences.d/50-xivo-14.16.pref
-   apt-get update
-
-.. We need the old xivo-fai (squeeze), because the new xivo-fai (xivo-five) conflicts with
-   xivo-fai-skaro. We need xivo-fai-skaro at least to download postgresql-9.1.
-
-Source archive version after 13.25 (here 13.25 to 14.16)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-::
-
-   # Workaround for bug #5087
-   cat > /usr/share/xivo-upgrade/pre-stop.d/99-archive-version <<EOF
-   #!/bin/sh
-   apt-get install -y xivo-fai-14.16
-   apt-get purge -y xivo-fai
-   apt-get update
-   EOF
-   chmod +x /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
-
-   apt-get update
    apt-get install xivo-fai
    apt-get purge xivo-fai-13.25
    apt-get update
-   /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
+   apt-get install xivo-fai-14.16
+   apt-get update
+   apt-get install xivo-upgrade/xivo-14.16
    xivo-upgrade
-   rm /usr/share/xivo-upgrade/pre-stop.d/99-archive-version
+   rm /etc/apt/preferences.d/50-xivo-14.16.pref
 
-xivo-upgrade will prompt you for an installation of the latest version, not for the archive you want
-(bug `#5087 <https://projects.xivo.io/issues/5087>`_). Because of the file we added in
-:file:`/usr/share/xivo-upgrade/pre-stop.d/`, xivo-upgrade will install the archive version you want.
+.. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
+   xivo-upgrade, but cancelled the upgrade.
 
 Source archive version after 14.18
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -143,4 +136,9 @@ Source archive version after 14.18
 ::
 
    xivo-dist xivo-15.12
+   apt-get update
+   apt-get install xivo-upgrade/xivo-15.12
    xivo-upgrade
+
+.. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
+   xivo-upgrade, but cancelled the upgrade.
