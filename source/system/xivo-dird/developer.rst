@@ -4,18 +4,18 @@
  XiVO dird developer's guide
 =============================
 
-The XiVO dird architecture uses plugins as extension points for most of it's
+The XiVO dird architecture uses plugins as extension points for most of its
 job. It uses `stevedore <http://stevedore.readthedocs.org>`_ to do the plugin
 instantiation and discovery and `ABC <https://docs.python.org/2/library/abc.html>`_
 classes to define the required interface.
 
-Plugins in xivo-dird use setuptools's entry points. That means that installing a
-new plugin to xivo-dird requires an entry point in the plugins setup.py. Each
-entry point's `namespace` are documented in the appropriate documentation
+Plugins in xivo-dird use setuptools' entry points. That means that installing a
+new plugin to xivo-dird requires an entry point in the plugin's setup.py. Each
+entry point's `namespace` is documented in the appropriate documentation
 section. These entry points allow xivo-dird to be able to discover and load
-extensions packaged with xivo-dird or installed separetely.
+extensions packaged with xivo-dird or installed separately.
 
-Each kind of plugin does a specific job. There are three kind of plugins in
+Each kind of plugin does a specific job. There are three kinds of plugins in
 dird.
 
 #. :ref:`dird-back-end`
@@ -38,10 +38,10 @@ Service
 =======
 
 Service plugins add new functionality to the dird server. These functionalities
-are available to views. When loaded a service plugin receives it's configuration
+are available to views. When loaded, a service plugin receives its configuration
 and a dictionary of available sources.
 
-Some service example that come to mind include:
+Some service examples that come to mind include:
 
 * A lookup service to search through all configured sources.
 * A reverse lookup service to search through all configured sources and return a
@@ -70,7 +70,7 @@ Implementation details
 Example
 -------
 
-The following example add a service that will return an empty list when used.
+The following example adds a service that will return an empty list when used.
 
 ``setup.py``:
 
@@ -123,9 +123,9 @@ The following example add a service that will return an empty list when used.
 
    class DummyServicePlugin(BaseServicePlugin):
        """
-       This plugin is responsible of instantiating and returning the
-       DummyService. It manages it's life time and if necessary should
-       take care of it's cleanup if necessary
+       This plugin is responsible fow instantiating and returning the
+       DummyService. It manages its life time and should take care of
+       its cleanup if necessary
        """
 
        def load(self, args):
