@@ -11,9 +11,11 @@ extendable with plugins.
 .. toctree::
    :maxdepth: 1
 
+   configuration
    developer
 
 
+.. _xivo-dird-usage:
 Launching xivo-dird
 ===================
 
@@ -220,76 +222,6 @@ Here is an example ``setup.py`` with an ``entry_points`` section:
            ],
        }
    )
-
-
-.. _configuration-file:
-
-Configuration file
-==================
-
-.. code-block:: yaml
-   :linenos:
-
-   debug: False
-   foreground: False
-   log_filename: /var/log/xivo-dird.log
-   log_level: info
-   pid_filename: /var/run/xivo-dird/xivo-dird.pid
-   user: www-data
-
-   rest_api:
-       wsgi_socket: /var/run/xivo-dird/xivo-dird.sock
-
-   enabled_plugins:
-      backends:
-          - csv
-          - ldap
-          - phonebook
-      services:
-          - lookup
-      views:
-          - aastra_xml
-          - default_json
-
-   views:
-       displays:
-           switchboard_display:
-               -
-                   title: Firstname
-                   default: Unknown
-                   field: firstname
-               -
-                   title: Lastname
-                   default: Unknown
-                   field: lastname
-           default_display:
-               -
-                   title: Firstname
-                   field: fn
-               -
-                   title: Location
-                   default: Canada
-                   field: country
-               -
-                   title: Number
-                   field: number
-        profile_to_display:
-            default: default_display
-            switchboard: switchboard_display
-
-   services:
-       lookup:
-           default:
-               sources:
-                   - my_csv
-                   - ldap_quebec
-                timeout: 0.5
-            switchboard:
-                sources:
-                    - my_csv
-                    - xivo_phonebook
-                    - ldap_quebec
-                timeout: 1
 
 
 .. _backend-plugins:
