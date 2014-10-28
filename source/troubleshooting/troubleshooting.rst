@@ -210,6 +210,44 @@ must do::
     xivo-service restart
 
 
+CTI server is unexpectedly terminating
+--------------------------------------
+
+If you observes that your CTI server is sometimes unexpectedly terminating with the following
+message in :file:`/var/log/xivo-ctid.log`::
+
+    (WARNING) (main): AMI: CLOSING
+
+Then you might be in the case where asterisk generates lots of data in a short period of time on the
+AMI while the CTI server is busy processing other thing and is not actively reading from its AMI
+connection. If the CTI server takes too much time before consuming some data from the AMI
+connection, asterisk will close the AMI connection. The CTI server will terminate itself once it
+detects the connection to the AMI has been lost.
+
+There's a workaround to this problem called the ami-proxy, which is a process which buffers the AMI
+connection between the CTI server and asterisk. This should only be used as a last resort solution,
+since this increases the latency between the processes and does not fix the root issue.
+
+.. note:: New in version 14.20
+
+To enable the ami-proxy, you must:
+
+#. Edit the file :file:`/etc/default/xivo-ctid` and add the following line::
+
+      export XIVO_CTID_AMI_PROXY=1
+
+#. Restart the CTI server::
+
+      service xivo-ctid restart
+
+If you are on a XiVO cluster, you must do the same procedure on the slave if you want the ami-proxy
+to also be enabled on the slave.
+
+To disable the ami-proxy, make sure the line you added in step 1 is completely removed (it is not
+sufficient to set the value of the variable to 0). You can remove the :file:`/etc/default/xivo-ctid`
+file if it is now empty.
+
+
 Agents receiving two ACD calls
 ------------------------------
 
