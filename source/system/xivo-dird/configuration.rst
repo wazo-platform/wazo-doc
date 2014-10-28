@@ -172,6 +172,8 @@ Sources Configuration Directory
 Default location: ``/etc/xivo/xivo-dird/sources.d``
 File format: YAML
 
+Each file listed in this directory will be read and used to create a data source for xivo-dird.
+
 Here is an example of a CSV source configuration:
 
 .. code-block:: yaml
@@ -180,7 +182,16 @@ Here is an example of a CSV source configuration:
    type: csv
    name: my_contacts_in_a_csv_file
    file: /usr/local/share/my_contacts.csv
-   searched_columns: ['Firstname', 'Lastname', ..., 'E-mail']
+   unique_columns:
+       - fn
+       - ln
+   searched_columns:
+       - fn
+       - ln
+   source_to_display:
+       ln: lastname
+       fn: firstname
+       num: number
 
 type
    The type of the source. It must be the same than the name of one of the enabled back-end plugins.
