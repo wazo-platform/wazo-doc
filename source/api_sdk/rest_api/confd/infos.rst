@@ -1,11 +1,11 @@
-****
-UUID
-****
+*****
+INFOS
+*****
 
-A XiVO UUID
+A XiVO server INFOS
 
-UUID Representation
-===================
+INFOS Representation
+====================
 
 Description
 -----------
@@ -26,8 +26,8 @@ Example
    }
 
 
-Get UUID
-========
+Get INFOS
+=========
 
 Query
 -----
@@ -41,7 +41,7 @@ Example request
 
 ::
 
-   GET /1.1/uuid HTTP/1.1
+   GET /1.1/infos HTTP/1.1
    Host: xivoserver
    Accept: application/json
 
