@@ -41,6 +41,7 @@ API reference
    voicemail_links
    configuration
    agent_queue
+   uuid
 
 
 Migration from 1.0
