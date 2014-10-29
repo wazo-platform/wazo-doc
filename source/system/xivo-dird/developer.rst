@@ -68,10 +68,10 @@ Back-End
 
 Back-ends are used to query directories. Each back-end implements a way to query
 a given directory. Each instance of a given back-end is called a source. Sources
-are used by the services to get results from each configured directories.
+are used by the services to get results from each configured directory.
 
-Given a ldap back-end, I can configure a source to point to alpha.example.com
-and another to beta.example.com. Both of these sources use the ldap back-end.
+Given one LDAP back-end, I can configure a source from the LDAP at alpha.example.com and another
+source from the other LDAP at beta.example.com. Both of these sources use the LDAP back-end.
 
 
 Implementation details
@@ -81,10 +81,13 @@ Implementation details
 * Abstract source plugin: `BaseSourcePlugin <https://github.com/xivo-pbx/xivo-dird/blob/5027-dird-daemon-with-plugins/xivo_dird/base_source_plugin.py#L21-L76>`_
 * Methods:
 
-  * ``name``: the name of the source, retrieved from the configuration file
+  * ``name``: the name of the source, typically retrieved from the configuration injected to
+    ``load()``
   * ``load(args)``: set up resources used by the plugin, depending on the config.
     ``args`` is a dictionary containing:
+
     * key ``config``: the source configuration for this instance of the back-end
+
   * ``unload()``: free resources used by the plugin.
   * ``search(term, args)``: The search method returns a list of dictionary
   * ``list(uids)``: The list method returns a list of dictionary from a list of uids.
@@ -106,19 +109,32 @@ The typical configuration file for a given back-end will look like this:
        number: telephoneNumber
 
 
-* type: is the name of the back-end plugin. It should match the extension point in the setup.py
-* name: is the name of this given configuration. The name is used to associate the source to profiles.
-* unique_columns: This list of columns is what make an entry in this source unique.
-* search_columns: This list of columns is used to try and match an entry when searching this source.
-* source_to_display_columns: This section is used to add column names to the result.
+The following keys are mandatory: xivo-dird will not load the source if they are not present:
 
-The implementation of the back-end should take these values into account and
-return results accordingly. It is possible for a source to have no
-`unique_columns` in that case, it might be impossible to use this source for
-certain actions that are based on the list method. The `unique_columns` are
-used to build the `uid` that is passed to the list method to fetch a list of
-results by unique ids. The `search` and `list` methods *should* apply the
-`source_to_display_columns` transformation to the result before returning.
+type
+   the name of the back-end plugin. It should match the extension point in the setup.py
+
+name
+   is the name of this given configuration. The name is used to associate the source to profiles.
+
+The remaining keys are conventional: they are not required by xivo-dird, but it's a good idea to
+use these for your configuration format.
+
+unique_columns
+   This list of columns is what makes an entry unique in this source. The ``unique_columns`` are
+   used to build the ``uid`` that is passed to the list method to fetch a list of results by unique
+   ids.
+
+search_columns
+   This list of columns is used to try and match an entry when searching this source.
+
+source_to_display_columns
+   This section is used to add column names to the result. The ``search`` and ``list`` methods
+   *should* apply the ``source_to_display_columns`` transformation to the result before returning.
+
+
+The implementation of the back-end should take these values into account and return results
+accordingly.
 
 
 Example
