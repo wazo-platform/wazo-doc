@@ -45,7 +45,7 @@ sources
 
 timeout
    The maximum waiting time for an answer from any source. Results from sources that take longer to
-   answer are ignored.
+   answer are ignored. Default: no timeout.
 
 
 Back-end Configuration
