@@ -143,8 +143,9 @@ displays
 
    * title: The label of the field
    * default: The default value of the field
-   * field: An arbitrary identifier of the field. May be used by consumers to identify the field
+   * type: An arbitrary identifier of the field. May be used by consumers to identify the field
      without matching the label.
+   * field: the key of the data from the source that will be used for this field.
 
    The display may be used by a plugin view to configure which fields are to be presented to the
    consumer.
