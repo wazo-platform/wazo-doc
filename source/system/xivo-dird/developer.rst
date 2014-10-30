@@ -4,6 +4,10 @@
  XiVO dird developer's guide
 =============================
 
+.. figure:: images/startup.png
+
+   xivo-dird startup flow
+
 The XiVO dird architecture uses plugins as extension points for most of its
 job. It uses `stevedore <http://stevedore.readthedocs.org>`_ to do the plugin
 instantiation and discovery and `ABC <https://docs.python.org/2/library/abc.html>`_
@@ -21,6 +25,10 @@ dird.
 #. :ref:`dird-back-end`
 #. :ref:`dird-service`
 #. :ref:`dird-view`
+
+.. figure:: images/query.png
+
+   xivo-dird HTTP query
 
 All plugins are instantiated by the core. The core then keeps a catalogue of
 loaded extensions that can be supplied to other extensions.
