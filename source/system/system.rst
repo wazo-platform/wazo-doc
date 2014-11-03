@@ -14,3 +14,4 @@ System
    DHCP Server <dhcp/dhcp>
    ntp
    Mail <mail/mail>
+   xivo-dird/xivo-dird
