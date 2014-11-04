@@ -1,10 +1,11 @@
 *****
-INFOS
+Infos
 *****
 
-A XiVO server INFOS
+A XiVO server infos
 
-INFOS Representation
+
+Infos Representation
 ====================
 
 Description
@@ -16,39 +17,42 @@ Description
 | uuid  | string | XiVO's UUID |
 +-------+--------+-------------+
 
+
 Example
 -------
 
-::
+.. code-block:: javascript
 
    {
        "uuid": "6fa459ea-ee8a-3ca4-894e-db77e160355e"
    }
 
 
-Get INFOS
+Get Infos
 =========
 
 Query
 -----
 
-::
+.. code-block:: http
 
    GET /1.1/uuid
+
 
 Example request
 ---------------
 
-::
+.. code-block:: http
 
    GET /1.1/infos HTTP/1.1
    Host: xivoserver
    Accept: application/json
 
+
 Example response
 ----------------
 
-::
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type: application/json
