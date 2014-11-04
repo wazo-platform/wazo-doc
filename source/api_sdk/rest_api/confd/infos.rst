@@ -36,7 +36,7 @@ Query
 
 .. code-block:: http
 
-   GET /1.1/uuid
+   GET /1.1/infos
 
 
 Example request
