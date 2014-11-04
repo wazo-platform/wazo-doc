@@ -283,3 +283,86 @@ The following example adds a service that will return an empty list when used.
 
 View
 ====
+
+View plugins add new route to the HTTP application in xivo-dird, in particular the REST API of
+xivo-dird: they define the URLs to which xivo-dird will respond and the formatting of data received
+and sent through those URLs.
+
+For example, we can define a REST API formatted in JSON with one view and the same API formatted in
+XML with another view. Supporting the directory function of a phone is generally a matter of
+adding a new view for the format that the phone consumes.
+
+
+Implementation details
+----------------------
+
+* Namespace: ``xivo_dird.views``
+* Abstract view plugin: `BaseViewPlugin <https://github.com/xivo-pbx/xivo-dird/blob/master/xivo_dird/plugins/base_plugins.py#L52-65>`_
+
+* Methods:
+
+  * ``load(args)``: set up resources used by the plugin, depending on the config. Typically,
+    register routes on Flask. Those routes would typically call a service
+    ``args`` is a dictionary containing:
+
+    * key ``config``: the section of the configuration file for all views in dict form
+    * key ``services``: a dictionary of services, indexed by name, which may be called from a route
+    * key ``http_app``: the `Flask application`_ instance
+    * key ``rest_api``: a `Flask-RestFul Api`_ instance
+    * key ``http_namespace``: the namespace derived from ``rest_api``, prefixing the URLs with
+      ``/<api_version>/directories``, e.g. ``/0.1/directories``
+
+      .. _Flask application: http://flask.pocoo.org/
+      .. _Flask-RestFul Api: http://flask-restful.readthedocs.org/en/latest/quickstart.html#a-minimal-api
+
+  * ``unload()``: free resources used by the plugin.
+
+
+Example
+-------
+
+The following example adds a simple view: ``GET /0.1/directories/ping`` answers ``{"message": "pong"}``.
+
+``dummy.py``:
+
+.. code-block:: python
+   :linenos:
+   :emphasize-lines: 20-21, 29-35
+
+   # -*- coding: utf-8 -*-
+
+   import logging
+
+   from flask_restplus import Resource
+
+   logger = logging.getLogger(__name__)
+
+
+   class PingViewPlugin(object):
+
+       name = 'ping'
+
+       def __init__(self):
+           logger.debug('dummy view created')
+
+       def load(self, args):
+           logger.debug('dummy view args: %s', args)
+
+           api_class = make_api_class()
+           args['http_namespace'].route('/ping')(api_class)
+
+       def unload(self):
+           logger.debug('dummy view unloaded')
+
+
+   def make_api_class():
+
+       class PingView(Resource):
+           """
+           Simple API using Flask-RestPlus: GET /0.1/directories/ping answers "pong"
+           """
+
+           def get(self):
+               return {'message': 'pong'}
+
+       return PingView
