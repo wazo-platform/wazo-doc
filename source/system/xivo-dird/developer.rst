@@ -284,7 +284,7 @@ The following example adds a service that will return an empty list when used.
 View
 ====
 
-View plugins add new route to the HTTP application in xivo-dird, in particular the REST API of
+View plugins add new routes to the HTTP application in xivo-dird, in particular the REST API of
 xivo-dird: they define the URLs to which xivo-dird will respond and the formatting of data received
 and sent through those URLs.
 
@@ -302,7 +302,7 @@ Implementation details
 * Methods:
 
   * ``load(args)``: set up resources used by the plugin, depending on the config. Typically,
-    register routes on Flask. Those routes would typically call a service
+    register routes on Flask. Those routes would typically call a service.
     ``args`` is a dictionary containing:
 
     * key ``config``: the section of the configuration file for all views in dict form
