@@ -156,6 +156,13 @@ Upgrade Notes
 * Following the `POODLE attack <https://www.openssl.org/~bodo/ssl-poodle.pdf>`_ (CVE-2014-3566), SSL 3.0
   has been disabled for the web interface and the xivo-confd REST API.
 
+If you have Aastra phones and are using the remote directory on them, consult the following detailed upgrade notes:
+
+.. toctree::
+   :maxdepth: 1
+
+   14.20/aastra_remote_directory
+
 
 14.19
 -----

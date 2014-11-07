@@ -26,6 +26,8 @@ addresses, for one reason or another. Again, this is useful only for some phones
 like the Cisco 7900; it has no effect for Aastra 6700.
 
 
+.. _provd-custom-templates:
+
 Creating Custom Templates
 =========================
 
@@ -157,6 +159,8 @@ we need to create a template named :file:`00085D2EECFB.cfg.tpl`::
 The template to use as the base for a device specific template will vary depending on the need.
 Typically, the model template will be a good choice, but it might not always be the case.
 
+
+.. _provd-changing-device-plugin:
 
 Changing the Plugin Used by a Device
 ====================================
