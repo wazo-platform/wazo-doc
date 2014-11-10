@@ -146,6 +146,9 @@ Upgrade Notes
   port 9487 (localhost only). These ports are replacing the 50051 and 50050 ports respectively.  It
   will still be possible to access the confd REST API via the 50051 and 50050 ports for the next
   year, but you are advised to update your confd REST API clients as soon as possible.
+* The old (unsupported) ami-proxy is now replaced by an ami-proxy built in xivo-ctid.
+  You must `uninstall the old ami-proxy <https://github.com/xivo-pbx/xivo-tools/tree/master/ami-proxy>`_ before activating the built-in version. See
+  :ref:`troubleshooting xivo-ctid <cti-ami-proxy>` to learn how to activate.
 
 
 14.20

@@ -129,7 +129,7 @@ The following describes how to configure your XiVO and your Berofos.
     bnfos --set wdogitime=60 -h 10.105.2.26 -u admin:berofos
 
 #. Add the following script :file:`/usr/local/sbin/berofos-workaround`::
-   
+
     #!/bin/bash
     # Script workaround for berofos integration with a XiVO in front of PABX
 
@@ -161,7 +161,7 @@ The following describes how to configure your XiVO and your Berofos.
     # Workaround to berofos integration
     MAILTO=""
 
-    */1 * * * * root /usr/local/sbin/berofos-workaround 
+    */1 * * * * root /usr/local/sbin/berofos-workaround
 
 
 Upgrading from XiVO 1.2.3
@@ -210,6 +210,8 @@ must do::
     xivo-service restart
 
 
+.. _cti-ami-proxy:
+
 CTI server is unexpectedly terminating
 --------------------------------------
 
@@ -228,7 +230,7 @@ There's a workaround to this problem called the ami-proxy, which is a process wh
 connection between the CTI server and asterisk. This should only be used as a last resort solution,
 since this increases the latency between the processes and does not fix the root issue.
 
-.. note:: New in version 14.20
+.. note:: New in version 14.21
 
 To enable the ami-proxy, you must:
 
