@@ -138,6 +138,16 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.21
+-----
+
+* Consult the `14.21 Roadmap <https://projects.xivo.io/versions/212>`_
+* The :ref:`confd REST API <confd-api>` is now accessible via HTTPS on port 9486 and via HTTP on
+  port 9487 (localhost only). These ports are replacing the 50051 and 50050 ports respectively.  It
+  will still be possible to access the confd REST API via the 50051 and 50050 ports for the next
+  year, but you are advised to update your confd REST API clients as soon as possible.
+
+
 14.20
 -----
 
@@ -145,6 +155,13 @@ Upgrade Notes
 * Default parameters for all Cisco SPA ATA plugins have changed to be better suited for european faxes.
 * Following the `POODLE attack <https://www.openssl.org/~bodo/ssl-poodle.pdf>`_ (CVE-2014-3566), SSL 3.0
   has been disabled for the web interface and the xivo-confd REST API.
+
+If you have Aastra phones and are using the remote directory on them, consult the following detailed upgrade notes:
+
+.. toctree::
+   :maxdepth: 1
+
+   14.20/aastra_remote_directory
 
 
 14.19

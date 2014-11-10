@@ -206,7 +206,7 @@ XiVO is able to provision Cisco SPA122 and Linksys SPA2102, SPA3102 and SPA8000 
 connect fax equipments. This section describes the creation of custom template *for SPA3102* which
 modifies several parameters.
 
-.. note:: All of these parameters are now set in the base templates of all SPA ATA plugins, except for Echo_Canc_Adapt_Enable, Echo_Supp_Enable, Echo_Canc_Enable.
+.. note:: **With SPA ATA plugins >= v0.8**, you **should not need** to follow this section anymore since all of these parameters are now set in the base templates of all, except for Echo_Canc_Adapt_Enable, Echo_Supp_Enable, Echo_Canc_Enable.
 .. note:: Be aware that most of the parameters are or could be country specific, i.e. :
 
    * Preferred Codec,

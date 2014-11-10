@@ -154,6 +154,7 @@ Restoring the Database
 
     * This will destroy all the current data in your database.
     * You have to check the free space on your system partition before extracting the backups.
+    * Be aware that this procedure applies **only to XiVO >= 14.08** (see the relevant upgrade notes).
 
 Database backups are created as :file:`db.tgz` files in the :file:`/var/backups/xivo` directory.
 These tarballs contains a dump of the database used in XiVO.

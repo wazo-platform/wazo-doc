@@ -26,6 +26,8 @@ addresses, for one reason or another. Again, this is useful only for some phones
 like the Cisco 7900; it has no effect for Aastra 6700.
 
 
+.. _provd-custom-templates:
+
 Creating Custom Templates
 =========================
 
@@ -40,12 +42,12 @@ of ``provd``.
    When you install a new plugin, templates are not migrated automatically, so you must
    manually copy them from the old plugin directory to the new one. This does not apply for a plugin upgrade.
 
-Let's suppose we have installed the ``xivo-aastra-3.2.2-SP3`` plugin and
+Let's suppose we have installed the ``xivo-aastra-3.3.1-SP2`` plugin and
 want to write some custom templates for it.
 
 First thing to do is to go into the directory where the plugin is installed::
 
-   cd /var/lib/xivo-provd/plugins/xivo-aastra-3.2.2-SP3
+   cd /var/lib/xivo-provd/plugins/xivo-aastra-3.3.1-SP2
 
 Once you are there, you can see there's quite a few files and directories::
 
@@ -109,11 +111,11 @@ Custom template for every devices
 
    cp templates/base.tpl var/templates
    vi var/templates/base.tpl
-   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2-SP3").reconfigure()'
+   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
 
 Once this is done, if you want to synchronize all the affected devices, use the following command::
 
-    provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2-SP3").synchronize()'
+    provd_pycli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").synchronize()'
 
 
 Custom template for a specific model
@@ -123,7 +125,7 @@ Let's supose we want to customize the template for our 6739i::
 
    cp templates/6739i.tpl var/templates
    vi var/templates/6739i.tpl
-   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.2.2-SP3").reconfigure()'
+   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
 
 
 Custom template for a specific device
@@ -158,6 +160,8 @@ The template to use as the base for a device specific template will vary dependi
 Typically, the model template will be a good choice, but it might not always be the case.
 
 
+.. _provd-changing-device-plugin:
+
 Changing the Plugin Used by a Device
 ====================================
 
@@ -169,7 +173,7 @@ The older plugin is then considered "end-of-life", and won't receive any new upd
 nor be available for new installation.
 
 Let's suppose we have the old ``xivo-aastra-3.2.2.1136`` plugin installed on our
-xivo and want to use the newer ``xivo-aastra-3.2.2-SP3`` plugin.
+xivo and want to use the newer ``xivo-aastra-3.3.1-SP2`` plugin.
 
 Both these plugins can be installed at the same time, and you can manually change
 the plugin used by a phone by editing it via the :menuselection:`Services --> IPBX --> Devices`
@@ -181,11 +185,11 @@ them to the new plugin and make sure that they are still compatible.
 Once you take the decision to migrate all your phones to the new plugin, you can
 use the following command::
 
-   provd_pycli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.2.2-SP3")'
+   provd_pycli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2")'
 
 Or, if you also want to synchronize (i.e. reboot) them at the same time::
 
-   provd_pycli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.2.2-SP3", synchronize=True)'
+   provd_pycli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2", synchronize=True)'
 
 You can check that all went well by looking at the :menuselection:`Services --> IPBX --> Devices`
 page.
