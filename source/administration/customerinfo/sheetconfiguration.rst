@@ -209,7 +209,8 @@ list of fields) and zero, one or more fields of type 'body'.
 .. figure:: images/sheets_configuration_systray.png
    :scale: 85%
 
-.. warning:: The popup message on MacOSX works with Growl http://growl.info. We could get simple sheet popup to work using the free Growl Fork http://www.macupdate.com/app/mac/41038/growl-fork
+.. warning:: The popup message on MacOSX works with Growl http://growl.info. We could get simple
+  sheet popup to work using the free Growl Fork http://www.macupdate.com/app/mac/41038/growl-fork
   Note that this is not officially supported.
 
 
@@ -252,7 +253,8 @@ An extension could be to define other serialization methods, if needed.
 Event configuration
 ===================
 
-You can configure a sheet when a specific event is called. For example if you want to receive a sheet when an agent answers to a call, you can choose a sheet model for the Agent link event.
+You can configure a sheet when a specific event is called. For example if you want to receive a
+sheet when an agent answers to a call, you can choose a sheet model for the Agent link event.
 
 The following events are available :
 
