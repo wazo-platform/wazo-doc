@@ -254,7 +254,7 @@ Event configuration
 ===================
 
 You can configure a sheet when a specific event is called. For example if you want to receive a
-sheet when an agent answers to a call, you can choose a sheet model for the Agent link event.
+sheet when an agent answers to a call, you can choose a sheet model for the Link event.
 
 The following events are available :
 
