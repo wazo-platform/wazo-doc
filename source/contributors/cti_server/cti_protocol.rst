@@ -11,6 +11,10 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+14.22
+-----
+
+* for message of class ``faxsend``, the steps ``file_decoded`` and ``file_converted`` have been removed.
 
 14.06
 -----
