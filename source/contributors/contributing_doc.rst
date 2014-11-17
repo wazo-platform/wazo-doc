@@ -1,3 +1,5 @@
+.. _contributing_to_the_documentation:
+
 *********************************
 Contributing to the Documentation
 *********************************
