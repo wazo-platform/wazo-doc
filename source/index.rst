@@ -44,6 +44,7 @@ Table of Contents
    contributors/contributors
    quality_assurance/quality_assurance
    troubleshooting/troubleshooting
+   community/community
    changelog
 
 
