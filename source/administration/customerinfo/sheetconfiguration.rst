@@ -258,8 +258,8 @@ sheet when an agent answers to a call, you can choose a sheet model for the Link
 
 The following events are available :
 
- * Dial: Every time a call in a queue is distributed to a user or agent. Only ringing agent
-   receives a sheet.
+ * Dial: When the member's phone starts ringing for calls on a group or queue
+   or when the user receives a call
  * Link: When a user or agent answers a call
  * Unlink: When a user or agent hangup a call received from a queue
  * Incoming DID: Received a call in a DID
