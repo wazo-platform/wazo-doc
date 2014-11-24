@@ -138,6 +138,15 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.22
+-----
+
+* Consult the `14.22 Roadmap <https://projects.xivo.io/versions/213>`_
+* The sheet event *Dial* on queues is now only sent to the ringing agent. The
+  sheet is also sent a little later during the call, when the ringing agent is
+  known.
+
+
 14.21
 -----
 
