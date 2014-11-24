@@ -256,5 +256,4 @@ You can reset the berofos configuration :
 External links
 ==============
 
-* `Install BeroFos (in French) <https://wiki.xivo.io/index.php/XiVO_1.1-Gallifrey/Install_BeroFos>`_
 * `berofos user manual <http://www.beronet.com/downloads/docs/berofos/berofos_user_manual.pdf>`_

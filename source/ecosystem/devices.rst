@@ -742,6 +742,8 @@ Otherwise, you'll have to manually upgrade the handset firmware via USB.
 
 In all cases, you should consult the Yealink documentation on `Upgrading W52x Handset Firmware`_.
 
+.. _Upgrading W52x Handset Firmware: http://www.yealink.com/Upload/W52P/2013124/Upgrading%20W52x%20Handset%20Firmware.zip
+
 .. note:: Some function keys are shared with line keys
 
 module Yealink® EXP38 (for Yealink® T26P/T28P) are supported.
@@ -774,7 +776,10 @@ Caption :
 Compatible device (Community support)
 =====================================
 
-See `XiVO wiki`_
+Some phones are only supported by the community. In other words, maintenance, bug corrections and
+features are developed by members of the XiVO community.
 
-.. _XiVO wiki: http://wiki.xivo.io/index.php/Devices
-.. _Upgrading W52x Handset Firmware: http://www.yealink.com/Upload/W52P/2013124/Upgrading%20W52x%20Handset%20Firmware.zip
+XiVO does not officially endorse support for these phones.
+
+xivo-provd plugins for these devices can be installed from the :ref:`community supported devices
+repository <alternative-plugins-repo>`.
