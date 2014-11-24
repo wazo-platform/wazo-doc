@@ -221,6 +221,7 @@ Limitations
 
   * Aastra
   * Cisco SPA
+  * Yealink
 
 * All your devices must be behind a NAT equipment (the devices may be grouped behind different NAT
   equipments, not necessarily the same one)

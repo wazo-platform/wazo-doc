@@ -1,3 +1,5 @@
+.. _contributing_to_the_documentation:
+
 *********************************
 Contributing to the Documentation
 *********************************
@@ -17,8 +19,6 @@ Quick Reference
 
 .. [1] ``easy_install`` can be found in the debian package python-setuptools : ``sudo apt-get install python-setuptools``
 
-
-.. highlight:: rest
 
 Documentation guideline
 =======================

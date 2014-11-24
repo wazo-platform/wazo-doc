@@ -249,8 +249,8 @@ Display advanced informations of an agent and enable to login/logoff, add/remove
 1. This is the status information of agent
 2. Button to login/logoff agent
 3. Supervision button of the Xlet "Calls of a queue"
-4. Pause/Unpause button for given queue
-5. Add/Remove agent for given queue
+4. Add/Remove agent for given queue
+5. Pause/Unpause button for given queue
 
 
 Queue members

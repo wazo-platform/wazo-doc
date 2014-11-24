@@ -81,27 +81,35 @@ Estimated Wait Time Overrun
 
 When this scenario is used, the administrator can set a destination for calls when the average waiting time is over the threshold.
 
-Waiting Calls / Available Agents Ratio
+When the threshold is reached, all new calls will be diverted unless there is currently no waiting calls.
+The average waiting time must then go below the threshold before new calls are freely accepted.
+
+.. note:: The average waiting time is updated only when a queue member answers a call.
+
+
+Waiting Calls / Logged Agents Ratio
 --------------------------------------
 
 When this scenario is used, the administrator can set a destination when the call ratio is higher than the percent threshold.
 The call ratio is calculated with the following formula::
 
-    call ratio = (number of waiting calls / available agents) * 100
+    call ratio = (number of waiting calls / logged agents) * 100
+
+The number of logged agents is the sum of agent members that are currently logged and user members.
 
 Here are a few examples::
 
     Threshold: 100%
     Waiting calls: 3
-    Available agents: 2
-    call ratio = (3 / 2) * 100 = 150%
+    Logged agents: 2
+    Call ratio = (3 / 2) * 100 = 150%
     Calls will be redirected
 
 
     Threshold: 120%
     Waiting calls: 9
-    Available agents: 12
-    call ratio = (9 / 12) * 100 = 75%
+    Logged agents: 12
+    Call ratio = (9 / 12) * 100 = 75%
     Calls will not be redirected
 
 .. warning::
