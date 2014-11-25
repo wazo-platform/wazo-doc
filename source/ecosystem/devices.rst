@@ -873,6 +873,7 @@ Model       Tested [1]_ Fkeys [2]_ XiVO HA [3]_
 PAP2        |n|         0          |n|
 SPA2102     |n|         0          |n|
 SPA8800     |n|         0          |n|
+SPA112      |n|         0          |n|
 =========== =========== ========== ============
 
    For best results, activate :ref:`dhcp-integration` on your XiVO.
@@ -892,6 +893,16 @@ SPA8800     |n|         0          |n|
       * *ATA_IP*    is the IP address of the ATA,
       * *XIVO_IP*   is the IP address of your XiVO,
       * *CONF_FILE* is one of ``spa2102.cfg``, ``spa8000.cfg``
+
+
+Fanvil
+------
+
+=========== =========== ========== ============
+Model       Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+=========== =========== ========== ============
+C62P        |y|         5          |y|
+=========== =========== ========== ============
 
 
 Gigaset
