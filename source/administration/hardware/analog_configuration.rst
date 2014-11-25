@@ -2,6 +2,13 @@
 Analog card configuration
 *************************
 
+Limitations
+===========
+
+* XiVO does not support hardware echocanceller on the TDM400 card. Users of TDM400 card willing to
+  setup an echocanceller will have to use a software echocanceller like OSLEC.
+
+
 Verifications
 =============
 
