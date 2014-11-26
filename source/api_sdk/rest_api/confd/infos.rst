@@ -24,7 +24,11 @@ Example
 .. code-block:: javascript
 
    {
-       "uuid": "6fa459ea-ee8a-3ca4-894e-db77e160355e"
+       "uuid": "6fa459ea-ee8a-3ca4-894e-db77e160355e",
+       "links": [
+           "rel": "infos",
+           "href": "https://xivoserver/1.1/infos?resource_id=6fa459ea-ee8a-3ca4-894e-db77e160355e"
+       ]
    }
 
 
