@@ -15,6 +15,7 @@ General information:
    translate
    style_guide
    network
+   xivo_package_file_structure
 
 Component specific information:
 
