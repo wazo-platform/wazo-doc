@@ -187,7 +187,7 @@ Here is an example of a CSV source configuration:
    searched_columns:
        - fn
        - ln
-   source_to_display:
+   source_to_display_columns:
        ln: lastname
        fn: firstname
        num: number
@@ -206,6 +206,6 @@ searched_columns
    the columns used for the lookup. Any column containing the search term substring will be a lookup
    result.
 
-source_to_display:
+source_to_display_columns:
    a dictionary describing the mapping between the source column name and the display field
    identifier.
