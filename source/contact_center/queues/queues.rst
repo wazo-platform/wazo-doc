@@ -93,6 +93,8 @@ When this scenario is used, the administrator can set a destination for calls wh
 If a new call arrives when there's no waiting calls, the call will be allowed to enter the queue.
 
 
+.. _queue-diversion-waitratio:
+
 Number of Waiting Calls per Logged Agents Overrun
 -------------------------------------------------
 
