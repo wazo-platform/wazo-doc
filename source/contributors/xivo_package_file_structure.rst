@@ -97,3 +97,13 @@ Docker
 
 ``contribs/docker/other/``
    Contains the Dockerfile and other files to run xivo-confd inside Docker with specific configuration
+
+
+File naming
+===========
+
+* PID file: ``/var/run/xivo-confd/xivo-confd.pid``
+* WSGI socket file: ``/var/run/xivo-confd/xivo-confd.pid``
+* Config file: ``/etc/xivo-confd/config.yml``
+* Data file: ``/usr/share/xivo-confd``
+* Data file: ``/var/lib/xivo-confd``
