@@ -103,7 +103,8 @@ File naming
 ===========
 
 * PID file: ``/var/run/xivo-confd/xivo-confd.pid``
-* WSGI socket file: ``/var/run/xivo-confd/xivo-confd.pid``
+* WSGI socket file: ``/var/run/xivo-confd/xivo-confd.sock``
 * Config file: ``/etc/xivo-confd/config.yml``
-* Data file: ``/usr/share/xivo-confd``
-* Data file: ``/var/lib/xivo-confd``
+* Log file: ``/var/log/xivo-confd.log``
+* Static data files: ``/usr/share/xivo-confd``
+* Storage data files: ``/var/lib/xivo-confd``
