@@ -66,6 +66,7 @@ Call can be diverted on no answer :
 * Fail : No agent was available to answer the call when call entered the queue (join an empty queue condition advanced tab)  or
   the call was queued and no agents was available to answer (Remove callers if there are no agents advanced tab)
 
+
 Diversions
 ==========
 
@@ -75,44 +76,47 @@ Calls are redirected using one of the two following scenarios:
 .. figure:: diversions.png
     :scale: 85%
 
+The diversion check is done only once per call, before the :ref:`preprocess subroutine <subroutine>` is
+executed and before the call enters the queue.
+
+In the following sections, a waiting call is a call that has entered the queue but has not yet been
+answered by a queue member.
+
 
 Estimated Wait Time Overrun
 ---------------------------
 
 When this scenario is used, the administrator can set a destination for calls when the average waiting time is over the threshold.
 
-When the threshold is reached, all new calls will be diverted unless there is currently no waiting calls.
-The average waiting time must then go below the threshold before new calls are freely accepted.
+.. note:: The average waiting time of a queue is updated only when a queue member answers a call.
 
-.. note:: The average waiting time is updated only when a queue member answers a call.
+If a new call arrives when there's no waiting calls, the call will be allowed to enter the queue.
 
 
-Waiting Calls / Logged Agents Ratio
---------------------------------------
+Number of Waiting Calls per Logged Agents Overrun
+-------------------------------------------------
 
-When this scenario is used, the administrator can set a destination when the call ratio is higher than the percent threshold.
-The call ratio is calculated with the following formula::
+When this scenario is used, the administrator can set a destination for calls when the number of waiting
+calls per logged agents is over the threshold.
 
-    call ratio = (number of waiting calls / logged agents) * 100
+The number of waiting calls includes the call for which the check is currently performed.
 
 The number of logged agents is the sum of agent members that are currently logged and user members.
 
+The maximum number of waiting calls per logged agents can have a fractional part.
+
 Here are a few examples::
 
-    Threshold: 100%
-    Waiting calls: 3
-    Logged agents: 2
-    Call ratio = (3 / 2) * 100 = 150%
-    Calls will be redirected
+    Maximum number of waiting calls per logged agent: 1
+    Current number of waiting calls: 2
+    Current number of logged agents: 2
+    Number of waitings calls per logged agent when a new call arrives: 3 / 2 = 1.5
+    Call will be redirected
 
+    Maximum number of waiting calls per logged agent: 0.5
+    Number of waiting calls: 5
+    Number of logged agents: 12
+    Number of waitings calls per logged agent when a new call arrives: 6 / 12 = 0.5
+    Call will not be redirected
 
-    Threshold: 120%
-    Waiting calls: 9
-    Logged agents: 12
-    Call ratio = (9 / 12) * 100 = 75%
-    Calls will not be redirected
-
-.. warning::
-
-  With a threshold under 100% and only one agent logged, no call will distributed
-  since one waiting call / one agent = 100%
+If a new call arrives when there's no waiting calls, the call will be allowed to enter the queue.
