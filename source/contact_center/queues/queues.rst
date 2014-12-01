@@ -90,7 +90,7 @@ When this scenario is used, the administrator can set a destination for calls wh
 
 .. note:: The average waiting time of a queue is updated only when a queue member answers a call.
 
-If a new call arrives when there's no waiting calls, the call will be allowed to enter the queue.
+If a new call arrives when there's no waiting calls, the call will always be allowed to enter the queue.
 
 
 .. _queue-diversion-waitratio:
@@ -103,7 +103,9 @@ calls per logged agents is over the threshold.
 
 The number of waiting calls includes the call for which the check is currently performed.
 
-The number of logged agents is the sum of agent members that are currently logged and user members.
+The number of logged agents is the sum of agent members that are currently logged and user members. An
+agent only need to be logged and be a member of the queue to participate toward the count of logged agents,
+whatever he is available, on call, on pause or on wrapup.
 
 The maximum number of waiting calls per logged agents can have a fractional part.
 
@@ -112,13 +114,22 @@ Here are a few examples::
     Maximum number of waiting calls per logged agent: 1
     Current number of waiting calls: 2
     Current number of logged agents: 2
-    Number of waitings calls per logged agent when a new call arrives: 3 / 2 = 1.5
+    Number of waiting calls per logged agent when a new call arrives: 3 / 2 = 1.5
     Call will be redirected
 
     Maximum number of waiting calls per logged agent: 0.5
     Number of waiting calls: 5
     Number of logged agents: 12
-    Number of waitings calls per logged agent when a new call arrives: 6 / 12 = 0.5
+    Number of waiting calls per logged agent when a new call arrives: 6 / 12 = 0.5
     Call will not be redirected
 
-If a new call arrives when there's no waiting calls, the call will be allowed to enter the queue.
+If a new call arrives when there's no waiting calls, the call will always be allowed to enter the queue.
+For example, in the following scenario::
+
+    Maximum number of waiting calls per logged agent: 0.5
+    Current number of waiting calls: 0
+    Current number of logged agents: 1
+    Number of waiting calls per logged agent when a new call arrives: 1 / 1 = 1
+
+Even if the number of waiting calls per logged agent (1) is greater than the maximum (0.5), the call
+will still be accepted since there is currently no waiting calls.
