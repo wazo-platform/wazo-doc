@@ -28,8 +28,7 @@ Launching xivo-dird
    optional arguments:
      -h, --help            show this help message and exit
      -c CONFIG_FILE, --config-file CONFIG_FILE
-                           The path where is the config file. Default: /etc/xivo
-                           /xivo-dird/xivo-dird.yml
+                           The path where is the config file. Default: /etc/xivo-dird/config.yml
      -d, --debug           Log debug messages. Overrides log_level. Default:
                            False
      -f, --foreground      Foreground, don't daemonize. Default: False
