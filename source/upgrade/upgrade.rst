@@ -138,6 +138,14 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+14.23
+-----
+
+* Consult the `14.23 Roadmap <https://projects.xivo.io/versions/215>`_
+* The "waiting calls / logged agents ratio" :ref:`queue diversion scenario <queue-diversion-waitratio>`
+  has been renamed to "number of waiting calls per logged agents".
+
+
 14.22
 -----
 
