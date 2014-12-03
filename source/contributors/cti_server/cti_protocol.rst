@@ -1421,8 +1421,6 @@ Request directory information, names matching pattern ignore case.
 
 parking
 
-logfromclient
-
 keepalive
 
 availstate
