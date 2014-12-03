@@ -124,7 +124,8 @@ DECT Infrastructure:
 Cisco
 -----
 
-ATAs:
+ATAs
+^^^^
 
 +-------------------+--------+---------+---------+
 |                   | SPA122 | SPA3102 | SPA8000 |
@@ -138,12 +139,10 @@ ATAs:
 | Funckeys          | 0      | 0       | 0       |
 +-------------------+--------+---------+---------+
 
-.. note::
-   For best results, activate :ref:`dhcp-integration` on your XiVO.
+For best results, activate :ref:`dhcp-integration` on your XiVO.
 
-.. note::
-   These devices can be used to connect Faxes. For better success with faxes some parameters
-   must be changed. You can read the :ref:`fax-analog-gateway` section.
+These devices can be used to connect faxes. For better success with faxes some parameters
+must be changed. You can read the :ref:`fax-analog-gateway` section.
 
 .. note::
    If you want to manually resynchronize the configuration from the ATA device
@@ -157,13 +156,9 @@ ATAs:
       * *XIVO_IP*   is the IP address of your XiVO,
       * *CONF_FILE* is one of ``spa3102.cfg``, ``spa8000.cfg``
 
-.. warning:: SCCP phones are supported, but limited to the :ref:`features supported in XIVO's SCCP implementation <sccp-features>`.
 
-.. warning:: Access to CISCO firmware updates requires a CISCO account with sufficient privileges.
-   The account requires paying for the service and remains under the responsibility of the client or partner.
-   Avencall is not responsible for these firmwares and does not offer any updates.
-
-Cisco 7900 series (*SCCP* mode only):
+Cisco 7900 Series
+^^^^^^^^^^^^^^^^^
 
 +--------------------------------------------+--------+-------+--------+-------+-------+-------+-------+-------+----------+-------+-------+-------+-------+
 |                                            | 7905G  | 7906G | 7911G  | 7912G | 7920  | 7921G | 7940G | 7941G | 7941G-GE | 7942G | 7960G | 7961G | 7962G |
@@ -251,7 +246,7 @@ Cisco 7900 series (*SCCP* mode only):
 | Paging                                     | NT     | N     | N      | Y     | N     | N     | Y     | Y     | Y        | Y     | Y     | Y     | Y     |
 +--------------------------------------------+--------+-------+--------+-------+-------+-------+-------+-------+----------+-------+-------+-------+-------+
 
-
+.. warning:: These phones can only be used in SCCP mode. They are limited to the :ref:`features supported in XIVO's SCCP implementation <sccp-features>`.
 
 .. _cisco-provisioning:
 
@@ -259,9 +254,12 @@ To install firmware for xivo-cisco-sccp plugins, you need to manually download
 the firmware files from the Cisco website and save them in the
 :file:`/var/lib/xivo-provd/plugins/$plugin-name/var/cache` directory.
 
-.. note::
-   The directory is created by XiVO when you install the plugin (i.e. xivo-cisco-sccp-legacy).
-   If you create the directory manually, the installation may fail!
+This directory is created by XiVO when you install the plugin (i.e. xivo-cisco-sccp-legacy).
+If you create the directory manually, the installation will fail.
+
+.. warning:: Access to Cisco firmware updates requires a Cisco account with sufficient privileges.
+   The account requires paying for the service and remains under the responsibility of the client or partner.
+   Avencall is not responsible for these firmwares and does not offer any updates.
 
 For example, if you have installed the ``xivo-cisco-sccp-legacy`` plugin and you want to install the ``7940-7960-fw``, ``networklocale`` and ``userlocale_fr_FR`` package, you must:
 
