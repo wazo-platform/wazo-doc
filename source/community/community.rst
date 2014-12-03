@@ -26,8 +26,8 @@ Unless specified, the license is `CC BY-SA`_..
 +----------------------------------------------------------------------------------------------+----------+--------------+------------+
 | :download:`How to use openVPN on XiVO<data/how_to_install_openvpn_on_xivo.pdf>`              | French   |              | Yohan Vitu |
 +----------------------------------------------------------------------------------------------+----------+--------------+------------+
-| :download:`How to use backup XiVO on FTP<data/how_to_install_openvpn_on_xivo.pdf>` with      | French   |              | Yohan Vitu |
-| :download:`backup-ftp.sh<data/backup-ftp.sh>`                                                |          |              |            |
+| :download:`How to backup XiVO to external FTP<data/how_to_backup_xivo_to_external_ftp.pdf>`  | French   |              | Yohan Vitu |
+| with :download:`backup-ftp.sh<data/backup-ftp.sh>`                                           |          |              |            |
 +----------------------------------------------------------------------------------------------+----------+--------------+------------+
 | :download:`How to create a XiVO Client<data/how_to_create_a_xivo_client.pdf>`                | French   |              | Yohan Vitu |
 +----------------------------------------------------------------------------------------------+----------+--------------+------------+
