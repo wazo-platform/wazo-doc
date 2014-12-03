@@ -13,7 +13,8 @@ features are guaranteed to be supported on the latest version.
 Aastra
 ------
 
-6700i series:
+6700i series
+^^^^^^^^^^^^
 
 +--------------------------------------------+-------+-------+-------+-------+-------+-------+
 |                                            | 6731i | 6735i | 6737i | 6739i | 6755i | 6757i |
@@ -106,7 +107,8 @@ module Aastra® M670i  (for Aastra® 35i/37i/39i/53i/55i/57i) are supported.
 module Aastra® M675i  (for Aastra® 35i/37i/39i/55i/57i) are supported.
 
 
-DECT Infrastructure:
+DECT Infrastructure
+^^^^^^^^^^^^^^^^^^^
 
 +-------------------+--------+--------+
 |                   | RFP35  | RFP36  |
@@ -288,8 +290,6 @@ The procedure is similar for the network locale and the user locale package, but
 Digium
 ------
 
-Digium phones:
-
 +--------------------------------------------+-------+-------+-------+
 |                                            | D40   | D50   | D70   |
 +============================================+=======+=======+=======+
@@ -390,8 +390,6 @@ Particularities:
 
 Polycom
 -------
-
-SoundPoint IP:
 
 +--------------------------------------------+---------+---------+---------+---------+---------+---------+----------+----------+----------+--------+--------+--------+--------+--------+--------+
 |                                            | **|SoundPoint IP**                                        | **|SoundStation IP**           | **|Business Media Phone**                           |
