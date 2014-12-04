@@ -38,6 +38,11 @@ You will only need NSIS installed if you want to create an installer for the XiV
 
 During the installer, choose the full installation.
 
+The XiVO Client nsi file uses the NSIS Application Association Registration Plug-in.
+Download and extract the plug-in source and place dll in NSIS/Plugins folder.
+
+`NSIS Application Association Registration Plug-in download page <http://nsis.sourceforge.net/Application_Association_Registration_plug-in#Download>`_
+
 
 Get sources
 ===========
