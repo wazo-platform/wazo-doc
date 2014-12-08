@@ -115,7 +115,13 @@ installing the client.
 Windows
 -------
 
-Currently, ``callto:`` or ``tel:`` links are only supported in Internet Explorer.
+XiVO Client is associated with ``callto:`` and ``tel:`` upon installation. Installing other
+applications afterward could end up overriding these associations. Starting with Windows Vista, it is possible
+to configure these associations via the Default Programs. Users can access Default Programs from Control
+Panel or directly from the Start menu.
+
+.. figure:: images/windows_default_programs.png
+   :scale: 85%
 
 The following popups might appear when you open a ``callto:`` or ``tel:`` link for the first time in
 Internet Explorer:

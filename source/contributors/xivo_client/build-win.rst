@@ -29,14 +29,20 @@ You need the development files of the Qt 5 library, available on the `Qt website
 <http://qt-project.org/downloads>`_.
 
 
-NSIS (optional)
----------------
+NSIS (installer only)
+---------------------
 
 You will only need NSIS installed if you want to create an installer for the XiVO Client.
 
 `NSIS download page <http://nsis.sourceforge.net/Download>`_
 
 During the installer, choose the full installation.
+
+The XiVO Client NSIS script file uses the NSIS Application Association Registration Plug-in.
+Download and extract the plug-in and place the DLL from /Plugins in the NSIS/Plugins folder.
+
+`NSIS Application Association Registration Plug-in download page
+<http://nsis.sourceforge.net/Application_Association_Registration_plug-in#Download>`_
 
 
 Get sources

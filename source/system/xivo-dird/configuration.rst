@@ -16,7 +16,7 @@ The command-line options have priority over the main configuration file options.
 Main Configuration File
 =======================
 
-Default location: ``/etc/xivo/xivo-dird/xivo-dird.yml``. Format: YAML
+Default location: ``/etc/xivo-dird/config.yml``. Format: YAML
 
 The default location may be overwritten by the command line options.
 
@@ -30,7 +30,7 @@ Here's an example of the main configuration file:
    log_filename: /var/log/xivo-dird.log
    log_level: info
    pid_filename: /var/run/xivo-dird/xivo-dird.pid
-   source_config_dir: /etc/xivo/xivo-dird/sources.d
+   source_config_dir: /etc/xivo-dird/sources.d
    user: www-data
 
    rest_api:
@@ -110,7 +110,7 @@ pid_filename
 
 source_config_dir
    The directory from which sources configuration are read. See
-   :ref:`sources_configuration_directory`. Default: ``/etc/xivo/xivo-dird/sources.d``.
+   :ref:`sources_configuration_directory`. Default: ``/etc/xivo-dird/sources.d``.
 
 user
    The owner of the process. Default: ``www-data``.
@@ -169,7 +169,7 @@ documentation of the service plugin (:ref:`stock-plugins`).
 Sources Configuration Directory
 ===============================
 
-Default location: ``/etc/xivo/xivo-dird/sources.d``. File format: YAML
+Default location: ``/etc/xivo-dird/sources.d``. File format: YAML
 
 Each file listed in this directory will be read and used to create a data source for xivo-dird.
 
@@ -187,7 +187,7 @@ Here is an example of a CSV source configuration:
    searched_columns:
        - fn
        - ln
-   source_to_display:
+   source_to_display_columns:
        ln: lastname
        fn: firstname
        num: number
@@ -206,6 +206,6 @@ searched_columns
    the columns used for the lookup. Any column containing the search term substring will be a lookup
    result.
 
-source_to_display:
+source_to_display_columns:
    a dictionary describing the mapping between the source column name and the display field
    identifier.

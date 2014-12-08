@@ -79,7 +79,7 @@ Example (a file inside ``source_config_dir``):
    searched_columns:
        - fn
        - ln
-   source_to_display:
+   source_to_display_columns:
        ln: lastname
        fn: firstname
        num: number

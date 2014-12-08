@@ -105,7 +105,7 @@ The steps are:
 
 #. Uncomment the ``deb-src`` line for the XiVO sources::
 
-      sed -i 's/^#deb-src/deb-src/' /etc/apt/sources.list.d/xivo*
+      sed -i 's/^# *deb-src/deb-src/' /etc/apt/sources.list.d/xivo*
 
 #. Fetch the asterisk source package::
 
