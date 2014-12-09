@@ -17,7 +17,7 @@ Here's an example on how to profile xivo-ctid for CPU/time usage:
 
 #. Start the service in foreground mode running with the profiler::
 
-      python -m cProfile -o test.profile /usr/bin/xivo-ctid -d
+      python -m cProfile -o test.profile /usr/bin/xivo-ctid -f
 
    This will create a file named ``test.profile`` when the process terminates.
 
@@ -58,7 +58,7 @@ want to have additional information about it.
       service monit stop
       service xivo-ctid stop
       coverage erase
-      coverage run /usr/bin/xivo-ctid -d
+      coverage run /usr/bin/xivo-ctid -f
 
    The :ref:`debug-daemons` section documents how to launch the various XiVO service
    in foreground/debug mode.
