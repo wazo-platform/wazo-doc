@@ -214,16 +214,13 @@ Example::
 user_status_update
 ^^^^^^^^^^^^^^^^^^
 
-.. warning:: This message is not implemented
-
 The user_status_update is sent when a user changes his cti presence using the XiVO client.
 
 * routing key: user_status_upadte
 * event specific data: a dictionary with 3 keys
 
+  * xivo_id: the uuid of the xivo
   * user_id: an integer corresponding to the user ID of the user who changed it's status
-  * color: a string representing the color to display for the new status
-  * display: a string containing the displayed text
   * status: a string identifying the status
 
 Example::
@@ -232,8 +229,7 @@ Example::
        "name": "user_status_update",
        "data": {
            "user_id": 42,
-           "color": "#FF0008",
-           "display": "Busy",
+           "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
            "status": "busy"
        }
    }
