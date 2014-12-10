@@ -8,27 +8,26 @@ This section describes some of the XiVO configuration files.
 xivo-agentd
 ===========
 
-xivo-agentd configuration file is */etc/xivo-agentd/config.yml* its content is
-maintained by the package and should not be modified. The directory
-*/etc/xivo-agentd/conf.d* directory can be used to override value from the main
-configuration file.
+xivo-agentd configuration is done in the directory :file:`/etc/xivo-agentd/conf.d`. The file
+:file:`/etc/xivo-agentd/config.yml` should not be modified, because it will be overriden by
+upgrades.
 
-Files in the extra configuration directory are used in alphabetical order. For
-example,
+Files in the ``conf.d`` extra configuration directory are used in alphabetical order and the first
+one has priority. For example:
 
-aaa.yml::
+``00-debug.yml``::
 
-  key_one: value_from_aaa
+  debug: True
 
-bbb.yml::
+``01-nodebug.yml``::
 
-  key_one: value_from_bbb
+  debug: False
 
-The value that will be used by xivo-agent for *key_one* will be value_from_aaa since
-aaa.yml comes before bbb.yml in the alphabetical order.
+The value that will be used by xivo-agent for ``debug`` will be ``True`` since ``00-debug.yml``
+comes before ``01-nodebug.yml`` in the alphabetical order.
 
-*/etc/xivo-agentd/config.yml* can be used as an example for supported configuration
-file values in xivo-agentd.
+:file:`/etc/xivo-agentd/config.yml` can be used as an example for supported configuration file
+values in xivo-agentd.
 
 
 xivo_ring.conf
