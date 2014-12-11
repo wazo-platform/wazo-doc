@@ -605,16 +605,23 @@ Snom
 | Paging                                     | Y      | Y     | Y     | Y     | Y     | Y     | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+-------+
 
-module Snom® Vision  (for Snom® 7xx series and Snom® 8xx series) are supported.
+Supported expansion modules:
 
+* Snom® Vision (for Snom® 7xx series and Snom® 8xx series)
+* Snom® D7 (for Snom® 7xx series)
 
 .. note:: For some models, function keys are shared with line keys
 
-.. warning:: If you are using Snom phones with HA, you should not assign multiple lines to the same device.
+There's the following known limitations/issues with the provisioning of Snom phones in XiVO:
 
-There's a known issue with the provisioning of Snom phones in XiVO:
-
-* After a factory reset of a phone, if no language and timezone are set for the "default config device" in :menuselection:`XiVO --> Configuration --> Provisioning --> Template device`, you will be forced to select a default language and timezone on the phone UI.
+* If you are using Snom phones with :ref:`HA <high-availability>`, you should not assign multiple lines
+  to the same device.
+* When using a D7 expansion module, the function key label will not be shown on the first reboot or
+  resynchronization. You'll need to reboot or resynchronize the phone a second time for the label to be
+  shown properly.
+* After a factory reset of a phone, if no language and timezone are set for the "default config device"
+  in :menuselection:`XiVO --> Configuration --> Provisioning --> Template device`, you will be forced to
+  select a default language and timezone on the phone UI.
 
 
 Yealink
