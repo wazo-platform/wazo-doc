@@ -102,9 +102,10 @@ Aastra
 | Paging                                     | Y     | Y     | Y     | Y     | Y     | Y     |
 +--------------------------------------------+-------+-------+-------+-------+-------+-------+
 
-module Aastra® M670i  (for Aastra® 35i/37i/39i/53i/55i/57i) are supported.
+Supported expansion modules:
 
-module Aastra® M675i  (for Aastra® 35i/37i/39i/55i/57i) are supported.
+* Aastra® M670i (for Aastra® 35i/37i/39i/53i/55i/57i)
+* Aastra® M675i (for Aastra® 35i/37i/39i/55i/57i)
 
 
 DECT Infrastructure
@@ -506,11 +507,11 @@ Particularities:
 
 .. note:: (XiVO HA cluster) BLF function key saved on the master node are not available.
 
-module Polycom® VVX Color Expansion (for Polycom® VVX 300/310/400/410/500/600) are supported.
+Supported expansion modules:
 
-module Polycom® VVX Paper Expansion (for Polycom® VVX 300/310/400/410/500/600) are supported.
-
-module Polycom® SoundPoint IP Backlit (for Polycom® SoundPoint 650) are supported.
+* Polycom® VVX Color Expansion (for Polycom® VVX 300/310/400/410/500/600)
+* Polycom® VVX Paper Expansion (for Polycom® VVX 300/310/400/410/500/600)
+* Polycom® SoundPoint IP Backlit (for Polycom® SoundPoint 650)
 
 
 .. warning:: Polycom® VVX® Camera are not supported.
@@ -731,11 +732,11 @@ In all cases, you should consult the Yealink documentation on `Upgrading W52x Ha
 
 .. note:: Some function keys are shared with line keys
 
-module Yealink® EXP38 (for Yealink® T26P/T28P) are supported.
+Supported expansion modules:
 
-module Yealink® EXP39 (for Yealink® T26P/T28P) are supported.
-
-module Yealink® EXP40 (for Yealink® T46G/T48) are supported.
+* Yealink® EXP38 (for Yealink® T26P/T28P)
+* Yealink® EXP39 (for Yealink® T26P/T28P)
+* Yealink® EXP40 (for Yealink® T46G/T48)
 
 Caption :
 
