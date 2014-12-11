@@ -102,9 +102,10 @@ Aastra
 | Paging                                     | Y     | Y     | Y     | Y     | Y     | Y     |
 +--------------------------------------------+-------+-------+-------+-------+-------+-------+
 
-module Aastra® M670i  (for Aastra® 35i/37i/39i/53i/55i/57i) are supported.
+Supported expansion modules:
 
-module Aastra® M675i  (for Aastra® 35i/37i/39i/55i/57i) are supported.
+* Aastra® M670i (for Aastra® 35i/37i/39i/53i/55i/57i)
+* Aastra® M675i (for Aastra® 35i/37i/39i/55i/57i)
 
 
 DECT Infrastructure
@@ -506,11 +507,11 @@ Particularities:
 
 .. note:: (XiVO HA cluster) BLF function key saved on the master node are not available.
 
-module Polycom® VVX Color Expansion (for Polycom® VVX 300/310/400/410/500/600) are supported.
+Supported expansion modules:
 
-module Polycom® VVX Paper Expansion (for Polycom® VVX 300/310/400/410/500/600) are supported.
-
-module Polycom® SoundPoint IP Backlit (for Polycom® SoundPoint 650) are supported.
+* Polycom® VVX Color Expansion (for Polycom® VVX 300/310/400/410/500/600)
+* Polycom® VVX Paper Expansion (for Polycom® VVX 300/310/400/410/500/600)
+* Polycom® SoundPoint IP Backlit (for Polycom® SoundPoint 650)
 
 
 .. warning:: Polycom® VVX® Camera are not supported.
@@ -605,16 +606,23 @@ Snom
 | Paging                                     | Y      | Y     | Y     | Y     | Y     | Y     | Y     |
 +--------------------------------------------+--------+-------+-------+-------+-------+-------+-------+
 
-module Snom® Vision  (for Snom® 7xx series and Snom® 8xx series) are supported.
+Supported expansion modules:
 
+* Snom® Vision (for Snom® 7xx series and Snom® 8xx series)
+* Snom® D7 (for Snom® 7xx series)
 
 .. note:: For some models, function keys are shared with line keys
 
-.. warning:: If you are using Snom phones with HA, you should not assign multiple lines to the same device.
+There's the following known limitations/issues with the provisioning of Snom phones in XiVO:
 
-There's a known issue with the provisioning of Snom phones in XiVO:
-
-* After a factory reset of a phone, if no language and timezone are set for the "default config device" in :menuselection:`XiVO --> Configuration --> Provisioning --> Template device`, you will be forced to select a default language and timezone on the phone UI.
+* If you are using Snom phones with :ref:`HA <high-availability>`, you should not assign multiple lines
+  to the same device.
+* When using a D7 expansion module, the function key label will not be shown on the first reboot or
+  resynchronization. You'll need to reboot or resynchronize the phone a second time for the label to be
+  shown properly.
+* After a factory reset of a phone, if no language and timezone are set for the "default config device"
+  in :menuselection:`XiVO --> Configuration --> Provisioning --> Template device`, you will be forced to
+  select a default language and timezone on the phone UI.
 
 
 Yealink
@@ -724,11 +732,11 @@ In all cases, you should consult the Yealink documentation on `Upgrading W52x Ha
 
 .. note:: Some function keys are shared with line keys
 
-module Yealink® EXP38 (for Yealink® T26P/T28P) are supported.
+Supported expansion modules:
 
-module Yealink® EXP39 (for Yealink® T26P/T28P) are supported.
-
-module Yealink® EXP40 (for Yealink® T46G/T48) are supported.
+* Yealink® EXP38 (for Yealink® T26P/T28P)
+* Yealink® EXP39 (for Yealink® T26P/T28P)
+* Yealink® EXP40 (for Yealink® T46G/T48)
 
 Caption :
 
