@@ -32,7 +32,7 @@ xivo-agentd
 ===========
 
 The configuration is done in the configuration directory. The configuration file should not be
-modified, because it will be overriden by upgrades.
+modified, because it will be overridden by upgrades.
 
 * Default configuration directory: :file:`/etc/xivo-agentd/conf.d`
 * Default configuration file: :file:`/etc/xivo-agentd/config.yml`
@@ -46,7 +46,7 @@ xivo-ctid
 =========
 
 The configuration is done in the configuration directory. The configuration file should not be
-modified, because it will be overriden by upgrades.
+modified, because it will be overridden by upgrades.
 
 * Default configuration directory: :file:`/etc/xivo-ctid/conf.d`
 * Default configuration file: :file:`/etc/xivo-ctid/config.yml`
