@@ -5,12 +5,13 @@ Configuration Files
 This section describes some of the XiVO configuration files.
 
 
-xivo-agentd
-===========
+.. _configuration-priority:
 
-xivo-agentd configuration is done in the directory :file:`/etc/xivo-agentd/conf.d`. The file
-:file:`/etc/xivo-agentd/config.yml` should not be modified, because it will be overriden by
-upgrades.
+Configuration priority
+======================
+
+Usually, the configuration is read from two locations: a configuration file ``config.yml`` and a
+configuration directory ``conf.d``.
 
 Files in the ``conf.d`` extra configuration directory are used in alphabetical order and the first
 one has priority. For example:
@@ -23,11 +24,36 @@ one has priority. For example:
 
   debug: False
 
-The value that will be used by xivo-agent for ``debug`` will be ``True`` since ``00-debug.yml``
-comes before ``01-nodebug.yml`` in the alphabetical order.
+The value that will be used for ``debug`` will be ``True`` since ``00-debug.yml`` comes before
+``01-nodebug.yml`` in the alphabetical order.
 
-:file:`/etc/xivo-agentd/config.yml` can be used as an example for supported configuration file
-values in xivo-agentd.
+
+xivo-agentd
+===========
+
+The configuration is done in the configuration directory. The configuration file should not be
+modified, because it will be overriden by upgrades.
+
+* Default configuration directory: :file:`/etc/xivo-agentd/conf.d`
+* Default configuration file: :file:`/etc/xivo-agentd/config.yml`
+
+The configuration file may be used as an example for supported configuration file values.
+
+See also :ref:`configuration-priority`.
+
+
+xivo-ctid
+=========
+
+The configuration is done in the configuration directory. The configuration file should not be
+modified, because it will be overriden by upgrades.
+
+* Default configuration directory: :file:`/etc/xivo-ctid/conf.d`
+* Default configuration file: :file:`/etc/xivo-ctid/config.yml`
+
+The configuration file may be used as an example for supported configuration file values.
+
+See :ref:`configuration-priority`.
 
 
 xivo_ring.conf
