@@ -160,20 +160,19 @@ Status update events are sent to the ``xivo-status-updates`` exchange, which is
 an exchange of type **direct**.
 
 
+.. _bus-agent_status_update:
+
 agent_status_update
 ^^^^^^^^^^^^^^^^^^^
 
-.. warning:: This message is not implemented
+The agent_status_update is sent when an agent is logged in or logged out.
 
-The agent_status_update is sent when an agent status changes. This is not the status used
-by the agent status dashboard.
-
-* routing key: agent_status_update
-* event specific data: a dictionary with 2 keys:
+* routing key: status.agent
+* event specific data: a dictionary with 3 keys:
 
   * agent_id: an integer corresponding to the agent ID of the agent who's status changed
-  * color: a string representing the color of the agent icon
   * status: a string identifying the status
+  * xivo_id: the uuid of the xivo
 
 Example::
 
@@ -181,7 +180,7 @@ Example::
        "name": "agent_status_update",
        "data": {
            "agent_id": 42,
-           "color": "#FF0008",
+           "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
            "status": "logged_in"
        }
    }
