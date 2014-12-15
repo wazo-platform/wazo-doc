@@ -125,33 +125,6 @@ To subscribe to event with name X, you must create a binding between the exchang
 and your queue with the binding/routing key X.
 
 
-agent_status_update
-^^^^^^^^^^^^^^^^^^^
-
-.. warning:: This message is not implemented
-
-The agent_status_update is sent when an agent status changes. This is not the status used
-by the agent status dashboard.
-
-* routing key: agent_status_update
-* event specific data: a dictionary with 2 keys:
-
-  * agent_id: an integer corresponding to the agent ID of the agent who's status changed
-  * color: a string representing the color of the agent icon
-  * status: a string identifying the status
-
-Example::
-
-   {
-       "name": "agent_status_update",
-       "data": {
-           "agent_id": 42,
-           "color": "#FF0008",
-           "status": "logged_in"
-       }
-   }
-
-
 .. _bus-call_form_result:
 
 call_form_result
@@ -180,21 +153,54 @@ Example::
    }
 
 
-endpoint_status_update
-^^^^^^^^^^^^^^^^^^^^^^
+Status updates
+--------------
+
+Status update events are sent to the ``xivo-status-updates`` exchange, which is
+an exchange of type **direct**.
+
+
+agent_status_update
+^^^^^^^^^^^^^^^^^^^
 
 .. warning:: This message is not implemented
+
+The agent_status_update is sent when an agent status changes. This is not the status used
+by the agent status dashboard.
+
+* routing key: agent_status_update
+* event specific data: a dictionary with 2 keys:
+
+  * agent_id: an integer corresponding to the agent ID of the agent who's status changed
+  * color: a string representing the color of the agent icon
+  * status: a string identifying the status
+
+Example::
+
+   {
+       "name": "agent_status_update",
+       "data": {
+           "agent_id": 42,
+           "color": "#FF0008",
+           "status": "logged_in"
+       }
+   }
+
+
+.. _bus-endpoint_status_update:
+
+endpoint_status_update
+^^^^^^^^^^^^^^^^^^^^^^
 
 The endpoint_status_update is sent when an end point status changes. This information is
 based on asterisk hints.
 
-* routing key: endpoint_status_update
+* routing key: status.endpoint
 * event specific data: a dictionary with 3 keys
 
-  * endpoint_id: an integer corresponding to the endpoing ID
-  * color: a string representing the color to display for the new status
-  * display: a string containing the displayed tex
-  * status: a string identifying the status
+  * xivo_id: the uuid of the xivo
+  * endpoint_id: an integer corresponding to the endpoint ID
+  * status: an integer corresponding to the asterisk device state
 
 Example::
 
@@ -202,9 +208,8 @@ Example::
        "name": "endpoint_status_update",
        "data": {
            "endpoint_id": 67,
-           "color": "#FF0008",
-           "display": "Busy",
-           "status": "busy"
+           "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+           "status": 0
        }
    }
 
@@ -216,7 +221,7 @@ user_status_update
 
 The user_status_update is sent when a user changes his cti presence using the XiVO client.
 
-* routing key: user_status_upadte
+* routing key: status.user
 * event specific data: a dictionary with 3 keys
 
   * xivo_id: the uuid of the xivo
