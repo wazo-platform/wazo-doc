@@ -214,13 +214,13 @@ Example::
 user_status_update
 ^^^^^^^^^^^^^^^^^^
 
-The user_status_update is sent when a user changes his cti presence using the XiVO client.
+The user_status_update is sent when a user changes his CTI presence using the XiVO client.
 
-* routing key: user_status_upadte
+* routing key: user_status_update
 * event specific data: a dictionary with 3 keys
 
   * xivo_id: the uuid of the xivo
-  * user_id: an integer corresponding to the user ID of the user who changed it's status
+  * user_id: an integer corresponding to the user ID of the user who changed its status
   * status: a string identifying the status
 
 Example::
