@@ -143,6 +143,10 @@ Upgrade Notes
 
 * Consult the `14.24 Roadmap <https://projects.xivo.io/versions/216>`_
 
+The following security vulnerability has been fixed:
+
+* `XIVO-2014-01 <http://mirror.xivo.io/security/XIVO-2014-01.pdf>`_: Queues and groups permit callers to make unwanted calls
+
 
 14.23
 -----
