@@ -11,10 +11,16 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+14.24
+-----
+
+* for messages of class ``ipbxcommand``, the command ``record`` and ``sipnotify`` have been removed.
+* the ``logfromclient`` message has been removed
+
 14.22
 -----
 
-* for message of class ``faxsend``, the steps ``file_decoded`` and ``file_converted`` have been removed.
+* for messages of class ``faxsend``, the steps ``file_decoded`` and ``file_converted`` have been removed.
 
 14.06
 -----
@@ -1208,32 +1214,6 @@ Example:
         "destination": "exten:xivo/1202"
     }
 
-record
-^^^^^^
-
-``Client -> Server``
-
-* subcommand : ``start`` or ``stop``
-
-
-.. code-block:: javascript
-
-   {
-            "class": "ipbxcommand",
-            "command": "record",
-            "subcommand": "start",
-            "channel": "SIP/x2gjtw-0000000d",
-            "commandid": 1423579492
-   }
-
- ``Server > Client``
-
-* response : ``ok`` request was correctly processed, ``ko`` unable to process the request
-
-.. code-block:: javascript
-
-   {"command": "record", "replyid": 1423579492, "class": "ipbxcommand", "ipbxreply": true, "timenow": 1361801751.87}
-   {"replyid": 1423579492, "command": "record", "class": "ipbxcommand", "timenow": 1361798879.13, "response": "ok"}
 
 hangup
 ^^^^^^
@@ -1420,8 +1400,6 @@ Request directory information, names matching pattern ignore case.
    }
 
 parking
-
-logfromclient
 
 keepalive
 

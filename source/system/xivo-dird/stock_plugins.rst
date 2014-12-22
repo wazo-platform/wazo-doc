@@ -10,6 +10,8 @@ View Plugins
 default_json
 ------------
 
+View name: default_json
+
 Purpose: present directory entries in JSON format. The format is detailed in :ref:`dird-api`.
 
 Service Plugins
@@ -17,6 +19,8 @@ Service Plugins
 
 lookup
 ------
+
+Service name: lookup
 
 Purpose: Search through multiple data sources, looking for entries matching a word.
 
@@ -55,6 +59,8 @@ This sections completes the :ref:`sources_configuration_directory` section.
 
 csv
 ---
+
+Back-end name: csv
 
 Purpose: read directory entries from a CSV file.
 
@@ -101,3 +107,44 @@ file
 unique_columns
    the list of columns that form a unique identifier of the entry. This is necessary for listing and
    identifying favorites.
+
+
+xivo
+----
+
+Back-end name: xivo
+
+Purpose: add users from a XiVO (may be remote) as directory entries
+
+Limitations:
+
+* the users list is not updated dynamically. You must restart xivo-dird to update the user list.
+
+Configuration
+^^^^^^^^^^^^^
+
+Example (a file inside ``source_config_dir``):
+
+.. code-block:: yaml
+   :linenos:
+
+   type: xivo
+   name: my_xivo
+   confd_config:
+       host: xivo.example.com
+       port: 9487
+       version: 1.1
+   searched_columns:
+       - firstname
+       - lastname
+   source_to_display_columns:
+       exten: number
+
+confd_config:host
+   the hostname of the XiVO (more precisely, of the xivo-confd service)
+
+confd_config:port
+   the port of the xivo-confd service (usually 9487)
+
+confd_config:version
+   the version of the xivo-confd API (should be 1.1)
