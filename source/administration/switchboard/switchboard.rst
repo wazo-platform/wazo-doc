@@ -77,9 +77,10 @@ To create this queue, go to :menuselection:`Services --> Call center --> Queues`
 
 .. figure:: images/queue_general.png
 
-The Following configuration is mandatory
+The following configuration is mandatory
 
 * The :menuselection:`General --> Name` field has to be *__switchboard*
+* The :menuselection:`General --> Ring strategy` field has to be *Ring all*
 * The :menuselection:`General --> Preprocess subroutine` field has to be *xivo_subr_switchboard*
 * The :menuselection:`Application --> Allow caller to hang up call` option has to be *enabled*
 * The :menuselection:`Application --> Allow callee to transfer the call` option has to be *enabled*
@@ -102,7 +103,7 @@ The switchboard uses a queue to track its calls on hold.
 
 To create this queue, go to :menuselection:`Services --> Call center --> Queues` and click the add button.
 
-The Following configuration is mandatory
+The following configuration is mandatory
 
 * The :menuselection:`General --> Name` field has to be *__switchboard_hold*
 * The :menuselection:`General --> Number` field has to be a valid number in a context reachable by the switchboard
