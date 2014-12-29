@@ -11,8 +11,9 @@ Prerequisites
 =============
 
 * Qt5 library development files: `Qt website <http://qt-project.org/downloads>`_
-* Git (package ``git``)
-* Generic software building tools : ``make``, ``g++`` ... (package ``build-essential``)
+* openGL development library - libGL (Debian package ``libgl1-mesa-dev``)
+* Git (Debian package ``git``)
+* Generic software building tools : ``make``, ``g++`` ... (Debian package ``build-essential``)
 
 
 Get sources
