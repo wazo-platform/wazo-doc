@@ -2,6 +2,22 @@
 Upgrade involving archive version of XiVO
 *****************************************
 
+Introduction
+============
+
+What is an archive version?
+---------------------------
+
+An archive version refers to a XiVO installation whose version is frozen: you can't upgrade it until
+you manually change the upgrade server.
+
+What is the point?
+------------------
+
+Using archive versions enable you to upgrade your XiVO to a specific version, in case you don't want
+to upgrade to the latest (which is not recommended, but sometimes necessary). You will then be able
+to upgrade your newer archive version to the latest version or to an even newer archive version.
+
 Archive package names
 =====================
 
@@ -41,17 +57,20 @@ Archive version >= 14.18::
   xivo-dist xivo-five
   xivo-upgrade
 
-As a result, xivo-upgrade will always upgrade XiVO to the latest stable version.
+As a result, xivo-upgrade will upgrade XiVO to the latest stable version.
 
-Upgrade from an installed production version to a newer archive version
-=======================================================================
+Upgrade from an older non-archive version to a newer archive version
+====================================================================
+
+Non-archive version means any "normal" way of installing XiVO (ISO install, script install over
+pre-installed Debian, xivo-upgrade).
 
 Downgrades are not supported: you can only upgrade to a greater version.
 
 We only support upgrades to archive versions >= 13.25, e.g. you can upgrade a 12.16 to 14.16, but
 not 12.16 to 13.16
 
-Installed version before 14.18 (here 13.25)
+Current version before 14.18 (here 13.25)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
@@ -61,8 +80,8 @@ Installed version before 14.18 (here 13.25)
 You are now considered in an archived version, see the section `Upgrade from an older archive
 version to a newer archive version`_ below.
 
-Source archive version after 14.18
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Current version after 14.18
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -80,8 +99,8 @@ Downgrades are not supported: you can only upgrade to a greater version.
 We only support upgrades to archive versions >= 13.25, e.g. you can upgrade a 12.16 to 14.16, but
 not 12.16 to 13.16
 
-Source archive version between 1.2 and 13.24 (here 1.2.3 to 14.16)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Current archive version between 1.2 and 13.24 (here 1.2.3 to 14.16)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -106,8 +125,8 @@ Source archive version between 1.2 and 13.24 (here 1.2.3 to 14.16)
 .. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
    xivo-upgrade, but cancelled the upgrade.
 
-Source archive version after 13.25 (here 13.25 to 14.16)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Current archive version after 13.25 (here 13.25 to 14.16)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -130,8 +149,8 @@ Source archive version after 13.25 (here 13.25 to 14.16)
 .. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
    xivo-upgrade, but cancelled the upgrade.
 
-Source archive version after 14.18
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Current archive version after 14.18
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
