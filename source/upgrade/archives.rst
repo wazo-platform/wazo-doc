@@ -71,7 +71,7 @@ We only support upgrades to archive versions >= 13.25, e.g. you can upgrade a 12
 not 12.16 to 13.16
 
 Current version before 14.18 (here 13.25)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------------
 
 ::
 
@@ -81,7 +81,7 @@ You are now considered in an archived version, see the section `Upgrade from an 
 version to a newer archive version`_ below.
 
 Current version after 14.18
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------
 
 ::
 
@@ -100,7 +100,7 @@ We only support upgrades to archive versions >= 13.25, e.g. you can upgrade a 12
 not 12.16 to 13.16
 
 Current archive version between 1.2 and 13.24 (here 1.2.3 to 14.16)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------------------------
 
 ::
 
@@ -126,7 +126,7 @@ Current archive version between 1.2 and 13.24 (here 1.2.3 to 14.16)
    xivo-upgrade, but cancelled the upgrade.
 
 Current archive version after 13.25 (here 13.25 to 14.16)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------------------------------
 
 ::
 
@@ -150,7 +150,7 @@ Current archive version after 13.25 (here 13.25 to 14.16)
    xivo-upgrade, but cancelled the upgrade.
 
 Current archive version after 14.18
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------
 
 ::
 
