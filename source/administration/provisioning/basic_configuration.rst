@@ -170,6 +170,18 @@ On the web interface of your phone, go to :menuselection:`Setup --> Advanced -->
 .. figure:: img/config_server_snom.png
 
 
+Yealink
+-------
+
+On the web interface of your phone, go to :menuselection:`Settings --> Auto Provision`, and enter the following settings:
+
+* Server URL: ``http://<XiVO IP address>:8667``
+
+.. figure:: img/config_server_yealink.png
+
+Save the changes by clicking on the :guilabel:`Confirm` button and then click on the :guilabel:`Autoprovision Now` button.
+
+
 Autoprovisioning a Device
 =========================
 
