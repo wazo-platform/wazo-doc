@@ -24,7 +24,7 @@ Unless specified, the license is `CC BY-SA`_..
 +==============================================================================================+==========+==============+============+
 | :download:`How to popup an url with CTIClient<data/how_to_popup_an_url_with_xivoclient.pdf>` | French   | 14.17        | Assonance  |
 +----------------------------------------------------------------------------------------------+----------+--------------+------------+
-| `Xivo Pour les nuls <http://xivopourlesnuls.wordpress.com>`_                                 | French   |              |            |
+| `Xivo pour les nuls <http://xivopourlesnuls.wordpress.com>`_                                 | French   |              |            |
 +----------------------------------------------------------------------------------------------+----------+--------------+------------+
 | :download:`How to use openVPN on XiVO<data/how_to_install_openvpn_on_xivo.pdf>`              | French   |              | Yohan Vitu |
 +----------------------------------------------------------------------------------------------+----------+--------------+------------+
@@ -37,6 +37,8 @@ Unless specified, the license is `CC BY-SA`_..
 +----------------------------------------------------------------------------------------------+----------+--------------+------------+
 | :download:`How to export the phonebook of XiVO<data/how_to_export_phonebook.pdf>` with       | French   |              | Yohan Vitu |
 | :download:`phonebook_csv_export.py<data/phonebook_csv_export.py>`                            |          |              |            |
++----------------------------------------------------------------------------------------------+----------+--------------+------------+
+| `Installing XiVO (YouTube series) <https://www.youtube.com/watch?v=EmY2KhCn418>`_            | English  | 14.20        | VoIP-Nuiz  |
 +----------------------------------------------------------------------------------------------+----------+--------------+------------+
 
 
