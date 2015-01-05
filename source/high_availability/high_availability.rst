@@ -204,6 +204,8 @@ differently. This includes:
 * Custom dialplan (i.e. dialplan found in the :file:`/etc/asterisk/extensions_extra.d` directory
   or in the :menuselection:`Services --> IPBX --> IPBX configuration --> Configuration files` page)
   is not available.
+* Phone provisioning is disabled, i.e. synchronizing or rebooting a phone will make it unusable
+  until the master is back up.
 
 Note that, on failover and on failback:
 
