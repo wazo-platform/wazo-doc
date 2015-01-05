@@ -66,6 +66,7 @@ The supported phones for the switchboard are:
 * Aastra 6755i
 * Aastra 6757i
 * Snom 720
+* Yealink T46G
 
 
 Create a Queue for Your Switchboard
@@ -139,11 +140,8 @@ The following configuration is mandatory for switchboard users
 Activate the Switchboard Option for your Phone
 ----------------------------------------------
 
-For the switchboard to work properly, your Aastra or Snom phone must use
-a *xivo-aastra* or *xivo-snom* provisioning plugin respectively.
-
-The switchboard option must also be activated on the phone. It's possible to activate
-this option only on supported phones and plugins.
+The switchboard option must be activated on the phone. It's possible to activate this option only on
+:ref:`supported phones <switchboard_supported_devices>` and plugins.
 
 * Edit device associated to your user in :menuselection:`Services --> Devices`
 * Check the switchboard checkbox and save
