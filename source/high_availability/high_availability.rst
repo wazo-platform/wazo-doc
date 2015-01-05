@@ -205,7 +205,8 @@ differently. This includes:
   or in the :menuselection:`Services --> IPBX --> IPBX configuration --> Configuration files` page)
   is not available.
 * Phone provisioning is disabled, i.e. synchronizing or rebooting a phone will make it unusable
-  until the master is back up.
+  until the master is back up, unless you have manually configured your slave, e.g. reconfigured the
+  DHCP server of the slave.
 
 Note that, on failover and on failback:
 
