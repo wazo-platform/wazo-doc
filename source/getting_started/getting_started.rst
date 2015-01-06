@@ -23,7 +23,7 @@ you will need this information later on when you will configure your device (e.g
 
 .. figure:: images/step-02.png
 
-  System informations
+   System informations
 
 To configure a device for a user, start by navigating to the IPBX menu. Hover over the `Services` tab, a dropdown menu will appear. Click on `IPBX`.
 
