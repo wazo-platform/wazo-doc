@@ -17,7 +17,7 @@ Usage
 At the moment, the AMQP broker only listen on the 127.0.0.1 address. This means
 that if you want to connect to the AMQP broker from a distant machine, you
 must modify the RabbitMQ server configuration, which is not yet an officially
-supported operation.
+supported operation. All events are sent to the *xivo* exchange.
 
 Otherwise, the default connection information is:
 
@@ -25,6 +25,8 @@ Otherwise, the default connection information is:
 * User name: guest
 * User password: guest
 * Port: 5672
+* Exchange name: xivo
+* Exchange type: topic
 
 
 Example
@@ -43,7 +45,7 @@ Here's an example of a simple client, in python, listening for the
    result = channel.queue_declare(exclusive=True)
    queue_name = result.method.queue
 
-   channel.queue_bind(exchange='xivo-cti', queue=queue_name, routing_key='call_form_result')
+   channel.queue_bind(exchange='xivo', queue=queue_name, routing_key='call_form_result')
 
    def callback(ch, method, props, body):
        print 'Received:', body
@@ -66,7 +68,7 @@ Things to be aware when writing a client/consumer:
 
   * a XiVO upgrade
   * an asterisk crash
-* The published messages are not persistant. When the AMQP broker stops, the messages
+* The published messages are not persistent. When the AMQP broker stops, the messages
   that are still in queues will be lost.
 
 
@@ -88,13 +90,15 @@ data
     this is assumed to be null.
 
 
-AMI
----
+.. _bus-ami_events:
 
-AMI related events are sent to the ``xivo-ami`` exchange, which is an exchange of type topic.
+AMI events
+----------
 
-To subscribe to event with name X, you must create a binding between the exchange
-and your queue with the binding/routing key X.
+All AMI events are broadcasted on the bus.
+
+* routing key: ami.<event name>
+* event specific data: a dictionary with the content of the AMI event
 
 Example event with binding key QueueMemberStatus::
 
@@ -116,19 +120,11 @@ Example event with binding key QueueMemberStatus::
        }
    }
 
-CTI
----
-
-CTI related events are sent to the ``xivo-cti`` exchange, which is an exchange of type direct.
-
-To subscribe to event with name X, you must create a binding between the exchange
-and your queue with the binding/routing key X.
-
 
 .. _bus-call_form_result:
 
 call_form_result
-^^^^^^^^^^^^^^^^
+----------------
 
 The call_form_result event is sent when a :ref:`custom call form <custom-call-form>`
 is submitted by a CTI client.
@@ -153,27 +149,19 @@ Example::
    }
 
 
-Status updates
---------------
-
-Status update events are sent to the ``xivo-status-updates`` exchange, which is
-an exchange of type **direct**.
-
+.. _bus-agent_status_update:
 
 agent_status_update
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
-.. warning:: This message is not implemented
+The agent_status_update is sent when an agent is logged in or logged out.
 
-The agent_status_update is sent when an agent status changes. This is not the status used
-by the agent status dashboard.
-
-* routing key: agent_status_update
-* event specific data: a dictionary with 2 keys:
+* routing key: status.agent
+* event specific data: a dictionary with 3 keys:
 
   * agent_id: an integer corresponding to the agent ID of the agent who's status changed
-  * color: a string representing the color of the agent icon
   * status: a string identifying the status
+  * xivo_id: the uuid of the xivo
 
 Example::
 
@@ -181,7 +169,7 @@ Example::
        "name": "agent_status_update",
        "data": {
            "agent_id": 42,
-           "color": "#FF0008",
+           "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
            "status": "logged_in"
        }
    }
@@ -190,7 +178,7 @@ Example::
 .. _bus-endpoint_status_update:
 
 endpoint_status_update
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 The endpoint_status_update is sent when an end point status changes. This information is
 based on asterisk hints.
@@ -217,7 +205,7 @@ Example::
 .. _bus-user_status_update:
 
 user_status_update
-^^^^^^^^^^^^^^^^^^
+------------------
 
 The user_status_update is sent when a user changes his CTI presence using the XiVO client.
 
