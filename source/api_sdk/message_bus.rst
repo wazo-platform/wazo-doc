@@ -68,7 +68,7 @@ Things to be aware when writing a client/consumer:
 
   * a XiVO upgrade
   * an asterisk crash
-* The published messages are not persistant. When the AMQP broker stops, the messages
+* The published messages are not persistent. When the AMQP broker stops, the messages
   that are still in queues will be lost.
 
 
