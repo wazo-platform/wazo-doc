@@ -17,7 +17,7 @@ Usage
 At the moment, the AMQP broker only listen on the 127.0.0.1 address. This means
 that if you want to connect to the AMQP broker from a distant machine, you
 must modify the RabbitMQ server configuration, which is not yet an officially
-supported operation.
+supported operation. All events are sent to the *xivo* exchange.
 
 Otherwise, the default connection information is:
 
@@ -25,6 +25,8 @@ Otherwise, the default connection information is:
 * User name: guest
 * User password: guest
 * Port: 5672
+* Exchange name: xivo
+* Exchange type: topic
 
 
 Example
@@ -43,7 +45,7 @@ Here's an example of a simple client, in python, listening for the
    result = channel.queue_declare(exclusive=True)
    queue_name = result.method.queue
 
-   channel.queue_bind(exchange='xivo-cti', queue=queue_name, routing_key='call_form_result')
+   channel.queue_bind(exchange='xivo', queue=queue_name, routing_key='call_form_result')
 
    def callback(ch, method, props, body):
        print 'Received:', body
@@ -88,13 +90,15 @@ data
     this is assumed to be null.
 
 
-AMI
----
+.. _bus-ami_events
 
-AMI related events are sent to the ``xivo-ami`` exchange, which is an exchange of type topic.
+AMI events
+^^^^^^^^^^
 
-To subscribe to event with name X, you must create a binding between the exchange
-and your queue with the binding/routing key X.
+All AMI events are broadcasted on the bus.
+
+* routing key: ami.<event name>
+* event specific data: a dictionary with the content of the AMI event
 
 Example event with binding key QueueMemberStatus::
 
@@ -115,14 +119,6 @@ Example event with binding key QueueMemberStatus::
            "StateInterface": "sip\/m4ylhs"
        }
    }
-
-CTI
----
-
-CTI related events are sent to the ``xivo-cti`` exchange, which is an exchange of type direct.
-
-To subscribe to event with name X, you must create a binding between the exchange
-and your queue with the binding/routing key X.
 
 
 .. _bus-call_form_result:
@@ -151,13 +147,6 @@ Example::
            }
        }
    }
-
-
-Status updates
---------------
-
-Status update events are sent to the ``xivo-status-updates`` exchange, which is
-an exchange of type **direct**.
 
 
 .. _bus-agent_status_update:
