@@ -93,7 +93,7 @@ data
 .. _bus-ami_events:
 
 AMI events
-^^^^^^^^^^
+----------
 
 All AMI events are broadcasted on the bus.
 
@@ -124,7 +124,7 @@ Example event with binding key QueueMemberStatus::
 .. _bus-call_form_result:
 
 call_form_result
-^^^^^^^^^^^^^^^^
+----------------
 
 The call_form_result event is sent when a :ref:`custom call form <custom-call-form>`
 is submitted by a CTI client.
@@ -152,7 +152,7 @@ Example::
 .. _bus-agent_status_update:
 
 agent_status_update
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 The agent_status_update is sent when an agent is logged in or logged out.
 
@@ -178,7 +178,7 @@ Example::
 .. _bus-endpoint_status_update:
 
 endpoint_status_update
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 The endpoint_status_update is sent when an end point status changes. This information is
 based on asterisk hints.
@@ -205,7 +205,7 @@ Example::
 .. _bus-user_status_update:
 
 user_status_update
-^^^^^^^^^^^^^^^^^^
+------------------
 
 The user_status_update is sent when a user changes his cti presence using the XiVO client.
 
