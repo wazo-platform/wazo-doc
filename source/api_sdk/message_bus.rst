@@ -90,7 +90,7 @@ data
     this is assumed to be null.
 
 
-.. _bus-ami_events
+.. _bus-ami_events:
 
 AMI events
 ^^^^^^^^^^
