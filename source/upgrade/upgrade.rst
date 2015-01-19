@@ -138,6 +138,21 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.01
+-----
+
+* Consult the `15.01 Roadmap <https://projects.xivo.io/versions/217>`_
+
+* The :ref:`confd REST API <confd-api>` is now more restrictive on HTTP headers. Particularly, the
+  headers Accept and Content-Type must be set to (typically) ``application/json``.
+* The following configuration files have been created:
+
+  * :file:`/etc/xivo-agid/config.yml`
+  * :file:`/etc/xivo-call-logd/config.yml`
+  * :file:`/etc/xivo-amid/config.yml`
+  * :file:`/etc/xivo-agentd/config.yml`
+
+
 14.24
 -----
 
