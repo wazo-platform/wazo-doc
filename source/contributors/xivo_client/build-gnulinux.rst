@@ -10,9 +10,10 @@ This page explains how to build an executable of the XiVO Client from its source
 Prerequisites
 =============
 
-* Qt5 library development files: `Qt website <http://qt-project.org/downloads>`_
-* Git (package ``git``)
-* Generic software building tools : ``make``, ``g++`` ... (package ``build-essential``)
+* Qt5 library development files: `Qt website <http://qt-project.org/downloads>`_ (Ubuntu packages ``qt5-default qt5-qmake qttools5-dev-tools qttools5-dev``)
+* openGL development library - libGL (Debian package ``libgl1-mesa-dev``)
+* Git (Debian package ``git``)
+* Generic software building tools : ``make``, ``g++`` ... (Debian package ``build-essential``)
 
 
 Get sources

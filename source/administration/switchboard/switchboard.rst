@@ -66,6 +66,7 @@ The supported phones for the switchboard are:
 * Aastra 6755i
 * Aastra 6757i
 * Snom 720
+* Yealink T46G
 
 
 Create a Queue for Your Switchboard
@@ -77,9 +78,10 @@ To create this queue, go to :menuselection:`Services --> Call center --> Queues`
 
 .. figure:: images/queue_general.png
 
-The Following configuration is mandatory
+The following configuration is mandatory
 
 * The :menuselection:`General --> Name` field has to be *__switchboard*
+* The :menuselection:`General --> Ring strategy` field has to be *Ring all*
 * The :menuselection:`General --> Preprocess subroutine` field has to be *xivo_subr_switchboard*
 * The :menuselection:`Application --> Allow caller to hang up call` option has to be *enabled*
 * The :menuselection:`Application --> Allow callee to transfer the call` option has to be *enabled*
@@ -102,7 +104,7 @@ The switchboard uses a queue to track its calls on hold.
 
 To create this queue, go to :menuselection:`Services --> Call center --> Queues` and click the add button.
 
-The Following configuration is mandatory
+The following configuration is mandatory
 
 * The :menuselection:`General --> Name` field has to be *__switchboard_hold*
 * The :menuselection:`General --> Number` field has to be a valid number in a context reachable by the switchboard
@@ -138,11 +140,8 @@ The following configuration is mandatory for switchboard users
 Activate the Switchboard Option for your Phone
 ----------------------------------------------
 
-For the switchboard to work properly, your Aastra or Snom phone must use
-a *xivo-aastra* or *xivo-snom* provisioning plugin respectively.
-
-The switchboard option must also be activated on the phone. It's possible to activate
-this option only on supported phones and plugins.
+The switchboard option must be activated on the phone. It's possible to activate this option only on
+:ref:`supported phones <switchboard_supported_devices>` and plugins.
 
 * Edit device associated to your user in :menuselection:`Services --> Devices`
 * Check the switchboard checkbox and save
