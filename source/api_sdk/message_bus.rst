@@ -98,6 +98,9 @@ All events have the same basic structure, namely, a JSON object with two keys:
 name
     A string representing the name of the event. Each event type has a unique name.
 
+origin_uuid
+    The uuid to identify the message producer.
+
 data
     The data specific part of the event. This is documented on a per event type; if not
     this is assumed to be null.
@@ -117,6 +120,7 @@ Example event with binding key QueueMemberStatus::
 
    {
        "name": "QueueMemberStatus",
+       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
            "Status": "1",
            "Penalty": "0",
@@ -152,6 +156,7 @@ Example::
 
    {
        "name": "call_form_result",
+       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
            "user_id": 40,
            "variables": {
@@ -180,6 +185,7 @@ Example::
 
    {
        "name": "agent_status_update",
+       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
            "agent_id": 42,
            "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -207,6 +213,7 @@ Example::
 
    {
        "name": "endpoint_status_update",
+       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
            "endpoint_id": 67,
            "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -233,6 +240,7 @@ Example::
 
    {
        "name": "user_status_update",
+       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
            "user_id": 42,
            "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
