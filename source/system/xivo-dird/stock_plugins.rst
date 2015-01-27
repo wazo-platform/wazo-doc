@@ -109,6 +109,80 @@ unique_columns
    identifying favorites.
 
 
+ldap
+----
+
+Back-end name: ldap
+
+Purpose: search directory entries from an LDAP server.
+
+Configuration
+^^^^^^^^^^^^^
+
+Example (a file inside ``source_config_dir``):
+
+.. code-block:: yaml
+   :linenos:
+
+   type: ldap
+   name: my_ldap
+   ldap_uri: ldap://example.org
+   ldap_base_dn: ou=people,dc=example,dc=org
+   ldap_username: cn=admin,dc=example,dc=org
+   ldap_password: foobar
+   unique_columns:
+       - entryUUID
+   searched_columns:
+       - cn
+   source_to_display_columns:
+       givenName: firstname
+       sn: lastname
+       telephoneNumber: number
+
+
+ldap_uri
+   the URI of the LDAP server. Can only contains the scheme, host and port part of an LDAP URL.
+
+ldap_base_dn
+   the DN of the entry at which to start the search
+
+ldap_username (optional)
+   the user's DN to use when performing a "simple" bind.
+
+   Default to an empty string.
+
+   When both ldap_username and ldap_password are empty, an anonymous bind is performed.
+
+ldap_password (optional)
+   the password to use when performing a "simple" bind.
+
+   Default to an empty string.
+
+ldap_custom_filter (optional)
+   a custom LDAP filter to use when performing searches instead of searching in the column specified
+   by the ``searched_columns`` option.
+
+   This must be a valid `LDAP filter <https://tools.ietf.org/html/rfc4515>`_, where the string ``%Q`` will be replaced by the (escaped) search
+   term when performing a search.
+
+   Example: ``(&(o=ACME)(cn=*%Q*))``
+
+ldap_network_timeout (optional)
+   the maximum time, in second, that an LDAP network operation can take. If it takes more time than
+   that, no result is returned.
+
+   Defaults to 0.1.
+
+ldap_timeout (optional)
+   the maximum time, in second, that an LDAP operation can take.
+
+   Defaults to 1.0.
+
+unique_columns (optional)
+   the list of columns that form a unique identifier of the entry. This is necessary for listing and
+   identifying favorites.
+
+
 xivo
 ----
 
