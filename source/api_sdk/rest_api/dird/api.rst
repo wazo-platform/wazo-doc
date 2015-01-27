@@ -40,12 +40,12 @@ profile
     The lookup profile. It determines which directories to search. See
     :ref:`configuration-file`.
 
+term
+    the search term that we are looking for
+
 
 Optional
 ^^^^^^^^
-
-term
-    the search term that we are looking for
 
 `*`
     any other arguments will be forwarded to the configured source and may be
@@ -92,7 +92,6 @@ Content
 
 .. code-block:: javascript
    :linenos:
-   :emphasize-lines: 7, 15
 
     {
       "term": "Bob",
@@ -102,26 +101,19 @@ Content
         {
           "column_values": ["Bob", "Marley", "5555555", "5556666", "5553333", "mail@example.com", null],
           "relations": {
-            "agent": null,
-            "user": null,
-            "endpoint": null
+            "xivo_id": null,
+            "agent_id": null,
+            "user_id": null,
+            "endpoint_id": null
           },
           "source": "my_ldap_directory"
         }, {
           "column_values": ["Charlie", "Boblin", "5555556", "5554444", "5552222", "mail2@example.com", null],
           "relations": {
-            "agent": {
-              "id": 12,
               "xivo_id": "ad2f36c7-b0f3-48da-a63c-37434fed479b"
-            },
-            "user": {
-              "id": 34,
-              "xivo_id": "ad2f36c7-b0f3-48da-a63c-37434fed479b"
-            },
-            "endpoint": {
-              "id": 56,
-              "xivo_id": "ad2f36c7-b0f3-48da-a63c-37434fed479b"
-            },
+              "agent_id": 12,
+              "user_id": 34,
+              "endpoint_id": 56,
           },
           "source": "internal"
         }
@@ -188,6 +180,8 @@ Reverse lookup
 
 The `reverse_lookup` query will return the first result matching the term in all
 of the configured directories.
+
+.. note:: the reverse lookup route is not implemented
 
 
 Query
