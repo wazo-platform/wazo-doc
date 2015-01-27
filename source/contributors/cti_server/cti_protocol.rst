@@ -163,6 +163,186 @@ people_search
     ]
   }
 
+
+.. _register_agent_status_update_command:
+
+register_agent_status_update
+---------------------------
+
+The `register_agent_status_update` command is used to register to the status
+updates of a list of agent. Once registered to a agent's status, the client will
+receive all :ref:`agent_status_update_event` events for the registered agents.
+
+This command should be sent when an agent is displayed in the people xlet to be
+able to update the agent status icon.
+
+The :ref:`unregister_agent_status_update_command` command should be used to stop receiving updates.
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "register_agent_status_update",
+    "agent_ids": [["<xivo-uuid>", "<agent-id1>"],
+                  ["<xivo-uuid>", "<agent-id2>"],
+                  ...,
+                  ["<xivo-uuid>", "<agent-idn>"]],
+    "commandid": <commandid>
+  }
+
+
+.. _unregister_agent_status_update_command:
+
+unregister_agent_status_update
+-----------------------------
+
+The `unregister_agent_status_update` command is used to unregister from the
+status updates of a list of agent.
+
+Once unregistered, the client will stop receiving the :ref:`agent_status_update_event`
+events for the specified agents.
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "unregister_agent_status_update",
+    "agent_ids": [["<xivo-uuid>", "<agent-id1>"],
+                  ["<xivo-uuid>", "<agent-id2>"],
+                  ...,
+                  ["<xivo-uuid>", "<agent-idn>"]],
+    "commandid": <commandid>
+  }
+
+.. _agent_status_update_event:
+
+agent_status_update
+------------------
+
+The `agent_status_update` event is received when the presence of an agent changes.
+
+To receive this event, the user must first register to the event for a specified
+agent using the :ref:`register_agent_status_update_command` command.
+
+To stop receiving this event, the user must send the
+:ref:`unregister_agent_status_update_command` command.
+
+* data, a dictionary containing 3 fields:
+
+  * agent_id, is an integer containing the ID of the user affected by this status change
+  * xivo_uuid: a string containing the UUID of the XiVO that sent the status update
+  * status: a string containing the new status, "logged_in" or "logged_out"
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "agent_status_update",
+    "data": {
+      "agent_id": 42,
+      "xivo_uuid": "<the-xivo-uuid>",
+      "status": "<status-name>"
+    }
+  }
+
+The `agent_status_update` event contains the same data as the :ref:`bus-agent_status_update`.
+The latter should be prefered to the former for uses that do not require a
+persistent connection to xivo-ctid.
+
+
+.. _register_endpoint_status_update_command:
+
+register_endpoint_status_update
+---------------------------
+
+The `register_endpoint_status_update` command is used to register to the status
+updates of a list of lines. Once registered to a endpoint's status, the client will
+receive all :ref:`endpoint_status_update_event` events for the registered agents.
+
+This command should be sent when a endpoint is displayed in the people xlet to be
+able to update the agent status icon.
+
+The :ref:`unregister_endpoint_status_update_command` command should be used to stop receiving updates.
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "register_endpoint_status_update",
+    "endpoint_ids": [["<xivo-uuid>", "<endpoint-id1>"],
+                     ["<xivo-uuid>", "<endpoint-id2>"],
+                     ...,
+                     ["<xivo-uuid>", "<endpoint-idn>"]],
+    "commandid": <commandid>
+  }
+
+
+.. _unregister_endpoint_status_update_command:
+
+unregister_endpoint_status_update
+-----------------------------
+
+The `unregister_endpoint_status_update` command is used to unregister from the
+status updates of a list of agent.
+
+Once unregistered, the client will stop receiving the :ref:`endpoint_status_update_event`
+events for the specified agents.
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "unregister_endpoint_status_update",
+    "endpoint_ids": [["<xivo-uuid>", "<endpoint-id1>"],
+                     ["<xivo-uuid>", "<endpoint-id2>"],
+                     ...,
+                     ["<xivo-uuid>", "<endpoint-idn>"]],
+    "commandid": <commandid>
+  }
+
+
+.. _endpoint_status_update_event:
+
+endpoint_status_update
+------------------
+
+The `endpoint_status_update` event is received when the status of a line changes.
+
+To receive this event, the user must first register to the event for a specified
+endpoint using the :ref:`register_endpoint_status_update_command` command.
+
+To stop receiving this event, the user must send the
+:ref:`unregister_endpoint_status_update_command` command.
+
+* data, a dictionary containing 3 fields:
+
+  * endpoint_id, is an integer containing the ID of the line affected by this status change
+  * xivo_uuid: a string containing the UUID of the XiVO that sent the status update
+  * status: an integer matching an entry in the cti hint configuration
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "endpoint_status_update",
+    "data": {
+      "endpoint_id": 42,
+      "xivo_uuid": "<the-xivo-uuid>",
+      "status": <hint-status>
+    }
+  }
+
+The `endpoint_status_update` event contains the same data as the :ref:`bus-endpoint_status_update`.
+The latter should be prefered to the former for uses that do not require a
+persistent connection to xivo-ctid.
+
+
 .. _register_user_status_update_command:
 
 register_user_status_update
@@ -183,7 +363,10 @@ The :ref:`unregister_user_status_update_command` command should be used to stop 
 
   {
     "class": "register_user_status_update",
-    "user_ids": [<user_id1>, <user_id2>, ..., <user_idn>],
+    "user_ids": [["<xivo-uuid>", "<user-id1>"],
+                 ["<xivo-uuid>", "<user-id2>"],
+                 ...,
+                 ["<xivo-uuid>", "<user-idn>"]],
     "commandid": <commandid>
   }
 
@@ -205,9 +388,13 @@ events for the specified users.
 
   {
     "class": "unregister_user_status_update",
-    "user_ids": [<user_id1>, <user_id2>, ..., <user_idn>],
+    "user_ids": [["<xivo-uuid>", "<agent-id1>"],
+                 ["<xivo-uuid>", "<agent-id2>"],
+                 ...,
+                 ["<xivo-uuid>", "<agent-idn>"]],
     "commandid": <commandid>
   }
+
 
 .. _user_status_update_event:
 
@@ -225,8 +412,11 @@ To stop receiving this event, the user must send the
 * data, a dictionary containing 3 fields:
 
   * user_id, is an integer containing the ID of the user affected by this status change
-  * color: a string representing the color to display for the new status
-  * display: a string containing the displayed text
+  * xivo_uuid: a string containing the UUID of the XiVO that sent the status update
+  * status: a string containing the new status of the user based on the cti profile configuration
+
+.. note:: When multiple XiVO share user statuses, the cti profile configuration for presences and phone statuses
+should match on all XiVO to be displayed properly
 
 ``Server -> Client``
 
@@ -236,8 +426,8 @@ To stop receiving this event, the user must send the
     "class": "user_status_update",
     "data": {
       "user_id": 42,
-      "color": "#001AFF",
-      "display": "Out to lunch",
+      "xivo_uuid": "<the-xivo-uuid>",
+      "status": "<status-name>"
     }
   }
 
