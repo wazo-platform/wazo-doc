@@ -167,7 +167,7 @@ people_search
 .. _register_agent_status_update_command:
 
 register_agent_status_update
----------------------------
+----------------------------
 
 The `register_agent_status_update` command is used to register to the status
 updates of a list of agent. Once registered to a agent's status, the client will
@@ -195,7 +195,7 @@ The :ref:`unregister_agent_status_update_command` command should be used to stop
 .. _unregister_agent_status_update_command:
 
 unregister_agent_status_update
------------------------------
+------------------------------
 
 The `unregister_agent_status_update` command is used to unregister from the
 status updates of a list of agent.
@@ -219,7 +219,7 @@ events for the specified agents.
 .. _agent_status_update_event:
 
 agent_status_update
-------------------
+-------------------
 
 The `agent_status_update` event is received when the presence of an agent changes.
 
@@ -249,14 +249,14 @@ To stop receiving this event, the user must send the
   }
 
 The `agent_status_update` event contains the same data as the :ref:`bus-agent_status_update`.
-The latter should be prefered to the former for uses that do not require a
+The latter should be preferred to the former for uses that do not require a
 persistent connection to xivo-ctid.
 
 
 .. _register_endpoint_status_update_command:
 
 register_endpoint_status_update
----------------------------
+-------------------------------
 
 The `register_endpoint_status_update` command is used to register to the status
 updates of a list of lines. Once registered to a endpoint's status, the client will
@@ -284,7 +284,7 @@ The :ref:`unregister_endpoint_status_update_command` command should be used to s
 .. _unregister_endpoint_status_update_command:
 
 unregister_endpoint_status_update
------------------------------
+---------------------------------
 
 The `unregister_endpoint_status_update` command is used to unregister from the
 status updates of a list of agent.
@@ -309,7 +309,7 @@ events for the specified agents.
 .. _endpoint_status_update_event:
 
 endpoint_status_update
-------------------
+----------------------
 
 The `endpoint_status_update` event is received when the status of a line changes.
 
@@ -339,7 +339,7 @@ To stop receiving this event, the user must send the
   }
 
 The `endpoint_status_update` event contains the same data as the :ref:`bus-endpoint_status_update`.
-The latter should be prefered to the former for uses that do not require a
+The latter should be preferred to the former for uses that do not require a
 persistent connection to xivo-ctid.
 
 
@@ -416,7 +416,7 @@ To stop receiving this event, the user must send the
   * status: a string containing the new status of the user based on the cti profile configuration
 
 .. note:: When multiple XiVO share user statuses, the cti profile configuration for presences and phone statuses
-should match on all XiVO to be displayed properly
+   should match on all XiVO to be displayed properly
 
 ``Server -> Client``
 
@@ -432,7 +432,7 @@ should match on all XiVO to be displayed properly
   }
 
 The `user_status_update` event contains the same data as the :ref:`bus-user_status_update`.
-The latter should be prefered to the former for uses that do not require a
+The latter should be preferred to the former for uses that do not require a
 persistent connection to xivo-ctid.
 
 
@@ -444,7 +444,7 @@ reseted by the cti server.
 
 * login_id, the username is sent as a login to the cti server, cti server answers by giving a sessionid
 * login_pass, the password combined with the sessionid is sent to the cti server, cti server answers by giving a capaid
-* login_capas, the capaid is returned to the server with the phone state, cti server answers with a list of info relevevant to the user
+* login_capas, the capaid is returned to the server with the phone state, cti server answers with a list of info relevant to the user
 
 .. code-block:: javascript
 
