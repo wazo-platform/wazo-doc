@@ -7,6 +7,7 @@ Community Documentation
 This page provides links to resources on various topics around XiVO. They have
 been generously created by people from the community.
 
+
 Tutorials
 ---------
 
@@ -15,7 +16,7 @@ not been reviewed by the XiVO team, therefore the information presented may be
 innaccurate. We also accept resources provided in other languages besides
 English.
 
-Unless specified, the license is `CC BY-SA`_..
+Unless specified, the license is `CC BY-SA`_.
 
 .. _CC BY-SA: https://creativecommons.org/licenses/by-sa/3.0/
 
@@ -38,8 +39,14 @@ Unless specified, the license is `CC BY-SA`_..
 | :download:`How to export the phonebook of XiVO<data/how_to_export_phonebook.pdf>` with       | French   |              | Yohan Vitu |
 | :download:`phonebook_csv_export.py<data/phonebook_csv_export.py>`                            |          |              |            |
 +----------------------------------------------------------------------------------------------+----------+--------------+------------+
-| `Installing XiVO (YouTube series) <https://www.youtube.com/watch?v=EmY2KhCn418>`_            | English  | 14.20        | VoIP-Nuiz  |
+| `Installing XiVO (YouTube series)`_                                                          | English  | 14.20        | VoIP-Nuiz  |
 +----------------------------------------------------------------------------------------------+----------+--------------+------------+
+| `XiVO provisioning + pfSense + siproxd + OVH`_                                               | French   |              | DarkPonay  |
++----------------------------------------------------------------------------------------------+----------+--------------+------------+
+
+.. _XiVO provisioning + pfSense + siproxd + OVH: http://retroplace.nyxd.org/2015/01/28/xivo-auto-hebergement-telephonie-pfsense-ovh/
+.. _Installing XiVO (YouTube series): https://www.youtube.com/watch?v=EmY2KhCn418
+.. _Xivo pour les nuls: http://xivopourlesnuls.wordpress.com
 
 
 Contribute
