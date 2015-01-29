@@ -37,13 +37,14 @@ Unless specified, the license is `CC BY-SA`_.
 | :download:`How to configure a C610P IP on XiVO<data/how_to_configure_a_C610_on_xivo.pdf>`    | French   |              | Yohan Vitu   |
 +----------------------------------------------------------------------------------------------+----------+--------------+--------------+
 | :download:`How to export the phonebook of XiVO<data/how_to_export_phonebook.pdf>` with       | French   |              | Yohan Vitu   |
-| :download:`phonebook_csv_export.py<data/phonebook_csv_export.py>`                            |          |              |              |
+| `phonebook_csv_export.py`_                                                                   |          |              |              |
 +----------------------------------------------------------------------------------------------+----------+--------------+--------------+
 | `Installing XiVO (YouTube series)`_                                                          | English  | 14.20        | VoIP-Nuiz    |
 +----------------------------------------------------------------------------------------------+----------+--------------+--------------+
 | `XiVO provisioning + pfSense + siproxd + OVH`_                                               | French   |              | NyXD Systems |
 +----------------------------------------------------------------------------------------------+----------+--------------+--------------+
 
+.. _phonebook_csv_export.py: https://raw.githubusercontent.com/xivo-pbx/xivo-tools/master/scripts/phonebook_csv_export.py
 .. _XiVO provisioning + pfSense + siproxd + OVH: http://retroplace.nyxd.org/2015/01/28/xivo-auto-hebergement-telephonie-pfsense-ovh/
 .. _Installing XiVO (YouTube series): https://www.youtube.com/watch?v=EmY2KhCn418
 .. _Xivo pour les nuls: http://xivopourlesnuls.wordpress.com
