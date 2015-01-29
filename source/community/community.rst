@@ -20,29 +20,29 @@ Unless specified, the license is `CC BY-SA`_.
 
 .. _CC BY-SA: https://creativecommons.org/licenses/by-sa/3.0/
 
-+----------------------------------------------------------------------------------------------+----------+--------------+------------+
-| Tutorial                                                                                     | Language | XiVO Version | Author     |
-+==============================================================================================+==========+==============+============+
-| :download:`How to popup an url with CTIClient<data/how_to_popup_an_url_with_xivoclient.pdf>` | French   | 14.17        | Assonance  |
-+----------------------------------------------------------------------------------------------+----------+--------------+------------+
-| `Xivo pour les nuls <http://xivopourlesnuls.wordpress.com>`_                                 | French   |              |            |
-+----------------------------------------------------------------------------------------------+----------+--------------+------------+
-| :download:`How to use openVPN on XiVO<data/how_to_install_openvpn_on_xivo.pdf>`              | French   |              | Yohan Vitu |
-+----------------------------------------------------------------------------------------------+----------+--------------+------------+
-| :download:`How to backup XiVO to external FTP<data/how_to_backup_xivo_to_external_ftp.pdf>`  | French   |              | Yohan Vitu |
-| with :download:`backup-ftp.sh<data/backup-ftp.sh>`                                           |          |              |            |
-+----------------------------------------------------------------------------------------------+----------+--------------+------------+
-| :download:`How to create a XiVO Client<data/how_to_create_a_xivo_client.pdf>`                | French   |              | Yohan Vitu |
-+----------------------------------------------------------------------------------------------+----------+--------------+------------+
-| :download:`How to configure a C610P IP on XiVO<data/how_to_configure_a_C610_on_xivo.pdf>`    | French   |              | Yohan Vitu |
-+----------------------------------------------------------------------------------------------+----------+--------------+------------+
-| :download:`How to export the phonebook of XiVO<data/how_to_export_phonebook.pdf>` with       | French   |              | Yohan Vitu |
-| :download:`phonebook_csv_export.py<data/phonebook_csv_export.py>`                            |          |              |            |
-+----------------------------------------------------------------------------------------------+----------+--------------+------------+
-| `Installing XiVO (YouTube series)`_                                                          | English  | 14.20        | VoIP-Nuiz  |
-+----------------------------------------------------------------------------------------------+----------+--------------+------------+
-| `XiVO provisioning + pfSense + siproxd + OVH`_                                               | French   |              | DarkPonay  |
-+----------------------------------------------------------------------------------------------+----------+--------------+------------+
++----------------------------------------------------------------------------------------------+----------+--------------+--------------+
+| Tutorial                                                                                     | Language | XiVO Version | Author       |
++==============================================================================================+==========+==============+==============+
+| :download:`How to popup an url with CTIClient<data/how_to_popup_an_url_with_xivoclient.pdf>` | French   | 14.17        | Assonance    |
++----------------------------------------------------------------------------------------------+----------+--------------+--------------+
+| `Xivo pour les nuls <http://xivopourlesnuls.wordpress.com>`_                                 | French   |              |              |
++----------------------------------------------------------------------------------------------+----------+--------------+--------------+
+| :download:`How to use openVPN on XiVO<data/how_to_install_openvpn_on_xivo.pdf>`              | French   |              | Yohan Vitu   |
++----------------------------------------------------------------------------------------------+----------+--------------+--------------+
+| :download:`How to backup XiVO to external FTP<data/how_to_backup_xivo_to_external_ftp.pdf>`  | French   |              | Yohan Vitu   |
+| with :download:`backup-ftp.sh<data/backup-ftp.sh>`                                           |          |              |              |
++----------------------------------------------------------------------------------------------+----------+--------------+--------------+
+| :download:`How to create a XiVO Client<data/how_to_create_a_xivo_client.pdf>`                | French   |              | Yohan Vitu   |
++----------------------------------------------------------------------------------------------+----------+--------------+--------------+
+| :download:`How to configure a C610P IP on XiVO<data/how_to_configure_a_C610_on_xivo.pdf>`    | French   |              | Yohan Vitu   |
++----------------------------------------------------------------------------------------------+----------+--------------+--------------+
+| :download:`How to export the phonebook of XiVO<data/how_to_export_phonebook.pdf>` with       | French   |              | Yohan Vitu   |
+| :download:`phonebook_csv_export.py<data/phonebook_csv_export.py>`                            |          |              |              |
++----------------------------------------------------------------------------------------------+----------+--------------+--------------+
+| `Installing XiVO (YouTube series)`_                                                          | English  | 14.20        | VoIP-Nuiz    |
++----------------------------------------------------------------------------------------------+----------+--------------+--------------+
+| `XiVO provisioning + pfSense + siproxd + OVH`_                                               | French   |              | NyXD Systems |
++----------------------------------------------------------------------------------------------+----------+--------------+--------------+
 
 .. _XiVO provisioning + pfSense + siproxd + OVH: http://retroplace.nyxd.org/2015/01/28/xivo-auto-hebergement-telephonie-pfsense-ovh/
 .. _Installing XiVO (YouTube series): https://www.youtube.com/watch?v=EmY2KhCn418
