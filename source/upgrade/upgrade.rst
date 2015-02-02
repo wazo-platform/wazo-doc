@@ -138,6 +138,12 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.02
+-----
+
+* Consult the `15.02 Roadmap <https://projects.xivo.io/versions/218>`_
+
+
 15.01
 -----
 
