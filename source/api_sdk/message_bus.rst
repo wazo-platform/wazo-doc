@@ -53,7 +53,7 @@ Here's an example of a simple client, in python, listening for the
                     callbacks=[self.on_message])]
 
         def on_message(self, body, message):
-            print 'Received:', body
+            print('Received:', body)
             message.ack()
 
 
