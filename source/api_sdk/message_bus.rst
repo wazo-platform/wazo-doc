@@ -35,24 +35,37 @@ Example
 Here's an example of a simple client, in python, listening for the
 :ref:`bus-call_form_result` CTI events::
 
-   #!/usr/bin/python
+    import kombu
 
-   import pika
+    from kombu.mixins import ConsumerMixin
 
-   connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
-   channel = connection.channel()
+    EXCHANGE = kombu.Exchange('xivo', type='topic')
+    ROUTING_KEY = 'call_form_result'
 
-   result = channel.queue_declare(exclusive=True)
-   queue_name = result.method.queue
 
-   channel.queue_bind(exchange='xivo', queue=queue_name, routing_key='call_form_result')
+    class C(ConsumerMixin):
 
-   def callback(ch, method, props, body):
-       print 'Received:', body
-       ch.basic_ack(delivery_tag=method.delivery_tag)
+        def __init__(self, connection):
+            self.connection = connection
 
-   channel.basic_consume(callback, queue=queue_name)
-   channel.start_consuming()
+        def get_consumers(self, Consumer, channel):
+            return [Consumer(kombu.Queue(exchange=EXCHANGE, routing_key=ROUTING_KEY),
+                    callbacks=[self.on_message])]
+
+        def on_message(self, body, message):
+            print 'Received:', body
+            message.ack()
+
+
+    def main():
+        with kombu.Connection('amqp://guest:guest@localhost:5672//') as conn:
+            try:
+                C(conn).run()
+            except KeyboardInterrupt:
+                return
+
+
+    main()
 
 If you are new to AMQP, you might want to look at the
 `RabbitMQ tutorial <http://previous.rabbitmq.com/v2_8_x/getstarted.html>`_.
