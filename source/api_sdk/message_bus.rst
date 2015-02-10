@@ -91,9 +91,11 @@ Events
 Events that are sent to the bus use a JSON serialization format. For example,
 the CTI call_form_result event looks like this::
 
-    {"name": "call_form_result", "data": {...}}
+    {"name": "call_form_result",
+     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+     "data": {...}}
 
-All events have the same basic structure, namely, a JSON object with two keys:
+All events have the same basic structure, namely, a JSON object with three keys:
 
 name
     A string representing the name of the event. Each event type has a unique name.
