@@ -95,11 +95,11 @@ Phone numbers
 
 These are the different phone numbers that are available
 
-* phonebooknumber.fax
-* phonebooknumber.home
-* phonebooknumber.mobile
-* phonebooknumber.office
-* phonebooknumber.other
+* phonebooknumber.fax.number
+* phonebooknumber.home.number
+* phonebooknumber.mobile.number
+* phonebooknumber.office.number
+* phonebooknumber.other.number
 
 
 Addresses
