@@ -264,6 +264,7 @@ Example (a file inside ``source_config_dir``):
        host: xivo.example.com
        port: 9487
        version: 1.1
+       timeout: 3
    searched_columns:
        - firstname
        - lastname
