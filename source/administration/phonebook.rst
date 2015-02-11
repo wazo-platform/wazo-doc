@@ -1,3 +1,5 @@
+.. _phonebook:
+
 *********
 Phonebook
 *********
@@ -60,6 +62,8 @@ Optional headers are :
 .. _here: http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm
 .. _BOM: http://www.unicode.org/faq/utf_bom.html#BOM
 
+
+.. _phonebook-fields:
 
 Displayed fields
 ================

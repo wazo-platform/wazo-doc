@@ -183,6 +183,62 @@ unique_columns (optional)
    identifying favorites.
 
 
+phonebook
+---------
+
+Back-end name: phonebook
+
+Purpose: search directory entries from a XiVO :ref:`phone book <phonebook>`.
+
+Configuration
+^^^^^^^^^^^^^
+
+Example (a file inside ``source_config_dir``):
+
+.. code-block:: yaml
+   :linenos:
+
+   type: phonebook
+   name: my_phonebook
+   phonebook_url: https://example.org/service/ipbx/json.php/restricted/pbx_services/phonebook
+   phonebook_username: admin
+   phonebook_password: foobar
+   source_to_display_columns:
+       phonebook.firstname: firstname
+       phonebook.lastname: lastname
+       phonebooknumber.office.number: number
+
+
+phonebook_url (optional)
+   the phonebook's URL.
+
+   Default to ``http://localhost/service/ipbx/json.php/private/pbx_services/phonebook``.
+
+   The URL to use differs depending on if you are accessing the phone book locally or remotely:
+
+   * Local: ``http://localhost/service/ipbx/json.php/private/pbx_services/phonebook``
+   * Remote: ``https://example.org/service/ipbx/json.php/restricted/pbx_services/phonebook``
+
+phonebook_username (optional)
+   the username to use in HTTP requests.
+
+   No HTTP authentication is tried when phonebook_username or phonebook_password are empty.
+
+phonebook_password (optional)
+   the password to use in HTTP requests.
+
+phonebook_timeout (optional)
+   the HTTP request timeout, in seconds.
+
+   Defaults to 1.0.
+
+To be able to access the phone book of a remote XiVO, you must create a web services access user
+(:menuselection:`Configuration -> Web Services Access`) on the remote XiVO.
+
+The source fields that can be used in ``source_to_display_columns`` are those described in
+:ref:`this section <phonebook-fields>`.
+
+
 xivo
 ----
 
