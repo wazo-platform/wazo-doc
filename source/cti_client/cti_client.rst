@@ -109,8 +109,23 @@ automatically dial the number when you click on a link.
 Mac OS
 ------
 
-``callto:`` and ``tel:`` links will work out-of-the-box in Safari and other web browsers after
-installing the client.
+``callto:`` links will work out-of-the-box in Safari and other web browsers
+after installing the client.
+
+``tel:`` links will open facetime after installing the client. To make the
+xivoclient the default application to open ``tel:`` URLs in safari.
+
+1. Open the facetime application
+2. Connect using your apple account
+3. Open the facetime preferences
+4. Change the *Default for calls* entry to *xivoclient.app*
+
+
+.. figure:: images/facetime_preference.png
+
+
+.. note:: The ``tel:`` URL works out-of-the-box in versions of mac osx before 10.10.
+
 
 Windows
 -------
