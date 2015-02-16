@@ -17,8 +17,10 @@ under the *GPLv3 license*.
 .. _free software: http://www.gnu.org/philosophy/free-sw.html
 
 You may also check the `XiVO blog`_ for more information.
-XiVO documentation is also available as `an EPUB file <http://documentation.xivo.io/epub/>`_
-or as `a PDF file <http://documentation.xivo.io/pdf/>`_
+
+XiVO documentation is also available as a downloadable HTML, EPUB or PDF file.
+See the `downloads page <https://readthedocs.org/projects/xivo/downloads/>`_
+for a list of available files or use the menu on the lower right.
 
 .. _XiVO blog: http://blog.xivo.io/
 

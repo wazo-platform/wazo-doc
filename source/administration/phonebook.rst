@@ -1,3 +1,5 @@
+.. _phonebook:
+
 *********
 Phonebook
 *********
@@ -61,6 +63,8 @@ Optional headers are :
 .. _BOM: http://www.unicode.org/faq/utf_bom.html#BOM
 
 
+.. _phonebook-fields:
+
 Displayed fields
 ================
 
@@ -95,11 +99,11 @@ Phone numbers
 
 These are the different phone numbers that are available
 
-* phonebooknumber.fax
-* phonebooknumber.home
-* phonebooknumber.mobile
-* phonebooknumber.office
-* phonebooknumber.other
+* phonebooknumber.fax.number
+* phonebooknumber.home.number
+* phonebooknumber.mobile.number
+* phonebooknumber.office.number
+* phonebooknumber.other.number
 
 
 Addresses

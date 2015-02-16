@@ -35,24 +35,37 @@ Example
 Here's an example of a simple client, in python, listening for the
 :ref:`bus-call_form_result` CTI events::
 
-   #!/usr/bin/python
+    import kombu
 
-   import pika
+    from kombu.mixins import ConsumerMixin
 
-   connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
-   channel = connection.channel()
+    EXCHANGE = kombu.Exchange('xivo', type='topic')
+    ROUTING_KEY = 'call_form_result'
 
-   result = channel.queue_declare(exclusive=True)
-   queue_name = result.method.queue
 
-   channel.queue_bind(exchange='xivo', queue=queue_name, routing_key='call_form_result')
+    class C(ConsumerMixin):
 
-   def callback(ch, method, props, body):
-       print 'Received:', body
-       ch.basic_ack(delivery_tag=method.delivery_tag)
+        def __init__(self, connection):
+            self.connection = connection
 
-   channel.basic_consume(callback, queue=queue_name)
-   channel.start_consuming()
+        def get_consumers(self, Consumer, channel):
+            return [Consumer(kombu.Queue(exchange=EXCHANGE, routing_key=ROUTING_KEY),
+                    callbacks=[self.on_message])]
+
+        def on_message(self, body, message):
+            print('Received:', body)
+            message.ack()
+
+
+    def main():
+        with kombu.Connection('amqp://guest:guest@localhost:5672//') as conn:
+            try:
+                C(conn).run()
+            except KeyboardInterrupt:
+                return
+
+
+    main()
 
 If you are new to AMQP, you might want to look at the
 `RabbitMQ tutorial <http://previous.rabbitmq.com/v2_8_x/getstarted.html>`_.
@@ -78,12 +91,17 @@ Events
 Events that are sent to the bus use a JSON serialization format. For example,
 the CTI call_form_result event looks like this::
 
-    {"name": "call_form_result", "data": {...}}
+    {"name": "call_form_result",
+     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+     "data": {...}}
 
-All events have the same basic structure, namely, a JSON object with two keys:
+All events have the same basic structure, namely, a JSON object with three keys:
 
 name
     A string representing the name of the event. Each event type has a unique name.
+
+origin_uuid
+    The uuid to identify the message producer.
 
 data
     The data specific part of the event. This is documented on a per event type; if not
@@ -104,6 +122,7 @@ Example event with binding key QueueMemberStatus::
 
    {
        "name": "QueueMemberStatus",
+       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
            "Status": "1",
            "Penalty": "0",
@@ -139,6 +158,7 @@ Example::
 
    {
        "name": "call_form_result",
+       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
            "user_id": 40,
            "variables": {
@@ -167,6 +187,7 @@ Example::
 
    {
        "name": "agent_status_update",
+       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
            "agent_id": 42,
            "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -194,6 +215,7 @@ Example::
 
    {
        "name": "endpoint_status_update",
+       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
            "endpoint_id": 67,
            "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -220,6 +242,7 @@ Example::
 
    {
        "name": "user_status_update",
+       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
            "user_id": 42,
            "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
