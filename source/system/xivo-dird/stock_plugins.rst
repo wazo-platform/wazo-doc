@@ -246,10 +246,6 @@ Back-end name: xivo
 
 Purpose: add users from a XiVO (may be remote) as directory entries
 
-Limitations:
-
-* the users list is not updated dynamically. You must restart xivo-dird to update the user list.
-
 Configuration
 ^^^^^^^^^^^^^
 
