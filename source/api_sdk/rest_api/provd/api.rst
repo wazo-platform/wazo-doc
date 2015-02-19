@@ -27,9 +27,3 @@ The description of the API has been split into these sections:
    configs
    plugins
    general
-
-
-External Links
-==============
-
-* `Original provd REST API documentation <https://wiki.xivo.io/index.php/User:Hexanol/Provd_REST_API_Documentation>`_
