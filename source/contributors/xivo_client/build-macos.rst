@@ -14,9 +14,10 @@ Developer tools
 ---------------
 
 You will need an Apple developer account to get development tools, such as GCC. To log in or sign
-in, go to http://connect.apple.com. In the Downloads section, get the Command line Tools for XCode
-and install them. You might want to get XCode too, but it is rather big.
+in, go to the `Developer portal of Apple`_. In the Downloads section, get the Command line Tools for
+XCode and install them. You might want to get XCode too, but it is rather big.
 
+.. _Developer portal of Apple: https://developer.apple.com/downloads/index.action
 
 Qt SDK
 ------
