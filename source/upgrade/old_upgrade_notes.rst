@@ -2,6 +2,291 @@
 Archived Upgrade Notes
 **********************
 
+
+2014
+====
+
+14.24
+-----
+
+* Consult the `14.24 Roadmap <https://projects.xivo.io/versions/216>`_
+
+The following security vulnerability has been fixed:
+
+* `XIVO-2014-01 <http://mirror.xivo.io/security/XIVO-2014-01.pdf>`_: Queues and groups permit callers to make unwanted calls
+
+
+14.23
+-----
+
+* Consult the `14.23 Roadmap <https://projects.xivo.io/versions/215>`_
+* The "waiting calls / logged agents ratio" :ref:`queue diversion scenario <queue-diversion-waitratio>`
+  has been renamed to "number of waiting calls per logged agents".
+* A new :ref:`community <community-documentation>` section was added to the official documentation for all user-contributed documentation.
+
+
+14.22
+-----
+
+* Consult the `14.22 Roadmap <https://projects.xivo.io/versions/213>`_
+* The sheet event *Dial* on queues is now only sent to the ringing agent. The
+  sheet is also sent a little later during the call, when the ringing agent is
+  known.
+
+
+14.21
+-----
+
+* Consult the `14.21 Roadmap <https://projects.xivo.io/versions/212>`_
+* The :ref:`confd REST API <confd-api>` is now accessible via HTTPS on port 9486 and via HTTP on
+  port 9487 (localhost only). These ports are replacing the 50051 and 50050 ports respectively.  It
+  will still be possible to access the confd REST API via the 50051 and 50050 ports for the next
+  year, but you are advised to update your confd REST API clients as soon as possible.
+* The old (unsupported) ami-proxy is now replaced by an ami-proxy built in xivo-ctid.
+  You must `uninstall the old ami-proxy <https://github.com/xivo-pbx/xivo-tools/tree/master/ami-proxy>`_ before activating the built-in version. See
+  :ref:`troubleshooting xivo-ctid <cti-ami-proxy>` to learn how to activate.
+
+
+14.20
+-----
+
+* Consult the `14.20 Roadmap <https://projects.xivo.io/versions/211>`_
+* Default parameters for all Cisco SPA ATA plugins have changed to be better suited for european faxes.
+* Following the `POODLE attack <https://www.openssl.org/~bodo/ssl-poodle.pdf>`_ (CVE-2014-3566), SSL 3.0
+  has been disabled for the web interface and the xivo-confd REST API.
+
+If you have Aastra phones and are using the remote directory on them, consult the following detailed upgrade notes:
+
+.. toctree::
+   :maxdepth: 1
+
+   14.20/aastra_remote_directory
+
+
+14.19
+-----
+
+* Consult the `14.19 Roadmap <https://projects.xivo.io/versions/210>`_
+
+
+14.18
+-----
+
+* Consult the `14.18 Roadmap <https://projects.xivo.io/versions/209>`_
+* xivo-fai packages were replaced with xivo-dist : a new tool to handle repositories sources.
+  Upon upgrade, xivo-dist is installed and run and all xivo-fai packages are purged.
+  :ref:`Consult xivo-dist use cases <xivo_dist>`
+
+
+14.17
+-----
+
+* Consult the `14.17 Roadmap <https://projects.xivo.io/versions/208>`_
+* DAHDI configuration file :file:`/etc/dahdi/modules` is no more created by default and must now be
+  maintained manually. No action is needed upon upgrade but be aware that the upstream sample file
+  is now available in :file:`/usr/share/dahdi/modules.sample`. See
+  :ref:`dahdi modules documentation <load_dahdi_modules>` for detailed info.
+* The new :ref:`CCSS feature <ccss>` will not be enabled upon upgrade, you must explicitly enable it
+  in the :menuselection:`IPBX --> IPBX Services --> Extensions` menu.
+
+
+14.16
+-----
+
+* Consult the `14.16 Roadmap <https://projects.xivo.io/versions/207>`_
+* See the :ref:`changelog <confd_changelog>` for xivo-confd's REST API
+* DAHDI is upgraded to 2.10.0. If the upgrade process asks about :file:`/etc/dahdi/modules`, we
+  recommend that you keep the old version of the file.
+* Asterisk now inserts CEL and queue log entries via the ODBC asterisk modules instead of
+  the pgsql modules.
+
+
+14.15
+-----
+
+* Consult the `14.15 Roadmap <https://projects.xivo.io/versions/206>`_
+* Duplicate function keys will be deleted upon upgrade. If multiple function keys pointing to
+  the same destination are detected for a given user, only the one with the lowest position will
+  be kept. To see the list of deleted function keys, check the xivo-upgrade log file such as::
+
+     grep MIGRATE_FK /var/log/xivo-upgrade.log
+
+.. toctree::
+   :maxdepth: 1
+
+   14.15/dahdi_2.9.2
+
+
+14.14
+-----
+
+* Consult the `14.14 Roadmap <https://projects.xivo.io/versions/205>`_
+* See the :ref:`changelog <confd_changelog>` for REST API
+* Upon an important freeze of Asterisk, Asterisk will be restarted. See the `associated ticket
+  <https://projects.xivo.io/issues/5165>`_ for more information.
+
+
+14.13
+-----
+
+* Consult the `14.13 Roadmap <https://projects.xivo.io/versions/204>`_
+* See the :ref:`changelog <confd_changelog>` for REST API
+* Skills-based routing: for an agent which doesn't have the skill X, the rule X < 10 was
+  previously evaluated to true, since not having the skill X was equivalent to having it with a
+  value of 0. This behaviour has changed, and the same expression is now evaluated to false. If you
+  are using skills-based routing, you'll need to check that your rules are still doing what you
+  expect. See :ref:`skill evaluation <skill-evaluation>` for more information.
+
+
+14.12
+-----
+
+* Consult the `14.12 Roadmap <https://projects.xivo.io/versions/203>`_
+* All provisioning plugins were modified. Although not mandatory, it is strongly advised to update
+  all used plugins.
+* The function key 'Activate voicemail' was removed as it was a duplicate of existing function key
+  'Enable voicemail'. All users having the 'Activate voicemail' function key will have to be
+  reconfigured with a 'Enable voicemail' function key in order to keep the equivalent feature.
+* Log files have changed for the following daemons (previously in :file:`/var/log/daemon.log`):
+
+  * xivo-provd: :file:`/var/log/xivo-provd.log`
+  * xivo-agid: :file:`/var/log/xivo-agid.log`
+  * xivo-sysconfd: :file:`/var/log/xivo-sysconfd.log`
+
+
+14.11
+-----
+
+* Consult the `14.11 Roadmap <https://projects.xivo.io/versions/202>`_
+* The API URL :ref:`/lines/\<id\>/extension <line-extension-association>` is now deprecated. Use
+  :ref:`/lines/\<id\>/extensions <line-extension-associations>` instead.
+
+
+14.10
+-----
+
+* Consult the `14.10 Roadmap <https://projects.xivo.io/versions/201>`_
+* Custom MOH have been `fixed`_, but can not be used for playing uploaded files anymore. See
+  :ref:`moh`.
+
+.. _fixed: https://projects.xivo.io/issues/5038
+
+
+14.09
+-----
+
+* Consult the `14.09 Roadmap <https://projects.xivo.io/versions/200>`_
+* REST API 1.0 is no more. All code, tests and documentation was removed from XiVO.
+  All code developped for REST API 1.0 must now be adapted to use REST API 1.1.
+
+
+14.08
+-----
+
+* Consult the `14.08 Roadmap <https://projects.xivo.io/versions/199>`_
+* The ``xivo`` database has been merged into the ``asterisk`` database. The database
+  schema has also been altered in a way that it might make the upgrade longer than
+  usual.
+
+Please consult the following detailed updated notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   14.08/database_merge
+
+
+14.07
+-----
+
+* Consult the `14.07 Roadmap <https://projects.xivo.io/versions/198>`_
+* Configuration for phones used for the switchboard has changed.
+
+Please consult the following detailed updated notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   14.07/switchboard_plugin
+
+
+14.06
+-----
+
+* Consult the `14.06 Roadmap <https://projects.xivo.io/versions/197>`_
+* The XiVO client now uses Qt 5 instead of Qt 4. There is nothing to be aware of unless you
+  are :ref:`building your own version <build_xivoclient>` of it.
+
+
+14.05
+-----
+
+* Consult the `14.05 Roadmap <https://projects.xivo.io/versions/196>`_
+* The :ref:`cti-protocol` has been updated.
+* The specification of the 'answered-rate' queue statistic has changed to
+  exclude calls on a closed queue
+* The switchboard can now choose which incoming call to answer
+* The package versions do not necessarily contain the current XiVO version, it may contain older
+  versions. Only the package ``xivo`` is guaranteed to have the current XiVO version.
+
+Please consult the following detailed updated notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   14.05/dahdi_2.9.0
+   14.05/sccp_next
+
+
+14.04
+-----
+
+* Consult the `14.04 Roadmap <https://projects.xivo.io/versions/195>`_
+* Live reload of the configuration can be enabled and disabled using the REST API
+* The generation of call logs for unanswered calls from the XiVO client have
+  been improved.
+
+
+14.03
+-----
+
+* Consult the `14.03 Roadmap <https://projects.xivo.io/versions/194>`_
+* A migration script adds an index on the linkedid field in the cel table.
+  Tests have shown that this operation can last up to 11.5 minutes on a XiVO
+  Corporate with 18 millions CELs. xivo-upgrade will thus be slightly longer.
+* Two new daemons are now operationnal, xivo-amid and xivo-call-logd:
+
+  * xivo-amid constantly reads the AMI and sends AMI events to the RabbitMQ bus
+  * xivo-call-logd generates call-logs in real time based on AMI LINKEDID_END
+    events read on the bus
+* An increase in load average is expected with the addition of these two new
+  daemons.
+* The cron job calling xivo-call-logs now runs once a day at 4:25 instead of
+  every 5 minutes.
+
+
+14.02
+-----
+
+* Consult the `14.02 Roadmap <https://projects.xivo.io/versions/193>`_
+* PHP Web services has been removed from documentation
+* REST API 1.0 Web services has been removed from documentation
+* REST API 1.1 User-Line-Extension service is replaced by User-Line and Line-Extension services
+
+
+14.01
+-----
+
+* Consult the `14.01 Roadmap <https://projects.xivo.io/versions/192>`_
+* The following paths have been renamed:
+
+  * :file:`/etc/pf-xivo` to :file:`/etc/xivo`
+  * :file:`/var/lib/pf-xivo` to :file:`/var/lib/xivo`
+  * :file:`/usr/share/pf-xivo` to :file:`/usr/share/xivo`
+
+You must update any dialplan or configuration file using these paths
+
+
 2013
 ====
 
