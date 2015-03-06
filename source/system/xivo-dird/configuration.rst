@@ -54,14 +54,17 @@ Here's an example of the main configuration file:
                    title: Firstname
                    default: Unknown
                    field: firstname
+                   type: name
                -
                    title: Lastname
                    default: Unknown
                    field: lastname
+                   type: name
            default_display:
                -
                    title: Firstname
                    field: fn
+                   type: name
                -
                    title: Location
                    default: Canada
@@ -69,6 +72,7 @@ Here's an example of the main configuration file:
                -
                    title: Number
                    field: number
+                   type: number
         profile_to_display:
             default: default_display
             switchboard: switchboard_display
@@ -79,13 +83,13 @@ Here's an example of the main configuration file:
                sources:
                    - my_csv
                    - ldap_quebec
-                timeout: 0.5
-            switchboard:
-                sources:
-                    - my_csv
-                    - xivo_phonebook
-                    - ldap_quebec
-                timeout: 1
+               timeout: 0.5
+           switchboard:
+               sources:
+                   - my_csv
+                   - xivo_phonebook
+                   - ldap_quebec
+               timeout: 1
 
 
 Root section
@@ -144,7 +148,8 @@ displays
    * title: The label of the field
    * default: The default value of the field
    * type: An arbitrary identifier of the field. May be used by consumers to identify the field
-     without matching the label.
+     without matching the label. For meaningful values inside XiVO, see
+     :ref:`xivo-dird-integration`.
    * field: the key of the data from the source that will be used for this field.
 
    The display may be used by a plugin view to configure which fields are to be presented to the

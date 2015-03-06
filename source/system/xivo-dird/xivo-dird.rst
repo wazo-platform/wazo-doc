@@ -14,6 +14,7 @@ extendable with plugins.
    configuration
    developer
    stock_plugins
+   integration
 
 
 .. _xivo-dird-usage:
