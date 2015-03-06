@@ -79,13 +79,13 @@ Here's an example of the main configuration file:
                sources:
                    - my_csv
                    - ldap_quebec
-                timeout: 0.5
-            switchboard:
-                sources:
-                    - my_csv
-                    - xivo_phonebook
-                    - ldap_quebec
-                timeout: 1
+               timeout: 0.5
+           switchboard:
+               sources:
+                   - my_csv
+                   - xivo_phonebook
+                   - ldap_quebec
+               timeout: 1
 
 
 Root section
