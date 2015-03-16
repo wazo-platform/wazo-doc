@@ -97,7 +97,10 @@ Implementation details
     * key ``config``: the source configuration for this instance of the back-end
 
   * ``unload()``: free resources used by the plugin.
-  * ``search(term, args)``: The search method returns a list of dictionary
+  * ``search(term, args)``: The search method returns a list of dictionary.
+
+    * Empty values should be ``None``, instead of empty string.
+
   * ``list(uids)``: The list method returns a list of dictionary from a list of uids.
 
 The typical configuration file for a given back-end will look like this:
