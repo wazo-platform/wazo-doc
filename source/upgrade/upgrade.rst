@@ -138,6 +138,14 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.05
+-----
+
+* Consult the `15.05 Roadmap <https://projects.xivo.io/versions/221>`_
+* The Xlet identity has been modified to follow the new XiVO Client design which implies the removal
+  of some details.
+
+
 15.04
 -----
 
