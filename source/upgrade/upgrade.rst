@@ -148,9 +148,9 @@ Upgrade Notes
 * The provd_pycli command name has been deprecated in favor of xivo-provd-cli. These 2 commands do the
   same thing, the only difference being the name of the command. The provd_pycli command name will be
   removed in 15.10, so if you have custom scripts referencing provd_pycli, you'll need to update them.
-* The xivo-agentdctl command name has been deprecated in favor of xivo-agentd-cli. These 2 commands do the
-  same thing, the only difference being the name of the command. The xivo-agentdctl command name will be
-  removed in 15.10, so if you have custom scripts referencing xivo-agentdctl, you'll need to update them.
+* The xivo-agentctl command name has been deprecated in favor of xivo-agentd-cli. These 2 commands do the
+  same thing, the only difference being the name of the command. The xivo-agentctl command name will be
+  removed in 15.10, so if you have custom scripts referencing xivo-agentctl, you'll need to update them.
 
 
 15.05
