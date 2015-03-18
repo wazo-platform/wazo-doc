@@ -145,9 +145,12 @@ Upgrade Notes
 * The provd client has been moved into a new python package, xivo_provd_client. If you have custom scripts
   using this client, you'll need to update them. See http://projects.xivo.io/issues/5469 for more
   information.
-* The provd_pycli command name has ben deprecated in favor of xivo-provd-cli. These 2 commands does the
+* The provd_pycli command name has been deprecated in favor of xivo-provd-cli. These 2 commands do the
   same thing, the only difference being the name of the command. The provd_pycli command name will be
   removed in 15.10, so if you have custom scripts referencing provd_pycli, you'll need to update them.
+* The xivo-agentdctl command name has been deprecated in favor of xivo-agentd-cli. These 2 commands do the
+  same thing, the only difference being the name of the command. The xivo-agentdctl command name will be
+  removed in 15.10, so if you have custom scripts referencing xivo-agentdctl, you'll need to update them.
 
 
 15.05
