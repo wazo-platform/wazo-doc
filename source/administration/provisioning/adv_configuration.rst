@@ -111,11 +111,11 @@ Custom template for every devices
 
    cp templates/base.tpl var/templates
    vi var/templates/base.tpl
-   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
+   xivo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
 
 Once this is done, if you want to synchronize all the affected devices, use the following command::
 
-    provd_pycli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").synchronize()'
+    xivo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").synchronize()'
 
 
 Custom template for a specific model
@@ -125,7 +125,7 @@ Let's supose we want to customize the template for our 6739i::
 
    cp templates/6739i.tpl var/templates
    vi var/templates/6739i.tpl
-   provd_pycli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
+   xivo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
 
 
 Custom template for a specific device
@@ -147,7 +147,7 @@ we need to create a template named :file:`00085D2EECFB.cfg.tpl`::
 
    cp templates/6739i.tpl var/templates/00085D2EECFB.cfg.tpl
    vi var/templates/00085D2EECFB.cfg.tpl
-   provd_pycli -c 'devices.using_mac("00085D2EECFB").reconfigure()'
+   xivo-provd-cli -c 'devices.using_mac("00085D2EECFB").reconfigure()'
 
 .. note::
    The choice to use this syntax comes from the fact that ``provd`` supports devices that do not have MAC addresses,
@@ -185,11 +185,11 @@ them to the new plugin and make sure that they are still compatible.
 Once you take the decision to migrate all your phones to the new plugin, you can
 use the following command::
 
-   provd_pycli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2")'
+   xivo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2")'
 
 Or, if you also want to synchronize (i.e. reboot) them at the same time::
 
-   provd_pycli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2", synchronize=True)'
+   xivo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2", synchronize=True)'
 
 You can check that all went well by looking at the :menuselection:`Services --> IPBX --> Devices`
 page.

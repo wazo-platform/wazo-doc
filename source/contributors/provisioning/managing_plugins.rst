@@ -83,7 +83,7 @@ Edit directly on XiVO
 
 Edit the files in :file:`/var/lib/xivo-provd/plugins`.
 
-To apply your changes, go in ``provd_pycli`` and run::
+To apply your changes, go in ``xivo-provd-cli`` and run::
 
     plugins.reload('xivo-cisco-spa-7.5.4')
 
@@ -126,11 +126,11 @@ Don't forget to install the plugin to test it.
 Mass-install all firmwares related to a given plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Using provd_pycli on a xivo server, one can mass-install firmwares. Following
+Using xivo-provd-cli on a xivo server, one can mass-install firmwares. Following
 example installs all firmwares for xivo-snom 8.7.3.25.5 plugin
 (note the auto-completion)::
 
-    provpy> plugins.installed().keys()
+    xivo-provd-cli> plugins.installed().keys()
     [u'xivo-snom-8.7.3.15',
      u'xivo-cisco-sccp-legacy',
      u'xivo-snom-8.4.35',
@@ -141,8 +141,8 @@ example installs all firmwares for xivo-snom 8.7.3.25.5 plugin
      u'xivo-cisco-sccp-9.0.3',
      u'null',
      u'xivo-snom-8.7.3.25.5']
-    provpy> p = plugins['xivo-snom-8.7.3.25.5']
-    provpy> p.install_all()
+    xivo-provd-cli> p = plugins['xivo-snom-8.7.3.25.5']
+    xivo-provd-cli> p.install_all()
 
 
 Uploading to stable
