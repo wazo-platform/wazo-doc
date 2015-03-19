@@ -22,7 +22,9 @@ Description
 +-----------------+---------+-----------------------------------------------------------------------------------------------------------------------+
 | password        | string  | Numeric password used to access the mailbox                                                                           |
 +-----------------+---------+-----------------------------------------------------------------------------------------------------------------------+
-| email           | string  | Email address where messages will be sent.                                                                            |
+| email           | string  | Email address where messages with an audio attachement will be sent.                                                  |
++-----------------+---------+-----------------------------------------------------------------------------------------------------------------------+
+| pager           | string  | Email address where a short notification will be sent                                                                 |
 +-----------------+---------+-----------------------------------------------------------------------------------------------------------------------+
 | language        | string  | Language used for the voicemail menu prompt. See `Voicemail languages`_ for a list of available languages.            |
 +-----------------+---------+-----------------------------------------------------------------------------------------------------------------------+
@@ -50,6 +52,7 @@ Example
        "context": "default",
        "password": "1234",
        "email": "john.doe@example.com",
+       "pager": "john.mobile@example.com",
        "language": "en_US",
        "timezone": "eu-fr",
        "max_messages": 10,
@@ -152,6 +155,7 @@ Example response
                 "context": "default",
                 "password": null,
                 "email": "john.doe@example.com",
+                "pager": "john.mobile@example.com",
                 "language": "en_US",
                 "timezone": "eu-fr",
                 "max_messages": null,
@@ -172,6 +176,7 @@ Example response
                 "context": "default",
                 "password": null,
                 "email": null,
+                "pager": null,
                 "language": "en_US",
                 "timezone": "eu-fr",
                 "max_messages": 20,
@@ -223,6 +228,7 @@ Example response
         "context": "default",
         "password": null,
         "email": "john.doe@example.com",
+        "pager": null,
         "language": "en_US",
         "timezone": "eu-fr",
         "max_messages": null,
@@ -334,6 +340,7 @@ Example response
         "context": "default",
         "password": null,
         "email": null,
+        "pager": null,
         "language": null,
         "timezone": "eu-fr"
         "max_messages": null,
