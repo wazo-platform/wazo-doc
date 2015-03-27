@@ -57,6 +57,6 @@ We gladly accept new contributions. There are two ways to contribute:
 
 * The preferred way: open a pull request on `Github <https://github.com/xivo-pbx/xivo-doc>`_ and add
   a line to this page (see: :ref:`contributing_to_the_documentation`).
-* You can also open a feature request on the `bug tracker <https://projects.xivo.io/projects/xivo/issues>`_.
+* You can also open a contribution ticket on the `bug tracker <https://projects.xivo.io/projects/xivo/issues>`_.
 
 Note that we only accept documents in open formats, such as PDF or ODF.
