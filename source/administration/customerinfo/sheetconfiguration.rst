@@ -105,7 +105,6 @@ Each field is represented by the following parameters :
   * text : show a text
   * url : a simple url link, open your default browser.
   * urlx : an url button
-  * picture : show a picture from an internal user in your sheet, you need to use {xivo-picture} variable.
   * phone : create a tel: link, you can click to call on your sheet.
   * form : show the form from an ui predefined. It's an xml ui. You need to define qtui in display format.
 
