@@ -8,6 +8,9 @@ XiVO offers the possibility to integrate LDAP servers. Once configured properly,
 you'll be able to search your LDAP servers directly from your phones (if they
 support this feature).
 
+.. note:: This page describes how to add LDAP servers as sources of contacts. For other sources of
+          contacts, see :ref:`phonebook`, and :ref:`directories`.
+
 
 Add a LDAP Server
 =================
