@@ -43,12 +43,17 @@ Unless specified, the license is `CC BY-SA`_.
 +----------------------------------------------------------------------------------------------+----------+--------------+--------------+
 | `XiVO provisioning + pfSense + siproxd + OVH`_                                               | French   |              | NyXD Systems |
 +----------------------------------------------------------------------------------------------+----------+--------------+--------------+
+| `SCCP provisioning, unsupported phones and no DHCP`_                                         | French   |              | NyXD Systems |
++----------------------------------------------------------------------------------------------+----------+--------------+--------------+
+| `Date format on SCCP 7941`_                                                                  | French   |              | NyXD Systems |
++----------------------------------------------------------------------------------------------+----------+--------------+--------------+
 
 .. _phonebook_csv_export.py: https://raw.githubusercontent.com/xivo-pbx/xivo-tools/master/scripts/phonebook_csv_export.py
 .. _XiVO provisioning + pfSense + siproxd + OVH: http://retroplace.nyxd.org/2015/01/28/xivo-auto-hebergement-telephonie-pfsense-ovh/
 .. _Installing XiVO (YouTube series): https://www.youtube.com/watch?v=EmY2KhCn418
 .. _Xivo pour les nuls: http://xivopourlesnuls.wordpress.com
-
+.. _SCCP provisioning, unsupported phones and no DHCP: http://retroplace.nyxd.org/2015/03/24/xivo-sccp-et-provisioning-sur-telephones-non-supportes-et-dhcp-desactive/
+.. _Date format on SCCP 7941: http://retroplace.nyxd.org/2015/02/06/xivo-probleme-daffichage-de-lheure-sur-cisco-7941-en-cas-de-redemarrage-dasterisk/
 
 Contribute
 ----------
