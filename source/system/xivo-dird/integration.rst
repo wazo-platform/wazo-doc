@@ -28,3 +28,4 @@ following keys are interpreted and displayed in xlet people of the XiVO Client:
    * ``agent``: the field value will be ignored and replaced by an icon showing the status of the
       agent assigned to the contact (e.g. green icon for logged agent, red icon for unlogged agent,
       ...)
+   * ``mobile``: a dropdown action on the ``number`` field will be added to call the field value
