@@ -6,6 +6,9 @@ REST API
 
 The XiVO REST API is the privileged way to programmatically interact with XiVO.
 
+.. note:: REST API documentation will soon be migrated towards swagger.  Please consult `XiVO Swagger doc <https://github.com/xivo-pbx/xivo-swagger-doc>`_ for the latest list of available APIs.
+
+
 Configuration
 =============
 
