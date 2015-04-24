@@ -1,13 +1,16 @@
+.. _directories:
+
 ***********
 Directories
 ***********
 
-This page documents how to add and configure directories from custom sources. This does not
-include the configuration of :ref:`LDAP directories <ldap>`, which are configured slightly differently.
-
-Directories added from custom sources can be used for lookup via the :ref:`CTI Client <remote_directory_xlet>`
-or for :ref:`reverse lookup <reverse_lookup>` on incoming calls. The directory feature of phones do not use
+This page documents how to add and configure directories from custom sources. Directories added from
+custom sources can be used for lookup via the :ref:`CTI Client <remote_directory_xlet>` or for
+:ref:`reverse lookup <reverse_lookup>` on incoming calls. The directory feature of phones do not use
 these data sources.
+
+.. note:: This page describes how to add custom sources of contacts. For other sources of contacts,
+          see :ref:`phonebook`, and :ref:`ldap`.
 
 
 Add a data source

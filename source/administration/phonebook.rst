@@ -4,11 +4,14 @@
 Phonebook
 *********
 
-A global phone book can be defined in :menuselection:`IPBX Service -> Phone book`. The phone book can be used from
-the XiVO client, from the phones directory look key if the phone is compatible and are used to set
-the Caller ID for incoming calls.
+A global phone book can be defined in :menuselection:`IPBX Service -> Phone book`. The phone book
+can be used from the XiVO client, from the phones directory look key if the phone is compatible and
+are used to set the Caller ID for incoming calls.
 
 You can add entries one by one or you can mass-import from a CSV file.
+
+.. note:: This page describes how to use the Phonebook feature of XiVO, which is one specific source
+          of contacts. For other sources of contacts, see :ref:`directories`, and :ref:`ldap`.
 
 
 Mass-import contacts
