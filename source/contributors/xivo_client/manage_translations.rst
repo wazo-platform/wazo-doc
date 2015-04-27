@@ -11,6 +11,7 @@ You need to install these tools::
    pip install transifex-client
    apt-get install qt4-dev-tools
 
+
 How to Add a New Translated String
 ==================================
 
@@ -21,22 +22,25 @@ Example::
 
    tr("Number");
 
+
 Updating translations on transifex
 ----------------------------------
 
 Run the following commands from the root of the xivo-client-qt project::
 
-    utils/translations.sh pull
-    utils/translations.sh commit
-    utils/translations.sh push
+    make pushtr
 
-After these first 3 commands, you can visit `transifex <https://www.transifex.com/projects/p/xivo/language/fr/>`_, and check that the xivo-client is 100% translated for your language. Once all the translations have been checked, run the 3 following commands::
+After this command, you can visit `Transifex`_, and check that the xivo-client is 100% translated
+for your language. Once all the translations have been checked, run the 3 following commands::
 
-    utils/translations.sh pull
+    make pulltr
     git commit
     git push
 
-.. warning:: Under Arch Linux, you must have qt4 installed and prepend ``PATH=/usr/lib/qt4/bin:$PATH`` before each command
+.. _Transifex: https://www.transifex.com/projects/p/xivo/language/fr/
+
+.. warning:: Under Arch Linux, you must have qt5 installed and prepend ``QT_PATH=/usr/bin`` before
+             ``make {pull,push}tr``.
 
 
 Add a new XiVO Client locale
@@ -45,15 +49,15 @@ Add a new XiVO Client locale
 Localizing the XiVO Client goes through four steps :
 
 * Creating the new translation in Transifex
-* Generate the translation files
+* Generatint the translation files
 * Embedding the translation in the binaries
-* Display the new locale to be chosen
+* Displaying the new locale to be chosen
 
 
 Creating the new translation in Transifex
 -----------------------------------------
 
-Log into Transifex and click the 'Create language' option.
+Log into Transifex and click the ``Create language`` option.
 
 
 Generate translation files
@@ -89,7 +93,7 @@ script. But first, you must tell the script about your new locale. Edit the
 :file:`utils/translations.sh` file and add your locale to the ``LOCALES``
 variable. Then, you can run the script::
 
-   $ utils/translations.sh update
+   $ make pulltr
 
 Embed the translation files
 ---------------------------

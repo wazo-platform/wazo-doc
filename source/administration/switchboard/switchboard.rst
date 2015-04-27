@@ -66,6 +66,7 @@ The supported phones for the switchboard are:
 * Aastra 6755i
 * Aastra 6757i
 * Snom 720
+* Snom D725
 * Yealink T46G
 
 

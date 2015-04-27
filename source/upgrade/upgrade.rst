@@ -138,6 +138,13 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.08
+-----
+
+* Consult the `15.08 Roadmap <https://projects.xivo.io/versions/225>`_
+* The Dialer Xlet has been integrated in Identity Xlet.
+
+
 15.07
 -----
 
