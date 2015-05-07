@@ -15,3 +15,4 @@ System
    ntp
    Mail <mail/mail>
    xivo-dird/xivo-dird
+   xivo-sysconfd
