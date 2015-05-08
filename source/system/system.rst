@@ -6,6 +6,7 @@ System
    :maxdepth: 2
 
    service
+   consul
    Network <network/network>
    proxy
    log_files
