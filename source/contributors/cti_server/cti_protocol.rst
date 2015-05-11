@@ -11,6 +11,12 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+15.09
+-----
+
+* for messages of class ``history`` the client cannot request by mode anymore. The server returns
+  all calls and the mode is now metadata for each call.
+
 14.24
 -----
 
@@ -1508,10 +1514,6 @@ This message is received when a `call form` is submitted from a client to the Xi
 
 history
 ^^^^^^^
-* mode
-   * 0 : sent calls
-   * 1 : received calls
-   * 2 : missed calls
 * size : Size of the list to be sent by the server
 
 ``Client -> Server``
@@ -1519,11 +1521,10 @@ history
 .. code-block:: javascript
 
    {
-      "mode": "0",
-      "size": "8",
       "class": "history",
-      "xuserid": "<xivoid>/<userfeaturesid>",
       "commandid": <commandid>
+      "size": "8",
+      "xuserid": "<xivoid>/<userfeaturesid>",
    }
 
 ``Server > Client``
@@ -1531,6 +1532,13 @@ history
 Send back a table of calls :
 
 * duration in seconds
+* extension: caller/destination extension
+* fullname: caller ID name
+* mode
+
+  * 0 : sent calls
+  * 1 : received calls
+  * 2 : missed calls
 
 .. code-block:: javascript
 
@@ -1538,10 +1546,19 @@ Send back a table of calls :
    {
       "class": "history",
       "history": [
-         {"calldate": "2013-03-29T08:44:35.273998", "duration": 0.148765, "fullname": "*844201"},
-         {"calldate": "2013-03-28T16:56:48.071213", "duration": 58.134744, "fullname": "41400"}
+         {"calldate": "2013-03-29T08:44:35.273998",
+          "duration": 30.148765,
+          "extension": "*844201",
+          "fullname": "Alice Wonderland",
+          "mode": 0},
+         {"calldate": "2013-03-28T16:56:48.071213",
+          "duration": 58.134744,
+          "extension": "41400",
+          "fullname": "41400"}
+          "mode": 1},
       ],
-      "mode": 0, "replyid": 529422441, "timenow": 1364571477.33
+      "replyid": 529422441,
+      "timenow": 1364571477.33
    }
 
 

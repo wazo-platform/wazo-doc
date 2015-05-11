@@ -6,6 +6,7 @@ System
    :maxdepth: 2
 
    service
+   consul
    Network <network/network>
    proxy
    log_files
@@ -15,3 +16,4 @@ System
    ntp
    Mail <mail/mail>
    xivo-dird/xivo-dird
+   xivo-sysconfd
