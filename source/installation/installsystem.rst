@@ -32,8 +32,8 @@ Installing from a minimal Debian installation
 =============================================
 
 XiVO can be installed directly over a **32-bit** Debian Wheezy. When doing so, you are strongly
-advised to start with a clean and minimal installation of Debian Wheeze. The latest installation image
-for Debian Wheezy can be found at http://www.debian.org/distrib/.
+advised to start with a clean and minimal installation of Debian Wheezy. The latest installation image
+for Debian Wheezy can be found at https://www.debian.org/releases/wheezy/debian-installer.
 
 Requirements
 ^^^^^^^^^^^^
