@@ -503,7 +503,6 @@ Particularities:
 
   Also, directed call pickup via a BLF function key will not work if the extension number of the
   supervised user is different from its caller ID number.
-* VVX: the french translation is incomplete.
 
 .. note:: (XiVO HA cluster) BLF function key saved on the master node are not available.
 
@@ -512,7 +511,6 @@ Supported expansion modules:
 * Polycom® VVX Color Expansion (for Polycom® VVX 300/310/400/410/500/600)
 * Polycom® VVX Paper Expansion (for Polycom® VVX 300/310/400/410/500/600)
 * Polycom® SoundPoint IP Backlit (for Polycom® SoundPoint 650)
-
 
 .. warning:: Polycom® VVX® Camera are not supported.
 
