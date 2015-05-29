@@ -11,6 +11,12 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+15.11
+-----
+
+* the ``fax_progress`` message was added.
+
+
 15.09
 -----
 
@@ -1491,6 +1497,34 @@ This allows the switchboard operator to answer an incoming call or unhold a call
 
    {"class": "answer", "uniqueid": "12345667.89"}
 
+Fax
+-----------
+
+Send
+^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "faxsend", "hide": "0", "filename": "contract.pdf", "destination", 41400 }
+
+Status
+^^^^^^
+
+``Server -> Client``
+
+* pages: number of pages sent (``NULL`` if FAILED)
+* status
+
+  * FAILED: Failed to send fax.
+  * PRESENDFAX: Fax number exist and converting pdf->tiff has been done.
+  * SUCCESS: Fax sent with success.
+
+.. code-block:: javascript
+
+   {"class": "faxprogress", "status": "SUCCESS", "pages": 2 }
+
 REGCOMMANDS
 -----------
 
@@ -1613,8 +1647,6 @@ keepalive
 availstate
 
 filetransfer
-
-faxsend
 
 getipbxlist
 
