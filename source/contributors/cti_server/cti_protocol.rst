@@ -772,8 +772,8 @@ Example of phone messages received when a phone is ringing :
    {"status": {"direction": "in", "timestamp": 1361447017.29, "holded": false, "talkingto_id": "SIP/barometrix_jyldev-0000000a", "state": "Down", "parked": false, "commstatus": "ringing"}, "tid": "SIP/x2gjtw-0000000b", "class": "getlist"}
 
 
-Configuration Messages
-----------------------
+Configuration
+-------------
 
 The following messages are used to retrieve XiVO configuration.
 
@@ -953,8 +953,8 @@ queuemembers
       "timenow": 1382717016.23,
       "class": "getlist"}
 
-Status messages
----------------
+Status
+------
 
 These messages can also be received without any request as unsolicited messages.
 
@@ -1094,8 +1094,8 @@ Agent status
 * availability_since is the timestamp of the last availability change
 * queues is the list of queue ids from which the agent receives calls
 
-Agent messages
---------------
+Agent
+-----
 
 login
 ^^^^^
@@ -1192,8 +1192,8 @@ Listen to an agent
    {"class": "ipbxcommand", "command": "listen", "commandid": 1423579492, "destination": "xivo/1", "subcommand": "start"}
 
 
-Service Messages
-----------------
+Service
+-------
 * class : featuresput
 
 Call Filtering
