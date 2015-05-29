@@ -86,12 +86,10 @@ Connection Configuration
 
 This page allows the user to set his network information to connect to the xivo-ctid server.
 
-* `Server Host` is the IP adress of the server.
-* `Login Port` is the port on wich xivo-ctid is listening for connections. (default: 5003)
+* `Server` is the IP adress of the server.
+* `Backup server` is the IP adress of the backup server.
+* `Port` is the port on wich xivo-ctid is listening for connections. (default: 5003)
 * `Encrypt Connection` is the option to encrypt messages between the client and the server. (default port 5013)
-* `Try to reconnect` will reconnect the client when the connection is dropped.
-* `Try to reconnect interval` is the reconnection delay before the auto-reconnection is tryed.
-* `Keep alive interval` is the number of seconds between keepalives messages.
 
 
 Handling callto: and tel: URLs
