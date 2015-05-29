@@ -448,6 +448,422 @@ The latter should be preferred to the former for uses that do not require a
 persistent connection to xivo-ctid.
 
 
+Agent
+-----
+
+Login agent
+^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"agentphonenumber": "1000", "class": "ipbxcommand", "command": "agentlogin", "commandid": 733366597}
+
+agentphonenumber is the physical phone set where the agent is going to log on.
+
+
+``Server > Client``
+
+* Login successfull :
+
+.. code-block:: javascript
+
+   {"function": "updateconfig", "listname": "queuemembers", "tipbxid": "xivo",
+      "timenow": 1362664323.94, "tid": "Agent/2002,blue",
+      "config": {"paused": "0", "penalty": "0", "membership": "static", "status": "1", "lastcall": "",
+                  "interface": "Agent/2002", "queue_name": "blue", "callstaken": "0"},
+    "class": "getlist"
+      }
+
+   {"function": "updatestatus", "listname": "agents", "tipbxid": "xivo",
+      "timenow": 1362664323.94,
+      "status": {"availability_since": 1362664323.94,
+                  "queues": [], "phonenumber": "1001", "on_call": false, "groups": [],
+                  "availability": "available", "channel": null},
+      "tid": 7, "class": "getlist"
+         }
+
+
+* The phone number is already used by an other agent :
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "error_string": "agent_login_exten_in_use", "timenow": 1362664158.14}
+
+Logout agent
+^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "command": "agentlogout", "commandid": 552759274}
+
+Pause
+^^^^^
+
+On all queues
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "command": "queuepause", "commandid": 859140432, "member": "agent:xivo/1", "queue": "queue:xivo/all"}
+
+Un pause agent
+^^^^^^^^^^^^^^
+
+On all queues
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "command": "queueunpause", "commandid": 822604987, "member": "agent:xivo/1", "queue": "queue:xivo/all"}
+
+Add an agent in a queue
+^^^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "command": "queueadd", "commandid": 542766213, "member": "agent:xivo/3", "queue": "queue:xivo/2"}
+
+Remove an agent from a queue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "command": "queueremove", "commandid": 742480296, "member": "agent:xivo/3", "queue": "queue:xivo/2"}
+
+Listen to an agent
+^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "ipbxcommand", "command": "listen", "commandid": 1423579492, "destination": "xivo/1", "subcommand": "start"}
+
+
+Configuration
+-------------
+
+The following messages are used to retrieve XiVO configuration.
+
+Common fields
+^^^^^^^^^^^^^
+* class : getlist
+* function : listid
+* commandid
+* tipbxid
+* listname : Name of the list to be retreived : users, phones, agents, queues, voicemails, queuemembers
+
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "commandid": 489035169,
+      "function": "listid",
+      "tipbxid": "xivo",
+      "listname": "........."
+   }
+
+Users configuration
+^^^^^^^^^^^^^^^^^^^
+
+Return a list of configured user id's
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 489035169, "function": "listid", "listname": "users", "tipbxid": "xivo"}
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "function": "listid", "listname": "users",
+      "list": ["11", "12", "14", "17", "1", "3", "2", "4", "9"],
+      "tipbxid": "xivo","timenow": 1362735061.17
+      }
+
+User configuration
+^^^^^^^^^^^^^^^^^^
+
+Return a user configuration
+
+* tid is the userid returned by `Users configuration`_ message
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+    {
+      "class": "getlist",
+      "function": "updateconfig",
+      "listname": "users",
+      "tid": "17",
+      "tpbxid": "xivo",  "commandid": 5}
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "function": "updateconfig",
+      "listname": "users",
+      "tid": "17",
+      "tipbxid": "xivo",
+      "timenow": 1362741166.4,
+      "config": {
+            "enablednd": 0, "destrna": "", "enablerna": 0,  "enableunc": 0, "destunc": "", "destbusy": "", "enablebusy": 0, "enablexfer": 1,
+            "firstname": "Alice",  "lastname": "Bouzat", "fullname": "Alice Bouzat",
+            "voicemailid": null, "incallfilter": 0,  "enablevoicemail": 0,   "profileclient": null, "agentid": 2, "enableclient": 1, "linelist": ["7"], "mobilephonenumber": ""}
+       }
+
+
+Phones configuration
+^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 495252308, "function": "listid", "listname": "phones", "tipbxid": "xivo"}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "function": "listid", "list": ["1", "3", "2", "5", "14", "7", "6", "9", "8"],
+      "listname": "phones", "timenow": 1364994093.38, "tipbxid": "xivo"}
+
+Individual phone configuration request:
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 704096693, "function": "updateconfig", "listname": "phones", "tid": "3", "tipbxid": "xivo"}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {"class": "getlist",
+      "config": {"allowtransfer": null, "context": "default", "identity": "SIP/ihvbur", "iduserfeatures": 1,
+                     "initialized": null, "number": "1000", "protocol": "sip"},
+      "function": "updateconfig", "listname": "phones", "tid": "3", "timenow": 1364994093.43, "tipbxid": "xivo"}
+
+Agents configuration
+^^^^^^^^^^^^^^^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 1431355191, "function": "listid", "listname": "agents", "tipbxid": "xivo"}
+
+Queues configuration
+^^^^^^^^^^^^^^^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 719950939, "function": "listid", "listname": "queues", "tipbxid": "xivo"}
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {"function": "listid", "listname": "queues", "tipbxid": "xivo",
+         "list": ["1", "10", "3", "2", "5", "4", "7", "6", "9", "8"], "timenow": 1382704649.64, "class": "getlist"}
+
+Queue configuration
+^^^^^^^^^^^^^^^^^^^
+tid is the id returned in the list field of the getlist response message
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"commandid":7,"class":"getlist","tid":"3","tipbxid":"xivo","function":"updateconfig","listname":"queues"}
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {
+    "function": "updateconfig", "listname": "queues", "tipbxid": "xivo", "timenow": 1382704649.69, "tid": "3",
+      "config":
+         {"displayname": "red", "name": "red", "context": "default", "number": "3002"},
+    "class": "getlist"}
+
+Voicemails configuration
+^^^^^^^^^^^^^^^^^^^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 1034160761, "function": "listid", "listname": "voicemails", "tipbxid": "xivo"}
+
+Queue members configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 964899043, "function": "listid", "listname": "queuemembers", "tipbxid": "xivo"}
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {"function": "listid", "listname": "queuemembers", "tipbxid": "xivo",
+      "list": ["Agent/2501,blue", "Agent/2500,yellow", "Agent/2002,yellow", "Agent/2003,__switchboard",
+               "Agent/2003,blue", "Agent/108,blue", "Agent/2002,blue"],
+      "timenow": 1382717016.23,
+      "class": "getlist"}
+
+
+Fax
+-----------
+
+Send fax
+^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "faxsend", "hide": "0", "filename": "contract.pdf", "destination", 41400 }
+
+Fax status
+^^^^^^^^^^
+
+``Server -> Client``
+
+* pages: number of pages sent (``NULL`` if FAILED)
+* status
+
+  * FAILED: Failed to send fax.
+  * PRESENDFAX: Fax number exist and converting pdf->tiff has been done.
+  * SUCCESS: Fax sent with success.
+
+.. code-block:: javascript
+
+   {"class": "faxprogress", "status": "SUCCESS", "pages": 2 }
+
+
+IPBX Commands
+-------------
+
+Dial
+^^^^
+
+* destination can be any number
+* destination can be a pseudo URL of the form "type:ibpx/id"
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+    {
+       "class": "ipbxcommand",
+       "command": "dial",
+       "commandid": <commandid>,
+       "destination": "exten:xivo/<extension>"
+    }
+
+For example :
+
+.. code-block:: javascript
+
+    {
+        "class": "ipbxcommand",
+        "command": "dial",
+        "commandid": 1683305913,
+        "destination": "exten:xivo/1202"
+    }
+
+The server will answer with either an error or a success:
+
+.. code-block:: javascript
+
+    {
+        "class": "ipbxcommand",
+        "error_string": "unreachable_extension:1202",
+    }
+
+    {
+        "class": "dial_success",
+        "exten": "1202"
+    }
+
+Originate
+^^^^^^^^^
+
+Same message than the dial_ message with a source fied. The source field is ``user:xivo/<userid``,
+userid is replaced by a user identifer returned by the message getting `Users configuration`_ list
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "class": "ipbxcommand",
+        "command": "originate",
+        "commandid": 1683305913,
+        "source":"user:xivo/34",
+        "destination": "exten:xivo/1202"
+    }
+
+
+Hangup
+^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {
+       "class": "ipbxcommand",
+       "command": "hangup",
+       "channelids": "chan:xivo/<channel_id>",
+       "commandid": <command_id>
+   }
+
+For example:
+
+.. code-block:: javascript
+
+   {
+       "class": "ipbxcommand",
+       "command": "hangup",
+       "channelids": "chan:xivo/SIP/im2p7kzr-00000003",
+       "commandid": 177773016
+   }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+   {
+       "class": "ipbxcommand",
+       "command": "hangup",
+       "ipbxreply": 1,
+       "replyid": 177773016,
+       "timenow": 1395756534.64
+   }
+
+
 Login
 -----
 
@@ -656,545 +1072,151 @@ Third message describes the current user status
       "timenow": 1361440830.99
    }
 
-Unsolicited Messages
---------------------
 
-These messages are received whenever one of the following corresponding event occurs: sheet message on incoming calls, or updatestatus when a phone status changes.
+Others
+------
 
-Sheet
-^^^^^
-This message is received to display customer information if configured at the server side
+call_form_result
+^^^^^^^^^^^^^^^^
 
-.. code-block:: javascript
-
-   {
-      "timenow": 1361444639.61,
-      "class": "sheet",
-      "compressed": true,
-      "serial": "xml",
-      "payload": "AAADnnicndPBToNAEAbgV1n3XgFN1AP...................",
-      "channel": "SIP/e6fhff-00000007"
-   }
-
-How to decode payload :
-
-.. code-block:: python
-
-   >>> b64content = base64.b64decode(<payload content>)
-   >>> # 4 first cars are the encoded lenght of the xml string (in Big Endian format)
-   >>> xmllen = struck.unpack('>I',b64content[0:4])
-   >>> # the rest is a compressed xml string
-   >>> xmlcontent = zlib.decompress(toto[4:])
-   >>> print xmlcontent
-
-   <?xml version="1.0" encoding="utf-8"?>
-      <profile>
-         <user>
-            <internal name="ipbxid"><![CDATA[xivo]]></internal>
-            <internal name="where"><![CDATA[dial]]></internal>
-            <internal name="channel"><![CDATA[SIP/barometrix_jyldev-00000009]]></internal>
-            <internal name="focus"><![CDATA[no]]></internal>
-            <internal name="zip"><![CDATA[1]]></internal>
-            <sheet_qtui order="0010" name="qtui" type="None"><![CDATA[]]></sheet_qtui>
-            <sheet_info order="0010" name="Nom" type="title"><![CDATA[0230210083]]></sheet_info>
-            <sheet_info order="0030" name="Origine" type="text"><![CDATA[extern]]></sheet_info>
-            <sheet_info order="0020" name="Num\xc3\xa9ro" type="text"><![CDATA[0230210083]]></sheet_info>
-            <systray_info order="0010" name="Nom" type="title"><![CDATA[Maric\xc3\xa9 Sapr\xc3\xaftch\xc3\xa0]]></systray_info>
-            <systray_info order="0030" name="Origine" type="body"><![CDATA[extern]]></systray_info>
-            <systray_info order="0020" name="Num\xc3\xa9ro" type="body"><![CDATA[0230210083]]></systray_info>
-         </user>
-      </profile>
-
-The xml file content is defined by the following xsd file:
-:file:`xivo-javactilib/src/main/xsd/sheet.xsd`
-(`online version <https://www.gitorious.org/xivo/xivo-javactilib/blobs/master/src/main/xsd/sheet.xsd>`_)
-
-Phone status update
-^^^^^^^^^^^^^^^^^^^
-
-Received when a phone status change
-
-* class : getlist
-* function : updatestatus
-* listname : phones
-
-
-.. code-block:: javascript
-
-   {
-      "class": "getlist",
-      "function": "updatestatus",
-      "listname": "phones",
-      "tipbxid": "xivo",
-      "timenow": 1361447017.29,
-      .........
-   }
-
-tid is the the object identification
-
-Example of phone messages received when a phone is ringing :
-
-.. code-block:: javascript
-
-   { ... "status": {"channels": ["SIP/x2gjtw-0000000b"]}, "tid": "3",}
-   {.... "status": {"channels": ["SIP/x2gjtw-0000000b"], "queues": [], "hintstatus": "0", "groups": []}, "tid": "3"}
-   {.... "status": {"hintstatus": "8"}, "tid": "3"}
-
-channel status update
-^^^^^^^^^^^^^^^^^^^^^
-* class : getlist
-* function : updatestatus
-* listname : channels
-* status
-
-  * direction : (in,out ...)
-  * state : (Down, Ring, Unknown ...)
-  * commstatus : (ready, calling, ringing ...)
-
-.. code-block:: javascript
-
-   {
-      "class": "getlist",
-      "function": "updatestatus",
-      "listname": "channels",
-      "tipbxid": "xivo",
-      "timenow": 1361447017.29,
-      .........
-   }
-
-Example of phone messages received when a phone is ringing :
-
-.. code-block:: javascript
-
-   {"status": {"timestamp": 1361447017.22, "holded": false, "commstatus": "ready", "parked": false, "state": "Down"}, "tid": "SIP/barometrix_jyldev-0000000a"}
-   {"status": {"timestamp": 1361447017.29, "holded": false, "commstatus": "ready", "parked": false, "state": "Unknown"}, "tid": "SIP/x2gjtw-0000000b"}
-   {"status": {"talkingto_kind": "channel", "direction": "out", "timestamp": 1361447017.29, "holded": false, "talkingto_id": "SIP/x2gjtw-0000000b", "state": "Ring", "parked": false, "commstatus": "calling"}, "tid": "SIP/barometrix_jyldev-0000000a", "class": "getlist"}
-   {"status": {"direction": "in", "timestamp": 1361447017.29, "holded": false, "talkingto_id": "SIP/barometrix_jyldev-0000000a", "state": "Down", "parked": false, "commstatus": "ringing"}, "tid": "SIP/x2gjtw-0000000b", "class": "getlist"}
-
-
-Configuration
--------------
-
-The following messages are used to retrieve XiVO configuration.
-
-Common fields
-^^^^^^^^^^^^^
-* class : getlist
-* function : listid
-* commandid
-* tipbxid
-* listname : Name of the list to be retreived : users, phones, agents, queues, voicemails, queuemembers
-
-
-.. code-block:: javascript
-
-   {
-      "class": "getlist",
-      "commandid": 489035169,
-      "function": "listid",
-      "tipbxid": "xivo",
-      "listname": "........."
-   }
-
-Users configuration
-^^^^^^^^^^^^^^^^^^^
-
-Return a list of configured user id's
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"class": "getlist", "commandid": 489035169, "function": "listid", "listname": "users", "tipbxid": "xivo"}
-
-``Server -> Client``
-
-.. code-block:: javascript
-
-   {
-      "class": "getlist",
-      "function": "listid", "listname": "users",
-      "list": ["11", "12", "14", "17", "1", "3", "2", "4", "9"],
-      "tipbxid": "xivo","timenow": 1362735061.17
-      }
-
-User configuration
-^^^^^^^^^^^^^^^^^^
-
-Return a user configuration
-
-* tid is the userid returned by `Users configuration`_ message
+This message is received when a `call form` is submitted from a client to the XiVO.
 
 ``Client -> Server``
 
 .. code-block:: javascript
 
     {
-      "class": "getlist",
-      "function": "updateconfig",
-      "listname": "users",
-      "tid": "17",
-      "tpbxid": "xivo",  "commandid": 5}
+        "class": "call_form_result",
+        "commandid": <commandid>,
+        "infos": {"buttonname": "saveandclose",
+                  "variables": {"XIVOFORM_varname1": "value1",
+                                "XIVOFORM_varname2": "value2"}}
+    }
 
-``Server -> Client``
+
+History
+^^^^^^^
+
+* size : Size of the list to be sent by the server
+
+``Client -> Server``
 
 .. code-block:: javascript
 
    {
-      "class": "getlist",
-      "function": "updateconfig",
-      "listname": "users",
-      "tid": "17",
-      "tipbxid": "xivo",
-      "timenow": 1362741166.4,
-      "config": {
-            "enablednd": 0, "destrna": "", "enablerna": 0,  "enableunc": 0, "destunc": "", "destbusy": "", "enablebusy": 0, "enablexfer": 1,
-            "firstname": "Alice",  "lastname": "Bouzat", "fullname": "Alice Bouzat",
-            "voicemailid": null, "incallfilter": 0,  "enablevoicemail": 0,   "profileclient": null, "agentid": 2, "enableclient": 1, "linelist": ["7"], "mobilephonenumber": ""}
-       }
-
-
-Phones configuration
-^^^^^^^^^^^^^^^^^^^^
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"class": "getlist", "commandid": 495252308, "function": "listid", "listname": "phones", "tipbxid": "xivo"}
+      "class": "history",
+      "commandid": <commandid>
+      "size": "8",
+      "xuserid": "<xivoid>/<userfeaturesid>",
+   }
 
 ``Server > Client``
 
-.. code-block:: javascript
+Send back a table of calls :
 
-   {"class": "getlist", "function": "listid", "list": ["1", "3", "2", "5", "14", "7", "6", "9", "8"],
-      "listname": "phones", "timenow": 1364994093.38, "tipbxid": "xivo"}
+* duration in seconds
+* extension: caller/destination extension
+* fullname: caller ID name
+* mode
 
-Individual phone configuration request:
-
-.. code-block:: javascript
-
-   {"class": "getlist", "commandid": 704096693, "function": "updateconfig", "listname": "phones", "tid": "3", "tipbxid": "xivo"}
-
-``Server > Client``
+  * 0 : sent calls
+  * 1 : received calls
+  * 2 : missed calls
 
 .. code-block:: javascript
 
-   {"class": "getlist",
-      "config": {"allowtransfer": null, "context": "default", "identity": "SIP/ihvbur", "iduserfeatures": 1,
-                     "initialized": null, "number": "1000", "protocol": "sip"},
-      "function": "updateconfig", "listname": "phones", "tid": "3", "timenow": 1364994093.43, "tipbxid": "xivo"}
 
-Agents configuration
-^^^^^^^^^^^^^^^^^^^^
+   {
+      "class": "history",
+      "history": [
+         {"calldate": "2013-03-29T08:44:35.273998",
+          "duration": 30.148765,
+          "extension": "*844201",
+          "fullname": "Alice Wonderland",
+          "mode": 0},
+         {"calldate": "2013-03-28T16:56:48.071213",
+          "duration": 58.134744,
+          "extension": "41400",
+          "fullname": "41400"}
+          "mode": 1},
+      ],
+      "replyid": 529422441,
+      "timenow": 1364571477.33
+   }
+
+
+Chitchat
+^^^^^^^^
+
+.. code-block:: javascript
+
+    {
+       "class": "chitchat",
+       "text": "message envoye",
+       "to": "<xivoid>/<userfeaturesid>",
+       "commandid": <commandid>
+    }
+
+featuresget
+
+featuresput
+
+Directory
+^^^^^^^^^
+Request directory information, names matching pattern ignore case.
+
 ``Client -> Server``
-
-.. code-block:: javascript
-
-   {"class": "getlist", "commandid": 1431355191, "function": "listid", "listname": "agents", "tipbxid": "xivo"}
-
-Queues configuration
-^^^^^^^^^^^^^^^^^^^^
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"class": "getlist", "commandid": 719950939, "function": "listid", "listname": "queues", "tipbxid": "xivo"}
-
-``Server -> Client``
-
-.. code-block:: javascript
-
-   {"function": "listid", "listname": "queues", "tipbxid": "xivo",
-         "list": ["1", "10", "3", "2", "5", "4", "7", "6", "9", "8"], "timenow": 1382704649.64, "class": "getlist"}
-
-Queue configuration
-^^^^^^^^^^^^^^^^^^^
-tid is the id returned in the list field of the getlist response message
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"commandid":7,"class":"getlist","tid":"3","tipbxid":"xivo","function":"updateconfig","listname":"queues"}
-
-``Server -> Client``
 
 .. code-block:: javascript
 
    {
-    "function": "updateconfig", "listname": "queues", "tipbxid": "xivo", "timenow": 1382704649.69, "tid": "3",
-      "config":
-         {"displayname": "red", "name": "red", "context": "default", "number": "3002"},
-    "class": "getlist"}
-
-Voicemails configuration
-^^^^^^^^^^^^^^^^^^^^^^^^
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"class": "getlist", "commandid": 1034160761, "function": "listid", "listname": "voicemails", "tipbxid": "xivo"}
-
-Queue members configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"class": "getlist", "commandid": 964899043, "function": "listid", "listname": "queuemembers", "tipbxid": "xivo"}
-
-``Server -> Client``
-
-.. code-block:: javascript
-
-   {"function": "listid", "listname": "queuemembers", "tipbxid": "xivo",
-      "list": ["Agent/2501,blue", "Agent/2500,yellow", "Agent/2002,yellow", "Agent/2003,__switchboard",
-               "Agent/2003,blue", "Agent/108,blue", "Agent/2002,blue"],
-      "timenow": 1382717016.23,
-      "class": "getlist"}
-
-Status
-------
-
-These messages can also be received without any request as unsolicited messages.
-
-User status
-^^^^^^^^^^^
-User status is to manage user presence
-
-- Request user status update
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"class": "getlist", "commandid": 107712156,
-      "function": "updatestatus",
-      "listname": "users",
-      "tid": "14", "tipbxid": "xivo"}
+      "class": "directory",
+      "commandid": 1079140548,
+      "pattern": "pau"
+   }
 
 ``Server > Client``
 
 .. code-block:: javascript
 
-   {"class": "getlist",
-      "function": "updatestatus",
-      "listname": "users",
-      "status": {"availstate": "outtolunch", "connection": "yes"},
-            "tid": "1", "timenow": 1364994093.48, "tipbxid": "xivo"}
+   {
+      "class": "directory",
+      "headers": ["Nom", "Num\u00e9ro", "Mobile", "Autre num\u00e9ro", "E-mail", "Fonction", "Site", "Source"],
+      "replyid": 1079140548,
+      "resultlist": ["Claire Mapaurtal;;+33644558899;31256;cmapaurtal@societe.com;;;",
+                     "Paul Salvadier;+33445236988;+33678521430;31406;psalvadier@societe.com;;;"],
+      "status": "ok",
+      "timenow": 1378798928.26
+   }
 
-- Change User status
+parking
 
-``Client -> Server``
+keepalive
 
-.. code-block:: javascript
+availstate
 
-    {"availstate": "away",
-        "class": "availstate",
-        "commandid": 1946092392,
-        "ipbxid": "xivo",
-            "userid": "1"}
+filetransfer
 
-``Server > Client``
-
-.. code-block:: javascript
-
-    {"class": "getlist",
-        "function": "updatestatus",
-        "listname": "users",
-        "status": {"availstate": "away"},
-        "tid": "1", "timenow": 1370523352.6, "tipbxid": "xivo"}
-
-
-Phone status
-^^^^^^^^^^^^
-* tid is the line id, found in linelist from message `User configuration`_
-
-``Client -> Server``
+getipbxlist
 
 .. code-block:: javascript
 
-   {"class": "getlist", "commandid": 107712156,
-      "function": "updatestatus",
-      "listname": "phones", "tid": "8", "tipbxid": "xivo"}
+    {
+        "class": "getipbxlist",
+        "commandid": <commandid>
+    }
 
-``Server > Client``
-
-.. code-block:: javascript
-
-   {"class": "getlist", "function": "updatestatus", "listname": "phones",
-      "status": {"channels": [], "groups": [], "hintstatus": "0", "queues": []},
-      "tid": "1", "timenow": 1364994093.48, "tipbxid": "xivo"}
-
-Queue status
-^^^^^^^^^^^^
-``Client -> Server``
+ipbxcommand
 
 .. code-block:: javascript
 
-   {"commandid":17,"class":"getlist","tid":"8","tipbxid":"xivo","function":"updatestatus","listname":"queues"}
-
-``Server > Client``
-
-.. code-block:: javascript
-
-   {"function": "updatestatus", "listname": "queues", "tipbxid": "xivo", "timenow": 1382710430.54,
-      "status": {"agentmembers": ["1","5"], "phonemembers": ["8"]},
-      "tid": "8", "class": "getlist"}
-
-Agent status
-^^^^^^^^^^^^
-
-* tid is the agent id.
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"class": "getlist",
-    "commandid": <random_integer>,
-    "function": "updatestatus",
-    "listname": "agents",
-    "tid": "635",
-    "tipbxid": "xivo"}
-
-``Server > Client``
-
-.. code-block:: javascript
-
-   {"class": "getlist",
-    "listname": "agents",
-    "function": "updatestatus",
-    "tipbxid": "xivo",
-    "tid": 635,
-    "status": {
-        "availability": "logged_out",
-         "availability_since": 1370868774.74,
-         "channel": null,
-         "groups": [],
-         "on_call_acd": false,
-         "on_call_nonacd": false,
-         "on_wrapup": false,
-         "phonenumber": null,
-         "queues": [
-             "113"
-         ]
-     }}
-
-* availability can take the values:
-
-    * logged_out
-    * available
-    * unavailable
-    * on_call_nonacd_incoming_internal
-    * on_call_nonacd_incoming_external
-    * on_call_nonacd_outgoing_internal
-    * on_call_nonacd_outgoing_external
-
-* availability_since is the timestamp of the last availability change
-* queues is the list of queue ids from which the agent receives calls
-
-Agent
------
-
-Login agent
-^^^^^^^^^^^
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"agentphonenumber": "1000", "class": "ipbxcommand", "command": "agentlogin", "commandid": 733366597}
-
-agentphonenumber is the physical phone set where the agent is going to log on.
-
-
-``Server > Client``
-
-* Login successfull :
-
-.. code-block:: javascript
-
-   {"function": "updateconfig", "listname": "queuemembers", "tipbxid": "xivo",
-      "timenow": 1362664323.94, "tid": "Agent/2002,blue",
-      "config": {"paused": "0", "penalty": "0", "membership": "static", "status": "1", "lastcall": "",
-                  "interface": "Agent/2002", "queue_name": "blue", "callstaken": "0"},
-    "class": "getlist"
-      }
-
-   {"function": "updatestatus", "listname": "agents", "tipbxid": "xivo",
-      "timenow": 1362664323.94,
-      "status": {"availability_since": 1362664323.94,
-                  "queues": [], "phonenumber": "1001", "on_call": false, "groups": [],
-                  "availability": "available", "channel": null},
-      "tid": 7, "class": "getlist"
-         }
-
-
-* The phone number is already used by an other agent :
-
-.. code-block:: javascript
-
-   {"class": "ipbxcommand", "error_string": "agent_login_exten_in_use", "timenow": 1362664158.14}
-
-Logout agent
-^^^^^^^^^^^^
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"class": "ipbxcommand", "command": "agentlogout", "commandid": 552759274}
-
-Pause
-^^^^^
-
-On all queues
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"class": "ipbxcommand", "command": "queuepause", "commandid": 859140432, "member": "agent:xivo/1", "queue": "queue:xivo/all"}
-
-Un pause agent
-^^^^^^^^^^^^^^
-
-On all queues
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"class": "ipbxcommand", "command": "queueunpause", "commandid": 822604987, "member": "agent:xivo/1", "queue": "queue:xivo/all"}
-
-Add an agent in a queue
-^^^^^^^^^^^^^^^^^^^^^^^
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"class": "ipbxcommand", "command": "queueadd", "commandid": 542766213, "member": "agent:xivo/3", "queue": "queue:xivo/2"}
-
-Remove an agent from a queue
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"class": "ipbxcommand", "command": "queueremove", "commandid": 742480296, "member": "agent:xivo/3", "queue": "queue:xivo/2"}
-
-Listen to an agent
-^^^^^^^^^^^^^^^^^^
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {"class": "ipbxcommand", "command": "listen", "commandid": 1423579492, "destination": "xivo/1", "subcommand": "start"}
+    {
+       "class": "ipbxcommand",
+       "command": "originate",
+       "commandid": <commandid>,
+       "destination": "user:special:myvoicemail",
+       "source": "user:special:me"
+    }
 
 
 Service
@@ -1363,108 +1385,6 @@ Forward the call to another destination when the user is busy
       }
 
 
-IPBX Commands
--------------
-
-Dial
-^^^^
-
-* destination can be any number
-* destination can be a pseudo URL of the form "type:ibpx/id"
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-    {
-       "class": "ipbxcommand",
-       "command": "dial",
-       "commandid": <commandid>,
-       "destination": "exten:xivo/<extension>"
-    }
-
-For example :
-
-.. code-block:: javascript
-
-    {
-        "class": "ipbxcommand",
-        "command": "dial",
-        "commandid": 1683305913,
-        "destination": "exten:xivo/1202"
-    }
-
-The server will answer with either an error or a success:
-
-.. code-block:: javascript
-
-    {
-        "class": "ipbxcommand",
-        "error_string": "unreachable_extension:1202",
-    }
-
-    {
-        "class": "dial_success",
-        "exten": "1202"
-    }
-
-Originate
-^^^^^^^^^
-
-Same message than the dial_ message with a source fied. The source field is ``user:xivo/<userid``,
-userid is replaced by a user identifer returned by the message getting `Users configuration`_ list
-
-Example:
-
-.. code-block:: javascript
-
-    {
-        "class": "ipbxcommand",
-        "command": "originate",
-        "commandid": 1683305913,
-        "source":"user:xivo/34",
-        "destination": "exten:xivo/1202"
-    }
-
-
-Hangup
-^^^^^^
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {
-       "class": "ipbxcommand",
-       "command": "hangup",
-       "channelids": "chan:xivo/<channel_id>",
-       "commandid": <command_id>
-   }
-
-For example:
-
-.. code-block:: javascript
-
-   {
-       "class": "ipbxcommand",
-       "command": "hangup",
-       "channelids": "chan:xivo/SIP/im2p7kzr-00000003",
-       "commandid": 177773016
-   }
-
-``Server -> Client``
-
-.. code-block:: javascript
-
-   {
-       "class": "ipbxcommand",
-       "command": "hangup",
-       "ipbxreply": 1,
-       "replyid": 177773016,
-       "timenow": 1395756534.64
-   }
-
-
 Statistics
 ----------
 
@@ -1497,6 +1417,149 @@ The first element of the message is the queue id
    {"stats": {"1": {"Xivo-TalkingAgents": "0", "Xivo-AvailableAgents": "1", "Xivo-EWT": "6"}},
       "class": "getqueuesstats", "timenow": 1384512350.25}
 
+
+Status
+------
+
+These messages can also be received without any request as unsolicited messages.
+
+User status
+^^^^^^^^^^^
+User status is to manage user presence
+
+- Request user status update
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 107712156,
+      "function": "updatestatus",
+      "listname": "users",
+      "tid": "14", "tipbxid": "xivo"}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {"class": "getlist",
+      "function": "updatestatus",
+      "listname": "users",
+      "status": {"availstate": "outtolunch", "connection": "yes"},
+            "tid": "1", "timenow": 1364994093.48, "tipbxid": "xivo"}
+
+- Change User status
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+    {"availstate": "away",
+        "class": "availstate",
+        "commandid": 1946092392,
+        "ipbxid": "xivo",
+            "userid": "1"}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+    {"class": "getlist",
+        "function": "updatestatus",
+        "listname": "users",
+        "status": {"availstate": "away"},
+        "tid": "1", "timenow": 1370523352.6, "tipbxid": "xivo"}
+
+
+Phone status
+^^^^^^^^^^^^
+* tid is the line id, found in linelist from message `User configuration`_
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "commandid": 107712156,
+      "function": "updatestatus",
+      "listname": "phones", "tid": "8", "tipbxid": "xivo"}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {"class": "getlist", "function": "updatestatus", "listname": "phones",
+      "status": {"channels": [], "groups": [], "hintstatus": "0", "queues": []},
+      "tid": "1", "timenow": 1364994093.48, "tipbxid": "xivo"}
+
+Queue status
+^^^^^^^^^^^^
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"commandid":17,"class":"getlist","tid":"8","tipbxid":"xivo","function":"updatestatus","listname":"queues"}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {"function": "updatestatus", "listname": "queues", "tipbxid": "xivo", "timenow": 1382710430.54,
+      "status": {"agentmembers": ["1","5"], "phonemembers": ["8"]},
+      "tid": "8", "class": "getlist"}
+
+Agent status
+^^^^^^^^^^^^
+
+* tid is the agent id.
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+   {"class": "getlist",
+    "commandid": <random_integer>,
+    "function": "updatestatus",
+    "listname": "agents",
+    "tid": "635",
+    "tipbxid": "xivo"}
+
+``Server > Client``
+
+.. code-block:: javascript
+
+   {"class": "getlist",
+    "listname": "agents",
+    "function": "updatestatus",
+    "tipbxid": "xivo",
+    "tid": 635,
+    "status": {
+        "availability": "logged_out",
+         "availability_since": 1370868774.74,
+         "channel": null,
+         "groups": [],
+         "on_call_acd": false,
+         "on_call_nonacd": false,
+         "on_wrapup": false,
+         "phonenumber": null,
+         "queues": [
+             "113"
+         ]
+     }}
+
+* availability can take the values:
+
+    * logged_out
+    * available
+    * unavailable
+    * on_call_nonacd_incoming_internal
+    * on_call_nonacd_incoming_external
+    * on_call_nonacd_outgoing_internal
+    * on_call_nonacd_outgoing_external
+
+* availability_since is the timestamp of the last availability change
+* queues is the list of queue ids from which the agent receives calls
+
+
 Switchboard
 -----------
 
@@ -1509,178 +1572,120 @@ This allows the switchboard operator to answer an incoming call or unhold a call
 
    {"class": "answer", "uniqueid": "12345667.89"}
 
-Fax
------------
+Unsolicited Messages
+--------------------
 
-Send fax
-^^^^^^^^
+These messages are received whenever one of the following corresponding event occurs: sheet message on incoming calls, or updatestatus when a phone status changes.
 
-``Client -> Server``
+Sheet
+^^^^^
+This message is received to display customer information if configured at the server side
 
 .. code-block:: javascript
 
-   {"class": "faxsend", "hide": "0", "filename": "contract.pdf", "destination", 41400 }
+   {
+      "timenow": 1361444639.61,
+      "class": "sheet",
+      "compressed": true,
+      "serial": "xml",
+      "payload": "AAADnnicndPBToNAEAbgV1n3XgFN1AP...................",
+      "channel": "SIP/e6fhff-00000007"
+   }
 
-Fax status
-^^^^^^^^^^
+How to decode payload :
 
-``Server -> Client``
+.. code-block:: python
 
-* pages: number of pages sent (``NULL`` if FAILED)
+   >>> b64content = base64.b64decode(<payload content>)
+   >>> # 4 first cars are the encoded lenght of the xml string (in Big Endian format)
+   >>> xmllen = struck.unpack('>I',b64content[0:4])
+   >>> # the rest is a compressed xml string
+   >>> xmlcontent = zlib.decompress(toto[4:])
+   >>> print xmlcontent
+
+   <?xml version="1.0" encoding="utf-8"?>
+      <profile>
+         <user>
+            <internal name="ipbxid"><![CDATA[xivo]]></internal>
+            <internal name="where"><![CDATA[dial]]></internal>
+            <internal name="channel"><![CDATA[SIP/barometrix_jyldev-00000009]]></internal>
+            <internal name="focus"><![CDATA[no]]></internal>
+            <internal name="zip"><![CDATA[1]]></internal>
+            <sheet_qtui order="0010" name="qtui" type="None"><![CDATA[]]></sheet_qtui>
+            <sheet_info order="0010" name="Nom" type="title"><![CDATA[0230210083]]></sheet_info>
+            <sheet_info order="0030" name="Origine" type="text"><![CDATA[extern]]></sheet_info>
+            <sheet_info order="0020" name="Num\xc3\xa9ro" type="text"><![CDATA[0230210083]]></sheet_info>
+            <systray_info order="0010" name="Nom" type="title"><![CDATA[Maric\xc3\xa9 Sapr\xc3\xaftch\xc3\xa0]]></systray_info>
+            <systray_info order="0030" name="Origine" type="body"><![CDATA[extern]]></systray_info>
+            <systray_info order="0020" name="Num\xc3\xa9ro" type="body"><![CDATA[0230210083]]></systray_info>
+         </user>
+      </profile>
+
+The xml file content is defined by the following xsd file:
+:file:`xivo-javactilib/src/main/xsd/sheet.xsd`
+(`online version <https://www.gitorious.org/xivo/xivo-javactilib/blobs/master/src/main/xsd/sheet.xsd>`_)
+
+Phone status update
+^^^^^^^^^^^^^^^^^^^
+
+Received when a phone status change
+
+* class : getlist
+* function : updatestatus
+* listname : phones
+
+
+.. code-block:: javascript
+
+   {
+      "class": "getlist",
+      "function": "updatestatus",
+      "listname": "phones",
+      "tipbxid": "xivo",
+      "timenow": 1361447017.29,
+      .........
+   }
+
+tid is the the object identification
+
+Example of phone messages received when a phone is ringing :
+
+.. code-block:: javascript
+
+   { ... "status": {"channels": ["SIP/x2gjtw-0000000b"]}, "tid": "3",}
+   {.... "status": {"channels": ["SIP/x2gjtw-0000000b"], "queues": [], "hintstatus": "0", "groups": []}, "tid": "3"}
+   {.... "status": {"hintstatus": "8"}, "tid": "3"}
+
+channel status update
+^^^^^^^^^^^^^^^^^^^^^
+* class : getlist
+* function : updatestatus
+* listname : channels
 * status
 
-  * FAILED: Failed to send fax.
-  * PRESENDFAX: Fax number exist and converting pdf->tiff has been done.
-  * SUCCESS: Fax sent with success.
-
-.. code-block:: javascript
-
-   {"class": "faxprogress", "status": "SUCCESS", "pages": 2 }
-
-REGCOMMANDS
------------
-
-call_form_result
-^^^^^^^^^^^^^^^^
-
-This message is received when a `call form` is submitted from a client to the XiVO.
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-    {
-        "class": "call_form_result",
-        "commandid": <commandid>,
-        "infos": {"buttonname": "saveandclose",
-                  "variables": {"XIVOFORM_varname1": "value1",
-                                "XIVOFORM_varname2": "value2"}}
-    }
-
-
-History
-^^^^^^^
-
-* size : Size of the list to be sent by the server
-
-``Client -> Server``
+  * direction : (in,out ...)
+  * state : (Down, Ring, Unknown ...)
+  * commstatus : (ready, calling, ringing ...)
 
 .. code-block:: javascript
 
    {
-      "class": "history",
-      "commandid": <commandid>
-      "size": "8",
-      "xuserid": "<xivoid>/<userfeaturesid>",
+      "class": "getlist",
+      "function": "updatestatus",
+      "listname": "channels",
+      "tipbxid": "xivo",
+      "timenow": 1361447017.29,
+      .........
    }
 
-``Server > Client``
-
-Send back a table of calls :
-
-* duration in seconds
-* extension: caller/destination extension
-* fullname: caller ID name
-* mode
-
-  * 0 : sent calls
-  * 1 : received calls
-  * 2 : missed calls
+Example of phone messages received when a phone is ringing :
 
 .. code-block:: javascript
 
-
-   {
-      "class": "history",
-      "history": [
-         {"calldate": "2013-03-29T08:44:35.273998",
-          "duration": 30.148765,
-          "extension": "*844201",
-          "fullname": "Alice Wonderland",
-          "mode": 0},
-         {"calldate": "2013-03-28T16:56:48.071213",
-          "duration": 58.134744,
-          "extension": "41400",
-          "fullname": "41400"}
-          "mode": 1},
-      ],
-      "replyid": 529422441,
-      "timenow": 1364571477.33
-   }
-
-
-Chitchat
-^^^^^^^^
-
-.. code-block:: javascript
-
-    {
-       "class": "chitchat",
-       "text": "message envoye",
-       "to": "<xivoid>/<userfeaturesid>",
-       "commandid": <commandid>
-    }
-
-featuresget
-
-featuresput
-
-Directory
-^^^^^^^^^
-Request directory information, names matching pattern ignore case.
-
-``Client -> Server``
-
-.. code-block:: javascript
-
-   {
-      "class": "directory",
-      "commandid": 1079140548,
-      "pattern": "pau"
-   }
-
-``Server > Client``
-
-.. code-block:: javascript
-
-   {
-      "class": "directory",
-      "headers": ["Nom", "Num\u00e9ro", "Mobile", "Autre num\u00e9ro", "E-mail", "Fonction", "Site", "Source"],
-      "replyid": 1079140548,
-      "resultlist": ["Claire Mapaurtal;;+33644558899;31256;cmapaurtal@societe.com;;;",
-                     "Paul Salvadier;+33445236988;+33678521430;31406;psalvadier@societe.com;;;"],
-      "status": "ok",
-      "timenow": 1378798928.26
-   }
-
-parking
-
-keepalive
-
-availstate
-
-filetransfer
-
-getipbxlist
-
-.. code-block:: javascript
-
-    {
-        "class": "getipbxlist",
-        "commandid": <commandid>
-    }
-
-ipbxcommand
-
-.. code-block:: javascript
-
-    {
-       "class": "ipbxcommand",
-       "command": "originate",
-       "commandid": <commandid>,
-       "destination": "user:special:myvoicemail",
-       "source": "user:special:me"
-    }
+   {"status": {"timestamp": 1361447017.22, "holded": false, "commstatus": "ready", "parked": false, "state": "Down"}, "tid": "SIP/barometrix_jyldev-0000000a"}
+   {"status": {"timestamp": 1361447017.29, "holded": false, "commstatus": "ready", "parked": false, "state": "Unknown"}, "tid": "SIP/x2gjtw-0000000b"}
+   {"status": {"talkingto_kind": "channel", "direction": "out", "timestamp": 1361447017.29, "holded": false, "talkingto_id": "SIP/x2gjtw-0000000b", "state": "Ring", "parked": false, "commstatus": "calling"}, "tid": "SIP/barometrix_jyldev-0000000a", "class": "getlist"}
+   {"status": {"direction": "in", "timestamp": 1361447017.29, "holded": false, "talkingto_id": "SIP/barometrix_jyldev-0000000a", "state": "Down", "parked": false, "commstatus": "ringing"}, "tid": "SIP/x2gjtw-0000000b", "class": "getlist"}
 
 
 CTI server implementation
