@@ -448,8 +448,8 @@ The latter should be preferred to the former for uses that do not require a
 persistent connection to xivo-ctid.
 
 
-LOGINCOMMANDS
--------------
+Login
+-----
 
 Once the network is connected at the socket level, the login process requires three steps. If one of these steps is omitted, the connection is
 reseted by the cti server.
@@ -468,7 +468,7 @@ reseted by the cti server.
 * class: defined what class of command use.
 * commandid : a unique integer number.
 
-login_id
+Login ID
 ^^^^^^^^
 
 ``Client -> Server``
@@ -503,8 +503,8 @@ login_id
    sessionid is used to calculate the hashed password in next step
 
 
-login_pass
-^^^^^^^^^^
+Login password
+^^^^^^^^^^^^^^
 
 ``Client -> Server``
 
@@ -548,7 +548,7 @@ If no CTI profile is defined on XiVO for this user, the following message will b
 .. note::
    the first element of the capalist is used in the next step login_capas
 
-login_capas
+Login capas
 ^^^^^^^^^^^
 
 ``Client -> Server``
@@ -661,7 +661,7 @@ Unsolicited Messages
 
 These messages are received whenever one of the following corresponding event occurs: sheet message on incoming calls, or updatestatus when a phone status changes.
 
-sheet
+Sheet
 ^^^^^
 This message is received to display customer information if configured at the server side
 
@@ -709,7 +709,7 @@ The xml file content is defined by the following xsd file:
 :file:`xivo-javactilib/src/main/xsd/sheet.xsd`
 (`online version <https://www.gitorious.org/xivo/xivo-javactilib/blobs/master/src/main/xsd/sheet.xsd>`_)
 
-phone status update
+Phone status update
 ^^^^^^^^^^^^^^^^^^^
 
 Received when a phone status change
@@ -796,8 +796,8 @@ Common fields
       "listname": "........."
    }
 
-users
-^^^^^
+Users configuration
+^^^^^^^^^^^^^^^^^^^
 
 Return a list of configured user id's
 
@@ -818,12 +818,12 @@ Return a list of configured user id's
       "tipbxid": "xivo","timenow": 1362735061.17
       }
 
-user
-^^^^
+User configuration
+^^^^^^^^^^^^^^^^^^
 
 Return a user configuration
 
-* tid is the userid returned by users_ message
+* tid is the userid returned by `Users configuration`_ message
 
 ``Client -> Server``
 
@@ -854,8 +854,9 @@ Return a user configuration
        }
 
 
-phones
-^^^^^^
+Phones configuration
+^^^^^^^^^^^^^^^^^^^^
+
 ``Client -> Server``
 
 .. code-block:: javascript
@@ -884,16 +885,16 @@ Individual phone configuration request:
                      "initialized": null, "number": "1000", "protocol": "sip"},
       "function": "updateconfig", "listname": "phones", "tid": "3", "timenow": 1364994093.43, "tipbxid": "xivo"}
 
-agents
-^^^^^^
+Agents configuration
+^^^^^^^^^^^^^^^^^^^^
 ``Client -> Server``
 
 .. code-block:: javascript
 
    {"class": "getlist", "commandid": 1431355191, "function": "listid", "listname": "agents", "tipbxid": "xivo"}
 
-queues
-^^^^^^
+Queues configuration
+^^^^^^^^^^^^^^^^^^^^
 ``Client -> Server``
 
 .. code-block:: javascript
@@ -907,8 +908,8 @@ queues
    {"function": "listid", "listname": "queues", "tipbxid": "xivo",
          "list": ["1", "10", "3", "2", "5", "4", "7", "6", "9", "8"], "timenow": 1382704649.64, "class": "getlist"}
 
-queue
-^^^^^
+Queue configuration
+^^^^^^^^^^^^^^^^^^^
 tid is the id returned in the list field of the getlist response message
 
 ``Client -> Server``
@@ -927,16 +928,16 @@ tid is the id returned in the list field of the getlist response message
          {"displayname": "red", "name": "red", "context": "default", "number": "3002"},
     "class": "getlist"}
 
-voicemails
-^^^^^^^^^^
+Voicemails configuration
+^^^^^^^^^^^^^^^^^^^^^^^^
 ``Client -> Server``
 
 .. code-block:: javascript
 
    {"class": "getlist", "commandid": 1034160761, "function": "listid", "listname": "voicemails", "tipbxid": "xivo"}
 
-queuemembers
-^^^^^^^^^^^^
+Queue members configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ``Client -> Server``
 
 .. code-block:: javascript
@@ -1008,7 +1009,7 @@ User status is to manage user presence
 
 Phone status
 ^^^^^^^^^^^^
-* tid is the line id, found in linelist from message `user`_
+* tid is the line id, found in linelist from message `User configuration`_
 
 ``Client -> Server``
 
@@ -1097,8 +1098,8 @@ Agent status
 Agent
 -----
 
-login
-^^^^^
+Login agent
+^^^^^^^^^^^
 
 ``Client -> Server``
 
@@ -1137,8 +1138,8 @@ agentphonenumber is the physical phone set where the agent is going to log on.
 
    {"class": "ipbxcommand", "error_string": "agent_login_exten_in_use", "timenow": 1362664158.14}
 
-Logout
-^^^^^^
+Logout agent
+^^^^^^^^^^^^
 
 ``Client -> Server``
 
@@ -1148,6 +1149,7 @@ Logout
 
 Pause
 ^^^^^
+
 On all queues
 
 ``Client -> Server``
@@ -1156,8 +1158,9 @@ On all queues
 
    {"class": "ipbxcommand", "command": "queuepause", "commandid": 859140432, "member": "agent:xivo/1", "queue": "queue:xivo/all"}
 
-Un pause
-^^^^^^^^
+Un pause agent
+^^^^^^^^^^^^^^
+
 On all queues
 
 ``Client -> Server``
@@ -1168,6 +1171,7 @@ On all queues
 
 Add an agent in a queue
 ^^^^^^^^^^^^^^^^^^^^^^^
+
 ``Client -> Server``
 
 .. code-block:: javascript
@@ -1176,6 +1180,7 @@ Add an agent in a queue
 
 Remove an agent from a queue
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 ``Client -> Server``
 
 .. code-block:: javascript
@@ -1194,10 +1199,12 @@ Listen to an agent
 
 Service
 -------
+
 * class : featuresput
 
 Call Filtering
 ^^^^^^^^^^^^^^
+
 * function : incallfilter
 * value : true, false activate deactivate filtering
 
@@ -1221,6 +1228,7 @@ Call Filtering
 
 DND
 ^^^
+
 * function : enablednd
 * value : true, false activate deactivate DND
 
@@ -1244,6 +1252,7 @@ DND
 
 Recording
 ^^^^^^^^^
+
 * function : enablerecording
 * value : true, false
 
@@ -1269,6 +1278,7 @@ Activate / deactivate recording for a user, extension call recording has to be a
 
 Unconditional Forward
 ^^^^^^^^^^^^^^^^^^^^^
+
 Forward the call at any time, call does not reach the user
 
 * function : fwd
@@ -1296,6 +1306,7 @@ Forward the call at any time, call does not reach the user
 
 Forward On No Answer
 ^^^^^^^^^^^^^^^^^^^^
+
 Forward the call to another destination if the user does not answer
 
 * function : fwd
@@ -1324,6 +1335,7 @@ Forward the call to another destination if the user does not answer
 
 Forward On Busy
 ^^^^^^^^^^^^^^^
+
 Forward the call to another destination when the user is busy
 
 * function : fwd
@@ -1354,10 +1366,8 @@ Forward the call to another destination when the user is busy
 IPBX Commands
 -------------
 
-
-dial
+Dial
 ^^^^
-
 
 * destination can be any number
 * destination can be a pseudo URL of the form "type:ibpx/id"
@@ -1398,11 +1408,11 @@ The server will answer with either an error or a success:
         "exten": "1202"
     }
 
-originate
+Originate
 ^^^^^^^^^
 
 Same message than the dial_ message with a source fied. The source field is ``user:xivo/<userid``,
-userid is replaced by a user identifer returned by the message getting users_ list
+userid is replaced by a user identifer returned by the message getting `Users configuration`_ list
 
 Example:
 
@@ -1417,7 +1427,7 @@ Example:
     }
 
 
-hangup
+Hangup
 ^^^^^^
 
 ``Client -> Server``
@@ -1458,8 +1468,9 @@ For example:
 Statistics
 ----------
 
-subscribetoqueuesstats
-^^^^^^^^^^^^^^^^^^^^^^
+Subscribe to queues stats
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
 This message can be sent from the client to enable statitics update on queues
 
 ``Client -> Server``
@@ -1470,9 +1481,10 @@ This message can be sent from the client to enable statitics update on queues
 
  ``Server > Client``
 
-getqueuesstats
-^^^^^^^^^^^^^^
-When statistic update is enable by sending message `subscribetoqueuesstats`_.
+Get queues stats
+^^^^^^^^^^^^^^^^
+
+When statistic update is enable by sending message `Subscribe to queues stats`_.
 
 The first element of the message is the queue id
 
@@ -1488,7 +1500,7 @@ The first element of the message is the queue id
 Switchboard
 -----------
 
-answer
+Answer
 ^^^^^^
 
 This allows the switchboard operator to answer an incoming call or unhold a call on-hold.
@@ -1500,8 +1512,8 @@ This allows the switchboard operator to answer an incoming call or unhold a call
 Fax
 -----------
 
-Send
-^^^^
+Send fax
+^^^^^^^^
 
 ``Client -> Server``
 
@@ -1509,8 +1521,8 @@ Send
 
    {"class": "faxsend", "hide": "0", "filename": "contract.pdf", "destination", 41400 }
 
-Status
-^^^^^^
+Fax status
+^^^^^^^^^^
 
 ``Server -> Client``
 
@@ -1546,8 +1558,9 @@ This message is received when a `call form` is submitted from a client to the Xi
     }
 
 
-history
+History
 ^^^^^^^
+
 * size : Size of the list to be sent by the server
 
 ``Client -> Server``
@@ -1596,7 +1609,7 @@ Send back a table of calls :
    }
 
 
-chitchat
+Chitchat
 ^^^^^^^^
 
 .. code-block:: javascript
@@ -1612,7 +1625,7 @@ featuresget
 
 featuresput
 
-directory
+Directory
 ^^^^^^^^^
 Request directory information, names matching pattern ignore case.
 
