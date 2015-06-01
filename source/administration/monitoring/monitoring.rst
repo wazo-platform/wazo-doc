@@ -21,7 +21,7 @@ monitored processes. It is divided into 6 sections :
 System
 ======
 
-Displays generic information about the operating system, network adresses,
+Displays generic information about the operating system, network addresses,
 uptime and load average. Read only.
 
 
@@ -63,5 +63,5 @@ Other Services
 ==============
 
 Lists XiVO related processes (most of which are daemons) with their corresponding
-status, uptime, ressource usage and controls to Restart service (blue button),
+status, uptime, resource usage and controls to Restart service (blue button),
 stop service (red button) and stop monitoring service (grey button).

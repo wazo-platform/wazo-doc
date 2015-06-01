@@ -86,10 +86,9 @@ Connection Configuration
 
 This page allows the user to set his network information to connect to the xivo-ctid server.
 
-* `Server` is the IP adress of the server.
-* `Backup server` is the IP adress of the backup server.
-* `Port` is the port on wich xivo-ctid is listening for connections. (default: 5003)
-* `Encrypt Connection` is the option to encrypt messages between the client and the server. (default port 5013)
+* `Server` is the IP address of the server.
+* `Backup server` is the IP address of the backup server.
+* `Port` is the port on which xivo-ctid is listening for connections. (default: 5003)
 
 
 Handling callto: and tel: URLs
