@@ -414,7 +414,7 @@ Fax status
 
 .. code-block:: javascript
 
-   {"class": "faxprogress", "status": "SUCCESS", "pages": 2 }
+   {"class": "fax_progress", "status": "SUCCESS", "pages": 2 }
 
 
 IPBX Commands
