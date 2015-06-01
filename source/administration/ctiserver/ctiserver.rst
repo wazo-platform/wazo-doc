@@ -109,8 +109,7 @@ select both the certificate and the private key you created earlier. By default,
 the CTIS port is 5013.
 
 In your XiVO Client, in the menu :menuselection:`XiVO Client --> Configure -->
-Connection`, check the option ``Encrypt connection`` and adjust the server port
-if necessary.
+Connection`, click on the lock icon and adjust the port value if necessary.
 
 .. warning:: For now, there is no mechanism for strong authentification of the
    server. The connection is encrypted, but the identity of the server is not
