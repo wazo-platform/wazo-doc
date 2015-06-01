@@ -95,6 +95,8 @@ action                        param
 ============================= ==================
 
 
+.. _ctid-encryption:
+
 Enable encryption
 =================
 
