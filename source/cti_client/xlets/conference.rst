@@ -16,11 +16,11 @@ Usage
 =====
 
 The *Conference room list* tab show all available conference rooms configured on the XiVO.
-The user can right click on a conference to join the conference. When a user joins a
+The user can click on a conference number to join the conference. When a user joins a
 conference, his phone will ring and the conference will be joined when the user answers
 the phone.
 
-When left clicking on a conference room a new tab is opened for the selected conference
+When clicking on a conference room a new tab is opened for the selected conference
 room. The new tab contains information about the members of the conference. The name and
 number of the member will be displayed when available. Users can also mute and unmute
 themselves using the microphone icon on the left.
