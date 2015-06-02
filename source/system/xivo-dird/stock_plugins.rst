@@ -257,9 +257,12 @@ Example (a file inside ``source_config_dir``):
    type: xivo
    name: my_xivo
    confd_config:
+       https: True
        host: xivo.example.com
-       port: 9487
+       port: 9486
        version: 1.1
+       username: admin
+       password: password
        timeout: 3
    searched_columns:
        - firstname
@@ -271,7 +274,7 @@ confd_config:host
    the hostname of the XiVO (more precisely, of the xivo-confd service)
 
 confd_config:port
-   the port of the xivo-confd service (usually 9487)
+   the port of the xivo-confd service (usually 9486)
 
 confd_config:version
    the version of the xivo-confd API (should be 1.1)
