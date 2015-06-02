@@ -45,23 +45,27 @@ Terminology
 Back-end
 --------
 
-A back-end is a plugin implementation to query a given directory.
+A back-end is a connector to query a specific type of directory, e.g. one back-end to query LDAP
+servers, another back-end to query CSV files, etc.
 
 
 Source
 ------
 
-A source is an instance of a back-end. Given a csv back-end I can have many
-configurations, each of these configurations is called a source. For example,
-I could have the customer-csv and the employee-csv sources. All using the csv
-back-end.
+A source is an instance of a back-end. One backend may be used multiples times to query multiple
+directories of the same type. For example, I could have the customer-csv and the employee-csv
+sources, each using the CSV back-end, but reading a different file.
 
 
 Plugins
 -------
 
 A plugin is an extension point in xivo-dird. It is a way to add or modify the
-functionality of xivo-dird.
+functionality of xivo-dird. There are currently three types of plugins:
+
+* Back-ends to query different types of directories (LDAP, CSV, etc.)
+* Services to provide different directory actions (lookup, reverse lookup, etc.)
+* Views to expose directory results in different formats (JSON, XML, etc.)
 
 
 API
