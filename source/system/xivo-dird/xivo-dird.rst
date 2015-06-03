@@ -70,4 +70,4 @@ functionality of xivo-dird. There are currently three types of plugins:
 API
 ===
 
-See :ref:`dird-api`.
+See http://api.xivo.io, section XiVO Dird.
