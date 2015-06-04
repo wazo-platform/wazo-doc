@@ -166,6 +166,9 @@ It's possible to configure the Polycom switchboard via the :ref:`configuration f
        password: xivo_switchboard
        answer_delay: 0.5
 
+You will also need to change the XML API username/password by creating a :ref:`custom template
+<provd-custom-templates>` for your phone.
+
 
 Snom Phones
 ^^^^^^^^^^^
