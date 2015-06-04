@@ -177,8 +177,8 @@ When using a Snom switchboard, you must not configure a function key on position
 
 To be able to use a Snom phone for the switchboard, the XiVO must be able to do HTTP requests to
 the phone. This might be problematic if there's a NAT between your XiVO and your phone. The
-following command should work from your XiVO's bash command line `wget http://guest:guest@<phone IP
-address>/command.htm?key=SPEAKER`. If this command does not activate the phone's speaker, your
+following command should work from your XiVO's bash command line ``wget http://guest:guest@<phone IP
+address>/command.htm?key=SPEAKER``. If this command does not activate the phone's speaker, your
 network configuration will have to be *fixed* before you can use the Snom switchboard.
 
 It's possible to configure the Snom switchboard via the :ref:`configuration files
