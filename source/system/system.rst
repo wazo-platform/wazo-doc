@@ -15,5 +15,6 @@ System
    DHCP Server <dhcp/dhcp>
    ntp
    Mail <mail/mail>
+   xivo-auth/xivo-auth
    xivo-dird/xivo-dird
    xivo-sysconfd
