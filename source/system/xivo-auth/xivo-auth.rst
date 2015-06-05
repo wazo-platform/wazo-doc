@@ -80,3 +80,10 @@ Launching xivo-auth
       -l LOG_LEVEL, --log-level LOG_LEVEL
                             Logs messages with LOG_LEVEL details. Must be one of:
                             critical, error, warning, info, debug. Default: None
+
+
+Development
+===========
+
+For the HTTP API see ...
+For the xivo-auth developer's see :ref:`xivo-auth-developer`.
