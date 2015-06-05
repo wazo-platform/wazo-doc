@@ -20,9 +20,7 @@ Alice retrieves a token using her username/password::
 
     $ # Alice creates a new token, using the xivo_user backend
     $ curl -X POST -H 'Content-Type: application/json' -u 'alice:s3cre7' "localhost:9497/0.1/token" -d '{"backend": "xivo_user"}';echo
-    {...}
-
-    $
+    {"data": {"issued_at": "2015-06-05T10:16:58.557553", "token": "1823c1ee-6c6a-0cdc-d869-964a7f08a744", "uuid": "63f3dc3c-865d-419e-bec2-e18c4b118224", "expires_at": "2015-06-05T11:16:58.557595"}}
 
 In this example Alice used here XiVO cti client login and password. The
 authentification source is determined by the backend in the POST data.
@@ -36,8 +34,7 @@ on Alice's behalf to access her personnal storage.
 
 If Alice wants to revoke her token before it's expiration::
 
-    $ curl -X DELETE -H 'Content-Type: application/json' "localhost:9497/0.1/token/<XXX add the token here>"
-    $
+    $ curl -X DELETE -H 'Content-Type: application/json' "localhost:9497/0.1/token/1823c1ee-6c6a-0cdc-d869-964a7f08a744"
 
 
 Usage for services using xivo-auth
@@ -54,14 +51,16 @@ session if it is valid.
 
 Checking if a token is valid::
 
-    $ curl -i -X HEAD -H 'Content-Type: application/json' "localhost:9497/0.1/token/<XXX add the token here>"
-    204
+    $ curl -i -X HEAD -H 'Content-Type: application/json' "localhost:9497/0.1/token/1823c1ee-6c6a-0cdc-d869-964a7f08a744"
+    HTTP/1.1 204 NO CONTENT
+    Content-Type: text/html; charset=utf-8
+    Content-Length: 0
+    Date: Fri, 05 Jun 2015 14:49:50 GMT
+    Server: pcm-dev-0
 
     $ # get more information about this token
-    $ curl -X GET -H 'Content-Type: application/json' "localhost:9497/0.1.token<XXX add the token here>"
-    {...}
-
-    $
+    $ curl -X GET -H 'Content-Type: application/json' "localhost:9497/0.1.token/1823c1ee-6c6a-0cdc-d869-964a7f08a744";echo
+    {"data": {"issued_at": "2015-06-05T10:16:58.557553", "token": "1823c1ee-6c6a-0cdc-d869-964a7f08a744", "uuid": "63f3dc3c-865d-419e-bec2-e18c4b118224", "expires_at": "2015-06-05T11:16:58.557595"}}
 
 
 Launching xivo-auth
