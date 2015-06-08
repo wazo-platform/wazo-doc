@@ -20,7 +20,8 @@ following keys are interpreted and displayed in xlet people of the XiVO Client:
    * ``agent``: the field value will be ignored and replaced by an icon showing the status of the
      agent assigned to the contact (e.g. green icon for logged agent, red icon for unlogged agent,
      ...)
-   * ``mobile``: a dropdown action on the ``number`` field will be added to call the field value
+   * ``mobile``: a dropdown action on the ``number`` field will be added to call the field value.
+     Currently, only the last ``mobile`` field will be displayed.
    * ``name``: a decoration will be added to the field value (typically a color dot) showing the
      presence status of the contact (e.g. Disconnected, Available, Away, ...)
    * ``number``: the field value will be:
