@@ -22,7 +22,6 @@ The following variables can be overridden in the ``/etc/default/consul`` file.
 .. code-block:: sh
 
     CONFIG_DIR=/etc/consul/xivo         # The configuration directory
-    LISTEN_ADDRESS=127.0.0.1            # The listen address for client connections
     USER=consul                         # The user used to run the consul process
     GROUP=consul                        # The group used to run the consul process
     PIDDIR=/var/run/consul              # The directory where the pidfile will be written
