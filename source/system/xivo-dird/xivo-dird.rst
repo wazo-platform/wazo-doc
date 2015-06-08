@@ -4,9 +4,8 @@
  XiVO dird
 ===========
 
-xivo-dird is the directory server for XiVO. It offers a simple REST interface
-to query all directories that are configured. xivo-dird is meant to be
-extendable with plugins.
+xivo-dird is the directory server for XiVO. It offers a simple REST interface to query all
+directories that are configured. xivo-dird is extendable with plugins.
 
 .. toctree::
    :maxdepth: 1
@@ -71,4 +70,4 @@ functionality of xivo-dird. There are currently three types of plugins:
 API
 ===
 
-See :ref:`dird-api`.
+See http://api.xivo.io, section XiVO Dird.

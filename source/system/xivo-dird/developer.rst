@@ -101,7 +101,8 @@ Implementation details
 
     * Empty values should be ``None``, instead of empty string.
 
-  * ``list(uids)``: The list method returns a list of dictionary from a list of uids.
+  * ``list(uids)``: The list method returns a list of dictionary from a list of uids. Each uid is a
+    string identifying a contact within a source.
 
 The typical configuration file for a given back-end will look like this:
 
@@ -110,8 +111,7 @@ The typical configuration file for a given back-end will look like this:
 
    type: <back-end name>
    name: <source-name>
-   unique_columns:
-       - id
+   unique_column: id
    search_columns:
        - firstname
    source_to_display_columns:
@@ -131,10 +131,9 @@ name
 The remaining keys are conventional: they are not required by xivo-dird, but it's a good idea to
 use these for your configuration format.
 
-unique_columns
-   This list of columns is what makes an entry unique in this source. The ``unique_columns`` are
-   used to build the ``uid`` that is passed to the list method to fetch a list of results by unique
-   ids.
+unique_column
+   This column is what makes an entry unique in this source. The ``unique_column`` is used to
+   build the ``uid`` that is passed to the list method to fetch a list of results by unique ids.
 
 search_columns
    This list of columns is used to try and match an entry when searching this source.
@@ -312,8 +311,6 @@ Implementation details
     * key ``services``: a dictionary of services, indexed by name, which may be called from a route
     * key ``http_app``: the `Flask application`_ instance
     * key ``rest_api``: a `Flask-RestFul Api`_ instance
-    * key ``http_namespace``: the namespace derived from ``rest_api``, prefixing the URLs with
-      ``/<api_version>/directories``, e.g. ``/0.1/directories``
 
       .. _Flask application: http://flask.pocoo.org/
       .. _Flask-RestFul Api: http://flask-restful.readthedocs.org/en/latest/quickstart.html#a-minimal-api
@@ -330,13 +327,13 @@ The following example adds a simple view: ``GET /0.1/directories/ping`` answers 
 
 .. code-block:: python
    :linenos:
-   :emphasize-lines: 20-21, 29-35
+   :emphasize-lines: 20, 26-32
 
    # -*- coding: utf-8 -*-
 
    import logging
 
-   from flask_restplus import Resource
+   from flask_restful import Resource
 
    logger = logging.getLogger(__name__)
 
@@ -351,21 +348,16 @@ The following example adds a simple view: ``GET /0.1/directories/ping`` answers 
        def load(self, args):
            logger.debug('dummy view args: %s', args)
 
-           api_class = make_api_class()
-           args['http_namespace'].route('/ping')(api_class)
+           args['rest_api'].add_resource(PingView, '/0.1/directories/ping')
 
        def unload(self):
            logger.debug('dummy view unloaded')
 
 
-   def make_api_class():
+   class PingView(Resource):
+       """
+       Simple API using Flask-Restful: GET /0.1/directories/ping answers "pong"
+       """
 
-       class PingView(Resource):
-           """
-           Simple API using Flask-RestPlus: GET /0.1/directories/ping answers "pong"
-           """
-
-           def get(self):
-               return {'message': 'pong'}
-
-       return PingView
+       def get(self):
+           return {'message': 'pong'}
