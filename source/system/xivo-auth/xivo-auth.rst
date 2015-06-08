@@ -4,7 +4,7 @@
 XiVO auth
 =========
 
-xivo-auth is a scalable, extendable and configurable authentification service.
+xivo-auth is a scalable, extendable and configurable authentication service.
 It uses an HTTP interface to emit tokens to users who can then use those tokens
 to identify and authenticate themselves with other services compatible with
 xivo-auth.
@@ -23,7 +23,7 @@ Alice retrieves a token using her username/password::
     {"data": {"issued_at": "2015-06-05T10:16:58.557553", "token": "1823c1ee-6c6a-0cdc-d869-964a7f08a744", "uuid": "63f3dc3c-865d-419e-bec2-e18c4b118224", "expires_at": "2015-06-05T11:16:58.557595"}}
 
 In this example Alice used here XiVO cti client login and password. The
-authentification source is determined by the backend in the POST data.
+authentication source is determined by the backend in the POST data.
 
 Alice could also have specified an expiration time on her POST request. The
 expiration value is the number of seconds before the token expires.
@@ -40,8 +40,8 @@ If Alice wants to revoke her token before it's expiration::
 Usage for services using xivo-auth
 ==================================
 
-A service that require authentification and identification can use xivo-auth to
-externalise the burden of authentification. The new service can then accept a
+A service that require authentication and identification can use xivo-auth to
+externalise the burden of authentication. The new service can then accept a
 token as part of its operations to authenticate the user using the service.
 
 Once a service receives a token from one of its user, it will need to check the
