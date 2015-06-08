@@ -193,6 +193,5 @@ API
    :maxdepth: 1
 
    confd/api
-   dird/api
    provd/api
    sysconfd/api
