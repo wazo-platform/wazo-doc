@@ -64,3 +64,91 @@ Usage of ``xivo-purge-db``::
       -h, --help            show this help message and exit
       -d DAYS_TO_KEEP, --days_to_keep DAYS_TO_KEEP
                             Number of days data will be kept in tables
+
+
+Plugins
+-------
+
+A plugin is an extension point in xivo-purge-db. It is a way to add or modify the functionality of
+xivo-purge-db. The only plugin available is `archives` to execute some codes before purging the database.
+
+
+Archive Plugins (for Developpers)
+---------------------------------
+
+The only thing that plugin need to implement, is a ``days_to_keep`` as argument in its constructor. There
+are no method that ``xivo-purge-db`` call after instantiation.
+
+The following example can be found in `git repo`_
+
+.. _git repo: https://github.com/xivo-pbx/xivo-purge-db/tree/master/contribs
+
+
+Example
+*******
+
+Archive name: sample
+
+Purpose: demonstrate how to create your own archive plugin.
+
+
+Activate plugin
+^^^^^^^^^^^^^^^
+
+Example of file added in ``/etc/xivo-purge-db/conf.d/``:
+
+.. code-block:: yaml
+   :linenos:
+
+    enabled_plugins:
+        archives:
+            - sample
+
+
+sample.py
+^^^^^^^^^
+
+The following example will be save a file in ``/tmp/xivo_purge_db.sample`` with ``Save tables
+before purge. 365 days to keep!`` as content by default.
+
+.. code-block:: python
+   :linenos:
+
+    sample_file = '/tmp/xivo_purge_db.sample'
+
+
+    class SamplePlugin(object):
+
+        def __init__(self, days_to_keep):
+            with open(sample_file, 'w') as output:
+                output.write('Save tables before purge. {0} days to keep!'.format(days_to_keep))
+
+
+Install sample plugin
+^^^^^^^^^^^^^^^^^^^^^
+
+The following setup.py shows an example of a python library that add a plugin:
+
+.. code-block:: python
+   :linenos:
+   :emphasize-lines: 15-17
+
+    #!/usr/bin/env python
+    # -*- coding: utf-8 -*-
+
+    from setuptools import setup
+    from setuptools import find_packages
+
+
+    setup(
+        name='xivo-purge-db-sample-plugin',
+        version='0.0.1',
+
+        description='An example program',
+        packages=find_packages(),
+        entry_points={
+            'xivo_purge_db.archives': [
+                'sample = xivo_purge_db_sample.sample:SamplePlugin',
+            ],
+        }
+    )
