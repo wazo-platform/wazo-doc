@@ -1,3 +1,5 @@
+.. _call_center_stats:
+
 **********
 Statistics
 **********

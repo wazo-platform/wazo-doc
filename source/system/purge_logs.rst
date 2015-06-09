@@ -4,35 +4,43 @@
 Purge Logs
 **********
 
-xivo-purge-db is a process that removes old log entries from the database. This allows
-keeping records for a maximum period and deleting older ones.
+Keeping records of personal communications for long periods may be subject to local legislation, to
+avoid personal data retention. Also, keeping too many records may become resource intensive for the
+server. To ease the removal of such records, ``xivo-purge-db`` is a process that removes old log
+entries from the database. This allows keeping records for a maximum period and deleting older ones.
 
-xivo-purge-db is run nightly.
+By default, xivo-purge-db removes all logs older than a year (365 days). xivo-purge-db is run
+nightly.
 
-
-.. note:: Keeping records for long periods maybe subject to local legislation.
-          Please verify your laws and modify `days_to_keep` in the configuration file.
-
+.. note:: Please check the laws applicable to your country and modify ``days_to_keep`` (see below)
+in the configuration file accordingly.
 
 Tables Purged
 -------------
 
-These tables are purged by `xivo-purge-db`
+The following features are impacted by xivo-purge-db:
 
--  `call_logs`
--  `cel`
--  `queue_log`
--  `stat_agent_periodic`
--  `stat_call_on_queue`
--  `stat_queue_periodic`
+- :ref:`call_logs`
+- :ref:`Call center statistics <call_center_stats>`
+
+More technically, the tables purged by ``xivo-purge-db`` are:
+
+-  ``call_logs``
+-  ``cel``
+-  ``queue_log``
+-  ``stat_agent_periodic``
+-  ``stat_call_on_queue``
+-  ``stat_queue_periodic``
 
 
 Configuration File
 ------------------
 
-It suggested to overload variable `days_to_keep` in a new file in ``/etc/xivo-purge-db/conf.d/``
+We recommend to override the setting ``days_to_keep`` from ``/etc/xivo-purge-db/config.yml`` in a
+new file in ``/etc/xivo-purge-db/conf.d/``. Setting ``days_to_keep`` to 0 will NOT disable
+``xivo-purge-db``, and will remove ALL logs from your system.
 
-See :ref:`configuration-priority` for more details.
+See :ref:`configuration-priority` and ``/etc/xivo-purge-db/config.yml`` for more details.
 
 
 Manual Purge
@@ -42,12 +50,12 @@ It is possible to purge logs manually. To do so, log on to the target XiVO serve
 
     xivo-purge-db
 
-You can specify the number of days of logs to keep.
-For example, to purge entries older than 365 days::
+You can specify the number of days of logs to keep. For example, to purge entries older than 365
+days::
 
     xivo-call-logs -d 365
 
-Usage of `xivo-purge-db`::
+Usage of ``xivo-purge-db``::
 
     usage: xivo-purge-db [-h] [-d DAYS_TO_KEEP]
 
