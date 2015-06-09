@@ -193,6 +193,7 @@ API
    :maxdepth: 1
 
    confd/api
-   dird/api
    provd/api
    sysconfd/api
+
+See also : http://api.xivo.io.
