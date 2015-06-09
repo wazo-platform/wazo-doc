@@ -38,8 +38,10 @@ Configuration File
 ------------------
 
 We recommend to override the setting ``days_to_keep`` from ``/etc/xivo-purge-db/config.yml`` in a
-new file in ``/etc/xivo-purge-db/conf.d/``. Setting ``days_to_keep`` to 0 will NOT disable
-``xivo-purge-db``, and will remove ALL logs from your system.
+new file in ``/etc/xivo-purge-db/conf.d/``.
+
+.. warning:: Setting ``days_to_keep`` to 0 will NOT disable ``xivo-purge-db``, and will remove ALL
+             logs from your system.
 
 See :ref:`configuration-priority` and ``/etc/xivo-purge-db/config.yml`` for more details.
 
@@ -66,22 +68,27 @@ Usage of ``xivo-purge-db``::
                             Number of days data will be kept in tables
 
 
-Plugins
--------
+Archive Plugins
+---------------
 
-A plugin is an extension point in xivo-purge-db. It is a way to add or modify the functionality of
-xivo-purge-db. The only plugin available is `archives` to execute some codes before purging the database.
+In the case you want to keep archives of the logs removed by xivo-purge-db, you may install plugins
+to xivo-purge-db that will be run before the purge.
+
+XiVO does not provide any archive plugin. You will need to develop plugins for your own need. If you
+want to share your plugins, please open a `pull request`_.
+
+.. _pull request: https://github.com/xivo-pbx/xivo-purge-db/pulls
 
 
-Archive Plugins (for Developpers)
+Archive Plugins (for Developers)
 ---------------------------------
 
-The only thing that plugin need to implement, is a ``days_to_keep`` as argument in its constructor. There
-are no method that ``xivo-purge-db`` call after instantiation.
+Each plugin is a Python callable (function or class constructor), that takes a ``days_to_keep``
+argument. This is the only entry point for the plugin.
 
-The following example can be found in `git repo`_
+There is an example plugin in the `xivo-purge-db git repo`_.
 
-.. _git repo: https://github.com/xivo-pbx/xivo-purge-db/tree/master/contribs
+.. _xivo-purge-db git repo: https://github.com/xivo-pbx/xivo-purge-db/tree/master/contribs
 
 
 Example
@@ -92,24 +99,27 @@ Archive name: sample
 Purpose: demonstrate how to create your own archive plugin.
 
 
-Activate plugin
+Activate Plugin
 ^^^^^^^^^^^^^^^
 
-Example of file added in ``/etc/xivo-purge-db/conf.d/``:
+Each plugin needs to be explicitly enabled in the configuration of ``xivo-purge-db``. Here is an
+example of file added in ``/etc/xivo-purge-db/conf.d/``:
 
 .. code-block:: yaml
    :linenos:
 
-    enabled_plugins:
-        archives:
-            - sample
+   enabled_plugins:
+       archives:
+           - sample
 
 
 sample.py
 ^^^^^^^^^
 
-The following example will be save a file in ``/tmp/xivo_purge_db.sample`` with ``Save tables
-before purge. 365 days to keep!`` as content by default.
+The following example will be save a file in ``/tmp/xivo_purge_db.sample`` with the following
+content::
+
+   Save tables before purge. 365 days to keep!
 
 .. code-block:: python
    :linenos:
@@ -127,7 +137,7 @@ before purge. 365 days to keep!`` as content by default.
 Install sample plugin
 ^^^^^^^^^^^^^^^^^^^^^
 
-The following setup.py shows an example of a python library that add a plugin:
+The following ``setup.py`` shows an example of a python library that adds a plugin to xivo-purge-db:
 
 .. code-block:: python
    :linenos:
