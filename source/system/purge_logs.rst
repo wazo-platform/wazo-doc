@@ -13,7 +13,8 @@ By default, xivo-purge-db removes all logs older than a year (365 days). xivo-pu
 nightly.
 
 .. note:: Please check the laws applicable to your country and modify ``days_to_keep`` (see below)
-in the configuration file accordingly.
+          in the configuration file accordingly.
+
 
 Tables Purged
 -------------
