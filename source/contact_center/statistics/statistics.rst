@@ -14,6 +14,9 @@ are automatically generated every six hours. They can also be generated manually
  The contact center statistics do not apply to switchboard queues. See :ref:`switchboard`
  for more details.
 
+.. note:: xivo-purge-db can impact on statistics. See :ref:`purge_logs` for more details.
+
+
 Configuration
 =============
 
