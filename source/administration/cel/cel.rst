@@ -8,6 +8,8 @@ Call logs are pre-generated from CEL entries. The generation is done automatical
 by xivo-call-logd. xivo-call-logs is also run nightly to generate call logs from
 CEL that were missed by xivo-call-logd.
 
+.. note:: The oldest call logs are periodically removed. See :ref:`purge_logs` for more details.
+
 
 Search Dashboard
 ----------------

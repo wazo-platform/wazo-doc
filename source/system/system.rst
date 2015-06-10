@@ -5,16 +5,17 @@ System
 .. toctree::
    :maxdepth: 2
 
-   service
-   consul
-   Network <network/network>
-   proxy
-   log_files
-   configuration_files
-   backup_restore
    DHCP Server <dhcp/dhcp>
-   ntp
    Mail <mail/mail>
+   Network <network/network>
+   backup_restore
+   configuration_files
+   consul
+   log_files
+   ntp
+   proxy
+   purge_logs
+   service
    xivo-auth/xivo-auth
    xivo-dird/xivo-dird
    xivo-sysconfd
