@@ -56,7 +56,7 @@ It is possible to purge logs manually. To do so, log on to the target XiVO serve
 You can specify the number of days of logs to keep. For example, to purge entries older than 365
 days::
 
-    xivo-call-logs -d 365
+    xivo-purge-db -d 365
 
 Usage of ``xivo-purge-db``::
 
