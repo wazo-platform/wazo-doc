@@ -142,8 +142,8 @@ Upgrade Notes
 -----
 
 * Consult the `15.11 Roadmap <https://projects.xivo.io/versions/227>`_
-* The call records older than 365 days will be periodically removed. See :ref:`purge_logs` for more
-  details.
+* The call records older than 365 days will be periodically removed. The first automatic purge will
+  occur in the night after the upgrade. See :ref:`purge_logs` for more details.
 
 
 15.10
