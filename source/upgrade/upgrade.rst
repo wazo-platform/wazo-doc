@@ -142,7 +142,8 @@ Upgrade Notes
 -----
 
 * Consult the `15.11 Roadmap <https://projects.xivo.io/versions/227>`_
-* The oldest records are periodically removed after 365 days. See :ref:`purge_logs` for more details.
+* The call records older than 365 days will be periodically removed. See :ref:`purge_logs` for more
+  details.
 
 
 15.10
