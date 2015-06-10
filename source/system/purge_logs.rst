@@ -83,8 +83,9 @@ want to share your plugins, please open a `pull request`_.
 Archive Plugins (for Developers)
 ---------------------------------
 
-Each plugin is a Python callable (function or class constructor), that takes a ``days_to_keep``
-argument. This is the only entry point for the plugin.
+Each plugin is a Python callable (function or class constructor), that takes a dictionary of
+configuration as argument. The keys of this dictionary are the keys taken from the configuration
+file. This allows you to add plugin-specific configuration in ``/etc/xivo-purge-db/conf.d/``.
 
 There is an example plugin in the `xivo-purge-db git repo`_.
 
@@ -126,12 +127,9 @@ content::
 
     sample_file = '/tmp/xivo_purge_db.sample'
 
-
-    class SamplePlugin(object):
-
-        def __init__(self, days_to_keep):
-            with open(sample_file, 'w') as output:
-                output.write('Save tables before purge. {0} days to keep!'.format(days_to_keep))
+   def sample_plugin(config):
+       with open(sample_file, 'w') as output:
+           output.write('Save tables before purge. {0} days to keep!'.format(config['days_to_keep']))
 
 
 Install sample plugin
@@ -158,7 +156,7 @@ The following ``setup.py`` shows an example of a python library that adds a plug
         packages=find_packages(),
         entry_points={
             'xivo_purge_db.archives': [
-                'sample = xivo_purge_db_sample.sample:SamplePlugin',
+                'sample = xivo_purge_db_sample.sample:sample_plugin',
             ],
         }
     )
