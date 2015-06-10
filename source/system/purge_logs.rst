@@ -84,7 +84,8 @@ Archive Plugins (for Developers)
 ---------------------------------
 
 Each plugin is a Python callable (function or class constructor), that takes a dictionary of
-configuration as argument. The keys of this dictionary are the keys from configuration file.
+configuration as argument. The keys of this dictionary are the keys taken from the configuration
+file. This allows you to add plugin-specific configuration in ``/etc/xivo-purge-db/conf.d/``.
 
 There is an example plugin in the `xivo-purge-db git repo`_.
 
