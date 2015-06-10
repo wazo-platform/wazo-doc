@@ -138,6 +138,13 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.11
+-----
+
+* Consult the `15.11 Roadmap <https://projects.xivo.io/versions/227>`_
+* The oldest records are periodically removed after 365 days. See :ref:`purge_logs` for more details.
+
+
 15.10
 -----
 
