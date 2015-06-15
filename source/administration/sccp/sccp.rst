@@ -77,8 +77,7 @@ Congratulations ! Your SCCP phone is now ready to be called !
 Direct Media
 ------------
 
-SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use directmedia, one must
-enable the directmedia option in SCCP general settings:
+SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use directmedia, one must enable the directmedia option in SCCP general settings:
  :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
 
 
