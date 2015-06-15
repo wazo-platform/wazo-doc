@@ -12,7 +12,7 @@ default_json
 
 View name: default_json
 
-Purpose: present directory entries in JSON format. The format is detailed in :ref:`dird-api`.
+Purpose: present directory entries in JSON format. The format is detailed in http://api.xivo.io.
 
 Service Plugins
 ===============
@@ -34,6 +34,40 @@ Example (excerpt from the main configuration file):
 
    services:
        lookup:
+           default:
+               sources:
+                   - my_csv
+               timeout: 0.5
+
+The configuration is a dictionary whose keys are profile names and values are configuration specific
+to that profile.
+
+For each profile, the configuration keys are:
+
+sources
+   The list of source names that are to be used for the lookup
+
+timeout
+   The maximum waiting time for an answer from any source. Results from sources that take longer to
+   answer are ignored. Default: no timeout.
+
+favorites
+---------
+
+Service name: favorites
+
+Purpose: Mark/unmark contacts as favorites and get the list of all favorites.
+
+Configuration
+^^^^^^^^^^^^^
+
+Example (excerpt from the main configuration file):
+
+.. code-block:: yaml
+   :linenos:
+
+   services:
+       favorites:
            default:
                sources:
                    - my_csv
@@ -79,9 +113,7 @@ Example (a file inside ``source_config_dir``):
    type: csv
    name: my_csv
    file: /var/tmp/test.csv
-   unique_columns:
-       - fn
-       - ln
+   unique_column: id
    searched_columns:
        - fn
        - ln
@@ -95,17 +127,17 @@ With the CSV file:
 .. code-block:: text
    :linenos:
 
-   fn,ln,num
-   Alice,Abrams,55553783147
-   Bob,Benito,5551354958
-   Charles,Curie,5553132479
+   id,fn,ln,num
+   1,Alice,Abrams,55553783147
+   2,Bob,Benito,5551354958
+   3,Charles,Curie,5553132479
 
 
 file
    the absolute path to the CSV file
 
-unique_columns
-   the list of columns that form a unique identifier of the entry. This is necessary for listing and
+unique_column
+   the column that contains a unique identifier of the entry. This is necessary for listing and
    identifying favorites.
 
 
@@ -130,8 +162,7 @@ Example (a file inside ``source_config_dir``):
    ldap_base_dn: ou=people,dc=example,dc=org
    ldap_username: cn=admin,dc=example,dc=org
    ldap_password: foobar
-   unique_columns:
-       - entryUUID
+   unique_column: entryUUID
    searched_columns:
        - cn
    source_to_display_columns:
@@ -178,8 +209,8 @@ ldap_timeout (optional)
 
    Defaults to 1.0.
 
-unique_columns (optional)
-   the list of columns that form a unique identifier of the entry. This is necessary for listing and
+unique_column (optional)
+   the column that contains a unique identifier of the entry. This is necessary for listing and
    identifying favorites.
 
 
@@ -257,9 +288,12 @@ Example (a file inside ``source_config_dir``):
    type: xivo
    name: my_xivo
    confd_config:
+       https: True
        host: xivo.example.com
-       port: 9487
+       port: 9486
        version: 1.1
+       username: admin
+       password: password
        timeout: 3
    searched_columns:
        - firstname
@@ -271,7 +305,7 @@ confd_config:host
    the hostname of the XiVO (more precisely, of the xivo-confd service)
 
 confd_config:port
-   the port of the xivo-confd service (usually 9487)
+   the port of the xivo-confd service (usually 9486)
 
 confd_config:version
    the version of the xivo-confd API (should be 1.1)

@@ -67,6 +67,7 @@ The supported phones for the switchboard are:
 * Aastra 6757i
 * Snom 720
 * Snom D725
+* Polycom VVX 400/410
 * Yealink T46G
 
 
@@ -150,22 +151,47 @@ The switchboard option must be activated on the phone. It's possible to activate
 
 .. figure:: images/device_plugin_switchboard.png
 
-.. warning::
-  To be able to use a Snom phone for the switchboard, you have to be able to do
-  the appropriate HTTP request from the XiVO to the device's web service.
-  The following command should work from your XiVO's bash command line
-  `wget http://guest:guest@<phone IP address>/command.htm?key=SPEAKER`. If this
-  command does not activate the phone's speaker, your network configuration will
-  have to be *fixed* before you can be able to use the Snom switchboard.
 
-.. warning:: When using a Snom switchboard you should not use the first function key.
+Polycom Phones
+^^^^^^^^^^^^^^
 
-.. note:: The snom switchboard has a timer before answering the phone. The default
-  value is 0.5 second. This value can be modified using the SNOM_SB_ANSWER_DELAY
-  environment variable. This variable can be modified by adding the following
-  line to /etc/default/xivo:
+To be able to use a Polycom phone for the switchboard, the XiVO must be able to do HTTP requests to
+the phone. This might be problematic if there's a NAT between your XiVO and your phone.
 
-  *export SNOM_SB_ANSWER_DELAY=0.25*
+It's possible to configure the Polycom switchboard via the :ref:`configuration files
+<configuration-files>` of xivo-ctid. The following options are available::
+
+   switchboard_polycom:
+       username: xivo_switchboard
+       password: xivo_switchboard
+       answer_delay: 0.5
+
+You will also need to change the XML API username/password by creating a :ref:`custom template
+<provd-custom-templates>` for your phone.
+
+
+Snom Phones
+^^^^^^^^^^^
+
+When using a Snom switchboard, you must not configure a function key on position 1.
+
+To be able to use a Snom phone for the switchboard, the XiVO must be able to do HTTP requests to
+the phone. This might be problematic if there's a NAT between your XiVO and your phone. The
+following command should work from your XiVO's bash command line ``wget http://guest:guest@<phone IP
+address>/command.htm?key=SPEAKER``. If this command does not activate the phone's speaker, your
+network configuration will have to be *fixed* before you can use the Snom switchboard.
+
+It's possible to configure the Snom switchboard via the :ref:`configuration files
+<configuration-files>` of xivo-ctid. The following options are available::
+
+   switchboard_snom:
+       username: guest
+       password: guest
+       answer_delay: 0.5
+
+You have to change the username and password option if you have changed the administrator
+username or administrator password for your phone in :menuselection:`Configuration --> Provisioning
+--> Template Device`.
 
 
 Create an Agent for the Operator

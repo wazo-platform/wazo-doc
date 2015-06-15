@@ -186,9 +186,7 @@ Here is an example of a CSV source configuration:
    type: csv
    name: my_contacts_in_a_csv_file
    file: /usr/local/share/my_contacts.csv
-   unique_columns:
-       - fn
-       - ln
+   unique_column: id
    searched_columns:
        - fn
        - ln

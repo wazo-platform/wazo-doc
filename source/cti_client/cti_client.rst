@@ -68,10 +68,10 @@ Xlets are features of the CTI Client. It is the contraction of XiVO applets.
    Directory xlet <xlets/directory>
    Fax xlet <xlets/fax>
    History xlet <xlets/history>
+   Identity xlet <xlets/identity>
    Local directory xlet <xlets/localdir>
    Remote Directory xlet <xlets/remote_directory>
    Service xlet <xlets/service>
-   Dial xlet <xlets/dial>
 
 Configuration
 =============
@@ -86,12 +86,13 @@ Connection Configuration
 
 This page allows the user to set his network information to connect to the xivo-ctid server.
 
-* `Server Host` is the IP adress of the server.
-* `Login Port` is the port on wich xivo-ctid is listening for connections. (default: 5003)
-* `Encrypt Connection` is the option to encrypt messages between the client and the server. (default port 5013)
-* `Try to reconnect` will reconnect the client when the connection is dropped.
-* `Try to reconnect interval` is the reconnection delay before the auto-reconnection is tryed.
-* `Keep alive interval` is the number of seconds between keepalives messages.
+* `Server` is the IP address of the server.
+* `Backup server` is the IP address of the backup server.
+* `Port` is the port on which xivo-ctid is listening for connections. (default: 5003)
+
+If an encrypted connection between the client and server is required, click on the lock icon and
+change the port value to 5013. The server needs to be configured to :ref:`accept encrypted
+connection <ctid-encryption>`.
 
 
 Handling callto: and tel: URLs

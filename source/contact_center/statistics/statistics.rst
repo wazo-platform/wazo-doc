@@ -1,3 +1,5 @@
+.. _call_center_stats:
+
 **********
 Statistics
 **********
@@ -13,6 +15,9 @@ are automatically generated every six hours. They can also be generated manually
 
  The contact center statistics do not apply to switchboard queues. See :ref:`switchboard`
  for more details.
+
+.. note:: The oldest statistics are periodically removed. See :ref:`purge_logs` for more details.
+
 
 Configuration
 =============
