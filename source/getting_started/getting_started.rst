@@ -5,10 +5,10 @@ Getting Started
 ***************
 
 This section will show you how to create a user with a SIP line. This simple use case covers what a lot of people need to start using a phone.
-You can use these steps for connectinhg a softphone, a Linksys PAP2 or a SIP phone via the web interface.
+You can use these steps for configuring a phone (e.g  a softphone, an Analog-to-Digital switch or a SIP phone).
 
 This tutorial doesn't cover how to automatically provision a :ref:`supported device
-<official-devices>`. For this, you must refer to the :ref:`provisionning
+<official-devices>`. For this, consult the :ref:`provisionning
 section. <intro-provisioning>`
 
 We first need to log into the XiVO web interface. The web interface is where you can administer the whole system.
@@ -68,7 +68,7 @@ By default, the selected protocol is SIP, which is what we want for now. Click o
 
    Save
 
-Yahoo ! we now have a user named 'Alice Wonderland' with the phone number '1000' !
+We now have a user named 'Alice Wonderland' with the phone number '1000'.
 
 .. figure:: images/step-10.png
 
@@ -87,7 +87,7 @@ You will see a line associated with the user we just created. Click on the penci
 
    Edit line
 
-We can now see the username and password for the SIP line. you can configure your softphone, your linksys PAP2 or your SIP device by using the IP for your server, the username and the password.
+We can now see the username and password for the SIP line. you can configure your phone using the IP for your server, the username and the password.
 
 .. figure:: images/step-13.png
 
