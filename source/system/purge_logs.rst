@@ -74,10 +74,11 @@ Maintenance
 -----------
 
 After an execution of ``xivo-purge-db``, postgresql's `Autovacuum Daemon`_ should perform a
-`VACUUM`_ ANALYZE automatically (1 minute after). But this method doesn't free any disk space. In
-the case where ``xivo-purge-db`` hasn't run for a long time (e.g. upgrading to 15.11 or decrease
-:ref:`days_to_keep <purge_logs_config_file>`), some administrator would perform a `VACUUM`_ FULL to
-restore disk space.
+`VACUUM`_ ANALYZE automatically (after 1 minute). This command marks memory as reusable but does
+not actually free disk space, which is fine if your disk are not getting full. In the case when
+``xivo-purge-db`` hasn't run for a long time (e.g. upgrading to 15.11 or when
+:ref:`days_to_keep <purge_logs_config_file>` is decreased), some administrator may want to perform
+a `VACUUM`_ FULL to recover disk space.
 
 .. warning:: VACUUM FULL will require a service interruption. This may take several hours depending
              on the size of purged database.
