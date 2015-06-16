@@ -34,6 +34,8 @@ More technically, the tables purged by ``xivo-purge-db`` are:
 -  ``stat_queue_periodic``
 
 
+.. _purge_logs_config_file:
+
 Configuration File
 ------------------
 
@@ -66,6 +68,27 @@ Usage of ``xivo-purge-db``::
       -h, --help            show this help message and exit
       -d DAYS_TO_KEEP, --days_to_keep DAYS_TO_KEEP
                             Number of days data will be kept in tables
+
+
+Maintenance
+-----------
+
+After an execution of ``xivo-purge-db``, postgresql's `Autovacuum Daemon`_ should perform a
+`VACUUM`_ ANALYZE automatically (1 minute after). But this method doesn't free any disk space. In
+the case where ``xivo-purge-db`` hasn't run for a long time (e.g. upgrading to 15.11 or decrease
+:ref:`days_to_keep <purge_logs_config_file>`), some administrator would perform a `VACUUM`_ FULL to
+restore disk space.
+
+.. warning:: VACUUM FULL will require a service interruption. This may take several hours depending
+             on the size of purged database.
+.. _VACUUM: http://www.postgresql.org/docs/9.1/static/sql-vacuum.html
+.. _Autovacuum Daemon: http://www.postgresql.org/docs/9.1/static/routine-vacuuming.html#AUTOVACUUM
+
+You need to::
+
+   $ xivo-service stop
+   $ sudo -u postgres psql asterisk -c "VACUUM (FULL)"
+   $ xivo-service start
 
 
 Archive Plugins
