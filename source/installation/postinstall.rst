@@ -2,6 +2,10 @@
 Post installation
 *****************
 
+Here are a few configuration options that are commonly changed once the installation is completed.
+Please note that these changes are optional.
+
+
 Display called name on internal calls
 =====================================
 
@@ -34,7 +38,7 @@ Examples:
     strip = 1
     add = +33
 
-To enable the changesyou have to restart xivo-agid::
+To enable the changes you have to restart xivo-agid::
 
     service xivo-agid restart
 
@@ -54,7 +58,7 @@ Codecs
 ======
 
 You should also select default codecs. It obviously depends on the telco links, the country, the phones, the usage etc.
-Here is a typical example for Europe (the main goal in this example is to select *only* G.711 **A-Law** instead of both G.711 A-Law and G.711 µ-Law by default):
+Here is a typical example for Europe (the main goal in this example is to select *only* G.711 A-Law instead of both G.711 A-Law and G.711 µ-Law by default):
 
 * SIP : :menuselection:`Services --> IPBX --> General settings --> SIP Protocol --> Signaling`:
 

@@ -4,14 +4,16 @@ Installing the System
 
 Please refer to the section :ref:`Troubleshooting <troubleshooting>` if ever you have errors during the installation.
 
-There are three official ways to install XiVO:
+There are two official ways to install XiVO:
 
 * using the official ISO image
 * using a minimal Debian installation and the XiVO installation script
-* using a PXE environment (not detailed here)
+
+.. note:: For other unsupported ways of install XiVO please consult the bottom of the page
+
 
 XiVO can be installed on both virtual (QEMU/KVM, VirtualBox, ...) and physical machines. That said, since
-Asterisk is sensible to timing issues, you might get better results by installing XiVO on real
+Asterisk is sensitive to timing issues, you might get better results by installing XiVO on real
 hardware.
 
 
@@ -40,13 +42,16 @@ Requirements
 
 The installed Debian must:
 
-* be in the architecure ``i386``
+* use the architecure ``i386``
 * have a default locale with charset UTF-8
+
+.. note:: the use of ``amd64`` debian image is experimental
+
 
 Installation
 ^^^^^^^^^^^^
 
-Once you have your Debian Wheezy properly installed, log into it and download the XiVO installation script::
+Once you have your Debian Wheezy properly installed, download the XiVO installation script::
 
    wget http://mirror.xivo.io/fai/xivo-migration/xivo_install_current.sh
 
@@ -72,7 +77,9 @@ At the end of the installation, you can continue by running the :ref:`configurat
 wizard. <configuration_wizard>`
 
 
-Installing from a PXE
-=====================
+Unsupported installation methods
+================================
 
-You can visit the `XiVO blog <http://blog.xivo.io/index.php?q=pxe>`_ for more details on how to install from a PXE.
+Unofficial ways of installing:
+
+* By PXE. More details available on our `XiVO blog <http://blog.xivo.io/index.php?q=pxe>`_

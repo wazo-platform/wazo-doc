@@ -13,17 +13,16 @@ script. You can start an upgrade with the command::
 
 .. note::
    * You can't use xivo-upgrade if you have not run the wizard yet
-   * Upgrading to XiVO 1.2 from a previous version (i.e. XiVO 1.1) is not
-     supported right now.
+   * Upgrading from a version prior to XiVO 1.2 is not supported.
    * When upgrading XiVO, you **must** also upgrade **all** associated XiVO
      Clients. There is currently no retro-compatibility on older XiVO Client
      versions.
 
-This script will update XiVO and restart all daemons.
+This script will update XiVO and restart all services.
 
 There are 2 options you can pass to xivo-upgrade:
 
-* ``-d`` to only download packages without installing them. **This will still upgrade xivo-upgrade and xivo-service packages**.
+* ``-d`` to only download packages without installing them. **This will still upgrade the package containing xivo-upgrade and xivo-service**.
 * ``-f`` to force upgrade, without asking for user confirmation
 
 .. warning::
@@ -47,22 +46,22 @@ There are 2 options you can pass to xivo-upgrade:
    Repeat this command until no more unwanted rules are left.
 
 
-Typical Upgrade Process
-=======================
+Preparing for an Upgrade
+========================
 
-* Read all `roadmaps <https://projects.xivo.io/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
-* Read all existing Upgrade Notes (see below) starting from your current version to the current prod version.
-* If in a specific configuration, follow the specific procedure described below (example : cluster).
-* To download the packages beforehand, run ``xivo-upgrade -d`` (will upgrade xivo-upgrade, xivo-service and download all packages necessary, prior to stopping services for upgrade, making the upgrade faster).
-* When ready (services will be stopped), run ``xivo-upgrade`` which will actually start the migration.
-* When finished, check that the services are correctly running :
+* Consult the `roadmaps <https://projects.xivo.io/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
+* Read all existing Upgrade Notes (see below) starting from your version to the current prod version.
+* For custom setups, follow the required procedures described below (example : cluster).
+* To download the packages beforehand, run ``xivo-upgrade -d``. This is not necessary, but useful for upgrading more quickly prior to stopping telephone services.
+* When ready, run ``xivo-upgrade`` which will start the upgrade process. **Telephone services will be stopped during the process**
+* When finished, check that the services are running :
 
  * with ``xivo-service status`` command,
  * and with actual checks like SIP registration, ISDN links status, internal/incoming/outgoing calls, XiVO Client connections etc.
 
 
-Specific procedure: XiVO 14.01, 14.02, 14.03, 14.04 installed from the ISO file
-===============================================================================
+Upgrading from XiVO 14.01, 14.02, 14.03, 14.04 installed from the ISO
+=====================================================================
 
 In those versions, xivo-upgrade keeps XiVO on the same version. You must do the following, before
 the normal upgrade::
@@ -74,16 +73,16 @@ the normal upgrade::
    && apt-get update
 
 
-Specific procedure: XiVO 13.03 and before
-=========================================
+Upgrading from XiVO 13.03 and before
+====================================
 
 When upgrading from XiVO 13.03 or earlier, you must do the following, before the normal upgrade::
 
    wget http://mirror.xivo.io/xivo_current.key -O - | apt-key add -
 
 
-Specific procedure: XiVO 12.13 and before
-=========================================
+Upgrading from XiVO 12.13 and before
+====================================
 
 When upgrading from XiVO 12.13 or earlier, you must do the following, before the normal upgrade::
 
@@ -91,8 +90,8 @@ When upgrading from XiVO 12.13 or earlier, you must do the following, before the
    apt-get install debian-archive-keyring
 
 
-Specific procedure: XiVO 1.2.1 and before
-=========================================
+Upgrading from XiVO 1.2.1 and before
+====================================
 
 Upgrading from 1.2.0 or 1.2.1 requires a special procedure before executing ``xivo-upgrade``::
 
@@ -102,8 +101,8 @@ Upgrading from 1.2.0 or 1.2.1 requires a special procedure before executing ``xi
 
 .. _upgrading-a-cluster:
 
-Specific Procedure : Upgrading a Cluster
-========================================
+Upgrading a Cluster
+===================
 
 Here are the steps for upgrading a cluster:
 

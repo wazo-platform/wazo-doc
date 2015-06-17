@@ -5,7 +5,7 @@ Running the Wizard
 ******************
 
 After the system installation, you must go through the wizard before being able to use your XiVO.
-Browse to your server's IP address to start the configuration wizard (For example: http://192.168.1.10)
+Open your browser and enter your server's IP address in the navigation bar. (For example: http://192.168.1.10)
 
 .. index:: wizard
 
@@ -46,8 +46,7 @@ Configuration
 #. Enter the domain name (Allowed characters are : ``A-Z a-z 0-9 - .``)
 #. Enter the password for the ``root`` user of the web interface,
 #. Configure the IP address and gateway used by your XiVO (by default it pre-fills the fields with the current IP
-   and gateway of the network interface on which you are connected if and only if network interface has a default
-   gateway).
+   and gateway of the network interface on which you are connected if the network interface has a default gateway).
 
    .. note:: The network configuration will be applied at the end of the wizard
 
@@ -59,9 +58,9 @@ Entities and Contexts
 
 Contexts are used for managing various phone numbers that are used by your system.
 
-* The Interal calls context is used for managing phone numbers for devices that are connected to your system.
-* The Incalls context will intercept all incoming calls from the exterior
-* The Outcalls context is used for managing ougoing calls to the exterior
+* The Internal calls context manages extension numbers that can be reached internally
+* The Incalls context manages calls coming from outside of your system
+* The Outcalls context manages calls going from your system to the outside
 
 .. figure:: images/wizard_step5_entities_contexts.png
    :scale: 75%
