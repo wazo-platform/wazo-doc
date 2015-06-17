@@ -49,7 +49,7 @@ There are 2 options you can pass to xivo-upgrade:
 Preparing for an Upgrade
 ========================
 
-*  Consult the `roadmaps <https://projects.xivo.io/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
+* Consult the `roadmaps <https://projects.xivo.io/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
 * Read all existing Upgrade Notes (see below) starting from your version to the current prod version.
 * For custom setups, follow the required procedures described below (example : cluster).
 * To download the packages beforehand, run ``xivo-upgrade -d``. This is not necessary, but useful for upgrading more quickly prior to stopping telephone services.

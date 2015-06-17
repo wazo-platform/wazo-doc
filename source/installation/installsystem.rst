@@ -45,6 +45,9 @@ The installed Debian must:
 * use the architecure ``i386``
 * have a default locale with charset UTF-8
 
+.. note:: the use of ``amd64`` debian image is experimental
+
+
 Installation
 ^^^^^^^^^^^^
 
