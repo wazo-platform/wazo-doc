@@ -137,6 +137,18 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+.. _upgrade-note-15.12:
+
+15.12
+-----
+
+* Consult the `15.12 Roadmap <https://projects.xivo.io/versions/228>`_
+* The certificate used for HTTPS in the web interface will be regenerated if the default certificate
+  was used. Your browser will complain about the new certificate, and it is safe to accept it (see
+  `#3656`_). See also :ref:`certificates`.
+
+.. _#3656: http://projects.xivo.io/issues/5636
+
 15.11
 -----
 
