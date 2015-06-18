@@ -2,16 +2,34 @@
 Asterisk 11 to 13 Upgrade Notes
 *******************************
 
-If you have *not* customized your asterisk installation in one of the following way:
+You might be impacted by the upgrade to asterisk 13 if you have:
 
 * custom dialplan
 * custom asterisk configuration
-* custom application using AGI or AMI
+* custom application using AGI, AMI or any other asterisk interface
 * custom application exploiting CEL or queue_log
 * custom asterisk modules (e.g. codec_g729a.so)
+* customized asterisk in some other way
 
-then you can safely skip this section. Otherwise, it is your responsibility to make sure
-every customization still works with asterisk 13. See the `External Links`_ for more information.
+If you find yourself in one of these cases, you should make sure that your customizations still work
+with asterisk 13.
+
+
+List of Known Bugs And Limitations
+==================================
+
+List of known bugs and limitations that comes with the upgrade to asterisk 13:
+
+* when direct media is active and DTMF are sent using SIP INFO, features code (e.g. \*0 to hangup)
+  are not working properly
+* when using SCCP phones, the connected line information on the phones are not updated after a
+  transfer
+
+These bugs and limitations will eventually be fixed.
+
+
+Changes Between Asterisk 11 and 13
+==================================
 
 Table of asterisk modules that were available in the asterisk 11 package but that are not available
 anymore in the asterisk 13 package:
@@ -33,20 +51,8 @@ anymore in the asterisk 13 package:
 Local channels are always available in asterisk 13 since they are now part of the system core.
 
 
-List of Known Bugs And Limitations
-==================================
-
-List of known bugs and limitations that were not in XiVO 15.11 and appeared following the upgrade to
-asterisk 13:
-
-* when direct media is active and DTMF are sent using SIP INFO, features code (e.g. \*0 to hangup)
-  are not working properly
-* when using SCCP phones, the connected line information on the phones are not updated after a
-  transfer
-
-
 External Links
-==============
+--------------
 
 * https://wiki.asterisk.org/wiki/display/AST/Upgrading+to+Asterisk+12
 * https://wiki.asterisk.org/wiki/display/AST/Upgrading+to+Asterisk+13
