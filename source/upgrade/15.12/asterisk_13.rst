@@ -14,6 +14,9 @@ You might be impacted by the upgrade to asterisk 13 if you have:
 If you find yourself in one of these cases, you should make sure that your customizations still work
 with asterisk 13.
 
+If you are upgrading from asterisk 1.8, you should also check the :ref:`asterisk 1.8 to 11 upgrade notes
+<asterisk-1.8-to-11>`.
+
 
 List of Known Bugs And Limitations
 ==================================
