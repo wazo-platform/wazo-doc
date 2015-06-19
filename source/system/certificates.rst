@@ -1,16 +1,18 @@
-.. _certificates:
+.. _https_certificate:
 
-************
-Certificates
-************
+*****************
+HTTPS certificate
+*****************
 
 X.509 certificates are used to authorize and secure communications with the server. They are mainly
-used for HTTPS, but can also be used for SIPS, SRTP, CTIS, etc.
+used for HTTPS, but can also be used for SIPS, CTIS, etc.
 
 There are two categories of certificates in XiVO:
 
 * the default certificate, used for HTTPS in the web interface and REST APIs
 * the certificates created and managed via the web interface
+
+This article is about the former. For the latter, see :ref:`telephony_certificates`.
 
 HTTPS
 =====
@@ -20,8 +22,8 @@ during the :ref:`upgrade to 15.12+ <upgrade-note-15.12>`). The main certificate 
 :file:`/usr/share/xivo-certs/server.crt`.
 
 However, this certificate is self-signed, and HTTP clients (browser or REST API client) will
-complain about this default certificate because it is not trusted. To make the HTTP client
-accept this certificate, you have two choices:
+complain about this default certificate because it is not signed by a trusted Certification
+Authority (CA). To make the HTTP client accept this certificate, you have two choices:
 
 * replace the self-signed certificate with your own trusted certificate. For this, you can replace
   the following files:
@@ -31,10 +33,3 @@ accept this certificate, you have two choices:
 
 * configure your HTTP client to trust the self-signed certificate by adding a new trusted CA. The CA
   certificate (or bundle) is the file :file:`/usr/share/xivo-certs/server.crt`.
-
-Other certificates
-==================
-
-XiVO allows you to use SIPS, SRTP or CTIS (encrypted CTI protocol), but for that, you need to
-create new X.509 certificates and configure their usage in the web interface. You can manage these
-certificates in :menuselection:`Configuration > Certificates`.
