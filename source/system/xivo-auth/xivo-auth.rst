@@ -18,13 +18,14 @@ xivo-auth.
 Usage
 =====
 
-xivo-auth is used through HTTP requests, its default port is 9794. As a user, the
-most common operation is to get a new token. This is done with the POST method.
+xivo-auth is used through HTTP requests, using HTTPS. Its default port is 9794.
+As a user, the most common operation is to get a new token. This is done with
+the POST method.
 
 Alice retrieves a token using her username/password::
 
     $ # Alice creates a new token, using the xivo_user backend
-    $ curl -X POST -H 'Content-Type: application/json' -u 'alice:s3cre7' "http://localhost:9497/0.1/token" -d '{"backend": "xivo_user"}';echo
+    $ curl -k -X POST -H 'Content-Type: application/json' -u 'alice:s3cre7' "https://localhost:9497/0.1/token" -d '{"backend": "xivo_user"}';echo
     {"data": {"issued_at": "2015-06-05T10:16:58.557553", "token": "1823c1ee-6c6a-0cdc-d869-964a7f08a744", "uuid": "63f3dc3c-865d-419e-bec2-e18c4b118224", "expires_at": "2015-06-05T11:16:58.557595"}}
 
 In this example Alice used here XiVO CTI client login and password. The
@@ -39,7 +40,7 @@ on Alice's behalf to access her personal storage.
 
 If Alice wants to revoke her token before its expiration::
 
-    $ curl -X DELETE -H 'Content-Type: application/json' "http://localhost:9497/0.1/token/1823c1ee-6c6a-0cdc-d869-964a7f08a744"
+    $ curl -k -X DELETE -H 'Content-Type: application/json' "https://localhost:9497/0.1/token/1823c1ee-6c6a-0cdc-d869-964a7f08a744"
 
 
 Usage for services using xivo-auth
@@ -56,7 +57,7 @@ session if it is valid.
 
 Checking if a token is valid::
 
-    $ curl -i -X HEAD -H 'Content-Type: application/json' "http://localhost:9497/0.1/token/1823c1ee-6c6a-0cdc-d869-964a7f08a744"
+    $ curl -k -i -X HEAD -H 'Content-Type: application/json' "https://localhost:9497/0.1/token/1823c1ee-6c6a-0cdc-d869-964a7f08a744"
     HTTP/1.1 204 NO CONTENT
     Content-Type: text/html; charset=utf-8
     Content-Length: 0
@@ -64,7 +65,7 @@ Checking if a token is valid::
     Server: pcm-dev-0
 
     $ # get more information about this token
-    $ curl -X GET -H 'Content-Type: application/json' "http://localhost:9497/0.1.token/1823c1ee-6c6a-0cdc-d869-964a7f08a744";echo
+    $ curl -k -X GET -H 'Content-Type: application/json' "https://localhost:9497/0.1.token/1823c1ee-6c6a-0cdc-d869-964a7f08a744";echo
     {"data": {"issued_at": "2015-06-05T10:16:58.557553", "token": "1823c1ee-6c6a-0cdc-d869-964a7f08a744", "uuid": "63f3dc3c-865d-419e-bec2-e18c4b118224", "expires_at": "2015-06-05T11:16:58.557595"}}
 
 
