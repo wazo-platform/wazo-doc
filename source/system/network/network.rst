@@ -136,16 +136,19 @@ It would ensure that your static routes are applied at startup (in fact each tim
 
 #. Fields <network interface>, <destination> and <gateway> should be replaced by your specific configuration.
    For example, if you want to add a route for 192.168.50.128/25 via 192.168.17.254 which should be added
-   when eth0.100 goes up::
+   when eth0 goes up::
     
     #!/bin/sh
     
-    if [ "${IFACE}" = "eth0.100" ]; then
+    if [ "${IFACE}" = "eth0" ]; then
         ip route add 192.168.50.128/25 via 192.168.17.254
     fi
 
-.. note:: You need to check which interface goes up to add routes only if the right interface goes up.
-    Otherwise the system will try to set the routes each time any interface goes up.
+.. note:: The above check is to ensure that the route will be applied only if the correct interface goes up.
+    This check should only contain a *physical* interface name (i.e. `eth0` or `eth1` or ...).
+    If the interface to which the route is to be applied is a VLAN interface (e.g. `eth0.100` for VLAN 100)
+    you *MUST* put `eth0` in the test (instead of `eth0.100`).
+    Otherwise the route won't be set up in every cases.
 
 
 Change interface MTU
@@ -174,7 +177,7 @@ If you need to change the MTU here is how you should do it:
      fi
 
 #. Change the *<data interface>* to the name of your interface (e.g. eth0), and the *<data mtu>* to the new MTU (e.g. 1492),
-#. Change the *<voip interface>* to the name of your interface (e.g. eth0.10), and the *<voip mtu>* to the new MTU (e.g. 1488)
+#. Change the *<voip interface>* to the name of your interface (e.g. eth1), and the *<voip mtu>* to the new MTU (e.g. 1488)
 
 .. note::
    In the above example you can set a different MTU per interface.
