@@ -8,5 +8,5 @@ This section describes the advanced system configuration.
    :maxdepth: 2
 
    general/general
-   certificates/certificates
+   telephony_certificates/telephony_certificates
    ldap/ldap
