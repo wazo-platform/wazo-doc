@@ -21,14 +21,12 @@ If you are upgrading from asterisk 1.8, you should also check the :ref:`asterisk
 List of Known Bugs And Limitations
 ==================================
 
-List of known bugs and limitations that comes with the upgrade to asterisk 13:
+List of known bugs and limitations for asterisk 13:
 
 * when direct media is active and DTMF are sent using SIP INFO, features code (e.g. \*0 to hangup)
   are not working properly
 * when using SCCP phones, the connected line information on the phones are not updated after a
   transfer
-
-These bugs and limitations will eventually be fixed.
 
 
 Changes Between Asterisk 11 and 13
