@@ -112,11 +112,11 @@ The steps are:
       mkdir -p ~/ast-rebuild
       cd ~/ast-rebuild
       apt-get update
+      apt-get install build-essential
       apt-get source asterisk
 
 #. Install the build dependencies::
 
-      apt-get install build-essential
       apt-get build-dep asterisk
 
 #. Enable the DEBUG_THREADS and DONT_OPTIMIZE flag::
