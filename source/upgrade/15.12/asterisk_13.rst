@@ -47,6 +47,10 @@ Some of the more common changes to look for:
 * Queue strategy ``rrmemory`` (Round robin memory) now has a predictable order. Members will be
   called in the order that they are added to the queue. For agents, this means they will be called
   in the order they are logged.
+* When performing queue pause/unpause on an interface without specifying an individual queue, the
+  PAUSEALL/UNPAUSEALL event will only be logged if at least one member of any queue exists for that
+  interface. This has an impact on the agent performance statistics; an agent must be a member of at
+  least 1 queue for its pause time to show up in the statistics.
 
 You can see the complete list of changes from the asterisk website:
 
