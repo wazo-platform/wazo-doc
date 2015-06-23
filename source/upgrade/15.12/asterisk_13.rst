@@ -18,17 +18,6 @@ If you are upgrading from asterisk 1.8, you should also check the :ref:`asterisk
 <asterisk-1.8-to-11>`.
 
 
-List of Known Bugs And Limitations
-==================================
-
-List of known bugs and limitations for asterisk 13:
-
-* when direct media is active and DTMF are sent using SIP INFO, features code (e.g. \*0 to hangup)
-  are not working properly
-* when using SCCP phones, the connected line information on the phones are not updated after a
-  transfer
-
-
 Changes Between Asterisk 11 and 13
 ==================================
 
@@ -68,3 +57,14 @@ You can see the complete list of changes from the asterisk website:
 The AGI protocol did not change between asterisk 11 and asterisk 13; if you have custom AGI
 applications, you only need to make sure that the dialplan applications and functions you are using
 from the AGI are still valid.
+
+
+List of Known Bugs And Limitations
+==================================
+
+List of known bugs and limitations for asterisk 13:
+
+* when direct media is active and DTMF are sent using SIP INFO, features code (e.g. \*0 to hangup)
+  are not working properly
+* when using SCCP phones, the connected line information on the phones are not updated after a
+  transfer
