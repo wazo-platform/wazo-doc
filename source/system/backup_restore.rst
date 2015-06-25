@@ -64,7 +64,7 @@ The following files/folders are excluded from this backup:
 
 * folders:
 
-  * :file:`/var/lib/xivo-provd/plugins/*/var/cache`
+  * :file:`/var/lib/xivo-provd/plugins/*/var/cache/*`
   * :file:`/var/spool/asterisk/monitor`
   * :file:`/var/spool/asterisk/meetme`
 
