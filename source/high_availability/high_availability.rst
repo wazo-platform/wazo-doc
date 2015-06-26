@@ -132,9 +132,15 @@ Configuration Replication
 
 Once master slave configuration is completed, XiVO configuration is replicated from the master node
 to the slave every hour (:00).
-Replication can be started manually by running the replication script on the master::
+You need to finish to configure xivo-sync (file replication) on the master.
+Running this script on the master::
+
+   xivo-sync -i
+
+Replication can be started manually by running the replication scripts on the master::
 
    xivo-master-slave-db-replication <slave_ip>
+   xivo-sync
 
 The replication does not copy the full XiVO configuration of the master. Notably, these
 are excluded:
@@ -158,16 +164,8 @@ Here's an non exhaustive list of things that are not stored in the database,
 and thus are not copied:
 
 * Certficates
-* Audio files
-* On-hold music
-* Custom dialplan
 * Voicemail messages
 * Provisioning configuration
-
-When your configuration is finished, you need to configure xivo-sync on the
-master. Launch this command.
-
-    xivo-sync -i
 
 
 XiVO Client
