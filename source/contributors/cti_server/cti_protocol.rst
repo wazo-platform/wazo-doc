@@ -11,6 +11,11 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+15.12
+-----
+
+* ``people_search_result`` has a new key in ``relations``: ``source_entry_id``
+
 15.11
 -----
 
@@ -930,7 +935,8 @@ People Search
         "relations": {
           "agent_id": null,
           "user_id": null,
-          "endpoint_id": null
+          "endpoint_id": null,
+          "source_entry_id": null
         },
         "source": "my_ldap_directory"
       }, {
@@ -938,7 +944,8 @@ People Search
         "relations": {
           "agent_id": 12,
           "user_id": 34,
-          "endpoint_id": 56
+          "endpoint_id": 56,
+          "source_entry_id": "34"
         },
         "source": "internal"
       }
