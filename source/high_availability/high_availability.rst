@@ -41,6 +41,7 @@ Quick Summary
 * Restart services (xivo-service restart) on master
 * Configure the other XiVO as a slave -> setup the master address
 * Start configuration synchronization by running the script ``xivo-master-slave-db-replication <slave_ip>`` on the master
+* Start configuration file synchronization by runnning the script ``xivo-sync -i`` on the master
 * Resynchronize all your devices
 * Configure the XiVO Clients
 
@@ -163,6 +164,11 @@ and thus are not copied:
 * Voicemail messages
 * Provisioning configuration
 
+When your configuration is finished, you need to configure xivo-sync on the
+master. Launch this command.
+
+    xivo-sync -i
+
 
 XiVO Client
 -----------
@@ -181,7 +187,7 @@ hang for 3 seconds before connecting to the backup server.
 Internals
 =========
 
-3 scripts are used to manage services and data replication.
+4 scripts are used to manage services and data replication.
 
 * xivo-master-slave-db-replication <slave_ip> is used on the master to replicate the master's
   data on the slave server. It runs on the master.
@@ -189,6 +195,7 @@ Internals
   The services won't be restarted after an upgrade or restart.
 * xivo-check-master-status <master_ip> is used to check the status of the master and enable or
   disable services accordingly.
+* xivo-sync is used to sync directories from master to slave.
 
 
 Limitations
@@ -200,10 +207,6 @@ differently. This includes:
 * Call history / call records are not recorded.
 * Voicemail messages saved on the master node are not available.
 * Custom voicemail greetings recorded on the master node are not available.
-* More generally, custom sounds are not available. This includes music on hold and recordings.
-* Custom dialplan (i.e. dialplan found in the :file:`/etc/asterisk/extensions_extra.d` directory
-  or in the :menuselection:`Services --> IPBX --> IPBX configuration --> Configuration files` page)
-  is not available.
 * Phone provisioning is disabled, i.e. synchronizing or rebooting a phone will make it unusable
   until the master is back up, unless you have manually configured your slave, e.g. reconfigured the
   DHCP server of the slave.
