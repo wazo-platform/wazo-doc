@@ -23,7 +23,7 @@ Retrieve the backup
 You can retrieve the backup from the web-interface in
 :menuselection:`Services --> IPBX --> IPBX Configuration --> Backup Files` page.
 
-Otherwise, with shell access, you can retrieve them in :file:`/var/backups/xivo/`.
+Otherwise, with shell access, you can retrieve them in :file:`/var/backups/xivo`.
 In this directory you will find :file:`db.tgz` and :file:`data.tgz` files for the database and data
 backups.
 
@@ -33,7 +33,7 @@ Backup script:
 
 Backup location:
 
-    :file:`/var/backups/xivo/`
+    :file:`/var/backups/xivo`
 
 
 What is actually backed-up?
@@ -57,12 +57,12 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/resolv.conf`
 * :file:`/etc/ssl`
 * :file:`/etc/wanpipe`
-* :file:`/var/lib/asterisk/`
-* :file:`/var/lib/consul/`
-* :file:`/var/lib/xivo/`
+* :file:`/var/lib/asterisk`
+* :file:`/var/lib/consul`
+* :file:`/var/lib/xivo`
 * :file:`/var/lib/xivo-provd`
-* :file:`/var/log/asterisk/`
-* :file:`/var/spool/asterisk/`
+* :file:`/var/log/asterisk`
+* :file:`/var/spool/asterisk`
 * :file:`/usr/local/sbin`
 
 The following files/folders are excluded from this backup:
