@@ -224,7 +224,7 @@ Implementation details
   * ``load(args)``: set up resources used by the plugin, depending on the config.
     ``args`` is a dictionary containing:
 
-    * key ``config``: the section of the configuration file for this service in dict form
+    * key ``config``: the whole configuration file in dict form
     * key ``sources``: a dictionary of source names to sources
 
     ``load`` must return a callable, which will be made available in the view plugins.
