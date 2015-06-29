@@ -40,6 +40,7 @@ Quick Summary
 * Configure one XiVO as a master -> setup the slave address
 * Restart services (xivo-service restart) on master
 * Configure the other XiVO as a slave -> setup the master address
+* Configure file synchronization by runnning the script ``xivo-sync -i`` on the master
 * Start configuration synchronization by running the script ``xivo-master-slave-db-replication <slave_ip>`` on the master
 * Resynchronize all your devices
 * Configure the XiVO Clients
@@ -60,6 +61,19 @@ You must configure the :abbr:`HA (High Availability)` in the Web interface
 (:menuselection:`Configuration --> Management --> High Availability` page).
 
 You can configure the master and slave in whatever order you want.
+
+You must also run ``xivo-sync -i`` on the master to setup file synchronization.  Running ``xivo-sync
+-i`` will create a passwordless SSH key on the master, stored under the :file:`/root/.ssh` directory,
+and will add it to the :file:`/root/.ssh/authorized_keys` file on the slave. The following directories
+will then be rsync'ed every hour:
+
+* /etc/asterisk/extensions_extra.d
+* /etc/xivo/asterisk
+* /var/lib/asterisk/agi-bin
+* /var/lib/asterisk/moh
+* /var/lib/consul/raft
+* /var/lib/xivo/sounds/acd
+* /var/lib/xivo/sounds/playback
 
 .. warning:: When the HA is configured, some changes will be automatically
    made to the configuration of XiVO.
@@ -131,9 +145,11 @@ Configuration Replication
 
 Once master slave configuration is completed, XiVO configuration is replicated from the master node
 to the slave every hour (:00).
-Replication can be started manually by running the replication script on the master::
+
+Replication can be started manually by running the replication scripts on the master::
 
    xivo-master-slave-db-replication <slave_ip>
+   xivo-sync
 
 The replication does not copy the full XiVO configuration of the master. Notably, these
 are excluded:
@@ -151,15 +167,11 @@ Less importantly, these are also excluded:
 * Queue logs
 * CELs
 
-The replication only includes a (partial) replication of the database used by
 XiVO, so everything that is stored outside the database is also not copied.
-Here's an non exhaustive list of things that are not stored in the database,
-and thus are not copied:
+Here's an non exhaustive list of things that are not stored in the database and are not copied by the
+file synchronization:
 
 * Certficates
-* Audio files
-* On-hold music
-* Custom dialplan
 * Voicemail messages
 * Provisioning configuration
 
@@ -181,7 +193,7 @@ hang for 3 seconds before connecting to the backup server.
 Internals
 =========
 
-3 scripts are used to manage services and data replication.
+4 scripts are used to manage services and data replication.
 
 * xivo-master-slave-db-replication <slave_ip> is used on the master to replicate the master's
   data on the slave server. It runs on the master.
@@ -189,6 +201,7 @@ Internals
   The services won't be restarted after an upgrade or restart.
 * xivo-check-master-status <master_ip> is used to check the status of the master and enable or
   disable services accordingly.
+* xivo-sync is used to sync directories from master to slave.
 
 
 Limitations
@@ -200,10 +213,6 @@ differently. This includes:
 * Call history / call records are not recorded.
 * Voicemail messages saved on the master node are not available.
 * Custom voicemail greetings recorded on the master node are not available.
-* More generally, custom sounds are not available. This includes music on hold and recordings.
-* Custom dialplan (i.e. dialplan found in the :file:`/etc/asterisk/extensions_extra.d` directory
-  or in the :menuselection:`Services --> IPBX --> IPBX configuration --> Configuration files` page)
-  is not available.
 * Phone provisioning is disabled, i.e. synchronizing or rebooting a phone will make it unusable
   until the master is back up, unless you have manually configured your slave, e.g. reconfigured the
   DHCP server of the slave.
