@@ -40,8 +40,8 @@ Quick Summary
 * Configure one XiVO as a master -> setup the slave address
 * Restart services (xivo-service restart) on master
 * Configure the other XiVO as a slave -> setup the master address
+* Configure file synchronization by runnning the script ``xivo-sync -i`` on the master
 * Start configuration synchronization by running the script ``xivo-master-slave-db-replication <slave_ip>`` on the master
-* Start configuration file synchronization by runnning the script ``xivo-sync -i`` on the master
 * Resynchronize all your devices
 * Configure the XiVO Clients
 
@@ -61,6 +61,19 @@ You must configure the :abbr:`HA (High Availability)` in the Web interface
 (:menuselection:`Configuration --> Management --> High Availability` page).
 
 You can configure the master and slave in whatever order you want.
+
+You must also run ``xivo-sync -i`` on the master to setup file synchronization.  Running ``xivo-sync
+-i`` will create a passwordless SSH key on the master, stored under the :file:`/root/.ssh` directory,
+and will add it to the :file:`/root/.ssh/authorized_keys` file on the slave. The following directories
+will then be rsync'ed every hour:
+
+* /etc/asterisk/extensions_extra.d
+* /etc/xivo/asterisk
+* /var/lib/asterisk/agi-bin
+* /var/lib/asterisk/moh
+* /var/lib/consul/raft
+* /var/lib/xivo/sounds/acd
+* /var/lib/xivo/sounds/playback
 
 .. warning:: When the HA is configured, some changes will be automatically
    made to the configuration of XiVO.
@@ -132,10 +145,6 @@ Configuration Replication
 
 Once master slave configuration is completed, XiVO configuration is replicated from the master node
 to the slave every hour (:00).
-You need to finish to configure xivo-sync (file replication) on the master.
-Running this script on the master::
-
-   xivo-sync -i
 
 Replication can be started manually by running the replication scripts on the master::
 
@@ -158,10 +167,9 @@ Less importantly, these are also excluded:
 * Queue logs
 * CELs
 
-The replication only includes a (partial) replication of the database used by
 XiVO, so everything that is stored outside the database is also not copied.
-Here's an non exhaustive list of things that are not stored in the database,
-and thus are not copied:
+Here's an non exhaustive list of things that are not stored in the database and are not copied by the
+file synchronization:
 
 * Certficates
 * Voicemail messages
