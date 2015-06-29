@@ -10,6 +10,7 @@ You might be impacted by the upgrade to asterisk 13 if you have:
 * custom application exploiting CEL or queue_log
 * custom asterisk modules (e.g. codec_g729a.so)
 * customized asterisk in some other way
+* DAHDI trunks using SS7 signaling
 
 If you find yourself in one of these cases, you should make sure that your customizations still work
 with asterisk 13.
@@ -23,6 +24,7 @@ Changes Between Asterisk 11 and 13
 
 Some of the more common changes to look for:
 
+* SS7 support has been removed from the asterisk package of XiVO
 * The SetMusicOnHold dialplan application was deprecated and has been removed. Users of the
   application should use the CHANNEL function's ``musicclass`` setting instead.
 * The WaitMusicOnHold dialplan application was deprecated and has been removed. Users of the
