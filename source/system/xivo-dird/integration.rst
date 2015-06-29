@@ -20,6 +20,8 @@ following keys are interpreted and displayed in xlet people of the XiVO Client:
    * ``agent``: the field value will be ignored and replaced by an icon showing the status of the
      agent assigned to the contact (e.g. green icon for logged agent, red icon for unlogged agent,
      ...)
+   * ``favorite``: the field value will be ignored and replaced by an icon showing if the status is
+     favorite (yellow star filled) or not (yellow star empty).
    * ``mobile``: a dropdown action on the ``number`` field will be added to call the field value.
      Currently, only the last ``mobile`` field will be displayed.
    * ``name``: a decoration will be added to the field value (typically a color dot) showing the
