@@ -146,6 +146,9 @@ Upgrade Notes
 * The certificate used for HTTPS in the web interface will be regenerated if the default certificate
   was used. Your browser will complain about the new certificate, and it is safe to accept it (see
   `#3656`_). See also :ref:`https_certificate`.
+* If you have an :ref:`HA configuration <high-availability>`, then you should run ``xivo-sync -i`` on
+  the master node to setup file synchronization between the master and the slave. File synchronization
+  will then be done automatically every hour via rsync and ssh.
 
 .. _#3656: http://projects.xivo.io/issues/5636
 
