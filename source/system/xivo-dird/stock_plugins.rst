@@ -295,11 +295,13 @@ Example (a file inside ``source_config_dir``):
        username: admin
        password: password
        timeout: 3
+   unique_column: id
    searched_columns:
        - firstname
        - lastname
    source_to_display_columns:
        exten: number
+       mobile_phone_number: mobile
 
 confd_config:host
    the hostname of the XiVO (more precisely, of the xivo-confd service)
