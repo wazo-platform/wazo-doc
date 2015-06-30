@@ -1011,7 +1011,7 @@ Set favorite
     "class": "people_set_favorite",
     "source": "my_ldap_directory"
     "source_entry_id": "55"
-    "status": true
+    "favorite": true
     "commandid": <commandid>
   }
 
@@ -1020,10 +1020,10 @@ Set favorite
 .. code-block:: javascript
 
   {
-    "class": "people_set_favorite_result",
+    "class": "people_favorite_update",
     "source": "my_ldap_directory"
     "source_entry_id": "55"
-    "status": true
+    "favorite": true
     "commandid": <commandid>
   }
 
