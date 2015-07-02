@@ -154,26 +154,21 @@ Replication can be started manually by running the replication scripts on the ma
 The replication does not copy the full XiVO configuration of the master. Notably, these
 are excluded:
 
-* Call logs
-* Call center statistics
 * All the network configuration (i.e. everything under the
   :menuselection:`Configuration --> Network` section)
 * All the support configuration (i.e. everything under the
   :menuselection:`Configuration --> Support` section)
+* Call logs
+* Call center statistics
+* Certificates
 * HA settings
+* Provisioning configuration
+* Voicemail messages
 
 Less importantly, these are also excluded:
 
 * Queue logs
 * CELs
-
-XiVO, so everything that is stored outside the database is also not copied.
-Here's an non exhaustive list of things that are not stored in the database and are not copied by the
-file synchronization:
-
-* Certficates
-* Voicemail messages
-* Provisioning configuration
 
 
 XiVO Client
