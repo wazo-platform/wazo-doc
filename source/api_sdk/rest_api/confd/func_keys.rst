@@ -293,21 +293,3 @@ User
 +=========+=========+===========+
 | user_id | numeric | User's id |
 +---------+---------+-----------+
-
-Destination Example
-===================
-
-To configure a function key that would call user "Bob" (who has the id 12), you
-would have a "destination" of type "user" with the "user_id" 12.
-
-Here is an example of the JSON representation for this function key::
-
-    {
-        "blf": True,
-        "label": "Call bob",
-        "destination": {
-            "type": "speeddial",
-            "destination": "user",
-            "destination_id": 12
-        }
-    }
