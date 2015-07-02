@@ -127,6 +127,12 @@ A backup of both the configuration files and the database used by a XiVO install
 automatically every day.
 These backups are created in the :file:`/var/backups/xivo` directory and are kept for 7 days.
 
+Limitations
+===========
+
+* You must restore a backup on the **same version** of XiVO that was backed up
+* Be aware that this procedure applies **only to XiVO >= 14.08** (see :ref:`upgrade_note_14.08`).
+
 
 Before Restoring the System
 ===========================
@@ -159,7 +165,6 @@ Restoring the Database
 
     * This will destroy all the current data in your database.
     * You have to check the free space on your system partition before extracting the backups.
-    * Be aware that this procedure applies **only to XiVO >= 14.08** (see the relevant upgrade notes).
 
 Database backups are created as :file:`db.tgz` files in the :file:`/var/backups/xivo` directory.
 These tarballs contains a dump of the database used in XiVO.
