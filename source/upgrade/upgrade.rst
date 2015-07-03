@@ -149,6 +149,8 @@ Upgrade Notes
 * If you have an :ref:`HA configuration <high-availability>`, then you should run ``xivo-sync -i`` on
   the master node to setup file synchronization between the master and the slave. File synchronization
   will then be done automatically every hour via rsync and ssh.
+* xivo-auth and xivo-dird now use HTTPS, if you have custom development using these services, update
+  your configuration accordingly.
 
 .. _#3656: http://projects.xivo.io/issues/5636
 
