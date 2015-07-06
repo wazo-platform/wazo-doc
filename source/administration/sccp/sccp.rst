@@ -22,8 +22,12 @@ Review SCCP general settings:
 
    SCCP general settings
 
-At this point you should have a fully functional DHCP server that provides IP address to your phones.
-Depending on what type of CISCO phone you have, you need to install the plugin sccp-legacy, sccp-9.0.3 or both. Please refer to the :ref:`Provisioning page <cisco-provisioning>` for more information on how to install CISCO firmwares.
+At this point you should have a fully functional DHCP server that provides IP address to your
+phones.  Depending on what type of CISCO phone you have, you need to install the plugin sccp-legacy,
+sccp-9.0.3 or both.
+
+.. note:: Please refer to the :ref:`Provisioning page <cisco-provisioning>` for more information on
+          how to install CISCO firmwares.
 
 Once your plugin is installed, you'll be able to edit which firmwares and locales you need.
 If you are unsure, you can choose all without any problem.

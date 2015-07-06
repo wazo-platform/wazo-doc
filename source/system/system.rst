@@ -9,6 +9,7 @@ System
    Mail <mail/mail>
    Network <network/network>
    backup_restore
+   https_certificate
    configuration_files
    consul
    log_files

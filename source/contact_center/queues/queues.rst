@@ -19,7 +19,11 @@ A queue can be configured with the following options:
 A ring strategy defines how queue members are called when a call enters the queue.
 A queue can use one of the following ring strategies:
 
-   * Linear: for each call, call the first member, then the second, etc.
+   * Linear: For each call, in the same order, starting from the same member
+
+     * For agents: In login order
+     * For static members: In definition order
+
    * Least recent: call the member who least recently hung up a call
    * Fewest calls: call the member with the fewest completed calls
    * Round robin memory: call the "next" member after the one who answered last

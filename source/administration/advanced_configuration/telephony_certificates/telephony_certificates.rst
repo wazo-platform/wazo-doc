@@ -1,6 +1,8 @@
-************
-Certificates
-************
+.. _telephony_certificates:
+
+**********************
+Telephony certificates
+**********************
 
 XiVO offers the possibility to create and manage X.509 certificates via the
 the :menuselection:`Configuration --> Management --> Certificates` page.
@@ -9,6 +11,8 @@ These certificates can be used for:
 
 * enabling SIP TLS
 * enabling encryption between the CTI server and the XiVO clients
+
+For the certificate used for HTTPS, see :ref:`https_certificate`.
 
 
 Creating certificates
@@ -86,4 +90,3 @@ Creating certificate for CTI server
 .. warning::
    You must *not* set a password for the certificate. If the certificate is
    password protected, the CTI server will not be able to use it.
-

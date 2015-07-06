@@ -11,6 +11,13 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+15.12
+-----
+
+* ``people_search_result`` has a new key in ``relations``: ``source_entry_id``
+* the ``people_favorites`` message was added.
+* the ``people_set_favorite`` message was added.
+
 15.11
 -----
 
@@ -902,7 +909,7 @@ People headers
 
 
 People Search
--------------
+^^^^^^^^^^^^^
 
 ``Client -> Server``
 
@@ -930,7 +937,8 @@ People Search
         "relations": {
           "agent_id": null,
           "user_id": null,
-          "endpoint_id": null
+          "endpoint_id": null,
+          "source_entry_id": null
         },
         "source": "my_ldap_directory"
       }, {
@@ -938,11 +946,85 @@ People Search
         "relations": {
           "agent_id": 12,
           "user_id": 34,
-          "endpoint_id": 56
+          "endpoint_id": 56,
+          "source_entry_id": "34"
         },
         "source": "internal"
       }
     ]
+  }
+
+
+Favorites list
+^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_favorites",
+    "commandid": <commandid>
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_favorites_result",
+    "commandid": <commandid>
+    "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent", "Favorites"],
+    "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent", "favorite"],
+    "results": [
+      {
+        "column_values": ["Bob", "Marley", "5555555", "5556666", "5553333", "mail@example.com", null, true],
+        "relations": {
+          "agent_id": null,
+          "user_id": null,
+          "endpoint_id": null,
+          "source_entry_id": 55
+        },
+        "source": "my_ldap_directory"
+      }, {
+        "column_values": ["Charlie", "Boblin", "5555556", "5554444", "5552222", "mail2@example.com", null, true],
+        "relations": {
+          "agent_id": 12,
+          "user_id": 34,
+          "endpoint_id": 56,
+          "source_entry_id": "34"
+        },
+        "source": "internal"
+      }
+    ]
+  }
+
+
+Set favorite
+^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_set_favorite",
+    "source": "my_ldap_directory"
+    "source_entry_id": "55"
+    "favorite": true
+    "commandid": <commandid>
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_favorite_update",
+    "source": "my_ldap_directory"
+    "source_entry_id": "55"
+    "favorite": true
+    "commandid": <commandid>
   }
 
 

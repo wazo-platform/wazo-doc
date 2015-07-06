@@ -179,6 +179,7 @@ If you have Aastra phones and are using the remote directory on them, consult th
 * REST API 1.0 is no more. All code, tests and documentation was removed from XiVO.
   All code developped for REST API 1.0 must now be adapted to use REST API 1.1.
 
+.. _upgrade_note_14.08:
 
 14.08
 -----

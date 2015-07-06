@@ -23,7 +23,7 @@ Retrieve the backup
 You can retrieve the backup from the web-interface in
 :menuselection:`Services --> IPBX --> IPBX Configuration --> Backup Files` page.
 
-Otherwise, with shell access, you can retrieve them in :file:`/var/backups/xivo/`.
+Otherwise, with shell access, you can retrieve them in :file:`/var/backups/xivo`.
 In this directory you will find :file:`db.tgz` and :file:`data.tgz` files for the database and data
 backups.
 
@@ -33,7 +33,7 @@ Backup script:
 
 Backup location:
 
-    :file:`/var/backups/xivo/`
+    :file:`/var/backups/xivo`
 
 
 What is actually backed-up?
@@ -49,22 +49,27 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/dhcp`
 * :file:`/etc/hostname`
 * :file:`/etc/hosts`
+* :file:`/etc/ldap`
+* :file:`/etc/network/if-up.d/xivo-routes`
 * :file:`/etc/network/interfaces`
 * :file:`/etc/ntp.conf`
 * :file:`/etc/xivo`
 * :file:`/etc/resolv.conf`
+* :file:`/etc/ssl`
 * :file:`/etc/wanpipe`
-* :file:`/var/lib/asterisk/`
-* :file:`/var/lib/xivo/`
+* :file:`/var/lib/asterisk`
+* :file:`/var/lib/consul`
+* :file:`/var/lib/xivo`
 * :file:`/var/lib/xivo-provd`
-* :file:`/var/log/asterisk/`
-* :file:`/var/spool/asterisk/`
+* :file:`/var/log/asterisk`
+* :file:`/var/spool/asterisk`
+* :file:`/usr/local/sbin`
 
 The following files/folders are excluded from this backup:
 
 * folders:
 
-  * :file:`/var/lib/xivo-provd/plugins/*/var/cache`
+  * :file:`/var/lib/xivo-provd/plugins/*/var/cache/*`
   * :file:`/var/spool/asterisk/monitor`
   * :file:`/var/spool/asterisk/meetme`
 
@@ -122,6 +127,12 @@ A backup of both the configuration files and the database used by a XiVO install
 automatically every day.
 These backups are created in the :file:`/var/backups/xivo` directory and are kept for 7 days.
 
+Limitations
+===========
+
+* You must restore a backup on the **same version** of XiVO that was backed up
+* Be aware that this procedure applies **only to XiVO >= 14.08** (see :ref:`upgrade_note_14.08`).
+
 
 Before Restoring the System
 ===========================
@@ -154,7 +165,6 @@ Restoring the Database
 
     * This will destroy all the current data in your database.
     * You have to check the free space on your system partition before extracting the backups.
-    * Be aware that this procedure applies **only to XiVO >= 14.08** (see the relevant upgrade notes).
 
 Database backups are created as :file:`db.tgz` files in the :file:`/var/backups/xivo` directory.
 These tarballs contains a dump of the database used in XiVO.

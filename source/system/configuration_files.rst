@@ -44,6 +44,20 @@ The configuration file may be used as an example for supported configuration fil
 See also :ref:`configuration-priority`.
 
 
+xivo-auth
+===========
+
+The configuration is done in the configuration directory. The configuration file should not be
+modified, because it will be overridden by upgrades.
+
+* Default configuration directory: :file:`/etc/xivo-auth/conf.d`
+* Default configuration file: :file:`/etc/xivo-auth/config.yml`
+
+The configuration file may be used as an example for supported configuration file values.
+
+See also :ref:`configuration-priority`.
+
+
 xivo-ctid
 =========
 
