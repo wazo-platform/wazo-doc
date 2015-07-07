@@ -141,6 +141,49 @@ unique_column
    identifying favorites.
 
 
+CSV web service
+---------------
+
+Back-end name: csv_ws
+
+Purpose: search using a web service that returns CSV formatted results.
+
+
+Configuration
+^^^^^^^^^^^^^
+
+Example (a file inside ``source_config_dir``):
+
+.. code-block:: yaml
+    :linenos:
+
+    type: csv_ws
+    name: a_csv_web_service
+    lookup_url: "http://example.com:8000/ws-phonebook?search={term}"
+    reverse_lookup_url: "http://example.com:8000/ws-phonebook?phonesearch={term}"
+    list_url: "http://example.com:8000/ws-phonebook"
+    delimiter: ","
+    timeout: 16
+    unique_column: id
+    source_to_display_columns:
+        exten: number
+
+lookup_url
+    the URL used for directory searches. Looked up columns are managed by the web service.
+
+reverse_lookup_url
+    the URL used for reverse searches. This URL usually does an exact match search on the phone number.
+
+list_url (optional)
+    the URL used to list all available entries. This URL is used to retrieve favorites.
+
+delimiter
+    the field delimiter in the CSV result.
+
+timeout (optional)
+    the number of seconds before the lookup on the web service is aborted, default is 10 seconds.
+
+
 ldap
 ----
 
