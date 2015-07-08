@@ -201,6 +201,10 @@ type
 name
    The name of the source. The value is arbitrary, but it must be unique across all sources.
 
+.. warning:: Changing the name of the source will make all favorites in that source disappear. There
+             is currently no tool to help you migrate favorites between source names, so choose your
+             source names carefully.
+
 The other options are dependent on the source type (the back-end used). See the documentation of the
 back-end plugin (:ref:`stock-plugins`). However, the following keys should be present in all source
 configurations:
