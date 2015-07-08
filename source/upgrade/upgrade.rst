@@ -137,6 +137,19 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.13
+-----
+
+* asterisk has been upgraded from version 11.17.1 to 13.4.0, which is a major asterisk upgrade.
+
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   15.13/asterisk_13
+
+
 .. _upgrade-note-15.12:
 
 15.12
@@ -153,6 +166,7 @@ Upgrade Notes
   your configuration accordingly.
 
 .. _#3656: http://projects.xivo.io/issues/5636
+
 
 15.11
 -----
