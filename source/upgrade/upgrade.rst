@@ -140,7 +140,7 @@ Upgrade Notes
 15.13
 -----
 
-* asterisk has been upgraded from version 11.17.1 to 13.4.0, which is a major asterisk upgrade.
+* Asterisk has been upgraded from version 11.17.1 to 13.4.0, which is a major Asterisk upgrade.
 
 Please consult the following detailed upgrade notes for more information:
 
