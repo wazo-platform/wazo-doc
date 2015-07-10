@@ -99,8 +99,8 @@ Downgrades are not supported: you can only upgrade to a greater version.
 We only support upgrades to archive versions >= 13.25, e.g. you can upgrade a 12.16 to 14.16, but
 not 12.16 to 13.16
 
-Current archive version between 1.2 and 13.24 (here 1.2.3 to 14.16)
--------------------------------------------------------------------
+1.2 - 13.24 to 13.25 - 14.17 (here 1.2.3 to 14.16)
+--------------------------------------------------
 
 ::
 
@@ -125,8 +125,8 @@ Current archive version between 1.2 and 13.24 (here 1.2.3 to 14.16)
 .. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
    xivo-upgrade, but cancelled the upgrade.
 
-Current archive version after 13.25 (here 13.25 to 14.16)
----------------------------------------------------------
+13.24 - 14.16 to 13.25 - 14.17 (here 13.25 to 14.16)
+----------------------------------------------------
 
 ::
 
@@ -149,8 +149,8 @@ Current archive version after 13.25 (here 13.25 to 14.16)
 .. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
    xivo-upgrade, but cancelled the upgrade.
 
-Current archive version after 14.18
------------------------------------
+14.18+ to 14.19+ (here 14.18 to 15.12)
+--------------------------------------
 
 ::
 
