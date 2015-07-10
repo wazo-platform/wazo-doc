@@ -149,6 +149,23 @@ not 12.16 to 13.16
 .. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
    xivo-upgrade, but cancelled the upgrade.
 
+13.24 - 14.16 to 14.18+ (here 14.05 to 15.11)
+---------------------------------------------
+
+::
+
+   apt-get update
+   apt-get install xivo-fai
+   apt-get update
+   apt-get install xivo-dist
+   xivo-dist xivo-15.11
+   apt-get update
+   apt-get install xivo-upgrade/xivo-15.11
+   xivo-upgrade
+
+.. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
+   xivo-upgrade, but cancelled the upgrade.
+
 14.18+ to 14.19+ (here 14.18 to 15.12)
 --------------------------------------
 
