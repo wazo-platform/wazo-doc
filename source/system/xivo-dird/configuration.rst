@@ -190,10 +190,9 @@ Here is an example of a CSV source configuration:
    searched_columns:
        - fn
        - ln
-   source_to_display_columns:
-       ln: lastname
-       fn: firstname
-       num: number
+   format_columns:
+       name: "{fn} {ln}"
+       number: "{num}"
 
 type
    The type of the source. It must be the same than the name of one of the enabled back-end plugins.
@@ -213,6 +212,8 @@ searched_columns
    the columns used for the lookup. Any column containing the search term substring will be a lookup
    result.
 
-source_to_display_columns:
-   a dictionary describing the mapping between the source column name and the display field
-   identifier.
+format_columns:
+    a mapping between result fields and a format string. The new key will be added to the result, if
+    this name already exists in the result, it will be replaced with the new value. The syntax is a
+    python format string. See https://docs.python.org/2/library/string.html#formatspec for a complete
+    reference.
