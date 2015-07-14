@@ -91,6 +91,12 @@ Here's an example of the main configuration file:
                    - ldap_quebec
                timeout: 1
 
+   sources:
+       my_source:
+           name: my_source
+           type: ldap
+           more: ldap_options
+
 
 Root section
 ------------
@@ -169,6 +175,16 @@ of that service. Hence the content of the value is dependent of the service plug
 documentation of the service plugin (:ref:`stock-plugins`).
 
 
+.. _source_in_file_configuration:
+
+source section
+--------------
+
+This section is a dictionary whose keys are the source name and values are the configuration for that
+source. See the :ref:`sources_configuration_directory` section for more details about source
+configuration.
+
+
 .. _sources_configuration_directory:
 
 Sources Configuration Directory
@@ -216,3 +232,6 @@ searched_columns
 source_to_display_columns:
    a dictionary describing the mapping between the source column name and the display field
    identifier.
+
+If configuring many sources in the same file is more convenient for your use case, see
+:ref:`source_in_file_configuration` for an alternate configuration option for sources.
