@@ -137,6 +137,14 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.14
+-----
+
+* The xivo-dird configuration option `source_to_display_columns` has been
+  removed in favor of the new option `format_columns`. All source configuration
+  using the `source_to_display_columns` must be updated.
+
+
 15.13
 -----
 
