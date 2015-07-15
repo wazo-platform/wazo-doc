@@ -142,7 +142,9 @@ Upgrade Notes
 
 * The xivo-dird configuration option `source_to_display_columns` has been
   removed in favor of the new option `format_columns`. All source configuration
-  using the `source_to_display_columns` must be updated.
+  using the `source_to_display_columns` must be updated. A migration script will
+  automatically modify source configuration in the `/etc/xivo-dird/sources.d`
+  directory.
 
 
 15.13
