@@ -18,6 +18,23 @@ Add a data source
 
 You can add new data sources via the :menuselection:`Configuration --> Management --> Directories` page.
 
+
+XiVO directories
+----------------
+
+This type of directory is used to query the users of a XiVO. On a fresh install,
+the local XiVO is already configured. The URI field for this type of directory
+should be the base URL of a `xivo-confd` server.
+
+This directory type matches the `xivo` backend in `xivo-dird`.
+
+Example:
+
+* `Directory name`: xivo-montreal
+* `Type`: xivo
+* `URI`: ``https://<remote-ip>:<port>``
+
+
 File directories
 ----------------
 
