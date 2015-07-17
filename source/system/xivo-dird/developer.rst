@@ -114,10 +114,10 @@ The typical configuration file for a given back-end will look like this:
    unique_column: id
    search_columns:
        - firstname
-   source_to_display_columns:
-       lastname: ln
-       firstname: fn
-       number: telephoneNumber
+   format_columns:
+       ln: "{lastname}"
+       fn: "{firstname}"
+       telephoneNumber: "{number}"
 
 
 The following keys are mandatory: xivo-dird will not load the source if they are not present:
@@ -138,9 +138,9 @@ unique_column
 search_columns
    This list of columns is used to try and match an entry when searching this source.
 
-source_to_display_columns
-   This section is used to add column names to the result. The ``search`` and ``list`` methods
-   *should* apply the ``source_to_display_columns`` transformation to the result before returning.
+format_columns
+    This section is used to add or modify columns. The values are python format strings using the
+    raw search result as argument.
 
 
 The implementation of the back-end should take these values into account and return results
