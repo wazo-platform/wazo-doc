@@ -13,6 +13,12 @@ xivo-dird REST API changelog
   * POST ``/privates``
   * DELETE ``/privates/<contact_id>``
 
+* Methods ``search()`` and ``list()`` signature for backends has changed:
+
+  * new argument ``args``
+
+* Service plugin ``lookup`` takes a new ``token_infos`` argument
+
 15.12
 =====
 
