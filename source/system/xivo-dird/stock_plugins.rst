@@ -117,10 +117,10 @@ Example (a file inside ``source_config_dir``):
    searched_columns:
        - fn
        - ln
-   source_to_display_columns:
-       ln: lastname
-       fn: firstname
-       num: number
+   format_columns:
+       lastname: "{ln}"
+       firstname: "{fn}"
+       number: "{num}"
 
 With the CSV file:
 
@@ -166,10 +166,10 @@ Example (a file inside ``source_config_dir``):
    unique_column: entryUUID  # OpenLDAP
    searched_columns:
        - cn
-   source_to_display_columns:
-       givenName: firstname
-       sn: lastname
-       telephoneNumber: number
+   format_columns:
+       firstname: "{givenName}"
+       lastname: "{sn}"
+       number: "{telephoneNumber}"
 
 
 ldap_uri
@@ -235,10 +235,10 @@ Example (a file inside ``source_config_dir``):
    phonebook_url: https://example.org/service/ipbx/json.php/restricted/pbx_services/phonebook
    phonebook_username: admin
    phonebook_password: foobar
-   source_to_display_columns:
-       phonebook.firstname: firstname
-       phonebook.lastname: lastname
-       phonebooknumber.office.number: number
+   format_columns:
+       firstname: "{phonebook.firstname}"
+       lastname: "{phonebook.lastname}"
+       number: "{phonebooknumber.office.number}"
 
 
 phonebook_url (optional)
@@ -266,9 +266,6 @@ phonebook_timeout (optional)
 
 To be able to access the phone book of a remote XiVO, you must create a web services access user
 (:menuselection:`Configuration -> Web Services Access`) on the remote XiVO.
-
-The source fields that can be used in ``source_to_display_columns`` are those described in
-:ref:`this section <phonebook-fields>`.
 
 
 xivo
@@ -300,9 +297,9 @@ Example (a file inside ``source_config_dir``):
    searched_columns:
        - firstname
        - lastname
-   source_to_display_columns:
-       exten: number
-       mobile_phone_number: mobile
+   format_columns:
+       number: "{exten}"
+       mobile: "{mobile_phone_number}"
 
 confd_config:host
    the hostname of the XiVO (more precisely, of the xivo-confd service)
