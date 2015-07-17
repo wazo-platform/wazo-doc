@@ -159,6 +159,7 @@ not 12.16 to 13.16
    apt-get update
    apt-get install xivo-dist
    xivo-dist xivo-15.11
+   apt-get purge xivo-fai
    apt-get update
    apt-get install xivo-upgrade/xivo-15.11
    xivo-upgrade
