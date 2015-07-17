@@ -10,6 +10,7 @@ directories that are configured. xivo-dird is extendable with plugins.
 .. toctree::
    :maxdepth: 1
 
+   changelog
    configuration
    developer
    stock_plugins
