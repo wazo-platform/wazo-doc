@@ -1,8 +1,8 @@
 .. _dird_changelog:
 
-*****************************
-xivo-dird REST API changelog
-*****************************
+*******************
+xivo-dird changelog
+*******************
 
 15.13
 =====
@@ -13,11 +13,11 @@ xivo-dird REST API changelog
   * POST ``/privates``
   * DELETE ``/privates/<contact_id>``
 
-* Methods ``search()`` and ``list()`` signature for backends has changed:
+* Signature of backend method ``list()`` has a new argument ``args``
+* Argument ``args`` for backend methods ``list()`` and ``search()`` has a new key ``token_infos``
+* Methods ``__call__()`` and ``lookup()`` of service plugin ``lookup`` take a new ``token_infos``
+  argument
 
-  * new argument ``args``
-
-* Service plugin ``lookup`` takes a new ``token_infos`` argument
 
 15.12
 =====
