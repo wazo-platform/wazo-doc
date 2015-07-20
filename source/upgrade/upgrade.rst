@@ -137,16 +137,6 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
-15.14
------
-
-* The xivo-dird configuration option `source_to_display_columns` has been
-  removed in favor of the new option `format_columns`. All source configuration
-  using the `source_to_display_columns` must be updated. A migration script will
-  automatically modify source configuration in the `/etc/xivo-dird/sources.d`
-  directory.
-
-
 15.13
 -----
 
@@ -159,6 +149,11 @@ Please consult the following detailed upgrade notes for more information:
 
    15.13/asterisk_13
 
+* The xivo-dird configuration option `source_to_display_columns` has been
+  removed in favor of the new option `format_columns`. All source configuration
+  using the `source_to_display_columns` must be updated. A migration script will
+  automatically modify source configuration in the `/etc/xivo-dird/sources.d`
+  directory.
 
 .. _upgrade-note-15.12:
 
