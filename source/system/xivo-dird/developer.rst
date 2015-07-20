@@ -95,6 +95,7 @@ Implementation details
     ``args`` is a dictionary containing:
 
     * key ``config``: the source configuration for this instance of the back-end
+    * key ``main_config``: the whole configuration of xivo-dird
 
   * ``unload()``: free resources used by the plugin.
   * ``search(term, args)``: The search method returns a list of dictionary.

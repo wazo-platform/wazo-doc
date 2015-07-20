@@ -15,6 +15,7 @@ xivo-dird changelog
 
 * Signature of backend method ``list()`` has a new argument ``args``
 * Argument ``args`` for backend methods ``list()`` and ``search()`` has a new key ``token_infos``
+* Argument ``args`` for backend method ``load()`` has a new key ``main_config``
 * Methods ``__call__()`` and ``lookup()`` of service plugin ``lookup`` take a new ``token_infos``
   argument
 
