@@ -9,6 +9,7 @@ xivo-dird changelog
 
 * Added private contacts endpoints in REST API:
 
+  * GET ``/directories/privates/<profile>``
   * GET ``/privates``
   * POST ``/privates``
   * DELETE ``/privates/<contact_id>``
