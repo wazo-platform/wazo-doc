@@ -89,7 +89,7 @@ timeout
 Back-end Configuration
 ======================
 
-This sections completes the :ref:`sources_configuration_directory` section.
+This sections completes the :ref:`sources_configuration` section.
 
 csv
 ---
