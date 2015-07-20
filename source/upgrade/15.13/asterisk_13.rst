@@ -74,7 +74,19 @@ List of Known Bugs And Limitations
 
 List of known bugs and limitations for Asterisk 13:
 
-* when direct media is active and DTMF are sent using SIP INFO, features code (e.g. \*0 to hangup)
-  are not working properly
-* when using SCCP phones, the connected line information on the phones are not updated after a
+* When direct media is active and DTMF are sent using SIP INFO, DTMF are not working properly. It is
+  also impossible to do an attended transfer from the XiVO client in these conditions.
+  
+  See https://issues.asterisk.org/jira/browse/ASTERISK-25214.
+* There's a small memory leak occurring on certain call scenarios (mostly call center scenarios); you
+  should check the memory usage of your asterisk process once per month and do a ``xivo-service
+  restart`` when the memory usage grows too large.
+
+  See https://issues.asterisk.org/jira/browse/ASTERISK-25262.
+* Answering a Local channel cause a ringback tone to be heard by caller even after callee answers.
+  This can happens if you are using a preprocess subroutine on an agent and are answering the
+  channel in this subroutine.
+
+  See https://issues.asterisk.org/jira/browse/ASTERISK-25250
+* When using SCCP phones, the connected line information on the phones are not updated after a
   transfer
