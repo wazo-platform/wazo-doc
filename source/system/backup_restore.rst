@@ -54,6 +54,17 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/network/interfaces`
 * :file:`/etc/ntp.conf`
 * :file:`/etc/xivo`
+* :file:`/etc/xivo-agentd`
+* :file:`/etc/xivo-agid`
+* :file:`/etc/xivo-amid`
+* :file:`/etc/xivo-auth`
+* :file:`/etc/xivo-call-logd`
+* :file:`/etc/xivo-confd`
+* :file:`/etc/xivo-confgend-client`
+* :file:`/etc/xivo-ctid`
+* :file:`/etc/xivo-dird`
+* :file:`/etc/xivo-dxtora`
+* :file:`/etc/xivo-purge-db`
 * :file:`/etc/resolv.conf`
 * :file:`/etc/ssl`
 * :file:`/etc/wanpipe`
@@ -64,6 +75,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/var/log/asterisk`
 * :file:`/var/spool/asterisk`
 * :file:`/usr/local/sbin`
+* :file:`/usr/share/xivo/XIVO-VERSION`
 
 The following files/folders are excluded from this backup:
 
