@@ -1,13 +1,12 @@
-.. index:: single:XiVO CTI Client
+.. index:: single:XiVO Client
 
+***********
+XiVO Client
+***********
 
-**********
-CTI Client
-**********
+This section describes the XiVO Client.
 
-This section describes the CTI Client and its various xlets
-
-Getting the XiVO Client
+Getting the XiVO client
 =======================
 
 Binaries of the XiVO Client are available on our mirror. (`latest version`_) (`all versions`_)
@@ -20,7 +19,7 @@ Binaries of the XiVO Client are available on our mirror. (`latest version`_) (`a
    The installed version of the XiVO Client must match the XiVO server's version installation. With
    our current architecture, there is no way to guarantee that the XiVO server will be
    retro-compatible with older versions of the XiVO Client. Non-matching XiVO server and XiVO
-   Clients versions will bring inconsistencies.
+   Clients versions might lead to unexpected behaviour.
 
 Choose the version you want and in the right directory, get :
 
@@ -47,8 +46,7 @@ Connection to the server
 ========================
 
 To connect to the server using the XiVO client you need a user name, a password and the server's
-address. Optionally, it is possible to login an agent while connecting to the server. An option is
-available in the configuration, account to show agent login info.
+address. Optionally, it is possible to login an agent while connecting to the server.
 
 .. figure:: images/login_window.png
    :scale: 85%
@@ -58,7 +56,7 @@ available in the configuration, account to show agent login info.
 Xlets
 =====
 
-Xlets are features of the CTI Client. It is the contraction of XiVO applets.
+Xlets are features of the XiVO Client. It is the contraction of XiVO applets.
 
 .. toctree::
    :maxdepth: 1
@@ -76,7 +74,7 @@ Xlets are features of the CTI Client. It is the contraction of XiVO applets.
 Configuration
 =============
 
-The XiVO client configuration options can be accessed under :menuselection:`XiVO client --> configure`.
+The XiVO Client configuration options can be accessed under :menuselection:`XiVO Client --> Configure`.
 
 Connection Configuration
 ------------------------
@@ -98,7 +96,7 @@ connection <ctid-encryption>`.
 Handling callto: and tel: URLs
 ==============================
 
-The XiVO client can handle telephone number links that appear in web pages. The client will
+The XiVO Client can handle telephone number links that appear in web pages. The client will
 automatically dial the number when you click on a link.
 
 .. note:: You must already be logged in for automatic dialing to work, otherwise the client will
@@ -113,12 +111,12 @@ Mac OS
 ``callto:`` links will work out-of-the-box in Safari and other web browsers
 after installing the client.
 
-``tel:`` links will open facetime after installing the client. To make the
-xivoclient the default application to open ``tel:`` URLs in safari.
+``tel:`` links will open FaceTime after installing the client. To make the
+XiVO Client the default application to open ``tel:`` URLs in Safari.
 
-1. Open the facetime application
+1. Open the FaceTime application
 2. Connect using your apple account
-3. Open the facetime preferences
+3. Open the FaceTime preferences
 4. Change the *Default for calls* entry to *xivoclient.app*
 
 
@@ -145,7 +143,7 @@ Internet Explorer:
 .. figure:: images/ie_warning_1.png
 .. figure:: images/ie_warning_2.png
 
-Simply click on *allow* to dial the number using the XiVO client.
+Simply click on *allow* to dial the number using the XiVO Client.
 
 .. note:: If you do not want these warnings to appear each time, do not forget to check/uncheck the
           checkbox at the bottom of the popups.
@@ -167,7 +165,7 @@ Manual association in Firefox
 -----------------------------
 
 If, for some reason, Firefox does not recognize ``callto:`` or ``tel:`` URIs you can manually
-associate them to the XiVO client using the following steps:
+associate them to the XiVO Client using the following steps:
 
 1. Type ``about:config`` in the URL bar
 2. Click the *I'll be careful, I promise !* button to close the warning

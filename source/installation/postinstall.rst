@@ -1,5 +1,5 @@
 *****************
-Post installation
+Post Installation
 *****************
 
 Here are a few configuration options that are commonly changed once the installation is completed.
@@ -24,15 +24,16 @@ To achieve this you must change the following SIP options:
 Incoming caller number display
 ==============================
 
-The display of caller number on incoming calls depends on what is sent by your operator.
+The caller ID number on incoming calls depends on what is sent by your operator.
 You can modify it via the file :file:`/etc/xivo/asterisk/xivo_in_callerid.conf`.
 
-.. note:: this is this modified caller id number which will be used in the reverse directory lookup
+.. note:: The reverse directory lookup use the caller ID number after it has been modified by
+          :file:`xivo_in_callerid.conf`
 
 Examples:
 
-* if you use a prefix to dial outgoing numbers (like a 0) you should add a 0 to all the ``add =`` sections,
-* you may want to display incoming numbers in E.164 format. For example, you can change the ``[national1]`` section to::
+* If you use a prefix to dial outgoing numbers (like a 0) you should add a 0 to all the ``add =`` sections,
+* You may want to display incoming numbers in E.164 format. For example, you can change the ``[national1]`` section to::
 
     callerid = ^0[1-9]\d{8}$
     strip = 1
@@ -46,10 +47,10 @@ To enable the changes you have to restart xivo-agid::
 Time and date
 =============
 
-* Configure your locale and default time zone in device template => :menuselection:`Configuration --> Provisioning --> Template Device`
+* Configure your locale and default time zone device template => :menuselection:`Configuration --> Provisioning --> Template Device`
   by editing the default template
-* Configure the Timezone in => :menuselection:`Services --> IPBX --> General settings --> Advanced --> Timezone`
-* Reconfigure your timezone for the system::
+* Configure the timezone in => :menuselection:`Services --> IPBX --> General settings --> Advanced --> Timezone`
+* If needed, reconfigure your timezone for the system::
 
     dpkg-reconfigure tzdata
 
@@ -57,13 +58,12 @@ Time and date
 Codecs
 ======
 
-You should also select default codecs. It obviously depends on the telco links, the country, the phones, the usage etc.
+You should also select default codecs. It obviously depends on the telco links, the country, the phones, the usage, etc.
 Here is a typical example for Europe (the main goal in this example is to select *only* G.711 A-Law instead of both G.711 A-Law and G.711 µ-Law by default):
 
 * SIP : :menuselection:`Services --> IPBX --> General settings --> SIP Protocol --> Signaling`:
 
-    * Customize codec : activate,
-    * Disable codec : All
+    * Customize codec : enabled
     * Codec list::
 
         G.711 A-Law
@@ -73,8 +73,7 @@ Here is a typical example for Europe (the main goal in this example is to select
 
 * IAX2 : :menuselection:`Services --> IPBX --> General settings -->  IAX Protocol --> Default`:
 
-    * Customize : activate,
-    * Disallowed codec : All
+    * Customize : enabled
     * Codec list::
 
         G.711 A-Law
