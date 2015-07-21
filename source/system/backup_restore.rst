@@ -53,7 +53,9 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/network/if-up.d/xivo-routes`
 * :file:`/etc/network/interfaces`
 * :file:`/etc/ntp.conf`
-* :file:`/etc/xivo/`
+* :file:`/etc/resolv.conf`
+* :file:`/etc/ssl/`
+* :file:`/etc/wanpipe/`
 * :file:`/etc/xivo-agentd/`
 * :file:`/etc/xivo-agid/`
 * :file:`/etc/xivo-amid/`
@@ -65,17 +67,15 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/xivo-dird/`
 * :file:`/etc/xivo-dxtora/`
 * :file:`/etc/xivo-purge-db/`
-* :file:`/etc/resolv.conf`
-* :file:`/etc/ssl/`
-* :file:`/etc/wanpipe/`
-* :file:`/var/lib/asterisk/`
-* :file:`/var/lib/consul/`
-* :file:`/var/lib/xivo/`
-* :file:`/var/lib/xivo-provd/`
-* :file:`/var/log/asterisk/`
-* :file:`/var/spool/asterisk/`
+* :file:`/etc/xivo/`
 * :file:`/usr/local/sbin/`
 * :file:`/usr/share/xivo/XIVO-VERSION`
+* :file:`/var/lib/asterisk/`
+* :file:`/var/lib/consul/`
+* :file:`/var/lib/xivo-provd/`
+* :file:`/var/lib/xivo/`
+* :file:`/var/log/asterisk/`
+* :file:`/var/spool/asterisk/`
 
 The following files/folders are excluded from this backup:
 
