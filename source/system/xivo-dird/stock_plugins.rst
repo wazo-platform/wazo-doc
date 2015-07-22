@@ -14,6 +14,21 @@ View name: default_json
 
 Purpose: present directory entries in JSON format. The format is detailed in http://api.xivo.io.
 
+headers
+-------
+
+View name: headers
+
+Purpose: List headers that will be available in results from ``default_json`` view.
+
+privates_view
+-------------
+
+View name: privates_view
+
+Purpose: Expose REST API to manage private contacts (create, delete, list).
+
+
 Service Plugins
 ===============
 
@@ -57,6 +72,16 @@ favorites
 Service name: favorites
 
 Purpose: Mark/unmark contacts as favorites and get the list of all favorites.
+
+privates
+--------
+
+Service name: privates
+
+Purpose: Add, delete, list private contacts of users.
+
+The ``privates`` service needs a working Consul installation to store private contacts.
+
 
 Configuration
 ^^^^^^^^^^^^^
@@ -309,6 +334,35 @@ phonebook_timeout (optional)
 
 To be able to access the phone book of a remote XiVO, you must create a web services access user
 (:menuselection:`Configuration -> Web Services Access`) on the remote XiVO.
+
+
+privates
+--------
+
+Back-end name: privates
+
+Purpose: search directory entries among users' private contacts
+
+You should only have one source of type ``privates``, because only one will be used to list private
+contacts. The ``privates`` backend needs a working Consul installation. This backend works with the
+privates service, which allows users to add private contacts.
+
+Configuration
+^^^^^^^^^^^^^
+
+Example (a file inside ``source_config_dir``):
+
+.. code-block:: yaml
+   :linenos:
+
+   type: privates
+   name: privates
+   format_columns:
+       firstname: "{firstname}"
+       lastname: "{lastname}"
+       number: "{number}"
+
+``unique_column`` is not configurable, its value is always ``id``.
 
 
 xivo
