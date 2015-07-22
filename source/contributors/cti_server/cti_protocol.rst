@@ -28,7 +28,9 @@ Protocol Changelog
 
 * ``people_search_result`` has a new key in ``relations``: ``source_entry_id``
 * the ``people_favorites`` message was added.
+* the ``people_favorites_result`` message was added.
 * the ``people_set_favorite`` message was added.
+* the ``people_favorite_update`` message was added.
 
 15.11
 -----
