@@ -1001,7 +1001,7 @@ Favorites list
           "agent_id": null,
           "user_id": null,
           "endpoint_id": null,
-          "source_entry_id": 55
+          "source_entry_id": "55"
         },
         "source": "my_ldap_directory"
       }, {
