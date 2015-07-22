@@ -31,3 +31,21 @@ following keys are interpreted and displayed in xlet people of the XiVO Client:
       * added a decoration (typically a color dot) showing the status of the phone of the contact
         (e.g. Offline, Ringing, Talking, ...)
       * replaced with a button to call the contact with your phone when using the mouse
+
+   * ``private``: the boolean field value will be used to show a deletion action for the contact
+
+.. _private-contact-attributes:
+
+Private contacts
+----------------
+
+Here are the list of available attributes of a private contact:
+
+* ``id``
+* ``company``
+* ``email``
+* ``fax``
+* ``firstname``
+* ``lastname``
+* ``mobile``
+* ``number``

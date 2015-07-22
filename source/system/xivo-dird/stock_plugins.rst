@@ -347,6 +347,8 @@ You should only have one source of type ``privates``, because only one will be u
 contacts. The ``privates`` backend needs a working Consul installation. This backend works with the
 privates service, which allows users to add private contacts.
 
+The complete list of fields is in :ref:`private-contact-attributes`.
+
 Configuration
 ^^^^^^^^^^^^^
 
