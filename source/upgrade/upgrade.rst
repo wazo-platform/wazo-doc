@@ -141,6 +141,10 @@ Upgrade Notes
 -----
 
 * Asterisk has been upgraded from version 11.17.1 to 13.4.0, which is a major Asterisk upgrade.
+* An `ARI <https://wiki.asterisk.org/wiki/display/AST/Getting+Started+with+ARI>`_ user has been
+  added to :file:`/etc/asterisk/ari.conf`. If you have configured Asterisk HTTP server to bind on a
+  publicly reachable address (in :file:`/etc/asterisk/http.conf`), then you should update your
+  configuration to prevent unauthorized access on your Asterisk.
 * The xivo-dird configuration option `source_to_display_columns` has been
   removed in favor of the new option `format_columns`. All source configuration
   using the `source_to_display_columns` must be updated. A migration script will
