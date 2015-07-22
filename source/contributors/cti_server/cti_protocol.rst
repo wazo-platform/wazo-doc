@@ -1065,8 +1065,8 @@ Personal contacts list
   {
     "class": "people_personal_contacts_result",
     "commandid": <commandid>
-    "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent", "Favorites", "Privates"],
-    "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent", "favorite", "privates"],
+    "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent", "Favorites", "Personal"],
+    "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent", "favorite", "personal"],
     "results": [
       {
         "column_values": ["Bob", "Marley", "5555555", "5556666", "5553333", "mail@example.com", null, false, true],
@@ -1076,7 +1076,7 @@ Personal contacts list
           "endpoint_id": null,
           "source_entry_id": "abcd-12"
         },
-        "source": "privates"
+        "source": "personal"
       }, {
         "column_values": ["Charlie", "Boblin", "5555556", "5554444", "5552222", "mail2@example.com", null, false, true],
         "relations": {
@@ -1085,7 +1085,7 @@ Personal contacts list
           "endpoint_id": null,
           "source_entry_id": "efgh-34"
         },
-        "source": "privates"
+        "source": "personal"
       }
     ]
   }
@@ -1122,7 +1122,7 @@ Delete personal contacts
 
   {
     "class": "people_delete_personal_contact",
-    "source": "privates"
+    "source": "personal"
     "source_entry_id": "abcd-1234"
     "commandid": <commandid>
   }
@@ -1134,7 +1134,7 @@ Delete personal contacts
   {
     "class": "people_personal_contact_deleted",
     "data": {
-        "source": "privates"
+        "source": "personal"
         "source_entry_id": "abcd-1234"
     }
     "commandid": <commandid>
