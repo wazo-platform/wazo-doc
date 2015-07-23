@@ -22,6 +22,12 @@ Protocol Changelog
   * the key ``talkingto_id`` have been removed.
   * the key ``talkingto_kind`` have been removed.
 
+* the ``people_personal_contacts`` message was added.
+* the ``people_personal_contacts_result`` message was added.
+* the ``people_create_personal_contact`` message was added.
+* the ``people_personal_contact_created`` message was added.
+* the ``people_delete_personal_contact`` message was added.
+* the ``people_personal_contact_deleted`` message was added.
 
 15.12
 -----
@@ -997,7 +1003,7 @@ Favorites list
           "agent_id": null,
           "user_id": null,
           "endpoint_id": null,
-          "source_entry_id": 55
+          "source_entry_id": "55"
         },
         "source": "my_ldap_directory"
       }, {
@@ -1038,6 +1044,101 @@ Set favorite
     "source": "my_ldap_directory"
     "source_entry_id": "55"
     "favorite": true
+    "commandid": <commandid>
+  }
+
+
+Personal contacts list
+^^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contacts",
+    "commandid": <commandid>
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contacts_result",
+    "commandid": <commandid>
+    "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent", "Favorites", "Privates"],
+    "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent", "favorite", "privates"],
+    "results": [
+      {
+        "column_values": ["Bob", "Marley", "5555555", "5556666", "5553333", "mail@example.com", null, false, true],
+        "relations": {
+          "agent_id": null,
+          "user_id": null,
+          "endpoint_id": null,
+          "source_entry_id": "abcd-12"
+        },
+        "source": "privates"
+      }, {
+        "column_values": ["Charlie", "Boblin", "5555556", "5554444", "5552222", "mail2@example.com", null, false, true],
+        "relations": {
+          "agent_id": null,
+          "user_id": null,
+          "endpoint_id": null,
+          "source_entry_id": "efgh-34"
+        },
+        "source": "privates"
+      }
+    ]
+  }
+
+
+Create personal contacts
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_create_personal_contact",
+    "commandid": <commandid>
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contact_created",
+    "commandid": <commandid>
+  }
+
+
+Delete personal contacts
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_delete_personal_contact",
+    "source": "privates"
+    "source_entry_id": "abcd-1234"
+    "commandid": <commandid>
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contact_deleted",
+    "data": {
+        "source": "privates"
+        "source_entry_id": "abcd-1234"
+    }
     "commandid": <commandid>
   }
 
