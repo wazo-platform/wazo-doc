@@ -347,7 +347,7 @@ You should only have one source of type ``personal``, because only one will be u
 contacts. The ``personal`` backend needs a working Consul installation. This backend works with the
 personal service, which allows users to add personal contacts.
 
-The complete list of fields is in :ref:`private-contact-attributes`.
+The complete list of fields is in :ref:`personal-contact-attributes`.
 
 Configuration
 ^^^^^^^^^^^^^

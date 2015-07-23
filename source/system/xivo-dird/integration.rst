@@ -32,12 +32,12 @@ following keys are interpreted and displayed in xlet people of the XiVO Client:
         (e.g. Offline, Ringing, Talking, ...)
       * replaced with a button to call the contact with your phone when using the mouse
 
-   * ``private``: the boolean field value will be used to show a deletion action for the contact
+   * ``personal``: the boolean field value will be used to show a deletion action for the contact
 
-.. _private-contact-attributes:
+.. _personal-contact-attributes:
 
-Private contacts
-----------------
+Personal contacts
+-----------------
 
 Here are the list of available attributes of a private contact:
 
