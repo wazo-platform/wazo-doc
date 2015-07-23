@@ -21,12 +21,12 @@ View name: headers
 
 Purpose: List headers that will be available in results from ``default_json`` view.
 
-privates_view
+personal_view
 -------------
 
-View name: privates_view
+View name: personal_view
 
-Purpose: Expose REST API to manage private contacts (create, delete, list).
+Purpose: Expose REST API to manage personal contacts (create, delete, list).
 
 
 Service Plugins
@@ -73,14 +73,14 @@ Service name: favorites
 
 Purpose: Mark/unmark contacts as favorites and get the list of all favorites.
 
-privates
+personal
 --------
 
-Service name: privates
+Service name: personal
 
-Purpose: Add, delete, list private contacts of users.
+Purpose: Add, delete, list personal contacts of users.
 
-The ``privates`` service needs a working Consul installation to store private contacts.
+The ``personal`` service needs a working Consul installation to store personal contacts.
 
 
 Configuration
@@ -336,18 +336,18 @@ To be able to access the phone book of a remote XiVO, you must create a web serv
 (:menuselection:`Configuration -> Web Services Access`) on the remote XiVO.
 
 
-privates
+personal
 --------
 
-Back-end name: privates
+Back-end name: personal
 
-Purpose: search directory entries among users' private contacts
+Purpose: search directory entries among users' personal contacts
 
-You should only have one source of type ``privates``, because only one will be used to list private
-contacts. The ``privates`` backend needs a working Consul installation. This backend works with the
-privates service, which allows users to add private contacts.
+You should only have one source of type ``personal``, because only one will be used to list personal
+contacts. The ``personal`` backend needs a working Consul installation. This backend works with the
+personal service, which allows users to add personal contacts.
 
-The complete list of fields is in :ref:`private-contact-attributes`.
+The complete list of fields is in :ref:`personal-contact-attributes`.
 
 Configuration
 ^^^^^^^^^^^^^
@@ -357,8 +357,8 @@ Example (a file inside ``source_config_dir``):
 .. code-block:: yaml
    :linenos:
 
-   type: privates
-   name: privates
+   type: personal
+   name: personal
    format_columns:
        firstname: "{firstname}"
        lastname: "{lastname}"
