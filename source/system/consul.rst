@@ -10,7 +10,7 @@ own configuration file at another location and set the new configuration
 directory in the ``/etc/default/consul`` file.
 
 The default installation generates a master token that can be retrieved in
-``/usr/lib/consul/master_token``. This master token will not be used if a new
+``/var/lib/consul/master_token``. This master token will not be used if a new
 configuration is supplied.
 
 
