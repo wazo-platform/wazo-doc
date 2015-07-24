@@ -19,7 +19,6 @@ Protocol Changelog
   * the value of ``commstatus`` have been changed from ``linked-caller`` and ``linked-called`` to
     ``linked``.
   * the key ``direction`` have been removed.
-  * the key ``talkingto_id`` have been removed.
   * the key ``talkingto_kind`` have been removed.
 
 * the ``people_personal_contacts`` message was added.
