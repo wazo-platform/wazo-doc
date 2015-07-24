@@ -140,6 +140,7 @@ Upgrade Notes
 15.13
 -----
 
+* Consult the `15.13 Roadmap <https://projects.xivo.io/versions/229>`_
 * Asterisk has been upgraded from version 11.17.1 to 13.4.0, which is a major Asterisk upgrade.
 * An `ARI <https://wiki.asterisk.org/wiki/display/AST/Getting+Started+with+ARI>`_ user has been
   added to :file:`/etc/asterisk/ari.conf`. If you have configured Asterisk HTTP server to bind on a
