@@ -91,6 +91,14 @@ Here's an example of the main configuration file:
                    - ldap_quebec
                timeout: 1
 
+   sources:
+       my_source:
+           name: my_source
+           type: ldap
+           ldap_option1: value
+           ldap_option2: value
+           ...
+
 
 Root section
 ------------
@@ -114,7 +122,7 @@ pid_filename
 
 source_config_dir
    The directory from which sources configuration are read. See
-   :ref:`sources_configuration_directory`. Default: ``/etc/xivo-dird/sources.d``.
+   :ref:`sources_configuration`. Default: ``/etc/xivo-dird/sources.d``.
 
 user
    The owner of the process. Default: ``www-data``.
@@ -169,16 +177,30 @@ of that service. Hence the content of the value is dependent of the service plug
 documentation of the service plugin (:ref:`stock-plugins`).
 
 
-.. _sources_configuration_directory:
+sources section
+---------------
 
-Sources Configuration Directory
-===============================
+This section is a dictionary whose keys are the source name and values are the configuration for that
+source. See the :ref:`sources_configuration` section for more details about source
+configuration.
 
-Default location: ``/etc/xivo-dird/sources.d``. File format: YAML
 
-Each file listed in this directory will be read and used to create a data source for xivo-dird.
+.. _sources_configuration:
 
-Here is an example of a CSV source configuration:
+Sources Configuration
+=====================
+
+There are two ways to configure sources:
+
+* in the sources section of the main configuration
+* in files of a directory, one file for each source:
+
+  * Default directory location ``/etc/xivo-dird/sources.d``
+  * Files format: YAML
+  * File names are ignored
+  * Each file listed in this directory will be read and used to create a data source for xivo-dird.
+
+Here is an example of a CSV source configuration in its own file:
 
 .. code-block:: yaml
    :linenos:
@@ -190,16 +212,39 @@ Here is an example of a CSV source configuration:
    searched_columns:
        - fn
        - ln
-   source_to_display_columns:
-       ln: lastname
-       fn: firstname
-       num: number
+   format_columns:
+       name: "{fn} {ln}"
+       number: "{num}"
+
+
+This is strictly equivalent in the main configuration file:
+
+.. code-block:: yaml
+   :linenos:
+
+   sources:
+       my_contacts_in_a_csv_file:
+           type: csv
+           name: my_contacts_in_a_csv_file
+           file: /usr/local/share/my_contacts.csv
+           unique_column: id
+           searched_columns:
+               - fn
+               - ln
+           source_to_display_columns:
+               ln: lastname
+               fn: firstname
+               num: number
 
 type
    The type of the source. It must be the same than the name of one of the enabled back-end plugins.
 
 name
    The name of the source. The value is arbitrary, but it must be unique across all sources.
+
+.. warning:: Changing the name of the source will make all favorites in that source disappear. There
+             is currently no tool to help you migrate favorites between source names, so choose your
+             source names carefully.
 
 The other options are dependent on the source type (the back-end used). See the documentation of the
 back-end plugin (:ref:`stock-plugins`). However, the following keys should be present in all source
@@ -209,6 +254,8 @@ searched_columns
    the columns used for the lookup. Any column containing the search term substring will be a lookup
    result.
 
-source_to_display_columns:
-   a dictionary describing the mapping between the source column name and the display field
-   identifier.
+format_columns:
+    a mapping between result fields and a format string. The new key will be added to the result, if
+    this name already exists in the result, it will be replaced with the new value. The syntax is a
+    python format string. See https://docs.python.org/2/library/string.html#formatspec for a complete
+    reference.

@@ -14,6 +14,21 @@ View name: default_json
 
 Purpose: present directory entries in JSON format. The format is detailed in http://api.xivo.io.
 
+headers
+-------
+
+View name: headers
+
+Purpose: List headers that will be available in results from ``default_json`` view.
+
+personal_view
+-------------
+
+View name: personal_view
+
+Purpose: Expose REST API to manage personal contacts (create, delete, list).
+
+
 Service Plugins
 ===============
 
@@ -58,6 +73,16 @@ Service name: favorites
 
 Purpose: Mark/unmark contacts as favorites and get the list of all favorites.
 
+personal
+--------
+
+Service name: personal
+
+Purpose: Add, delete, list personal contacts of users.
+
+The ``personal`` service needs a working Consul installation to store personal contacts.
+
+
 Configuration
 ^^^^^^^^^^^^^
 
@@ -89,7 +114,7 @@ timeout
 Back-end Configuration
 ======================
 
-This sections completes the :ref:`sources_configuration_directory` section.
+This sections completes the :ref:`sources_configuration` section.
 
 csv
 ---
@@ -117,10 +142,10 @@ Example (a file inside ``source_config_dir``):
    searched_columns:
        - fn
        - ln
-   source_to_display_columns:
-       ln: lastname
-       fn: firstname
-       num: number
+   format_columns:
+       lastname: "{ln}"
+       firstname: "{fn}"
+       number: "{num}"
 
 With the CSV file:
 
@@ -139,6 +164,49 @@ file
 unique_column
    the column that contains a unique identifier of the entry. This is necessary for listing and
    identifying favorites.
+
+
+CSV web service
+---------------
+
+Back-end name: csv_ws
+
+Purpose: search using a web service that returns CSV formatted results.
+
+
+Configuration
+^^^^^^^^^^^^^
+
+Example (a file inside ``source_config_dir``):
+
+.. code-block:: yaml
+    :linenos:
+
+    type: csv_ws
+    name: a_csv_web_service
+    lookup_url: "http://example.com:8000/ws-phonebook?search={term}"
+    reverse_lookup_url: "http://example.com:8000/ws-phonebook?phonesearch={term}"
+    list_url: "http://example.com:8000/ws-phonebook"
+    delimiter: ","
+    timeout: 16
+    unique_column: id
+    source_to_display_columns:
+        exten: number
+
+lookup_url
+    the URL used for directory searches. Looked up columns are managed by the web service.
+
+reverse_lookup_url
+    the URL used for reverse searches. This URL usually does an exact match search on the phone number.
+
+list_url (optional)
+    the URL used to list all available entries. This URL is used to retrieve favorites.
+
+delimiter
+    the field delimiter in the CSV result.
+
+timeout (optional)
+    the number of seconds before the lookup on the web service is aborted, default is 10 seconds.
 
 
 ldap
@@ -166,10 +234,10 @@ Example (a file inside ``source_config_dir``):
    unique_column: entryUUID  # OpenLDAP
    searched_columns:
        - cn
-   source_to_display_columns:
-       givenName: firstname
-       sn: lastname
-       telephoneNumber: number
+   format_columns:
+       firstname: "{givenName}"
+       lastname: "{sn}"
+       number: "{telephoneNumber}"
 
 
 ldap_uri
@@ -235,10 +303,10 @@ Example (a file inside ``source_config_dir``):
    phonebook_url: https://example.org/service/ipbx/json.php/restricted/pbx_services/phonebook
    phonebook_username: admin
    phonebook_password: foobar
-   source_to_display_columns:
-       phonebook.firstname: firstname
-       phonebook.lastname: lastname
-       phonebooknumber.office.number: number
+   format_columns:
+       firstname: "{phonebook.firstname}"
+       lastname: "{phonebook.lastname}"
+       number: "{phonebooknumber.office.number}"
 
 
 phonebook_url (optional)
@@ -267,8 +335,36 @@ phonebook_timeout (optional)
 To be able to access the phone book of a remote XiVO, you must create a web services access user
 (:menuselection:`Configuration -> Web Services Access`) on the remote XiVO.
 
-The source fields that can be used in ``source_to_display_columns`` are those described in
-:ref:`this section <phonebook-fields>`.
+
+personal
+--------
+
+Back-end name: personal
+
+Purpose: search directory entries among users' personal contacts
+
+You should only have one source of type ``personal``, because only one will be used to list personal
+contacts. The ``personal`` backend needs a working Consul installation. This backend works with the
+personal service, which allows users to add personal contacts.
+
+The complete list of fields is in :ref:`personal-contact-attributes`.
+
+Configuration
+^^^^^^^^^^^^^
+
+Example (a file inside ``source_config_dir``):
+
+.. code-block:: yaml
+   :linenos:
+
+   type: personal
+   name: personal
+   format_columns:
+       firstname: "{firstname}"
+       lastname: "{lastname}"
+       number: "{number}"
+
+``unique_column`` is not configurable, its value is always ``id``.
 
 
 xivo
@@ -300,9 +396,9 @@ Example (a file inside ``source_config_dir``):
    searched_columns:
        - firstname
        - lastname
-   source_to_display_columns:
-       exten: number
-       mobile_phone_number: mobile
+   format_columns:
+       number: "{exten}"
+       mobile: "{mobile_phone_number}"
 
 confd_config:host
    the hostname of the XiVO (more precisely, of the xivo-confd service)

@@ -137,6 +137,28 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.13
+-----
+
+* Consult the `15.13 Roadmap <https://projects.xivo.io/versions/229>`_
+* Asterisk has been upgraded from version 11.17.1 to 13.4.0, which is a major Asterisk upgrade.
+* An `ARI <https://wiki.asterisk.org/wiki/display/AST/Getting+Started+with+ARI>`_ user has been
+  added to :file:`/etc/asterisk/ari.conf`. If you have configured Asterisk HTTP server to bind on a
+  publicly reachable address (in :file:`/etc/asterisk/http.conf`), then you should update your
+  configuration to prevent unauthorized access on your Asterisk.
+* The xivo-dird configuration option `source_to_display_columns` has been
+  removed in favor of the new option `format_columns`. All source configuration
+  using the `source_to_display_columns` must be updated. A migration script will
+  automatically modify source configuration in the `/etc/xivo-dird/sources.d`
+  directory.
+
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   15.13/asterisk_13
+
 .. _upgrade-note-15.12:
 
 15.12
@@ -153,6 +175,7 @@ Upgrade Notes
   your configuration accordingly.
 
 .. _#3656: http://projects.xivo.io/issues/5636
+
 
 15.11
 -----

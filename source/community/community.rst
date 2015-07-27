@@ -47,6 +47,8 @@ Unless specified, the license is `CC BY-SA`_.
 +----------------------------------------------------------------------------------------------+----------+--------------+--------------+
 | `Date format on SCCP 7941`_                                                                  | French   |              | NyXD Systems |
 +----------------------------------------------------------------------------------------------+----------+--------------+--------------+
+| `Installing XiVO on Raspberry Pi (Raspivo)`_                                                 | French   |              | Iris Network |
++----------------------------------------------------------------------------------------------+----------+--------------+--------------+
 
 .. _phonebook_csv_export.py: https://raw.githubusercontent.com/xivo-pbx/xivo-tools/master/scripts/phonebook_csv_export.py
 .. _XiVO provisioning + pfSense + siproxd + OVH: http://retroplace.nyxd.org/2015/01/28/xivo-auto-hebergement-telephonie-pfsense-ovh/
@@ -54,6 +56,7 @@ Unless specified, the license is `CC BY-SA`_.
 .. _Xivo pour les nuls: http://xivopourlesnuls.wordpress.com
 .. _SCCP provisioning, unsupported phones and no DHCP: http://retroplace.nyxd.org/2015/03/24/xivo-sccp-et-provisioning-sur-telephones-non-supportes-et-dhcp-desactive/
 .. _Date format on SCCP 7941: http://retroplace.nyxd.org/2015/02/06/xivo-probleme-daffichage-de-lheure-sur-cisco-7941-en-cas-de-redemarrage-dasterisk/
+.. _Installing XiVO on Raspberry Pi (Raspivo): http://raspivo.io/installation-depuis-nos-depots.html
 
 Contribute
 ----------

@@ -11,12 +11,31 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+15.13
+-----
+
+* for ``channel status update`` message:
+
+  * the value of ``commstatus`` have been changed from ``linked-caller`` and ``linked-called`` to
+    ``linked``.
+  * the key ``direction`` have been removed.
+  * the key ``talkingto_kind`` have been removed.
+
+* the ``people_personal_contacts`` message was added.
+* the ``people_personal_contacts_result`` message was added.
+* the ``people_create_personal_contact`` message was added.
+* the ``people_personal_contact_created`` message was added.
+* the ``people_delete_personal_contact`` message was added.
+* the ``people_personal_contact_deleted`` message was added.
+
 15.12
 -----
 
 * ``people_search_result`` has a new key in ``relations``: ``source_entry_id``
 * the ``people_favorites`` message was added.
+* the ``people_favorites_result`` message was added.
 * the ``people_set_favorite`` message was added.
+* the ``people_favorite_update`` message was added.
 
 15.11
 -----
@@ -983,7 +1002,7 @@ Favorites list
           "agent_id": null,
           "user_id": null,
           "endpoint_id": null,
-          "source_entry_id": 55
+          "source_entry_id": "55"
         },
         "source": "my_ldap_directory"
       }, {
@@ -1024,6 +1043,101 @@ Set favorite
     "source": "my_ldap_directory"
     "source_entry_id": "55"
     "favorite": true
+    "commandid": <commandid>
+  }
+
+
+Personal contacts list
+^^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contacts",
+    "commandid": <commandid>
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contacts_result",
+    "commandid": <commandid>
+    "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent", "Favorites", "Personal"],
+    "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent", "favorite", "personal"],
+    "results": [
+      {
+        "column_values": ["Bob", "Marley", "5555555", "5556666", "5553333", "mail@example.com", null, false, true],
+        "relations": {
+          "agent_id": null,
+          "user_id": null,
+          "endpoint_id": null,
+          "source_entry_id": "abcd-12"
+        },
+        "source": "personal"
+      }, {
+        "column_values": ["Charlie", "Boblin", "5555556", "5554444", "5552222", "mail2@example.com", null, false, true],
+        "relations": {
+          "agent_id": null,
+          "user_id": null,
+          "endpoint_id": null,
+          "source_entry_id": "efgh-34"
+        },
+        "source": "personal"
+      }
+    ]
+  }
+
+
+Create personal contacts
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_create_personal_contact",
+    "commandid": <commandid>
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contact_created",
+    "commandid": <commandid>
+  }
+
+
+Delete personal contacts
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_delete_personal_contact",
+    "source": "personal"
+    "source_entry_id": "abcd-1234"
+    "commandid": <commandid>
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contact_deleted",
+    "data": {
+        "source": "personal"
+        "source_entry_id": "abcd-1234"
+    }
     "commandid": <commandid>
   }
 
@@ -1472,7 +1586,6 @@ channel status update
 * listname : channels
 * status
 
-  * direction : (in,out ...)
   * state : (Down, Ring, Unknown ...)
   * commstatus : (ready, calling, ringing ...)
 
@@ -1493,8 +1606,8 @@ Example of phone messages received when a phone is ringing :
 
    {"status": {"timestamp": 1361447017.22, "holded": false, "commstatus": "ready", "parked": false, "state": "Down"}, "tid": "SIP/barometrix_jyldev-0000000a"}
    {"status": {"timestamp": 1361447017.29, "holded": false, "commstatus": "ready", "parked": false, "state": "Unknown"}, "tid": "SIP/x2gjtw-0000000b"}
-   {"status": {"talkingto_kind": "channel", "direction": "out", "timestamp": 1361447017.29, "holded": false, "talkingto_id": "SIP/x2gjtw-0000000b", "state": "Ring", "parked": false, "commstatus": "calling"}, "tid": "SIP/barometrix_jyldev-0000000a", "class": "getlist"}
-   {"status": {"direction": "in", "timestamp": 1361447017.29, "holded": false, "talkingto_id": "SIP/barometrix_jyldev-0000000a", "state": "Down", "parked": false, "commstatus": "ringing"}, "tid": "SIP/x2gjtw-0000000b", "class": "getlist"}
+   {"status": {"timestamp": 1361447017.29, "holded": false, "state": "Ring", "parked": false, "commstatus": "calling"}, "tid": "SIP/barometrix_jyldev-0000000a", "class": "getlist"}
+   {"status": {"timestamp": 1361447017.29, "holded": false, "state": "Down", "parked": false, "commstatus": "ringing"}, "tid": "SIP/x2gjtw-0000000b", "class": "getlist"}
 
 
 

@@ -164,7 +164,7 @@ generally will delete one of the two function keys.
 
 For User keys, start to key in the user name in destination, XiVO will try to complete with the corresponding user.
 
-If the forward unconditionnal function key is used with no destionation the user will be prompted when the user
+If the forward unconditionnal function key is used with no destination the user will be prompted when the user
 presses the function key and the BLF will monitor *ALL* unconditionnal forward for this user.
 
 

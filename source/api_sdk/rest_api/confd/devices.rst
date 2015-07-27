@@ -158,7 +158,7 @@ Example response
                "vendor": "Aastra",
                "model": "6731i",
                "version": "3.2.2",
-               "plugin": "xivo-aastra-3.2.2-SP3"
+               "plugin": "xivo-aastra-3.2.2-SP3",
                "description": null,
                "status": "configured",
                "options": null,
@@ -244,7 +244,7 @@ Example response
        "vendor": "Aastra",
        "model": "6731i",
        "version": "3.2.2",
-       "plugin": "xivo-aastra-3.2.2-SP3"
+       "plugin": "xivo-aastra-3.2.2-SP3",
        "description": null,
        "status": "configured",
        "options": null,
@@ -332,8 +332,8 @@ Example request
        "vendor": "Aastra",
        "model": "6731i",
        "version": "3.2.2",
-       "plugin": "xivo-aastra-3.2.2-SP3"
-       "template_id": "defaultconfigdevice",
+       "plugin": "xivo-aastra-3.2.2-SP3",
+       "template_id": "defaultconfigdevice"
    }
 
 Example response
@@ -355,7 +355,7 @@ Example response
        "version": "3.2.2",
        "description": null,
        "status": "configured",
-       "plugin": "xivo-aastra-3.2.2-SP3"
+       "plugin": "xivo-aastra-3.2.2-SP3",
        "options": null,
        "template_id": "defaultconfigdevice",
        "links" : [

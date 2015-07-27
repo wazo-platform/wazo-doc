@@ -44,45 +44,57 @@ Data
 
 Here is the list of folders and files that are backed-up:
 
-* :file:`/etc/asterisk`
-* :file:`/etc/dahdi`
-* :file:`/etc/dhcp`
+* :file:`/etc/asterisk/`
+* :file:`/etc/dahdi/`
+* :file:`/etc/dhcp/`
 * :file:`/etc/hostname`
 * :file:`/etc/hosts`
-* :file:`/etc/ldap`
+* :file:`/etc/ldap/`
 * :file:`/etc/network/if-up.d/xivo-routes`
 * :file:`/etc/network/interfaces`
 * :file:`/etc/ntp.conf`
-* :file:`/etc/xivo`
 * :file:`/etc/resolv.conf`
-* :file:`/etc/ssl`
-* :file:`/etc/wanpipe`
-* :file:`/var/lib/asterisk`
-* :file:`/var/lib/consul`
-* :file:`/var/lib/xivo`
-* :file:`/var/lib/xivo-provd`
-* :file:`/var/log/asterisk`
-* :file:`/var/spool/asterisk`
-* :file:`/usr/local/sbin`
+* :file:`/etc/ssl/`
+* :file:`/etc/wanpipe/`
+* :file:`/etc/xivo-agentd/`
+* :file:`/etc/xivo-agid/`
+* :file:`/etc/xivo-amid/`
+* :file:`/etc/xivo-auth/`
+* :file:`/etc/xivo-call-logd/`
+* :file:`/etc/xivo-confd/`
+* :file:`/etc/xivo-confgend-client/`
+* :file:`/etc/xivo-ctid/`
+* :file:`/etc/xivo-dird/`
+* :file:`/etc/xivo-dxtora/`
+* :file:`/etc/xivo-purge-db/`
+* :file:`/etc/xivo/`
+* :file:`/usr/local/sbin/`
+* :file:`/usr/share/xivo/XIVO-VERSION`
+* :file:`/var/lib/asterisk/`
+* :file:`/var/lib/consul/`
+* :file:`/var/lib/xivo-provd/`
+* :file:`/var/lib/xivo/`
+* :file:`/var/log/asterisk/`
+* :file:`/var/spool/asterisk/`
 
 The following files/folders are excluded from this backup:
 
 * folders:
 
   * :file:`/var/lib/xivo-provd/plugins/*/var/cache/*`
-  * :file:`/var/spool/asterisk/monitor`
-  * :file:`/var/spool/asterisk/meetme`
+  * :file:`/var/spool/asterisk/monitor/`
+  * :file:`/var/spool/asterisk/meetme/`
 
 * log files, coredump files
 * audio recordings
 * and, files greater than 10 MiB or folders containing more than 100 files if they belong to one of
   these folders:
 
-  * :file:`/var/lib/xivo/sounds`
-  * :file:`/var/lib/asterisk/sounds/custom`
-  * :file:`/var/lib/asterisk/moh`
-  * :file:`/var/spool/asterisk/voicemail`
-  * :file:`/var/spool/asterisk/monitor`
+  * :file:`/var/lib/xivo/sounds/`
+  * :file:`/var/lib/asterisk/sounds/custom/`
+  * :file:`/var/lib/asterisk/moh/`
+  * :file:`/var/spool/asterisk/voicemail/`
+  * :file:`/var/spool/asterisk/monitor/`
 
 
 Database
