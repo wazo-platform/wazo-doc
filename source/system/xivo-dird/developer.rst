@@ -284,7 +284,11 @@ The following example adds a service that will return an empty list when used.
        A very dumb service that will return an empty list every time it is used
        """
 
-       def __call__(self):
+       def list(self):
+           """
+           This function must be called explicitly from the view, `list` is not a
+           special method name for xivo-dird
+           """
            return []
 
 
