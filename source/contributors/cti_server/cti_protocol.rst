@@ -912,7 +912,6 @@ People headers
 
   {
     "class": "people_headers",
-    "commandid": <commandid>
   }
 
 ``Server -> Client``
@@ -921,7 +920,6 @@ People headers
 
   {
     "class": "people_headers_result",
-    "commandid": <commandid>,
     "column_headers": ["Status", "Name", "Number"],
     "column_types": [null, null, "number"],
   }
@@ -937,7 +935,6 @@ People Search
   {
     "class": "people_search",
     "pattern": <pattern>,
-    "commandid": <commandid>
   }
 
 ``Server -> Client``
@@ -946,7 +943,6 @@ People Search
 
   {
     "class": "people_search_result",
-    "commandid": <commandid>
     "term": "Bob",
     "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent"],
     "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent"],
@@ -983,7 +979,6 @@ Favorites list
 
   {
     "class": "people_favorites",
-    "commandid": <commandid>
   }
 
 ``Server -> Client``
@@ -992,7 +987,6 @@ Favorites list
 
   {
     "class": "people_favorites_result",
-    "commandid": <commandid>
     "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent", "Favorites"],
     "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent", "favorite"],
     "results": [
@@ -1031,7 +1025,6 @@ Set favorite
     "source": "my_ldap_directory"
     "source_entry_id": "55"
     "favorite": true
-    "commandid": <commandid>
   }
 
 ``Server -> Client``
@@ -1043,7 +1036,6 @@ Set favorite
     "source": "my_ldap_directory"
     "source_entry_id": "55"
     "favorite": true
-    "commandid": <commandid>
   }
 
 
@@ -1056,7 +1048,6 @@ Personal contacts list
 
   {
     "class": "people_personal_contacts",
-    "commandid": <commandid>
   }
 
 ``Server -> Client``
@@ -1065,7 +1056,6 @@ Personal contacts list
 
   {
     "class": "people_personal_contacts_result",
-    "commandid": <commandid>
     "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent", "Favorites", "Personal"],
     "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent", "favorite", "personal"],
     "results": [
@@ -1101,7 +1091,6 @@ Create personal contacts
 
   {
     "class": "people_create_personal_contact",
-    "commandid": <commandid>
   }
 
 ``Server -> Client``
@@ -1110,7 +1099,6 @@ Create personal contacts
 
   {
     "class": "people_personal_contact_created",
-    "commandid": <commandid>
   }
 
 
@@ -1125,7 +1113,6 @@ Delete personal contacts
     "class": "people_delete_personal_contact",
     "source": "personal"
     "source_entry_id": "abcd-1234"
-    "commandid": <commandid>
   }
 
 ``Server -> Client``
@@ -1138,7 +1125,6 @@ Delete personal contacts
         "source": "personal"
         "source_entry_id": "abcd-1234"
     }
-    "commandid": <commandid>
   }
 
 
