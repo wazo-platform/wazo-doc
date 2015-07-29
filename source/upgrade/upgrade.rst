@@ -137,6 +137,12 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.14
+-----
+
+* Default password for ``xivo-polycom-4.0.4`` plugin version >= 1.3 is now **xivo** (9486)
+* Default password for ``xivo-polycom-5.3.0`` plugin version >= 1.4 is now **xivo** (9486)
+
 15.13
 -----
 
