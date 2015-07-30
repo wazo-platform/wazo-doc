@@ -4,15 +4,24 @@
 xivo-dird changelog
 *******************
 
+15.14
+=====
+
+* Added more personal contacts endpoints in REST API:
+
+  * GET ``/0.1/personal/<contact_id>``
+  * PUT ``/0.1/personal/<contact_id>``
+
+
 15.13
 =====
 
 * Added personal contacts endpoints in REST API:
 
-  * GET ``/directories/personal/<profile>``
-  * GET ``/personal``
-  * POST ``/personal``
-  * DELETE ``/personal/<contact_id>``
+  * GET ``/0.1/directories/personal/<profile>``
+  * GET ``/0.1/personal``
+  * POST ``/0.1/personal``
+  * DELETE ``/0.1/personal/<contact_id>``
 
 * Signature of backend method ``list()`` has a new argument ``args``
 * Argument ``args`` for backend methods ``list()`` and ``search()`` has a new key ``token_infos``
