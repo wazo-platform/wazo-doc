@@ -141,6 +141,8 @@ Upgrade Notes
 -----
 
 * Consult the `15.14 Roadmap <https://projects.xivo.io/versions/230>`_
+* Default password for ``xivo-polycom-4.0.4`` plugin version >= 1.3 is now **9486** (i.e. the word "xivo" on a telephone keypad).
+* Default password for ``xivo-polycom-5.3.0`` plugin version >= 1.4 is now **9486**.
 
 
 15.13
@@ -164,6 +166,7 @@ Please consult the following detailed upgrade notes for more information:
    :maxdepth: 1
 
    15.13/asterisk_13
+
 
 .. _upgrade-note-15.12:
 

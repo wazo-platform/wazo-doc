@@ -490,6 +490,8 @@ Particularities:
   Also, directed call pickup via a BLF function key will not work if the extension number of the
   supervised user is different from its caller ID number.
 
+* Default password is **9486** (i.e. the word "xivo" on a telephone keypad).
+
 .. note:: (XiVO HA cluster) BLF function key saved on the master node are not available.
 
 Supported expansion modules:
