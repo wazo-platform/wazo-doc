@@ -11,6 +11,14 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+15.14
+-----
+
+* the ``people_personal_contact_raw`` message was added.
+* the ``people_personal_contact_raw_result`` message was added.
+* the ``people_edit_personal_contact`` message was added.
+* the ``people_personal_contact_raw_update`` message was added.
+
 15.13
 -----
 
@@ -1082,6 +1090,35 @@ Personal contacts list
   }
 
 
+Personal contact raw
+^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contact_raw",
+    "source": "personal",
+    "source_entry_id": "abcd-1234"
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contact_raw_result",
+    "data": {
+        "source": "personal",
+        "source_entry_id": "abcd-1234"
+        "firstname": "Bob",
+        "lastname": "Wonderland",
+        ...
+    }
+  }
+
+
 Create personal contacts
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1121,6 +1158,37 @@ Delete personal contacts
 
   {
     "class": "people_personal_contact_deleted",
+    "data": {
+        "source": "personal"
+        "source_entry_id": "abcd-1234"
+    }
+  }
+
+
+Edit personal contact
+^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_edit_personal_contact",
+    "source": "personal",
+    "source_entry_id": "abcd-1234",
+    "contact_infos": {
+        "firstname": "Bob",
+        "lastname": "Wonderland",
+        ...
+    }
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contact_raw_update",
     "data": {
         "source": "personal"
         "source_entry_id": "abcd-1234"
