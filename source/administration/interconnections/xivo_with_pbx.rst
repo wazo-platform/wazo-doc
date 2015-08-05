@@ -9,8 +9,8 @@ The goal of this architecture can be one of:
 * start a smooth migration between an old telephony system towards IP telephony with XiVO
 * bring new features to the PBX like voicemail, conference, IVR etc.
 
-First, XiVO is to be integrated transparently between the operator and the PBX.
-Then users or features are to be migrated from the PBX to the XiVO. 
+First, XiVO is to be integrated transparently between the operator and the PBX. Then users or
+features are to be migrated from the PBX to the XiVO.
 
 .. warning:: It requires a special call routing configuration on both the XiVO **and the PBX**.
 
@@ -29,8 +29,8 @@ General uses
 
 You must have an ISDN card able to support both the provider and PBX ISDN links.
 
-*Example :* If you have two provider links towards the PBX, XiVO should have a 4 spans card : 
-two towards the provider, and two towards the PBX.
+*Example :* If you have two provider links towards the PBX, XiVO should have a 4 spans card : two
+towards the provider, and two towards the PBX.
 
 
 If you use two cards
@@ -57,6 +57,7 @@ system.conf
 ===========
 
 You mainly need to configure the ``timing`` parameter on each *span*. As a general rule :
+
 * Provider *span* - XiVO will get the clock from the provider :
   the ``timing`` value is to be different from 0 (see :ref:`system_conf` section)
 * PBX *span* - XiVO will provide the clock to the PBX :
@@ -71,19 +72,19 @@ Below is an example with two provider links and two PBX links::
     dchan=16
     echocanceller=mg2,1-15,17-31
 
-    # Span 2: TE4/0/2 "TE4XXP (PCI) Card 0 Span 2" 
+    # Span 2: TE4/0/2 "TE4XXP (PCI) Card 0 Span 2"
     span=2,2,0,ccs,hdb3         # Span towards Provider
     bchan=32-46,48-62
     dchan=47
     echocanceller=mg2,32-46,48-62
 
-    # Span 3: TE4/0/3 "TE4XXP (PCI) Card 0 Span 3" 
+    # Span 3: TE4/0/3 "TE4XXP (PCI) Card 0 Span 3"
     span=3,0,0,ccs,hdb3         # Span towards PBX
     bchan=63-77,79-93
     dchan=78
     echocanceller=mg2,63-77,79-93
 
-    # Span 4: TE4/0/4 "TE4XXP (PCI) Card 0 Span 4" 
+    # Span 4: TE4/0/4 "TE4XXP (PCI) Card 0 Span 4"
     span=4,0,0,ccs,hdb3         # Span towards PBX
     bchan=94-108,110-124
     dchan=109
@@ -100,22 +101,23 @@ In the file :file:`/etc/asterisk/dahdi-channels.conf` you need to adjust, for ea
 * ``signalling`` : ``pri_cpe`` for provider links, ``pri_net`` for PBX side
 
 
-.. warning:: most of the PBX uses overlap dialing for some destination (digits are sent one by one instead of by block).
-  In this case, the ``overlapdial`` parameter has to be activated on the PBX spans::
+.. warning:: most of the PBX uses overlap dialing for some destination (digits are sent one by one
+  instead of by block). In this case, the ``overlapdial`` parameter has to be activated on the PBX
+  spans::
 
     overlapdial = incoming
 
 
 Below an example of :file:`/etc/asterisk/dahdi-channels.conf`::
- 
-    ; Span 1: TE4/0/1 "TE4XXP (PCI) Card 0 Span 1" (MASTER) 
+
+    ; Span 1: TE4/0/1 "TE4XXP (PCI) Card 0 Span 1" (MASTER)
     group=0,11
     context=from-extern
     switchtype = euroisdn
     signalling = pri_cpe
     channel => 1-15,17-31
 
-    ; Span 2: TE4/0/2 "TE4XXP (PCI) Card 0 Span 2" 
+    ; Span 2: TE4/0/2 "TE4XXP (PCI) Card 0 Span 2"
     group=0,12
     context=from-extern
     switchtype = euroisdn
@@ -123,19 +125,19 @@ Below an example of :file:`/etc/asterisk/dahdi-channels.conf`::
     channel => 32-46,48-62
 
     ; PBX link #1
-    ; Span 3: TE4/0/3 "TE2XXP (PCI) Card 0 Span 3" 
+    ; Span 3: TE4/0/3 "TE2XXP (PCI) Card 0 Span 3"
     group=2,13
     context=from-pabx     ; special context for PBX incoming calls
-    overlapdial=incoming  ; overlapdial activation 
+    overlapdial=incoming  ; overlapdial activation
     switchtype = euroisdn
     signalling = pri_net  ; behave as the NET termination
     channel => 63-77,79-93
-    
+
     ; PBX link #2
-    ; Span 4: TE4/0/4 "T4XXP (PCI) Card 0 Span 4" 
+    ; Span 4: TE4/0/4 "T4XXP (PCI) Card 0 Span 4"
     group=2,14
     context=from-pabx     ; special context for PBX incoming calls
-    overlapdial=incoming  ; overlapdial activation 
+    overlapdial=incoming  ; overlapdial activation
     switchtype = euroisdn
     signalling = pri_net  ; behave as the NET termination
     channel => 94-108,110-124
@@ -154,7 +156,7 @@ We first need to create a route for calls coming from the PBX
 
     [from-pabx]
     exten = _X.,1,NoOp(### Call from PBX ${CARLLERID(num)} towards ${EXTEN} ###)
-    exten = _X.,n,Goto(default,${EXTEN},1) 
+    exten = _X.,n,Goto(default,${EXTEN},1)
 
 This dialplan routes incoming calls from the PBX in the ``default`` context of XiVO.
 It enables call from the PBX :
@@ -181,8 +183,8 @@ This context will permit to route incoming calls from the XiVO to the PBX.
 Route incoming calls to PBX
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In our example, incoming calls on spans 1 and 2 (spans pluged to the provider) are routed by from-extern context.
-We are going to create a default route to redirect incoming calls to the PBX.
+In our example, incoming calls on spans 1 and 2 (spans pluged to the provider) are routed by
+from-extern context. We are going to create a default route to redirect incoming calls to the PBX.
 
 Create an incoming call as below :
 
@@ -229,8 +231,8 @@ The second interconnection :
 Create outgoing calls
 ^^^^^^^^^^^^^^^^^^^^^
 
-You must create two rules of outgoing calls in the menu 
-:menuselection:`Services --> IPBX --> Call management --> Outgoing calls` page :
+You must create two rules of outgoing calls in the menu :menuselection:`Services --> IPBX --> Call
+management --> Outgoing calls` page :
 
 1. Redirect calls to the PBX :
 
@@ -252,7 +254,7 @@ In the extensions tab :
    :scale: 75%
 
 
-2. Create a rule "fsc-operateur"::
+2. Create a rule "fsc-operateur":
 
 * Name : fsc-operateur
 * Context : to-extern
