@@ -26,7 +26,7 @@ The following features are impacted by xivo-purge-db:
 
 More technically, the tables purged by ``xivo-purge-db`` are:
 
--  ``call_logs``
+-  ``call_log``
 -  ``cel``
 -  ``queue_log``
 -  ``stat_agent_periodic``
