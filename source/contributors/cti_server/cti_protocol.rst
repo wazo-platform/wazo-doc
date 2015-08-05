@@ -1047,7 +1047,7 @@ Personal contacts list
 .. code-block:: javascript
 
   {
-    "class": "people_personal_contacts",
+    "class": "people_personal_contacts"
   }
 
 ``Server -> Client``
@@ -1082,8 +1082,8 @@ Personal contacts list
   }
 
 
-Create personal contacts
-^^^^^^^^^^^^^^^^^^^^^^^^
+Create personal contact
+^^^^^^^^^^^^^^^^^^^^^^^
 
 ``Client -> Server``
 
@@ -1091,6 +1091,11 @@ Create personal contacts
 
   {
     "class": "people_create_personal_contact",
+    "contact_infos": {
+        "firstname": "Bob",
+        "lastname": "Wonderland",
+        ...
+    }
   }
 
 ``Server -> Client``
@@ -1098,12 +1103,12 @@ Create personal contacts
 .. code-block:: javascript
 
   {
-    "class": "people_personal_contact_created",
+    "class": "people_personal_contact_created"
   }
 
 
-Delete personal contacts
-^^^^^^^^^^^^^^^^^^^^^^^^
+Delete personal contact
+^^^^^^^^^^^^^^^^^^^^^^^
 
 ``Client -> Server``
 
@@ -1111,7 +1116,7 @@ Delete personal contacts
 
   {
     "class": "people_delete_personal_contact",
-    "source": "personal"
+    "source": "personal",
     "source_entry_id": "abcd-1234"
   }
 
@@ -1122,7 +1127,7 @@ Delete personal contacts
   {
     "class": "people_personal_contact_deleted",
     "data": {
-        "source": "personal"
+        "source": "personal",
         "source_entry_id": "abcd-1234"
     }
   }
