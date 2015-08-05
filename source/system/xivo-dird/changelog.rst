@@ -11,6 +11,7 @@ xivo-dird changelog
 
   * GET ``/0.1/personal/<contact_id>``
   * PUT ``/0.1/personal/<contact_id>``
+  * POST ``/0.1/personal/import``
 
 
 15.13
