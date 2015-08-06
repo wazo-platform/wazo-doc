@@ -13,6 +13,8 @@ xivo-dird changelog
   * PUT ``/0.1/personal/<contact_id>``
   * POST ``/0.1/personal/import``
 
+* Endpoint ``/0.1/personal`` accepts a new ``format`` query string argument.
+
 
 15.13
 =====
