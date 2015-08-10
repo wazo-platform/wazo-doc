@@ -18,6 +18,10 @@ Protocol Changelog
 * the ``people_personal_contact_raw_result`` message was added.
 * the ``people_edit_personal_contact`` message was added.
 * the ``people_personal_contact_raw_update`` message was added.
+* the ``people_import_personal_contacts_csv`` message was added.
+* the ``people_import_personal_contacts_csv_result`` message was added.
+* the ``people_export_personal_contacts_csv`` message was added.
+* the ``people_export_personal_contacts_csv_result`` message was added.
 
 15.13
 -----
@@ -1198,6 +1202,58 @@ Edit personal contact
         "source": "personal"
         "source_entry_id": "abcd-1234"
     }
+  }
+
+
+Import personal contacts
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_import_personal_contacts_csv",
+    "csv_contacts": "firstname,lastname\r\nBob,the Builder\r\n,Alice,Wonderland\r\n,BobMissingFields\r\n"
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_import_personal_contacts_csv_result",
+    "created_count": 2,
+    "failed": [
+        {
+            "line": 3,
+            "errors": [
+                "missing fields"
+                ]
+        }
+
+    ]
+  }
+
+
+Export personal contacts
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_export_personal_contacts_csv",
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_export_personal_contacts_csv_result",
+    "csv_contacts": "firstname,lastname\r\nBob,the Builder\r\n,Alice,Wonderland\r\n"
   }
 
 
