@@ -65,9 +65,6 @@ Unless specified, the license is `CC BY-SA`_.
 +----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 | :download:`How to use openVPN on XiVO<data/how_to_install_openvpn_on_xivo.pdf>`              | French   | Expert       | Yohan Vitu     | 2015         |
 +----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| :download:`How to backup XiVO to external FTP<data/how_to_backup_xivo_to_external_ftp.pdf>`  | French   | Expert       | Yohan Vitu     | 2015         |
-| with :download:`backup-ftp.sh<data/backup-ftp.sh>`                                           |          |              |                |              |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 
 .. _Définition de XiVO pour la communauté et tutoriel (video): https://www.youtube.com/watch?v=leMZi6cU8iM
 .. _Xivo pour les nuls: http://xivopourlesnuls.wordpress.com
