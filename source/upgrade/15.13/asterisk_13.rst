@@ -72,7 +72,7 @@ from the AGI are still valid.
 List of Known Bugs And Limitations
 ==================================
 
-List of known bugs and limitations for Asterisk 13 in XiVO 15.13:
+List of known bugs and limitations for Asterisk 13 in XiVO:
 
 * When direct media is active and DTMF are sent using SIP INFO, DTMF are not working properly. It is
   also impossible to do an attended transfer from the XiVO client in these conditions.
@@ -83,12 +83,3 @@ List of known bugs and limitations for Asterisk 13 in XiVO 15.13:
   restart`` when the memory usage grows too large.
 
   See http://projects.xivo.io/issues/5694.
-* Answering a Local channel cause a ringback tone to be heard by caller even after callee answers.
-  This can happens if you are using a preprocess subroutine on an agent and are answering the
-  channel in this subroutine.
-
-  See http://projects.xivo.io/issues/5693.
-* When using SCCP phones, the connected line information on the phones are not updated after a
-  transfer.
-
-  See http://projects.xivo.io/issues/5695.
