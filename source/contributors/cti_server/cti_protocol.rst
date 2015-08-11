@@ -22,6 +22,7 @@ Protocol Changelog
 * the ``people_import_personal_contacts_csv_result`` message was added.
 * the ``people_export_personal_contacts_csv`` message was added.
 * the ``people_export_personal_contacts_csv_result`` message was added.
+* for messages ``people_personal_contact_deleted`` and ``people_favorite_update`` there are no longer ``data`` sub-key.
 
 15.13
 -----
@@ -1113,11 +1114,11 @@ Personal contact raw
 
   {
     "class": "people_personal_contact_raw_result",
-    "data": {
-        "source": "personal",
-        "source_entry_id": "abcd-1234"
+    "source": "personal",
+    "source_entry_id": "abcd-1234",
+    "contact_infos": {
         "firstname": "Bob",
-        "lastname": "Wonderland",
+        "lastname": "Wonderland"
         ...
     }
   }
@@ -1167,10 +1168,8 @@ Delete personal contact
 
   {
     "class": "people_personal_contact_deleted",
-    "data": {
-        "source": "personal",
-        "source_entry_id": "abcd-1234"
-    }
+    "source": "personal",
+    "source_entry_id": "abcd-1234"
   }
 
 
@@ -1198,10 +1197,8 @@ Edit personal contact
 
   {
     "class": "people_personal_contact_raw_update",
-    "data": {
-        "source": "personal"
-        "source_entry_id": "abcd-1234"
-    }
+    "source": "personal",
+    "source_entry_id": "abcd-1234"
   }
 
 
