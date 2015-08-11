@@ -27,6 +27,7 @@ phone, status and other information configured by the administrator.
 #. Create a personal contact
 #. Import personal contacts from a CSV file
 #. Export personal contacts to a CSV file
+#. Delete all personal contacts
 
 .. figure:: /cti_client/xlets/images/cti_client-people-status.png
 
