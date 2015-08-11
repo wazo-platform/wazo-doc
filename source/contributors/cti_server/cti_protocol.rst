@@ -14,6 +14,8 @@ Protocol Changelog
 15.14
 -----
 
+* the ``people_purge_personal_contacts`` message was added.
+* the ``people_personal_contacts_purged`` message was added.
 * the ``people_personal_contact_raw`` message was added.
 * the ``people_personal_contact_raw_result`` message was added.
 * the ``people_edit_personal_contact`` message was added.
@@ -1092,6 +1094,26 @@ Personal contacts list
         "source": "personal"
       }
     ]
+  }
+
+
+Personal contact purge
+^^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_purge_personal_contacts",
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contacts_purged",
   }
 
 
