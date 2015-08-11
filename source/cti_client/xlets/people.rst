@@ -32,9 +32,10 @@ phone, XiVO Client status and other informations configured by the administrator
 
 #. XiVO Client status (see :ref:`presence_option`)
 #. Phone status (see :menuselection:`Services --> CTI Server --> Status --> Phone hints` page)
-#. Agent status
+#. Agent status (logged in or logged out)
 
-.. note:: Most informations (e.g. columns displayed, personal contacts allowed, search directories, etc.) are configured (and customizable) throught :ref:`xivo-dird`
+.. note:: Most informations (e.g. columns displayed, personal contacts allowed, search directories,
+          etc.) are configured (and customizable) through :ref:`xivo-dird`.
 
 
 Contact Import via CSV file
