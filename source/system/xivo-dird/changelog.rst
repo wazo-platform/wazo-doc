@@ -12,6 +12,7 @@ xivo-dird changelog
   * GET ``/0.1/personal/<contact_id>``
   * PUT ``/0.1/personal/<contact_id>``
   * POST ``/0.1/personal/import``
+  * DELETE ``/0.1/personal``
 
 * Endpoint ``/0.1/personal`` accepts a new ``format`` query string argument.
 
