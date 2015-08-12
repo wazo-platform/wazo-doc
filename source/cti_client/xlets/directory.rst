@@ -1,14 +1,13 @@
 .. _directory-xlet:
 
-*********
-Directory
-*********
-
+**************
+Directory Xlet
+**************
 
 Overview
 ========
 
-The goal of the directory xlet is to allow the user to search through XiVO users, directory entries and arbitrary numbers to be able to transfer calls to these destinations.
+The goal of the directory xlet is to allow the user to search through XiVO users, directory entries and arbitrary numbers to be able to call and transfer calls to these destinations.
 
 .. figure:: ./images/xlet_directory.png
 
@@ -16,7 +15,7 @@ The goal of the directory xlet is to allow the user to search through XiVO users
 Usage
 =====
 
-The list of entries in the xlet is searched using the top field. Entries are filtered by column content. The entry list will initally appear as empty.
+The list of entries in the xlet is searched using the top field. Entries are filtered by column content. The entry list will initially appear as empty.
 
 If the current search term is a valid number, it will be displayed in the result list with no name to allow transfer to numbers that are not currently in the phonebook or configured on the XiVO.
 
@@ -48,14 +47,6 @@ Legend
    :align: middle
 
 
-Known issues
-============
-
-Typing enter while the focus is on a directory entry will have the same behavior as clicking on the transfer button on the *Switchboard* xlet.
-
-This unexpected behavior will be fixed when we implement other actions to the directory xlet.
-
-
 Phonebook
 =========
 
@@ -75,7 +66,7 @@ Configuration
 Context
 ^^^^^^^
 
-The directory xlet needs a special context named *__switchboard_directory*. In :menuselection:`Services --> IPBX --> IPBX configuration --> Contexts` add a new context with the followong parameters :
+The directory xlet needs a special context named *__switchboard_directory*. In :menuselection:`Services --> IPBX --> IPBX configuration --> Contexts` add a new context with the following parameters :
 
 * Name : ``__switchboard_directory``
 * Type of context : **Other**
