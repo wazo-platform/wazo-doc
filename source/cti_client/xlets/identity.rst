@@ -23,12 +23,3 @@ button or press enter to dial it.
 
 If you dial an invalid extension (a number is an extension), your phone will
 ring and you will be told that the extension is not valid.
-
-
-Configuration
-=============
-
-In the menu :menuselection:`XiVO Client --> Configure --> GUI Settings`, you can
-enable the integration of the clipboard in the XiVO Client : all text selected
-in other programs will be automatically pasted in the Dial text box. This
-feature currently only works on GNU/Linux systems.
