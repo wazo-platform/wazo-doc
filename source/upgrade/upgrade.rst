@@ -146,7 +146,8 @@ Upgrade Notes
 * Default password for ``xivo-polycom-5.3.0`` plugin version >= 1.4 is now **9486**.
 * Caller id management for users in confd has changed. Consult the :ref:`confd_changelog`.
 * The Local Directory Xlet is replaced with the People Xlet. Contacts are automatically migrated to
-  the server.
+  the server. Note that the CSV format for importing contacts has changed (see :people-xlet: for
+  more information).
 
 15.13
 -----
