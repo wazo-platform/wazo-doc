@@ -81,7 +81,7 @@ In a **Cygwin shell**::
    export PATH=$WIN_QT_PATH/bin:$WIN_MINGW_PATH/bin:$PATH
 
    qmake
-   mingw32-make
+   mingw32-make SHELL=
 
 Binaries are available in the ``bin`` directory.
 
@@ -116,7 +116,7 @@ To add a console::
 
 To generate debug symbols::
 
-   mingw32-make DEBUG=yes
+   mingw32-make SHELL= DEBUG=yes
 
 
 Clean
