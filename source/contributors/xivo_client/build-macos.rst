@@ -23,7 +23,7 @@ Qt SDK
 ------
 
 You need the development files of the Qt 5 library, available on the `Qt website
-<http://qt-project.org/downloads>`_. The currently supported Qt version is 5.4.1.
+<http://qt-project.org/downloads>`_. The currently supported Qt version is 5.5.0.
 
 
 Get sources
