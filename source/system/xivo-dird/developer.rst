@@ -225,7 +225,6 @@ Implementation details
 
 * Namespace: ``xivo_dird.services``
 * Abstract service plugin: `BaseServicePlugin <https://github.com/xivo-pbx/xivo-dird/blob/master/xivo_dird/plugins/base_plugins.py#L21>`_
-* Abstract service: `BaseService <https://github.com/xivo-pbx/xivo-dird/blob/master/xivo_dird/plugins/base_plugins.py#L43>`_
 
 * Methods:
 
@@ -235,7 +234,7 @@ Implementation details
     * key ``config``: the whole configuration file in dict form
     * key ``sources``: a dictionary of source names to sources
 
-    ``load`` must return a callable, which will be made available in the view plugins.
+    ``load`` must return the service object, which is any kind of python object.
   * ``unload()``: free resources used by the plugin.
 
 
@@ -254,7 +253,6 @@ The following example adds a service that will return an empty list when used.
 
    import logging
 
-   from xivo_dird import BaseService
    from xivo_dird import BaseServicePlugin
 
    logger = logging.getLogger(__name__)
@@ -279,12 +277,16 @@ The following example adds a service that will return an empty list when used.
            logger.info('dummy unloaded')
 
 
-   class DummyService(BaseService):
+   class DummyService(object):
        """
        A very dumb service that will return an empty list every time it is used
        """
 
-       def __call__(self):
+       def list(self):
+           """
+           This function must be called explicitly from the view, `list` is not a
+           special method name for xivo-dird
+           """
            return []
 
 

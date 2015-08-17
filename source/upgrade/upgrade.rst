@@ -137,6 +137,18 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.14
+-----
+
+* Consult the `15.14 Roadmap <https://projects.xivo.io/versions/230>`_
+* Default password for ``xivo-polycom-4.0.4`` plugin version >= 1.3 is now **9486** (i.e. the word
+  "xivo" on a telephone keypad).
+* Default password for ``xivo-polycom-5.3.0`` plugin version >= 1.4 is now **9486**.
+* Caller id management for users in confd has changed. Consult the :ref:`confd_changelog`.
+* The Local Directory Xlet is replaced with the People Xlet. Contacts are automatically migrated to
+  the server. Note that the CSV format for importing contacts has changed (see :ref:`people-xlet` for
+  more information).
+
 15.13
 -----
 
@@ -158,6 +170,7 @@ Please consult the following detailed upgrade notes for more information:
    :maxdepth: 1
 
    15.13/asterisk_13
+
 
 .. _upgrade-note-15.12:
 

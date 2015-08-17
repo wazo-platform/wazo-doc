@@ -67,7 +67,7 @@ Xlets are features of the XiVO Client. It is the contraction of XiVO applets.
    Fax xlet <xlets/fax>
    History xlet <xlets/history>
    Identity xlet <xlets/identity>
-   Local directory xlet <xlets/localdir>
+   People xlet <xlets/people>
    Remote Directory xlet <xlets/remote_directory>
    Service xlet <xlets/service>
 

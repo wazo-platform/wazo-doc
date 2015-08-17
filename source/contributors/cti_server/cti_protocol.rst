@@ -11,6 +11,21 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+15.14
+-----
+
+* the ``people_purge_personal_contacts`` message was added.
+* the ``people_personal_contacts_purged`` message was added.
+* the ``people_personal_contact_raw`` message was added.
+* the ``people_personal_contact_raw_result`` message was added.
+* the ``people_edit_personal_contact`` message was added.
+* the ``people_personal_contact_raw_update`` message was added.
+* the ``people_import_personal_contacts_csv`` message was added.
+* the ``people_import_personal_contacts_csv_result`` message was added.
+* the ``people_export_personal_contacts_csv`` message was added.
+* the ``people_export_personal_contacts_csv_result`` message was added.
+* for messages ``people_personal_contact_deleted`` and ``people_favorite_update`` there are no longer ``data`` sub-key.
+
 15.13
 -----
 
@@ -721,7 +736,7 @@ First message, describes all the capabilities of the client, configured at the s
                            },
             "ipbxcommands": {}
          },
-      "capaxlets": [["identity", "grid"], ["search", "tab"], ["customerinfo", "tab", "1"], ["fax", "tab", "2"], ["dial", "grid", "2"], ["tabber", "grid", "3"], ["history", "tab", "3"], ["remotedirectory", "tab", "4"], ["features", "tab", "5"], ["mylocaldir", "tab", "6"], ["conference", "tab", "7"]],
+      "capaxlets": [["identity", "grid"], ["search", "tab"], ["customerinfo", "tab", "1"], ["fax", "tab", "2"], ["dial", "grid", "2"], ["tabber", "grid", "3"], ["history", "tab", "3"], ["remotedirectory", "tab", "4"], ["features", "tab", "5"], ["people", "tab", "6"], ["conference", "tab", "7"]],
       "appliname": "Client",
    }
 
@@ -912,7 +927,6 @@ People headers
 
   {
     "class": "people_headers",
-    "commandid": <commandid>
   }
 
 ``Server -> Client``
@@ -921,7 +935,6 @@ People headers
 
   {
     "class": "people_headers_result",
-    "commandid": <commandid>,
     "column_headers": ["Status", "Name", "Number"],
     "column_types": [null, null, "number"],
   }
@@ -937,7 +950,6 @@ People Search
   {
     "class": "people_search",
     "pattern": <pattern>,
-    "commandid": <commandid>
   }
 
 ``Server -> Client``
@@ -946,7 +958,6 @@ People Search
 
   {
     "class": "people_search_result",
-    "commandid": <commandid>
     "term": "Bob",
     "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent"],
     "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent"],
@@ -983,7 +994,6 @@ Favorites list
 
   {
     "class": "people_favorites",
-    "commandid": <commandid>
   }
 
 ``Server -> Client``
@@ -992,7 +1002,6 @@ Favorites list
 
   {
     "class": "people_favorites_result",
-    "commandid": <commandid>
     "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent", "Favorites"],
     "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent", "favorite"],
     "results": [
@@ -1031,7 +1040,6 @@ Set favorite
     "source": "my_ldap_directory"
     "source_entry_id": "55"
     "favorite": true
-    "commandid": <commandid>
   }
 
 ``Server -> Client``
@@ -1043,7 +1051,6 @@ Set favorite
     "source": "my_ldap_directory"
     "source_entry_id": "55"
     "favorite": true
-    "commandid": <commandid>
   }
 
 
@@ -1055,8 +1062,7 @@ Personal contacts list
 .. code-block:: javascript
 
   {
-    "class": "people_personal_contacts",
-    "commandid": <commandid>
+    "class": "people_personal_contacts"
   }
 
 ``Server -> Client``
@@ -1065,7 +1071,6 @@ Personal contacts list
 
   {
     "class": "people_personal_contacts_result",
-    "commandid": <commandid>
     "column_headers": ["Firstname", "Lastname", "Phone number", "Mobile", "Fax", "Email", "Agent", "Favorites", "Personal"],
     "column_types": [null, "name", "number_office", "number_mobile", "fax", "email", "relation_agent", "favorite", "personal"],
     "results": [
@@ -1092,16 +1097,15 @@ Personal contacts list
   }
 
 
-Create personal contacts
-^^^^^^^^^^^^^^^^^^^^^^^^
+Personal contact purge
+^^^^^^^^^^^^^^^^^^^^^^
 
 ``Client -> Server``
 
 .. code-block:: javascript
 
   {
-    "class": "people_create_personal_contact",
-    "commandid": <commandid>
+    "class": "people_purge_personal_contacts",
   }
 
 ``Server -> Client``
@@ -1109,13 +1113,66 @@ Create personal contacts
 .. code-block:: javascript
 
   {
-    "class": "people_personal_contact_created",
-    "commandid": <commandid>
+    "class": "people_personal_contacts_purged",
   }
 
 
-Delete personal contacts
-^^^^^^^^^^^^^^^^^^^^^^^^
+Personal contact raw
+^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contact_raw",
+    "source": "personal",
+    "source_entry_id": "abcd-1234"
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contact_raw_result",
+    "source": "personal",
+    "source_entry_id": "abcd-1234",
+    "contact_infos": {
+        "firstname": "Bob",
+        "lastname": "Wonderland"
+        ...
+    }
+  }
+
+
+Create personal contact
+^^^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_create_personal_contact",
+    "contact_infos": {
+        "firstname": "Bob",
+        "lastname": "Wonderland",
+        ...
+    }
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contact_created"
+  }
+
+
+Delete personal contact
+^^^^^^^^^^^^^^^^^^^^^^^
 
 ``Client -> Server``
 
@@ -1123,9 +1180,8 @@ Delete personal contacts
 
   {
     "class": "people_delete_personal_contact",
-    "source": "personal"
+    "source": "personal",
     "source_entry_id": "abcd-1234"
-    "commandid": <commandid>
   }
 
 ``Server -> Client``
@@ -1134,11 +1190,89 @@ Delete personal contacts
 
   {
     "class": "people_personal_contact_deleted",
-    "data": {
-        "source": "personal"
-        "source_entry_id": "abcd-1234"
+    "source": "personal",
+    "source_entry_id": "abcd-1234"
+  }
+
+
+Edit personal contact
+^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_edit_personal_contact",
+    "source": "personal",
+    "source_entry_id": "abcd-1234",
+    "contact_infos": {
+        "firstname": "Bob",
+        "lastname": "Wonderland",
+        ...
     }
-    "commandid": <commandid>
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_personal_contact_raw_update",
+    "source": "personal",
+    "source_entry_id": "abcd-1234"
+  }
+
+
+Import personal contacts
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_import_personal_contacts_csv",
+    "csv_contacts": "firstname,lastname\r\nBob,the Builder\r\n,Alice,Wonderland\r\n,BobMissingFields\r\n"
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_import_personal_contacts_csv_result",
+    "created_count": 2,
+    "failed": [
+        {
+            "line": 3,
+            "errors": [
+                "missing fields"
+                ]
+        }
+
+    ]
+  }
+
+
+Export personal contacts
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_export_personal_contacts_csv",
+  }
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+  {
+    "class": "people_export_personal_contacts_csv_result",
+    "csv_contacts": "firstname,lastname\r\nBob,the Builder\r\n,Alice,Wonderland\r\n"
   }
 
 

@@ -14,8 +14,7 @@ The history xlet allow the user to view his last calls. The user can filter by s
 Usage
 =====
 
-The user can click on the number of caller to initiate a new call with a given
-correspondant.
+The user can click on the number to initiate a new call with a given correspondent.
 
 .. warning:: The column content is only refreshed when moving from one view to the other.
 

@@ -56,6 +56,9 @@ anything with the CTI client.
 .. figure:: images/cti_others.png
    :scale: 85%
 
+
+.. _presence_option:
+
 Presence Option
 ===============
 

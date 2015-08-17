@@ -147,20 +147,6 @@ For best results, activate :ref:`dhcp-integration` on your XiVO.
 These devices can be used to connect faxes. For better success with faxes some parameters
 must be changed. You can read the :ref:`fax-analog-gateway` section.
 
-To install the firmware for the Cisco SPA122, you need to manually download the firmware file from
-the Cisco website and save them in the :file:`/var/lib/xivo-provd/plugins/$plugin-name/var/cache`
-directory.
-
-For example, if you have installed the ``xivo-cisco-spa100-1.3.5`` plugin and you want to install
-the ``spa100-fw`` package, you must:
-
-* Go to http://www.cisco.com/c/en/us/support/unified-communications/spa122-ata-router/model.html
-* Click on "Downloads" tab
-* Download the Analog Telephone Adaptor (ATA) Firmware, version 1.3.5 (XU).
-* Copy the downloaded file on your XiVO, in the
-  :file:`/var/lib/xivo-provd/plugins/xivo-cisco-spa100-1.3.5/var/cache` directory.
-* In the XiVO web interface, you'll then be able to click on the "install" button for the firmware
-
 .. note::
    If you want to manually resynchronize the configuration from the ATA device
    you should use the following url::
@@ -503,6 +489,8 @@ Particularities:
 
   Also, directed call pickup via a BLF function key will not work if the extension number of the
   supervised user is different from its caller ID number.
+
+* Default password is **9486** (i.e. the word "xivo" on a telephone keypad).
 
 .. note:: (XiVO HA cluster) BLF function key saved on the master node are not available.
 

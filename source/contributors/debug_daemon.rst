@@ -101,6 +101,25 @@ Log file: ``/var/log/xivo-confgend.log``
     2013-10-29 11:03:55-0400 [Confgen,1,127.0.0.1] serving asterisk/musiconhold.conf
 
 
+consul
+======
+
+::
+
+   sudo -u consul /usr/bin/consul agent -server -config-dir /etc/consul/xivo -pid-file /var/run/consul/consul.pid
+
+There is no log file, but you can consult the output of consul with::
+
+  consul monitor
+
+::
+
+   2015/08/03 09:48:25 [INFO] consul: cluster leadership acquired
+   2015/08/03 09:48:25 [INFO] consul: New leader elected: this-xivo
+   2015/08/03 09:48:26 [INFO] raft: Disabling EnableSingleNode (bootstrap)
+   2015/08/03 11:04:08 [INFO] agent.rpc: Accepted client: 127.0.0.1:41545
+
+
 ctid
 ====
 
