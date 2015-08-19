@@ -12,6 +12,7 @@ Reference
 .. toctree::
    :maxdepth: 1
 
+   agentd/api
    confd/api
    provd/api
    sysconfd/api
