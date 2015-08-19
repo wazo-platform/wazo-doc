@@ -190,8 +190,8 @@ Example (a file inside ``source_config_dir``):
     delimiter: ","
     timeout: 16
     unique_column: id
-    source_to_display_columns:
-        exten: number
+    format_columns:
+        number: "{exten}"
 
 lookup_url
     the URL used for directory searches. Looked up columns are managed by the web service.
