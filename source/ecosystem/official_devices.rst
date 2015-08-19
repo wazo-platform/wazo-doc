@@ -722,7 +722,7 @@ Supported expansion modules:
 
 * Yealink® EXP38 (for Yealink® T26P/T28P)
 * Yealink® EXP39 (for Yealink® T26P/T28P)
-* Yealink® EXP40 (for Yealink® T46G/T48)
+* Yealink® EXP40 (for Yealink® T46G/T48G)
 
 Caption :
 
