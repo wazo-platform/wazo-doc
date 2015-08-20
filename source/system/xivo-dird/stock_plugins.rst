@@ -173,6 +173,10 @@ Back-end name: csv_ws
 
 Purpose: search using a web service that returns CSV formatted results.
 
+Given the following configuration, *xivo-dird* would call
+"http://example.com:8000/ws-phonebook?firstname=alice&lastname=alice" for a
+lookup for the term "alice".
+
 
 Configuration
 ^^^^^^^^^^^^^
@@ -184,23 +188,29 @@ Example (a file inside ``source_config_dir``):
 
     type: csv_ws
     name: a_csv_web_service
-    lookup_url: "http://example.com:8000/ws-phonebook?search={term}"
-    reverse_lookup_url: "http://example.com:8000/ws-phonebook?phonesearch={term}"
+    lookup_url: "http://example.com:8000/ws-phonebook"
+    reverse_lookup_url: "http://example.com:8000/ws-phonebook"
     list_url: "http://example.com:8000/ws-phonebook"
+    searched_columns:
+      - firstname
+      - lastname
     delimiter: ","
     timeout: 16
     unique_column: id
-    source_to_display_columns:
-        exten: number
+    format_columns:
+        number: "{exten}"
 
 lookup_url
-    the URL used for directory searches. Looked up columns are managed by the web service.
+    the URL used for directory searches.
 
 reverse_lookup_url
     the URL used for reverse searches. This URL usually does an exact match search on the phone number.
 
 list_url (optional)
     the URL used to list all available entries. This URL is used to retrieve favorites.
+
+searched_columns
+    the columns to use for the search.
 
 delimiter
     the field delimiter in the CSV result.
