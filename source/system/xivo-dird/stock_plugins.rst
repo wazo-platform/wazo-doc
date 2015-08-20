@@ -281,6 +281,17 @@ unique_column (optional)
    the column that contains a unique identifier of the entry. This is necessary for listing and
    identifying favorites.
 
+   For OpenLDAP, you should set this option to "entryUUID".
+
+   For Active Directory, you should set this option to "objectGUID" and also set the
+   "unique_column_format" option to "binary_uuid".
+
+unique_column_format (optional)
+   the unique column's type returned by the queried LDAP server. Valid values are "string" or
+   "binary_uuid".
+
+   Defaults to "string".
+
 
 phonebook
 ---------
