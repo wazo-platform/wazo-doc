@@ -230,7 +230,7 @@ Example (a file inside ``source_config_dir``):
    ldap_base_dn: ou=people,dc=example,dc=org
    ldap_username: cn=admin,dc=example,dc=org
    ldap_password: foobar
-   unique_column: entryUUID  # OpenLDAP
+   unique_column: entryUUID
    searched_columns:
        - cn
    format_columns:
