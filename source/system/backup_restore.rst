@@ -27,9 +27,10 @@ Otherwise, with shell access, you can retrieve them in :file:`/var/backups/xivo`
 In this directory you will find :file:`db.tgz` and :file:`data.tgz` files for the database and data
 backups.
 
-Backup script:
+Backup scripts:
 
     :file:`/usr/sbin/xivo-backup`
+    :file:`/usr/sbin/xivo-backup-consul-kv`
 
 Backup location:
 
@@ -101,30 +102,56 @@ The following files/folders are excluded from this backup:
 Database
 --------
 
-Creating a database backup file manually
-========================================
+The database ``asterisk`` from PostgreSQL is backed up. This include almost everything that is
+configured via the web interface.
+
+
+.. _what_is_backed_up_in_consul:
+
+Consul
+------
+
+The key-values of Consul whose key start with ``xivo/`` are backed up. These include:
+
+* authentication tokens from xivo-auth
+* bookmarked contacts of the People Xlet
+* personal contacts of the People Xlet
+
+
+Creating backup files manually
+==============================
 
 .. warning::
 
     A backup file may take a lot of space on the disk.
     You should check the free space on the partition before creating one.
 
-You can manually create a *database* backup file named :file:`db-manual.tgz` in :file:`/var/tmp` by issuing the following commands::
+
+Database
+--------
+
+You can manually create a *database* backup file named :file:`db-manual.tgz` in :file:`/var/tmp` by
+issuing the following commands::
 
    xivo-backup db /var/tmp/db-manual
 
 
-Creating a data backup file manually
-====================================
+Files
+-----
 
-.. warning::
-
-    A backup file may take a lot of space on the disk.
-    You should check the free space on the partition before creating one.
-
-You can manually create a *data* backup file named :file:`data-manual.tgz` in :file:`/var/tmp` by issuing the following commands::
+You can manually create a *data* backup file named :file:`data-manual.tgz` in :file:`/var/tmp` by
+issuing the following commands::
 
    xivo-backup data /var/tmp/data-manual
+
+
+Consul
+------
+
+You can manually create a *consul* backup file :file:`/var/tmp/consul-manual.json` by
+issuing the following commands::
+
+   xivo-backup-consul-kv -o /var/tmp/consul-manual.json
 
 
 .. _restore:
@@ -222,6 +249,17 @@ Drop the asterisk_previous database::
 .. warning:: Restoring the data.tgz file also restores system files such as host
    hostname, network interfaces, etc. You will need to reapply the network
    configuration if you restore the data.tgz file.
+
+
+Restoring Consul KV
+===================
+
+Consul key-values are stored in :file:`/var/backup/xivo/consul-kv.json`. See also :ref:`What is
+backed up in Consul <what_is_backed_up_in_consul>`.
+
+To restore the file ::
+
+   xivo-restore-consul-kv -i /var/backup/xivo/consul-kv.json
 
 
 After Restoring The System
