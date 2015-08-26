@@ -28,6 +28,14 @@ View name: personal_view
 
 Purpose: Expose REST API to manage personal contacts (create, delete, list).
 
+cisco_view
+----------
+
+View name: cisco_view
+
+Purpose: Expose REST API to search in configured directories for Cisco phone (see CiscoIPPhone_XML_Objects_)
+
+.. _CiscoIPPhone_XML_Objects: http://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cuipph/all_models/xsi/8_5_1/xsi_dev_guide/xmlobjects.html
 
 Service Plugins
 ===============
