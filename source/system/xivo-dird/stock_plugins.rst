@@ -73,6 +73,9 @@ Service name: favorites
 
 Purpose: Mark/unmark contacts as favorites and get the list of all favorites.
 
+
+.. _dird_services_personal:
+
 personal
 --------
 
