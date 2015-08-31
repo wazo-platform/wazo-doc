@@ -18,7 +18,7 @@ xivo-auth.
 Usage
 =====
 
-xivo-auth is used through HTTP requests, using HTTPS. Its default port is 9794.
+xivo-auth is used through HTTP requests, using HTTPS. Its default port is 9497.
 As a user, the most common operation is to get a new token. This is done with
 the POST method.
 
