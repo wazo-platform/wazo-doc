@@ -31,4 +31,3 @@ General / Don't play announce for first participant
  Don't play the "you are currently the only person in this conference" for the first participant.
 General / Max participants
  Limits the number of participants in the conference room. A value of 0 means unlimited.
- 
