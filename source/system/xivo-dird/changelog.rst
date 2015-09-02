@@ -4,6 +4,15 @@
 xivo-dird changelog
 *******************
 
+15.15
+=====
+
+* Added cisco endpoints in REST API:
+
+  * GET ``/0.1/directories/menu/<profile>/cisco``
+  * GET ``/0.1/directories/lookup/<profile>/cisco``
+
+
 15.14
 =====
 
