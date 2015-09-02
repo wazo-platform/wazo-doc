@@ -12,6 +12,7 @@ xivo-auth.
 .. toctree::
    :maxdepth: 1
 
+   changelog
    developer
 
 
