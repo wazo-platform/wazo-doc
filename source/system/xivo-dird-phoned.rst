@@ -23,6 +23,31 @@ need to send 2 parameters in the query string:
 .. note:: Since most phone doesn't support HTTPS, a small protection is to configure subnets_authorized in :ref:`configuration-files`
 
 
+Configuration example
+^^^^^^^^^^^^^^^^^^^^^
+
+To allow xivo-dird-phoned to search in xivo-dird, you need to configure a lookup profile in
+xivo-dird. The name should be the same as configured in xivo-dird-phoned.
+
+``xivo-dird-phoned``
+::
+
+    dird:
+        default_profile: default_phone
+
+``xivo-dird``
+::
+
+    services:
+        lookup:
+            default_phone:
+                - xivo
+                - personal
+
+
+.. note:: Your device need to be associated to a user in XiVO >= 15.15 to take effect.
+
+
 Launching xivo-auth
 ===================
 
