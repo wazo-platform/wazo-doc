@@ -41,8 +41,9 @@ xivo-dird. The name should be the same as configured in xivo-dird-phoned.
     services:
         lookup:
             default_phone:
-                - xivo
-                - personal
+                sources:
+                    - xivo
+                    - personal
 
 
 .. note:: Your device need to be associated to a user in XiVO >= 15.15 to take effect.
