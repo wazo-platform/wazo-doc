@@ -59,7 +59,7 @@ See also :ref:`configuration-priority`.
 
 
 xivo-auth
-===========
+=========
 
 The configuration is done in the configuration directory. The configuration file should not be
 modified, because it will be overridden by upgrades.
@@ -84,6 +84,20 @@ modified, because it will be overridden by upgrades.
 The configuration file may be used as an example for supported configuration file values.
 
 See :ref:`configuration-priority`.
+
+
+xivo-dird-phoned
+================
+
+The configuration is done in the configuration directory. The configuration file should not be
+modified, because it will be overridden by upgrades.
+
+* Default configuration directory: :file:`/etc/xivo-dird-phoned/conf.d`
+* Default configuration file: :file:`/etc/xivo-dird-phoned/config.yml`
+
+The configuration file may be used as an example for supported configuration file values.
+
+See also :ref:`configuration-priority`.
 
 
 xivo_ring.conf

@@ -19,4 +19,5 @@ System
    service
    xivo-auth/xivo-auth
    xivo-dird/xivo-dird
+   xivo-dird-phoned
    xivo-sysconfd
