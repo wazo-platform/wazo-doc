@@ -137,6 +137,34 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.15
+-----
+
+Consult the `15.15 Roadmap <https://projects.xivo.io/versions/231>`_
+
+**Voicemail Upgrade Notes**
+
+ * Voicemail webservices in the web interface have been removed. Please use the :ref:`confd-api` instead.
+ * Voicemail IMAP configuration has been migrated to the new ``Advanced`` tab.
+ * Voicemail option ``Disable password checking`` has been converted to ``Ask password``.
+ * After an upgrade, if ever you have errors when searching for voicemails, please try clearing cookies in your web browser.
+ * A voicemail must be dissociated from any user prior to being deleted. Voicemail are dissociated by editing the
+   user and clicking on the ``Delete voicemail`` button in the ``Voicemail`` tab. This constraint will dissapear in
+   future versions.
+ * Deleting a user will dissociate any voicemail that was attached, but will not delete it nor any messages.
+ * Creating a line is no longer necessary when attaching a voicemail to a user.
+ * A voicemail's context is now mandatory when importing a CSV file. Please add a column named ``voicemailcontext``
+ * The following fields have been renamed when importing a CSV file:
+
++--------------------+----------------------+
+| Old name           | New name             |
++====================+======================+
+| voicemailmailbox   | voicemailnumber      |
++--------------------+----------------------+
+| voicemailskipcheck | voicemailaskpassword |
++--------------------+----------------------+
+
+
 15.14
 -----
 

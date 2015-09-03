@@ -4,6 +4,13 @@
 xivo-confd REST API changelog
 *****************************
 
+15.15
+=====
+
+ * The field ``enabled`` has been added to the voicemail model
+ * A line is no longer required when associating a voicemail with a user
+ * Voicemails can now be edited even when they are associated to a user
+
 15.14
 =====
 
