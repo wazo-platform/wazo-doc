@@ -137,6 +137,45 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.15
+-----
+
+Consult the `15.15 Roadmap <https://projects.xivo.io/versions/231>`_
+
+**Voicemail Upgrade Notes**
+
+ * Voicemail webservices in the web interface have been removed. Please use the :ref:`confd-api` instead.
+ * Voicemail IMAP configuration has been migrated to the new ``Advanced`` tab.
+ * Voicemail option ``Disable password checking`` has been converted to ``Ask password``.
+ * After an upgrade, if ever you have errors when searching for voicemails, please try clearing cookies in your web browser.
+ * A voicemail must be dissociated from any user prior to being deleted. Voicemail are dissociated by editing the
+   user and clicking on the ``Delete voicemail`` button in the ``Voicemail`` tab. This constraint will dissapear in
+   future versions.
+ * Deleting a user will dissociate any voicemail that was attached, but will not delete it nor any messages.
+ * Creating a line is no longer necessary when attaching a voicemail to a user.
+ * A voicemail's context is now mandatory when importing a CSV file. Please add a column named ``voicemailcontext``
+ * The following fields have been renamed when importing a CSV file:
+
++--------------------+----------------------+
+| Old name           | New name             |
++====================+======================+
+| voicemailmailbox   | voicemailnumber      |
++--------------------+----------------------+
+| voicemailskipcheck | voicemailaskpassword |
++--------------------+----------------------+
+
+**Directories**
+
+ * The variables in the AMI userevent *ReverseLookup* are not prefixed by "db-" anymore
+ * Concatenated fields in directories are now done in the directory definitions instead of the displays
+ * The field column in directory displays are now field names from the directory definition. No more `{db-*}` are required
+ * In the directory definitions fields can be modified using a python format string with the fields comming from the source.
+ * Most of the configuration for xivo-dird is now generated from xivo-confgen using the values in the web interface.
+ * The `remote directory` xlet has been removed in favor of the new `people` xlet.
+
+See :ref:`directories` and :ref:`xivo-dird-integration` for more details
+
+
 15.14
 -----
 

@@ -28,6 +28,30 @@ View name: personal_view
 
 Purpose: Expose REST API to manage personal contacts (create, delete, list).
 
+cisco_view
+----------
+
+View name: cisco_view
+
+Purpose: Expose REST API to search in configured directories for Cisco phone (see CiscoIPPhone_XML_Objects_).
+
+You need to configure your sources with fields ``name`` and ``number`` to work.
+
+Example:
+
+.. code-block:: yaml
+   :linenos:
+   :emphasize-lines: 4-5
+
+   type: sample
+   name: sample
+   format_columns:
+       name: "{firstname} {lastname}"
+       number: "{number}"
+
+
+.. _CiscoIPPhone_XML_Objects: http://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cuipph/all_models/xsi/8_5_1/xsi_dev_guide/xmlobjects.html
+
 
 Service Plugins
 ===============
@@ -73,6 +97,9 @@ Service name: favorites
 
 Purpose: Mark/unmark contacts as favorites and get the list of all favorites.
 
+
+.. _dird_services_personal:
+
 personal
 --------
 
@@ -115,6 +142,8 @@ Back-end Configuration
 ======================
 
 This sections completes the :ref:`sources_configuration` section.
+
+.. _dird-backend-csv:
 
 csv
 ---
@@ -166,12 +195,18 @@ unique_column
    identifying favorites.
 
 
+.. _dird-backend-csv_ws:
+
 CSV web service
 ---------------
 
 Back-end name: csv_ws
 
 Purpose: search using a web service that returns CSV formatted results.
+
+Given the following configuration, *xivo-dird* would call
+"http://example.com:8000/ws-phonebook?firstname=alice&lastname=alice" for a
+lookup for the term "alice".
 
 
 Configuration
@@ -184,17 +219,20 @@ Example (a file inside ``source_config_dir``):
 
     type: csv_ws
     name: a_csv_web_service
-    lookup_url: "http://example.com:8000/ws-phonebook?search={term}"
-    reverse_lookup_url: "http://example.com:8000/ws-phonebook?phonesearch={term}"
+    lookup_url: "http://example.com:8000/ws-phonebook"
+    reverse_lookup_url: "http://example.com:8000/ws-phonebook"
     list_url: "http://example.com:8000/ws-phonebook"
+    searched_columns:
+      - firstname
+      - lastname
     delimiter: ","
     timeout: 16
     unique_column: id
-    source_to_display_columns:
-        exten: number
+    format_columns:
+        number: "{exten}"
 
 lookup_url
-    the URL used for directory searches. Looked up columns are managed by the web service.
+    the URL used for directory searches.
 
 reverse_lookup_url
     the URL used for reverse searches. This URL usually does an exact match search on the phone number.
@@ -202,12 +240,17 @@ reverse_lookup_url
 list_url (optional)
     the URL used to list all available entries. This URL is used to retrieve favorites.
 
+searched_columns
+    the columns to use for the search.
+
 delimiter
     the field delimiter in the CSV result.
 
 timeout (optional)
     the number of seconds before the lookup on the web service is aborted, default is 10 seconds.
 
+
+.. _dird-backend-ldap:
 
 ldap
 ----
@@ -230,7 +273,7 @@ Example (a file inside ``source_config_dir``):
    ldap_base_dn: ou=people,dc=example,dc=org
    ldap_username: cn=admin,dc=example,dc=org
    ldap_password: foobar
-   unique_column: entryUUID  # OpenLDAP
+   unique_column: entryUUID
    searched_columns:
        - cn
    format_columns:
@@ -281,6 +324,19 @@ unique_column (optional)
    the column that contains a unique identifier of the entry. This is necessary for listing and
    identifying favorites.
 
+   For OpenLDAP, you should set this option to "entryUUID".
+
+   For Active Directory, you should set this option to "objectGUID" and also set the
+   "unique_column_format" option to "binary_uuid".
+
+unique_column_format (optional)
+   the unique column's type returned by the queried LDAP server. Valid values are "string" or
+   "binary_uuid".
+
+   Defaults to "string".
+
+
+.. _dird-backend-phonebook:
 
 phonebook
 ---------
@@ -365,6 +421,8 @@ Example (a file inside ``source_config_dir``):
 
 ``unique_column`` is not configurable, its value is always ``id``.
 
+
+.. _dird-backend-xivo:
 
 xivo
 ----

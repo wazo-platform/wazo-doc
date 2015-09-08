@@ -65,6 +65,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/xivo-confgend-client/`
 * :file:`/etc/xivo-ctid/`
 * :file:`/etc/xivo-dird/`
+* :file:`/etc/xivo-dird-phoned/`
 * :file:`/etc/xivo-dxtora/`
 * :file:`/etc/xivo-purge-db/`
 * :file:`/etc/xivo/`
