@@ -171,6 +171,9 @@ Consult the `15.15 Roadmap <https://projects.xivo.io/versions/231>`_
  * The field column in directory displays are now field names from the directory definition. No more `{db-*}` are required
  * In the directory definitions fields can be modified using a python format string with the fields comming from the source.
  * Most of the configuration for xivo-dird is now generated from xivo-confgen using the values in the web interface.
+ * The `remote directory` xlet has been removed in favor of the new `people` xlet.
+
+See :ref:`directories` and :ref:`xivo-dird-integration` for more details
 
 
 15.14
