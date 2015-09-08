@@ -250,6 +250,8 @@ timeout (optional)
     the number of seconds before the lookup on the web service is aborted, default is 10 seconds.
 
 
+.. _dird-backend-ldap:
+
 ldap
 ----
 
