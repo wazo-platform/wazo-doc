@@ -143,6 +143,8 @@ Back-end Configuration
 
 This sections completes the :ref:`sources_configuration` section.
 
+.. _dird-backend-csv:
+
 csv
 ---
 
@@ -192,6 +194,8 @@ unique_column
    the column that contains a unique identifier of the entry. This is necessary for listing and
    identifying favorites.
 
+
+.. _dird-backend-csv_ws:
 
 CSV web service
 ---------------
@@ -330,6 +334,8 @@ unique_column_format (optional)
    Defaults to "string".
 
 
+.. _dird-backend-phonebook:
+
 phonebook
 ---------
 
@@ -413,6 +419,8 @@ Example (a file inside ``source_config_dir``):
 
 ``unique_column`` is not configurable, its value is always ``id``.
 
+
+.. _dird-backend-xivo:
 
 xivo
 ----

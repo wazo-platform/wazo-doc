@@ -26,7 +26,7 @@ This type of directory is used to query the users of a XiVO. On a fresh install,
 the local XiVO is already configured. The URI field for this type of directory
 should be the base URL of a `xivo-confd` server.
 
-This directory type matches the `xivo` backend in `xivo-dird`.
+This directory type matches the :ref:`dird-backend-xivo` backend in `xivo-dird`.
 
 Example:
 
@@ -53,7 +53,7 @@ The source file of the directory must be in CSV format. You will be able to choo
     title|firstname|lastname|displayname|society|mobilenumber|email
     mr|Emmett|Brown|Brown Emmett|DMC|5555551234|emmet.brown@dmc.example.com
 
-This directory type matches the `csv` backend in `xivo-dird`.
+This directory type matches the :ref:`dird-backend-csv` backend in `xivo-dird`.
 
 Example:
 
@@ -69,7 +69,7 @@ CSV Web service directories
 
 The data returned by the Web service must have the same format than the file directory. In the same way, you will be able to choose the headers and the separator in the next step.
 
-This directory type matches the `csv_ws` backend in `xivo-dird`.
+This directory type matches the :ref:`dird-backend-csv_ws` backend in `xivo-dird`.
 
 Example:
 
@@ -85,7 +85,7 @@ Phonebook directories
 
 This type of directory source is the internal phonebook of a XiVO. The `URI` field is the one used to query the phonebook.
 
-This directory type matches the `phonebook` backend in `xivo-dird`.
+This directory type matches the :ref:`dird-backend-phonebook` backend in `xivo-dird`.
 
 Example:
 
