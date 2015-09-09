@@ -95,7 +95,9 @@ Supported fields
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
 | voicemailname *         | string                                               | Voicemail fullname                                                      |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
-| voicemailmailbox *      | string                                               | Mailbox number                                                          |
+| voicemailnumber  *      | string                                               | Mailbox number                                                          |
++-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
+| voicemailcontext *      | string                                               | Voicemail context                                                       |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
 | voicemailpassword       | string                                               | Password voicemail                                                      |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
@@ -105,7 +107,7 @@ Supported fields
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
 | voicemaildelete         | bool `[0, 1]`                                        | Enable/Disable delete message after notification                        |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
-| voicemailskippass       | bool `[0, 1]`                                        | Enable/Disable password checking                                        |
+| voicemailaskpassword    | bool `[0, 1]`                                        | Enable/Disable password checking                                        |
 +-------------------------+------------------------------------------------------+-------------------------------------------------------------------------+
 
 .. warning::
@@ -137,8 +139,8 @@ This example defines 3 users:
 
 Text file to add a simple user with a line and voicemail::
 
-   entityid|firstname|lastname|language|phonenumber|context|protocol|voicemailname|voicemailmailbox|voicemailpassword
-   1|John|Doe|en_US|1000|default|sip|John Doe|1000|1234
+   entityid|firstname|lastname|language|phonenumber|context|protocol|voicemailname|voicemailnumber|voicemailcontext|voicemailpassword
+   1|John|Doe|en_US|1000|default|sip|John Doe|1000|default|1234
 
 Text file to add a simple user with a line and incall::
 
