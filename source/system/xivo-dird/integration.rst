@@ -7,6 +7,8 @@ Integration of XiVO dird with the rest of XiVO
 Configuration values
 ====================
 
+.. _dird-integration-views:
+
 Views
 -----
 
@@ -22,8 +24,7 @@ following keys are interpreted and displayed in xlet people of the XiVO Client:
      ...)
    * ``favorite``: the boolean field value will be replaced by an icon showing if the status is
      favorite (yellow star filled) or not (yellow star empty).
-   * ``mobile``: a dropdown action on the ``number`` field will be added to call the field value.
-     Currently, only the last ``mobile`` field will be displayed.
+   * ``callable``: a dropdown action on the ``number`` field will be added to call the field value.
    * ``name``: a decoration will be added to the field value (typically a color dot) showing the
      presence status of the contact (e.g. Disconnected, Available, Away, ...)
    * ``number``: the field value will be:
