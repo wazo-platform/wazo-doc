@@ -194,6 +194,10 @@ Representation
 +---------------------+--------+-------------------------------------------+
 | mobile_phone_number | string | Phone number for the user's mobile device |
 +---------------------+--------+-------------------------------------------+
+| userfield           | string | User's userfield                          |
++---------------------+--------+-------------------------------------------+
+| description         | string | User's description                        |
++---------------------+--------+-------------------------------------------+
 
 Query
 -----
@@ -231,7 +235,9 @@ Example response
                 "firstname": "John",
                 "lastname": "Doe",
                 "exten": "1234",
-                "mobile_phone_number": "+14184765458"
+                "mobile_phone_number": "+14184765458",
+                "userfield": null,
+                "description": null
            },
            {
                 "id": 2,
@@ -240,7 +246,9 @@ Example response
                 "firstname": "Mary",
                 "lastname": "Sue",
                 "exten": "",
-                "mobile_phone_number": ""
+                "mobile_phone_number": "",
+                "userfield": "idbehold",
+                "description": "The boss"
            }
        ]
    }

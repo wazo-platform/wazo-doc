@@ -37,12 +37,18 @@ Example:
 Available fields are:
 
 * id
-* line_id
-* agent_id
 * firstname
 * lastname
 * exten
 * mobile_phone_number
+* userfield
+* description
+
+Here is an example of a configuration where the userfield was used as a free
+field to store the DID number of the user and the description to store it's
+location.
+
+.. figure:: images/xivo-backend.png
 
 
 CSV File directories
