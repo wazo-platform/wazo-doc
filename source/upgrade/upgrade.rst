@@ -137,6 +137,14 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.16
+-----
+
+Consult the `15.16 Roadmap <https://projects.xivo.io/versions/232>`_
+
+* The directory column type "mobile" was removed in favor of the new "callable" type. If you have hand writed configuration files, all column type "mobile" in the views displays sections should be changed to "callable".
+
+
 15.15
 -----
 
