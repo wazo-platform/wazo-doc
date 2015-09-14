@@ -148,9 +148,22 @@ click on the add button
 
    Adding a directory LDAP Filter to CTI Server
 
-* ``Direct match`` use to search into this field
+* ``Direct match`` searched fields used in the filter
 * ``Match reverse directory`` use to search into this field for the reverse directory
 * ``Fieldname/value`` match to the CTI field> server> | field> LDAP> server.
+
+If a a custom filter is defined in the LDAP filter configuration, the `direct
+match` configuration will be added to that filter using an `&`. To use the
+`filter` field of you LDAP filter configuration only do not configure any
+`direct match` in your directory definition.
+
+Example:
+
+* Given an LDAP filter with `filter` ``st=Canada``
+* Given a directory definition using the previously configured ldap filter with a
+  `direct match` ``cn,o``
+* Then the resulting filter when doing a search will be ``&(st=Canada)(|(cn=*%Q*)(o=*%Q*))``
+
 
 Add a LDAP Directory to the CTI Server
 --------------------------------------
