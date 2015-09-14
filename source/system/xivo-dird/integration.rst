@@ -63,7 +63,7 @@ Enabling favorites in the XiVO client.
 
 
 Adding a `unique_column` to your sources
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The web interface does not allow the administrator to specify the `unique_column` and `unique_column_format`. To add these configuration options, add a file to `/etc/xivo-dird/sources.d` containing the name of the source and all missing fields.
 
