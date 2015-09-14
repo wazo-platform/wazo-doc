@@ -152,10 +152,10 @@ click on the add button
 * ``Match reverse directory`` use to search into this field for the reverse directory
 * ``Fieldname/value`` match to the CTI field> server> | field> LDAP> server.
 
-If a a custom filter is defined in the LDAP filter configuration, the `direct
-match` configuration will be added to that filter using an `&`. To use the
-`filter` field of you LDAP filter configuration only do not configure any
-`direct match` in your directory definition.
+If a a custom filter is defined in the LDAP filter configuration, the fields in `direct
+match` will be added to that filter using an `&`. To only use the
+`filter` field of your LDAP filter configuration, do not add any
+`direct match` fields in your directory definition.
 
 Example:
 
