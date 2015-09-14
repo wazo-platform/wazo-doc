@@ -222,7 +222,7 @@ Each line in the display filter will result in a header in your XiVO Client.
 * `Field title` will be the text displayed in the header.
 * `Field type` is the type of the column, this information is used by the XiVO client.
 * `Default value` is the value that will be used if this field is empty for one of the configured sources.
-* `Display format` is the name of the field in the directory definitions. The specified names should be available in the configured sources. To add new column name to a directory definition see above.
+* `Field name` is the name of the field in the directory definitions. The specified names should be available in the configured sources. To add new column name to a directory definition see above.
 
 Column type descriptions are available in :ref:`dird-integration-views`.
 
