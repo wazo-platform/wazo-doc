@@ -11,6 +11,13 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+15.16
+-----
+
+* the :ref:`cti_protocol_get_relations` command was added.
+* the :ref:`cti_protocol_relations` message was added.
+
+
 15.14
 -----
 
@@ -918,6 +925,22 @@ ipbxcommand
 People
 ------
 
+.. _cti_protocol_get_relations:
+
+Get relations
+^^^^^^^^^^^^^
+
+This command will trigger a :ref:`cti_protocol_relations` message.
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+    {
+        "class": "get_relations"
+    }
+
+
 People headers
 ^^^^^^^^^^^^^^
 
@@ -983,6 +1006,30 @@ People Search
       }
     ]
   }
+
+
+.. _cti_protocol_relations:
+
+Relations
+^^^^^^^^^
+
+This message can be received as a response to the :ref:`cti_protocol_get_relations`
+command or when at anytime when a relation change is detected by *xivo-ctid*.
+
+The *user_id*, *endpoint_id* and *agent_id* fields are integer matching the ids
+of the user receiving this message.
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+    {
+        "class": "relations",
+        "data": {"xivo_uuid": <the xivo uuid>,
+                 "user_id": <the user id>,
+                 "endpoint_id": <the endpoint id>,
+                 "agent_id": <the agent id>}
+    }
 
 
 Favorites list
