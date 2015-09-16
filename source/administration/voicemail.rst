@@ -123,3 +123,24 @@ And then, we will be granted access to the voicemail.
 
 Take note that the second "context" field contains the context of the voicemail. Voicemails of other contexts
 will not be accessible through this incoming call.
+
+
+Advanced configuration
+======================
+
+Remote *xivo-confd*
+-------------------
+
+If *xivo-confd* is on a remote host, *xivo-confd-client* configuration will be
+required to be able to change the voicemail passwords using a phone.
+
+This configuration should be added to ``/etc/default/asterisk``
+
+.. code-block:: sh
+
+    export CONFD_HOST=localhost
+    export CONFD_PORT=9486
+    export CONFD_HTTPS=true
+    export CONFD_USERNAME=<username>
+    export CONFD_PASSWORD=<password>
+    export CONFD_AUTH_METHOD=digest
