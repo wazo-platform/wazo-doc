@@ -20,7 +20,7 @@ need to send 2 parameters in the query string:
 * `xivo_user_uuid` (optional): The XiVO user uuid that the phone is associated. It's used to search
   through personal contacts (see :ref:`dird_services_personal`)
 
-.. note:: Since most phone doesn't support HTTPS, a small protection is to configure
+.. note:: Since most phones dont't support HTTPS, a small protection is to configure
           authorized_subnets in :ref:`configuration-files` or in :menuselection:`Services -->
           General settings --> Phonebook --> Hosts`
 
