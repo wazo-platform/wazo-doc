@@ -4,7 +4,7 @@
 REST API
 ********
 
-The XiVO REST API is the privileged way to programmatically interact with XiVO.
+The XiVO REST APIs are the privileged way to programmatically interact with XiVO.
 
 Reference
 =========
@@ -20,20 +20,35 @@ Reference
 For other services, see http://api.xivo.io.
 
 
-Configuration
-=============
+Access
+======
 
-The REST API is available via HTTPS or HTTP on port offer by the daemon. Accessing to the REST API requires to create a
-webservices user in the web interface (Configuration/Management/Web Services Access):
+Each REST API is available via HTTPS on :ref:`different ports <network_ports>`.
+
+
+Authentication
+==============
+
+For all REST APIs, the main way to authenticate is to use an access token obtained from
+:ref:`xivo-auth`. This token should be given in the ``X-Auth-Token`` in your request. For example::
+
+   curl --digest --insecure -H 'Accept: application/json' -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' https://<xivo_address>:9486/1.1/users
+
+
+Other methods (xivo-confd)
+--------------------------
+
+For compatibility reason, xivo-confd may accept requests without an access token. For this, you must
+create a webservices user in the web interface (:menuselection:`Configuration --> Management --> Web
+Services Access`):
 
 * if an IP address is specified for the user, no authentication is needed
-* if you choose not to specify an IP address for the user, you can connect to the REST API with a HTTP Digest authentication, using the user name and password you provided.
-  For instance, the following command line allows to retrieve XiVO users through the REST API, using the login **admin** and the password **passadmin**::
+* if you choose not to specify an IP address for the user, you can connect to the REST API with a
+  HTTP Digest authentication, using the user name and password you provided. For instance, the
+  following command line allows to retrieve XiVO users through the REST API, using the login
+  **admin** and the password **passadmin**::
 
      curl --digest --insecure --cookie '' -H 'Accept: application/json' -u admin:passadmin https://<xivo_address>:9486/1.1/users
-
-The REST API is also available on the loopback interface via HTTP on port 9487, with no
-authentication needed.
 
 
 HTTP status codes
@@ -52,15 +67,15 @@ __ http://www.iana.org/assignments/http-status-codes/http-status-codes.xml
 * 415: Unsupported media type
 * 500: Internal server error
 
+See also :ref:`rest_api_errors` for general explanations about error codes.
+
 
 General URL parameters
 ======================
 
-All URL's starts by /1.1/, 1.1 is the current protocol version.
-
 Example usage of general parameters::
 
-   GET http://127.0.0.1:9487/1.1/voicemails?limit=X&offset=Y
+   GET http://<xivo_address>:9486/1.1/voicemails?limit=X&offset=Y
 
 Parameters
 ----------
@@ -171,6 +186,8 @@ example:
 When updating, only the id and updated properties are needed, omitted properties are not updated.
 Some properties can also be optional when creating an object.
 
+
+.. _rest_api_errors:
 
 Errors
 ------
