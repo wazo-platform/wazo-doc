@@ -172,7 +172,7 @@ Consult the `15.15 Roadmap <https://projects.xivo.io/versions/231>`_
 +====================+======================+============+===================+
 | voicemailmailbox   | voicemailnumber      | yes        |                   |
 +--------------------+----------------------+------------+-------------------+
-| voicemailskipcheck | voicemailaskpassword | no         | true              |
+| voicemailskipcheck | voicemailaskpassword | no         | 1                 |
 +--------------------+----------------------+------------+-------------------+
 |                    | voicemailcontext     | yes        |                   |
 +--------------------+----------------------+------------+-------------------+
