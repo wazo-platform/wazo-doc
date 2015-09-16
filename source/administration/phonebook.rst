@@ -78,8 +78,6 @@ Fields that can be displayed are set in :menuselection:`Directories -> Definitio
 
 The field name will be used to refer to this field in the directory display.
 
-The fields in definition can be used with the following syntax *{db-[field-name]}*
-
 
 General phone book section
 --------------------------
@@ -190,7 +188,7 @@ This line would match office, home and mobile numbers on incoming calls.
 Displayed field
 ---------------
 
-You have now to define which field should be used to display the result. This is done 
+You have now to define which field should be used to display the result. This is done
 by defining a mapping between the field named *reverse* on the *Mapped fields* list and a database field.
 
 Examples::
@@ -211,4 +209,3 @@ To include a directory in reverse directory definition go to
 to include to reverse lookups in the *Related directories* section.
 
 Restart the CTI server and incoming caller IDs should be resolved using the specified directories.
-
