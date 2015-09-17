@@ -19,7 +19,7 @@ phone, status and other information configured by the administrator.
 #. Display personal contacts
 #. Filter/search contacts
 #. Contacts requested
-#. Call the contact by clicking the phone number
+#. Call or transfer to the selected number
 #. View/call the mobile number by clicking on the arrow when the mouse is over the number
 #. Bookmark/unmark the contact
 #. Edit the personal contact
