@@ -1013,11 +1013,13 @@ People Search
 Relations
 ^^^^^^^^^
 
-This message can be received as a response to the :ref:`cti_protocol_get_relations`
-command or when at anytime when a relation change is detected by *xivo-ctid*.
+This message can currently only be received as a response to the :ref:`cti_protocol_get_relations`
+command.
 
-The *user_id*, *endpoint_id* and *agent_id* fields are integer matching the ids
-of the user receiving this message.
+* The *xivo_uuid* is the id of the server
+* The *user_id* is the id of the current user.
+* The *endpoint_id* is the id of the line of the current user or null.
+* The *agent_id* is the id of the agent of the current user or null.
 
 ``Server -> Client``
 
