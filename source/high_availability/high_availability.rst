@@ -210,9 +210,8 @@ differently. This includes:
 * Call history / call records are not recorded.
 * Voicemail messages saved on the master node are not available.
 * Custom voicemail greetings recorded on the master node are not available.
-* Phone provisioning is disabled, i.e. synchronizing or rebooting a phone will make it unusable
-  until the master is back up, unless you have manually configured your slave, e.g. reconfigured the
-  DHCP server of the slave.
+* Phone provisioning is disabled, i.e. a phone will always keep the same configuration, even after
+  restarting it.
 
 Note that, on failover and on failback:
 
@@ -231,8 +230,6 @@ Additionally, only on failback:
 
 Here's the list of limitations that are more relevant on an administrator standpoint:
 
-* In the case a DHCP server is running on the master node, then when the master is down,
-  phones won't be able to get a new DHCP lease, so it is advised not to restart the phones.
 * The master status is up or down, there's no middle status. This mean that if Asterisk is crashed
   the XiVO is still up and the failover will NOT happen.
 
