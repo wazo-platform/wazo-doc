@@ -102,6 +102,23 @@ The configuration file may be used as an example for supported configuration fil
 See :ref:`configuration-priority`.
 
 
+xivo-dao
+========
+
+The configuration is done in the configuration directory. The configuration file should not be
+modified, because it will be overridden by upgrades.
+
+* Default configuration directory: :file:`/etc/xivo-dao/conf.d`
+* Default configuration file: :file:`/etc/xivo-dao/config.yml`
+
+The configuration file may be used as an example for supported configuration file values.
+
+See also :ref:`configuration-priority`.
+
+This configuration is read by many XiVO programs in order to connect to the Postgres database of
+XiVO.
+
+
 xivo-dird-phoned
 ================
 
