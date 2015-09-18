@@ -82,6 +82,7 @@ Query
 Parameters
 ----------
 
+.. warning:: parameter 'skip' is now **DEPRECATED**. use 'offset' instead
 
 order
    Sort the list using a column (e.g. "number"). Columns allowed: name, number, context, email, language, timezone.
@@ -93,6 +94,9 @@ limit
     total number of voicemails to show in the list. Must be a positive integer
 
 skip
+    number of voicemails to skip over before starting the list. Must be a positive integer
+
+offset
     number of voicemails to skip over before starting the list. Must be a positive integer
 
 search
@@ -107,7 +111,7 @@ Errors
 +============+======================================================================+==========================================================================+
 | 400        | Invalid parameters: limit must be a positive number                  | the 'limit' parameter must be a number                                   |
 +------------+----------------------------------------------------------------------+--------------------------------------------------------------------------+
-| 400        | Invalid parameters: skip must be a positive number                   | the 'skip' parameter must be a number                                    |
+| 400        | Invalid parameters: offset must be a positive number                 | the 'offset' parameter must be a number                                  |
 +------------+----------------------------------------------------------------------+--------------------------------------------------------------------------+
 | 400        | Invalid parameters: ordering parameter '<field>' does not exist      | you must use one of the fields available in a device when sorting a list |
 +------------+----------------------------------------------------------------------+--------------------------------------------------------------------------+

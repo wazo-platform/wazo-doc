@@ -4,6 +4,16 @@
 xivo-confd REST API changelog
 *****************************
 
+15.16
+=====
+
+* The parameter ``skip`` is now deprecated. Use ``offset`` instead for:
+
+  * ``GET /1.1/devices``
+  * ``GET /1.1/extensions``
+  * ``GET /1.1/voicemails``
+  * ``GET /1.1/users``
+
 15.15
 =====
 

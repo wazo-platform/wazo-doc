@@ -82,6 +82,7 @@ Parameters
 ----------
 
 .. warning:: parameter 'q' is now **DEPRECATED**. use 'search' instead
+.. warning:: parameter 'skip' is now **DEPRECATED**. use 'offset' instead
 
 q
    List only users matching this filter.
@@ -104,6 +105,8 @@ limit
 skip
     number of users to skip over before starting the list. Must be a positive integer or zero.
 
+offset
+    number of users to skip over before starting the list. Must be a positive integer or zero.
 
 
 Example requests

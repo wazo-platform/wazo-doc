@@ -60,7 +60,7 @@ All URL's starts by /1.1/, 1.1 is the current protocol version.
 
 Example usage of general parameters::
 
-   GET http://127.0.0.1:9487/1.1/voicemails?limit=X&skip=Y
+   GET http://127.0.0.1:9487/1.1/voicemails?limit=X&offset=Y
 
 Parameters
 ----------
@@ -75,7 +75,7 @@ direction
 limit
     total number of resources to show in the list. Must be a positive integer
 
-skip
+offset
     number of resources to skip over before starting the list. Must be a positive integer
 
 search
