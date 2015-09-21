@@ -83,6 +83,8 @@ Query
 Parameters
 ----------
 
+.. warning:: parameter 'skip' is now **DEPRECATED**. use 'offset' instead
+
 order
     Sort devices using the specified field (e.g. "mac"). Allowed fields: ip, mac, plugin, model,
     vendor, version.
@@ -92,6 +94,9 @@ direction
 
 limit
     total number of devices to show in the list
+
+offset
+    number of devices to skip over before starting the list
 
 skip
     number of devices to skip over before starting the list
@@ -110,7 +115,7 @@ Errors
 +============+======================================================================+==========================================================================+
 | 400        | Invalid parameters: limit must be a positive number                  | the 'limit' parameter must be a number                                   |
 +------------+----------------------------------------------------------------------+--------------------------------------------------------------------------+
-| 400        | Invalid parameters: skip must be a positive number                   | the 'skip' parameter must be a number                                    |
+| 400        | Invalid parameters: offset must be a positive number                 | the 'offset' parameter must be a number                                  |
 +------------+----------------------------------------------------------------------+--------------------------------------------------------------------------+
 | 400        | Invalid parameters: ordering parameter '<field>' does not exist      | you must use one of the fields available in a device when sorting a list |
 +------------+----------------------------------------------------------------------+--------------------------------------------------------------------------+

@@ -64,6 +64,7 @@ Query
 Parameters
 ----------
 
+.. warning:: parameter 'skip' is now **DEPRECATED**. use 'offset' instead
 
 order
    Sort the list using a column (e.g. "exten"). Columns allowed: exten, context.
@@ -75,6 +76,9 @@ limit
     maximum number of items to return in the list. Must be a positive integer.
 
 skip
+    number of extensions to skip over before starting the list. Must be a positive integer.
+
+offset
     number of extensions to skip over before starting the list. Must be a positive integer.
 
 search
