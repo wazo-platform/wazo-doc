@@ -97,7 +97,8 @@ or from the user's `voicemail` tab.
 Disable password checking
 =========================
 
-This option allows to skip password checking for the voicemail when it is consulted from an internal context.
+Unchecking the option ``Ask password`` allows you to skip password checking for the voicemail only
+when it is consulted from an internal context.
 
 * when calling the voicemail with \*98
 * when calling the voicemail with \*99<voicemail number>
@@ -107,14 +108,14 @@ This option allows to skip password checking for the voicemail when it is consul
    If the the \*99 extension is enabled and a user does not have a password on its voicemail, anyone from the same context will be able
    to listen to its messages, change its password and greeting messages.
 
-But it will not be skipped when the voicemail is consulted through an incoming call. For instance, let's consider the following
-incoming call:
+However, the password will be asked when the voicemail is consulted through an incoming call. For
+instance, let's consider the following incoming call:
 
 .. figure:: images/Incoming_call_voicemail.png
    :scale: 80%
    :alt: Incoming call for voicemails
 
-With such a configuration, when calling this incoming call from the outside, we will be asked for
+With such a configuration, when calling this incoming call from the outside, we will be asked for:
 
 * the voicemail number we want to consult
 * the voicemail password, **even if the "Disable password checking option" is activated**
@@ -126,7 +127,8 @@ will not be accessible through this incoming call.
 
 .. warning::
 
-   Such an incoming call should be avoided if a voicemail in the given context has no password.
+   For security reasons, such an incoming call should be avoided if a voicemail in the given context
+   has no password.
 
 
 Advanced configuration
