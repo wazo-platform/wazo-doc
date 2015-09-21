@@ -5,60 +5,74 @@ Voicemail
 Voicemail Configuration.
 
 
+.. _voicemail_general_configuration:
+
 General Configuration
 =====================
 
-You can configure general settings for your voicemail service in :menuselection:`Services --> IPBX --> General Settings --> Voicemails` page.
+The global voicemail configuration is located under :menuselection:`Services --> IPBX --> General Settings --> Voicemails`.
 
 
-Adding voicemail
-================
+Adding voicemails
+=================
 
-There are 2 ways to add a voicemail. First is with :menuselection:`Services --> IPBX --> IPBX settings --> Voicemails` page, 2nd is editing user's configuration.
+There are 2 ways to add a voicemail:
+
+* :ref:`voicemail_add_1`
+* :ref:`voicemail_add_2`
 
 
-1 - Via :menuselection:`Services --> IPBX --> IPBX settings --> Voicemails`
----------------------------------------------------------------------------
+.. _voicemail_add_1:
 
-In here you can add some voicemails and configure them by clicking on the plus button.
+Using :menuselection:`Services --> IPBX --> IPBX settings --> Voicemails`
+-------------------------------------------------------------------------
+
+New voicemails can be added using the ``+`` button.
 
 
 .. figure:: images/Voicemail_add_ipbx_settings.png
    :scale: 85%
    :alt: Add voicemail from voicemails menu
 
-   Add voicemail from voicemails menu
+   Add voicemails from voicemail menu
 
 
-Once your voicemails are configured, you have to edit the users configuration to search the voicemails previously created and then associate them to your users.
+Once your voicemail is configured, you have to edit the user configuration and
+search the voicemail previously created and then associate it to your user.
 
 .. figure:: images/Voicemail_search_engine.png
    :scale: 80%
-   :alt: Search voicemail for specific user
+   :alt: Search for a voicemail in the user's configuration
 
-   Search voicemail for specific user
+   Search for a voicemail in the user's configuration
 
 
-2 - On user's configuration
----------------------------
+.. _voicemail_add_2:
 
-The other way is to directly add the voicemail from user's configuration in the 'voicemail' tab :
+Using the user's configuration
+------------------------------
+
+The other way is to add the voicemail from user's configuration in the 'voicemail' tab by
+
+#. Clicking the ``+`` button
+#. Filling the voicemail form
+#. Saving
 
 .. figure:: images/Voicemail_add_from_user.png
    :scale: 80%
-   :alt: Add voicemail from user configuration
+   :alt: Add a voicemail from the user's configuration
 
-   Add voicemail from user configuration
+   Add a voicemail from the user's configuration
 
-.. warning::
-
-   In this way, the language has to be set in user's general configuration
+.. note:: The user's language *must* be set in the `general` tab
 
 
-Deactivating voicemail
-======================
 
-You can deactivate user's voicemail by un-checking 'Enable voicemail' option on the Voicemail tab from user's configuration:
+Disabling a voicemail
+=====================
+
+You can disable a user's voicemail by un-checking the 'Enable voicemail' option
+on the Voicemail tab from user's configuration.
 
 
 .. figure:: images/Deactivate_user_voicemail.png
@@ -68,47 +82,34 @@ You can deactivate user's voicemail by un-checking 'Enable voicemail' option on 
    Deactivate user's voicemail
 
 
-Disassociating voicemail
-========================
-
-You can disassociate a voicemail from a user by selecting the 'None' option on 'Voice Mail' select box, from user's configuration:
-
-
-.. figure:: images/Disassociate_voicemail.png
-   :scale: 80%
-   :alt: Disassociate voicemail
-
-   Disassociate voicemail
-
-
-.. warning::
-
-   Note that disassociating a voicemail from its user don't delete that voicemail.
-
-
-Deleting voicemail
-==================
+Deleting a voicemail
+====================
 
 Delete voicemail is done on :menuselection:`Services --> IBX --> IPBX settings --> Voicemails`
+or from the user's `voicemail` tab.
 
-
-.. warning::
+.. note::
 
    * Deleting a voicemail is irreversible. It deletes all messages associated with that voicemail.
-   * If concerned user still have messages waiting for him, you have to manually reboot the phone.
+   * If the voicemail contains messages, the message waiting indication on the phone will not be deactivated until the next phone reboot.
 
 
 Disable password checking
 =========================
 
-This option allows to skip password checking for the voicemail when it is consulted from the inside. More precisely, password
-checking will be skipped:
+Unchecking the option ``Ask password`` allows you to skip password checking for the voicemail only
+when it is consulted from an internal context.
 
 * when calling the voicemail with \*98
 * when calling the voicemail with \*99<voicemail number>
 
-But it will not be skipped when the voicemail is consulted through an incoming call. For instance, let's consider the following
-incoming call:
+.. warning::
+
+   If the the \*99 extension is enabled and a user does not have a password on its voicemail, anyone from the same context will be able
+   to listen to its messages, change its password and greeting messages.
+
+However, the password will be asked when the voicemail is consulted through an incoming call. For
+instance, let's consider the following incoming call:
 
 .. figure:: images/Incoming_call_voicemail.png
    :scale: 80%
@@ -123,6 +124,11 @@ And then, we will be granted access to the voicemail.
 
 Take note that the second "context" field contains the context of the voicemail. Voicemails of other contexts
 will not be accessible through this incoming call.
+
+.. warning::
+
+   For security reasons, such an incoming call should be avoided if a voicemail in the given context
+   has no password.
 
 
 Advanced configuration
