@@ -474,10 +474,9 @@ Example response
 Delete User
 ===========
 
-A user can not be deleted if he is associated to a line or a voicemail.
-Any line or voicemail attached to the user must be dissociated first.
-Consult the documentation on :ref:`user-line-association`
-and :ref:`user-voicemail-association` for further details.
+A user can not be deleted if he is associated to a line or a voicemail. Any line or voicemail
+attached to the user must be dissociated first. Consult the documentation on
+:ref:`user-line-association` and :ref:`user-voicemail-association` for further details.
 
 The user will also be removed from all queues, groups or other XiVO entities whom he is member.
 
