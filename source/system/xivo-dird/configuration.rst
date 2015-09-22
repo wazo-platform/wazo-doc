@@ -44,7 +44,7 @@ Here's an example of the main configuration file:
       services:
           - lookup
       views:
-          - aastra_xml
+          - cisco_view
           - default_json
 
    views:
@@ -73,9 +73,23 @@ Here's an example of the main configuration file:
                    title: Number
                    field: number
                    type: number
+       displays_phone:
+           default:
+               name:
+                   - display_name
+               number:
+                   -
+                       field:
+                           - phone
+                   -
+                       field:
+                           - phone_mobile
+                       name_format: "{name} (Mobile)"
         profile_to_display:
             default: default_display
             switchboard: switchboard_display
+        profile_to_display_phone:
+            default: default
 
    services:
        lookup:
@@ -163,10 +177,47 @@ displays
    The display may be used by a plugin view to configure which fields are to be presented to the
    consumer.
 
+displays_phone
+   A dictionary describing the content of phone-related displays. Like ``displays``, the key is the
+   display's name and the value is the display's content. These displays are used by phone-related
+   view plugins, like the ``cisco_view`` plugin.
+
+   The display content contains 2 keys, ``name`` and ``number``.
+
+   The value of the ``name`` key is a list of source result fields. For a given source result, the
+   first field that will return a non-empty value will be used as the display name on the phone.
+   For example, if ``name`` is configured with ``["display_name", "name"]`` and you have a source result
+   with fields ``{"display_name": "", "name": "Bob"}``, then "Bob" will be displayed on the phone.
+
+   The value of the ``number`` key is a list of number item. Each item is composed of a dictionary
+   containing at least a ``field`` key, and optionally a ``name_format`` key. For example, if you
+   have the following number configuration::
+
+      name:
+          - display_name
+      number:
+          -
+              field:
+                  - phone
+          -
+              field:
+                  - phone_mobile
+              name_format: "{name} (Mobile)"
+
+   and you have a source result ``{"display_name": "Bob", "phone": "101", "phone_mobile": "102"}``,
+   then 2 results will be displayed on your phone:
+
+   #. "Bob", with number "101"
+   #. "Bob (Mobile)", with number "102"
+
 profile_to_display
    A dictionary associating a profile to a display. It allows xivo-dird to use the right display
    when a consumer makes a query with a profile. The key is the profile name and the value is the
    display name.
+
+profile_to_display_phone:
+   A dictionary associating a profile to a phone display. This is similar to ``profile_to_display``,
+   but only used by phone-related view plugins.
 
 
 services section
