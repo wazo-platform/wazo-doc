@@ -84,9 +84,6 @@ Here's an example of the main configuration file:
                    - my_csv
                    - ldap_quebec
                timeout: 0.5
-               sort:
-                   - firstname
-                   - number
            switchboard:
                sources:
                    - my_csv
