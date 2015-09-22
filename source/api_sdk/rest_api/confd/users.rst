@@ -13,6 +13,8 @@ Description
 +=======================+========+========================================================================+
 | id                    | int    | Read-only                                                              |
 +-----------------------+--------+------------------------------------------------------------------------+
+| uuid                  | string | Read-only                                                              |
++-----------------------+--------+------------------------------------------------------------------------+
 | firstname             | string | User's first name                                                      |
 +-----------------------+--------+------------------------------------------------------------------------+
 | lastname              | string | User's last name                                                       |
@@ -50,6 +52,7 @@ Example
 
    {
        "id": 1,
+       "uuid": "ff1950d5-e540-41c0-85ce-9f9b7be8c529",
        "firstname": "John",
        "lastname": "Doe",
        "timezone": "America/Montreal",
@@ -71,12 +74,14 @@ List Users
 
 The users are listed in ascending order on lastname, then firstname.
 
+
 Query
 -----
 
 ::
 
    GET /1.1/users
+
 
 Parameters
 ----------
@@ -124,6 +129,7 @@ Searching for a user called "john"::
    Host: xivoserver
    Accept: application/json
 
+
 Example response
 ----------------
 
@@ -138,6 +144,7 @@ Example response
        [
            {
                 "id": 1,
+                "uuid": "ff1950d5-e540-41c0-85ce-9f9b7be8c529",
                 "firstname": "John",
                 "lastname": "Doe",
                 "timezone": "",
@@ -154,6 +161,7 @@ Example response
            },
            {
                 "id": 2,
+                "uuid": "ff1950d5-e540-41c0-85ce-9f9b7be8c666",
                 "firstname": "Mary",
                 "lastname": "Sue",
                 "timezone": "",
@@ -176,6 +184,7 @@ List Users with a view
 ======================
 
 The users are listed with specific representation.
+
 
 Representation
 --------------
@@ -202,6 +211,7 @@ Representation
 | description         | string | User's description                        |
 +---------------------+--------+-------------------------------------------+
 
+
 Query
 -----
 
@@ -218,6 +228,7 @@ Listing all available users with directory view::
    GET /1.1/users?view=directory HTTP/1.1
    Host: xivoserver
    Accept: application/json
+
 
 Example response
 ----------------
@@ -263,6 +274,7 @@ Get User
 ::
 
    GET /1.1/users/<id>
+   GET /1.1/users/<uuid>
 
 
 Example request
@@ -274,6 +286,7 @@ Example request
    Host: xivoserver
    Accept: application/json
 
+
 Example response
 ----------------
 
@@ -284,6 +297,7 @@ Example response
 
    {
                 "id": 1,
+                "uuid": "ff1950d5-e540-41c0-85ce-9f9b7be8c529",
                 "firstname": "John",
                 "lastname": "Doe",
                 "timezone": "",
@@ -309,6 +323,7 @@ Query
 ::
 
    POST /1.1/users
+
 
 Input
 -----
@@ -343,15 +358,16 @@ Input
 | userfield             | no       | string                               |
 +-----------------------+----------+--------------------------------------+
 
+
 Errors
 ------
-
 
 +------------+------------------------------------------+------------------------------------+
 | Error code | Error message                            | Description                        |
 +============+==========================================+====================================+
 | 400        | error while creating User: <explanation> | See error message for more details |
 +------------+------------------------------------------+------------------------------------+
+
 
 Example request
 ---------------
@@ -369,6 +385,7 @@ Example request
        "userfield": ""
    }
 
+
 Example response
 ----------------
 
@@ -380,6 +397,7 @@ Example response
 
    {
        "id": 1,
+       "uuid": "ff1950d5-e540-41c0-85ce-9f9b7be8c529",
        "firstname": "John",
        "lastname": "Doe",
        "timezone": "",
@@ -409,12 +427,15 @@ Only the fields that need to be modified can be set.
 
 If the firstname or the lastname is modified, the name of associated voicemail is also updated.
 
+
 Query
 -----
 
 ::
 
    PUT /1.1/users/<id>
+   PUT /1.1/users/<uuid>
+
 
 Input
 -----
@@ -453,10 +474,9 @@ Example response
 Delete User
 ===========
 
-A user can not be deleted if he is associated to a line or a voicemail. 
-Any line or voicemail attached to the user must be dissociated first. 
-Consult the documentation on :ref:`user-line-association` 
-and :ref:`user-voicemail-association` for further details.
+A user can not be deleted if he is associated to a line or a voicemail. Any line or voicemail
+attached to the user must be dissociated first. Consult the documentation on
+:ref:`user-line-association` and :ref:`user-voicemail-association` for further details.
 
 The user will also be removed from all queues, groups or other XiVO entities whom he is member.
 
@@ -467,6 +487,8 @@ Query
 ::
 
    DELETE /1.1/users/<id>
+   DELETE /1.1/users/<uuid>
+
 
 Errors
 ------
@@ -483,6 +505,7 @@ Errors
 | 404        | User with id=X does not exist                                   | The requested user was not found   |
 +------------+-----------------------------------------------------------------+------------------------------------+
 
+
 Example request
 ---------------
 
@@ -490,6 +513,7 @@ Example request
 
    DELETE /1.1/users/67 HTTP/1.1
    Host: xivoserver
+
 
 Example response
 ----------------
@@ -509,6 +533,7 @@ Users-Voicemails Association
 ============================
 
 See :ref:`user-voicemail-association`.
+
 
 Users-CTI profiles Association
 ==============================
