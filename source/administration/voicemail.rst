@@ -149,4 +149,3 @@ This configuration should be added to ``/etc/default/asterisk``
     export CONFD_HTTPS=true
     export CONFD_USERNAME=<username>
     export CONFD_PASSWORD=<password>
-    export CONFD_AUTH_METHOD=digest
