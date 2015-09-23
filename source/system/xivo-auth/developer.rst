@@ -53,7 +53,8 @@ token
 The token modules contains the business logic of xivo-auth.
 
 * Creates and delete tokens
-* Creates ACL
+* Creates consul ACLs for the key/value store
+* Creates ACLs for XiVO
 * Schedule token expiration
 * Read/write token data to consul
 
