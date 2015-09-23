@@ -66,7 +66,7 @@ Checking if a token is valid::
     Server: pcm-dev-0
 
     $ # get more information about this token
-    $ curl -k -X GET -H 'Content-Type: application/json' "https://localhost:9497/0.1.token/1823c1ee-6c6a-0cdc-d869-964a7f08a744";echo
+    $ curl -k -X GET -H 'Content-Type: application/json' "https://localhost:9497/0.1/token/1823c1ee-6c6a-0cdc-d869-964a7f08a744";echo
     {"data": {"issued_at": "2015-06-05T10:16:58.557553", "token": "1823c1ee-6c6a-0cdc-d869-964a7f08a744", "auth_id": "63f3dc3c-865d-419e-bec2-e18c4b118224", "xivo_user_uuid": "63f3dc3c-865d-419e-bec2-e18c4b118224", "expires_at": "2015-06-05T11:16:58.557595"}}
 
 
