@@ -4,6 +4,15 @@
 xivo-auth changelog
 *******************
 
+15.16
+=====
+
+* HEAD and GET now take a new ``scope`` query string argument to check ACLs
+* Backend interface method ``get_acls`` is now named ``get_consul_acls``
+* Backend interface method ``get_acls`` now returns a list of ACLs
+* HEAD and GET can now return a ``403`` if an ACL access is denied
+
+
 15.15
 =====
 
