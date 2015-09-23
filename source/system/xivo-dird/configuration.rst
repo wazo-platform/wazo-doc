@@ -210,6 +210,9 @@ displays_phone
    #. "Bob", with number "101"
    #. "Bob (Mobile)", with number "102"
 
+   The ``name_format`` value is a python format string. There's two substitution variables
+   available, ``{name}`` and ``{number}``.
+
 profile_to_display
    A dictionary associating a profile to a display. It allows xivo-dird to use the right display
    when a consumer makes a query with a profile. The key is the profile name and the value is the
