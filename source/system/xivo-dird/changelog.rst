@@ -7,7 +7,6 @@ xivo-dird changelog
 15.16
 =====
 
-* Endpoint ``/0.1/directories/lookup/<profile>`` accepts a new ``limit`` and ``offset`` query string arguments.
 * Endpoint ``/0.1/directories/lookup/<profile>/cisco`` accepts a new ``limit`` and ``offset`` query string arguments.
 
 
