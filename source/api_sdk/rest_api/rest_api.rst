@@ -30,9 +30,9 @@ Authentication
 ==============
 
 For all REST APIs, the main way to authenticate is to use an access token obtained from
-:ref:`xivo-auth`. This token should be given in the ``X-Auth-Token`` in your request. For example::
+:ref:`xivo-auth`. This token should be given in the ``X-Auth-Token`` header in your request. For example::
 
-   curl --digest --insecure -H 'Accept: application/json' -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' https://<xivo_address>:9486/1.1/users
+   curl --insecure -H 'Accept: application/json' -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' https://<xivo_address>:9486/1.1/users
 
 
 Other methods (xivo-confd)
