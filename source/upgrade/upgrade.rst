@@ -164,7 +164,7 @@ Consult the `15.15 Roadmap <https://projects.xivo.io/versions/231>`_
    by default.
  * After an upgrade, if ever you have errors when searching for voicemails, please try clearing cookies in your web browser.
  * A voicemail must be dissociated from any user prior to being deleted. Voicemail are dissociated by editing the
-   user and clicking on the ``Delete voicemail`` button in the ``Voicemail`` tab. This constraint will dissapear in
+   user and clicking on the ``Delete voicemail`` button in the ``Voicemail`` tab. This constraint will disappear in
    future versions.
  * Deleting a user will dissociate any voicemail that was attached, but will not delete it nor any messages.
  * Creating a line is no longer necessary when attaching a voicemail to a user.
