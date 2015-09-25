@@ -147,6 +147,7 @@ Consult the `15.16 Roadmap <https://projects.xivo.io/versions/232>`_
   keys "type" with value "mobile" must be changed to value "callable".
 * The ``xivo-auth`` backend interface has changed, ``get_acls`` is now ``get_consul_acls``. All
   unofficial back ends must be adapted and updated. No action is required for "normal" installations.
+* Voicemails can now be deleted even if they are associated to a user.
 
 
 15.15
