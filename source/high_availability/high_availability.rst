@@ -29,6 +29,7 @@ the notion of a primary and backup telephony server.
 * If firewalling, the master must be allowed to join the slave on ports 22 and 5432
 * If firewalling, the slave must be allowed to join the master with an ICMP ping
 * Trunk registration timeout (``expiry``) should be less than 300 seconds (5 minutes)
+* The slave must have no provisioning plugins installed.
 
 The HA solution is guaranteed to work correctly with :ref:`the following devices <devices>`.
 
