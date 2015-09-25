@@ -145,7 +145,7 @@ Consult the `15.16 Roadmap <https://projects.xivo.io/versions/232>`_
 * The directory column type "mobile" was removed in favor of the new "callable" type. If you have
   hand-written configuration files for xivo-dird, in section "views", subsection "displays", all
   keys "type" with value "mobile" must be changed to value "callable".
-* The ``xivo-auth`` backend interface has changed, ``get_acls`` is not ``get_consul_acls``. All
+* The ``xivo-auth`` backend interface has changed, ``get_acls`` is now ``get_consul_acls``. All
   unofficial back ends must be adapted and updated. No action is required for "normal" installations.
 
 
