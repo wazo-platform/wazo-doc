@@ -91,7 +91,7 @@ The following fields must be configured with the correct value for the *Field ty
 #. *number_...* any other field starting with *number_* will be displayed in the *Number* column of the xlet with a generic directory icon
 #. Any other field will be displayed in their own column of the directory xlet
 
-The values in the *Display format* column must contain values that were created in the *Directory definition*.
+The values in the *Field name* column must contain values that were created in the *Directory definition*.
 
 The title used for the *Number* column is the title of the first field whose type starts with *number_*.
 

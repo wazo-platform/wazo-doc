@@ -4,6 +4,23 @@
 xivo-confd REST API changelog
 *****************************
 
+15.16
+=====
+
+* The parameter ``skip`` is now deprecated. Use ``offset`` instead for:
+
+  * ``GET /1.1/devices``
+  * ``GET /1.1/extensions``
+  * ``GET /1.1/voicemails``
+  * ``GET /1.1/users``
+
+* The users resource can be referred to by ``uuid``
+
+  * ``GET /1.1/users/<uuid>``
+  * ``PUT /1.1/users/<uuid>``
+  * ``DELETE /1.1/users/<uuid>``
+
+
 15.15
 =====
 

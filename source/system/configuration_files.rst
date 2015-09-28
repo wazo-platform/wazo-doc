@@ -15,19 +15,35 @@ Configuration priority
 Usually, the configuration is read from two locations: a configuration file ``config.yml`` and a
 configuration directory ``conf.d``.
 
-Files in the ``conf.d`` extra configuration directory are used in alphabetical order and the first
-one has priority. For example:
+Files in the ``conf.d`` extra configuration directory:
 
-``00-debug.yml``::
+* are used in alphabetical order and the first one has priority
+* are ignored when their name starts with a dot
+* are ignored when their name does not end with ``.yml``
 
-  debug: True
+For example:
 
-``01-nodebug.yml``::
+``.01-critical.yml``::
 
-  debug: False
+  log_level: critical
 
-The value that will be used for ``debug`` will be ``True`` since ``00-debug.yml`` comes before
-``01-nodebug.yml`` in the alphabetical order.
+``02-error.yml.dpkg-old``::
+
+  log_level: error
+
+``10-debug.yml``::
+
+  log_level: debug
+
+``20-nodebug.yml``::
+
+  log_level: info
+
+The value that will be used for ``log_level`` will be ``debug`` since:
+
+* ``10-debug.yml`` comes before ``20-nodebug.yml`` in the alphabetical order.
+* ``.01-critical.yml`` starts with a dot so is ignored
+* ``02-error.yml.dpkg-old`` does not end with ``.yml`` so is ignored
 
 
 xivo-agentd
@@ -84,6 +100,23 @@ modified, because it will be overridden by upgrades.
 The configuration file may be used as an example for supported configuration file values.
 
 See :ref:`configuration-priority`.
+
+
+xivo-dao
+========
+
+The configuration is done in the configuration directory. The configuration file should not be
+modified, because it will be overridden by upgrades.
+
+* Default configuration directory: :file:`/etc/xivo-dao/conf.d`
+* Default configuration file: :file:`/etc/xivo-dao/config.yml`
+
+The configuration file may be used as an example for supported configuration file values.
+
+See also :ref:`configuration-priority`.
+
+This configuration is read by many XiVO programs in order to connect to the Postgres database of
+XiVO.
 
 
 xivo-dird-phoned
@@ -154,7 +187,7 @@ Here is the process you should follow if you want to use/customize this feature 
 
 
 ipbx.ini
-==============
+========
 
 * Path: :file:`/etc/xivo/web-interface/ipbx.ini`
 * Purpose: This file specifies various configuration options and paths related

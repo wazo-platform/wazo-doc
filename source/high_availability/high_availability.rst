@@ -4,20 +4,19 @@
 High Availability (HA)
 **********************
 
-The :abbr:`HA (High Availability)` solution in XiVO makes it possible to maintain basic
-telephony function whatever your main XiVO server is running or not. When running a XiVO
-HA cluster, users are guaranteed to never experience a downtime of more than 5 minutes of
-their basic telephony service.
+The :abbr:`HA (High Availability)` solution in XiVO makes it possible to maintain basic telephony
+function whether your main XiVO server is running or not. When running a XiVO HA cluster, users are
+guaranteed to never experience a downtime of more than 5 minutes of their basic telephony service.
 
-The HA solution in XiVO is based on a 2-nodes "master and slave" architecture. In the normal situation,
-both the master and slave nodes are running in parallel, the slave acting as an "hot standby", and all
-the telephony services are provided by the master node. If the master fails or must be shutdown for
-maintenance, then the telephony devices automatically communicate with the slave node instead
-of the master one. Once the master is up again, the telephony devices failback to the
-master node. Both the failover and the failback operation are done automatically, i.e. without
+The HA solution in XiVO is based on a 2-nodes "master and slave" architecture. In the normal
+situation, both the master and slave nodes are running in parallel, the slave acting as a "hot
+standby", and all the telephony services are provided by the master node. If the master fails or
+must be shutdown for maintenance, then the telephony devices automatically communicate with the
+slave node instead of the master one. Once the master is up again, the telephony devices failback to
+the master node. Both the failover and the failback operation are done automatically, i.e. without
 any user intervention, although an administrator might want to run some manual operations after
-failback as to, for example, make sure any voicemail messages that were left on the slave are
-copied back to the master.
+failback as to, for example, make sure any voicemail messages that were left on the slave are copied
+back to the master.
 
 
 Prerequisites
@@ -27,8 +26,10 @@ The HA in XiVO only works with telephony devices (i.e. phones) that support
 the notion of a primary and backup telephony server.
 
 * The master and the slave must be in the same subnet
-* If firewalling, the master must be allowed to join the slave on port 5432
+* If firewalling, the master must be allowed to join the slave on ports 22 and 5432
+* If firewalling, the slave must be allowed to join the master with an ICMP ping
 * Trunk registration timeout (``expiry``) should be less than 300 seconds (5 minutes)
+* The slave must have no provisioning plugins installed.
 
 The HA solution is guaranteed to work correctly with :ref:`the following devices <devices>`.
 
@@ -41,11 +42,13 @@ Quick Summary
 * Restart services (xivo-service restart) on master
 * Configure the other XiVO as a slave -> setup the master address
 * Configure file synchronization by runnning the script ``xivo-sync -i`` on the master
-* Start configuration synchronization by running the script ``xivo-master-slave-db-replication <slave_ip>`` on the master
+* Start configuration synchronization by running the script ``xivo-master-slave-db-replication
+  <slave_ip>`` on the master
 * Resynchronize all your devices
 * Configure the XiVO Clients
 
-That's it you now have a HA configuration, and every hour all the configuration done on the master will be reported to the slave.
+That's it, you now have a HA configuration, and every hour all the configuration done on the master
+will be reported to the slave.
 
 
 Configuration Details
@@ -140,7 +143,7 @@ In choosing the method ``Slave`` you must enter the IP address of master node.
    HA Dashboard Slave
 
 
-Configuration Replication
+Replication Configuration
 -------------------------
 
 Once master slave configuration is completed, XiVO configuration is replicated from the master node
@@ -208,16 +211,15 @@ differently. This includes:
 * Call history / call records are not recorded.
 * Voicemail messages saved on the master node are not available.
 * Custom voicemail greetings recorded on the master node are not available.
-* Phone provisioning is disabled, i.e. synchronizing or rebooting a phone will make it unusable
-  until the master is back up, unless you have manually configured your slave, e.g. reconfigured the
-  DHCP server of the slave.
+* Phone provisioning is disabled, i.e. a phone will always keep the same configuration, even after
+  restarting it.
 
 Note that, on failover and on failback:
 
 * DND, call forwards, call filtering, ..., statuses may be lost if changed recently.
 * If you are connected as an agent, then you might need to reconnect as an agent
   when the master goes down. Since it's hard to know when the master goes down,
-  if your CTI client disconnect and you can't reconnect it, then it's a sign
+  if your CTI client disconnects and you can't reconnect it, then it's a sign
   the master might be down.
 
 Additionally, only on failback:
@@ -229,8 +231,6 @@ Additionally, only on failback:
 
 Here's the list of limitations that are more relevant on an administrator standpoint:
 
-* In the case a DHCP server is running on the master node, then when the master is down,
-  phones won't be able to get a new DHCP lease, so it is advised not to restart the phones.
 * The master status is up or down, there's no middle status. This mean that if Asterisk is crashed
   the XiVO is still up and the failover will NOT happen.
 

@@ -13,14 +13,14 @@ Usage
 
 xivo-dird-phoned is used through HTTP requests, using HTTP and HTTPS. Its default port is 9498
 and 9499. As a user, the common operation is to search through directory from a phone. The phone
-need to send 2 parameters in the query string:
+need to send 1 parameter in the query string:
 
-* `vendor`: the vendor of the phone (e.g. cisco, aastra, yealink, etc..). It's needed
-  to send informations formatted in proper XML.
 * `xivo_user_uuid` (optional): The XiVO user uuid that the phone is associated. It's used to search
   through personal contacts (see :ref:`dird_services_personal`)
 
-.. note:: Since most phone doesn't support HTTPS, a small protection is to configure subnets_authorized in :ref:`configuration-files`
+.. note:: Since most phones dont't support HTTPS, a small protection is to configure
+          authorized_subnets in :ref:`configuration-files` or in :menuselection:`Services -->
+          General settings --> Phonebook --> Hosts`
 
 
 Configuration example
@@ -49,8 +49,8 @@ xivo-dird. The name should be the same as configured in xivo-dird-phoned.
 .. note:: Your device need to be associated to a user in XiVO >= 15.15 to take effect.
 
 
-Launching xivo-auth
-===================
+Launching xivo-dird-phoned
+==========================
 
 ::
 
