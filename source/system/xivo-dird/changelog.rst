@@ -7,6 +7,8 @@ xivo-dird changelog
 15.16
 =====
 
+* Added more cisco endpoints in REST API:
+  * GET ``/0.1/directories/input/<profile>/cisco``
 * Endpoint ``/0.1/directories/lookup/<profile>/cisco`` accepts a new ``limit`` and ``offset`` query string arguments.
 
 
