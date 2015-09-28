@@ -137,6 +137,19 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.17
+-----
+
+Consult the `15.17 Roadmap <https://projects.xivo.io/versions/233>`_
+
+* Online call recording is now done via the automixmon feature instead of automon. This has no
+  impact unless you have custom dialplan that is passing directly the "w" or "W" option to the Dial
+  or Queue application. In these cases, you should modify your dialplan to pass the "x" or "X" option
+  instead.
+* The field ``enableautomon`` has been renamed to ``enableonlinerec`` in the users web services provided
+  by the web-interface (these web services are deprecated).
+
+
 15.16
 -----
 
