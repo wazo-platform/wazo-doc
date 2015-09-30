@@ -4,6 +4,21 @@
 xivo-dird changelog
 *******************
 
+15.17
+=====
+
+* Added directories endpoints in REST API:
+
+  * GET ``/0.1/directories/input/<profile>/aastra``
+  * GET ``/0.1/directories/lookup/<profile>/aastra``
+  * GET ``/0.1/directories/input/<profile>/polycom``
+  * GET ``/0.1/directories/lookup/<profile>/polycom``
+  * GET ``/0.1/directories/input/<profile>/snom``
+  * GET ``/0.1/directories/lookup/<profile>/snom``
+  * GET ``/0.1/directories/lookup/<profile>/thomson``
+  * GET ``/0.1/directories/lookup/<profile>/yealink``
+
+
 15.16
 =====
 
