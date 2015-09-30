@@ -23,32 +23,6 @@ need to send 1 parameter in the query string:
           General settings --> Phonebook --> Hosts`
 
 
-Configuration example
-^^^^^^^^^^^^^^^^^^^^^
-
-To allow xivo-dird-phoned to search in xivo-dird, you need to configure a lookup profile in
-xivo-dird. The name should be the same as configured in xivo-dird-phoned.
-
-``xivo-dird-phoned``
-::
-
-    dird:
-        default_profile: default_phone
-
-``xivo-dird``
-::
-
-    services:
-        lookup:
-            default_phone:
-                sources:
-                    - xivo
-                    - personal
-
-
-.. note:: Your device need to be associated to a user in XiVO >= 15.15 to take effect.
-
-
 Launching xivo-dird-phoned
 ==========================
 
