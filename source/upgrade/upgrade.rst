@@ -149,6 +149,10 @@ Consult the `15.17 Roadmap <https://projects.xivo.io/versions/233>`_
   option instead.
 * The field ``enableautomon`` has been renamed to ``enableonlinerec`` in the users web services provided
   by the web-interface (these web services are deprecated).
+* The fields ``display_name`` and ``phone`` in directory definitions (i.e. :menuselection:`Services
+  --> CTI Server --> Directories --> Definitions`) are now required by default for directory lookup
+  from phones. These fields will be automatically added only for the "xivodir" and "internal"
+  directories; for other directories, you'll have to manually add them.
 
 
 15.16
