@@ -5,238 +5,204 @@ Directories
 ***********
 
 This page documents how to add and configure directories from custom sources. Directories added from
-custom sources can be used for lookup via the :ref:`CTI Client <people-xlet>` or for
-:ref:`reverse lookup <reverse_lookup>` on incoming calls. The directory feature of phones do not use
-these data sources.
+custom sources can be used for lookup via the :ref:`CTI Client <people-xlet>`, directory feature of
+phones or for :ref:`reverse lookup <reverse_lookup>` on incoming calls.
 
-.. note:: This page describes how to add custom sources of contacts. For other sources of contacts,
-          see :ref:`phonebook`, and :ref:`ldap`.
+An example of `adding a data source` and `configure the access to the data source` is made for each
+type of source:
 
+.. toctree::
+   :maxdepth: 1
 
-Add a data source
-=================
+   xivo
+   csv_file
+   csv_web_service
+   phonebook
 
-You can add new data sources via the :menuselection:`Configuration --> Management --> Directories` page.
+Adding a source
+===============
 
+.. note:: See :ref:`ldap` to adding this source.
 
-XiVO directories
-----------------
+You can add new data sources via the :menuselection:`Configuration --> Management --> Directories`
+page and add a new directory
 
-This type of directory is used to query the users of a XiVO. On a fresh install,
-the local XiVO is already configured. The URI field for this type of directory
-should be the base URL of a `xivo-confd` server.
+* :guilabel:`Directory name` : the name of the directory
+* :guilabel:`Type` : there are 4 types of directory:
 
-This directory type matches the :ref:`dird-backend-xivo` backend in `xivo-dird`.
+    * :ref:`XiVO<xivo-directory>`
+    * :ref:`CSV File<csv-file-directory>`
+    * :ref:`CSV Web service<csv-web-service-directory>`
+    * :ref:`Phonebook<phonebook-directory>`
 
-Example:
-
-* `Directory name`: xivo-montreal
-* `Type`: xivo
-* `URI`: ``https://<remote-ip>:<port>``
-
-Available fields are:
-
-* id
-* firstname
-* lastname
-* exten
-* mobile_phone_number
-* userfield
-* description
-
-Here is an example of a configuration where the userfield was used as a free
-field to store the DID number of the user and the description to store it's
-location.
-
-.. figure:: images/xivo-backend.png
+* :guilabel:`URI` : the data source
+* :guilabel:`Description` : (optional) a description of the directory
 
 
-CSV File directories
---------------------
+Configuring source access
+=========================
 
-The source file of the directory must be in CSV format. You will be able to choose the headers and the separator in the next steps. For example, the file will look like::
+Go in :menuselection:`Services --> CTI Server --> Directories --> Definitions` and add a new
+directory definition.
 
-    title|firstname|lastname|displayname|society|mobilenumber|email
-    mr|Emmett|Brown|Brown Emmett|DMC|5555551234|emmet.brown@dmc.example.com
+* :guilabel:`Name` : the name of the directory definitions
+* :guilabel:`URI` : the data source
+* :guilabel:`Delimiter` : (optional) the field delimiter in the data source
+* :guilabel:`Direct match` : the list used to match entries for direct lookup (comma separated)
+* :guilabel:`Match reverse directories` : (optional) the list used to match entries for reverse
+  lookup (comma separated)
+* :guilabel:`Mapped fields` : used to add or modify columns in this directory source.
 
-This directory type matches the :ref:`dird-backend-csv` backend in `xivo-dird`.
-
-Example:
-
-* `Directory name`: csv-phonebook
-* `Type`: CSV File
-* `URI`: ``/data/csv-phonebook.csv``
-
-Available fields are the one's contained in the CSV file.
-
-
-CSV Web service directories
----------------------------
-
-The data returned by the Web service must have the same format than the file directory. In the same way, you will be able to choose the headers and the separator in the next step.
-
-This directory type matches the :ref:`dird-backend-csv_ws` backend in `xivo-dird`.
-
-Example:
-
-* `Directory name`: ws-phonebook
-* `Type`: CSV Web Service
-* `URI`: ``http://example.org:8000/ws-phonebook``
-
-Available fields are the ones contained in the CSV result.
+  * :guilabel:`Fieldname` : the identifier for this new field.
+  * :guilabel:`Value` : a python format string that can be used to modify the data returned from a
+    data source.
 
 
-Phonebook directories
----------------------
+.. _reverse_lookup:
 
-This type of directory source is the internal phonebook of a XiVO. The `URI` field is the one used to query the phonebook.
+Reverse lookup
+--------------
 
-This directory type matches the :ref:`dird-backend-phonebook` backend in `xivo-dird`.
+It's possible to do reverse lookups on incoming calls to show a better caller ID name when
+the caller is in one of our directories.
 
-Example:
+Reverse lookup will only be tried if at least one of the following conditions is true:
 
-* `Directory name`: phonebook
-* `Type`: Phonebook
-* `URI`: ``http://localhost/service/ipbx/json.php/private/pbx_services/phonebook``
+* The caller ID name is the same as the caller ID number
+* The caller ID name is "unknown"
 
-Available fields are:
+Also, reverse lookup is performed after :ref:`caller ID number normalization <callerid_num_normalization>` (since XiVO 13.11).
 
-* phonebook.firstname
-* phonebook.lastname
-* phonebook.fullname
-* phonebook.description
-* phonebook.society
-* phonebook.title
-* phonebook.url
-* phonebooknumber.fax.number
-* phonebooknumber.home.number
-* phonebooknumber.mobile.number
-* phonebooknumber.office.number
-* phonebooknumber.other.number
+To enable reverse lookup, you need to add an entry in :guilabel:`Mapped fields` :
+
+* :guilabel:`Fieldname` : ``reverse``
+* :guilabel:`Value` : the header of your data source that you want to see as the caller ID on your
+  phone on incoming calls
+
+.. warning:: The :guilabel:`Value` can *only* specify one column to use, no modification or extra
+             columns are allowed.
 
 
-Configure the access to the data source
-=======================================
+Example
+^^^^^^^
 
-Go in :menuselection:`Services --> CTI Server --> Directories --> Definitions` and add a new directory definition.
+* :guilabel:`Match reverse directories` :
+  ``phonebooknumber.office.number,phonebooknumber.mobile.number,phonebooknumber.home.number``
+* :guilabel:`Fieldname` : ``reverse``
+* :guilabel:`Value` : ``phonebook.society``
 
-* `URI`: your data source
-* `Delimiter`: (optional) the field delimiter in your data source
-* `Direct match`: the key used to match entries for direct lookup
-* `Match reverse directories`: (optional) idem, but for reverse lookup
-* `Mapped fields`: is used to add or modify columns in this directory source.
+This configuration will show the contact's company name on the caller ID name, when the incoming
+call will match office, mobile or home number.
 
-  * the `fieldname` is the identifier for this new field.
-  * the `value` is a python format string that can be used to modify the data returned from a data source.
+.. figure:: images/xivo_phonebook_reverse.png
+
+   :menuselection:`Services --> CTI Server --> Directories --> Definitions`
+
+
+Phone directory
+---------------
+
+Phone directory takes 2 :guilabel:`Fieldname` by default:
+
+    * ``display_name``: the displayed name on the phone
+    * ``phone``: the number to call
 
 
 Examples:
 ---------
 
+You will find below some useful configurations of :guilabel:`Mapped fields`.
+
+
 Adding a name field from firstname and lastname
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Given a configuration where the directory source returns results with fields firstname and lastname and a display with a name column. To add a `name` column to a directory, the administrator would add the following `Mapped fields`:
+Given a configuration where the directory source returns results with fields firstname and lastname
+and a display with a name column. To add a `name` column to a directory, the administrator would add
+the following :guilabel:`Mapped fields` :
 
-* name: "{firstname} {lastname}"
+* :guilabel:`Fieldname` : ``name``
+* :guilabel:`Value` : ``{firstname} {lastname}``
 
 
 Prefixing a field
 ^^^^^^^^^^^^^^^^^
 
-Given a directory source that need a prefix to be called, a new field can be created from an exising one. To add a prefix `9` to the numbers returned from a source, the administrator would add the following `Mapped fields`:
+Given a directory source that need a prefix to be called, a new field can be created from an exising
+one. To add a prefix `9` to the numbers returned from a source, the administrator would add the
+following :guilabel:`Mapped fields` :
 
-* number: "9{number}"
+* :guilabel:`Fieldname` : ``number``
+* :guilabel:`Value` : ``9{number}``
 
 
 Adding a static field
 ^^^^^^^^^^^^^^^^^^^^^
 
-Sometimes, it can be usefull to add a field to the search results. A string can be added without any formatting. To add a `directory` field to the `xivodir` directory, the administrator would add the following `Mapped fields`:
+Sometimes, it can be usefull to add a field to the search results. A string can be added without any
+formatting. To add a `directory` field to the `xivodir` directory, the administrator would add the
+following :guilabel:`Mapped fields` :
 
-* directory: "XiVO internal directory"
-
-
-File directories
-----------------
-
-For file directories, the `Direct match` and the `Match reverse directories` must be filled with
-the name of the column used to match entries.
-
-For example, given you have the following CSV::
-
-   name|phone
-   John|5551234
-
-And you want to do direct lookup on the ``name`` column and reverse lookup on the ``phone`` column,
-then you'll use:
-
-* `Direct match`: name
-* `Match reverse directories`: phone
+* :guilabel:`Fieldname` : ``directory``
+* :guilabel:`Value` : ``XiVO internal directory``
 
 
-Web service directories
------------------------
 
-For web service directories, the `Direct match` and the `Match reverse directories` must be filled
-with the name of the HTTP query parameter that will be used when doing the HTTP requests.
+Configuring source display
+==========================
 
-For example, given you have the following directory definition:
+XiVO Client
+-----------
 
-* `Direct match`: search
-* `Match reverse directories`: phonesearch
-
-When a direct lookup for "John" is performed, then the following HTTP request::
-
-   GET /ws-phonebook?search=John HTTP/1.1
-
-is emitted. When a reverse lookup for "5551234" is performed, then the following HTTP request::
-
-   GET /ws-phonebook?phonesearch=5551234 HTTP/1.1
-
-is emitted.
-
-Note that the CSV returned by the Web service is not further processed.
-
-
-Reverse lookup
---------------
-
-To enable reverse lookup, you need to add an entry in `Mapped fields`:
-
-* `Fieldname`: reverse
-* `Value`: the header of your data source that you want to see as the caller ID on your phone on incoming calls
-
-.. warning:: the reverse lookup column format string can *only* specify the column to use, no modification allowed.
-
-
-Configure the display of the data
-=================================
-
-Edit the default display filter or create your own in :menuselection:`Services --> CTI Server --> Directories --> Display filters`.
+Edit the default display filter or create your own in :menuselection:`Services --> CTI Server -->
+Directories --> Display filters`.
 
 .. figure:: images/display.png
 
+   :menuselection:`Services --> CTI Server --> Directories --> Display filters`
+
 Each line in the display filter will result in a header in your XiVO Client.
 
-* `Field title` will be the text displayed in the header.
-* `Field type` is the type of the column, this information is used by the XiVO client.
-* `Default value` is the value that will be used if this field is empty for one of the configured sources.
-* `Field name` is the name of the field in the directory definitions. The specified names should be available in the configured sources. To add new column name to a directory definition see above.
-
-Column type descriptions are available in :ref:`dird-integration-views`.
-
-
-Make your directory available
-=============================
-
-Go in :menuselection:`Services --> CTI Server --> Directories --> Reverse/Direct directories`, select your display filter if needed and add the directory you just created.
+* :guilabel:`Field title` : text displayed in the header.
+* :guilabel:`Field type` : type of the column, this information is used by the XiVO Client. (see
+  :ref:`type description<dird-integration-views>`)
+* :guilabel:`Default value` : value that will be used if this field is empty for one of the
+  configured sources.
+* :guilabel:`Field name` : name of the field in the directory definitions. The specified names
+  should be available in the configured sources. To add new column name to a directory definition
+  see above.
 
 
-Applying your changes
-=====================
+Phone
+-----
 
-To reload the directory configuration restart *xivo-dird* for XiVO client lookups and *xivo-agid* for reverse lookups.
+The only way to configure display phone directory is through :ref:`dird-configuration-file`.
 
-    service xivo-dird restart
-    service xivo-agid restart
+
+Adding a directory
+==================
+
+To include a directory in direct directory definition:
+
+1. Go to :menuselection:`Services --> CTI Server --> Directories --> Direct directories`.
+2. Edit your context.
+3. Select your display filter.
+4. Add the directories in the :guilabel:`Directories` section.
+
+To include a directory in reverse directory definition:
+
+1. Go to :menuselection:`Services --> CTI Server --> Directories --> Reverse directories`.
+2. Add the directories to include to reverse lookups in the :guilabel:`Related directories` section.
+
+
+Applying changes
+================
+
+Reload the directory configuration for XiVO Client and phone lookups, use ONE of these methods:
+
+* :menuselection:`Services --> CTI Server --> Control --> Restart Dird server`
+* console ``service xivo-dird restart``
+
+Reload the directory configuration for reverse lookups:
+
+* console ``service xivo-agid restart``
