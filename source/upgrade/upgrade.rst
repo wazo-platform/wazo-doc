@@ -149,6 +149,8 @@ Consult the `15.17 Roadmap <https://projects.xivo.io/versions/233>`_
   option instead.
 * The field ``enableautomon`` has been renamed to ``enableonlinerec`` in the users web services provided
   by the web-interface (these web services are deprecated).
+* The agent status dashboard now show that an agent is calling or receiving a non acd call while in
+  wrapup or paused
 
 
 15.16
