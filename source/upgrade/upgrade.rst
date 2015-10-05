@@ -155,6 +155,8 @@ Consult the `15.17 Roadmap <https://projects.xivo.io/versions/233>`_
   by the web-interface (these web services are deprecated).
 * The agent status dashboard now shows that an agent is calling or receiving a non ACD call while in
   wrapup or paused.
+* The :ref:`bus-service_registered_event` and :ref:`bus-service_deregistered_event` bus messages have
+  been added.
 
 Please consult the following detailed upgrade notes for more information:
 
