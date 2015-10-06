@@ -19,6 +19,9 @@ type of source:
    csv_web_service
    phonebook
 
+.. note:: Phone IP should be in the authorized subnet to access the directories. See :ref:`remote-directory`.
+
+
 Adding a source
 ===============
 
