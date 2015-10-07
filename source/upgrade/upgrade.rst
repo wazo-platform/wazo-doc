@@ -147,12 +147,19 @@ Consult the `15.17 Roadmap <https://projects.xivo.io/versions/233>`_
   impact unless you have custom dialplan that is passing directly the "w" or "W" option to the Dial
   or Queue application. In these cases, you should modify your dialplan to pass the "x" or "X"
   option instead.
+* The remote directory service available from :ref:`supported phones <official-devices>` is now
+  provided by the new unified directory service, i.e. xivo-dird. Additional upgrade steps are
+  required to get the full benefit of the new directory service; see the :ref:`detailed upgrade
+  notes <upgrade-notes-webi-to-dird>`.
 * The field ``enableautomon`` has been renamed to ``enableonlinerec`` in the users web services provided
   by the web-interface (these web services are deprecated).
-* The fields ``display_name`` and ``phone`` in directory definitions (i.e. :menuselection:`Services
-  --> CTI Server --> Directories --> Definitions`) are now required by default for directory lookup
-  from phones. These fields will be automatically added only for the "xivodir" and "internal"
-  directories; for other directories, you'll have to manually add them.
+
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   15.17/webi_to_dird
 
 
 15.16
