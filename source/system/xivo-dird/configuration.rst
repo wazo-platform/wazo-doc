@@ -1,4 +1,4 @@
-.. _configuration-file:
+.. _dird-configuration-file:
 
 =======================
 XiVO dird configuration
