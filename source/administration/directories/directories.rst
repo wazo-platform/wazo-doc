@@ -41,6 +41,8 @@ page.
 * :guilabel:`Description`: (optional) a description of the directory
 
 
+.. _directory-definition:
+
 Configuring source access
 =========================
 
