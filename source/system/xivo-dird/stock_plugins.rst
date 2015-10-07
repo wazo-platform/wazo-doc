@@ -97,9 +97,6 @@ Example (excerpt from the main configuration file):
                sources:
                    - my_csv
                timeout: 0.5
-               sort:
-                   - firstname
-                   - number
 
 The configuration is a dictionary whose keys are profile names and values are configuration specific
 to that profile.
