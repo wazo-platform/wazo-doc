@@ -65,18 +65,6 @@ Fields
 * country
 * state
 * zipcode
-* phonebook.description
-* phonebook.firstname
-* phonebook.fullname
-* phonebook.lastname
-* phonebook.society
-* phonebook.title
-* phonebook.url
-* phonebooknumber.fax.number
-* phonebooknumber.home.number
-* phonebooknumber.mobile.number
-* phonebooknumber.office.number
-* phonebooknumber.other.number
 
 
 Example
@@ -95,7 +83,7 @@ Adding a source
 Configuring source access
 -------------------------
 
-Default phonebook are set in :menuselection:`Directories -> Definitions -> xivodir`.
+Default phonebook is set in :menuselection:`Directories -> Definitions -> xivodir`.
 
 .. figure:: images/xivo_configure_directory_phonebook.png
 

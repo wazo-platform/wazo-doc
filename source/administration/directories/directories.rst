@@ -5,11 +5,10 @@ Directories
 ***********
 
 This page documents how to add and configure directories from custom sources. Directories added from
-custom sources can be used for lookup via the :ref:`CTI Client <people-xlet>`, directory feature of
+custom sources can be used for lookup via the :ref:`XiVO Client <people-xlet>`, directory feature of
 phones or for :ref:`reverse lookup <reverse_lookup>` on incoming calls.
 
-An example of `adding a data source` and `configure the access to the data source` is made for each
-type of source:
+An example of `adding a source`_ and `configuring source access`_ is made for each type of source:
 
 .. toctree::
    :maxdepth: 1
@@ -25,21 +24,21 @@ type of source:
 Adding a source
 ===============
 
-.. note:: See :ref:`ldap` to adding this source.
+.. note:: See :ref:`ldap` for adding this source.
 
 You can add new data sources via the :menuselection:`Configuration --> Management --> Directories`
-page and add a new directory
+page.
 
-* :guilabel:`Directory name` : the name of the directory
-* :guilabel:`Type` : there are 4 types of directory:
+* :guilabel:`Directory name`: the name of the directory
+* :guilabel:`Type`: there are 4 types of directory:
 
     * :ref:`XiVO<xivo-directory>`
     * :ref:`CSV File<csv-file-directory>`
     * :ref:`CSV Web service<csv-web-service-directory>`
     * :ref:`Phonebook<phonebook-directory>`
 
-* :guilabel:`URI` : the data source
-* :guilabel:`Description` : (optional) a description of the directory
+* :guilabel:`URI`: the data source
+* :guilabel:`Description`: (optional) a description of the directory
 
 
 Configuring source access
@@ -48,17 +47,17 @@ Configuring source access
 Go in :menuselection:`Services --> CTI Server --> Directories --> Definitions` and add a new
 directory definition.
 
-* :guilabel:`Name` : the name of the directory definitions
-* :guilabel:`URI` : the data source
-* :guilabel:`Delimiter` : (optional) the field delimiter in the data source
-* :guilabel:`Direct match` : the list used to match entries for direct lookup (comma separated)
-* :guilabel:`Match reverse directories` : (optional) the list used to match entries for reverse
+* :guilabel:`Name`: the name of the directory definition
+* :guilabel:`URI`: the data source
+* :guilabel:`Delimiter`: (optional) the field delimiter in the data source
+* :guilabel:`Direct match`: the list used to match entries for direct lookup (comma separated)
+* :guilabel:`Match reverse directories`: (optional) the list used to match entries for reverse
   lookup (comma separated)
-* :guilabel:`Mapped fields` : used to add or modify columns in this directory source.
+* :guilabel:`Mapped fields`: used to add or modify columns in this directory source
 
-  * :guilabel:`Fieldname` : the identifier for this new field.
-  * :guilabel:`Value` : a python format string that can be used to modify the data returned from a
-    data source.
+  * :guilabel:`Fieldname`: the identifier for this new field
+  * :guilabel:`Value`: a python format string that can be used to modify the data returned from a
+    data source
 
 
 .. _reverse_lookup:
@@ -76,10 +75,10 @@ Reverse lookup will only be tried if at least one of the following conditions is
 
 Also, reverse lookup is performed after :ref:`caller ID number normalization <callerid_num_normalization>` (since XiVO 13.11).
 
-To enable reverse lookup, you need to add an entry in :guilabel:`Mapped fields` :
+To enable reverse lookup, you need to add an entry in :guilabel:`Mapped fields`:
 
-* :guilabel:`Fieldname` : ``reverse``
-* :guilabel:`Value` : the header of your data source that you want to see as the caller ID on your
+* :guilabel:`Fieldname`: ``reverse``
+* :guilabel:`Value`: the header of your data source that you want to see as the caller ID on your
   phone on incoming calls
 
 .. warning:: The :guilabel:`Value` can *only* specify one column to use, no modification or extra
@@ -89,10 +88,10 @@ To enable reverse lookup, you need to add an entry in :guilabel:`Mapped fields` 
 Example
 ^^^^^^^
 
-* :guilabel:`Match reverse directories` :
+* :guilabel:`Match reverse directories`:
   ``phonebooknumber.office.number,phonebooknumber.mobile.number,phonebooknumber.home.number``
-* :guilabel:`Fieldname` : ``reverse``
-* :guilabel:`Value` : ``phonebook.society``
+* :guilabel:`Fieldname`: ``reverse``
+* :guilabel:`Value`: ``phonebook.society``
 
 This configuration will show the contact's company name on the caller ID name, when the incoming
 call will match office, mobile or home number.
@@ -121,11 +120,11 @@ Adding a name field from firstname and lastname
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Given a configuration where the directory source returns results with fields firstname and lastname
-and a display with a name column. To add a `name` column to a directory, the administrator would add
-the following :guilabel:`Mapped fields` :
+. To add a `name` column to a directory, the administrator would add the following :guilabel:`Mapped
+fields`:
 
-* :guilabel:`Fieldname` : ``name``
-* :guilabel:`Value` : ``{firstname} {lastname}``
+* :guilabel:`Fieldname`: ``name``
+* :guilabel:`Value`: ``{firstname} {lastname}``
 
 
 Prefixing a field
@@ -133,21 +132,21 @@ Prefixing a field
 
 Given a directory source that need a prefix to be called, a new field can be created from an exising
 one. To add a prefix `9` to the numbers returned from a source, the administrator would add the
-following :guilabel:`Mapped fields` :
+following :guilabel:`Mapped fields`:
 
-* :guilabel:`Fieldname` : ``number``
-* :guilabel:`Value` : ``9{number}``
+* :guilabel:`Fieldname`: ``number``
+* :guilabel:`Value`: ``9{number}``
 
 
 Adding a static field
 ^^^^^^^^^^^^^^^^^^^^^
 
-Sometimes, it can be usefull to add a field to the search results. A string can be added without any
+Sometimes, it can be useful to add a field to the search results. A string can be added without any
 formatting. To add a `directory` field to the `xivodir` directory, the administrator would add the
-following :guilabel:`Mapped fields` :
+following :guilabel:`Mapped fields`:
 
-* :guilabel:`Fieldname` : ``directory``
-* :guilabel:`Value` : ``XiVO internal directory``
+* :guilabel:`Fieldname`: ``directory``
+* :guilabel:`Value`: ``XiVO internal directory``
 
 
 
@@ -166,12 +165,12 @@ Directories --> Display filters`.
 
 Each line in the display filter will result in a header in your XiVO Client.
 
-* :guilabel:`Field title` : text displayed in the header.
-* :guilabel:`Field type` : type of the column, this information is used by the XiVO Client. (see
+* :guilabel:`Field title`: text displayed in the header.
+* :guilabel:`Field type`: type of the column, this information is used by the XiVO Client. (see
   :ref:`type description<dird-integration-views>`)
-* :guilabel:`Default value` : value that will be used if this field is empty for one of the
+* :guilabel:`Default value`: value that will be used if this field is empty for one of the
   configured sources.
-* :guilabel:`Field name` : name of the field in the directory definitions. The specified names
+* :guilabel:`Field name`: name of the field in the directory definitions. The specified names
   should be available in the configured sources. To add new column name to a directory definition
   see above.
 
