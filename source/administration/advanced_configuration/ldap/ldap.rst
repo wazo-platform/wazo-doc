@@ -111,6 +111,8 @@ Here's an example of an LDAP directory definition:
 
 .. figure:: images/ctiserver_add_ldap_directory_filter.png
 
+   :menuselection:`Services --> IPBX --> IPBX configuration --> LDAP filters`
+
 If a custom filter is defined in the LDAP filter configuration, the fields in `direct match` will be
 added to that filter using an `&`. To only use the `filter` field of your LDAP filter configuration,
 do not add any `direct match` fields in your directory definition.
