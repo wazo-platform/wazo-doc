@@ -177,6 +177,8 @@ displays
    The display may be used by a plugin view to configure which fields are to be presented to the
    consumer.
 
+.. _dird-config-displays_phone:
+
 displays_phone
    A dictionary describing the content of phone-related displays. Like ``displays``, the key is the
    display's name and the value is the display's content. These displays are used by phone-related
