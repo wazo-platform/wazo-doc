@@ -264,7 +264,7 @@ The service_registered_event is sent when a service is started.
   * service_name: The name of the started service
   * service_id: The consul ID of the started service
   * address: The advertised address of the started service
-  * host: The advertised port of the started service
+  * port: The advertised port of the started service
   * tags: The advertised Consul tags of the started service
 
 Example:
@@ -289,7 +289,7 @@ Example:
 service_deregistered_event
 --------------------------
 
-The service_deregistered_event is sent when a service is started.
+The service_deregistered_event is sent when a service is stopped.
 
 * routing key: service.deregistered.<service_name>
 * event specific data: a dictionary with 3 keys

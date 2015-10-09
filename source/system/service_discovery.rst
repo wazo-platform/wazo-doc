@@ -1,8 +1,8 @@
 .. _service_discovery:
 
-******************
- Service discovery
-******************
+*****************
+Service Discovery
+*****************
 
 Overview
 ========
