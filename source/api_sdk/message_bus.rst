@@ -249,3 +249,66 @@ Example::
            "status": "busy"
        }
    }
+
+
+.. _bus-service_registered_event:
+
+service_registered_event
+------------------------
+
+The service_registered_event is sent when a service is started.
+
+* routing key: service.registered.<service_name>
+* event specific data: a dictionary with 5 keys
+
+  * service_name: The name of the started service
+  * service_id: The consul ID of the started service
+  * address: The advertised address of the started service
+  * port: The advertised port of the started service
+  * tags: The advertised Consul tags of the started service
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "name": "service_registered_event",
+        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+        "data": {
+            "service_name": "xivo-ctid",
+            "service_id": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
+            "address": "192.168.1.42",
+            "port": 9495,
+            "tags": ["xivo-ctid", "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "Québec"]
+        }
+    }
+
+
+.. _bus-service_deregistered_event:
+
+service_deregistered_event
+--------------------------
+
+The service_deregistered_event is sent when a service is stopped.
+
+* routing key: service.deregistered.<service_name>
+* event specific data: a dictionary with 3 keys
+
+  * service_name: The name of the stopped service
+  * service_id: The consul ID of the stopped service
+  * tags: The advertised Consul tags of the stopped service
+
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "name": "service_deregistered_event",
+        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+        "data": {
+            "service_name": "xivo-ctid",
+            "service_id": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
+            "tags": ["xivo-ctid", "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "Québec"]
+        }
+    }
