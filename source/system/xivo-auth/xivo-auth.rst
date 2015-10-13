@@ -14,6 +14,7 @@ xivo-auth.
 
    changelog
    developer
+   stock_plugins
 
 
 Usage

@@ -4,6 +4,12 @@
 xivo-auth changelog
 *******************
 
+15.17
+=====
+
+* New backend ``ldap_user_voicemail`` has been added in **EXPERIMENTAL** mode
+
+
 15.16
 =====
 
