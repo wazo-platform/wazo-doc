@@ -2,25 +2,20 @@
 SCCP Configuration
 ******************
 
-Activating DHCP Server:
- :menuselection:`Configuration --> Network --> DHCP`
+Provisioning
+------------
 
-Activating DHCP Integration:
- :menuselection:`Configuration --> Provisioning --> General`
+To be able to provisionin SCCP phones you should :
 
-Installing a plugin for SCCP Phone:
+* activate the DHCP Server (see :ref:`dhcp_configuration`),
+* activate the DHCP Integration (see :ref:`dhcp-integration`),
+
+Then install a plugin for SCCP Phone:
  :menuselection:`Configuration --> Provisioning --> Plugins`
 
 .. figure:: images/list_plugin.png
 
    Installing xivo cisco-sccp plugin
-
-Review SCCP general settings:
- :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
-
-.. figure:: images/general_settings.png
-
-   SCCP general settings
 
 At this point you should have a fully functional DHCP server that provides IP address to your
 phones.  Depending on what type of CISCO phone you have, you need to install the plugin sccp-legacy,
@@ -51,7 +46,22 @@ When connecting a second SCCP phone, the device will be automatically detected a
 
    Device list
 
-The last step is to create a user with a SCCP line.
+
+SCCP General Settings
+---------------------
+
+Review SCCP general settings:
+ :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
+
+.. figure:: images/general_settings.png
+
+   SCCP general settings
+
+
+User creation
+-------------
+
+The last step is to create a user with a **SCCP line**.
 
 Creating a user with a SCCP line:
  :menuselection:`Services --> IPBX --> IPBX settings --> Users`
@@ -72,6 +82,16 @@ Now, you can save your new user.
    Add a line to a user
 
 Congratulations ! Your SCCP phone is now ready to be called !
+
+
+Function keys
+-------------
+
+.. warning::
+	With SCCP phones, you must configure **custom** function keys``.
+
+XiVO supports the provisioning of speeddial keys for SCCP phones with our without supervision 
+**BUT** you have to use the *Custom* type.
 
 
 Direct Media
