@@ -88,7 +88,7 @@ Function keys
 -------------
 
 .. warning::
-	With SCCP phones, you must configure **custom** function keys``.
+	With SCCP phones, you must configure **custom** function keys.
 
 XiVO supports the provisioning of speeddial keys for SCCP phones with our without supervision 
 **BUT** you have to use the *Custom* type.
