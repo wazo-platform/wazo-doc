@@ -1,3 +1,5 @@
+.. _dhcp_configuration:
+
 *******************
 DHCP Server
 *******************
