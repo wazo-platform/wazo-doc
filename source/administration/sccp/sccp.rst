@@ -87,11 +87,13 @@ Congratulations ! Your SCCP phone is now ready to be called !
 Function keys
 -------------
 
-.. warning::
-	With SCCP phones, you must configure **custom** function keys.
+With SCCP phones, the only function keys that can be configured are:
 
-XiVO supports the provisioning of speeddial keys for SCCP phones with our without supervision 
-**BUT** you have to use the *Custom* type.
+* :guilabel:`Key`: Only the order is important, not the number
+* :guilabel:`Type`: ``Customized``; Any other type doesn't work
+* :guilabel:`Destination`: Any valid extension
+* :guilabel:`Label`: Any label
+* :guilabel:`Supervision`: ``Enabled`` or ``Disabled``
 
 
 Direct Media
