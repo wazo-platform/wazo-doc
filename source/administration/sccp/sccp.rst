@@ -5,10 +5,10 @@ SCCP Configuration
 Provisioning
 ------------
 
-To be able to provisionin SCCP phones you should :
+To be able to provision SCCP phones you should :
 
-* activate the DHCP Server (see :ref:`dhcp_configuration`),
-* activate the DHCP Integration (see :ref:`dhcp-integration`),
+* activate the :ref:`dhcp_configuration`,
+* activate the :ref:`dhcp-integration`,
 
 Then install a plugin for SCCP Phone:
  :menuselection:`Configuration --> Provisioning --> Plugins`
