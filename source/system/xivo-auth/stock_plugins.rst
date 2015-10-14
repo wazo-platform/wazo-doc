@@ -10,30 +10,33 @@ Backends Plugins
 LDAP by voicemail (EXPERIMENTAL)
 --------------------------------
 
-.. warning:: This plugin is **experimental**. It can be removed or changed without warning.
+.. warning:: This plugin is **EXPERIMENTAL** It may be removed or changed without further notice.
 
 Backend name: ldap_user_voicemail
 
-Purpose: Authenticate a ldap user.
+Purpose: Authenticate via an ldap user.
 
-Creation token flow:
+Work flow followed when creating a token:
 
-* Format username with ``bind_dn_format``.
-* Perform a simple bind on LDAP Server with given username_formatted/password.
-* Concatenate username and ``domain`` to build email.
-* Search through all XiVO voicemail to find email corresponding and associated XiVO user.
-* Return a token with the same access of the associated XiVO user.
+* Create a DN for authentication built from the ``username`` and ``bind_dn_format``.
+* Perform a simple bind on LDAP Server with the created DN and ``password``.
+* Concatenate ``username`` and ``domain`` in order to search for an email.
+* Search through all of XiVO's voicemails for the corresponding email
+* Find the user associated to the voicemail
+* Return a token with the same access privileges as the user
 
 Limitations:
 
-* Email defined in the voicemail section should be unique.
-* A voicemail with a unique email should be associated to only 1 XiVO user.
+* Emails stored in the voicemails **MUST** be unique. Authentication bugs might occur if the email is
+  found in more than one voicemail.
+* The voicemail with the email **MUST** be associated to only one user. Authentication bugs might
+  occur if a voicemail is associated to multiple users.
 
 
 Configuration
 ^^^^^^^^^^^^^
 
-Example of ldap configuration:
+Configuration example:
 
 .. code-block:: yaml
    :linenos:
@@ -47,18 +50,18 @@ Example of ldap configuration:
        domain: company.com
 
 uri
-   the URI of the LDAP server. Can only contains the scheme, host and port part of an LDAP URL.
+   the URI of the LDAP server. Can only contain the scheme, host and port of an LDAP URL.
 
 bind_dn_format
-   the bind DN to check the given username/password. It is a python format string with ``username``
-   as substitution variable.
+   the bind DN used to check the given username/password. The variable ``{username}`` will be
+   substituted when binding. 
 
 domain
-   the domain used to build the email associated with the XiVO user.
+   the domain used to build the email associated with a XiVO user.
 
 
 XiVO Admin
-------------
+-----------
 
 Backend name: xivo_admin
 
