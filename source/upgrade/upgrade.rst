@@ -157,6 +157,11 @@ Consult the `15.17 Roadmap <https://projects.xivo.io/versions/233>`_
   wrapup or paused.
 * The :ref:`bus-service_registered_event` and :ref:`bus-service_deregistered_event` bus messages have
   been added.
+* SIP endpoints created through the REST API will not appear in the web interface until they have
+  been associated with a line
+* Due to limitations in the database, only a limited number of optional parameters can be configured
+  on a SIP endpoint. Consult the :ref:`confd_changelog` for further details
+
 
 Please consult the following detailed upgrade notes for more information:
 
