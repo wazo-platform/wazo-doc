@@ -9,4 +9,3 @@ This section describes the informations and tools for CTI Server.
 
    cti_proxy
    cti_protocol
-   ppcticonf

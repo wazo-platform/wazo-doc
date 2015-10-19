@@ -4,12 +4,11 @@
 LDAP
 ****
 
-XiVO offers the possibility to integrate LDAP servers. Once configured properly,
-you'll be able to search your LDAP servers directly from your phones (if they
-support this feature).
+XiVO offers the possibility to integrate LDAP servers. Once configured properly, you'll be able to
+search your LDAP servers from your XiVO client and from your phones (if they support this feature).
 
 .. note:: This page describes how to add LDAP servers as sources of contacts. For other sources of
-          contacts, see :ref:`phonebook`, and :ref:`directories`.
+          contacts, see :ref:`directories`.
 
 
 Add a LDAP Server
@@ -67,9 +66,6 @@ Add a LDAP Filter
 Next thing to do after adding a LDAP server is to create a LDAP filter via the
 :menuselection:`Services --> IPBX configuration --> LDAP Filters` page.
 
-LDAP filters define the information that will be searched and displayed when you do a
-directory search.
-
 You can add a LDAP filter by clicking on the add button at the top right of the page.
 You'll then be shown this page:
 
@@ -85,20 +81,6 @@ Enter the following information:
 * Password: the password of the given user
 * Base DN: the base ``dn`` of search requests
 * Filter: if specified, :ref:`it replace the default filter <custom-filter>`
-* Phone number type: this string is appended next to each result display name
-
-You'll also probably need to modify some values in the :guilabel:`Attributes` tab:
-
-.. figure:: images/ldap_addfilter2.png
-
-   Adding a LDAP Filter
-
-In the :guilabel:`Display name` section, add and order the attributes that are going be used
-to display the results. The first attribute will be used for each result which have this
-attribute, else the second will be used, etc.
-
-The :guilabel:`Phone number` section is similar, but is used for the phone number in the
-results.
 
 
 .. _custom-filter:
@@ -108,9 +90,6 @@ Use a Custom Filter
 
 In some cases, you might have to use a custom filter for your search requests instead
 of the default filter.
-
-By default, the search tries to match any attribute you choose in the :guilabel:`Attributes`
-tab.
 
 In custom filters, occurrence of the pattern ``%Q`` is replaced by what the user entered
 on its phone.
@@ -122,65 +101,24 @@ Here's some examples of custom filters:
 * ``|(cn=*%Q*)(displayName=*%Q*)``
 
 
-Add a LDAP filter to the Phonebook
-==================================
+Add a Directory Definition
+==========================
 
-In the :menuselection:`Services --> General settings --> Phonebook` page, click
-on the :guilabel:`LDAP filters` page and add your filter to the list of enabled
-filters.
+The next step is to add a directory defintion for the LDAP filter you just created. See the
+:ref:`directories <directory-definition>` section for more information.
 
-Please refer to the :ref:`remote-directory` section in order to properly configure a remote directory.
-
-You'll then be able to search your LDAP server directly from your phone and dial
-from the displayed results.
-
-
-Use with CTI Server and Client XiVO
-===================================
-
-Add a LDAP Directory Filter to the CTI Server
----------------------------------------------
-
-In the :menuselection:`Services --> CTI Server --> Directories --> Definitions` page,
-click on the add button
+Here's an example of an LDAP directory definition:
 
 .. figure:: images/ctiserver_add_ldap_directory_filter.png
 
-   Adding a directory LDAP Filter to CTI Server
+   :menuselection:`Services --> IPBX --> IPBX configuration --> LDAP filters`
 
-* ``Direct match`` searched fields used in the filter
-* ``Match reverse directory`` use to search into this field for the reverse directory
-* ``Fieldname/value`` match to the CTI field> server> | field> LDAP> server.
-
-If a a custom filter is defined in the LDAP filter configuration, the fields in `direct
-match` will be added to that filter using an `&`. To only use the
-`filter` field of your LDAP filter configuration, do not add any
-`direct match` fields in your directory definition.
+If a custom filter is defined in the LDAP filter configuration, the fields in `direct match` will be
+added to that filter using an `&`. To only use the `filter` field of your LDAP filter configuration,
+do not add any `direct match` fields in your directory definition.
 
 Example:
 
 * Given an LDAP filter with `filter` ``st=Canada``
-* Given a directory definition using the previously configured ldap filter with a
-  `direct match` ``cn,o``
+* Given a directory definition with a `direct match` ``cn,o``
 * Then the resulting filter when doing a search will be ``&(st=Canada)(|(cn=*%Q*)(o=*%Q*))``
-
-
-Add a LDAP Directory to the CTI Server
---------------------------------------
-
-In the :menuselection:`Services --> CTI Server --> Directories --> Direct directories` page,
-click on the edit button for ``default`` directory
-
-To use this directory, you must then add to the list of searchable directories.
-
-.. figure:: images/ctiserver_add_ldap_directories.png
-
-   Adding a directory LDAP to CTI Server
-
-
-.. warning:: The CTI server settings resonates in contexts. This means creating a context for each 
-   CTI context of membership of your users who will examine the "Directories".
-
-* eg: CTI Context ``default`` for users in context ``default``
-
-Restart CTI Server

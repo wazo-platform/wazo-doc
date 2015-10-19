@@ -131,8 +131,6 @@ If you already have an LDAP filter configured for the *Remote directory* Xlet, y
 
 If not, please refer to :ref:`add-ldap-filter`.
 
-.. _directory-definition:
-
 
 Include the new directory for lookup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

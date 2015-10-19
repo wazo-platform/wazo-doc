@@ -137,6 +137,40 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.17
+-----
+
+Consult the `15.17 Roadmap <https://projects.xivo.io/versions/233>`_
+
+* Online call recording is now done via `automixmon
+  <https://wiki.asterisk.org/wiki/display/AST/One-Touch+Features>`_ instead of automon. This has no
+  impact unless you have custom dialplan that is passing directly the "w" or "W" option to the Dial
+  or Queue application. In these cases, you should modify your dialplan to pass the "x" or "X"
+  option instead.
+* The remote directory service available from :ref:`supported phones <official-devices>` is now
+  provided by the new unified directory service, i.e. xivo-dird. Additional upgrade steps are
+  required to get the full benefit of the new directory service; see the :ref:`detailed upgrade
+  notes <upgrade-notes-webi-to-dird>`.
+* The field ``enableautomon`` has been renamed to ``enableonlinerec`` in the users web services provided
+  by the web-interface (these web services are deprecated).
+* The agent status dashboard now shows that an agent is calling or receiving a non ACD call while in
+  wrapup or paused.
+* The :ref:`bus-service_registered_event` and :ref:`bus-service_deregistered_event` bus messages have
+  been added.
+* SIP endpoints created through the REST API will not appear in the web interface until they have
+  been associated with a line
+* Due to limitations in the database, only a limited number of optional parameters can be configured
+  on a SIP endpoint. Consult the :ref:`confd_changelog` for further details
+
+
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   15.17/webi_to_dird
+
+
 15.16
 -----
 

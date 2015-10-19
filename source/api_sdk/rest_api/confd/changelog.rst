@@ -4,6 +4,131 @@
 xivo-confd REST API changelog
 *****************************
 
+15.17
+=====
+
+* A new API for SIP endpoints has been added. Consult the documentation
+  on http://api.xivo.io for further details.
+* The ``/lines_sip`` API has been deprecated. Please use ``/lines`` and ``/endpoints/sip`` instead.
+* Due to certain limitations in the database, only a limited number of
+  optional parameters can be configured. This limitation will be removed
+  in future releases. Supported parameters are listed further down.
+* Certain fields in the ``/lines`` API have been modified. List
+  of fields are further down
+
+Fields modified in the ``/lines`` API
+-------------------------------------
+
++------------------------+-------------------+------------+------------+
+| Name                   | Replaced by       | Editable ? | Required ? |
++========================+===================+============+============+
+| id                     |                   | no         |            |
++------------------------+-------------------+------------+------------+
+| device_id              |                   | no         |            |
++------------------------+-------------------+------------+------------+
+| name                   |                   | no         |            |
++------------------------+-------------------+------------+------------+
+| protocol               |                   | no         |            |
++------------------------+-------------------+------------+------------+
+| device_slot            | position          | no         |            |
++------------------------+-------------------+------------+------------+
+| provisioning_extension | provisioning_code | no         |            |
++------------------------+-------------------+------------+------------+
+| context                |                   | yes        | yes        |
++------------------------+-------------------+------------+------------+
+| provisioning_code      |                   | yes        |            |
++------------------------+-------------------+------------+------------+
+| position               |                   | yes        |            |
++------------------------+-------------------+------------+------------+
+| caller_id_name         |                   | yes        |            |
++------------------------+-------------------+------------+------------+
+| caller_id_num          |                   | yes        |            |
++------------------------+-------------------+------------+------------+
+
+
+Supported parameters on SIP endpoints
+-------------------------------------
+
+ * md5secret
+ * language
+ * accountcode
+ * amaflags
+ * allowtransfer
+ * fromuser
+ * fromdomain
+ * subscribemwi
+ * buggymwi
+ * call-limit
+ * callerid
+ * fullname
+ * cid-number
+ * maxcallbitrate
+ * insecure
+ * nat
+ * promiscredir
+ * usereqphone
+ * videosupport
+ * trustrpid
+ * sendrpid
+ * allowsubscribe
+ * allowoverlap
+ * dtmfmode
+ * rfc2833compensate
+ * qualify
+ * g726nonstandard
+ * disallow
+ * allow
+ * autoframing
+ * mohinterpret
+ * useclientcode
+ * progressinband
+ * t38pt-udptl
+ * t38pt-usertpsource
+ * rtptimeout
+ * rtpholdtimeout
+ * rtpkeepalive
+ * deny
+ * permit
+ * defaultip
+ * setvar
+ * port
+ * regexten
+ * subscribecontext
+ * fullcontact
+ * vmexten
+ * callingpres
+ * ipaddr
+ * regseconds
+ * regserver
+ * lastms
+ * parkinglot
+ * protocol
+ * outboundproxy
+ * transport
+ * remotesecret
+ * directmedia
+ * callcounter
+ * busylevel
+ * ignoresdpversion
+ * session-timers
+ * session-expires
+ * session-minse
+ * session-refresher
+ * callbackextension
+ * registertrying
+ * timert1
+ * timerb
+ * qualifyfreq
+ * contactpermit
+ * contactdeny
+ * unsolicited_mailbox
+ * use-q850-reason
+ * encryption
+ * snom-aoc-enabled
+ * maxforwards
+ * disallowed-methods
+ * textsupport
+
 15.16
 =====
 

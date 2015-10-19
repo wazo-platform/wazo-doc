@@ -28,6 +28,13 @@ View name: personal_view
 
 Purpose: Expose REST API to manage personal contacts (create, delete, list).
 
+aastra_view
+-----------
+
+View name: aastra_view
+
+Purpose: Expose REST API to search in configured directories for Aastra phone.
+
 cisco_view
 ----------
 
@@ -35,22 +42,35 @@ View name: cisco_view
 
 Purpose: Expose REST API to search in configured directories for Cisco phone (see CiscoIPPhone_XML_Objects_).
 
-You need to configure your sources with fields ``name`` and ``number`` to work.
-
-Example:
-
-.. code-block:: yaml
-   :linenos:
-   :emphasize-lines: 4-5
-
-   type: sample
-   name: sample
-   format_columns:
-       name: "{firstname} {lastname}"
-       number: "{number}"
-
-
 .. _CiscoIPPhone_XML_Objects: http://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cuipph/all_models/xsi/8_5_1/xsi_dev_guide/xmlobjects.html
+
+polycom_view
+-------------
+
+View name: polycom_view
+
+Purpose: Expose REST API to search in configured directories for Polycom phone.
+
+snom_view
+---------
+
+View name: snom_view
+
+Purpose: Expose REST API to search in configured directories for Snom phone.
+
+thomson_view
+------------
+
+View name: thomson_view
+
+Purpose: Expose REST API to search in configured directories for Thomson phone.
+
+yealink_view
+------------
+
+View name: yealink_view
+
+Purpose: Expose REST API to search in configured directories for Yealink phone.
 
 
 Service Plugins
@@ -77,9 +97,6 @@ Example (excerpt from the main configuration file):
                sources:
                    - my_csv
                timeout: 0.5
-               sort:
-                   - firstname
-                   - number
 
 The configuration is a dictionary whose keys are profile names and values are configuration specific
 to that profile.

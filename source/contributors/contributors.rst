@@ -11,10 +11,11 @@ General information:
    debug_asterisk
    debug_daemon
    guidelines
-   profile_python
-   translate
-   style_guide
    network
+   packaging
+   profile_python
+   style_guide
+   translate
    xivo_package_file_structure
 
 Component specific information:

@@ -17,6 +17,7 @@ System
    proxy
    purge_logs
    service
+   service_discovery
    xivo-auth/xivo-auth
    xivo-dird/xivo-dird
    xivo-dird-phoned
