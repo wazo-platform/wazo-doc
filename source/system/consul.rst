@@ -133,6 +133,9 @@ Create the file ``/etc/consul/xivo/agent/config.json`` with the following conten
 
 The *node_name* field is an arbitrary name to give this node, ``xivo-paris`` for example.
 
+The *remote_host* field need to be the ip address of your new consul.
+Be sure the host is accessible from your XiVO and check the firewall.
+See the documentation :ref:`here <network>`.
 
 
 Enabling the agent configuration
