@@ -39,7 +39,7 @@ To get this kind of setup up and running, you will need to follow the following 
 * Backup your consul key/value if doing a migration
 * Download the the consul binary from https://dl.bintray.com/mitchellh/consul/0.5.2_linux_386.zip
 * Install consul
-* Copy the consul configuration from you XiVO to the new host
+* Copy the consul configuration from your XiVO to the new host
 * Restart consul on the remote host *service consul restart*
 * Add an agent configuration on the XiVO
 * Enable the agent configuration in ``/etc/default/consul``
