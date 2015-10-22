@@ -213,6 +213,7 @@ differently. This includes:
 * Custom voicemail greetings recorded on the master node are not available.
 * Phone provisioning is disabled, i.e. a phone will always keep the same configuration, even after
   restarting it.
+* Phone remote directory is not accessible, because provisioned ip address points to the master
 
 Note that, on failover and on failback:
 
