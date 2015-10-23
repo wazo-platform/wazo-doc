@@ -171,6 +171,7 @@ Limitations
 ===========
 
 * You must restore a backup on the **same version** of XiVO that was backed up
+* You must restore a backup on a machine with the **same hostname and IP address**
 * Be aware that this procedure applies **only to XiVO >= 14.08** (see :ref:`upgrade_note_14.08`).
 
 
