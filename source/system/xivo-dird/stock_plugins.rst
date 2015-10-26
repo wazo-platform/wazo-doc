@@ -110,10 +110,6 @@ timeout
    The maximum waiting time for an answer from any source. Results from sources that take longer to
    answer are ignored. Default: no timeout.
 
-sort
-   The list of columns to sort the results. Multiple columns can be set and the order is important.
-   If is not defined, the lookup paging will not work properly.
-
 favorites
 ---------
 
