@@ -105,6 +105,13 @@ Implementation details
 
       * key ``token_infos``: data associated to the authentification token (see :ref:`xivo-auth`)
 
+  * ``first_match(term, args)``: The first_match method returns a dictionary.
+
+    * Empty values should be ``None``, instead of empty string.
+    * ``args`` is a dictionary containing:
+
+      * key ``token_infos``: data associated to the authentification token (see :ref:`xivo-auth`)
+
   * ``list(uids, args)``: The list method returns a list of dictionary from a list of uids. Each uid
     is a string identifying a contact within the source.
 
@@ -122,6 +129,8 @@ The typical configuration file for a given back-end will look like this:
    unique_column: id
    search_columns:
        - firstname
+   first_matched_columns:
+       - number
    format_columns:
        ln: "{lastname}"
        fn: "{firstname}"
@@ -145,6 +154,10 @@ unique_column
 
 search_columns
    This list of columns is used to try and match an entry when searching this source.
+
+first_matched_columns
+   This list of columns is used to try and match only one entry when searching this source. (i.e.
+   Make a reverse phone lookup)
 
 format_columns
     This section is used to add or modify columns. The values are python format strings using the

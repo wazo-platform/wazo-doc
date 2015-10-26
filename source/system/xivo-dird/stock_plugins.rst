@@ -158,6 +158,41 @@ timeout
    answer are ignored. Default: no timeout.
 
 
+reverse
+-------
+
+Service name: reverse
+
+Purpose: Search through multiple data sources, looking for the first entry matching an extension.
+
+Configuration
+^^^^^^^^^^^^^
+
+Example:
+
+.. code-block:: yaml
+   :linenos:
+
+   services:
+       reverse:
+           default:
+               sources:
+                   - my_csv
+               timeout: 1
+
+The configuration is a dictionary whose keys are profile names and values are configuration specific
+to that profile.
+
+For each profile, the configuration keys are:
+
+sources
+   The list of source names that are to be used for the reverse lookup
+
+timeout
+   The maximum waiting time for an answer from any source. Results from sources that take longer to
+   answer are ignored. Default: 1.
+
+
 Back-end Configuration
 ======================
 
