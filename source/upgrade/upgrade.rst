@@ -144,6 +144,8 @@ Consult the `15.18 Roadmap <https://projects.xivo.io/versions/234>`_
 
 * The provd_pycli command (deprecated in 15.06) has been removed in favor of xivo-provd-cli. If you
   have custom scripts referencing provd_pycli, you'll need to update them.
+* The xivo-agentctl command (deprecated in 15.06) has been removed in favor of xivo-agentd-cli. If you
+  have custom scripts referencing xivo-agentctl, you'll need to update them.
 
 
 15.17
