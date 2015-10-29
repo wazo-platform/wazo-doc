@@ -92,6 +92,11 @@ For this, follow the steps:
    machine, however, this is dangerous when XiVO services are separated by an untrusted network,
    such as the Internet.
 
-4. Restart all XiVO services::
+4. Ensure your CN resolves to a valid IP address with either:
+
+   * a DNS entry
+   * an entry in :filename:`/etc/hosts` resolving your CN to 127.0.0.1.
+
+5. Restart all XiVO services::
 
       xivo-service restart all
