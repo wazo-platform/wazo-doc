@@ -196,7 +196,7 @@ timeout
 Back-end Configuration
 ======================
 
-This sections completes the :ref:`sources_configuration` section.
+This sections completes the :ref:`dird-sources_configuration` section.
 
 .. _dird-backend-csv:
 
@@ -247,10 +247,6 @@ With the CSV file:
 file
    the absolute path to the CSV file
 
-unique_column
-   the column that contains a unique identifier of the entry. This is necessary for listing and
-   identifying favorites.
-
 
 .. _dird-backend-csv_ws:
 
@@ -295,14 +291,11 @@ lookup_url
 list_url (optional)
     the URL used to list all available entries. This URL is used to retrieve favorites.
 
-searched_columns
-    the columns to use for the search.
-
-delimiter
-    the field delimiter in the CSV result.
+delimiter (optional)
+    the field delimiter in the CSV result. Default: ','
 
 timeout (optional)
-    the number of seconds before the lookup on the web service is aborted, default is 10 seconds.
+    the number of seconds before the lookup on the web service is aborted. Default: 10.
 
 
 .. _dird-backend-ldap:

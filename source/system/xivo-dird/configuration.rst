@@ -136,7 +136,7 @@ pid_filename
 
 source_config_dir
    The directory from which sources configuration are read. See
-   :ref:`sources_configuration`. Default: ``/etc/xivo-dird/sources.d``.
+   :ref:`dird-sources_configuration`. Default: ``/etc/xivo-dird/sources.d``.
 
 user
    The owner of the process. Default: ``www-data``.
@@ -237,11 +237,11 @@ sources section
 ---------------
 
 This section is a dictionary whose keys are the source name and values are the configuration for that
-source. See the :ref:`sources_configuration` section for more details about source
+source. See the :ref:`dird-sources_configuration` section for more details about source
 configuration.
 
 
-.. _sources_configuration:
+.. _dird-sources_configuration:
 
 Sources Configuration
 =====================
@@ -293,10 +293,11 @@ This is strictly equivalent in the main configuration file:
                num: number
 
 type
-   The type of the source. It must be the same than the name of one of the enabled back-end plugins.
+   the type of the source. It must be the same than the name of one of the enabled back-end plugins.
 
 name
-   The name of the source. The value is arbitrary, but it must be unique across all sources.
+   is the name of this given configuration. The name is used to associate the source to profiles.
+   The value is arbitrary, but it must be unique across all sources.
 
 .. warning:: Changing the name of the source will make all favorites in that source disappear. There
              is currently no tool to help you migrate favorites between source names, so choose your
@@ -306,12 +307,21 @@ The other options are dependent on the source type (the back-end used). See the 
 back-end plugin (:ref:`stock-plugins`). However, the following keys should be present in all source
 configurations:
 
-searched_columns
+first_matched_columns (optional)
+   the columns used for the reverse lookup. Any column having the search term will be a reverse
+   lookup result.
+
+format_columns (optional)
+   a mapping between result fields and a format string. The new key will be added to the result, if
+   this name already exists in the result, it will be replaced with the new value. The syntax is a
+   python format string. See https://docs.python.org/2/library/string.html#formatspec for a complete
+   reference.
+
+searched_columns (optional)
    the columns used for the lookup. Any column containing the search term substring will be a lookup
    result.
 
-format_columns:
-    a mapping between result fields and a format string. The new key will be added to the result, if
-    this name already exists in the result, it will be replaced with the new value. The syntax is a
-    python format string. See https://docs.python.org/2/library/string.html#formatspec for a complete
-    reference.
+unique_column (optional)
+   This column is what makes an entry unique in this source. The ``unique_column`` is used to build
+   the ``uid`` that is passed to the list method to fetch a list of results by unique ids. This is
+   necessary for listing and identifying favorites.
