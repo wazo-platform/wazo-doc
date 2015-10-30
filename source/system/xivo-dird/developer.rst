@@ -156,8 +156,8 @@ searched_columns
    This list of columns is used to try and match an entry when searching this source.
 
 first_matched_columns
-   This list of columns is used to try and match only one entry when searching this source. (i.e.
-   Make a reverse phone lookup)
+   This list of columns is used to try and match only one entry when searching this source. (e.g.,
+   to make a reverse phone lookup)
 
 format_columns
     This section is used to add or modify columns. The values are python format strings using the

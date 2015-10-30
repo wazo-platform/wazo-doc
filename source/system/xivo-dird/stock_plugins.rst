@@ -226,6 +226,8 @@ Example (a file inside ``source_config_dir``):
    searched_columns:
        - fn
        - ln
+   first_matched_columns:
+       - num
    format_columns:
        lastname: "{ln}"
        firstname: "{fn}"
@@ -270,20 +272,22 @@ Configuration
 Example (a file inside ``source_config_dir``):
 
 .. code-block:: yaml
-    :linenos:
+   :linenos:
 
-    type: csv_ws
-    name: a_csv_web_service
-    lookup_url: "http://example.com:8000/ws-phonebook"
-    list_url: "http://example.com:8000/ws-phonebook"
-    searched_columns:
-      - firstname
-      - lastname
-    delimiter: ","
-    timeout: 16
-    unique_column: id
-    format_columns:
-        number: "{exten}"
+   type: csv_ws
+   name: a_csv_web_service
+   lookup_url: "http://example.com:8000/ws-phonebook"
+   list_url: "http://example.com:8000/ws-phonebook"
+   searched_columns:
+     - firstname
+     - lastname
+   first_matched_columns:
+       - exten
+   delimiter: ","
+   timeout: 16
+   unique_column: id
+   format_columns:
+       number: "{exten}"
 
 lookup_url
     the URL used for directory searches.
@@ -328,6 +332,8 @@ Example (a file inside ``source_config_dir``):
    unique_column: entryUUID
    searched_columns:
        - cn
+   first_matched_columns:
+       - telephoneNumber
    format_columns:
        firstname: "{givenName}"
        lastname: "{sn}"
@@ -419,6 +425,9 @@ Example (a file inside ``source_config_dir``):
    phonebook_url: https://example.org/service/ipbx/json.php/restricted/pbx_services/phonebook
    phonebook_username: admin
    phonebook_password: foobar
+   first_matched_columns:
+       - phonebooknumber.office.number
+       - phonebooknumber.mobile.number
    format_columns:
        firstname: "{phonebook.firstname}"
        lastname: "{phonebook.lastname}"
@@ -475,6 +484,8 @@ Example (a file inside ``source_config_dir``):
 
    type: personal
    name: personal
+   first_matched_columns:
+       - number
    format_columns:
        firstname: "{firstname}"
        lastname: "{lastname}"
@@ -511,6 +522,8 @@ Example (a file inside ``source_config_dir``):
        password: password
        timeout: 3
    unique_column: id
+   first_matched_columns:
+       - exten
    searched_columns:
        - firstname
        - lastname
