@@ -127,7 +127,7 @@ The typical configuration file for a given back-end will look like this:
    type: <back-end name>
    name: <source-name>
    unique_column: id
-   search_columns:
+   searched_columns:
        - firstname
    first_matched_columns:
        - number
@@ -152,7 +152,7 @@ unique_column
    This column is what makes an entry unique in this source. The ``unique_column`` is used to
    build the ``uid`` that is passed to the list method to fetch a list of results by unique ids.
 
-search_columns
+searched_columns
    This list of columns is used to try and match an entry when searching this source.
 
 first_matched_columns
