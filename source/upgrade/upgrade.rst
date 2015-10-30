@@ -137,6 +137,15 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.18
+-----
+
+Consult the `15.18 Roadmap <https://projects.xivo.io/versions/234>`_
+
+* The provd_pycli command (deprecated in 15.06) has been removed in favor of xivo-provd-cli. If you
+  have custom scripts referencing provd_pycli, you'll need to update them.
+
+
 15.17
 -----
 
@@ -320,10 +329,10 @@ Please consult the following detailed upgrade notes for more information:
   information.
 * The provd_pycli command name has been deprecated in favor of xivo-provd-cli. These 2 commands do the
   same thing, the only difference being the name of the command. The provd_pycli command name will be
-  removed in 15.10, so if you have custom scripts referencing provd_pycli, you'll need to update them.
+  removed in 15.18, so if you have custom scripts referencing provd_pycli, you'll need to update them.
 * The xivo-agentctl command name has been deprecated in favor of xivo-agentd-cli. These 2 commands do the
   same thing, the only difference being the name of the command. The xivo-agentctl command name will be
-  removed in 15.10, so if you have custom scripts referencing xivo-agentctl, you'll need to update them.
+  removed in 15.18, so if you have custom scripts referencing xivo-agentctl, you'll need to update them.
 
 
 15.05
