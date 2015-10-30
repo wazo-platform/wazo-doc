@@ -275,7 +275,6 @@ Example (a file inside ``source_config_dir``):
     type: csv_ws
     name: a_csv_web_service
     lookup_url: "http://example.com:8000/ws-phonebook"
-    reverse_lookup_url: "http://example.com:8000/ws-phonebook"
     list_url: "http://example.com:8000/ws-phonebook"
     searched_columns:
       - firstname
@@ -288,9 +287,6 @@ Example (a file inside ``source_config_dir``):
 
 lookup_url
     the URL used for directory searches.
-
-reverse_lookup_url
-    the URL used for reverse searches. This URL usually does an exact match search on the phone number.
 
 list_url (optional)
     the URL used to list all available entries. This URL is used to retrieve favorites.
