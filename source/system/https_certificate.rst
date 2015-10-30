@@ -95,7 +95,14 @@ For this, follow the steps:
 4. Ensure your CN resolves to a valid IP address with either:
 
    * a DNS entry
-   * an entry in :filename:`/etc/hosts` resolving your CN to 127.0.0.1.
+   * an entry in :file:`/etc/hosts` resolving your CN to 127.0.0.1. Note that :file:`/etc/hosts`
+     will be rewritten occasionally by xivo-sysconfd. To make the change persistent, you can:
+
+     #. modify :file:`/usr/share/xivo-sysconfd/templates/resolvconf/hosts` instead (which will be
+        rewritten when xivo-sysconfd is upgraded...)
+     #. then add a script in :file:`/usr/share/xivo-upgrade/pre-start.d` to re-apply the
+        modification to :file:`/usr/share/xivo-sysconfd/templates/resolvconf/hosts` after each
+        ``xivo-upgrade``.
 
 5. Restart all XiVO services::
 
