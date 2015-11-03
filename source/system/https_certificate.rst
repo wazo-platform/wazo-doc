@@ -40,7 +40,7 @@ To make the HTTP client accept this certificate, you have two choices:
 Use your own certificate
 ========================
 
-For this, follow the steps:
+For this, follow these steps:
 
 1. Replace the following files with your own private key/certificate pair:
 
@@ -48,9 +48,9 @@ For this, follow the steps:
   * Certificate: :file:`/usr/share/xivo-certs/server.crt`
 
 2. Change the hostname of XiVO for each XiVO component: the different processes of XiVO heavily use
-   HTTPS for internal communication, and for these connection to establish succesfully, all
+   HTTPS for internal communication, and for these connection to establish successfully, all
    hostnames used must match the Common Name (CN) of your certificate. Basically, you must replace
-   all occurences of ``localhost`` (the default hostname) with your CN in the :ref:`configuration of the
+   all occurrences of ``localhost`` (the default hostname) with your CN in the :ref:`configuration of the
    XiVO services <configuration-files>`. For example::
 
       mkdir /etc/xivo/custom
