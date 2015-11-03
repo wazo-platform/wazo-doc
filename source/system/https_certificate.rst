@@ -73,16 +73,26 @@ For this, follow these steps:
    Also, you must replace ``localhost`` in the definition of your directories in the web interface
    under :menuselection:`Configuration --> Directories`.
 
-3. If your certificate is not self-signed, and you obtained if from a system-trusted CA, you must
-   also override the ``verify_certificate`` option to ``True``. By default, ``verify_certificate``
-   is set to consider ``/usr/share/xivo-certs/server.crt`` as self-signed. The procedure is the same
-   as 2. with more configuration for each service. For example::
+3. If your certificate is not self-signed, and you obtained it from a third-party CA that is trusted
+   by your system, you must enable the system-based certificate verification. By default,
+   certificate verification is set to consider ``/usr/share/xivo-certs/server.crt`` as the only CA
+   certificate.
+
+   The options are the following:
+
+   * Consul: ``verify: True``
+   * Other XiVO services: ``verify_certificate: True``
+
+   The procedure is the same as 2. with more configuration for each service. For example::
 
       cat > /etc/xivo/custom/custom-certificate.yml << EOF
       consul:
         host: xivo.example.com
-        verify_certificate: True
+        verify: True
       auth:
+        host: xivo.example.com
+        verify_certificate: True
+      dird:
         host: xivo.example.com
         verify_certificate: True
       ...
