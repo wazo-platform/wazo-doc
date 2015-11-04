@@ -18,7 +18,7 @@ In order to be able to use group pickup you have to:
 Creating a Pickup Group
 =======================
 
-Pickup groups can be create in the :menuselection:`Services --> IPBX --> Call management --> Call
+Pickup groups can be created in the :menuselection:`Services --> IPBX --> Call management --> Call
 pickups` page.
 
 In the *general* tab, you can define a name and a description for the pickup group.
