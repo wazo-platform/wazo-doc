@@ -63,7 +63,7 @@ For this, follow these steps:
         host: xivo.example.com
       ajam:
         host: xivo.example.com
-      agent:
+      agentd:
         host: xivo.example.com
       EOF
       for config_dir in /etc/xivo-*/conf.d/ ; do
