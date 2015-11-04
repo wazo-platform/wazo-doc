@@ -146,6 +146,9 @@ Consult the `15.18 Roadmap <https://projects.xivo.io/versions/234>`_
   have custom scripts referencing provd_pycli, you'll need to update them.
 * The xivo-agentctl command (deprecated in 15.06) has been removed in favor of xivo-agentd-cli. If you
   have custom scripts referencing xivo-agentctl, you'll need to update them.
+* xivo-agentd now use HTTPS. If you have custom development using this service, update your
+  configuration accordingly. The xivo-agentd-client library, used to interact with xivo-agentd, has
+  also been updated to use HTTPS by default.
 
 
 15.17
