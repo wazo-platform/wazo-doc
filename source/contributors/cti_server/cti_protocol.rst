@@ -457,7 +457,6 @@ Send fax
 .. code-block:: javascript
 
    {"class": "faxsend",
-    "hide": "0",
     "filename": "contract.pdf",
     "destination", 41400,
     "size": 100000,
