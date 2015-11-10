@@ -11,6 +11,14 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+
+15.18
+-----
+
+* the :ref:`cti_protocol_fax_send` command now include the size and data field.
+* the `filetransfer` command has been removed.
+
+
 15.16
 -----
 
@@ -439,6 +447,8 @@ Queue members configuration
 Fax
 -----------
 
+.. _cti_protocol_fax_send:
+
 Send fax
 ^^^^^^^^
 
@@ -446,7 +456,14 @@ Send fax
 
 .. code-block:: javascript
 
-   {"class": "faxsend", "hide": "0", "filename": "contract.pdf", "destination", 41400 }
+   {"class": "faxsend",
+    "filename": "contract.pdf",
+    "destination", 41400,
+    "size": 100000,
+    "data": "<base64 of the fax content>"}
+
+
+.. _cti_protocol_fax_status:
 
 Fax status
 ^^^^^^^^^^
