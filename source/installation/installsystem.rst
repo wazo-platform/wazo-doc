@@ -30,7 +30,7 @@ Installing from the ISO image
 Installing from a minimal Debian installation
 =============================================
 
-XiVO can be installed directly over a **32-bit** or a **64-bit (beta)** Debian Wheezy. When doing so, you are strongly
+XiVO can be installed directly over a **32-bit** or a **64-bit** Debian Wheezy. When doing so, you are strongly
 advised to start with a clean and minimal installation of Debian Wheezy. The latest installation image
 for Debian Wheezy can be found at https://www.debian.org/releases/wheezy/debian-installer.
 
