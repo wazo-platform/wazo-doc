@@ -74,6 +74,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/usr/share/xivo/XIVO-VERSION`
 * :file:`/var/lib/asterisk/`
 * :file:`/var/lib/consul/`
+* :file:`/var/lib/xivo-manage-tokens/`
 * :file:`/var/lib/xivo-provd/`
 * :file:`/var/lib/xivo/`
 * :file:`/var/log/asterisk/`
