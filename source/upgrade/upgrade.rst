@@ -151,6 +151,40 @@ Consult the `15.18 Roadmap <https://projects.xivo.io/versions/234>`_
   also been updated to use HTTPS by default.
 * xivo-confd ports 50050 and 50051 have been removed. Please use 9486 and 9487 instead
 
+**Configuration File Upgrade Notes**
+
+The file format of configuration files for daemons exposing an HTTP/S API has changed.  The
+following services have been affected :
+
+ * xivo-agentd
+ * xivo-amid
+ * xivo-auth
+ * xivo-confd
+ * xivo-ctid
+ * xivo-dird
+ * xivo-dird-phoned
+
+Ports and listening addresses are now organised in the following fashion:
+
+.. code-block:: yaml
+
+    rest_api:
+      https:
+        enabled: true
+        port: 9486
+        listen: 0.0.0.0
+        certificate: /usr/share/xivo-certs/server.crt
+        private_key: /usr/share/xivo-certs/server.key
+        ciphers: "ALL:!aNULL:!eNULL:!LOW:!EXP:!RC4:!3DES:!SEED:+HIGH:+MEDIUM"
+      http:
+        enabled: true
+        port: 9487
+        listen: 127.0.0.1
+
+If you have any custom configuration files for these daemons, please modify them accordingly.
+Consult :ref:`network_ports` for further details on which network services are available for each
+daemon.
+
 
 15.17
 -----
