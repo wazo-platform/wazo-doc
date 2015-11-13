@@ -4,6 +4,27 @@
 xivo-confd REST API changelog
 *****************************
 
+15.18
+=====
+
+* Ports 50050 and 50051 have been removed. Please use 9486 and 9487 instead
+* Added sccp endpoints in REST API:
+
+  * GET ``/1.1/endpoints/sccp``
+  * POST ``/1.1/endpoints/sccp``
+  * DELETE ``/1.1/endpoints/sccp/<sccp_id>``
+  * GET ``/1.1/endpoints/sccp/<sccp_id>``
+  * PUT ``/1.1/endpoints/sccp/<sccp_id>``
+  * GET ``/1.1/endpoints/sccp/<sccp_id>/lines``
+  * GET ``/1.1/lines/<line_id>/endpoints/sccp``
+  * DELETE ``/1.1/lines/<line_id>/endpoints/sccp/<sccp_id>``
+  * PUT ``/1.1/lines/<line_id>/endpoints/sccp/<sccp_id>``
+
+* Added lines endpoints in REST API:
+
+  * GET ``/1.1/lines/<line_id>/users``
+
+
 15.17
 =====
 
