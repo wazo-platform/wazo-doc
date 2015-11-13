@@ -7,6 +7,12 @@ You can view the API documentation at http://api.xivo.io.
 Changelog
 =========
 
+15.18
+-----
+
+* xivo-agentd now uses HTTPS instead of HTTP.
+
+
 15.15
 -----
 
