@@ -5,13 +5,15 @@ SCCP
 xivo-libsccp is an alternative SCCP channel driver for Asterisk. It was originally based
 on chan_skinny.
 
-This page is intended for developers and people interested in using xivo-libsccp on something other
-than XiVO.  **If you just want to use your SCCP phones with XiVO**, refer to
-:ref:`sccp-configuration`.
+This page is intended for developers and people interested in using
+xivo-libsccp on something other than XiVO.
 
 
 Installation from the git repository
 ====================================
+
+.. warning:: If you just want to use your SCCP phones with XiVO, refer to
+             :ref:`sccp-configuration` instead.
 
 The following packages are required to compile xivo-libsccp on Debian.
 
@@ -32,6 +34,9 @@ The following packages are required to compile xivo-libsccp on Debian.
 
 Configuration
 =============
+
+.. warning:: If you just want to use your SCCP phones with XiVO, refer to
+             :ref:`sccp-configuration` instead.
 
 See `sccp.conf.sample`_ for a configuration file example.
 
