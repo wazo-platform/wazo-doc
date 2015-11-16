@@ -26,7 +26,7 @@ You may also edit :file:`/etc/xivo/web-interface/php.ini` and change the error l
 Interactive debugging in Eclipse
 ================================
 
-Instructions for Eclipse 4.3.
+Instructions for Eclipse 4.5.
 
 On your XiVO:
 
@@ -50,11 +50,10 @@ On your machine where Eclipse is installed:
 #. Make sure you have Eclipse PDT installed
 #. Create a PHP project named ``xivo-web-interface``:
 
-   * Choose "Create project at existing location", using the :file:`xivo-web-interface/src` directory
+   * Choose "Create project at existing location", using the :file:`xivo-web-interface` directory
 
-#. In the Window / Preferences menu, on the PHP / Debug page:
+#. In the Window / Preferences / PHP menu:
 
-   * Set the PHP Debugger to XDebug
    * Add a new PHP server with the following information:
 
       * Name: anything you want
@@ -62,7 +61,7 @@ On your machine where Eclipse is installed:
       * Path Mapping:
 
         * Path on Server: :file:`/usr/share/xivo-web-interface`
-        * Path in Workspace: :file:`/xivo-web-interface`
+        * Path in Workspace: :file:`/xivo-web-interface/src`
 
 #. Create a new ``PHP Web Application`` debug configuration:
 
