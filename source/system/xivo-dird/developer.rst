@@ -105,6 +105,13 @@ Implementation details
 
       * key ``token_infos``: data associated to the authentification token (see :ref:`xivo-auth`)
 
+  * ``first_match(term, args)``: The first_match method returns a dictionary.
+
+    * Empty values should be ``None``, instead of empty string.
+    * ``args`` is a dictionary containing:
+
+      * key ``token_infos``: data associated to the authentification token (see :ref:`xivo-auth`)
+
   * ``list(uids, args)``: The list method returns a list of dictionary from a list of uids. Each uid
     is a string identifying a contact within the source.
 
@@ -112,47 +119,9 @@ Implementation details
 
       * key ``token_infos``: data associated to the authentification token (see :ref:`xivo-auth`)
 
-The typical configuration file for a given back-end will look like this:
 
-.. code-block:: yaml
-   :linenos:
-
-   type: <back-end name>
-   name: <source-name>
-   unique_column: id
-   search_columns:
-       - firstname
-   format_columns:
-       ln: "{lastname}"
-       fn: "{firstname}"
-       telephoneNumber: "{number}"
-
-
-The following keys are mandatory: xivo-dird will not load the source if they are not present:
-
-type
-   the name of the back-end plugin. It should match the extension point in the setup.py
-
-name
-   is the name of this given configuration. The name is used to associate the source to profiles.
-
-The remaining keys are conventional: they are not required by xivo-dird, but it's a good idea to
-use these for your configuration format.
-
-unique_column
-   This column is what makes an entry unique in this source. The ``unique_column`` is used to
-   build the ``uid`` that is passed to the list method to fetch a list of results by unique ids.
-
-search_columns
-   This list of columns is used to try and match an entry when searching this source.
-
-format_columns
-    This section is used to add or modify columns. The values are python format strings using the
-    raw search result as argument.
-
-
-The implementation of the back-end should take these values into account and return results
-accordingly.
+See :ref:`dird-sources_configuration`. The implementation of the back-end should take these values into
+account and return results accordingly.
 
 
 Example

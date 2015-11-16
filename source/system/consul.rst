@@ -26,3 +26,5 @@ The following variables can be overridden in the ``/etc/default/consul`` file.
     GROUP=consul                        # The group used to run the consul process
     PIDDIR=/var/run/consul              # The directory where the pidfile will be written
     PIDFILE=/var/run/consul/consul.pid  # The name of the pidfile (PIDDIR must match)
+    WAIT_FOR_LEADER=yes                 # Should `/etc/init.d/consul start` wait for a leader?
+    RUNCONSUL=yes                       # Should `/etc/init.d/consul start` start consul?

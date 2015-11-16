@@ -4,6 +4,15 @@
 xivo-dird changelog
 *******************
 
+15.18
+=====
+
+* Added reverse endpoints in REST API:
+
+  * GET ``/0.1/directories/reverse/<profile>/<xivo_user_uuid>``
+  * GET ``/0.1/directories/reverse/<profile>/me``
+
+
 15.17
 =====
 

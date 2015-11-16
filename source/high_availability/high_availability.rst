@@ -75,6 +75,7 @@ will then be rsync'ed every hour:
 * /var/lib/asterisk/agi-bin
 * /var/lib/asterisk/moh
 * /var/lib/consul/raft
+* /var/lib/xivo-manage-tokens
 * /var/lib/xivo/sounds/acd
 * /var/lib/xivo/sounds/playback
 
@@ -213,6 +214,7 @@ differently. This includes:
 * Custom voicemail greetings recorded on the master node are not available.
 * Phone provisioning is disabled, i.e. a phone will always keep the same configuration, even after
   restarting it.
+* Phone remote directory is not accessible, because provisioned IP address points to the master.
 
 Note that, on failover and on failback:
 

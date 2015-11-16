@@ -74,6 +74,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/usr/share/xivo/XIVO-VERSION`
 * :file:`/var/lib/asterisk/`
 * :file:`/var/lib/consul/`
+* :file:`/var/lib/xivo-manage-tokens/`
 * :file:`/var/lib/xivo-provd/`
 * :file:`/var/lib/xivo/`
 * :file:`/var/log/asterisk/`
@@ -171,6 +172,7 @@ Limitations
 ===========
 
 * You must restore a backup on the **same version** of XiVO that was backed up
+* You must restore a backup on a machine with the **same hostname and IP address**
 * Be aware that this procedure applies **only to XiVO >= 14.08** (see :ref:`upgrade_note_14.08`).
 
 

@@ -110,10 +110,6 @@ timeout
    The maximum waiting time for an answer from any source. Results from sources that take longer to
    answer are ignored. Default: no timeout.
 
-sort
-   The list of columns to sort the results. Multiple columns can be set and the order is important.
-   If is not defined, the lookup paging will not work properly.
-
 favorites
 ---------
 
@@ -162,10 +158,45 @@ timeout
    answer are ignored. Default: no timeout.
 
 
+reverse
+-------
+
+Service name: reverse
+
+Purpose: Search through multiple data sources, looking for the first entry matching an extension.
+
+Configuration
+^^^^^^^^^^^^^
+
+Example:
+
+.. code-block:: yaml
+   :linenos:
+
+   services:
+       reverse:
+           default:
+               sources:
+                   - my_csv
+               timeout: 1
+
+The configuration is a dictionary whose keys are profile names and values are configuration specific
+to that profile.
+
+For each profile, the configuration keys are:
+
+sources
+   The list of source names that are to be used for the reverse lookup
+
+timeout
+   The maximum waiting time for an answer from any source. Results from sources that take longer to
+   answer are ignored. Default: 1.
+
+
 Back-end Configuration
 ======================
 
-This sections completes the :ref:`sources_configuration` section.
+This sections completes the :ref:`dird-sources_configuration` section.
 
 .. _dird-backend-csv:
 
@@ -195,6 +226,8 @@ Example (a file inside ``source_config_dir``):
    searched_columns:
        - fn
        - ln
+   first_matched_columns:
+       - num
    format_columns:
        lastname: "{ln}"
        firstname: "{fn}"
@@ -213,10 +246,6 @@ With the CSV file:
 
 file
    the absolute path to the CSV file
-
-unique_column
-   the column that contains a unique identifier of the entry. This is necessary for listing and
-   identifying favorites.
 
 
 .. _dird-backend-csv_ws:
@@ -239,39 +268,34 @@ Configuration
 Example (a file inside ``source_config_dir``):
 
 .. code-block:: yaml
-    :linenos:
+   :linenos:
 
-    type: csv_ws
-    name: a_csv_web_service
-    lookup_url: "http://example.com:8000/ws-phonebook"
-    reverse_lookup_url: "http://example.com:8000/ws-phonebook"
-    list_url: "http://example.com:8000/ws-phonebook"
-    searched_columns:
-      - firstname
-      - lastname
-    delimiter: ","
-    timeout: 16
-    unique_column: id
-    format_columns:
-        number: "{exten}"
+   type: csv_ws
+   name: a_csv_web_service
+   lookup_url: "http://example.com:8000/ws-phonebook"
+   list_url: "http://example.com:8000/ws-phonebook"
+   searched_columns:
+     - firstname
+     - lastname
+   first_matched_columns:
+       - exten
+   delimiter: ","
+   timeout: 16
+   unique_column: id
+   format_columns:
+       number: "{exten}"
 
 lookup_url
     the URL used for directory searches.
 
-reverse_lookup_url
-    the URL used for reverse searches. This URL usually does an exact match search on the phone number.
-
 list_url (optional)
     the URL used to list all available entries. This URL is used to retrieve favorites.
 
-searched_columns
-    the columns to use for the search.
-
-delimiter
-    the field delimiter in the CSV result.
+delimiter (optional)
+    the field delimiter in the CSV result. Default: ','
 
 timeout (optional)
-    the number of seconds before the lookup on the web service is aborted, default is 10 seconds.
+    the number of seconds before the lookup on the web service is aborted. Default: 10.
 
 
 .. _dird-backend-ldap:
@@ -301,6 +325,8 @@ Example (a file inside ``source_config_dir``):
    unique_column: entryUUID
    searched_columns:
        - cn
+   first_matched_columns:
+       - telephoneNumber
    format_columns:
        firstname: "{givenName}"
        lastname: "{sn}"
@@ -392,6 +418,9 @@ Example (a file inside ``source_config_dir``):
    phonebook_url: https://example.org/service/ipbx/json.php/restricted/pbx_services/phonebook
    phonebook_username: admin
    phonebook_password: foobar
+   first_matched_columns:
+       - phonebooknumber.office.number
+       - phonebooknumber.mobile.number
    format_columns:
        firstname: "{phonebook.firstname}"
        lastname: "{phonebook.lastname}"
@@ -448,6 +477,8 @@ Example (a file inside ``source_config_dir``):
 
    type: personal
    name: personal
+   first_matched_columns:
+       - number
    format_columns:
        firstname: "{firstname}"
        lastname: "{lastname}"
@@ -484,6 +515,8 @@ Example (a file inside ``source_config_dir``):
        password: password
        timeout: 3
    unique_column: id
+   first_matched_columns:
+       - exten
    searched_columns:
        - firstname
        - lastname
