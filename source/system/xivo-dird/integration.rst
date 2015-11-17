@@ -22,9 +22,11 @@ following keys are interpreted and displayed in xlet people of the XiVO Client:
    * ``agent``: the field value will be ignored and replaced by an icon showing the status of the
      agent assigned to the contact (e.g. green icon for logged agent, red icon for unlogged agent,
      ...)
+   * ``callable``: a dropdown action on the ``number`` field will be added to call the field value.
+   * ``email``: a dropdown action on the ``number`` field will be added to send an email to the
+     field value.
    * ``favorite``: the boolean field value will be replaced by an icon showing if the status is
      favorite (yellow star filled) or not (yellow star empty).
-   * ``callable``: a dropdown action on the ``number`` field will be added to call the field value.
    * ``name``: a decoration will be added to the field value (typically a color dot) showing the
      presence status of the contact (e.g. Disconnected, Available, Away, ...)
    * ``number``: the field value will be:
