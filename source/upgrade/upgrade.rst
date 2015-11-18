@@ -137,6 +137,15 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.19
+-----
+
+Consult the `15.19 Roadmap <https://projects.xivo.io/versions/236>`_
+
+* The sound file :file:`/usr/share/asterisk/sounds/fr_FR/une.wav` has been moved to
+  :file:`/usr/share/asterisk/sounds/fr_FR/digits/1F.wav`.
+
+
 15.18
 -----
 
