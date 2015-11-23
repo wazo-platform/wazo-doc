@@ -12,22 +12,24 @@ Overview
 The People XLet lists the people of your company and personal contacts, giving you access to their
 phone, status and other information configured by the administrator.
 
-.. figure:: /cti_client/xlets/images/cti_client-people.png
+.. figure:: /cti_client/xlets/images/cti_client-people-actions.png
 
 #. Display results of the search
 #. Display favorite contacts
-#. Display personal contacts
-#. Filter/search contacts
-#. Contacts requested
-#. Call or transfer to the selected number
-#. View/call the mobile number by clicking on the arrow when the mouse is over the number
-#. Bookmark/unmark the contact
-#. Edit the personal contact
-#. Remove the personal contact
+#. Search contacts
+#. Call, transfer or chat with the selected contact
+#. Bookmark/unmark the contact as a favorite
+
+
+.. figure:: /cti_client/xlets/images/cti_client-people-personal.png
+
+#. View all personal contacts
+#. Edit or remove a personal contact
 #. Create a personal contact
 #. Import personal contacts from a CSV file
 #. Export personal contacts to a CSV file
 #. Delete all personal contacts
+
 
 .. figure:: /cti_client/xlets/images/cti_client-people-status.png
 
@@ -36,7 +38,7 @@ phone, status and other information configured by the administrator.
 #. Agent status (logged in or logged out)
 
 .. note:: Most information (e.g. columns displayed, allowed actions, searched directories,
-          etc.) is configurable through :ref:`xivo-dird`.
+          etc.) is configurable through the :ref:`web interface <directories>`.
 
 
 Importing contacts via CSV file

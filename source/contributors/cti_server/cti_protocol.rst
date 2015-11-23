@@ -11,6 +11,11 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+15.19
+-----
+
+* the :ref:`cti_protocol_chitchat` command `to` field is now a list of two elements, `xivo_uuid` and `user_id`.
+
 
 15.18
 -----
@@ -865,6 +870,8 @@ Send back a table of calls :
    }
 
 
+.. _cti_protocol_chitchat:
+
 Chitchat
 ^^^^^^^^
 
@@ -873,7 +880,7 @@ Chitchat
     {
        "class": "chitchat",
        "text": "message envoye",
-       "to": "<xivoid>/<userfeaturesid>",
+       "to": ["xivo_uuid", <user_id>],
        "commandid": <commandid>
     }
 
