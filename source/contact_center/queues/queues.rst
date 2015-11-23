@@ -90,15 +90,15 @@ answered by a queue member.
 Estimated Wait Time Overrun
 ---------------------------
 
-When this scenario is used, the administrator can set a destination for calls to be sent to when the average waiting time is over the threshold.
+When this scenario is used, the administrator can set a destination for calls to be sent to when the estimated waiting time is over the threshold.
+
+Note that if a new call arrives when there are no waiting calls in the queue, the call will **always** be allowed to enter the queue.
 
 .. note:: 
   
   * this *estimated* waiting time is computed from the **actual hold time** of all **answered** calls in the queue 
-    (since last asterisk restart) according to an `Exponential Smoothing formula <https://en.wikipedia.org/wiki/Exponential_smoothing>`_,
-  * the average waiting time of a queue is updated only when a queue member answers a call.
-
-If a new call arrives when there are no waiting calls, the call will always be allowed to enter the queue.
+    (since last asterisk restart) according to an `exponential smoothing formula <https://en.wikipedia.org/wiki/Exponential_smoothing>`_,
+  * the estimated waiting time of a queue is updated only when a queue member answers a call.
 
 
 .. _queue-diversion-waitratio:
