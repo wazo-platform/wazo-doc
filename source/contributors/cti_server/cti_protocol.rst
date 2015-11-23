@@ -20,6 +20,8 @@ Protocol Changelog
 15.18
 -----
 
+* add the :ref:`cti_protocol-attended_transfer_voicemail` command
+* add the :ref:`cti_protocol-blind_transfer_voicemail` command
 * the :ref:`cti_protocol_fax_send` command now include the size and data field.
 * the `filetransfer` command has been removed.
 
@@ -450,7 +452,7 @@ Queue members configuration
 
 
 Fax
------------
+---
 
 .. _cti_protocol_fax_send:
 
@@ -487,8 +489,8 @@ Fax status
    {"class": "fax_progress", "status": "SUCCESS", "pages": 2 }
 
 
-IPBX Commands
--------------
+Call control commands
+---------------------
 
 Dial
 ^^^^
@@ -587,6 +589,41 @@ For example:
        "replyid": 177773016,
        "timenow": 1395756534.64
    }
+
+
+.. _cti_protocol-attended_transfer_voicemail:
+
+Attended transfer to voicemail
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Transfer the current call to a given voicemail and listen to the message before
+completing the transfer.
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+    {
+        "class": "attended_transfer_voicemail",
+        "voicemail": "<voicemail number>"
+    }
+
+
+.. _cti_protocol-blind_transfer_voicemail:
+
+Blind transfer to voicemail
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Transfer the current call to a given voicemail.
+
+``Client -> Server``
+
+.. code-block:: javascript
+
+    {
+        "class": "blind_transfer_voicemail",
+        "voicemail": "<voicemail number>"
+    }
 
 
 Login
