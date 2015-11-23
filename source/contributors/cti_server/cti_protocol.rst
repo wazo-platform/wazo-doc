@@ -880,7 +880,7 @@ Chitchat
     {
        "class": "chitchat",
        "text": "message envoye",
-       "to": ["xivo_uuid", id],
+       "to": ["xivo_uuid", <user_id>],
        "commandid": <commandid>
     }
 
