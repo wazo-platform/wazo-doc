@@ -97,7 +97,7 @@ Note that if a new call arrives when there are no waiting calls in the queue, th
 .. note:: 
   
   * this *estimated* waiting time is computed from the **actual hold time** of all **answered** calls in the queue 
-    (since last asterisk restart) according to an `exponential smoothing formula <https://en.wikipedia.org/wiki/Exponential_smoothing>`_,
+    (since last asterisk restart) according to an `exponential smoothing formula <https://en.wikipedia.org/wiki/Exponential_smoothing>`_
   * the estimated waiting time of a queue is updated only when a queue member answers a call.
 
 
@@ -131,8 +131,8 @@ Here are a few examples::
     Number of waiting calls per logged-in agent when a new call arrives: 6 / 12 = 0.5
     Call will not be redirected
 
-If a new call arrives when there's no waiting calls, the call will always be allowed to enter the queue.
-For example, in the following scenario::
+Note that if a new call arrives when there are no waiting calls in the queue, the call will
+**always** be allowed to enter the queue.  For example, in the following scenario::
 
     Maximum number of waiting calls per logged-in agent: 0.5
     Current number of waiting calls: 0
