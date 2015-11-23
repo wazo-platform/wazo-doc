@@ -36,6 +36,7 @@ following keys are interpreted and displayed in xlet people of the XiVO Client:
       * replaced with a button to call the contact with your phone when using the mouse
 
    * ``personal``: the boolean field value will be used to show a deletion action for the contact
+   * ``voicemail``: the voicemail number of the contact
 
 
 .. _personal-contact-attributes:

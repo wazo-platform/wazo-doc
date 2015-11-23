@@ -7,6 +7,7 @@ xivo-dird changelog
 15.19
 =====
 
+* Added the ``voicemail`` type in :ref:`dird-integration-views` configuration
 * Removed reverse endpoints in REST API:
 
   * GET ``/0.1/directories/reverse/<profile>/me``
