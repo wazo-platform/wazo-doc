@@ -38,7 +38,7 @@ phone, status and other information configured by the administrator.
 #. Agent status (logged in or logged out)
 
 .. note:: Most information (e.g. columns displayed, allowed actions, searched directories,
-          etc.) is configurable through :ref:`xivo-dird`.
+          etc.) is configurable through the :ref:`web interface <directories>`.
 
 
 Importing contacts via CSV file
