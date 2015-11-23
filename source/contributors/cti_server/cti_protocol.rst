@@ -915,8 +915,6 @@ keepalive
 
 availstate
 
-filetransfer
-
 getipbxlist
 
 .. code-block:: javascript
