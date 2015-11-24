@@ -40,7 +40,7 @@ Upgrade from an archive to the latest version
 Archive version < 13.25::
 
    apt-get update
-   apt-get install {xivo-fai,xivo-fai-skaro}/squeeze-xivo-skaro-$(cat /usr/share/xivo/XIVO-VERSION)
+   apt-get install {xivo-fai,xivo-fai-skaro}/squeeze-xivo-skaro-$(cat /usr/share/pf-xivo/XIVO-VERSION)
    xivo-upgrade
 
 .. We need the old xivo-fai (squeeze), because the new xivo-fai (xivo-five) conflicts with
