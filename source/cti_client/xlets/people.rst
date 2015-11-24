@@ -17,8 +17,12 @@ phone, status and other information configured by the administrator.
 #. Display results of the search
 #. Display favorite contacts
 #. Search contacts
-#. Call, transfer or chat with the selected contact
+#. Call a contact
+#. Transfer a call to a contact
+#. Transfer a call to a contact's voicemail
 #. Bookmark/unmark the contact as a favorite
+#. Chat with a contact
+#. Send an email to a contact
 
 
 .. figure:: /cti_client/xlets/images/cti_client-people-personal.png
