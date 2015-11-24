@@ -4,6 +4,14 @@
 xivo-dird changelog
 *******************
 
+15.19
+=====
+
+* Removed reverse endpoints in REST API:
+
+  * GET ``/0.1/directories/reverse/<profile>/me``
+
+
 15.18
 =====
 
