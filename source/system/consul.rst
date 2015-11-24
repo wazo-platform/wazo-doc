@@ -60,14 +60,14 @@ For a 32 bits system
 
 .. code-block:: sh
 
-   wget --no-check-certificate https://dl.bintray.com/mitchellh/consul/0.5.2_linux_386.zip
+   wget --no-check-certificate https://releases.hashicorp.com/consul/0.5.2/consul_0.5.2_linux_386.zip
 
 
 For a 64 bits system
 
 .. code-block:: sh
 
-   wget --no-check-certificate https://dl.bintray.com/mitchellh/consul/0.5.2_linux_amd64.zip
+   wget --no-check-certificate https://releases.hashicorp.com/consul/0.5.2/consul_0.5.2_linux_amd64.zip
 
 
 Installing Consul
@@ -75,7 +75,7 @@ Installing Consul
 
 .. code-block:: sh
 
-   unzip unzip 0.5.2_linux_386.zip
+   unzip consul_0.5.2_linux_386.zip
    mv consul /usr/bin/consul
    mkdir -p /etc/consul/xivo
    mkdir -p /var/lib/consul
@@ -90,46 +90,58 @@ Installing Consul
 Copying the consul configuration from the XiVO to a new host
 ------------------------------------------------------------
 
+Backup your consul server and copy data.
+
+Please modify your config.json to listen bind_addr and client_add to 0.0.0.0 and
+advertise_addr to your ip address.
+
 .. code-block:: sh
 
-   mkdir -p /tmp/consul/{var/lib/consul,etc/consul/xivo,etc/init.d}
-   cd /tmp/consul
-   scp <xivo-host>:/etc/init.d/consul ./etc/init.d
-   scp -r <xivo-host>:/etc/consul ./etc
-   scp -r <xivo-host>:/var/lib/consul ./var/lib
-   scp -r . <consul-host>:/
-   # On the remote consul host
+   # on the xivo
+   xivo-backup-consul-kv -o /tmp/consul-kv.json
+   # on the consul host
+   scp root@<xivo-host>:/etc/init.d/consul /etc/init.d
+   scp -r root@<xivo-host>:/etc/consul /etc
+   scp -r root@<xivo-host>:/usr/share/xivo-certs /usr/share
    chown -R consul:consul /etc/consul
+   mkdir /var/lib/consul
    chown -R consul:consul /var/lib/consul
-   rm -rf /var/lib/consul/raft
-   service consul start
+   consul agent --data-dir /var/lib/consul --config-dir /etc/consul
+   # on the xivo
+   xivo-restore-consul-kv -H <consul-host> --verify false -i /tmp/consul-kv.json
 
 
 Adding the agent configuration
 ------------------------------
 
-Create the file :file:`/etc/consul/xivo/agent/config.json` with the following content
+Create the file :file:`/etc/consul/agent/config.json` with the following content
 
 .. code-block:: javascript
 
-   {
-       "node_name": "<node name>",
-       "datacenter": "xivo",
-       "acl_datacenter": "xivo",
-       "client_addr": "0.0.0.0",
-       "server": false,
-       "bootstrap": false,
-       "data_dir": "/var/lib/consul",
-       "enable_debug": true,
-       "log_level": "debug",
-       "enable_syslog": true,
-       "retry_join": [
-           "<remote host>"
-       ],
-       "retry_interval": "5s",
-       "disable_update_check": true
-   }
-
+    {
+        "acl_datacenter": "<node_name>",
+        "datacenter": "xivo",
+        "server": false,
+        "bind_addr": "0.0.0.0",
+        "advertise_addr": "<xivo_address>",
+        "client_addr": "127.0.0.1",
+        "bootstrap": false,
+        "rejoin_after_leave": true,
+        "data_dir": "/var/lib/consul",
+        "enable_syslog": true,
+        "disable_update_check": true,
+        "log_level": "INFO",
+        "ports": {
+            "dns": -1,
+            "http": -1,
+            "https": 8500
+        },
+        "retry_join": [
+            "<remote_host>"
+        ],
+        "cert_file": "/usr/share/xivo-certs/server.crt",
+        "key_file": "/usr/share/xivo-certs/server.key"
+    }
 
 The *node_name* field is an arbitrary name to give this node, ``xivo-paris`` for example.
 
@@ -145,7 +157,9 @@ Add or modify :file:`/etc/default/consul` to include the following lines
 
 .. code-block:: sh
 
-   CONFIG_DIR="/etc/consul/xivo/agent"
+   CONFIG_DIR="/etc/consul/agent"
+
+Restart your consul server.
 
 
 Update the consul section of xivo-ctid
@@ -155,9 +169,13 @@ Add a file in :file:`/etc/xivo-ctid/conf.d/remote_consul.yml` with the following
 
 .. code-block:: yaml
 
-   consul:
-       advertise_address: <hostname to reach xivo-ctid>
-       check_url: <the check URL to use to query xivo-ctid from consul>
+    rest_api:
+      http:
+        listen: 0.0.0.0
+
+    service_discovery:
+      advertise_address: <hostname to reach xivo-ctid>
+      check_url: <the check URL to use to query xivo-ctid from consul>
 
 
 Restoring the consul backup
