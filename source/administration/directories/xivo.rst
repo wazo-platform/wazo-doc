@@ -10,6 +10,7 @@ already configured. The URI field for this type of directory should be the base 
 
 This directory type matches the :ref:`dird-backend-xivo` backend in `xivo-dird`.
 
+
 Available fields
 ================
 
@@ -20,6 +21,8 @@ Available fields
 * mobile_phone_number
 * userfield
 * description
+* voicemail_number
+
 
 Example
 =======
