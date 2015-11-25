@@ -26,22 +26,7 @@ API reference
 .. toctree::
    :maxdepth: 2
 
-   agent_queue
-   call_logs
-   configuration
-   cti_profile
-   devices
-   extensions
    func_keys
-   lines
-   line_extensions
-   Line Extension Association ***DEPRECATED*** <line_extension>
-   infos
-   users
-   user_cti
-   user_line
-   voicemails
-   voicemail_links
 
 
 Migration from 1.0
