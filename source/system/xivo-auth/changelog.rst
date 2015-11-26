@@ -4,6 +4,12 @@
 xivo-auth changelog
 *******************
 
+15.19
+=====
+
+* POST ``/0.1/token`` do not accept anymore argument ``backend_args``
+
+
 15.17
 =====
 
