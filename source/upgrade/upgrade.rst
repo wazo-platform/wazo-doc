@@ -144,6 +144,14 @@ Consult the `15.19 Roadmap <https://projects.xivo.io/versions/236>`_
 
 * The sound file :file:`/usr/share/asterisk/sounds/fr_FR/une.wav` has been moved to
   :file:`/usr/share/asterisk/sounds/fr_FR/digits/1F.wav`.
+* If you would like to use the new `"transfer to voicemail" feature <http://projects.xivo.io/issues/5905>`_
+  from the People Xlet, you'll need to update your directory definition and your directory display, i.e.:
+
+  * edit your "internal" directory definition (Services / CTI server / Directories / Definitions)
+    and add a field "voicemail" with value "voicemail_number"
+  * edit your display (Services / CTI server / Directories / Display filters) and add a row with title
+    "Voicemail", field type "voicemail" and field name "voicemail"
+  * restart xivo-dird
 
 
 15.18
