@@ -83,9 +83,6 @@ To enable reverse lookup, you need to add an entry in :guilabel:`Mapped fields`:
 * :guilabel:`Value`: the header of your data source that you want to see as the caller ID on your
   phone on incoming calls
 
-.. warning:: The :guilabel:`Value` can *only* specify one column to use, no modification or extra
-             columns are allowed.
-
 
 Example
 ^^^^^^^
@@ -202,11 +199,8 @@ To include a directory in reverse directory definition:
 Applying changes
 ================
 
-Reload the directory configuration for XiVO Client and phone lookups, use ONE of these methods:
+Reload the directory configuration for XiVO Client, phone lookups and reverse lookups, use ONE of
+these methods:
 
 * :menuselection:`Services --> CTI Server --> Control --> Restart Dird server`
 * console ``service xivo-dird restart``
-
-Reload the directory configuration for reverse lookups:
-
-* console ``service xivo-agid restart``
