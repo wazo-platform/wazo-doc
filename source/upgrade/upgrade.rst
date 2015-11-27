@@ -152,6 +152,7 @@ Consult the `15.19 Roadmap <https://projects.xivo.io/versions/236>`_
   * edit your display (Services / CTI server / Directories / Display filters) and add a row with title
     "Voicemail", field type "voicemail" and field name "voicemail"
   * restart xivo-dird
+* The *contact* xlet has been remove in favor of the :ref:`people-xlet`
 
 
 15.18
