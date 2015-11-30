@@ -153,6 +153,11 @@ Consult the `15.19 Roadmap <https://projects.xivo.io/versions/236>`_
     "Voicemail", field type "voicemail" and field name "voicemail"
   * restart xivo-dird
 
+* The *Contacts* xlet (aka. *Search*) has been removed in favor of the :ref:`people-xlet`. You may
+  need to do some manual configuration in the directories for the People Xlet to be fully
+  functional. See :ref:`the upgrade notes for 15.15 about directories <upgrade_notes_15_15>` for
+  more details.
+
 
 15.18
 -----
@@ -249,6 +254,8 @@ Consult the `15.16 Roadmap <https://projects.xivo.io/versions/232>`_
   unofficial back ends must be adapted and updated. No action is required for "normal" installations.
 * Voicemails can now be deleted even if they are associated to a user.
 
+
+.. _upgrade_notes_15_15:
 
 15.15
 -----

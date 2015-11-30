@@ -62,7 +62,6 @@ Xlets are features of the XiVO Client. It is the contraction of XiVO applets.
    :maxdepth: 1
 
    Conference xlet <xlets/conference>
-   Contact xlet <xlets/contact>
    Directory xlet <xlets/directory>
    Fax xlet <xlets/fax>
    History xlet <xlets/history>
