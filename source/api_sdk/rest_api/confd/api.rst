@@ -23,6 +23,8 @@ XiVO confd API
 API reference
 =============
 
+Most of the reference is available on http://api.xivo.io.
+
 .. toctree::
    :maxdepth: 2
 
