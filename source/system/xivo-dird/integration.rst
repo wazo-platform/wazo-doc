@@ -12,7 +12,7 @@ Configuration values
 Views
 -----
 
-In the :ref:`main configuration file <dird-configuration-file>` of xivo-dird in the ``views`` section, the
+In the directory displays (also in the :ref:`main configuration file <dird-configuration-file>` of xivo-dird, in the ``views`` section), the
 following keys are interpreted and displayed in xlet people of the XiVO Client:
 
 ``title``

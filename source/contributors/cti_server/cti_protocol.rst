@@ -16,7 +16,7 @@ Protocol Changelog
 
 * the :ref:`cti_protocol_chitchat` command `to` field is now a list of two elements, `xivo_uuid` and `user_id`.
 * the ``getlist`` command has been removed for the *channels* listname.
-* many fields have been remove from the ``getlist`` command.
+* many fields have been removed from the ``getlist`` command.
 
   * users list
 
