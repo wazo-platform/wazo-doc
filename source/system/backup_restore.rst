@@ -145,6 +145,8 @@ issuing the following commands::
    xivo-backup data /var/tmp/data-manual
 
 
+.. _consul_backup:
+
 Consul
 ------
 
@@ -251,6 +253,9 @@ Drop the asterisk_previous database::
    hostname, network interfaces, etc. You will need to reapply the network
    configuration if you restore the data.tgz file.
 
+
+
+.. _restoring_consul:
 
 Restoring Consul KV
 ===================

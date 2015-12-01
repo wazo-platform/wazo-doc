@@ -52,6 +52,7 @@ To be in accordance with our goal, a XiVO daemon must (if applicable):
 * Be extendable through the use of plugins
 * Not run with system privileges
 * Be installable from source
+* Service discovery with consul
 
 Currently, none of the XiVO daemons meet these expectations; it is a work in progress.
 
