@@ -36,23 +36,6 @@ as an agent only.
 
 To get this kind of setup up and running, you will need to follow the following steps.
 
-* Backup your consul key/value if doing a migration
-* Download the consul binary from https://releases.hashicorp.com/consul/0.5.2/consul_0.5.2_linux_386.zip
-* Install consul
-* Copy the consul configuration from your XiVO to the new host
-* Restart consul on the remote host *service consul restart*
-* Add an agent configuration on the XiVO
-* Enable the agent configuration in :file:`/etc/default/consul`
-* Restart consul on the XiVO: ``service consul restart``
-* Restore the consul backup on the remove consul host
-
-
-Saving the Consul Key/Value
----------------------------
-
-See the backup procedure :ref:`here <consul_backup>`.
-
-
 Downloading Consul
 ------------------
 
@@ -70,12 +53,21 @@ For a 64 bits system
    wget --no-check-certificate https://releases.hashicorp.com/consul/0.5.2/consul_0.5.2_linux_amd64.zip
 
 
-Installing Consul
------------------
+Installing Consul on a new host
+-------------------------------
 
 .. code-block:: sh
 
    unzip consul_0.5.2_linux_386.zip
+
+Or
+
+.. code-block:: sh
+
+   unzip consul_0.5.2_linux_amid64.zip
+
+.. code-block:: sh
+
    mv consul /usr/bin/consul
    mkdir -p /etc/consul/xivo
    mkdir -p /var/lib/consul
@@ -92,8 +84,13 @@ Copying the consul configuration from the XiVO to a new host
 
 Backup your consul server and copy data.
 
-On the new consul host, please modify your config.json to listen bind_addr and client_add to 0.0.0.0 and
-advertise_addr to your ip address.
+On the new consul host, modify :file:`/etc/consul/xivo/config.json` to include to following lines.
+
+.. code-block:: javascript
+
+   "bind_addr": "0.0.0.0",
+   "client_addr": "0.0.0.0",
+   "advertise_addr": "<consul-host>"
 
 .. code-block:: sh
 
@@ -107,6 +104,9 @@ advertise_addr to your ip address.
    # on the xivo
    xivo-restore-consul-kv -H <consul-host> --verify false -i /tmp/consul-kv.json
 
+.. note:: To start consul with init.d script, you may need to change owner and group (consul:consul)
+          for all files inside :file:`/etc/consul`, :file:`/usr/share/xivo-certs` and
+          :file:`/var/lib/consul`
 
 Adding the agent configuration
 ------------------------------
@@ -140,17 +140,22 @@ Create the file :file:`/etc/consul/agent/config.json` with the following content
         "key_file": "/usr/share/xivo-certs/server.key"
     }
 
-The *node_name* field is an arbitrary name to give this node, ``xivo-paris`` for example.
+* ``node_name``: Arbitrary name to give this node, ``xivo-paris`` for example.
+* ``remote_host``: IP address of your new consul. Be sure the host is accessible from your XiVO and
+  check the firewall. See the documentation :ref:`here <network>`.
+* ``xivo_address``: IP address of your xivo.
 
-The *remote_host* field need to be the ip address of your new consul.
-Be sure the host is accessible from your XiVO and check the firewall.
-See the documentation :ref:`here <network>`.
+This file should be owned by consul user.
+
+.. code-block:: sh
+
+  chown -R consul:consul /etc/consul/agent
 
 
 Enabling the agent configuration
 --------------------------------
 
-Add or modify :file:`/etc/default/consul` to include the following lines
+Add or modify :file:`/etc/default/consul` to include the following line
 
 .. code-block:: sh
 
@@ -158,9 +163,13 @@ Add or modify :file:`/etc/default/consul` to include the following lines
 
 Restart your consul server.
 
+.. code-block:: sh
 
-Update the consul section of xivo-ctid
---------------------------------------
+   service consul restart
+
+
+Updating the consul section of xivo-ctid
+----------------------------------------
 
 Add a file in :file:`/etc/xivo-ctid/conf.d/remote_consul.yml` with the following content
 
@@ -171,11 +180,8 @@ Add a file in :file:`/etc/xivo-ctid/conf.d/remote_consul.yml` with the following
         listen: 0.0.0.0
 
     service_discovery:
-      advertise_address: <hostname to reach xivo-ctid>
-      check_url: <the check URL to use to query xivo-ctid from consul>
+      advertise_address: <xivo-ctid-host>
+      check_url: http://<xivo-ctid-host>:9495/0.1/infos
 
+* ``xivo-ctid-host``: Hostname to reach xivo-ctid
 
-Restoring the consul backup
----------------------------
-
-See the documentation :ref:`here <restoring_consul>`.
