@@ -92,7 +92,7 @@ Copying the consul configuration from the XiVO to a new host
 
 Backup your consul server and copy data.
 
-Please modify your config.json to listen bind_addr and client_add to 0.0.0.0 and
+On the new consul host, please modify your config.json to listen bind_addr and client_add to 0.0.0.0 and
 advertise_addr to your ip address.
 
 .. code-block:: sh
@@ -103,10 +103,7 @@ advertise_addr to your ip address.
    scp root@<xivo-host>:/etc/init.d/consul /etc/init.d
    scp -r root@<xivo-host>:/etc/consul /etc
    scp -r root@<xivo-host>:/usr/share/xivo-certs /usr/share
-   chown -R consul:consul /etc/consul
-   mkdir /var/lib/consul
-   chown -R consul:consul /var/lib/consul
-   consul agent --data-dir /var/lib/consul --config-dir /etc/consul
+   consul agent --data-dir /var/lib/consul --config-dir /etc/consul/xivo/
    # on the xivo
    xivo-restore-consul-kv -H <consul-host> --verify false -i /tmp/consul-kv.json
 
