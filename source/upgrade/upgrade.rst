@@ -158,6 +158,8 @@ Consult the `15.19 Roadmap <https://projects.xivo.io/versions/236>`_
   functional. See :ref:`the upgrade notes for 15.15 about directories <upgrade_notes_15_15>` for
   more details.
 * It is now possible to enable :ref:`dird-context-separation` in *xivo-dird*.
+* xivo-agentd now uses mandatory token authentication for its REST API. If you have custom
+  development using this service, update your program accordingly.
 
 
 15.18
