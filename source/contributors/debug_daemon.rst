@@ -106,7 +106,7 @@ consul
 
 ::
 
-   sudo -u consul /usr/bin/consul agent -server -config-dir /etc/consul/xivo -pid-file /var/run/consul/consul.pid
+   sudo -u consul /usr/bin/consul agent -config-dir /etc/consul/xivo -pid-file /var/run/consul/consul.pid
 
 There is no log file, but you can consult the output of consul with::
 
