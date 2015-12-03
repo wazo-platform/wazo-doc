@@ -158,8 +158,8 @@ If you have Aastra phones and are using the remote directory on them, consult th
 -----
 
 * Consult the `14.11 Roadmap <https://projects.xivo.io/versions/202>`_
-* The API URL :ref:`/lines/\<id\>/extension <line-extension-association>` is now deprecated. Use
-  :ref:`/lines/\<id\>/extensions <line-extension-associations>` instead.
+* The API URL ``/lines/\<id\>/extension`` is now deprecated. Use ``/lines/\<id\>/extensions``
+  instead.
 
 
 14.10
@@ -370,7 +370,7 @@ Please consult the following detailed upgrade notes for more information:
 
 * Consult the `13.17 Roadmap <https://projects.xivo.io/versions/183>`_
 * There is a major change to call logs. They are no longer available as a web report but only as a csv export. See the :ref:`call logs documentation <call_logs>`.
-  Furthermore, call logs are now fetched with the new REST API. See :ref:`confd-call-logs`.
+  Furthermore, call logs are now fetched from xivo-confd REST API.
 * Paging group numbers are now exclusively numeric. All non-numeric paging group numbers are converted to their numeric-only equivalent
   while upgrading to XiVO 13.17 ( \*58 becomes 58, for example).
 
@@ -389,9 +389,7 @@ Please consult the following detailed upgrade notes for more information:
   exist in CEL for calls passed after upgrading to XiVO 13.16.
 * The new REST API now makes possible to associate multiple user to a given line and/or
   extension. There are currently some limitations on how those users and lines can be manipulated
-  using the web interface. Please read the :ref:`REST API 1.1 documentation <confd-api>` and more
-  precisely the :ref:`Associate Line to User <user-line-association>` section for more
-  information.
+  using the web interface.
 
 
 13.15
