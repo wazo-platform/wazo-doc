@@ -158,7 +158,7 @@ If you have Aastra phones and are using the remote directory on them, consult th
 -----
 
 * Consult the `14.11 Roadmap <https://projects.xivo.io/versions/202>`_
-* The API URL ``/lines/\<id\>/extension`` is now deprecated. Use ``/lines/\<id\>/extensions``
+* The API URL ``/lines/<id>/extension`` is now deprecated. Use ``/lines/<id>/extensions``
   instead.
 
 
