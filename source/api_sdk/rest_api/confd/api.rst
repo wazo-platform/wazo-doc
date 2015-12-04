@@ -23,12 +23,14 @@ XiVO confd API
 API reference
 =============
 
-Most of the reference is available on http://api.xivo.io.
+API documentation is available on http://api.xivo.io. This section
+contains extended documentation for certain aspects of the API.
 
 .. toctree::
    :maxdepth: 2
 
    func_keys
+   user_import
 
 
 Migration from 1.0
