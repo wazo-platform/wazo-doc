@@ -38,6 +38,8 @@ following keys are interpreted and displayed in xlet people of the XiVO Client:
    * ``personal``: the boolean field value will be used to show a deletion action for the contact
    * ``voicemail``: the voicemail number of the contact
 
+See :ref:`15_19_people_xlet_upgrade_notes` for an example with screenshots.
+
 
 .. _personal-contact-attributes:
 
