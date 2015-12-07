@@ -44,7 +44,7 @@ following keys are interpreted and displayed in xlet people of the XiVO Client:
 Personal contacts
 -----------------
 
-Here are the list of available attributes of a private contact:
+Here are the list of available attributes of a personal contact:
 
 * ``id``
 * ``company``
@@ -54,6 +54,18 @@ Here are the list of available attributes of a private contact:
 * ``lastname``
 * ``mobile``
 * ``number``
+
+
+To be able to edit and delete personal contacts, you need a column of type `personal` in your display.
+
+Adding the `personal` column to your display
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the web interface under :menuselection:`Services --> CTI Server --> Directories --> Display filters`.
+
+#. Edit the filter on which you which to enable favorites.
+#. Add a column with the type `personal` and display format `personal`.
+
 
 
 Favorites
@@ -88,20 +100,6 @@ In the web interface under :menuselection:`Services --> CTI Server --> Directori
 
 #. Edit the filter on which you which to enable favorites.
 #. Add a column with the type `favorite` and display format `favorite`.
-
-
-Personal contacts
------------------
-
-To be able to edit and delete personal contacts, you need a column of type `personal` in your display.
-
-Adding the `personal` column to your display
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-In the web interface under :menuselection:`Services --> CTI Server --> Directories --> Display filters`.
-
-#. Edit the filter on which you which to enable favorites.
-#. Add a column with the type `personal` and display format `personal`.
 
 
 Customizing sources
