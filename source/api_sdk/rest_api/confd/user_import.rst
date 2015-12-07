@@ -28,8 +28,7 @@ CSV Data
 
  * Only data encoded as UTF-8 will be accepted
  * The pipe delimiter (``|``) has been replaced by a comma (``,``)
- * Double-quotes (``"``) must be escaped by writing them twice (e.g ``"`` becomes ``""``)
- * Lines may be seperated by ``\r\n``, however only ``\n`` is recommended
+ * Double-quotes (``"``) must be escaped by writing them twice (e.g ``Robert ""Bob"" Jenkins``)
 
 
 Field names
