@@ -65,6 +65,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/xivo-confd/`
 * :file:`/etc/xivo-confgend-client/`
 * :file:`/etc/xivo-ctid/`
+* :file:`/etc/xivo-ctid-ng/`
 * :file:`/etc/xivo-dird/`
 * :file:`/etc/xivo-dird-phoned/`
 * :file:`/etc/xivo-dxtora/`
@@ -74,7 +75,6 @@ Here is the list of folders and files that are backed-up:
 * :file:`/usr/share/xivo/XIVO-VERSION`
 * :file:`/var/lib/asterisk/`
 * :file:`/var/lib/consul/`
-* :file:`/var/lib/xivo-manage-tokens/`
 * :file:`/var/lib/xivo-provd/`
 * :file:`/var/lib/xivo/`
 * :file:`/var/log/asterisk/`
@@ -145,6 +145,8 @@ issuing the following commands::
 
    xivo-backup data /var/tmp/data-manual
 
+
+.. _consul_backup:
 
 Consul
 ------
@@ -252,6 +254,9 @@ Drop the asterisk_previous database::
    hostname, network interfaces, etc. You will need to reapply the network
    configuration if you restore the data.tgz file.
 
+
+
+.. _restoring_consul:
 
 Restoring Consul KV
 ===================

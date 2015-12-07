@@ -11,10 +11,50 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+15.19
+-----
+
+* the :ref:`cti_protocol_chitchat` command `to` field is now a list of two elements, `xivo_uuid` and `user_id`.
+* the ``getlist`` command has been removed for the *channels* listname.
+* many fields have been removed from the ``getlist`` command.
+
+  * users list
+
+    * enableclient
+    * profileclient
+
+  * phones
+
+    * context
+    * protocol
+    * simultcalls
+    * channels
+
+  * voicemails
+
+    * email
+    * fullname
+    * old
+    * waiting
+
+  * agents
+
+    * phonenumber
+
+* some ipbxcommands have been removed:
+
+  * mailboxcount
+  * atxfer
+  * transfer
+  * hangup
+  * originate
+
 
 15.18
 -----
 
+* add the :ref:`cti_protocol-attended_transfer_voicemail` command
+* add the :ref:`cti_protocol-blind_transfer_voicemail` command
 * the :ref:`cti_protocol_fax_send` command now include the size and data field.
 * the `filetransfer` command has been removed.
 
@@ -180,20 +220,32 @@ agentphonenumber is the physical phone set where the agent is going to log on.
 
 .. code-block:: javascript
 
-   {"function": "updateconfig", "listname": "queuemembers", "tipbxid": "xivo",
-      "timenow": 1362664323.94, "tid": "Agent/2002,blue",
-      "config": {"paused": "0", "penalty": "0", "membership": "static", "status": "1", "lastcall": "",
-                  "interface": "Agent/2002", "queue_name": "blue", "callstaken": "0"},
-    "class": "getlist"
-      }
+   {"function": "updateconfig",
+    "listname": "queuemembers",
+    "tipbxid": "xivo",
+    "timenow": 1362664323.94,
+    "tid": "Agent/2002,blue",
+    "config": {"paused": "0",
+               "penalty": "0",
+               "membership": "static",
+               "status": "1",
+               "lastcall": "",
+               "interface": "Agent/2002",
+               "queue_name": "blue",
+               "callstaken": "0"},
+    "class": "getlist"}
 
-   {"function": "updatestatus", "listname": "agents", "tipbxid": "xivo",
-      "timenow": 1362664323.94,
-      "status": {"availability_since": 1362664323.94,
-                  "queues": [], "phonenumber": "1001", "on_call": false, "groups": [],
-                  "availability": "available", "channel": null},
-      "tid": 7, "class": "getlist"
-         }
+   {"function": "updatestatus",
+    "listname": "agents",
+    "tipbxid": "xivo",
+    "timenow": 1362664323.94,
+    "status": {"availability_since": 1362664323.94,
+               "queues": [],
+               "on_call": false,
+               "availability": "available",
+               "channel": null},
+      "tid": 7,
+      "class": "getlist"}
 
 
 * The phone number is already used by an other agent :
@@ -201,6 +253,7 @@ agentphonenumber is the physical phone set where the agent is going to log on.
 .. code-block:: javascript
 
    {"class": "ipbxcommand", "error_string": "agent_login_exten_in_use", "timenow": 1362664158.14}
+
 
 Logout agent
 ^^^^^^^^^^^^
@@ -339,7 +392,7 @@ Return a user configuration
       "config": {
             "enablednd": 0, "destrna": "", "enablerna": 0,  "enableunc": 0, "destunc": "", "destbusy": "", "enablebusy": 0, "enablexfer": 1,
             "firstname": "Alice",  "lastname": "Bouzat", "fullname": "Alice Bouzat",
-            "voicemailid": null, "incallfilter": 0,  "enablevoicemail": 0,   "profileclient": null, "agentid": 2, "enableclient": 1, "linelist": ["7"], "mobilephonenumber": ""}
+            "voicemailid": null, "incallfilter": 0,  "enablevoicemail": 0,   "agentid": 2, "linelist": ["7"], "mobilephonenumber": ""}
        }
 
 
@@ -370,8 +423,8 @@ Individual phone configuration request:
 .. code-block:: javascript
 
    {"class": "getlist",
-      "config": {"allowtransfer": null, "context": "default", "identity": "SIP/ihvbur", "iduserfeatures": 1,
-                     "initialized": null, "number": "1000", "protocol": "sip"},
+      "config": {"allowtransfer": null, "identity": "SIP/ihvbur", "iduserfeatures": 1,
+                     "initialized": null, "number": "1000"},
       "function": "updateconfig", "listname": "phones", "tid": "3", "timenow": 1364994093.43, "tipbxid": "xivo"}
 
 Agents configuration
@@ -417,6 +470,7 @@ tid is the id returned in the list field of the getlist response message
          {"displayname": "red", "name": "red", "context": "default", "number": "3002"},
     "class": "getlist"}
 
+
 Voicemails configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^
 ``Client -> Server``
@@ -424,6 +478,7 @@ Voicemails configuration
 .. code-block:: javascript
 
    {"class": "getlist", "commandid": 1034160761, "function": "listid", "listname": "voicemails", "tipbxid": "xivo"}
+
 
 Queue members configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -445,7 +500,7 @@ Queue members configuration
 
 
 Fax
------------
+---
 
 .. _cti_protocol_fax_send:
 
@@ -482,8 +537,8 @@ Fax status
    {"class": "fax_progress", "status": "SUCCESS", "pages": 2 }
 
 
-IPBX Commands
--------------
+Call control commands
+---------------------
 
 Dial
 ^^^^
@@ -527,61 +582,40 @@ The server will answer with either an error or a success:
         "exten": "1202"
     }
 
-Originate
-^^^^^^^^^
 
-Same message than the dial_ message with a source fied. The source field is ``user:xivo/<userid``,
-userid is replaced by a user identifer returned by the message getting `Users configuration`_ list
+.. _cti_protocol-attended_transfer_voicemail:
 
-Example:
+Attended transfer to voicemail
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: javascript
-
-    {
-        "class": "ipbxcommand",
-        "command": "originate",
-        "commandid": 1683305913,
-        "source":"user:xivo/34",
-        "destination": "exten:xivo/1202"
-    }
-
-
-Hangup
-^^^^^^
+Transfer the current call to a given voicemail and listen to the message before
+completing the transfer.
 
 ``Client -> Server``
 
 .. code-block:: javascript
 
-   {
-       "class": "ipbxcommand",
-       "command": "hangup",
-       "channelids": "chan:xivo/<channel_id>",
-       "commandid": <command_id>
-   }
+    {
+        "class": "attended_transfer_voicemail",
+        "voicemail": "<voicemail number>"
+    }
 
-For example:
 
-.. code-block:: javascript
+.. _cti_protocol-blind_transfer_voicemail:
 
-   {
-       "class": "ipbxcommand",
-       "command": "hangup",
-       "channelids": "chan:xivo/SIP/im2p7kzr-00000003",
-       "commandid": 177773016
-   }
+Blind transfer to voicemail
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``Server -> Client``
+Transfer the current call to a given voicemail.
+
+``Client -> Server``
 
 .. code-block:: javascript
 
-   {
-       "class": "ipbxcommand",
-       "command": "hangup",
-       "ipbxreply": 1,
-       "replyid": 177773016,
-       "timenow": 1395756534.64
-   }
+    {
+        "class": "blind_transfer_voicemail",
+        "voicemail": "<voicemail number>"
+    }
 
 
 Login
@@ -865,6 +899,8 @@ Send back a table of calls :
    }
 
 
+.. _cti_protocol_chitchat:
+
 Chitchat
 ^^^^^^^^
 
@@ -873,7 +909,7 @@ Chitchat
     {
        "class": "chitchat",
        "text": "message envoye",
-       "to": "<xivoid>/<userfeaturesid>",
+       "to": ["xivo_uuid", <user_id>],
        "commandid": <commandid>
     }
 
@@ -915,8 +951,6 @@ keepalive
 
 availstate
 
-filetransfer
-
 getipbxlist
 
 .. code-block:: javascript
@@ -924,18 +958,6 @@ getipbxlist
     {
         "class": "getipbxlist",
         "commandid": <commandid>
-    }
-
-ipbxcommand
-
-.. code-block:: javascript
-
-    {
-       "class": "ipbxcommand",
-       "command": "originate",
-       "commandid": <commandid>,
-       "destination": "user:special:myvoicemail",
-       "source": "user:special:me"
     }
 
 
@@ -1610,9 +1632,14 @@ Phone status
 
 .. code-block:: javascript
 
-   {"class": "getlist", "function": "updatestatus", "listname": "phones",
-      "status": {"channels": [], "groups": [], "hintstatus": "0", "queues": []},
-      "tid": "1", "timenow": 1364994093.48, "tipbxid": "xivo"}
+   {"class": "getlist",
+    "function": "updatestatus",
+    "listname": "phones",
+    "status": {"hintstatus": "0"},
+    "tid": "1",
+    "timenow": 1364994093.48,
+    "tipbxid": "xivo"}
+
 
 Queue status
 ^^^^^^^^^^^^
@@ -1775,40 +1802,8 @@ Example of phone messages received when a phone is ringing :
 
 .. code-block:: javascript
 
-   { ... "status": {"channels": ["SIP/x2gjtw-0000000b"]}, "tid": "3",}
-   {.... "status": {"channels": ["SIP/x2gjtw-0000000b"], "queues": [], "hintstatus": "0", "groups": []}, "tid": "3"}
+   {.... "status": {"hintstatus": "0"}, "tid": "3"}
    {.... "status": {"hintstatus": "8"}, "tid": "3"}
-
-channel status update
-^^^^^^^^^^^^^^^^^^^^^
-* class : getlist
-* function : updatestatus
-* listname : channels
-* status
-
-  * state : (Down, Ring, Unknown ...)
-  * commstatus : (ready, calling, ringing ...)
-
-.. code-block:: javascript
-
-   {
-      "class": "getlist",
-      "function": "updatestatus",
-      "listname": "channels",
-      "tipbxid": "xivo",
-      "timenow": 1361447017.29,
-      .........
-   }
-
-Example of phone messages received when a phone is ringing :
-
-.. code-block:: javascript
-
-   {"status": {"timestamp": 1361447017.22, "holded": false, "commstatus": "ready", "parked": false, "state": "Down"}, "tid": "SIP/barometrix_jyldev-0000000a"}
-   {"status": {"timestamp": 1361447017.29, "holded": false, "commstatus": "ready", "parked": false, "state": "Unknown"}, "tid": "SIP/x2gjtw-0000000b"}
-   {"status": {"timestamp": 1361447017.29, "holded": false, "state": "Ring", "parked": false, "commstatus": "calling"}, "tid": "SIP/barometrix_jyldev-0000000a", "class": "getlist"}
-   {"status": {"timestamp": 1361447017.29, "holded": false, "state": "Down", "parked": false, "commstatus": "ringing"}, "tid": "SIP/x2gjtw-0000000b", "class": "getlist"}
-
 
 
 Update notification

@@ -7,6 +7,13 @@ You can view the API documentation at http://api.xivo.io.
 Changelog
 =========
 
+15.19
+-----
+
+* Token authentication is now required for all routes, i.e. it is not possible to interact with
+  xivo-agentd without a xivo-auth authentication token.
+
+
 15.18
 -----
 

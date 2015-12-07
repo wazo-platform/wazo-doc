@@ -1,3 +1,5 @@
+.. _sccp-configuration:
+
 ******************
 SCCP Configuration
 ******************

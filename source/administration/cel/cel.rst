@@ -20,17 +20,26 @@ Call logs can be accessed using the menu :menuselection:`Services --> IPBX --> C
 
    Calls Records Dashboard
 
-Call logs are presented in a CSV file. The CSV specifications are detailed in :ref:`the REST API
-documentation <call-logs-format>`.
-
 Specifying no start date returns all available call logs. Specifying a start date and no end date
 returns all call logs from start date until now.
+
+Call logs are presented in a CSV format. Here's an example::
+
+   Call Date,Caller,Called,Period,user Field
+   2015-01-02T00:00:00,Alice (1001),1002,2,userfield
+
+The CSV format has the following specifications:
+
+* field names are listed on the first line
+* fields are separated by commas: ``,``
+* if there is a comma in a field value, the value is surrounded by double quotes: ``"``
+* the UTF-8 character encoding is used
 
 
 REST API
 --------
 
-Call logs are also available from the REST API. See :ref:`confd-call-logs`.
+Call logs are also available from :ref:`xivo-confd REST API <confd-api>`.
 
 
 Manual generation

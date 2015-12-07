@@ -137,6 +137,50 @@ Upgrading to/from an archive version
 Upgrade Notes
 =============
 
+15.19
+-----
+
+Consult the `15.19 Roadmap <https://projects.xivo.io/versions/236>`_
+
+* The sound file :file:`/usr/share/asterisk/sounds/fr_FR/une.wav` has been moved to
+  :file:`/usr/share/asterisk/sounds/fr_FR/digits/1F.wav`.
+* If you would like to use the new `"transfer to voicemail" feature <http://projects.xivo.io/issues/5905>`_
+  from the People Xlet, you'll need to update your directory definition and your directory display, i.e.:
+
+  * edit your "internal" directory definition (Services / CTI server / Directories / Definitions)
+    and add a field "voicemail" with value "voicemail_number"
+  * edit your display (Services / CTI server / Directories / Display filters) and add a row with title
+    "Voicemail", field type "voicemail" and field name "voicemail"
+  * restart xivo-dird
+
+* It is now possible to send an email to a user with a configured email address in the
+  *people* xlet. See :ref:`dird-integration-views`  to add the appropriate field to your
+  configured displays.
+* The *Contacts* xlet (aka. *Search*) has been removed in favor of the :ref:`people-xlet`. You may
+  need to do some manual configuration in the directories for the People Xlet to be fully
+  functional. See :ref:`the detailed upgrade notes <15_19_people_xlet_upgrade_notes>` for more details.
+* If you need context separation in the People Xlet, you will have to **manually configure**
+  xivo-dird to keep it working, see :ref:`dird-context-separation`. This procedure is only
+  temporary, later versions will handle the context separation automatically.
+* xivo-agentd now uses mandatory token authentication for its REST API. If you have custom
+  development using this service, update your program accordingly.
+* Some actions that used to be available in the *contact* xlets are not
+  implemented in the *people* xlet yet.
+
+  * Cancel transfer is only available using the *switchboard* xlet
+  * Hanging up a call is only possible using the *switchboard* xlet
+  * Call interception is not available anymore
+  * Conference room invitation is not available anymore
+
+Please consult the followin detailed upgrade notes for more information:
+
+
+.. toctree::
+   :maxdepth: 1
+
+   15.19/people-xlet-directory
+
+
 15.18
 -----
 
@@ -232,6 +276,8 @@ Consult the `15.16 Roadmap <https://projects.xivo.io/versions/232>`_
   unofficial back ends must be adapted and updated. No action is required for "normal" installations.
 * Voicemails can now be deleted even if they are associated to a user.
 
+
+.. _upgrade_notes_15_15:
 
 15.15
 -----
