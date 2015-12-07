@@ -4,6 +4,17 @@
 xivo-confd REST API changelog
 *****************************
 
+15.19
+=====
+
+* A new API for mass importing users has been added: POST ``/1.1/users/import``
+* The following fields have been added to the ``/users`` API:
+
+  * supervision_enabled
+  * call_tranfer_enabled
+  * ring_seconds
+  * simultaneous_calls
+
 15.18
 =====
 
