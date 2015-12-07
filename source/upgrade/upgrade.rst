@@ -158,8 +158,7 @@ Consult the `15.19 Roadmap <https://projects.xivo.io/versions/236>`_
   configured displays.
 * The *Contacts* xlet (aka. *Search*) has been removed in favor of the :ref:`people-xlet`. You may
   need to do some manual configuration in the directories for the People Xlet to be fully
-  functional. See :ref:`the upgrade notes for 15.15 about directories <upgrade_notes_15_15>` for
-  more details.
+  functional. See :ref:`the detailed upgrade notes <15_19_people_xlet_upgrade_notes>` for more details.
 * If you need context separation in the People Xlet, you will have to **manually configure**
   xivo-dird to keep it working, see :ref:`dird-context-separation`. This procedure is only
   temporary, later versions will handle the context separation automatically.
@@ -172,6 +171,14 @@ Consult the `15.19 Roadmap <https://projects.xivo.io/versions/236>`_
   * Hanging up a call is only possible using the *switchboard* xlet
   * Call interception is not available anymore
   * Conference room invitation is not available anymore
+
+Please consult the followin detailed upgrade notes for more information:
+
+
+.. toctree::
+   :maxdepth: 1
+
+   15.19/people-xlet-directory
 
 
 15.18
