@@ -148,6 +148,14 @@ Upgrading from i386 (32 bits) to amd64 (64 bits)
 Upgrade Notes
 =============
 
+15.20
+-----
+
+Consult the `15.20 Roadmap <https://projects.xivo.io/versions/237>`_
+
+* The :ref:`bus-chat_message_event` bus message has been added.
+
+
 15.19
 -----
 

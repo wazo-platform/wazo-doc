@@ -195,6 +195,33 @@ Example::
        }
    }
 
+.. _bus-chat_message_event:
+
+chat_message_event
+------------------
+
+This message is used to send a chat message to a user
+
+* routing key: chat.message.<xivo-uuid>.<user_id>
+* event specific data:
+
+  * alice: The nickname of the chatter
+  * to: The destination's XiVO UUID and user ID
+  * from: The chatter's XiVO UUID and user ID
+  * msg: The message
+
+Example::
+
+  {
+      "name": "chat_message_event",
+      "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+      "data": {
+          "alias": "Alice"
+          "to": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", 42],
+          "from": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", 22],
+          "msg": "Hi!"
+      }
+  }
 
 .. _bus-endpoint_status_update:
 
