@@ -34,7 +34,8 @@ On your XiVO:
 
       apt-get install php5-xdebug
 
-#. Edit the :file:`/etc/php5/conf.d/20-xdebug.ini` and add these lines at the end::
+#. Edit the :file:`/etc/php5/cgi/conf.d/20-xdebug.ini` (or :file:`/etc/php5/conf.d/20-xdebug.ini` on
+   wheezy) and add these lines at the end::
 
       xdebug.remote_enable=1
       xdebug.remote_host="<dev_host_ip>"
