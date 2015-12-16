@@ -1,3 +1,5 @@
+.. _upgrade:
+
 *********
 Upgrading
 *********
@@ -132,6 +134,15 @@ Upgrading to/from an archive version
    :maxdepth: 1
 
    archives
+
+
+Upgrading from i386 (32 bits) to amd64 (64 bits)
+================================================
+
+.. toctree::
+   :maxdepth: 1
+
+   migrate_i386_to_amd64
 
 
 Upgrade Notes
