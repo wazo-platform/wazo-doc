@@ -904,18 +904,34 @@ Send back a table of calls :
 Chitchat
 ^^^^^^^^
 
+``Client > Server``
+
 .. code-block:: javascript
 
     {
        "class": "chitchat",
-       "text": "message envoye",
+       "alias": "Alice",
+       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse venenatis velit nibh, ac condimentum felis rutrum id.",
        "to": ["xivo_uuid", <user_id>],
        "commandid": <commandid>
     }
 
-featuresget
 
-featuresput
+``Server > Client``
+
+The following message is received by the remote XiVO client
+
+.. code-block:: javascript
+
+    {
+        "class": "chitchat",
+        "from": ["e4d147b6-f747-4b64-955d-8c36fbcd1d3f", 2],
+        "to": ["e4d147b6-f747-4b64-955d-8c36fbcd1d3f", 1]
+        "alias": "Alice",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse venenatis velit nibh, ac condimentum felis rutrum id.",
+        "timenow": 1449588554.010736,
+    }
+
 
 Directory
 ^^^^^^^^^
