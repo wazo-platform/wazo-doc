@@ -65,6 +65,8 @@ Unless specified, the license is `CC BY-SA`_.
 +----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 | :download:`How to use openVPN on XiVO<data/how_to_install_openvpn_on_xivo.pdf>`              | French   | Expert       | Yohan Vitu     | 2015         |
 +----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| :download:`How configure SNOM M700 DECT<data/how_to_configure_a_snom_m700_dect_gateway.pdf>` | French   | Intermediate | Jonathan Thomas| 2015         |
++----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 
 .. _Définition de XiVO pour la communauté et tutoriel (video): https://www.youtube.com/watch?v=leMZi6cU8iM
 .. _Xivo pour les nuls: http://xivopourlesnuls.wordpress.com
