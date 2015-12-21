@@ -192,24 +192,6 @@ Upgrading from XiVO 1.2.3
 #. Now, you can launch ``xivo-upgrade`` to finish the upgrade process
 
 
-.. _rabbitmq-var-full:
-
-CTI server is frozen and won't come back online
------------------------------------------------
-
-You must ensure that the partition containing :file:`/var` always has at least
-100 MiB of free disk space. If it does not, the symptoms are:
-
-* the CTI server is frozen after logging/unlogging an agent or adding/removing a
-  member from a queue.
-* trying to log/unlog an agent via a phone is not possible
-
-To get the system back on tracks after freeing some space in :file:`/var`, you
-must do::
-
-    xivo-service restart
-
-
 .. _cti-ami-proxy:
 
 CTI server is unexpectedly terminating
