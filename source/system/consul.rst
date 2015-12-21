@@ -6,8 +6,8 @@ The default `consul <https://consul.io>`_ installation in XiVO uses the
 configuration file in :file:`/etc/consul/xivo/*.json`. All files in this directory
 are installed with the package and *should not* be modified by the
 administrator. To use a different configuration, the adminstrator can add it's
-own configuration file at another location and set the new configuration
-directory in the :file:`/etc/default/consul` file.
+own configuration file at another location and set the new configuration directory by creating a
+systemd unit drop-in file in the :file:`/etc/systemd/system/consul.service.d` directory.
 
 The default installation generates a master token that can be retrieved in
 :file:`/var/lib/consul/master_token`. This master token will not be used if a new
@@ -17,17 +17,16 @@ configuration is supplied.
 Variables
 =========
 
-The following variables can be overridden in the :file:`/etc/default/consul` file.
+The following environment variables can be overridden in a systemd unit drop-in file:
 
-.. code-block:: sh
+* ``CONFIG_DIR``: the consul configuration directory
+* ``WAIT_FOR_LEADER``: should the "start" action wait for a leader ?
 
-    CONFIG_DIR=/etc/consul/xivo         # The configuration directory
-    USER=consul                         # The user used to run the consul process
-    GROUP=consul                        # The group used to run the consul process
-    PIDDIR=/var/run/consul              # The directory where the pidfile will be written
-    PIDFILE=/var/run/consul/consul.pid  # The name of the pidfile (PIDDIR must match)
-    WAIT_FOR_LEADER=yes                 # Should `/etc/init.d/consul start` wait for a leader?
-    RUNCONSUL=yes                       # Should `/etc/init.d/consul start` start consul?
+Example, in :file:`/etc/systemd/system/consul.service.d/custom.conf`::
+
+   [Service]
+   Environment=CONFIG_DIR=/etc/consul/agent
+   Environment=WAIT_FOR_LEADER=no
 
 
 Agent mode
@@ -157,11 +156,10 @@ This file should be owned by consul user.
 Enabling the agent configuration
 --------------------------------
 
-Add or modify :file:`/etc/default/consul` to include the following line
+Add or modify :file:`/etc/systemd/system/consul.service.d/custom.conf` to include the following lines::
 
-.. code-block:: sh
-
-   CONFIG_DIR="/etc/consul/agent"
+   [Service]
+   Environment=CONFIG_DIR=/etc/consul/agent
 
 Restart your consul server.
 
