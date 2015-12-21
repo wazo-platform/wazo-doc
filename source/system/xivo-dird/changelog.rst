@@ -4,6 +4,12 @@
 xivo-dird changelog
 *******************
 
+15.20
+=====
+
+* The ldap plugins `ldap_network_timeout` default value has been incremented from 0.1 to 0.3 seconds
+
+
 15.19
 =====
 
