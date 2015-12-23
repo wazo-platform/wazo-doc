@@ -52,6 +52,7 @@ In a **Cygwin shell**::
 
    git clone git://github.com/xivo-pbx/xivo-client-qt.git
    cd xivo-client-qt
+   touch xivoclient/qt-solutions/qtsingleapplication/src/{QtSingleApplication,QtLockedFile}
 
 
 Building
