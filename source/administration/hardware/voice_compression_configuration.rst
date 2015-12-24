@@ -24,7 +24,7 @@ To configure the card you have to:
 
 #. Restart asterisk::
 
-    /etc/init.d/asterisk restart
+    service asterisk restart
 
 
 Next step

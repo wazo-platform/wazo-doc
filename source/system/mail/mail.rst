@@ -20,13 +20,13 @@ In :menuselection:`Configuration --> Network --> Mail`, the following options ca
 
 If you need to disable Postfix here is how you should do it::
 
-     /etc/init.d/postfix stop
-     insserv -r postfix
+     systemctl stop postfix
+     systemctl disable postfix
 
 If you ever need to enable Postfix again::
 
-    insserv postfix
-    /etc/init.d/postfix start
+    systemctl enable postfix
+    systemctl start postfix
 
 Alternatively, you can empty Postfix's queues by issuging the following commands on the XiVO server::
 
