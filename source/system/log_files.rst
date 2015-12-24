@@ -72,7 +72,7 @@ The file location can be changed by customizing the xivo-confgend.service unit f
 xivo-ctid
 ---------
 
-* File location: :file:`/var/log/xivo-ctid.pid`
+* File location: :file:`/var/log/xivo-ctid.log`
 * Rotate configuration: :file:`/etc/logrotate.d/xivo-ctid`
 * Number of archived log files: 15
 * Rotation frequence: Daily
