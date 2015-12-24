@@ -61,8 +61,7 @@ xivo-confgend
 The xivo-confgend daemon output is sent to the file specified with the ``--logfile`` parameter when
 launched with twistd.
 
-The file location can be changed in :file:`/etc/init.d/xivo-confgend`. Search the line begining with
-``logfile=/var/log/xivo-confgend.log`` and change it to your liking.
+The file location can be changed by customizing the xivo-confgend.service unit file.
 
 * File location: :file:`/var/log/xivo-confgend.log`
 * Rotate configuration: :file:`/etc/logrotate.d/xivo-confgend`

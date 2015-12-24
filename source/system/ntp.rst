@@ -11,19 +11,19 @@ Usage
 
 Show NTP service status::
 
-   /etc/init.d/ntp status
+   service ntp status
 
 Stop NTP service::
 
-   /etc/init.d/ntp stop
+   service ntp stop
 
 Start NTP service::
 
-   /etc/init.d/ntp start
+   service ntp start
 
 Restart NTP service::
 
-   /etc/init.d/ntp restart
+   service ntp restart
 
 Show NTP synchronization status::
 

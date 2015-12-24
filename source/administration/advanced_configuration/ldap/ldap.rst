@@ -51,7 +51,7 @@ and run ``update-ca-certificates``.
 You also need to make sure that the :file:`/etc/ldap/ldap.conf` file contains a
 line ``TLS_CACERT /etc/ssl/certs/ca-certificates.crt``.
 
-After that, restart spawn-fcgi with ``/etc/init.d/spawn-fcgi restart``.
+After that, restart spawn-fcgi with ``service spawn-fcgi restart``.
 
 Also, make sure to use the :abbr:`FQDN (Fully Qualified Domain Name)` of the server
 in the host field when using SSL. The host field must match exactly what's in the CN

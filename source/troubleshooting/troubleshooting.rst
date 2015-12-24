@@ -133,7 +133,7 @@ The following describes how to configure your XiVO and your Berofos.
     #!/bin/bash
     # Script workaround for berofos integration with a XiVO in front of PABX
 
-    res=$(/etc/init.d/asterisk status)
+    res=$(service asterisk status)
     does_ast_run=$?
     if [ $does_ast_run -eq 0 ]; then
         /usr/bin/logger "$0 - Asterisk is running"
