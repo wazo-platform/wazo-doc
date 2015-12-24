@@ -65,7 +65,7 @@ Or
 
 .. code-block:: sh
 
-   unzip consul_0.5.2_linux_amid64.zip
+   unzip consul_0.5.2_linux_amd64.zip
 
 .. code-block:: sh
 
@@ -102,7 +102,7 @@ On the new consul host, modify :file:`/etc/consul/xivo/config.json` to include t
    systemctl daemon-reload
    scp -r root@<xivo-host>:/etc/consul /etc
    scp -r root@<xivo-host>:/usr/share/xivo-certs /usr/share
-   consul agent --data-dir /var/lib/consul --config-dir /etc/consul/xivo/
+   consul agent -data-dir /var/lib/consul -config-dir /etc/consul/xivo/
    # on the xivo
    xivo-restore-consul-kv -H <consul-host> --verify false -i /tmp/consul-kv.json
 
