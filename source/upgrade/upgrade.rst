@@ -153,6 +153,8 @@ Upgrade Notes
 
 Consult the `15.20 Roadmap <https://projects.xivo.io/versions/237>`_
 
+* CSV webservices in the web interface have been removed. Please use the :ref:`confd-api` instead.
+* The CSV import format has been changed. Consult :ref:`legacy-csv-import` for further details.
 * The :ref:`bus-chat_message_event` bus message has been added.
 
 

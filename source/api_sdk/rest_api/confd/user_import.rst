@@ -1,26 +1,12 @@
-****************
-Mass User Import
-****************
+.. _legacy-csv-import:
+
+***************
+CSV User Import
+***************
 
 Users and common related resources can be imported onto a XiVO server by sending a CSV file with a predefined set of fields.
 
-This page only describes how to migrate CSV files from the legacy format used by the web interface to the new format. Consult the `API documentation <http://api.xivo.io>`_ for further details.
-
-
-Uploading files
-===============
-
-Files may be uploaded using HTTP utilities. The Header `Content-Type: text/csv charset=utf-8` must be set and the CSV data must be sent in the body of the request. A file may be uploaded using `curl` as follows:
-
-.. code-block:: bash
-
-	curl -k -H "Content-Type: text/csv; charset=utf-8" -u username:password --data-binary "@file.csv" https://xivo:9486/1.1/users/import
-
-The response can be reindented in a more readable format by piping the response through `python -m json.tool` in the following way:
-
-.. code-block:: bash
-
-	curl (...) | python -m json.tool
+This page only describes how to migrate CSV files from the legacy format to the new format. Consult the `API documentation <http://api.xivo.io>`_ for further details.
 
 
 CSV Data
@@ -34,10 +20,10 @@ CSV Data
 Field names
 ===========
 
-Fields have been renamed in the new API. Use the following table to rename fields in your CSV data
+Fields have been renamed in the new CSV format. Use the following table to rename your fields. Fields marked as **N/A** are no longer supported.
 
  +----------------------+---------------------------+
- | Webi name            | Confd name                |
+ | Old name             | New name                  |
  +======================+===========================+
  | entityid             | entity_id                 |
  +----------------------+---------------------------+
@@ -101,3 +87,19 @@ Fields have been renamed in the new API. Use the following table to rename field
  +----------------------+---------------------------+
  | voicemailaskpassword | voicemail_ask_password    |
  +----------------------+---------------------------+
+
+
+Uploading files
+===============
+
+Files may be uploaded as usual through the web interface, or from a console by using HTTP utilities and the REST API. When uploading through the API, the header `Content-Type: text/csv charset=utf-8` must be set and the CSV data must be sent in the body of the request. A file may be uploaded using `curl` as follows:
+
+.. code-block:: bash
+
+	curl -k -H "Content-Type: text/csv; charset=utf-8" -u username:password --data-binary "@file.csv" https://xivo:9486/1.1/users/import
+
+The response can be reindented in a more readable format by piping the output through `python -m json.tool` in the following way:
+
+.. code-block:: bash
+
+	curl (...) | python -m json.tool
