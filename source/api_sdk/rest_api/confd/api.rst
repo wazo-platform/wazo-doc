@@ -14,11 +14,6 @@ XiVO confd API
    changelog
    examples
 
-.. warning:: Some services are still being developped and can be changed without prior warning. Use
-    at your own risk. Here is a list of services in BETA stage:
-
-        * Function Keys
-
 
 API reference
 =============
