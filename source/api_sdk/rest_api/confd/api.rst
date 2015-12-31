@@ -36,17 +36,15 @@ contains extended documentation for certain aspects of the API.
 Migration from 1.0
 ==================
 
-
-URL
----
-
-* Occurences of ``1.0`` have been replaced for ``1.1``
-* Trailing slashes have been removed.
-
-  For example, in 1.0, the URL to list users is::
+The API version 1.0 is no longer supported and has been removed. In most cases, code that used the old API can be 
+migrated to version 1.1 without much hassle by updating the URL. For example, in 1.0, the URL to list users was::
 
      /1.0/users/
 
   In 1.1, it is::
 
      /1.1/users
+
+Please note that there are no trailing slashes in URLs for version 1.1.
+
+For further details consult the documentation at http://api.xivo.io
