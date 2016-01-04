@@ -7,7 +7,7 @@ Adding a package from backports
 
 #. Download the package::
 
-    apt-get download name-of-package/wheezy-backports
+    apt-get download name-of-package/jessie-backports
 
 #. Copy the .deb on to the mirror::
 

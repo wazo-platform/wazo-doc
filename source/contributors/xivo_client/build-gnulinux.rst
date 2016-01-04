@@ -57,7 +57,7 @@ To compile the unit tests of the XiVO Client::
 
    $ qmake CONFIG+=tests
 
-or, if you have a recent version of Google Mock (e.g. on Debian Wheezy)::
+or, if you have a recent version of Google Mock::
 
    $ qmake CONFIG+=tests CONFIG+=gmock
 

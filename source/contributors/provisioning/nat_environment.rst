@@ -27,7 +27,7 @@ Also, it's easy to go from a non-NAT environment to a NAT environment with this 
 have to do is only to switch your phone from the "XiVO" VLAN to the "phones" VLAN, and reconfiguring the
 lines on your XiVO.
 
-The instruction in this page are written for Debian Wheezy and VirtualBox.
+The instruction in this page are written for Debian jessie and VirtualBox.
 
 
 Prerequisite
@@ -53,7 +53,7 @@ Configuration
 
 #. If you do not want it to always be started::
 
-      update-rc.d isc-dhcp-server disable
+      systemctl disable isc-dhcp-server.service
 
 #. Edit the DHCP server configuration file :file:`/etc/dhcp/dhcpd.conf`. We need to configure the DHCP
    server to serve network configuration for the phones (Aastra and Snom in this case)::
@@ -109,7 +109,7 @@ Configuration
 
 #. Start the isc-dhcp-server::
 
-      service isc-dhcp-server start
+      systemctl start isc-dhcp-server.service
 
 #. Add an iptables rules to do NAT::
 
