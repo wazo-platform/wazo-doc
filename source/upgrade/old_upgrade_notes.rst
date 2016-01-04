@@ -295,8 +295,7 @@ You must update any dialplan or configuration file using these paths
 -----
 
 * Consult the `13.25 Roadmap <https://projects.xivo.io/versions/191>`_
-* Debian has been upgraded from version 6 (Squeeze) to 7 (Wheezy), which is essentially a complete
-  system upgrade.
+* Debian has been upgraded from version 6 (squeeze) to 7 (wheezy).
 
 Please consult the following detailed upgrade notes for more information:
 

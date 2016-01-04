@@ -153,9 +153,17 @@ Upgrade Notes
 
 Consult the `15.20 Roadmap <https://projects.xivo.io/versions/237>`_
 
+* Debian has been upgraded from version 7 (wheezy) to 8 (jessie).
 * CSV webservices in the web interface have been removed. Please use the :ref:`confd-api` instead.
 * The CSV import format has been changed. Consult :ref:`15_20_import_csv_upgrade_notes` for further details.
 * The :ref:`bus-chat_message_event` bus message has been added.
+
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   15.20/jessie
 
 
 15.19
