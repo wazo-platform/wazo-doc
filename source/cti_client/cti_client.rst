@@ -75,6 +75,7 @@ Configuration
 
 The XiVO Client configuration options can be accessed under :menuselection:`XiVO Client --> Configure`.
 
+
 Connection Configuration
 ------------------------
 
@@ -86,10 +87,11 @@ This page allows the user to set his network information to connect to the xivo-
 * `Server` is the IP address of the server.
 * `Backup server` is the IP address of the backup server.
 * `Port` is the port on which xivo-ctid is listening for connections. (default: 5003)
+* `StartTLS` is used to specify that a secure connect should be used
 
-If an encrypted connection between the client and server is required, click on the lock icon and
-change the port value to 5013. The server needs to be configured to :ref:`accept encrypted
-connection <ctid-encryption>`.
+.. note::
+
+   To use StartTLS, the server needs to be configured to :ref:`accept encrypted connection <ctid-encryption>`.
 
 
 Handling callto: and tel: URLs

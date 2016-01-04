@@ -11,6 +11,12 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+15.20
+-----
+
+* the :ref:`cti_protocol_starttls` command has been added
+
+
 15.19
 -----
 
@@ -1156,6 +1162,40 @@ Set favorite
     "source_entry_id": "55"
     "favorite": true
   }
+
+
+.. _cti_protocol_starttls:
+
+StartTLS
+^^^^^^^^
+
+The StartTLS command is used to upgrade a connection to use SSL. Once connected,
+the server send a starttls offer to the client which can reply with a starttls
+message including the status field. The server will then send a starttls message
+back to the client with the same status and start the handshake if the status is
+true.
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+    {
+        "class": "starttls"
+    }
+
+
+``Client -> Server -> Client``
+
+.. code-block:: javascript
+
+    {
+        "class": "starttls",
+        "status": true
+    }
+
+
+.. note:: a client which does not reply to the starttls offer will keep it's
+    unencrypted connection.
 
 
 Personal contacts list

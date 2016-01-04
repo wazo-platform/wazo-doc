@@ -157,6 +157,8 @@ Consult the `15.20 Roadmap <https://projects.xivo.io/versions/237>`_
 * CSV webservices in the web interface have been removed. Please use the :ref:`confd-api` instead.
 * The CSV import format has been changed. Consult :ref:`15_20_csv_import_upgrade_notes` for further details.
 * The :ref:`bus-chat_message_event` bus message has been added.
+* xivo-ctid now uses starttls for the client connections.
+  * For users already using the CTIS protocol the client can be configured to use the default port (5003)
 
 Please consult the following detailed upgrade notes for more information:
 
