@@ -193,7 +193,7 @@ Consult the `15.19 Roadmap <https://projects.xivo.io/versions/236>`_
   * Call interception is not available anymore
   * Conference room invitation is not available anymore
 
-Please consult the followin detailed upgrade notes for more information:
+Please consult the following detailed upgrade notes for more information:
 
 
 .. toctree::
