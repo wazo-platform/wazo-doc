@@ -30,7 +30,7 @@ addresses and ports for the CTI server's interfaces.
 .. figure:: images/listening_ports.png
    :scale: 85%
 
-The section named ``StartTLS options`` allows the administrator to enable
+The section named ``STARTTLS options`` allows the administrator to enable
 encrypted communications between the clients and xivo-ctid and specify the
 certificate and private keys to use.
 
@@ -109,7 +109,7 @@ Enable encryption
 =================
 
 To enable encryption of CTI communications between server and clients, you have
-to create enable StartTLS in :menuselection:`CTI Server --> General settings -->
+to create enable STARTTLS in :menuselection:`CTI Server --> General settings -->
 General`
 
 Custom certificates can be added in :menuselection:`Configuration --> Certificates`
@@ -121,7 +121,7 @@ Connection`, click on the lock icon.
 .. note::
 
    A client which chooses to use encryption will not be able to connect to a
-   server without StartTLS enabled.
+   server without STARTTLS enabled.
 
 .. warning::
 

@@ -1166,10 +1166,10 @@ Set favorite
 
 .. _cti_protocol_starttls:
 
-StartTLS
+STARTTLS
 ^^^^^^^^
 
-The StartTLS command is used to upgrade a connection to use SSL. Once connected,
+The STARTTLS command is used to upgrade a connection to use SSL. Once connected,
 the server send a starttls offer to the client which can reply with a starttls
 message including the status field. The server will then send a starttls message
 back to the client with the same status and start the handshake if the status is
