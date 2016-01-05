@@ -3,8 +3,11 @@ Debian 8 (jessie) Upgrade Notes
 *******************************
 
 The upgrade to XiVO 15.20 or later will take longer than usual, because the whole Debian system will
-be upgraded. The database management system (postgresql) will also be upgraded, which will upgrade
-the database used by XiVO.
+be upgraded.
+
+The database management system (postgresql) will also be upgraded from version 9.1 to version 9.4 at
+the same time. This will upgrade the database used by XiVO. This operation should take at most a
+few minutes.
 
 After the upgrade, the system will need to be rebooted.
 
@@ -40,7 +43,7 @@ Before the upgrade
     awk '/^rc/ { print $2 }'`` and purge all of them with ``apt-get purge $(dpkg -l | awk '/^rc/ { print $2 }')``.
 
   * Remove :file:`.dpkg-old` and :file:`.dpkg-new` files from previous upgrade. You can see a list
-    of these files by running ``find /etc -name '*.dpkg-old' -o -name '*.dpkg-new'``
+    of these files by running ``find /etc -name '*.dpkg-old' -o -name '*.dpkg-new'``.
 
 
 After the upgrade
@@ -73,6 +76,10 @@ Here's a non-exhaustive list of changes that comes with XiVO on Debian 8:
 * In Debian 7, the ``halt`` command powered off the machine. In Debian 8, the command halts the
   system, but does not power off the machine. To halt the machine and turn it off, use the
   ``poweroff`` or ``shutdown`` command.
+
+* With the init system switch from SysV to systemd, you should now use the ``systemctl`` command to
+  manage services (i.e. start/stop/status) instead of ``/etc/init.d/<service>``, although the later
+  method should still work fine.
 
 * The bootlogd package is not installed by default anymore, since it is not needed with systemd. If
   you want to see the boot messages, use the ``journalctl -b`` command instead.
