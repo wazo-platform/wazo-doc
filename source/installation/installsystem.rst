@@ -32,9 +32,11 @@ Installing from the ISO image
 Installing from a minimal Debian installation
 =============================================
 
-XiVO can be installed directly over a **32-bit** or a **64-bit** Debian Wheezy. When doing so, you are strongly
-advised to start with a clean and minimal installation of Debian Wheezy. The latest installation image
-for Debian Wheezy can be found at https://www.debian.org/releases/wheezy/debian-installer.
+XiVO can be installed directly over a **32-bit** or a **64-bit** Debian jessie. When doing so, you are strongly
+advised to start with a clean and minimal installation of Debian jessie.
+
+The latest installation image for Debian jessie can be found at https://www.debian.org/releases/jessie/debian-installer.
+
 
 Requirements
 ^^^^^^^^^^^^
@@ -50,7 +52,7 @@ In case you want to migrate a XiVO from ``i386`` to ``amd64``, see :ref:`migrate
 Installation
 ^^^^^^^^^^^^
 
-Once you have your Debian Wheezy properly installed, download the XiVO installation script::
+Once you have your Debian jessie properly installed, download the XiVO installation script::
 
    wget http://mirror.xivo.io/fai/xivo-migration/xivo_install_current.sh
 
