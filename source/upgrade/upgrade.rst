@@ -190,7 +190,7 @@ Consult the `15.19 Roadmap <https://projects.xivo.io/versions/236>`_
   need to do some manual configuration in the directories for the People Xlet to be fully
   functional. See :ref:`the detailed upgrade notes <15_19_people_xlet_upgrade_notes>` for more details.
 * If you need context separation in the People Xlet, you will have to **manually configure**
-  xivo-dird to keep it working, see :ref:`dird-context-separation`. This procedure is only
+  xivo-dird to keep it working, see :ref:`15-19-dird-context-separation`. This procedure is only
   temporary, later versions will handle the context separation automatically.
 * xivo-agentd now uses mandatory token authentication for its REST API. If you have custom
   development using this service, update your program accordingly.
@@ -209,6 +209,7 @@ Please consult the following detailed upgrade notes for more information:
    :maxdepth: 1
 
    15.19/people-xlet-directory
+   15.19/context-separation
 
 
 15.18
