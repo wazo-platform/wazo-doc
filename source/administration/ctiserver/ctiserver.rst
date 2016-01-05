@@ -4,14 +4,13 @@ CTI Server
 
 .. index:: ctiserver
 
-The CTI server configuration options can be found in the web-interface under the services tab. 
-
+The CTI server configuration options can be found in the web-interface under the services tab.
 
 
 General Options
 ===============
 
-The general options allow the administrator to manage network connections between the CTI server 
+The general options allow the administrator to manage network connections between the CTI server
 and other services and clients.
 
 The section named AMI connection allows the administrator to configure the
@@ -24,18 +23,24 @@ information required to connect to the Asterisk Manager Interface
 The section named ``Listening Ports`` allows the administrator to specify listening
 addresses and ports for the CTI server's interfaces.
 
-* Fast AGI is the CTI server's entry point for the Asterisk dialplan. This
-  address and port have nothing to do with the listening port and address of
-  xivo-agid.
-* CTI and CTIs are for the client's connection and secure connection respectively.
+* CTI is used for the client's connection.
 * Web Interface is for the port used to receive events from the XiVO web interface
 * Info server a debugging console to do some introspection on the state of the CTI server
-* Announce is used to notify the CTI server when a dialplan reload is requested
 
 .. figure:: images/listening_ports.png
    :scale: 85%
 
-The timeout section allow the administrator to configure multiple timeouts.
+The section named ``STARTTLS options`` allows the administrator to enable
+encrypted communications between the clients and xivo-ctid and specify the
+certificate and private keys to use.
+
+If no certificate and private key is configured, xivo-ctid will use the ones
+located in */usr/share/xivo-certs*.
+
+.. figure:: images/starttls_options.png
+    :scale: 85%
+
+The section names ``Timeouts``  allows the administrator to configure multiple timeouts.
 
 * Socket timeout is the default timeout used for network connections.
 * Login timeout is the timeout before a CTI connection is dropped if the
@@ -62,7 +67,7 @@ anything with the CTI client.
 Presence Option
 ===============
 
-In the `Status` menu, under `Presences`, you can edit presences group. 
+In the `Status` menu, under `Presences`, you can edit presences group.
 The default presence group is xivo. When editing
 a group, you will see a list of presences and there descriptions.
 
@@ -104,19 +109,24 @@ Enable encryption
 =================
 
 To enable encryption of CTI communications between server and clients, you have
-to create a certificate in :menuselection:`Configuration --> Certificates`.
+to create enable STARTTLS in :menuselection:`CTI Server --> General settings -->
+General`
 
-Then, go in the menu :menuselection:`CTI Server --> General settings -->
-General`, and in the section ``Listening ports``, check the line CTIS, and
-select both the certificate and the private key you created earlier. By default,
-the CTIS port is 5013.
+Custom certificates can be added in :menuselection:`Configuration --> Certificates`
+and used in :menuselection:`CTI Server --> General settings --> General`
 
 In your XiVO Client, in the menu :menuselection:`XiVO Client --> Configure -->
-Connection`, click on the lock icon and adjust the port value if necessary.
+Connection`, click on the lock icon.
 
-.. warning:: For now, there is no mechanism for strong authentification of the
-   server. The connection is encrypted, but the identity of the server is not
-   verified.
+.. note::
+
+   A client which chooses to use encryption will not be able to connect to a
+   server without STARTTLS enabled.
+
+.. warning::
+
+   For now, there is no mechanism for strong authentification of the server. The
+   connection is encrypted, but the identity of the server is not verified.
 
 
 CTI profiles
