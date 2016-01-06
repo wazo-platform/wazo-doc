@@ -64,6 +64,24 @@ After the upgrade
 * Purge removed packages. You can see the list of packages in this state by running ``dpkg -l |
   awk '/^rc/ { print $2 }'`` and purge all of them with ``apt-get purge $(dpkg -l | awk '/^rc/ { print $2 }')``.
 
+* If you had customizations in one of these files:
+
+  * :file:`/etc/default/asterisk`
+  * :file:`/etc/default/consul`
+  * :file:`/etc/default/xivo-ctid`
+
+  Then you'll need to review your customizations to make sure they still work with systemd. This is
+  necessary since these 3 files aren't read under systemd.
+
+  For :file:`/etc/default/asterisk`, only the CONFD_* options are automatically migrated to
+  :file:`/etc/systemd/system/asterisk.service.d/auto-sysv-migration.conf`.
+
+  For :file:`/etc/default/consul`, only the WAIT_FOR_LEADER and CONFIG_DIR options are automatically
+  migrated to :file:`/etc/systemd/system/consul.service.d/auto-sysv-migration.conf`.
+
+  For :file:`/etc/default/xivo-ctid`, only the XIVO_CTID_AMI_PROXY option is automatically migrated
+  to :file:`/etc/systemd/system/xivo-ctid.service.d/auto-sysv-migration.conf`.
+
 * Reboot your system. It is necessary for the upgrade to the Linux kernel and init system
   (systemd) to be effective.
 
