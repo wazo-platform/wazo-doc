@@ -96,8 +96,11 @@ Here's a non-exhaustive list of changes that comes with XiVO on Debian 8:
   ``poweroff`` or ``shutdown`` command.
 
 * With the init system switch from SysV to systemd, you should now use the ``systemctl`` command to
-  manage services (i.e. start/stop/status) instead of ``/etc/init.d/<service>``, although the later
-  method should still work fine.
+  manage services (i.e. start/stop/status) instead of the ``service`` command or
+  ``/etc/init.d/<service>``, although these two methods should still work fine.
+
+  If you are new to systemd, you can find some basic usage on the `systemd page of the Debian
+  Wiki <https://wiki.debian.org/systemd#Managing_services_with_systemd>`_.
 
 * The bootlogd package is not installed by default anymore, since it is not needed with systemd. If
   you want to see the boot messages, use the ``journalctl -b`` command instead.
