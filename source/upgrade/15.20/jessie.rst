@@ -40,7 +40,7 @@ Before the upgrade
     ``apt-get autoremove --purge``.
 
   * Purge removed packages. You can see the list of packages in this state by running ``dpkg -l |
-    awk '/^rc/ { print $2 }'`` and purge all of them with ``apt-get purge $(dpkg -l | awk '/^rc/ { print $2 }')``.
+    awk '/^rc/ { print $2 }'`` and purge all of them with ``apt-get purge $(dpkg -l | awk '/^rc/ { print $2 }')``
 
   * Remove :file:`.dpkg-old`, :file:`.dpkg-dist` and :file:`.dpkg-new` files from previous upgrade. You can see a list
     of these files by running ``find /etc -name '*.dpkg-old' -o -name '*.dpkg-dist' -o -name '*.dpkg-new'``.
@@ -62,7 +62,7 @@ After the upgrade
   shows up that you didn't modify by yourself, you can ignore them.
 
 * Purge removed packages. You can see the list of packages in this state by running ``dpkg -l |
-  awk '/^rc/ { print $2 }'`` and purge all of them with ``apt-get purge $(dpkg -l | awk '/^rc/ { print $2 }')``.
+  awk '/^rc/ { print $2 }'`` and purge all of them with ``apt-get purge $(dpkg -l | awk '/^rc/ { print $2 }')``
 
 * If you had customizations in one of these files:
 
