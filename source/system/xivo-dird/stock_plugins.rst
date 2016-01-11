@@ -373,7 +373,7 @@ ldap_network_timeout (optional)
    the maximum time, in second, that an LDAP network operation can take. If it takes more time than
    that, no result is returned.
 
-   Defaults to 0.1.
+   Defaults to 0.3.
 
 ldap_timeout (optional)
    the maximum time, in second, that an LDAP operation can take.

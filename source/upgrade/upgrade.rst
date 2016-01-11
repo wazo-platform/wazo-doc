@@ -1,3 +1,5 @@
+.. _upgrade:
+
 *********
 Upgrading
 *********
@@ -134,8 +136,39 @@ Upgrading to/from an archive version
    archives
 
 
+Upgrading from i386 (32 bits) to amd64 (64 bits)
+================================================
+
+.. toctree::
+   :maxdepth: 1
+
+   migrate_i386_to_amd64
+
+
 Upgrade Notes
 =============
+
+15.20
+-----
+
+Consult the `15.20 Roadmap <https://projects.xivo.io/versions/237>`_
+
+* Debian has been upgraded from version 7 (wheezy) to 8 (jessie).
+* CSV webservices in the web interface have been removed. Please use the :ref:`confd-api` instead.
+* The CSV import format has been changed. Consult :ref:`15_20_csv_import_upgrade_notes` for further details.
+* The :ref:`bus-chat_message_event` bus message has been added.
+* xivo-ctid now uses STARTTLS for the client connections.
+
+  * For users already using the CTIS protocol the client can be configured to use the default port (5003)
+
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   15.20/jessie
+   15.20/csv
+
 
 15.19
 -----
@@ -160,7 +193,7 @@ Consult the `15.19 Roadmap <https://projects.xivo.io/versions/236>`_
   need to do some manual configuration in the directories for the People Xlet to be fully
   functional. See :ref:`the detailed upgrade notes <15_19_people_xlet_upgrade_notes>` for more details.
 * If you need context separation in the People Xlet, you will have to **manually configure**
-  xivo-dird to keep it working, see :ref:`dird-context-separation`. This procedure is only
+  xivo-dird to keep it working, see :ref:`15-19-dird-context-separation`. This procedure is only
   temporary, later versions will handle the context separation automatically.
 * xivo-agentd now uses mandatory token authentication for its REST API. If you have custom
   development using this service, update your program accordingly.
@@ -172,13 +205,14 @@ Consult the `15.19 Roadmap <https://projects.xivo.io/versions/236>`_
   * Call interception is not available anymore
   * Conference room invitation is not available anymore
 
-Please consult the followin detailed upgrade notes for more information:
+Please consult the following detailed upgrade notes for more information:
 
 
 .. toctree::
    :maxdepth: 1
 
    15.19/people-xlet-directory
+   15.19/context-separation
 
 
 15.18

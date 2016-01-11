@@ -133,7 +133,7 @@ The following describes how to configure your XiVO and your Berofos.
     #!/bin/bash
     # Script workaround for berofos integration with a XiVO in front of PABX
 
-    res=$(/etc/init.d/asterisk status)
+    res=$(service asterisk status)
     does_ast_run=$?
     if [ $does_ast_run -eq 0 ]; then
         /usr/bin/logger "$0 - Asterisk is running"
@@ -192,24 +192,6 @@ Upgrading from XiVO 1.2.3
 #. Now, you can launch ``xivo-upgrade`` to finish the upgrade process
 
 
-.. _rabbitmq-var-full:
-
-CTI server is frozen and won't come back online
------------------------------------------------
-
-You must ensure that the partition containing :file:`/var` always has at least
-100 MiB of free disk space. If it does not, the symptoms are:
-
-* the CTI server is frozen after logging/unlogging an agent or adding/removing a
-  member from a queue.
-* trying to log/unlog an agent via a phone is not possible
-
-To get the system back on tracks after freeing some space in :file:`/var`, you
-must do::
-
-    xivo-service restart
-
-
 .. _cti-ami-proxy:
 
 CTI server is unexpectedly terminating
@@ -230,24 +212,31 @@ There's a workaround to this problem called the ami-proxy, which is a process wh
 connection between the CTI server and asterisk. This should only be used as a last resort solution,
 since this increases the latency between the processes and does not fix the root issue.
 
-.. note:: New in version 14.21
-
 To enable the ami-proxy, you must:
 
-#. Edit the file :file:`/etc/default/xivo-ctid` and add the following line::
+#. Add a file :file:`/etc/systemd/system/xivo-ctid.service.d/ami-proxy.conf`:
 
-      export XIVO_CTID_AMI_PROXY=1
+   .. code-block:: sh
+
+      mkdir -p /etc/systemd/system/xivo-ctid.service.d
+      cat >/etc/systemd/system/xivo-ctid.service.d/ami-proxy.conf <<EOF
+      [Service]
+      Environment=XIVO_CTID_AMI_PROXY=1
+      EOF
+      systemctl daemon-reload
 
 #. Restart the CTI server::
 
-      service xivo-ctid restart
+      systemctl restart xivo-ctid.service
 
 If you are on a XiVO cluster, you must do the same procedure on the slave if you want the ami-proxy
 to also be enabled on the slave.
 
-To disable the ami-proxy, make sure the line you added in step 1 is completely removed (it is not
-sufficient to set the value of the variable to 0). You can remove the :file:`/etc/default/xivo-ctid`
-file if it is now empty.
+To disable the ami-proxy::
+
+   rm /etc/systemd/system/xivo-ctid.service.d/ami-proxy.conf
+   systemctl daemon-reload
+   systemctl restart xivo-ctid.service
 
 
 Agents receiving two ACD calls

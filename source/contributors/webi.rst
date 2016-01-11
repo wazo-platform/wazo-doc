@@ -11,7 +11,7 @@ If you want to display warning or other error in your browser, edit the :file:`/
 and replace report_type level to 3::
 
    [error]
-   level = 2047
+   level = E_ALL
    report_type = 3
    report_mode = 1
    report_func = 1
@@ -20,7 +20,7 @@ and replace report_type level to 3::
 
 You may also edit :file:`/etc/xivo/web-interface/php.ini` and change the error level, but you will need to restart the cgi::
 
-   /etc/init.d/spawn-fcgi restart
+   service spawn-fcgi restart
 
 
 Interactive debugging in Eclipse
@@ -34,7 +34,8 @@ On your XiVO:
 
       apt-get install php5-xdebug
 
-#. Edit the :file:`/etc/php5/conf.d/20-xdebug.ini` and add these lines at the end::
+#. Edit the :file:`/etc/php5/cgi/conf.d/20-xdebug.ini` (or :file:`/etc/php5/conf.d/20-xdebug.ini` on
+   wheezy) and add these lines at the end::
 
       xdebug.remote_enable=1
       xdebug.remote_host="<dev_host_ip>"

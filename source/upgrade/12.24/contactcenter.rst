@@ -105,9 +105,3 @@ Please note that when upgrading, the following actions will take place automatic
 
 * All agents will be logged off before migrating
 * All agents with a "dynamic" membership will be removed from their queues
-
-
-Useful links
-============
-
-:ref:`rabbitmq-var-full`

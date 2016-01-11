@@ -11,6 +11,12 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+15.20
+-----
+
+* the :ref:`cti_protocol_starttls` command has been added
+
+
 15.19
 -----
 
@@ -904,18 +910,34 @@ Send back a table of calls :
 Chitchat
 ^^^^^^^^
 
+``Client > Server``
+
 .. code-block:: javascript
 
     {
        "class": "chitchat",
-       "text": "message envoye",
+       "alias": "Alice",
+       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse venenatis velit nibh, ac condimentum felis rutrum id.",
        "to": ["xivo_uuid", <user_id>],
        "commandid": <commandid>
     }
 
-featuresget
 
-featuresput
+``Server > Client``
+
+The following message is received by the remote XiVO client
+
+.. code-block:: javascript
+
+    {
+        "class": "chitchat",
+        "from": ["e4d147b6-f747-4b64-955d-8c36fbcd1d3f", 2],
+        "to": ["e4d147b6-f747-4b64-955d-8c36fbcd1d3f", 1]
+        "alias": "Alice",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse venenatis velit nibh, ac condimentum felis rutrum id.",
+        "timenow": 1449588554.010736,
+    }
+
 
 Directory
 ^^^^^^^^^
@@ -1140,6 +1162,40 @@ Set favorite
     "source_entry_id": "55"
     "favorite": true
   }
+
+
+.. _cti_protocol_starttls:
+
+STARTTLS
+^^^^^^^^
+
+The STARTTLS command is used to upgrade a connection to use SSL. Once connected,
+the server send a starttls offer to the client which can reply with a starttls
+message including the status field. The server will then send a starttls message
+back to the client with the same status and start the handshake if the status is
+true.
+
+``Server -> Client``
+
+.. code-block:: javascript
+
+    {
+        "class": "starttls"
+    }
+
+
+``Client -> Server -> Client``
+
+.. code-block:: javascript
+
+    {
+        "class": "starttls",
+        "status": true
+    }
+
+
+.. note:: a client which does not reply to the starttls offer will keep it's
+    unencrypted connection.
 
 
 Personal contacts list

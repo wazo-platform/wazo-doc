@@ -4,6 +4,12 @@
 xivo-confd REST API changelog
 *****************************
 
+15.20
+=====
+
+* A new API for mass updating users has been added: PUT ``/1.1/users/import``
+* A new API for exporting users has been added: GET ``/1.1/users/export``
+
 15.19
 =====
 

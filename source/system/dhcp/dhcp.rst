@@ -178,7 +178,7 @@ In section **pool**, modify the options::
 
 At this point, you can apply the changes of the DHCP server with the command::
 
-  /etc/init.d/isc-dhcp-server restart
+  service isc-dhcp-server restart
 
 After that, XiVO will start to serve the DHCP requests of the devices located on other site or other
 subnet than the VOIP subnet. You will see in :file:`/var/log/daemon.log` all the DHCP requests

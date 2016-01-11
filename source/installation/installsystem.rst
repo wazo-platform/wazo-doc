@@ -1,3 +1,5 @@
+.. _install:
+
 *********************
 Installing the System
 *********************
@@ -30,9 +32,11 @@ Installing from the ISO image
 Installing from a minimal Debian installation
 =============================================
 
-XiVO can be installed directly over a **32-bit** or a **64-bit** Debian Wheezy. When doing so, you are strongly
-advised to start with a clean and minimal installation of Debian Wheezy. The latest installation image
-for Debian Wheezy can be found at https://www.debian.org/releases/wheezy/debian-installer.
+XiVO can be installed directly over a **32-bit** or a **64-bit** Debian jessie. When doing so, you are strongly
+advised to start with a clean and minimal installation of Debian jessie.
+
+The latest installation image for Debian jessie can be found at https://www.debian.org/releases/jessie/debian-installer.
+
 
 Requirements
 ^^^^^^^^^^^^
@@ -42,11 +46,13 @@ The installed Debian must:
 * use the architecure ``i386`` or ``amd64``
 * have a default locale with charset UTF-8
 
+In case you want to migrate a XiVO from ``i386`` to ``amd64``, see :ref:`migrate_i386_to_amd64`.
+
 
 Installation
 ^^^^^^^^^^^^
 
-Once you have your Debian Wheezy properly installed, download the XiVO installation script::
+Once you have your Debian jessie properly installed, download the XiVO installation script::
 
    wget http://mirror.xivo.io/fai/xivo-migration/xivo_install_current.sh
 
@@ -75,5 +81,8 @@ wizard. <configuration_wizard>`
 Other installation methods
 ==========================
 
-It's also possible to install XiVO by PXE. More details available on our `XiVO blog
-<http://blog.xivo.io/tag/pxe.html>`_
+It's also possible to install XiVO by PXE. More details available on our blog:
+
+* `<http://blog.xivo.io/around-xivo-describe-industrial-installation-process.html>`_
+* `<http://blog.xivo.io/around-xivo-pxe-server-setup.html>`_
+* `<http://blog.xivo.io/around-xivo-pxe-and-preseeding.html>`_

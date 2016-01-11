@@ -140,12 +140,17 @@ Remote *xivo-confd*
 If *xivo-confd* is on a remote host, *xivo-confd-client* configuration will be
 required to be able to change the voicemail passwords using a phone.
 
-This configuration should be added to ``/etc/default/asterisk``
+This configuration should be done:
 
 .. code-block:: sh
 
-    export CONFD_HOST=localhost
-    export CONFD_PORT=9486
-    export CONFD_HTTPS=true
-    export CONFD_USERNAME=<username>
-    export CONFD_PASSWORD=<password>
+    mkdir -p /etc/systemd/system/asterisk.service.d
+    cat >/etc/systemd/system/asterisk.service.d/remote-confd-voicemail.conf <<EOF
+    [Service]
+    Environment=CONFD_HOST=localhost
+    Environment=CONFD_PORT=9486
+    Environment=CONFD_HTTPS=true
+    Environment=CONFD_USERNAME=<username>
+    Environment=CONFD_PASSWORD=<password>
+    EOF
+    systemctl daemon-reload

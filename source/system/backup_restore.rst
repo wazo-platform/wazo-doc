@@ -1,3 +1,5 @@
+.. _backup:
+
 ******
 Backup
 ******
@@ -119,6 +121,8 @@ The key-values of Consul whose key start with ``xivo/`` are backed up. These inc
 * personal contacts of the People Xlet
 
 
+.. _manual_backup:
+
 Creating backup files manually
 ==============================
 
@@ -173,7 +177,8 @@ These backups are created in the :file:`/var/backups/xivo` directory and are kep
 Limitations
 ===========
 
-* You must restore a backup on the **same version** of XiVO that was backed up
+* You must restore a backup on the **same version** of XiVO that was backed up (though the
+  architecture -- ``i386`` or ``amd64`` -- may differ)
 * You must restore a backup on a machine with the **same hostname and IP address**
 * Be aware that this procedure applies **only to XiVO >= 14.08** (see :ref:`upgrade_note_14.08`).
 
