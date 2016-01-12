@@ -15,6 +15,9 @@ the HTTP requests.
 
 Note that the CSV returned by the Web service is not further processed.
 
+To use SSL connection, a manual configuration need to be done. See :ref:`dird-backend-csv_ws` for
+more details.
+
 
 Available fields
 ================
