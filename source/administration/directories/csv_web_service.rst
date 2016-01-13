@@ -15,6 +15,9 @@ the HTTP requests.
 
 Note that the CSV returned by the Web service is not further processed.
 
+Manual configuration needs to be done to use a secure (SSL) connection.
+See :ref:`dird-backend-csv_ws` for more details.
+
 
 Available fields
 ================
@@ -46,7 +49,7 @@ Configuring source access
 Given you have the following directory definition:
 
 * :guilabel:`Direct match` : ``search``
-* :guilabel:`Match reverse directories` : ``phonesearch``
+* :guilabel:`Match reverse directories` : ``phone``
 
 When a direct lookup for "Alice" is performed, then the following HTTP request::
 
@@ -54,9 +57,10 @@ When a direct lookup for "Alice" is performed, then the following HTTP request::
 
 is emitted. When a reverse lookup for "5555551234" is performed, then the following HTTP request::
 
-   GET /ws-phonebook?phonesearch=5555551234 HTTP/1.1
+   GET /ws-phonebook?phone=5555551234 HTTP/1.1
 
-is emitted.
+is emitted. On the reverse lookup, a filtering is performed on the result. In this example, it should have
+``phone`` as column.
 
 .. figure:: images/xivo_configure_directory_csv_web_service.png
 

@@ -258,7 +258,7 @@ Back-end name: csv_ws
 Purpose: search using a web service that returns CSV formatted results.
 
 Given the following configuration, *xivo-dird* would call
-"http://example.com:8000/ws-phonebook?firstname=alice&lastname=alice" for a
+"https://example.com:8000/ws-phonebook?firstname=alice&lastname=alice" for a
 lookup for the term "alice".
 
 
@@ -272,8 +272,9 @@ Example (a file inside ``source_config_dir``):
 
    type: csv_ws
    name: a_csv_web_service
-   lookup_url: "http://example.com:8000/ws-phonebook"
-   list_url: "http://example.com:8000/ws-phonebook"
+   lookup_url: "https://example.com:8000/ws-phonebook"
+   list_url: "https://example.com:8000/ws-phonebook"
+   verify_certificate: False
    searched_columns:
      - firstname
      - lastname
@@ -290,6 +291,9 @@ lookup_url
 
 list_url (optional)
     the URL used to list all available entries. This URL is used to retrieve favorites.
+
+verify_certificate (optional)
+    whether the SSL cert will be verified. A CA_BUNDLE path can also be provided. Defaults to True.
 
 delimiter (optional)
     the field delimiter in the CSV result. Default: ','
