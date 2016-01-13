@@ -244,6 +244,7 @@ Remove All Consul Data
     rm -rf /var/lib/consul/serf/
     rm -rf /var/lib/consul/services/
     rm -rf /var/lib/consul/tmp/
+    rm -rf /var/lib/consul/checks/
 
 
 Configure Consul to be Reachable from Other XiVO
