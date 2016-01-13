@@ -116,6 +116,20 @@ Here's a non-exhaustive list of changes that comes with XiVO on Debian 8:
   :file:`/etc/default/consul` files. These files are not used anymore.
 
 
+List of Known Bugs And Limitations
+==================================
+
+* If your system is using a swap partition or file and is using more memory than it can fit in
+  the RAM, then system power-off or reboot might hangs indefinitely. This is due to a limitation in
+  the current systemd version.
+
+  If you find yourself in this case, you should try allocating more RAM to your system. Otherwise,
+  you can try stopping the xivo services using ``xivo-service stop`` before rebooting to lessen the
+  likelihood of this problem.
+
+  See http://projects.xivo.io/issues/6016
+
+
 External Links
 ==============
 
