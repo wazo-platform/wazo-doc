@@ -151,7 +151,7 @@ Upgrade Notes
 15.20
 -----
 
-Consult the `15.20 Roadmap <https://projects.xivo.io/versions/237>`_
+Consult the `15.20 Roadmap <https://projects.xivo.io/versions/214>`_
 
 * Debian has been upgraded from version 7 (wheezy) to 8 (jessie).
 * CSV webservices in the web interface have been removed. Please use the :ref:`confd-api` instead.
