@@ -148,6 +148,12 @@ Upgrading from i386 (32 bits) to amd64 (64 bits)
 Upgrade Notes
 =============
 
+16.01
+-----
+
+Consult the `16.01 Roadmap <https://projects.xivo.io/versions/237>`_
+
+
 15.20
 -----
 
