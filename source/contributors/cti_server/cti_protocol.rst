@@ -16,6 +16,7 @@ Protocol Changelog
 -----
 
 * the `lastconnswins` field has been removed from the :ref:`cti_protocol_login_capas` command
+* the `loginkind` field has been removed from the :ref:`cti_protocol_login_capas` command
 
 
 15.20
@@ -741,14 +742,12 @@ Login capas
 .. code-block:: javascript
 
     {
-    "loginkind": "user",
     "capaid": 3,
     "commandid": <commandid>,
     "state": "available",
     "class": "login_capas"
     }
 
-loginkind can be 'user' or 'agent', if 'agent', the property 'agentphonenumber' can be added.
 
 ``Server -> Client``
 
