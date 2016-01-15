@@ -17,6 +17,7 @@ Protocol Changelog
 
 * the `lastconnswins` field has been removed from the :ref:`cti_protocol_login_capas` command
 * the `loginkind` field has been removed from the :ref:`cti_protocol_login_capas` command
+* the `ipbxcommands` and `regcommands` capakinds have been removed from :ref:`cti_protocol_login_capas` command
 
 
 15.20
@@ -777,7 +778,6 @@ First message, describes all the capabilities of the client, configured at the s
       "timenow": 1361440830.99,
       "replyid": 3,
       "capas": {
-               "regcommands": {},
                "preferences": false,
                "userstatus": {
                            "available": { "color": "#08FD20",
@@ -804,8 +804,7 @@ First message, describes all the capabilities of the client, configured at the s
                               "-2": {"color": "#030303", "longname": "Inexistant"},
                               "9":  {"color": "#FF0526", "longname": "(En Ligne OU Appelle) ET Sonne"},
                               "8":  {"color": "#1B0AFF", "longname": "Sonne"}
-                           },
-            "ipbxcommands": {}
+                           }
          },
       "capaxlets": [["identity", "grid"], ["search", "tab"], ["customerinfo", "tab", "1"], ["fax", "tab", "2"], ["dial", "grid", "2"], ["tabber", "grid", "3"], ["history", "tab", "3"], ["remotedirectory", "tab", "4"], ["features", "tab", "5"], ["people", "tab", "6"], ["conference", "tab", "7"]],
       "appliname": "Client",
