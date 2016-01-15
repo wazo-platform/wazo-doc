@@ -11,6 +11,13 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+
+16.01
+-----
+
+* the `lastconnswins` field has been removed from the :ref:`cti_protocol_login_capas` command
+
+
 15.20
 -----
 
@@ -724,6 +731,8 @@ If no CTI profile is defined on XiVO for this user, the following message will b
 .. note::
    the first element of the capalist is used in the next step login_capas
 
+.. _cti_protocol_login_capas:
+
 Login capas
 ^^^^^^^^^^^
 
@@ -734,7 +743,6 @@ Login capas
     {
     "loginkind": "user",
     "capaid": 3,
-    "lastconnwins": False,
     "commandid": <commandid>,
     "state": "available",
     "class": "login_capas"
