@@ -154,7 +154,9 @@ Upgrade Notes
 Consult the `16.01 Roadmap <https://projects.xivo.io/versions/237>`_
 
 * The page :menuselection:`Configuration --> Management --> Web Services Access --> Acces rights`
-  has been removed. Consequently, every Web Services Access has now all Access rights
+  has been removed. Consequently, every Web Services Access has now all access rights on the web
+  services provided by the web interface. These web services are deprecated and will be removed
+  soon.
 
 
 15.20
