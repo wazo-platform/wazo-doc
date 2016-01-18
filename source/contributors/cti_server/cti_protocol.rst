@@ -18,7 +18,7 @@ Protocol Changelog
 * the `lastconnswins` field has been removed from the :ref:`cti_protocol_login_capas` command
 * the `loginkind` field has been removed from the :ref:`cti_protocol_login_capas` command
 * the `ipbxcommands` and `regcommands` capakinds have been removed from :ref:`cti_protocol_login_capas` command
-
+* the :ref:`cti_protocol_login_pass` command has been modified. The `hashedpassword` has been replaced by the `password` field which.
 
 15.20
 -----
@@ -636,12 +636,14 @@ Transfer the current call to a given voicemail.
 Login
 -----
 
-Once the network is connected at the socket level, the login process requires three steps. If one of these steps is omitted, the connection is
-reseted by the cti server.
+Once the network is connected at the socket level, the login process requires
+three steps. If one of these steps is omitted, the connection is reseted by the
+cti server.
 
 * login_id, the username is sent as a login to the cti server, cti server answers by giving a sessionid
-* login_pass, the password combined with the sessionid is sent to the cti server, cti server answers by giving a capaid
-* login_capas, the capaid is returned to the server with the phone state, cti server answers with a list of info relevant to the user
+* login_pass, the password is sent to the cti server, cti server answers by giving a capaid
+* login_capas, the capaid is returned to the server with the user's
+  availability, cti server answers with a list of info relevant to the user
 
 .. code-block:: javascript
 
@@ -688,6 +690,8 @@ Login ID
    sessionid is used to calculate the hashed password in next step
 
 
+.. _cti_protocol_login_pass:
+
 Login password
 ^^^^^^^^^^^^^^
 
@@ -696,14 +700,10 @@ Login password
 .. code-block:: javascript
 
     {
-    "hashedpassword": "e5229ef45824333e0f8bbeed20dccfa2ddcb1c80",
-    "class": "login_pass",
-    "commandid": <commandid>
+        "class": "login_pass",
+        "password": "secret",
+        "commandid": <commandid>
     }
-
-.. note::
-
-   hashed_password = sha1(self.sessionid + ':' + password).hexdigest()
 
 ``Server -> Client``
 
