@@ -4,6 +4,8 @@
 Stock Plugins Documentation
 ===========================
 
+.. _auth-backends:
+
 Backends Plugins
 ================
 

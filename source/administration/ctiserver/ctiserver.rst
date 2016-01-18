@@ -62,6 +62,23 @@ anything with the CTI client.
    :scale: 85%
 
 
+.. _authentification:
+
+Authentification
+================
+
+xivo-ctid uses xivo-auth to authenticate users. The default authentification
+backend is `xivo_user`. To change the authentification backend, add a
+configuration file in `/etc/xivo-ctid/conf.d` with the following content:
+
+.. code-block:: yaml
+
+    auth:
+        backend: backend_name
+
+where *backend* name is the name of an enabled *xivo-auth* :ref:`auth-backends`.
+
+
 .. _presence_option:
 
 Presence Option

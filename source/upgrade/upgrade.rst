@@ -153,6 +153,8 @@ Upgrade Notes
 
 Consult the `16.01 Roadmap <https://projects.xivo.io/versions/237>`_
 
+* *xivo-ctid* uses *xivo-auth* to authenticate users. See :ref:`authentification`.
+
 
 15.20
 -----
