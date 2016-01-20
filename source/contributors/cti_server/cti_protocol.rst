@@ -637,7 +637,7 @@ Login
 -----
 
 Once the network is connected at the socket level, the login process requires
-three steps. If one of these steps is omitted, the connection is reseted by the
+three steps. If one of these steps is omitted, the connection is reset by the
 cti server.
 
 * login_id, the username is sent as a login to the cti server, cti server answers by giving a sessionid
