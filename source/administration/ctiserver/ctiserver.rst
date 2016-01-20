@@ -62,13 +62,13 @@ anything with the CTI client.
    :scale: 85%
 
 
-.. _authentification:
+.. _authentication:
 
-Authentification
+Authentication
 ================
 
-xivo-ctid uses xivo-auth to authenticate users. The default authentification
-backend is `xivo_user`. To change the authentification backend, add a
+xivo-ctid uses xivo-auth to authenticate users. The default authentication
+backend is `xivo_user`. To change the authentication backend, add a
 configuration file in `/etc/xivo-ctid/conf.d` with the following content:
 
 .. code-block:: yaml
@@ -142,7 +142,7 @@ Connection`, click on the lock icon.
 
 .. warning::
 
-   For now, there is no mechanism for strong authentification of the server. The
+   For now, there is no mechanism for strong authentication of the server. The
    connection is encrypted, but the identity of the server is not verified.
 
 
