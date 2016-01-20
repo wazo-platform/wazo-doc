@@ -11,6 +11,15 @@ Protocol Changelog
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
+
+16.01
+-----
+
+* the `lastconnswins` field has been removed from the :ref:`cti_protocol_login_capas` command
+* the `loginkind` field has been removed from the :ref:`cti_protocol_login_capas` command
+* the `ipbxcommands` and `regcommands` capakinds have been removed from :ref:`cti_protocol_login_capas` command
+* the :ref:`cti_protocol_login_pass` command has been modified. The `hashedpassword` has been replaced by the `password` field which is now sent verbatim.
+
 15.20
 -----
 
@@ -627,12 +636,14 @@ Transfer the current call to a given voicemail.
 Login
 -----
 
-Once the network is connected at the socket level, the login process requires three steps. If one of these steps is omitted, the connection is
-reseted by the cti server.
+Once the network is connected at the socket level, the login process requires
+three steps. If one of these steps is omitted, the connection is reset by the
+cti server.
 
 * login_id, the username is sent as a login to the cti server, cti server answers by giving a sessionid
-* login_pass, the password combined with the sessionid is sent to the cti server, cti server answers by giving a capaid
-* login_capas, the capaid is returned to the server with the phone state, cti server answers with a list of info relevant to the user
+* login_pass, the password is sent to the cti server, cti server answers by giving a capaid
+* login_capas, the capaid is returned to the server with the user's
+  availability, cti server answers with a list of info relevant to the user
 
 .. code-block:: javascript
 
@@ -679,6 +690,8 @@ Login ID
    sessionid is used to calculate the hashed password in next step
 
 
+.. _cti_protocol_login_pass:
+
 Login password
 ^^^^^^^^^^^^^^
 
@@ -687,14 +700,10 @@ Login password
 .. code-block:: javascript
 
     {
-    "hashedpassword": "e5229ef45824333e0f8bbeed20dccfa2ddcb1c80",
-    "class": "login_pass",
-    "commandid": <commandid>
+        "class": "login_pass",
+        "password": "secret",
+        "commandid": <commandid>
     }
-
-.. note::
-
-   hashed_password = sha1(self.sessionid + ':' + password).hexdigest()
 
 ``Server -> Client``
 
@@ -724,6 +733,8 @@ If no CTI profile is defined on XiVO for this user, the following message will b
 .. note::
    the first element of the capalist is used in the next step login_capas
 
+.. _cti_protocol_login_capas:
+
 Login capas
 ^^^^^^^^^^^
 
@@ -732,15 +743,12 @@ Login capas
 .. code-block:: javascript
 
     {
-    "loginkind": "user",
     "capaid": 3,
-    "lastconnwins": False,
     "commandid": <commandid>,
     "state": "available",
     "class": "login_capas"
     }
 
-loginkind can be 'user' or 'agent', if 'agent', the property 'agentphonenumber' can be added.
 
 ``Server -> Client``
 
@@ -770,7 +778,6 @@ First message, describes all the capabilities of the client, configured at the s
       "timenow": 1361440830.99,
       "replyid": 3,
       "capas": {
-               "regcommands": {},
                "preferences": false,
                "userstatus": {
                            "available": { "color": "#08FD20",
@@ -797,8 +804,7 @@ First message, describes all the capabilities of the client, configured at the s
                               "-2": {"color": "#030303", "longname": "Inexistant"},
                               "9":  {"color": "#FF0526", "longname": "(En Ligne OU Appelle) ET Sonne"},
                               "8":  {"color": "#1B0AFF", "longname": "Sonne"}
-                           },
-            "ipbxcommands": {}
+                           }
          },
       "capaxlets": [["identity", "grid"], ["search", "tab"], ["customerinfo", "tab", "1"], ["fax", "tab", "2"], ["dial", "grid", "2"], ["tabber", "grid", "3"], ["history", "tab", "3"], ["remotedirectory", "tab", "4"], ["features", "tab", "5"], ["people", "tab", "6"], ["conference", "tab", "7"]],
       "appliname": "Client",
