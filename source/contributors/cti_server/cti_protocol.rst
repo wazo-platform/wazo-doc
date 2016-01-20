@@ -18,7 +18,7 @@ Protocol Changelog
 * the `lastconnswins` field has been removed from the :ref:`cti_protocol_login_capas` command
 * the `loginkind` field has been removed from the :ref:`cti_protocol_login_capas` command
 * the `ipbxcommands` and `regcommands` capakinds have been removed from :ref:`cti_protocol_login_capas` command
-* the :ref:`cti_protocol_login_pass` command has been modified. The `hashedpassword` has been replaced by the `password` field which.
+* the :ref:`cti_protocol_login_pass` command has been modified. The `hashedpassword` has been replaced by the `password` field which is now sent verbatim.
 
 15.20
 -----
