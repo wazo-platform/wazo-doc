@@ -7,27 +7,30 @@ CTI Protocol
 Protocol Changelog
 ==================
 
+The versions below indicate the xivo version followed by the protocol version.
+
 .. warning::
    The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
    to check that the protocol did not change before upgrading XiVO
 
 
-16.01
------
+16.01 - 2.0
+-----------
 
 * the `lastconnswins` field has been removed from the :ref:`cti_protocol_login_capas` command
 * the `loginkind` field has been removed from the :ref:`cti_protocol_login_capas` command
 * the `ipbxcommands` and `regcommands` capakinds have been removed from :ref:`cti_protocol_login_capas` command
 * the :ref:`cti_protocol_login_pass` command has been modified. The `hashedpassword` has been replaced by the `password` field which is now sent verbatim.
 
-15.20
------
+
+15.20 - 1.2
+-----------
 
 * the :ref:`cti_protocol_starttls` command has been added
 
 
-15.19
------
+15.19 - 1.2
+-----------
 
 * the :ref:`cti_protocol_chitchat` command `to` field is now a list of two elements, `xivo_uuid` and `user_id`.
 * the ``getlist`` command has been removed for the *channels* listname.
@@ -65,8 +68,8 @@ Protocol Changelog
   * originate
 
 
-15.18
------
+15.18 - 1.2
+-----------
 
 * add the :ref:`cti_protocol-attended_transfer_voicemail` command
 * add the :ref:`cti_protocol-blind_transfer_voicemail` command
@@ -74,15 +77,15 @@ Protocol Changelog
 * the `filetransfer` command has been removed.
 
 
-15.16
------
+15.16 - 1.2
+-----------
 
 * the :ref:`cti_protocol_get_relations` command was added.
 * the :ref:`cti_protocol_relations` message was added.
 
 
-15.14
------
+15.14 - 1.2
+-----------
 
 * the ``people_purge_personal_contacts`` message was added.
 * the ``people_personal_contacts_purged`` message was added.
@@ -96,8 +99,9 @@ Protocol Changelog
 * the ``people_export_personal_contacts_csv_result`` message was added.
 * for messages ``people_personal_contact_deleted`` and ``people_favorite_update`` there are no longer ``data`` sub-key.
 
-15.13
------
+
+15.13 - 1.2
+-----------
 
 * for ``channel status update`` message:
 
@@ -113,8 +117,9 @@ Protocol Changelog
 * the ``people_delete_personal_contact`` message was added.
 * the ``people_personal_contact_deleted`` message was added.
 
-15.12
------
+
+15.12 - 1.2
+-----------
 
 * ``people_search_result`` has a new key in ``relations``: ``source_entry_id``
 * the ``people_favorites`` message was added.
@@ -122,51 +127,59 @@ Protocol Changelog
 * the ``people_set_favorite`` message was added.
 * the ``people_favorite_update`` message was added.
 
-15.11
------
+
+15.11 - 1.2
+-----------
 
 * the ``fax_progress`` message was added.
 
 
-15.09
------
+15.09 - 1.2
+-----------
 
 * for messages of class ``history`` the client cannot request by mode anymore. The server returns
   all calls and the mode is now metadata for each call.
 
-14.24
------
+
+14.24 - 1.2
+-----------
 
 * for messages of class ``ipbxcommand``, the command ``record`` and ``sipnotify`` have been removed.
 * the ``logfromclient`` message has been removed
 
-14.22
------
+
+14.22 - 1.2
+-----------
 
 * for messages of class ``faxsend``, the steps ``file_decoded`` and ``file_converted`` have been removed.
 
-14.06
------
+
+14.06 - 1.2
+-----------
 
 * the ``dial_success`` message was added
 
-14.05
------
+
+14.05 - 1.2
+-----------
 
 * the ``unhold_switchboard`` command was renamed ``resume_switchboard``.
 
-13.22
------
+
+13.22 - 1.2
+-----------
 
 * the ``actionfiche`` message was renamed ``call_form_result``.
 
-13.17
------
+
+13.17 - 1.2
+-----------
 
 * for messages of class ``login_capas`` from server to client: the key ``presence`` has been removed.
 
-13.14
------
+
+13.14 - 1.2
+-----------
 
 * for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary has changed values:
 
@@ -177,8 +190,9 @@ Protocol Changelog
     * ``on_call_non_acd_outgoing_internal``
     * ``on_call_non_acd_outgoing_external``
 
-13.12
------
+
+13.12 - 1.2
+-----------
 
 * for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary has changed values:
 
@@ -186,8 +200,8 @@ Protocol Changelog
   * added values: ``on_call_non_acd_incoming`` and ``on_call_non_acd_outgoing``
 
 
-13.10
------
+13.10 - 1.2
+-----------
 
 * for messages of class ``getlist`` and function ``updateconfig``, the ``config`` object/dictionary
   does not have a ``rules_order`` key anymore.
@@ -670,9 +684,9 @@ Login ID
     "lastlogout-datetime": "2013-02-19T11:13:36",
     "lastlogout-stopper": "disconnect",
     "userlogin": <userlogin>,
-    "version": "9999",
-    "xivoversion": "1.2"
+    "xivoversion": "<cti protocol version>"
     }
+
 
 ``Server -> Client``
 
@@ -682,7 +696,7 @@ Login ID
        "class": "login_id",
        "sessionid": "21UaGDfst7",
        "timenow": 1361268824.64,
-       "xivoversion": "1.2"
+       "xivoversion": "<cti protocol version>"
    }
 
 .. note::
