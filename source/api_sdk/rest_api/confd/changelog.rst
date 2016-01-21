@@ -7,15 +7,17 @@ xivo-confd REST API changelog
 16.01
 =====
 
-* The SIP API has been improved. ``options`` now accepts any extra parameter.  However, due to certain
-  database limitations, parameters that appear in :ref:`sip-endpoint-parameters` may only appear once in the
-  list. This limitation will be removed in future versions.
+* The SIP API has been improved. ``options`` now accepts any extra parameter.  However, due to
+  certain database limitations, parameters that appear in :ref:`sip-endpoint-parameters` may only
+  appear once in the list. This limitation will be removed in future versions.
+
 
 15.20
 =====
 
 * A new API for mass updating users has been added: PUT ``/1.1/users/import``
 * A new API for exporting users has been added: GET ``/1.1/users/export``
+
 
 15.19
 =====
@@ -27,6 +29,7 @@ xivo-confd REST API changelog
   * call_tranfer_enabled
   * ring_seconds
   * simultaneous_calls
+
 
 15.18
 =====
@@ -61,6 +64,7 @@ xivo-confd REST API changelog
 * Certain fields in the ``/lines`` API have been modified. List
   of fields are further down
 
+
 Fields modified in the ``/lines`` API
 -------------------------------------
 
@@ -89,6 +93,7 @@ Fields modified in the ``/lines`` API
 +------------------------+-------------------+------------+------------+
 | caller_id_num          |                   | yes        |            |
 +------------------------+-------------------+------------+------------+
+
 
 .. _sip-endpoint-parameters:
 
@@ -175,6 +180,7 @@ Supported parameters on SIP endpoints
  * disallowed-methods
  * textsupport
 
+
 15.16
 =====
 
@@ -199,6 +205,7 @@ Supported parameters on SIP endpoints
  * A line is no longer required when associating a voicemail with a user
  * Voicemails can now be edited even when they are associated to a user
 
+
 15.14
 =====
 
@@ -206,6 +213,7 @@ Supported parameters on SIP endpoints
  * The caller id is no longer automatically updated when the firstname or lastname is modified. You must update the
    caller id yourself if you modify the user's name.
  * Caller id will be generated if and only if it does not exist when creating a user.
+
 
 14.16
 =====
@@ -215,10 +223,12 @@ Supported parameters on SIP endpoints
   * before: error 404
   * after: error 400
 
+
 14.14
 =====
 
 * Association line-extension, a same extension can not be associated to multiple lines
+
 
 14.13
 =====
