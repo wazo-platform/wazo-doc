@@ -20,53 +20,56 @@ Unless specified, the license is `CC BY-SA`_.
 
 .. _CC BY-SA: https://creativecommons.org/licenses/by-sa/3.0/
 
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| Tutorial                                                                                     | Language | Level        | Author         | XiVO Version |
-+==============================================================================================+==========+==============+================+==============+
-| `Définition de XiVO pour la communauté et tutoriel (video)`_                                 | English  | Beginner     | XiVO           | 2015         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Xivo pour les nuls`_                                                                        | French   | Beginner     | Nicolas        | 2012         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Installing XiVO (YouTube series)`_                                                          | English  | Beginner     | VoIP-Nuiz      | 14.20        |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Demo on line about XiVO`_                                                                   | French   | Beginner     | Support        | 2015         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Start: how to create a user with a SIP line (YouTube series)`_                              | French   | Beginner     | VoIP-Nuiz      | 2014         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Start: how to popup an URL (Document)`_                                                     | French   | Beginner     |                |              |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Start: how to create a context, users, voicemails, ring group, music on hold, conf.call`_   | French   | Beginner     | Networklab     | 2014         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Tips: post-installation of XiVO on Kimsufi`_                                                | French   | Intermediate | NyXD Systems   | 2015         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Tips: username and password on XiVO`_                                                       | French   | Intermediate | NyXD Systems   | 2015         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Tips: self-hosting and telephony with XiVO`_                                                | French   | Intermediate | NyXD Systems   | 2015         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `XiVO provisioning + pfSense + siproxd + OVH`_                                               | French   | Intermediate | NyXD Systems   | 2015         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `SCCP provisioning, unsupported phones and no DHCP`_                                         | French   | Intermediate | NyXD Systems   | 2015         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Date format on SCCP 7941`_                                                                  | French   | Intermediate | NyXD Systems   | 2015         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Installing XiVO on Raspberry Pi (Raspivo)`_                                                 | French   | Intermediate | Iris Network   | 2015         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| :download:`How to popup an url with CTIClient<data/how_to_popup_an_url_with_xivoclient.pdf>` | French   | Intermediate | Assonance      | 14.17        |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| :download:`How to backup XiVO to external FTP<data/how_to_backup_xivo_to_external_ftp.pdf>`  | French   | Intermediate | Yohan Vitu     | 2015         |
-| with :download:`backup-ftp.sh<data/backup-ftp.sh>`                                           |          |              |                |              |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| :download:`How to create a XiVO Client<data/how_to_create_a_xivo_client.pdf>`                | French   | Intermediate | Yohan Vitu     | 2015         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| :download:`How to configure a C610P IP on XiVO<data/how_to_configure_a_C610_on_xivo.pdf>`    | French   | Intermediate | Yohan Vitu     | 2015         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| :download:`How to export the phonebook of XiVO<data/how_to_export_phonebook.pdf>` with       | French   | Intermediate | Yohan Vitu     | 2015         |
-| `phonebook_csv_export.py`_                                                                   |          |              |                |              |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| :download:`How to use openVPN on XiVO<data/how_to_install_openvpn_on_xivo.pdf>`              | French   | Expert       | Yohan Vitu     | 2015         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| :download:`How configure SNOM M700 DECT<data/how_to_configure_a_snom_m700_dect_gateway.pdf>` | French   | Intermediate | Jonathan Thomas| 2015         |
-+----------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| Tutorial                                                                                                  | Language | Level        | Author         | XiVO Version |
++===========================================================================================================+==========+==============+================+==============+
+| `Définition de XiVO pour la communauté et tutoriel (video)`_                                              | English  | Beginner     | XiVO           | 2015         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `Xivo pour les nuls`_                                                                                     | French   | Beginner     | Nicolas        | 2012         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `Installing XiVO (YouTube series)`_                                                                       | English  | Beginner     | VoIP-Nuiz      | 14.20        |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `Demo on line about XiVO`_                                                                                | French   | Beginner     | Support        | 2015         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `Start: how to create a user with a SIP line (YouTube series)`_                                           | French   | Beginner     | VoIP-Nuiz      | 2014         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `Start: how to popup an URL (Document)`_                                                                  | French   | Beginner     |                |              |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `Start: how to create a context, users, voicemails, ring group, music on hold, conf.call`_                | French   | Beginner     | Networklab     | 2014         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `Tips: post-installation of XiVO on Kimsufi`_                                                             | French   | Intermediate | NyXD Systems   | 2015         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `Tips: username and password on XiVO`_                                                                    | French   | Intermediate | NyXD Systems   | 2015         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `Tips: self-hosting and telephony with XiVO`_                                                             | French   | Intermediate | NyXD Systems   | 2015         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `XiVO provisioning + pfSense + siproxd + OVH`_                                                            | French   | Intermediate | NyXD Systems   | 2015         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `SCCP provisioning, unsupported phones and no DHCP`_                                                      | French   | Intermediate | NyXD Systems   | 2015         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `Date format on SCCP 7941`_                                                                               | French   | Intermediate | NyXD Systems   | 2015         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `Installing XiVO on Raspberry Pi (Raspivo)`_                                                              | French   | Intermediate | Iris Network   | 2015         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| :download:`How to popup an url with CTIClient<data/how_to_popup_an_url_with_xivoclient.pdf>`              | French   | Intermediate | Assonance      | 14.17        |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| :download:`How to backup XiVO to external FTP<data/how_to_backup_xivo_to_external_ftp.pdf>`               | French   | Intermediate | Yohan Vitu     | 2015         |
+| with :download:`backup-ftp.sh<data/backup-ftp.sh>`                                                        |          |              |                |              |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| :download:`How to create a XiVO Client<data/how_to_create_a_xivo_client.pdf>`                             | French   | Intermediate | Yohan Vitu     | 2015         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| :download:`How to configure a C610P IP on XiVO<data/how_to_configure_a_C610_on_xivo.pdf>`                 | French   | Intermediate | Yohan Vitu     | 2015         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| :download:`How to export the phonebook of XiVO<data/how_to_export_phonebook.pdf>` with                    | French   | Intermediate | Yohan Vitu     | 2015         |
+| `phonebook_csv_export.py`_                                                                                |          |              |                |              |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| :download:`How to use openVPN on XiVO<data/how_to_install_openvpn_on_xivo.pdf>`                           | French   | Expert       | Yohan Vitu     | 2015         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| :download:`How configure SNOM M700 DECT<data/how_to_configure_a_snom_m700_dect_gateway.pdf>`              | French   | Intermediate | Jonathan Thomas| 2015         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| :download:`Scripted provisioning for SNOM M700 DECT<data/how_to_provisiong_a_snom_m700_dect_gateway.pdf>` | French   | Intermediate | Jonathan Thomas| 2015         |
+| with `specific scripts`_                                                                                  |          |              |                |              |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 
 .. _Définition de XiVO pour la communauté et tutoriel (video): https://www.youtube.com/watch?v=leMZi6cU8iM
 .. _Xivo pour les nuls: http://xivopourlesnuls.wordpress.com
@@ -83,6 +86,7 @@ Unless specified, the license is `CC BY-SA`_.
 .. _Date format on SCCP 7941: http://retroplace.nyxd.org/2015/02/06/xivo-probleme-daffichage-de-lheure-sur-cisco-7941-en-cas-de-redemarrage-dasterisk/
 .. _Installing XiVO on Raspberry Pi (Raspivo): http://raspivo.io/installation-depuis-nos-depots.html
 .. _phonebook_csv_export.py: https://raw.githubusercontent.com/xivo-pbx/xivo-tools/master/scripts/phonebook_csv_export.py
+.. _specific scripts: https://github.com/jthomas74/prov-m700
 
 
 Contribute
