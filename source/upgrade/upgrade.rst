@@ -163,6 +163,7 @@ Consult the `16.01 Roadmap <https://projects.xivo.io/versions/237>`_
   package to trust no CA certificates at all, you'll need to manually reconfigure it via
   ``dpkg-reconfigure ca-certificates`` after the upgrade.
 * *xivo-ctid* uses *xivo-auth* to authenticate users. See :ref:`authentication`.
+* the :ref:`cti-protocol` is now versioned.
 
 
 15.20
