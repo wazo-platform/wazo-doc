@@ -5,12 +5,17 @@ User Import and Export
 CSV Import
 ==========
 
-Users can be imported and associated to other resources by use of a CSV file. CSV Importation can be used in situations where you need to modify many users at the same in an efficient manner, or for migrating users from one system to another. A CSV file can be created and edited by spreadsheet tools such as Excel, Libreoffice/Openoffice Calc, etc.
+Users can be imported and associated to other resources by use of a CSV file. CSV Importation can be
+used in situations where you need to modify many users at the same in an efficient manner, or for
+migrating users from one system to another. A CSV file can be created and edited by spreadsheet
+tools such as Excel, LibreOffice/OpenOffice Calc, etc.
+
 
 CSV file
 --------
 
-The first line of a CSV file contains a list of field names (also sometimes called "columns"). Each new line afterwards are users to import. CSV data must respect the following conditions:
+The first line of a CSV file contains a list of field names (also sometimes called "columns"). Each
+new line afterwards are users to import. CSV data must respect the following conditions:
 
 *  Files must be encoded in UTF-8
 *  Fields must be separated with a ``,``
@@ -20,7 +25,9 @@ The first line of a CSV file contains a list of field names (also sometimes call
 *  Fields of type `bool` must be either ``0`` for false, or ``1`` for true.
 *  Fields of type `int` must be a positive number
 
-In the following tables, columns have been grouped according to their resource. Each resource is created and associated to its user when all required fields for that resource are present.
+In the following tables, columns have been grouped according to their resource. Each resource is
+created and associated to its user when all required fields for that resource are present.
+
 
 User
 ~~~~
@@ -28,8 +35,8 @@ User
 +-----------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
 | Field                 | Type   | Required | Values                            | Description                                               |
 +=======================+========+==========+===================================+===========================================================+
-| entity_id             | int    | Yes      |                                   | Entity ID (Defined in menu `Configuration > Management >  |
-|                       |        |          |                                   | Entities`)                                                |
+| entity_id             | int    | Yes      |                                   | Entity ID (Defined in menu :menuselection:`Configuration  |
+|                       |        |          |                                   | --> Management --> Entities`)                             |
 +-----------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
 | firstname             | string | Yes      |                                   | User's firstname                                          |
 +-----------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
@@ -51,6 +58,7 @@ User
 | ring_seconds          | int    |          |                                   | Number of seconds a call will ring before ending          |
 +-----------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
 
+
 CTI Profile
 ~~~~~~~~~~~
 
@@ -63,8 +71,10 @@ CTI Profile
 +---------------------+--------+-------------------------+--------+------------------------------------------------------------------------+
 | password            | string | Yes, if profile enabled |        | XiVO Client password                                                   |
 +---------------------+--------+-------------------------+--------+------------------------------------------------------------------------+
-| cti_profile_name    | string | Yes, if profile enabled |        | XiVO Client profile (Defined in menu Services > CTI server > Profiles) |
+| cti_profile_name    | string | Yes, if profile enabled |        | XiVO Client profile (Defined in menu :menuselection:`Services -->      |
+|                     |        |                         |        | CTI server --> Profiles`)                                              |
 +---------------------+--------+-------------------------+--------+------------------------------------------------------------------------+
+
 
 Phone
 ~~~~~
@@ -84,6 +94,7 @@ Phone
 | sip_secret    | string |          |           | SIP secret                                                                               |
 +---------------+--------+----------+-----------+------------------------------------------------------------------------------------------+
 
+
 Incoming call
 ~~~~~~~~~~~~~
 
@@ -97,6 +108,7 @@ Incoming call
 +---------------------+--------+----------+--------+---------------------------------------------------------------------------------------+
 | incall_ring_seconds | int    |          |        | Number of seconds a call will ring before ending                                      |
 +---------------------+--------+----------+--------+---------------------------------------------------------------------------------------+
+
 
 Voicemail
 ~~~~~~~~~
@@ -121,10 +133,13 @@ Voicemail
 | voicemail_ask_password    | bool   |          |                           | Enable/Disable password checking                           |
 +---------------------------+--------+----------+---------------------------+------------------------------------------------------------+
 
+
 Importing a file
 ----------------
 
-Once your file is ready, you can import it via Services > IPBX > IPBX settings > Users. At the top of the page there is a plus button. A submenu will appear when the mouse is on top. Click on Import a file.
+Once your file is ready, you can import it via :menuselection:`Services --> IPBX --> IPBX settings
+--> Users`. At the top of the page there is a plus button. A submenu will appear when the mouse is
+on top. Click on Import a file.
 
 .. figure:: images/Import_user_menu.png
    :scale: 80%
@@ -136,7 +151,8 @@ Once your file is ready, you can import it via Services > IPBX > IPBX settings >
 Examples
 ~~~~~~~~
 
-The following example defines 3 users who each have a phone number. The first 2 users have a SIP line, where as the last one uses SCCP::
+The following example defines 3 users who each have a phone number. The first 2 users have a SIP
+line, where as the last one uses SCCP::
 
     entity_id,firstname,lastname,exten,context,line_protocol
     1,John,Doe,1000,default,sip
@@ -148,15 +164,18 @@ The following example imports a user with a phone number and a voicemail::
     entity_id,firstname,lastname,exten,context,line_protocol,voicemail_name,voicemail_number,voicemail_context
     1,John,Doe,1000,default,sip,Voicemail for John Doe,1000,default
 
-The following exmple imports a user with both an internal and external phone number (e.g. incoming call)::
+The following exmple imports a user with both an internal and external phone number (e.g. incoming
+call)::
 
     entity_id,firstname,lastname,exten,context,line_protocol,incall_exten,incall_context
     1,John,Doe,1000,default,sip,2050,from-extern
 
+
 CSV Update
 ==========
 
-The field list for an update is the same as for an import with the addition of the column uuid, which is mandatory. For each line in the CSV file, the updater goes through the following steps:
+The field list for an update is the same as for an import with the addition of the column uuid,
+which is mandatory. For each line in the CSV file, the updater goes through the following steps:
 
 #. Find the user, using the uuid
 #. For each resource (line, voicemail, extension, etc) find out if it already exists.
@@ -170,24 +189,30 @@ The following restrictions must also be respected during update:
 * A line’s protocol cannot be changed (i.e you cannot go from “sip” to “sccp” or vice-versa).
 * An incall cannot be updated if the user has more than one incall associated.
 
-Updating is done through the same menu as importing (`Services > IPBX > IPBX settings > Users`). A submenu will appear when the mouse is on top. Click on `Update from file` in the submenu.
+Updating is done through the same menu as importing (:menuselection:`Services --> IPBX --> IPBX
+settings --> Users`). A submenu will appear when the mouse is on top. Click on `Update from file` in
+the submenu.
 
 .. figure:: images/Update_user_menu.jpg
    :scale: 80%
    :alt: Update users
 
-   Update Users
+   :menuselection:`Services --> IPBX --> IPBX settings --> Users --> Update from file`
 
 
 CSV Export
 ==========
 
-CSV exports can be used as a scaffold for updating users, or as a means of importing users into another system. An export will generate a CSV file with the same list of columns as an import, with the addition of uuid and provisioning_code.
+CSV exports can be used as a scaffold for updating users, or as a means of importing users into
+another system. An export will generate a CSV file with the same list of columns as an import, with
+the addition of uuid and provisioning_code.
 
-Exports are done through the same menu as importing (`Services > IPBX > IPBX settings > Users`). Click on `Export to CSV` in the submenu. You will be asked to download a file.
+Exports are done through the same menu as importing (:menuselection:`Services --> IPBX --> IPBX
+settings --> Users`).  Click on `Export to CSV` in the submenu. You will be asked to download a
+file.
 
 .. figure:: images/Export_user_menu.jpg
    :scale: 80%
    :alt: Export users
 
-   Export Users
+   :menuselection:`Services --> IPBX --> IPBX settings --> Users --> Export to CSV`
