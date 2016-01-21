@@ -157,7 +157,7 @@ line, where as the last one uses SCCP::
     entity_id,firstname,lastname,exten,context,line_protocol
     1,John,Doe,1000,default,sip
     1,George,Clinton,1001,default,sip
-    1,Bill,Bush,1002,default,sip
+    1,Bill,Bush,1002,default,sccp
 
 The following example imports a user with a phone number and a voicemail::
 
