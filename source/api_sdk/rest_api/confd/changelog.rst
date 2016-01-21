@@ -4,6 +4,13 @@
 xivo-confd REST API changelog
 *****************************
 
+16.01
+=====
+
+* The SIP API has been improved. ``options`` now accepts any extra parameter.  However, due to certain
+  database limitations, parameters that appear in :ref:`sip-endpoint-parameters` may only appear once in the
+  list. This limitation will be removed in future versions.
+
 15.20
 =====
 
@@ -83,6 +90,7 @@ Fields modified in the ``/lines`` API
 | caller_id_num          |                   | yes        |            |
 +------------------------+-------------------+------------+------------+
 
+.. _sip-endpoint-parameters:
 
 Supported parameters on SIP endpoints
 -------------------------------------
