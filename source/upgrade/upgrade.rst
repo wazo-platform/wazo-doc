@@ -164,6 +164,7 @@ Consult the `16.01 Roadmap <https://projects.xivo.io/versions/237>`_
   ``dpkg-reconfigure ca-certificates`` after the upgrade.
 * *xivo-ctid* uses *xivo-auth* to authenticate users. See :ref:`authentication`.
 * the :ref:`cti-protocol` is now versioned.
+* the `service_discovery` section of the *xivo-ctid* configuration has changed. See `/etc/xivo-ctid/config.yml`.
 
 
 15.20
