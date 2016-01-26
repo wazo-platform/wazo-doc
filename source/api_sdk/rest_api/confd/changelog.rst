@@ -10,6 +10,8 @@ xivo-confd REST API changelog
 * The SIP API has been improved. ``options`` now accepts any extra parameter.  However, due to
   certain database limitations, parameters that appear in :ref:`sip-endpoint-parameters` may only
   appear once in the list. This limitation will be removed in future versions.
+* A new API for custom endpoints has been added: ``/1.1/endpoints/custom``
+* A new API for associating custom endpoints has been added: ``/1.1/lines/<line_id>/endpoints/custom/<endpoint_id>``
 
 
 15.20
