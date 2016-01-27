@@ -15,9 +15,12 @@ Available fields
 ================
 
 * id
+* agent_id
+* line_id
 * firstname
 * lastname
 * exten
+* context
 * mobile_phone_number
 * userfield
 * description
