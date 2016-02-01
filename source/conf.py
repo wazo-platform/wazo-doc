@@ -203,7 +203,7 @@ latex_font_size = u'10pt'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-latex_documents = [('index', 'XiVO-doc.tex', u'XiVO-doc Documentation', u'Avencall', 'manual')]
+latex_documents = [('index', 'XiVO-doc.tex', u'XiVO Documentation', u'Avencall', 'manual')]
 
 
 # A dictionary that contains LaTeX snippets that override those Sphinx usually
@@ -240,7 +240,7 @@ latex_use_parts = False
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [('index', 'XiVO-doc', u'XiVO-doc Documentation', [u'Avencall'], 1)]
+man_pages = [('index', 'XiVO-doc', u'XiVO Documentation', [u'Avencall'], 1)]
 
 # -- Options for Epub output ---------------------------------------------------
 
