@@ -174,8 +174,8 @@ Create a configuration file for xivo-ctid, e.g */etc/xivo-ctid/conf.d/interconne
       http:
         listen: 0.0.0.0
     service_discovery:
-      advertise_address: 192.168.1.124  # IP address of this XiVO, reachable from outside
-      check_url: http://192.168.1.124:9495/0.1/infos
+      advertise_address: auto
+      advertise_address_interface: eth0  # Interface bearing the IP address of this XiVO, reachable from outside
 
 Restart xivo-ctid
 -----------------
@@ -244,6 +244,7 @@ Remove All Consul Data
     rm -rf /var/lib/consul/serf/
     rm -rf /var/lib/consul/services/
     rm -rf /var/lib/consul/tmp/
+    rm -rf /var/lib/consul/checks/
 
 
 Configure Consul to be Reachable from Other XiVO

@@ -4,6 +4,8 @@
 Stock Plugins Documentation
 ===========================
 
+.. _auth-backends:
+
 Backends Plugins
 ================
 
@@ -43,6 +45,7 @@ Configuration example:
 
    enabled_plugins:
      - ldap_user_voicemail
+     # you must write here all other enabled plugins to keep them enabled (see main config.yml for default)
 
    ldap:
        uri: ldap://example.org
@@ -54,7 +57,7 @@ uri
 
 bind_dn_format
    the bind DN used to check the given username/password. The variable ``{username}`` will be
-   substituted when binding. 
+   substituted when binding.
 
 domain
    the domain used to build the email associated with a XiVO user.

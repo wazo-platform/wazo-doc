@@ -148,10 +148,31 @@ Upgrading from i386 (32 bits) to amd64 (64 bits)
 Upgrade Notes
 =============
 
+16.01
+-----
+
+Consult the `16.01 Roadmap <https://projects.xivo.io/versions/237>`_
+
+* The page :menuselection:`Configuration --> Management --> Web Services Access --> Acces rights`
+  has been removed. Consequently, every Web Services Access has now all access rights on the web
+  services provided by the web interface. These web services are deprecated and will be removed
+  soon.
+* During the upgrade, if no CA certificates were trusted at the system level, all the CA
+  certificates from the ca-certificates package will be added. This is done to resolve an issue with
+  installations from the ISO and PXE. In the (rare) case you manually configured the ca-certificates
+  package to trust no CA certificates at all, you'll need to manually reconfigure it via
+  ``dpkg-reconfigure ca-certificates`` after the upgrade.
+* *xivo-ctid* uses *xivo-auth* to authenticate users. See :ref:`authentication`.
+* the `service_discovery` section of the *xivo-ctid* configuration has changed. If you have set up
+  :ref:`contact_and_presence_sharing`, you should update your xivo-ctid configuration.
+* the :ref:`cti-protocol` is now versioned and a message will be displayed if the server and a
+  client have incompatible protocol versions.
+
+
 15.20
 -----
 
-Consult the `15.20 Roadmap <https://projects.xivo.io/versions/237>`_
+Consult the `15.20 Roadmap <https://projects.xivo.io/versions/214>`_
 
 * Debian has been upgraded from version 7 (wheezy) to 8 (jessie).
 * CSV webservices in the web interface have been removed. Please use the :ref:`confd-api` instead.
