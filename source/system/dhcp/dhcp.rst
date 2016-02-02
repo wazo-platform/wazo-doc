@@ -4,13 +4,14 @@
 DHCP Server
 *******************
 
-XiVO includes a DHCP server that must be used to address telephony devices (:ref:`Basic
-Configuration <dhcpd-config>`) of the VOIP subnet. This section describes how to configure DHCP
-server for other subnets or with advanced options.
+XiVO includes a DHCP server used for assisting in the provisioning of phones and other devices. (See
+:ref:`Basic Configuration <dhcpd-config>` for the basic setup). This section contains additional
+notes on how to configure more advanced options that may be helpful when integrating the server with
+different VOIP subnets.
 
 
-Activation of DHCP server
-=========================
+Activating DHCP on another interface
+====================================
 
 DHCP Server can be activated through the XiVO Web Interface :menuselection:`Configuration -->
 Network --> DHCP` :
@@ -21,19 +22,19 @@ Network --> DHCP` :
    :menuselection:`Configuration --> Network --> DHCP`
 
 By default, it will only answer to DHCP requests coming from the VoIP subnet (defined in the
-:menuselection:`Configuration --> Network --> Interfaces` section). If you need to activate DHCP
-server on an other interface, you have to fill the *Extra network interfaces* field with, for
-example : ``eth0``
+:menuselection:`Configuration --> Network --> Interfaces` section). If you need to activate DHCP on
+an other interface, you have to fill in the *Extra network interfaces* field with the interface name
+, for example : ``eth0``
 
-After saving your modifications, you need to click on *Apply system configuration* for them to be
-applied.
+After saving your modifications, click on *Apply system configuration* so that the new settings can
+take effect.
 
 
-Change default gateway for DHCP
-===============================
+Changing default DHCP gateway 
+=============================
 
-By default, the XiVO DHCP server gives the XiVO IP address in the router option.
-To change this you must create a custom-template:
+By default, the XiVO DHCP server uses the XiVO's IP address as the routing address.  To change this
+you must create a custom-template:
 
 #. Create a custom template for the :file:`dhcpd_subnet.conf.head` file::
 
@@ -45,7 +46,8 @@ To change this you must create a custom-template:
 
      vim dhcpd_subnet.conf.head
 
-#. In the file, replace the string ``#XIVO_NET4_IP#`` by the router of your VoIP network, for example::
+#. In the file, replace the string ``#XIVO_NET4_IP#`` by the routing address of your VoIP network,
+   for example::
 
      option routers 192.168.2.254;
 
@@ -53,7 +55,7 @@ To change this you must create a custom-template:
 
      xivo-update-config
 
-DHCP server should have been restarted and should now give the new router option.
+DHCP server should have been restarted and should now use the new routing address.
 
 
 Configuring DHCP server to serve unknown hosts
@@ -95,13 +97,13 @@ DHCP-Relay
 
 If your telephony devices aren't located on the same site and the same broadcast domain as the XiVO
 DHCP server, you will have to add the option *DHCP Relay* to the site's router.  This parameter will
-permit the DHCP requests from distant devices to be transmitted to the IP address you specify as
-DHCP Relay.
+allow the DHCP requests from distant devices to be transmitted to the IP address you specify as DHCP
+Relay.
 
-.. warning:: Please make sure that the IP address used as DHCP Relay is one of the XiVO interface,
-  and that this interface is configured to listen to DHCP requests (as decribed in previous part).
-  Also verify that routing is configured between the distant router and the choosen interface,
-  otherwise DHCP requests will never reach the XiVO server.
+.. warning:: Please make sure that the IP address used as DHCP Relay is the same as one of XiVO's
+    interfaces, and that this interface is configured to listen to DHCP requests (as decribed in
+    previous part).  Also verify that routing is configured between the distant router and the choosen
+    interface, otherwise DHCP requests will never reach the XiVO server.
 
 
 Configuring DHCP server for other subnets
@@ -110,7 +112,7 @@ Configuring DHCP server for other subnets
 This section describes how to configure XiVO to serve other subnets that the VOIP subnet. As you
 can't use the Web Interface to declare other subnets (for example to address DATA subnet, or a VOIP
 subnet that isn't on the same site that XiVO server), you'll have to do the following configuration
-in Command Line Interface.
+on the Command Line Interface.
 
 
 Creating "extra subnet" configuration files
@@ -180,6 +182,6 @@ At this point, you can apply the changes of the DHCP server with the command::
 
   service isc-dhcp-server restart
 
-After that, XiVO will start to serve the DHCP requests of the devices located on other site or other
-subnet than the VOIP subnet. You will see in :file:`/var/log/daemon.log` all the DHCP requests
-received and how they are handled by XiVO.
+After that, XiVO will start to serve the DHCP requests of the devices located on other sites or
+other subnets than the VOIP subnet. You will see in :file:`/var/log/daemon.log` all the DHCP
+requests received and how they are handled by XiVO.
