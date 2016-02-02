@@ -6,29 +6,23 @@ Network
 
 .. index:: network
 
-You **must** configure your network interfaces directly from the XiVO web interface via the
-:menuselection:`Configuration --> Network --> Interfaces` page.
+This section describes how to configure additional network devices that may be used to better accomodate more complex
+network infrastructures. Network interfaces are managed in the XiVO web interface via the page
+:menuselection:`Configuration --> Network --> Interfaces`.
 
-The Voip interface is used by the DHCP server and the provisioning server.
+XiVO offers 2 types of interfaces: `VoIP` and `Data`. The `VoIP` interface is used by the DHCP server, provisioning
+server, and phone devices connected to your XiVO. These services will use the information provided on the `VoIP`
+interface for their configuration.  For example, the DHCP server will only listen on the VoIP interface by default.
 
+To change these settings, you must either create a new interace or edit an existing one and change its type.
+When adding a new `VoIP` interface, the type of the old one will automatically be changed to `Data`.
 
-How-to
-------
+Configuring a new interface
+---------------------------
 
-You can only have one VoIP interface, which is eth0 by default. This interface is configured during the wizard.
+In this example, we'll add and configure the **eth1** network interface on our XiVO.
 
-The DHCP server and provisioning server, among other, use information from the VoIP interface in its configuration.
-For example, the DHCP server will only listen on the VoIP interface per default.
-
-To change this interface, you must either create a new one or edit an existing one and change its type to VoIP.
-The type of the old interface will automatically be changed to the 'data' type.
-
-
-Configuring a physical interface
---------------------------------
-In this example, we'll add and configure the *eth1* network interface on our XiVO.
-
-First, we see there's already an unconfigured network interface named ''eth1'' on our system:
+First, we see there's already an unconfigured network interface named **eth1** on our system:
 
 .. figure:: images/netiface_list_post_wizard.png
 
@@ -47,12 +41,11 @@ we fill the following fields:
  
 Configure physical interface
 
-Note that since our ''eth0'' network interface already has a default gateway,
-we do not enter information in the ''Default gateway'' field for our ''eth1'' interface.
+Note that since our **eth0** network interface already has a default gateway,
+we do not enter information in the ``Default gateway`` field for our **eth1** interface.
 
-Once we click on ''Save'', the XiVO will put the ''Apply network configuration'' button in bold.
-
-To reconfigure the given network interface with the new information, you click on it.
+Once the changes have been saved, the action **Apply network configuration** will appear in bold.
+This action must be clicked in order for the changes to take effect.
 
 .. figure:: images/netiface_notify_change.png
    :figclass: align-center
@@ -65,7 +58,7 @@ To reconfigure the given network interface with the new information, you click o
 Adding a VLAN interface
 -----------------------
 
-First, we see there's already a configured network interface on our system:
+In this example, the XiVO already has 2 network interfaces configured::
 
 .. figure:: images/netiface_list_configured.png
 
@@ -116,9 +109,9 @@ After applying the network configuration:
 Add static network routes
 -------------------------
 
-Static route can't be currently added via the web interface.
-If you want static routes in your XiVO you should do the following steps described below.
-It would ensure that your static routes are applied at startup (in fact each time the network interface goes up).
+Static routes cannot be added via the web interface. However, you may add static routes to your XiVO by following
+following the steps described below. This procedure will ensure that your static routes are applied at startup (i.e.
+each time the network interface goes up).
 
 #. Create the file :file:`/etc/network/if-up.d/xivo-routes`::
 
@@ -155,10 +148,10 @@ Change interface MTU
 --------------------
 
 .. warning::
-   Changing the MTU is risky. You should know what you are doing.
+   Manually changing the MTU is risky. Please only proceed if you are aware of what you are doing.
 
 
-If you need to change the MTU here is how you should do it:
+These steps describe how to change the MTU::
 
 #. Create the file :file:`/etc/network/if-up.d/xivo-mtu`::
 
