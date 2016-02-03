@@ -1,8 +1,13 @@
 .. _auth_changelog:
 
-*******************
-xivo-auth changelog
-*******************
+****************************
+xivo-auth HTTP API Changelog
+****************************
+
+16.02
+=====
+
+* POST ``/0.1/token``, field ``expiration``: only integers are accepted, floats are now invalid.
 
 15.19
 =====
