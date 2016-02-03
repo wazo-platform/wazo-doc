@@ -4,8 +4,8 @@ Log Files
 
 Every XiVO service has its own log file, placed in :file:`/var/log`.
 
-agid
-----
+xivo-agid
+---------
 
 * File location: :file:`/var/log/xivo-agid.log`
 * Rotate configuration: :file:`/etc/logrotate.d/xivo-agid`
@@ -28,8 +28,8 @@ verbose debugging is required. Using this option in production would produce VER
 * Rotation frequence: Daily
 
 
-provd
------
+xivo-provd
+----------
 
 * File location: :file:`/var/log/xivo-provd.log`
 * Rotate configuration: :file:`/etc/logrotate.d/xivo-provd`
@@ -37,8 +37,8 @@ provd
 * Rotation frequence: Daily
 
 
-sysconfd
---------
+xivo-sysconfd
+-------------
 
 * File location: :file:`/var/log/xivo-sysconfd.log`
 * Rotate configuration: :file:`/etc/logrotate.d/xivo-sysconfd`
@@ -46,8 +46,8 @@ sysconfd
 * Rotation frequence: Daily
 
 
-web-interface
--------------
+xivo-web-interface
+------------------
 
 * File location: :file:`/var/log/xivo-web-interface/\*.log`
 * Rotate configuration: :file:`/etc/logrotate.d/xivo-web-interface`
