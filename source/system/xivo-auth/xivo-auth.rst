@@ -1,13 +1,15 @@
 .. _xivo-auth:
 
 =========
-XiVO auth
+xivo-auth
 =========
 
 xivo-auth is a scalable, extendable and configurable authentication service.
 It uses an HTTP interface to emit tokens to users who can then use those tokens
 to identify and authenticate themselves with other services compatible with
 xivo-auth.
+
+The HTTP API reference is at http://api.xivo.io.
 
 .. toctree::
    :maxdepth: 1
@@ -91,13 +93,15 @@ Launching xivo-auth
                             critical, error, warning, info, debug. Default: None
 
 
-HTTP API reference
+HTTP API Reference
 ==================
 
-For the HTTP API see http://api.xivo.io.
+The complete HTTP API documentation is at http://api.xivo.io.
+
+See also the :ref:`auth_changelog`.
 
 
 Development
 ===========
 
-For the xivo-auth developer's see :ref:`xivo-auth-developer`.
+See :ref:`xivo-auth-developer`.
