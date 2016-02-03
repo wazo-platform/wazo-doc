@@ -4,14 +4,6 @@ Log Files
 
 Every XiVO service has its own log file, placed in :file:`/var/log`.
 
-xivo-agid
----------
-
-* File location: :file:`/var/log/xivo-agid.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-agid`
-* Number of archived files: 15
-* Rotation frequence: Daily
-
 
 asterisk
 --------
@@ -25,6 +17,38 @@ verbose debugging is required. Using this option in production would produce VER
 
 * Files location: :file:`/var/log/asterisk/\*`
 * Number of archived files: 15
+* Rotation frequence: Daily
+
+
+xivo-agid
+---------
+
+* File location: :file:`/var/log/xivo-agid.log`
+* Rotate configuration: :file:`/etc/logrotate.d/xivo-agid`
+* Number of archived files: 15
+* Rotation frequence: Daily
+
+
+xivo-confgend
+-------------
+
+The xivo-confgend daemon output is sent to the file specified with the ``--logfile`` parameter when
+launched with twistd.
+
+The file location can be changed by customizing the xivo-confgend.service unit file.
+
+* File location: :file:`/var/log/xivo-confgend.log`
+* Rotate configuration: :file:`/etc/logrotate.d/xivo-confgend`
+* Number of archived files: 15
+* Rotation frequence: Daily
+
+
+xivo-ctid
+---------
+
+* File location: :file:`/var/log/xivo-ctid.log`
+* Rotate configuration: :file:`/etc/logrotate.d/xivo-ctid`
+* Number of archived log files: 15
 * Rotation frequence: Daily
 
 
@@ -52,27 +76,4 @@ xivo-web-interface
 * File location: :file:`/var/log/xivo-web-interface/\*.log`
 * Rotate configuration: :file:`/etc/logrotate.d/xivo-web-interface`
 * Number of archived files: 21
-* Rotation frequence: Daily
-
-
-xivo-confgend
--------------
-
-The xivo-confgend daemon output is sent to the file specified with the ``--logfile`` parameter when
-launched with twistd.
-
-The file location can be changed by customizing the xivo-confgend.service unit file.
-
-* File location: :file:`/var/log/xivo-confgend.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-confgend`
-* Number of archived files: 15
-* Rotation frequence: Daily
-
-
-xivo-ctid
----------
-
-* File location: :file:`/var/log/xivo-ctid.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-ctid`
-* Number of archived log files: 15
 * Rotation frequence: Daily
