@@ -38,22 +38,22 @@ you must create a custom-template:
 
 #. Create a custom template for the :file:`dhcpd_subnet.conf.head` file::
 
-     mkdir -p /etc/xivo/custom-templates/dhcp/etc/dhcp/
-     cd /etc/xivo/custom-templates/dhcp/etc/dhcp/
-     cp /usr/share/xivo-config/templates/dhcp/etc/dhcp/dhcpd_subnet.conf.head .
+    mkdir -p /etc/xivo/custom-templates/dhcp/etc/dhcp/
+    cd /etc/xivo/custom-templates/dhcp/etc/dhcp/
+    cp /usr/share/xivo-config/templates/dhcp/etc/dhcp/dhcpd_subnet.conf.head .
 
 #. Edit the custom template::
 
-     vim dhcpd_subnet.conf.head
+    vim dhcpd_subnet.conf.head
 
 #. In the file, replace the string ``#XIVO_NET4_IP#`` by the routing address of your VoIP network,
    for example::
 
-     option routers 192.168.2.254;
+    option routers 192.168.2.254;
 
 #. Re-generate the dhcp configuration::
 
-     xivo-update-config
+    xivo-update-config
 
 DHCP server should have been restarted and should now use the new routing address.
 
@@ -73,21 +73,21 @@ If you want your XiVO DHCP server to serve also unknown hosts (like PCs) follow 
 
 #. Create a custom template for the :file:`dhcpd_subnet.conf.tail` file::
 
-     mkdir -p /etc/xivo/custom-templates/dhcp/etc/dhcp/
-     cd /etc/xivo/custom-templates/dhcp/etc/dhcp/
-     cp /usr/share/xivo-config/templates/dhcp/etc/dhcp/dhcpd_subnet.conf.tail .
+    mkdir -p /etc/xivo/custom-templates/dhcp/etc/dhcp/
+    cd /etc/xivo/custom-templates/dhcp/etc/dhcp/
+    cp /usr/share/xivo-config/templates/dhcp/etc/dhcp/dhcpd_subnet.conf.tail .
 
 #. Edit the custom template::
 
-     vim dhcpd_subnet.conf.tail
+    vim dhcpd_subnet.conf.tail
 
 #. And add the following line at the head of the file::
 
-     allow unknown-clients;
+    allow unknown-clients;
 
 #. Re-generate the dhcp configuration::
 
-     xivo-update-config
+    xivo-update-config
 
 DHCP server should have been restarted and should now serve all network equipments.
 
@@ -101,9 +101,9 @@ allow the DHCP requests from distant devices to be transmitted to the IP address
 Relay.
 
 .. warning:: Please make sure that the IP address used as DHCP Relay is the same as one of XiVO's
-    interfaces, and that this interface is configured to listen to DHCP requests (as decribed in
-    previous part).  Also verify that routing is configured between the distant router and the choosen
-    interface, otherwise DHCP requests will never reach the XiVO server.
+   interfaces, and that this interface is configured to listen to DHCP requests (as decribed in
+   previous part). Also verify that routing is configured between the distant router and the choosen
+   interface, otherwise DHCP requests will never reach the XiVO server.
 
 
 Configuring DHCP server for other subnets
@@ -120,21 +120,20 @@ Creating "extra subnet" configuration files
 
 First thing to do is to create a directory and to copy into it the configuration files::
 
-   mkdir /etc/dhcp/dhcpd_sites/
-   cp /etc/dhcp/dhcpd_subnet.conf /etc/dhcp/dhcpd_sites/dhcpd_siteXXX.conf
-   cp /etc/dhcp/dhcpd_subnet.conf /etc/dhcp/dhcpd_sites/dhcpd_lanDATA.conf
+    mkdir /etc/dhcp/dhcpd_sites/
+    cp /etc/dhcp/dhcpd_subnet.conf /etc/dhcp/dhcpd_sites/dhcpd_siteXXX.conf
+    cp /etc/dhcp/dhcpd_subnet.conf /etc/dhcp/dhcpd_sites/dhcpd_lanDATA.conf
 
 .. note::
-  In this case we'll create 2 files for 2 differents subnets.
-  You can change the name of the files, and create as many files as you want in the
-  folder :file:`/etc/dhcp/dhcpd_sites/`.
-  Just adapt this procedure by changing the name of the file in the different links.
+   In this case we'll create 2 files for 2 differents subnets. You can change the name of the files,
+   and create as many files as you want in the folder :file:`/etc/dhcp/dhcpd_sites/`. Just adapt
+   this procedure by changing the name of the file in the different links.
 
 After creating one or several files in :file:`/etc/dhcp/dhcpd_sites/`, you have to edit the file
 :file:`/etc/dhcp/dhcpd_extra.conf` and add the according include statement like::
 
-  include "/etc/dhcp/dhcpd_sites/dhcpd_siteXXX.conf";
-  include "/etc/dhcp/dhcpd_sites/dhcpd_lanDATA.conf";
+    include "/etc/dhcp/dhcpd_sites/dhcpd_siteXXX.conf";
+    include "/etc/dhcp/dhcpd_sites/dhcpd_lanDATA.conf";
 
 
 Adjusting Options of the DHCP server
@@ -145,7 +144,7 @@ files in :file:`/etc/dhcp/dhcpd_sites/`) and modify the different parameters.  I
 **subnet**, write the IP subnet and change the following options (underlined fields in the
 example)::
 
-   subnet 172.30.8.0 netmask 255.255.255.0 {
+    subnet 172.30.8.0 netmask 255.255.255.0 {
 
 * subnet-mask::
 
@@ -161,7 +160,7 @@ example)::
 
 In section **pool**, modify the options::
 
-   pool {
+    pool {
 
 * log (add the name of the site or of the subnet)::
 
@@ -174,13 +173,13 @@ In section **pool**, modify the options::
 
 
 .. warning:: XiVO only answers to DHCP requests from :ref:`supported devices <devices>`. In case of
-  you need to address other equipment, use the option *allow unknown-clients;* in the
-  :file:`/etc/dhcp/dhcpd_sites/` files
+   you need to address other equipment, use the option *allow unknown-clients;* in the
+   :file:`/etc/dhcp/dhcpd_sites/` files
 
 
 At this point, you can apply the changes of the DHCP server with the command::
 
-  service isc-dhcp-server restart
+    service isc-dhcp-server restart
 
 After that, XiVO will start to serve the DHCP requests of the devices located on other sites or
 other subnets than the VOIP subnet. You will see in :file:`/var/log/daemon.log` all the DHCP

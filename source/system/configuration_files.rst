@@ -45,17 +45,21 @@ The value that will be used for ``log_level`` will be ``debug`` since:
 * ``.01-critical.yml`` starts with a dot so is ignored
 * ``02-error.yml.dpkg-old`` does not end with ``.yml`` so is ignored
 
+
 File configuration structure
 ============================
 
 Configuration files for every service running on a XiVO server will respect these rules:
 
-* Default configuration directory in :file:`/etc/xivo-{{service}}/conf.d` (e.g. :file:`/etc/xivo-agentd/conf.d/`)
-* Default configuration file in :file:`/etc/xivo-{{service}}/config.yml` (e.g. :file:`/etc/xivo-agentd/config.yml`)
+* Default configuration directory in :file:`/etc/xivo-{{service}}/conf.d` (e.g.
+  :file:`/etc/xivo-agentd/conf.d/`)
+* Default configuration file in :file:`/etc/xivo-{{service}}/config.yml` (e.g.
+  :file:`/etc/xivo-agentd/config.yml`)
 
 These files should not be modified because **they will be overridden during upgrades**. However,
 they may be used as examples for creating additional configuration files as long as they respect the
-:ref:`configuration-priority`.  Any exceptions to these rules are documented below.
+:ref:`configuration-priority`. Any exceptions to these rules are documented below.
+
 
 xivo-agentd
 ===========
@@ -70,17 +74,20 @@ xivo-amid
 * Default configuration directory: :file:`/etc/xivo-amid/conf.d`
 * Default configuration file: :file:`/etc/xivo-amid/config.yml`
 
+
 xivo-auth
 =========
 
 * Default configuration directory: :file:`/etc/xivo-auth/conf.d`
 * Default configuration file: :file:`/etc/xivo-auth/config.yml`
 
+
 xivo-ctid
 =========
 
 * Default configuration directory: :file:`/etc/xivo-ctid/conf.d`
 * Default configuration file: :file:`/etc/xivo-ctid/config.yml`
+
 
 xivo-dao
 ========
@@ -91,11 +98,13 @@ xivo-dao
 This configuration is read by many XiVO programs in order to connect to the Postgres database of
 XiVO.
 
+
 xivo-dird-phoned
 ================
 
 * Default configuration directory: :file:`/etc/xivo-dird-phoned/conf.d`
 * Default configuration file: :file:`/etc/xivo-dird-phoned/config.yml`
+
 
 xivo_ring.conf
 ==============

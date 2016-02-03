@@ -6,16 +6,19 @@ Network
 
 .. index:: network
 
-This section describes how to configure additional network devices that may be used to better accomodate more complex
-network infrastructures. Network interfaces are managed in the XiVO web interface via the page
-:menuselection:`Configuration --> Network --> Interfaces`.
+This section describes how to configure additional network devices that may be used to better
+accomodate more complex network infrastructures. Network interfaces are managed in the XiVO web
+interface via the page :menuselection:`Configuration --> Network --> Interfaces`.
 
-XiVO offers 2 types of interfaces: `VoIP` and `Data`. The `VoIP` interface is used by the DHCP server, provisioning
-server, and phone devices connected to your XiVO. These services will use the information provided on the `VoIP`
-interface for their configuration.  For example, the DHCP server will only listen on the VoIP interface by default.
+XiVO offers 2 types of interfaces: `VoIP` and `Data`. The `VoIP` interface is used by the DHCP
+server, provisioning server, and phone devices connected to your XiVO. These services will use the
+information provided on the `VoIP` interface for their configuration.  For example, the DHCP server
+will only listen on the VoIP interface by default.
 
-To change these settings, you must either create a new interace or edit an existing one and change its type.
-When adding a new `VoIP` interface, the type of the old one will automatically be changed to `Data`.
+To change these settings, you must either create a new interace or edit an existing one and change
+its type.  When adding a new `VoIP` interface, the type of the old one will automatically be changed
+to `Data`.
+
 
 Configuring a new interface
 ---------------------------
@@ -34,7 +37,7 @@ To add and configure it, we click on the small plus button next to it, and we ge
 
 Configure physical interface
 
-In our case, since we want to configure this interface with static information (i.e. not via DHCP), 
+In our case, since we want to configure this interface with static information (i.e. not via DHCP),
 we fill the following fields:
 
 .. figure:: images/netiface_edit_physical_filled.png
@@ -64,7 +67,8 @@ In this example, the XiVO already has 2 network interfaces configured::
 
 Listing the network interfaces
 
-To add and configure a new VLAN interface, we click on the small plus button in the top right corner,
+To add and configure a new VLAN interface, we click on the small plus button in the top right
+corner,
 
 .. figure:: images/utils_add_button.png
    :figclass: align-center
@@ -109,9 +113,9 @@ After applying the network configuration:
 Add static network routes
 -------------------------
 
-Static routes cannot be added via the web interface. However, you may add static routes to your XiVO by following
-following the steps described below. This procedure will ensure that your static routes are applied at startup (i.e.
-each time the network interface goes up).
+Static routes cannot be added via the web interface. However, you may add static routes to your XiVO
+by following following the steps described below. This procedure will ensure that your static routes
+are applied at startup (i.e.  each time the network interface goes up).
 
 #. Create the file :file:`/etc/network/if-up.d/xivo-routes`::
 
@@ -121,27 +125,27 @@ each time the network interface goes up).
 #. Insert the following content::
 
     #!/bin/sh
-    
+
     if [ "${IFACE}" = "<network interface>" ]; then
         ip route add <destination> via <gateway>
         ip route add <destination> via <gateway>
     fi
 
-#. Fields <network interface>, <destination> and <gateway> should be replaced by your specific configuration.
-   For example, if you want to add a route for 192.168.50.128/25 via 192.168.17.254 which should be added
-   when eth0 goes up::
+#. Fields <network interface>, <destination> and <gateway> should be replaced by your specific
+   configuration.  For example, if you want to add a route for 192.168.50.128/25 via 192.168.17.254
+   which should be added when eth0 goes up::
     
     #!/bin/sh
-    
+
     if [ "${IFACE}" = "eth0" ]; then
         ip route add 192.168.50.128/25 via 192.168.17.254
     fi
 
-.. note:: The above check is to ensure that the route will be applied only if the correct interface goes up.
-    This check should only contain a *physical* interface name (i.e. `eth0` or `eth1` or ...).
-    If the interface to which the route is to be applied is a VLAN interface (e.g. `eth0.100` for VLAN 100)
-    you *MUST* put `eth0` in the test (instead of `eth0.100`).
-    Otherwise the route won't be set up in every cases.
+.. note:: The above check is to ensure that the route will be applied only if the correct interface
+   goes up.  This check should only contain a *physical* interface name (i.e. `eth0` or `eth1` or
+   ...).  If the interface to which the route is to be applied is a VLAN interface (e.g. `eth0.100`
+   for VLAN 100) you *MUST* put `eth0` in the test (instead of `eth0.100`).  Otherwise the route
+   won't be set up in every cases.
 
 
 Change interface MTU
@@ -155,22 +159,24 @@ These steps describe how to change the MTU::
 
 #. Create the file :file:`/etc/network/if-up.d/xivo-mtu`::
 
-     touch /etc/network/if-up.d/xivo-mtu
-     chmod 755 /etc/network/if-up.d/xivo-mtu
+   touch /etc/network/if-up.d/xivo-mtu
+   chmod 755 /etc/network/if-up.d/xivo-mtu
 
 #. Insert the following content::
 
-     #!/bin/sh
+    #!/bin/sh
 
-     # Set MTU per iface
-     if [ "${IFACE}" = "<data interface>" ]; then
-         ip link set ${IFACE} mtu <data mtu>
-     elif [ "${IFACE}" = "<voip interface>" ]; then
-         ip link set ${IFACE} mtu <voip mtu>
-     fi
+    # Set MTU per iface
+    if [ "${IFACE}" = "<data interface>" ]; then
+        ip link set ${IFACE} mtu <data mtu>
+    elif [ "${IFACE}" = "<voip interface>" ]; then
+        ip link set ${IFACE} mtu <voip mtu>
+    fi
 
-#. Change the *<data interface>* to the name of your interface (e.g. eth0), and the *<data mtu>* to the new MTU (e.g. 1492),
-#. Change the *<voip interface>* to the name of your interface (e.g. eth1), and the *<voip mtu>* to the new MTU (e.g. 1488)
+#. Change the *<data interface>* to the name of your interface (e.g. eth0), and the *<data mtu>* to
+   the new MTU (e.g. 1492),
+#. Change the *<voip interface>* to the name of your interface (e.g. eth1), and the *<voip mtu>* to
+   the new MTU (e.g. 1488)
 
 .. note::
    In the above example you can set a different MTU per interface.
