@@ -15,7 +15,7 @@ server, provisioning server, and phone devices connected to your XiVO. These ser
 information provided on the `VoIP` interface for their configuration.  For example, the DHCP server
 will only listen on the VoIP interface by default.
 
-To change these settings, you must either create a new interace or edit an existing one and change
+To change these settings, you must either create a new interface or edit an existing one and change
 its type.  When adding a new `VoIP` interface, the type of the old one will automatically be changed
 to `Data`.
 
