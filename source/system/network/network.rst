@@ -20,8 +20,8 @@ its type.  When adding a new `VoIP` interface, the type of the old one will auto
 to `Data`.
 
 
-Configuring a new interface
----------------------------
+Configuring a physical interface
+--------------------------------
 
 In this example, we'll add and configure the **eth1** network interface on our XiVO.
 
