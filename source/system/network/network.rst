@@ -29,20 +29,20 @@ First, we see there's already an unconfigured network interface named **eth1** o
 
 .. figure:: images/netiface_list_post_wizard.png
 
-Listing the network interfaces
+   :menuselection:`Configuration --> Network --> Interfaces`
 
 To add and configure it, we click on the small plus button next to it, and we get to this page:
 
 .. figure:: images/netiface_edit_physical_empty.png
 
-Configure physical interface
+   :menuselection:`Configuration --> Network --> Interfaces --> eth1 --> Add`
 
 In our case, since we want to configure this interface with static information (i.e. not via DHCP),
 we fill the following fields:
 
 .. figure:: images/netiface_edit_physical_filled.png
  
-Configure physical interface
+   :menuselection:`Configuration --> Network --> Interfaces --> eth1 --> Add`
 
 Note that since our **eth0** network interface already has a default gateway,
 we do not enter information in the ``Default gateway`` field for our **eth1** interface.
@@ -61,9 +61,11 @@ This action must be clicked in order for the changes to take effect.
 Adding a VLAN interface
 -----------------------
 
-In this example, the XiVO already has 2 network interfaces configured::
+In this example, the XiVO already has 2 network interfaces configured:
 
 .. figure:: images/netiface_list_configured.png
+
+   :menuselection:`Configuration --> Network --> Interfaces`
 
 Listing the network interfaces
 
@@ -73,28 +75,28 @@ corner,
 .. figure:: images/utils_add_button.png
    :figclass: align-center
    
-   Adding button
+   :menuselection:`Configuration --> Network --> Interfaces --> Add button`
 
 and we get to this page:
 
 .. figure:: images/netiface_add_virtual_empty.png
    :figclass: align-center
    
-   Adding a new virtual interface
+   :menuselection:`Configuration --> Network --> Interfaces --> Add`
 
 In our case, since we want to configure this interface with static information:
 
 .. figure:: images/netiface_add_virtual_filled.png
    :figclass: align-center
 
-   Adding a new virtual interface
+   :menuselection:`Configuration --> Network --> Interfaces --> Add`
 
 Click on **Save** list the network interfaces:
 
 .. figure:: images/netiface_list_new_virtual.png
    :figclass: align-center
       
-   Listing the network interfaces
+   :menuselection:`Configuration --> Network --> Interfaces`
 
 - The new virtual interface has been successfully created.
 
@@ -107,7 +109,7 @@ After applying the network configuration:
 .. figure:: images/netiface_list_virtual_after_apply.png
    :figclass: align-center
 
-   Listing the network interfaces
+   Network configuration successfully apply
 
 
 Add static network routes
