@@ -22,6 +22,7 @@ phone, status and other information configured by the administrator.
 6. Transfer a call to a contact's voicemail
 7. Chat with a contact
 8. Send an email to a contact
+9. Bookmark/unmark the contact as a favorite
 
 
 .. figure:: /cti_client/xlets/images/cti_client-people-personal.png
