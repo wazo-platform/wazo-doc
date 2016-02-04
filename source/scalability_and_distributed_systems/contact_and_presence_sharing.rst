@@ -258,7 +258,7 @@ following content where `advertise_addr` is reachable from other XiVO.
     {
     "client_addr": "0.0.0.0",
     "bind_addr": "0.0.0.0",
-    "advertise_addr": "192.168.1.124"
+    "advertise_addr": "192.168.1.124"  # The IP address of this XiVO, reachable from outside
     }
 
 
