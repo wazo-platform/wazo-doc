@@ -29,7 +29,7 @@ following keys are interpreted and displayed in xlet people of the XiVO Client:
      favorite (yellow star filled) or not (yellow star empty).
    * ``name``: a decoration will be added to the field value (typically a color dot) showing the
      presence status of the contact (e.g. Disconnected, Available, Away, ...)
-   * ``number``: the field value will be:
+   * ``number``: only one number type can be defined per profile. The field value will be:
 
       * added a decoration (typically a color dot) showing the status of the phone of the contact
         (e.g. Offline, Ringing, Talking, ...)
