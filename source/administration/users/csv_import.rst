@@ -54,10 +54,10 @@ User
 +-----------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
 | call_transfer_enabled | bool   |          |                                   | Enable/Disable call transfers                             |
 +-----------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
-| simultaneous_calls    | int    |          | Must be a multiple of 5           | Number of calls a user can have on his phone              |
+| simultaneous_calls    | int    |          |                                   | Number of calls a user can have on his phone              |
 |                       |        |          |                                   | simultaneously                                            |
 +-----------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
-| ring_seconds          | int    |          |                                   | Number of seconds a call will ring before ending          |
+| ring_seconds          | int    |          | Must be a multiple of 5           | Number of seconds a call will ring before ending          |
 +-----------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
 
 
