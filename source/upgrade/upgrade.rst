@@ -148,6 +148,16 @@ Upgrading from i386 (32 bits) to amd64 (64 bits)
 Upgrade Notes
 =============
 
+
+16.02
+-----
+
+Consult the `16.02 Roadmap <https://projects.xivo.io/versions/238>`_
+
+* The experimental *xivo_ldap_voicemail* plugin of *xivo-auth* has been removed. Use the new
+  :ref:`xivo_ldap plugin <auth-backends-ldap>`.
+
+
 16.01
 -----
 
