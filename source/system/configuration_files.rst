@@ -46,74 +46,54 @@ The value that will be used for ``log_level`` will be ``debug`` since:
 * ``02-error.yml.dpkg-old`` does not end with ``.yml`` so is ignored
 
 
+File configuration structure
+============================
+
+Configuration files for every service running on a XiVO server will respect these rules:
+
+* Default configuration directory in :file:`/etc/xivo-{{service}}/conf.d` (e.g.
+  :file:`/etc/xivo-agentd/conf.d/`)
+* Default configuration file in :file:`/etc/xivo-{{service}}/config.yml` (e.g.
+  :file:`/etc/xivo-agentd/config.yml`)
+
+These files should not be modified because **they will be overridden during upgrades**. However,
+they may be used as examples for creating additional configuration files as long as they respect the
+:ref:`configuration-priority`. Any exceptions to these rules are documented below.
+
+
 xivo-agentd
 ===========
 
-The configuration is done in the configuration directory. The configuration file should not be
-modified, because it will be overridden by upgrades.
-
 * Default configuration directory: :file:`/etc/xivo-agentd/conf.d`
 * Default configuration file: :file:`/etc/xivo-agentd/config.yml`
-
-The configuration file may be used as an example for supported configuration file values.
-
-See also :ref:`configuration-priority`.
 
 
 xivo-amid
 =========
 
-The configuration is done in the configuration directory. The configuration file should not be
-modified, because it will be overridden by upgrades.
-
 * Default configuration directory: :file:`/etc/xivo-amid/conf.d`
 * Default configuration file: :file:`/etc/xivo-amid/config.yml`
-
-The configuration file may be used as an example for supported configuration file values.
-
-See also :ref:`configuration-priority`.
 
 
 xivo-auth
 =========
 
-The configuration is done in the configuration directory. The configuration file should not be
-modified, because it will be overridden by upgrades.
-
 * Default configuration directory: :file:`/etc/xivo-auth/conf.d`
 * Default configuration file: :file:`/etc/xivo-auth/config.yml`
-
-The configuration file may be used as an example for supported configuration file values.
-
-See also :ref:`configuration-priority`.
 
 
 xivo-ctid
 =========
 
-The configuration is done in the configuration directory. The configuration file should not be
-modified, because it will be overridden by upgrades.
-
 * Default configuration directory: :file:`/etc/xivo-ctid/conf.d`
 * Default configuration file: :file:`/etc/xivo-ctid/config.yml`
-
-The configuration file may be used as an example for supported configuration file values.
-
-See :ref:`configuration-priority`.
 
 
 xivo-dao
 ========
 
-The configuration is done in the configuration directory. The configuration file should not be
-modified, because it will be overridden by upgrades.
-
 * Default configuration directory: :file:`/etc/xivo-dao/conf.d`
 * Default configuration file: :file:`/etc/xivo-dao/config.yml`
-
-The configuration file may be used as an example for supported configuration file values.
-
-See also :ref:`configuration-priority`.
 
 This configuration is read by many XiVO programs in order to connect to the Postgres database of
 XiVO.
@@ -122,15 +102,8 @@ XiVO.
 xivo-dird-phoned
 ================
 
-The configuration is done in the configuration directory. The configuration file should not be
-modified, because it will be overridden by upgrades.
-
 * Default configuration directory: :file:`/etc/xivo-dird-phoned/conf.d`
 * Default configuration file: :file:`/etc/xivo-dird-phoned/config.yml`
-
-The configuration file may be used as an example for supported configuration file values.
-
-See also :ref:`configuration-priority`.
 
 
 xivo_ring.conf
