@@ -8,6 +8,9 @@ xivo-auth HTTP API Changelog
 =====
 
 * POST ``/0.1/token``, field ``expiration``: only integers are accepted, floats are now invalid.
+* Experimental backend ``ldap_user_voicemail`` has been removed.
+* New backend ``ldap_user`` has been added.
+
 
 15.19
 =====
