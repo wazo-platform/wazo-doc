@@ -159,6 +159,7 @@ Consult the `16.02 Roadmap <https://projects.xivo.io/versions/238>`_
 * Bus messages in the *xivo* exchange are now sent with the content-type `application/json`.
   Some libraries already do the message conversion based the content-type. Kombu users will
   receive a python dictionnary instead of a string containing json when a message is received.
+* :ref:`xivo-ctid encryption <ctid-encryption>` is now enabled by default.
 
 
 16.01
