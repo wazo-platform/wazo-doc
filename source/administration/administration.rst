@@ -38,3 +38,4 @@ Administration
    Switchboard <switchboard/switchboard>
    users/users
    voicemail
+   web_services/web_services_access

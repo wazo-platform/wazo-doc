@@ -34,6 +34,12 @@ For all REST APIs, the main way to authenticate is to use an access token obtain
 
    curl --insecure -H 'Accept: application/json' -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' https://<xivo_address>:9486/1.1/users
 
+Also, your token needs to have the right ACLs to give you access to the resource you want. See :ref:`rest-api-acl`.
+
+.. toctree::
+   :maxdepth: 1
+
+   acl
 
 Other methods (xivo-confd)
 --------------------------
