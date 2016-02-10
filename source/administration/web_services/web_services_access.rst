@@ -7,27 +7,8 @@ Management --> Web Services Access`.
 
 Web services access may have two different meanings:
 
-* Who may access PHP web services under ``https://xivo.example.com/xivo/configuration/json.php/*``?
 * Who may access REST APIs of various XiVO daemons, and which resources in those REST APIs?
-
-
-PHP web services
-================
-
-Those web services are deprecated. There is no documentation about their usage, and the goal is to
-remove them.
-
-They are still protected with HTTP authentication, requiring a login and password. The
-relevant settings are:
-
-* Login/Password: the HTTP authentication credentials
-* Host: the authorized hosts that are allowed to make HTTP requests:
-
-  * Empty value: HTTP authentication
-  * Non-empty value: no HTTP authentication, all requests coming from this host will be accepted.
-    Valid hosts may be: a hostname, an IP address, a CIDR block.
-
-There is no fine-grained permissions: either the user has access to every PHP web services, or none.
+* Who may access PHP web services under ``https://xivo.example.com/xivo/configuration/json.php/*``?
 
 
 REST API access and permissions
@@ -49,7 +30,30 @@ You will probably only need to create such a REST API access when you want anoth
 to communicate with XiVO via REST API.
 
 
+PHP web services
+================
+
+.. warning:: **DEPRECATED**
+
+Those web services are deprecated. There is no documentation about their usage, and the goal is to
+remove them.
+
+They are still protected with HTTP authentication, requiring a login and password. The
+relevant settings are:
+
+* Login/Password: the HTTP authentication credentials
+* Host: the authorized hosts that are allowed to make HTTP requests:
+
+  * Empty value: HTTP authentication
+  * Non-empty value: no HTTP authentication, all requests coming from this host will be accepted.
+    Valid hosts may be: a hostname, an IP address, a CIDR block.
+
+There is no fine-grained permissions: either the user has access to every PHP web services, or none.
+
+
 xivo-confd
 ==========
+
+.. warning:: **DEPRECATED**
 
 There is also a special case for authentication with xivo-confd. See :ref:`rest-api` for more details.

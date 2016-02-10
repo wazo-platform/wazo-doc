@@ -44,6 +44,8 @@ Also, your token needs to have the right ACLs to give you access to the resource
 Other methods (xivo-confd)
 --------------------------
 
+.. warning:: **DEPRECATED**
+
 For compatibility reason, xivo-confd may accept requests without an access token. For this, you must
 create a webservices user in the web interface (:menuselection:`Configuration --> Management --> Web
 Services Access`):
