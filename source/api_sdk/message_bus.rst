@@ -88,8 +88,8 @@ Things to be aware when writing a client/consumer:
 Events
 ======
 
-Events that are sent to the bus use a JSON serialization format. For example,
-the CTI call_form_result event looks like this::
+Events that are sent to the bus use a JSON serialization format with the content-type
+`application/json`. For example, the CTI call_form_result event looks like this::
 
     {"name": "call_form_result",
      "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
