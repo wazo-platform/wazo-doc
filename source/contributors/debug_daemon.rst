@@ -209,3 +209,21 @@ Log file: ``/var/log/xivo-sysconfd.log``
    2014-06-18 12:00:23,221 [8277] (INFO) (xivo-sysconfd): locking PID
    2014-06-18 12:00:23,233 [8277] (INFO) (xivo-sysconfd): pidfile ok
    2014-06-18 12:00:23,237 [8277] (INFO) (http_json_server): will now serve
+
+
+websocketd
+==========
+
+::
+
+    xivo-websocketd -f -d
+
+* -f for foreground
+* -d for debug messages
+
+Log file: ``/var/log/xivo-websocketd.log``
+
+::
+
+   2016-02-11 14:54:10,656 [30649] (INFO) (xivo_websocketd.controller): xivo-websocketd starting...
+   2016-02-11 14:54:15,024 [30649] (INFO) (xivo_websocketd.session): websocket connection accepted ('10.34.0.254', 35200)

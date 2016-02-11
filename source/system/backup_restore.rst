@@ -72,6 +72,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/xivo-dird-phoned/`
 * :file:`/etc/xivo-dxtora/`
 * :file:`/etc/xivo-purge-db/`
+* :file:`/etc/xivo-websocketd/`
 * :file:`/etc/xivo/`
 * :file:`/usr/local/sbin/`
 * :file:`/usr/share/xivo/XIVO-VERSION`
