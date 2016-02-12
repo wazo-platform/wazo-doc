@@ -195,6 +195,35 @@ Example::
        }
    }
 
+
+call_created, call_updated, call_ended
+--------------------------------------
+
+The events ``call_created``, ``call_updated``, ``call_ended`` are sent when a call handled by
+xivo-ctid-ng is received, connected or hung up.
+
+* routing key: calls.call.created, calls.call.updated, call.call.ended
+* event specific data: a dictionary with the same fields as the REST API model of Call (See
+  http://api.xivo.io, section xivo-ctid-ng)
+
+Example::
+
+   {
+       "name": "call_created",
+       "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
+       "data": {
+           "bridges": [],
+           "call_id": "1455123422.8",
+           "caller_id_name": "Some One",
+           "caller_id_number": "1001",
+           "creation_time": "2016-02-10T11:57:02.592-0500",
+           "status": "Ring",
+           "talking_to": {},
+           "user_uuid": "2e752722-0864-4665-887d-a78a024cf7c7"
+       }
+   }
+
+
 .. _bus-chat_message_event:
 
 chat_message_event
