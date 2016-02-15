@@ -150,7 +150,7 @@ Here's a rudimentary example of a web page accessing the service:
          <input type="text" id="token" size="35">
        </div>
        <div>
-           <button type="button" onclick="connect();">Connect</button>
+         <button type="button" onclick="connect();">Connect</button>
        </div>
      </form>
    </body>
