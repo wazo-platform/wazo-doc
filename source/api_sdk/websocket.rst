@@ -1,0 +1,333 @@
+***********************
+WebSocket Event Service
+***********************
+
+XiVO offers a service to receive messages published on the :ref:`bus (e.g. RabbitMQ) <message-bus>`
+over an encrypted `WebSocket <https://en.wikipedia.org/wiki/WebSocket>`_ connection. This ease in
+building dynamic web applications that are using events from your XiVO.
+
+The service is provided by the ``xivo-websocketd`` component.
+
+
+Getting Started
+===============
+
+First, you need a XiVO in version 16.02 or later.
+
+Then, to use the service, you need to:
+
+#. connect to it on port 9502 using an encrypted WebSocket connection.
+#. authenticate to it by providing a xivo-auth token that has the ``websocketd`` ACL. If you don't
+   know how to obtain a xivo-auth token from your XiVO, consult the :ref:`documentation on xivo-auth
+   <xivo-auth>`.
+
+For example, if you want to use the service located at ``example.org`` with the token
+``some-token-id``, you would use the URL ``wss://example.org:9502/?token=some-token-id``.
+
+The :ref:`SSL/TLS certificate <https_certificate>` that is used by the WebSocket server is the same
+as the one used by the XiVO web interface and the REST APIs. By default, this is a self-signed
+certificate, and web browsers will prevent connections from being successfully established for
+security reasons. On most web browsers, this can be circumvented by first visiting the
+``https://<xivo-ip>:9502/`` URL and adding a security exception. Other solutions to this problem are
+described in the :ref:`connection section <ws-connection>`.
+
+After a succesful connection and authentication to the service, the server will send the following
+message::
+
+   {"op": "init", "code": 0, "msg": ""}
+
+This indicate that the server is ready to accept more commands from the client. Had an error
+happened, the server would have closed the connection, possibly with one of the :ref:`service
+specific WebSocket close code <ws-status-code>`.
+
+The message you see is part of the small :ref:`JSON-based protocol <ws-protocol>` that is used for
+the client/server interaction.
+
+To receive events on your WebSocket connection, you need to tell the server which type of events you
+are interested in, and then tell it to start sending you these events. For example, if you are
+interested in the events published on the ``xivo`` exchange that match the routing key ``calls.#``,
+you send the following command::
+
+   {"op": "bind", "data": {"exchange_name": "xivo", "routing_key": "calls.#"}}
+
+The server will then create a binding on your behalf on the RabbitMQ server. If all goes well, the
+server will respond with::
+
+   {"op": "bind", "code": 0, "msg": ""}
+
+Once you have created all your bindings, you ask the server to start sending you the matching events
+by sending the following command::
+
+   {"op": "start"}
+
+The server will respond with::
+
+   {"op": "start", "code": 0, "msg": ""}
+
+Once you have received this message, all the other messages you'll receive will be messages
+originating from the bus, in the same format as they were on the bus.
+
+
+Example
+-------
+
+Here's a rudimentary example of a web page accessing the service:
+
+.. code-block:: html
+   :linenos:
+
+   <!DOCTYPE html>
+   <html>
+   <head>
+     <meta charset="utf-8">
+     <title>XiVO WebSocket Example</title>
+   <script>
+   var socket = null;
+   var started = false;
+
+   function connect() {
+       if (socket != null) {
+           console.log("socket already connected");
+           return;
+       }
+
+       var host = document.getElementById("host").value;
+       var token_id = document.getElementById("token").value;
+       socket = new WebSocket("wss://" + host + ":9502/?token=" + token_id);
+       socket.onclose = function(event) {
+           socket = null;
+           console.log("websocketd closed with code " + event.code + " and reason '" + event.reason + "'");
+       };
+       socket.onmessage = function(event) {
+           if (started) {
+               console.log("message received: " + event.data);
+               return;
+           }
+
+           var msg = JSON.parse(event.data);
+           switch (msg.op) {
+               case "init":
+                   bind("xivo", "calls.#");
+                   start();
+                   break;
+               case "start":
+                   started = true;
+                   console.log("waiting for messages");
+                   break;
+           }
+       };
+       started = false;
+   }
+
+   function bind(exchange_name, routing_key) {
+       var msg = {
+           op: "bind",
+           data: {
+             exchange_name: exchange_name,
+             routing_key: routing_key
+           }
+       };
+       socket.send(JSON.stringify(msg));
+   };
+
+   function start() {
+       var msg = {
+           op: "start"
+       };
+       socket.send(JSON.stringify(msg));
+   }
+   </script>
+   </head>
+   <body>
+     <p>Open the web console to see what's happening.</p>
+     <form>
+       <div>
+         <label for="host">Host:</label>
+         <input type="text" id="host" autofocus>
+       </div>
+       <div>
+         <label for="token">Token ID:</label>
+         <input type="text" id="token" size="35">
+       </div>
+       <div>
+           <button type="button" onclick="connect();">Connect</button>
+       </div>
+     </form>
+   </body>
+   </html>
+
+The page has a form for the user to enter a host and token ID, and has a connect button. When the
+button is clicked, the ``connect`` function is called, and the WebSocket connection is created at
+line 18 (using the `WebSocket API <https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>`_):
+
+.. code-block:: javascript
+
+   socket = new WebSocket("wss://" + host + ":9502/?token=" + token_id);
+
+Then, at line 23, a ``onmessage`` callback is set on the WebSocket object:
+
+.. code-block:: javascript
+
+   socket.onmessage = function(event) {
+       if (started) {
+           console.log("message received: " + event.data);
+           return;
+       }
+
+       var msg = JSON.parse(event.data);
+       switch (msg.op) {
+           case "init":
+               bind("xivo", "calls.#");
+               start();
+               break;
+           case "start":
+               started = true;
+               console.log("waiting for messages");
+               break;
+       }
+   };
+
+After a successful connection to the service, an "init" message will be received by the client. When
+the client receives this message, it sends a bind command (e.g. ``bind("xivo", "calls.#")``) and a
+start command (e.g. ``start()``).  When the client receives the "start" message, it sets the
+``started`` flag. After that, all the other messages it receives will be logged to the console.
+
+
+Reference
+=========
+
+The WebSocket service is provided by ``xivo-websocketd``, and its behaviour can be configured via
+its configuration files located under the :file:`/etc/xivo-websocketd` directory. After modifying
+the configuration files, you need to restart xivo-websocketd with ``systemctl restart
+xivo-websocketd``.
+
+
+.. _ws-connection:
+
+Connection
+----------
+
+The service is available on port 9502 on all network interfaces by default. This can be changed in
+the configuration file.
+
+The canonical URL to reach the service is ``wss://<host>:9502/``.
+
+The connection is always encrypted. The certificate and private key used by the server can be
+changed in the configuration file. By default, since the certificate is self-signed, you'll have to
+either:
+
+* add a security exception on the client machines that access the service
+* use a certificate signed by an untrusted CA and add the CA bundle on the system that access the service
+* use a trusted certificate
+
+See the :ref:`https_certificate` section for more information on certificate configuration.
+
+
+Authentication
+--------------
+
+Authentication is done by passing a xivo-auth token ID in the ``token`` query parameter.
+Authentication is mandatory.
+
+The token must have the ``ẁebsocketd`` ACL.
+
+When the token expires, the server close the connection with the status code 4003. There is
+currently no way to change the token of an existing connection. A new connection must be made when
+the token expires.
+
+
+.. _ws-status-code:
+
+Status Code
+-----------
+
+The WebSocket connection might be closed by the server using one of following status code:
+
+* 4001: No token ID was provided.
+* 4002: Authentication failed. Either the token ID is invalid, expired, or has not the necessary ACL.
+* 4003: Authentication expired. The token has expired or was deleted.
+* 4004: Protocol error. The server received a frame that it could not understand. For example, the
+  content was not valid JSON, or was requesting an unknown operation, or a mandatory argument to an
+  operation was missing.
+
+The server also uses the `pre-defined WebSocket status codes <http://tools.ietf.org/html/rfc6455#section-7.4>`_.
+
+
+.. _ws-protocol:
+
+Protocol
+--------
+
+A JSON-based protocol is used over the WebSocket connection to control which events are received by
+the client.
+
+
+Client Messages
+^^^^^^^^^^^^^^^
+
+The format of the messages sent by the client are all of the same format::
+
+   {"op": "<operation-name>", "data": <operation-specific-value>}
+
+The "op" key is mandatory, and the value is either "bind" or "start". The "data" key is mandatory for the "bind" operation.
+
+The "bind" message ask the server to create a new binding on the AMQP broker on its behalf. The AMQP
+messages published on the given exchange that match the routing key will be sent to the WebSocket
+client when it starts consuming messages. For this command, the "data" value is a dictionary with
+the "exchange_name" and "routing_key" keys, both of which are mandatory. Example::
+
+   {"op": "bind", "data": {"exchange_name": "xivo", "routing_key": "calls.#"}}
+
+The client can bind to any exchange, as long as the exchange is properly declared in the
+xivo-websocketd configuration files. The number of binding the client can create is only limited by
+the RabbitMQ configuration.
+
+See the :ref:`message-bus` section for more information on the exchanges and messages which are
+available by default on XiVO.
+
+The "start" message ask the server to start sending messages from the bus to the client. Example::
+
+   {"op": "start"}
+
+The server won't forward messages from the bus to the client until it receives the "start" message
+from the client.
+
+If the client send a message that the server doesn't understand, the server closes the connection.
+
+
+Server Messages
+^^^^^^^^^^^^^^^
+
+The format of the messages sent by the server are all of the same format (until the server receives a "start" command)::
+
+   {"op": "<operation-name>", "code": <status-code>, "msg": "<error message>"}
+
+The 3 keys are always present. The value of the "op" key can be one of "init", "bind" or "start". The value of the
+"code" key is an integer representing the status of the operation, 0 meaning there was no error, other
+values meaning there was an error. The "msg" is an empty string unless "code" is non-zero, in which case
+it's a human-readable message of the error.
+
+The "init" message is only sent after the connection is succesfully established between the client
+and the server. It's code is always zero; if the connection could not be established, the connection is
+simply closed. Example::
+
+   {"op": "init", "code": 0, "msg": ""}
+
+The "bind" message is sent as a response to a client "bind" message. The code can be non-zero in the
+case the exchange is unknown or another error occured while interacting with the AMQP broker.
+Example::
+
+   {"op": "bind", "code": 0, "msg": ""}
+
+The "start" message is sent as a response to a client "start" message. The code is always zero.
+Example::
+
+   {"op": "start", "code": 0, "msg": ""}
+
+After receiving the "start" message, the server switch into the "bus/started" mode, where all messages that the server will ever sent
+will be the body of the messages it received on the bus on behalf of the client.
+
+Note that a client can create more binding after sending its "start" message, but it won't receive any
+response from the server, e.g. the server won't send a corresponding "bind" message. Said differently, once
+the client has sent a "start" message, every message the client will ever receive are messages coming
+from the bus.
