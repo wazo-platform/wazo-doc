@@ -1,3 +1,5 @@
+.. _message-bus:
+
 ***********
 Message Bus
 ***********
