@@ -4,6 +4,14 @@
 xivo-confd REST API changelog
 *****************************
 
+16.02
+=====
+
+* Added users endpoints in REST API:
+
+  * GET ``/1.1/users/<user_uuid>/lines/main/associated/endpoints/sip``
+
+
 16.01
 =====
 
