@@ -73,6 +73,8 @@ Backend name: xivo_admin
 Purpose: Authenticate a XiVO admin.
 
 
+.. _auth-backends-service:
+
 XiVO Service
 ------------
 

@@ -18,6 +18,7 @@ System
    purge_logs
    service
    service_discovery
+   service_authentication/service_authentication
    xivo-auth/xivo-auth
    xivo-dird/xivo-dird
    xivo-dird-phoned

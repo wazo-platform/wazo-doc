@@ -1,6 +1,8 @@
-*********************
- Web Services Access
-*********************
+.. _web_services_access:
+
+*******************
+Web Services Access
+*******************
 
 You may configure Web Services / REST API permissions in :menuselection:`Configuration -->
 Management --> Web Services Access`.
