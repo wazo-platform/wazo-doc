@@ -56,7 +56,8 @@ address. Optionally, it is possible to login an agent while connecting to the se
 Xlets
 =====
 
-Xlets are features of the XiVO Client. It is the contraction of XiVO applets.
+Xlets are features of the XiVO Client. It is the contraction of XiVO applets. To select which xlets
+are displayed in your client, see :ref:`cti-profiles`.
 
 .. toctree::
    :maxdepth: 1

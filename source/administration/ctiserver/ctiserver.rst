@@ -146,6 +146,8 @@ Connection`, click on the lock icon.
    connection is encrypted, but the identity of the server is not verified.
 
 
+.. _cti-profiles:
+
 CTI profiles
 ============
 
