@@ -15,10 +15,11 @@ System
    log_files
    ntp
    proxy
-   purge_logs
-   service
    service_discovery
-   xivo-auth/xivo-auth
-   xivo-dird/xivo-dird
-   xivo-dird-phoned
-   xivo-sysconfd
+   service_authentication/service_authentication
+   xivo-auth <xivo-auth/xivo-auth>
+   xivo-dird <xivo-dird/xivo-dird>
+   xivo-dird-phoned <xivo-dird-phoned>
+   xivo-purge-db <purge_logs>
+   xivo-service <service>
+   xivo-sysconfd <xivo-sysconfd>

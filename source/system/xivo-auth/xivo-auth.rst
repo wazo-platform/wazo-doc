@@ -48,6 +48,8 @@ If Alice wants to revoke her token before its expiration::
 
 See http://api.xivo.io for more details about the HTTP API.
 
+See :ref:`service-authentication` for details about the authentication process.
+
 Usage for services using xivo-auth
 ==================================
 
