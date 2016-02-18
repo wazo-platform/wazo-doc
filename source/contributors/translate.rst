@@ -36,5 +36,5 @@ Web Interface
 Translations are currently available in French and English. There are no plans to translate the Web
 interface in other languages.
 
-.. _xivo-sounds: http://git.xivo.io/?p=official/xivo-sounds.git;a=summary
+.. _xivo-sounds: https://github.com/xivo-pbx/xivo-sounds
 .. _Transifex: https://www.transifex.com/avencall/xivo/
