@@ -201,11 +201,15 @@ Restoring System Files
 
 System files are stored in the data.tgz file located in the :file:`/var/backups/xivo` directory.
 
-This file contains for example, voicemail files, musics, voice guides, phone sets firmwares, provisioning server configuration database.
+This file contains for example, voicemail files, musics, voice guides, phone sets firmwares,
+provisioning server configuration database.
 
 To restore the file ::
 
+   systemctl stop consul
    tar xvfp /var/backups/xivo/data.tgz -C /
+   dpkg-reconfigure consul
+   systemctl start consul
 
 
 Restoring the Database
@@ -261,7 +265,6 @@ Drop the asterisk_previous database::
    configuration if you restore the data.tgz file.
 
 
-
 .. _restoring_consul:
 
 Restoring Consul KV
@@ -277,6 +280,10 @@ To restore the file ::
 
 After Restoring The System
 ==========================
+
+Resynchronize the xivo-auth keys::
+
+   xivo-update-keys
 
 Restart the services you stopped in the first step::
 
