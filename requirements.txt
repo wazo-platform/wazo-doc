@@ -1,2 +1,2 @@
 git+git://github.com/xivo-pbx/sphinx-git.git@tagtitles
-gitpython==0.3.2.RC1
+gitpython
