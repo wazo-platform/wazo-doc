@@ -14,32 +14,32 @@ phone, status and other information configured by the administrator.
 
 .. figure:: /cti_client/xlets/images/cti_client-people-actions.png
 
-#. Display results of the search
-#. Display favorite contacts
-#. Search contacts
-#. Call a contact
-#. Transfer a call to a contact
-#. Transfer a call to a contact's voicemail
-#. Bookmark/unmark the contact as a favorite
-#. Chat with a contact
-#. Send an email to a contact
+1. Display results of the search
+2. Display favorite contacts
+3. Search contacts
+4. Call a contact
+5. Transfer a call to a contact
+6. Transfer a call to a contact's voicemail
+7. Chat with a contact
+8. Send an email to a contact
+9. Bookmark/unmark the contact as a favorite
 
 
 .. figure:: /cti_client/xlets/images/cti_client-people-personal.png
 
-#. View all personal contacts
-#. Edit or remove a personal contact
-#. Create a personal contact
-#. Import personal contacts from a CSV file
-#. Export personal contacts to a CSV file
-#. Delete all personal contacts
+1. View all personal contacts
+2. Edit or remove a personal contact
+3. Create a personal contact
+4. Import personal contacts from a CSV file
+5. Export personal contacts to a CSV file
+6. Delete all personal contacts
 
 
 .. figure:: /cti_client/xlets/images/cti_client-people-status.png
 
-#. XiVO Client status (see :ref:`presence_option`)
-#. Phone status (see :menuselection:`Services --> CTI Server --> Status --> Phone hints` page)
-#. Agent status (logged in or logged out)
+1. XiVO Client status (see :ref:`presence_option`)
+2. Phone status (see :menuselection:`Services --> CTI Server --> Status --> Phone hints` page)
+3. Agent status (logged in or logged out)
 
 .. note:: Most information (e.g. columns displayed, allowed actions, searched directories,
           etc.) is configurable through the :ref:`web interface <directories>`.

@@ -252,11 +252,11 @@ The subroutine can be either set globally or per agent::
 
    [pre-limit-agentcallback]
    exten = s,1,NoOp()
-   same  =   n,Set(LOCKED=${LOCK(agentcallback)})
+   same  =   n,Set(LOCKED=${LOCK(agentcallback-${XIVO_AGENT_ID})})
    same  =   n,GotoIf(${LOCKED}?:not-locked,1)
    same  =   n,Set(GROUP(agentcallback)=${XIVO_AGENT_ID})
    same  =   n,Set(COUNT=${GROUP_COUNT(${XIVO_AGENT_ID}@agentcallback)})
-   same  =   n,NoOp(${UNLOCK(agentcallback)})
+   same  =   n,NoOp(${UNLOCK(agentcallback-${XIVO_AGENT_ID})})
    same  =   n,GotoIf($[ ${COUNT} <= 1 ]?:too-many-calls,1)
    same  =   n,Return()
 

@@ -126,7 +126,7 @@ Enable encryption
 =================
 
 To enable encryption of CTI communications between server and clients, you have
-to create enable STARTTLS in :menuselection:`CTI Server --> General settings -->
+to enable STARTTLS in :menuselection:`CTI Server --> General settings -->
 General`
 
 Custom certificates can be added in :menuselection:`Configuration --> Certificates`
@@ -138,13 +138,15 @@ Connection`, click on the lock icon.
 .. note::
 
    A client which chooses to use encryption will not be able to connect to a
-   server without STARTTLS enabled.
+   server that does not have STARTTLS enabled.
 
 .. warning::
 
    For now, there is no mechanism for strong authentication of the server. The
    connection is encrypted, but the identity of the server is not verified.
 
+
+.. _cti-profiles:
 
 CTI profiles
 ============

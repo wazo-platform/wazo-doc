@@ -5,11 +5,11 @@ HTTPS certificate
 *****************
 
 X.509 certificates are used to authorize and secure communications with the server. They are mainly
-used for HTTPS, but can also be used for SIPS, CTIS, etc.
+used for HTTPS, but can also be used for SIPS, CTIS, WSS, etc.
 
 There are two categories of certificates in XiVO:
 
-* the default certificate, used for HTTPS in the web interface and REST APIs
+* the default certificate, used for HTTPS in the web interface, REST APIs and WebSockets
 * the certificates created and managed via the web interface
 
 This article is about the former. For the latter, see :ref:`telephony_certificates`.

@@ -55,5 +55,3 @@ To be in accordance with our goal, a XiVO daemon must (if applicable):
 * Service discovery with consul
 
 Currently, none of the XiVO daemons meet these expectations; it is a work in progress.
-
-A daemon scaffold can be found in the :ref:`daemon` section

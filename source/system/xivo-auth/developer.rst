@@ -1,7 +1,7 @@
 .. _xivo-auth-developer:
 
 ===========================
-XiVO auth developer's guide
+xivo-auth Developer's Guide
 ===========================
 
 Architecture

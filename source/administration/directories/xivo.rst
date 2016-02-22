@@ -19,6 +19,7 @@ Available fields
 * line_id
 * firstname
 * lastname
+* email
 * exten
 * context
 * mobile_phone_number
