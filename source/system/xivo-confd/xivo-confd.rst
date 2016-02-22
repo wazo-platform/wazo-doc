@@ -4,10 +4,10 @@
 xivo-confd
 ==========
 
-xivo-confd is a web server that provides a RESTful service for configuring and managing a XiVO
-server.
+xivo-confd is a HTTP server that provides a RESTful API service for configuring and managing basic
+resources on a  XiVO server.
 
-The HTTP API reference is at http://api.xivo.io.
+The HTTP API reference is available at http://api.xivo.io.
 
 .. toctree::
    :maxdepth: 1
