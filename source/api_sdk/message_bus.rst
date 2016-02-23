@@ -78,11 +78,6 @@ Notes
 
 Things to be aware when writing a client/consumer:
 
-* The ``xivo-service stop`` command stops the AMQP broker. This means that the client
-  connections to the AMQP broker will be lost on:
-
-  * a XiVO upgrade
-  * an asterisk crash
 * The published messages are not persistent. When the AMQP broker stops, the messages
   that are still in queues will be lost.
 
