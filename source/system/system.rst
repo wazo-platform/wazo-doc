@@ -18,6 +18,7 @@ System
    service_discovery
    service_authentication/service_authentication
    xivo-auth <xivo-auth/xivo-auth>
+   xivo-confd <xivo-confd/xivo-confd>
    xivo-dird <xivo-dird/xivo-dird>
    xivo-dird-phoned <xivo-dird-phoned>
    xivo-purge-db <purge_logs>
