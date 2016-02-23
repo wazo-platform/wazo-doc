@@ -25,7 +25,7 @@ The following diagram outlines the most important parts of a plugin:
 
 Resource
     Class that receives and handles HTTP requests. Resources use `flask-restful
-    <http://flask-restful.readthedocs.org>`_ for handling requests. 
+    <http://flask-restful.readthedocs.org>`_ for handling requests.
 
     There are 2 kinds of resources: `ListResource` for root URLs and `ItemResource` for URLs that
     have an ID. `ListResource` will handle creating a resource (``POST``) and searching through a
@@ -42,7 +42,8 @@ Service
     plugins`.
 
 Dao
-    Data Access Object. Knows how to get data and how to manipulate it, such as SQL queries, files, etc.
+    Data Access Object. Knows how to get data and how to manipulate it, such as SQL queries, files,
+    etc.
 
 Notifier
     Sends events after an operation has completed. An event will be sent in a messaging queue for
