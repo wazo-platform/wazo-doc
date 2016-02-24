@@ -44,10 +44,6 @@ Configuration example:
 .. code-block:: yaml
    :linenos:
 
-   enabled_plugins:
-     - ldap_user
-     # you must write here all other enabled plugins to keep them enabled (see main config.yml for default)
-
    ldap:
        uri: ldap://example.org
        bind_dn_format: "uid={username},ou=people,dc=company,dc=org"
