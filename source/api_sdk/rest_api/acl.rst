@@ -72,8 +72,3 @@ Development
 
 There are no specific required ACL on every REST resource. So, the default required ACL is
 {service}.# when the REST resource has not specific required ACL associated.
-
-
-A non-exhaustive list of currently specific required ACL:
-
-* xivo-confd: all REST resources beginning with ``/users``
