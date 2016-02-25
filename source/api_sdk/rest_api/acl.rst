@@ -67,8 +67,8 @@ The ACL ``confd.users.me.funckeys.*.*`` will have access to the following REST r
 Where ``{user_id}`` is the user uuid from the token.
 
 
-Development
-===========
+Available ACLs
+==============
 
-There are no specific required ACL on every REST resource. So, the default required ACL is
-{service}.# when the REST resource has not specific required ACL associated.
+The ACL corresponding to each resource is documented in http://auth.xivo.io. Some resources may not
+have any associated ACL yet, so you must use ``{service}.#`` instead.
