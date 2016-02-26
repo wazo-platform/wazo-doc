@@ -346,3 +346,9 @@ commands to help you debug the problem.
     consul members -wan
     consul-cli agent-services --ssl --ssl-verify=false
     rabbitmqctl eval 'rabbit_federation_status:status().'
+
+
+What's next?
+============
+
+One you get this part working, check out :ref:`phonebook_sharing`.

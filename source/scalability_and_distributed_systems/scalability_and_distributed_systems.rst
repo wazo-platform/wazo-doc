@@ -9,3 +9,4 @@ scalable communication systems.
    :maxdepth: 2
 
    contact_and_presence_sharing
+   phonebook_sharing
