@@ -20,11 +20,16 @@ Purpose: Authenticate via an ldap user.
 
 Work flow followed when creating a token:
 
-* Create a DN for authentication built from the ``username`` and ``bind_dn_format``.
-* Perform a simple bind on LDAP Server with the created DN and ``password``.
-* Concatenate ``username`` and ``domain`` in order to search for an email (only if username is not
-  an email).
-* Find the user associated to the email.
+* Perform a simple bind with one of the following method.
+
+  * Bind with ``bind_dn`` / ``bind_password``
+  * Bind anonymous
+  * No bind for search (user DN = "``{user_login_attribute}={username},{user_base_dn}``")
+
+* Perform a search on ``user_base_dn`` to find the value of ``user_login_attribute``.
+* Match the value of ``user_login_attribute`` to ``username`` and return the user DN.
+* Bind with user DN and retrieve the ``user_email_attribute`` value.
+* Find the XiVO user associated to the ``user_email_attribute`` value.
 * Return a token with the same access privileges as the user.
 
 Limitations:
@@ -45,20 +50,28 @@ Configuration example:
    :linenos:
 
    ldap:
-       uri: ldap://example.org
-       bind_dn_format: "uid={username},ou=people,dc=company,dc=org"
-       domain: company.com
+       uri: "ldap://example.org"
+       bind_dn: "cn=xivo-auth,ou=people,dc=company,dc=org"
+       bind_password: "X1V0-4u|H"
+       bind_anonymous: false
+       user_base_dn: "ou-people,dc=company,dc=org"
+       user_login_attribute: "userPrincipalName"
+       user_email_attribute: "userPrincipalName"
 
 uri
    the URI of the LDAP server. Can only contain the scheme, host and port of an LDAP URL.
-
-bind_dn_format
-   the bind DN used to check the given username/password. The variable ``{username}`` will be
-   substituted when binding.
-
-domain (optional)
-   the domain used to build the email associated with a XiVO user. This option is optional if the
-   email address are used as username. In this case, the part before `@` will be the ldap username.
+user_base_dn
+   the base dn of the user
+user_login_attribute
+   the attribute to login a user
+user_email_attribute (optional)
+   the attribute to match with the XiVO user's email (default: mail)
+bind_dn (optional)
+   the bind DN for searching for the user DN.
+bind_password (optional)
+   the bind password for searching for the user DN.
+bind_anonymous (optional)
+   use anonymous bind for searching for the user DN (default: false)
 
 
 XiVO Admin

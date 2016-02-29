@@ -173,6 +173,8 @@ Consult the `16.03 Roadmap <https://projects.xivo.io/versions/239>`_
 * Update the switchboard configuration page for the statistics in
   :ref:`switchboard_configuration_multi_queues`.
 * The API for associating a line to a device has been replaced. Consult the :ref:`confd_changelog` for further details
+* The configuration parameters of *xivo_ldap_user* plugin of *xivo-auth* has been changed. See
+  :ref:`xivo_ldap plugin <auth-backends-ldap>`.
 
 
 16.02
