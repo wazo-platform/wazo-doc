@@ -41,7 +41,15 @@ Statistics
 
 Switchboard statistic events are published on the bus to be consumed by collectd.
 
-The following events are available:
+.. note::
+
+   Statistic events are produced by `xivo-ctid`. If a call is received before or
+   after `xivo-ctid` is started, no events will be produced for that call.
+
+.. note::
+
+   Statistic events are not generated for call already completed.
+
 
 entered
 -------
