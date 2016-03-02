@@ -66,10 +66,10 @@ This event is produced when the called hangs up while waiting in the incoming
 queue or in the hold queue.
 
 
-transfered
-----------
+transferred
+-----------
 
-This event is produced when a call is transfered from the switchboard by the
+This event is produced when a call is transferred from the switchboard by the
 operator. For attended transfers, the event is sent when the transfer is
 completed.
 
@@ -90,7 +90,7 @@ completed
 ---------
 
 This event is produced when a call was answered by the operator without being
-transfered to another destination.
+transferred to another destination.
 
 
 wait_time
