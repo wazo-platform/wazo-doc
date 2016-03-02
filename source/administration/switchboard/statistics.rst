@@ -14,6 +14,18 @@ Limitations
 
    Statistics are not generated for call already completed.
 
+.. note::
+
+   Statistics are only available for existing switchboard queues, i.e. deleting a queue will also
+   deleted the associated statistics.
+
+
+Daily Statistics
+================
+
+Switchboard statistics can be retrieved in CSV format via xivo-confd (see http://api.xivo.io for
+more details).
+
 
 Events
 ======
