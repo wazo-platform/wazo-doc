@@ -130,7 +130,7 @@ not 12.16 to 13.16
 .. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
    xivo-upgrade, but cancelled the upgrade.
 
-13.24 - 14.16 to 13.25 - 14.17 (here 13.25 to 14.16)
+13.25 - 14.16 to 13.25 - 14.17 (here 13.25 to 14.16)
 ----------------------------------------------------
 
 ::
@@ -154,7 +154,7 @@ not 12.16 to 13.16
 .. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
    xivo-upgrade, but cancelled the upgrade.
 
-13.24 - 14.16 to 14.18+ (here 14.05 to 15.11)
+13.25 - 14.17 to 14.18+ (here 14.05 to 15.11)
 ---------------------------------------------
 
 ::
