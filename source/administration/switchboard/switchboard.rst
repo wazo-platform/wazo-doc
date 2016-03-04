@@ -38,6 +38,7 @@ Table of Contents
 =================
 
 .. toctree::
+   :maxdepth: 2
 
    configuration
    usage
