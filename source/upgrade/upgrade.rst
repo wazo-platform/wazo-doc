@@ -75,6 +75,20 @@ the normal upgrade::
    && apt-get update
 
 
+Upgrading from XiVO 13.24 and before
+====================================
+
+When upgrading from XiVO 13.24 or earlier, you must do the following, before the normal upgrade::
+
+   cat > /etc/apt/sources.list.d/squeeze-archive.list <<EOF
+   deb http://archive.debian.org/debian/ squeeze main
+   EOF
+
+And after the upgrade::
+
+   rm /etc/apt/sources.list.d/squeeze-archive.list
+
+
 Upgrading from XiVO 13.03 and before
 ====================================
 
