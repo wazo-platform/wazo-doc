@@ -110,6 +110,10 @@ not 12.16 to 13.16
    Pin-Priority: 700
    EOF
 
+   cat > /etc/apt/sources.list.d/squeeze-archive.list <<EOF
+   deb http://archive.debian.org/debian/ squeeze main
+   EOF
+
    apt-get update
    apt-get install {xivo-fai,xivo-fai-skaro}/squeeze-xivo-skaro-1.2.3
    apt-get update
@@ -118,6 +122,7 @@ not 12.16 to 13.16
    apt-get install xivo-upgrade/xivo-14.16
    xivo-upgrade
    rm /etc/apt/preferences.d/50-xivo-14.16.pref
+   rm /etc/apt/sources.list.d/squeeze-archive.list
    apt-get update
 
 .. We need the old xivo-fai (squeeze), because the new xivo-fai (xivo-five) conflicts with
@@ -125,7 +130,7 @@ not 12.16 to 13.16
 .. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
    xivo-upgrade, but cancelled the upgrade.
 
-13.24 - 14.16 to 13.25 - 14.17 (here 13.25 to 14.16)
+13.25 - 14.16 to 13.25 - 14.17 (here 13.25 to 14.16)
 ----------------------------------------------------
 
 ::
@@ -149,7 +154,7 @@ not 12.16 to 13.16
 .. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
    xivo-upgrade, but cancelled the upgrade.
 
-13.24 - 14.16 to 14.18+ (here 14.05 to 15.11)
+13.25 - 14.17 to 14.18+ (here 14.05 to 15.11)
 ---------------------------------------------
 
 ::
