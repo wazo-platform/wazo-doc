@@ -4,6 +4,15 @@
 xivo-confd REST API changelog
 *****************************
 
+16.03
+=====
+
+* Added switchboard endpoints:
+
+  * ``GET /1.1/switchboards``
+  * ``GET /1.1/switchboards/<switchboard_id>/stats``
+
+
 16.02
 =====
 
