@@ -275,7 +275,7 @@ backed up in Consul <what_is_backed_up_in_consul>`.
 To restore the file ::
 
    systemctl start consul
-   xivo-restore-consul-kv -i /var/backup/xivo/consul-kv.json
+   xivo-restore-consul-kv -i /var/backups/xivo/consul-kv.json
 
 
 After Restoring The System
