@@ -171,6 +171,16 @@ Consult the `16.03 Roadmap <https://projects.xivo.io/versions/239>`_
   :ref:`switchboard_configuration_multi_queues`.
 
 
+16.03
+-----
+
+Consult the `16.03 Roadmap <https://projects.xivo.io/versions/239>`_
+
+* The new section :menuselection:`Services --> Statistics --> Switchboard` in the web interface will
+  only be visible by a non-root administrator after adding the corresponding permissions in the
+  administrator configuration.
+
+
 16.02
 -----
 
