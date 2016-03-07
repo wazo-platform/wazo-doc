@@ -32,6 +32,11 @@ Limitations
   The enter shortcut to answer a call will not work if the focus is currently
   on a widget that will consume the key press. ie: a text field, a drop down
 
+.. note::
+
+   Attended transfers to the switchboard cannot be managed with the switchboard
+   xlets depending on the moment at which the call was completed.
+
 
 
 Table of Contents
