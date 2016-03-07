@@ -94,10 +94,17 @@ Events that are sent to the bus use a JSON serialization format with the content
      "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
      "data": {...}}
 
-All events have the same basic structure, namely, a JSON object with three keys:
+All events have the same basic structure, namely, a JSON object with 4 keys:
 
 name
     A string representing the name of the event. Each event type has a unique name.
+
+required_acl
+    Either a string or null. Currently used by xivo-websocketd to determine if
+    a client can receive the event or not. See the :ref:`ws-events-acl` section for
+    more information.
+
+    This key is optional.
 
 origin_uuid
     The uuid to identify the message producer.
@@ -176,6 +183,7 @@ agent_status_update
 The agent_status_update is sent when an agent is logged in or logged out.
 
 * routing key: status.agent
+* required ACL: events.statuses.agents
 * event specific data: a dictionary with 3 keys:
 
   * agent_id: an integer corresponding to the agent ID of the agent who's status changed
@@ -186,6 +194,7 @@ Example::
 
    {
        "name": "agent_status_update",
+       "required_acl": "events.statuses.agents",
        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
            "agent_id": 42,
@@ -204,6 +213,7 @@ The events ``call_created``, ``call_updated``, ``call_ended`` are sent when a ca
 xivo-ctid-ng is received, connected or hung up.
 
 * routing key: calls.call.created, calls.call.updated, call.call.ended
+* required ACL: events.calls.<user_uuid>
 * event specific data: a dictionary with the same fields as the REST API model of Call (See
   http://api.xivo.io, section xivo-ctid-ng)
 
@@ -211,6 +221,7 @@ Example::
 
    {
        "name": "call_created",
+       "required_acl": "events.calls.2e752722-0864-4665-887d-a78a024cf7c7",
        "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
        "data": {
            "bridges": [],
@@ -262,6 +273,7 @@ The endpoint_status_update is sent when an end point status changes. This inform
 based on asterisk hints.
 
 * routing key: status.endpoint
+* required ACL: events.statuses.endpoints
 * event specific data: a dictionary with 3 keys
 
   * xivo_id: the uuid of the xivo
@@ -272,6 +284,7 @@ Example::
 
    {
        "name": "endpoint_status_update",
+       "required_acl": "events.statuses.endpoints",
        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
            "endpoint_id": 67,
@@ -289,6 +302,7 @@ user_status_update
 The user_status_update is sent when a user changes his CTI presence using the XiVO client.
 
 * routing key: status.user
+* required ACL: events.statuses.users
 * event specific data: a dictionary with 3 keys
 
   * xivo_id: the uuid of the xivo
@@ -299,6 +313,7 @@ Example::
 
    {
        "name": "user_status_update",
+       "required_acl": "events.statuses.users",
        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
            "user_id": 42,

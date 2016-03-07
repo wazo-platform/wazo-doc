@@ -236,6 +236,28 @@ currently no way to change the token of an existing connection. A new connection
 the token expires.
 
 
+.. _ws-events-acl:
+
+Events Access Control
+---------------------
+
+Clients connected to ``xivo-websocketd`` only receive events that they are authorized to receive.
+For example, a client connected with a token obtained from the "xivo_user" ``xivo-auth`` backend
+will *not* receive call events of other users.
+
+When a message is received from the bus by ``xivo-websocketd``, it extracts the ACL from the
+``required_acl`` key of the event. If the field is missing, no clients will receive the event. If
+the value is null, all subscribed clients will receive the event. If the value is a string, then all
+subscribed clients which have a matching ACL will receive the event.
+
+No authorization check is done at subscription time. Checks are only done when an event is received
+by the server. This mean a client can subscribe to an event "foo", but will never receive any of
+these events if it does not have the matching ACL.
+
+See the :ref:`bus-events` section for more information on the required ACL of events which are
+available by default on XiVO.
+
+
 .. _ws-status-code:
 
 Status Code
