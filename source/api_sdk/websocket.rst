@@ -17,7 +17,7 @@ First, you need a XiVO in version 16.03 or later.
 Then, to use the service, you need to:
 
 #. connect to it on port 9502 using an encrypted WebSocket connection.
-#. authenticate to it by providing a xivo-auth token that has the ``websocketd.connect`` ACL. If you
+#. authenticate to it by providing a xivo-auth token that has the ``websocketd`` ACL. If you
    don't know how to obtain a xivo-auth token from your XiVO, consult the :ref:`documentation on
    xivo-auth <xivo-auth>`.
 
@@ -229,7 +229,7 @@ Authentication
 Authentication is done by passing a xivo-auth token ID in the ``token`` query parameter.
 Authentication is mandatory.
 
-The token must have the ``websocketd.connect`` ACL.
+The token must have the ``websocketd`` ACL.
 
 When the token expires, the server close the connection with the status code 4003. There is
 currently no way to change the token of an existing connection. A new connection must be made when
