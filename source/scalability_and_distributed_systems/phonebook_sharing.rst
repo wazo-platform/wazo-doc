@@ -36,9 +36,9 @@ For each remote XiVO a new phonebook has to be created in
 .. figure:: images/list_directory_phonebook.png
 .. figure:: images/create_directory_phonebook.png
 
-Note that the URL of the directory must contain ``protected``, not ``private``, e.g::
+Note that the URL of the directory must contain ``restricted``, not ``private``, e.g::
 
-   http://192.168.1.125/service/ipbx/json.php/protected/pbx_services/phonebook
+   http://192.168.1.125/service/ipbx/json.php/restricted/pbx_services/phonebook
 
 
 Add a Directory Definition for Each Phonebook
