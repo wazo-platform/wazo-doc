@@ -28,6 +28,9 @@ Switchboard statistics can be retrieved in CSV format via the web interface in
 
 .. image:: images/statistics.png
 
+* Start date: when empty, the result will contain statistics from the beginning
+* End date: when empty, the result will contain statistics until the current time
+
 
 Events
 ======
@@ -73,25 +76,21 @@ The collectd events have the following attributes:
 * type_instance: the following values.
 
 entered
-
    This event is produced when a call enters the switchboard on an open schedule. Calls that did not
    enter the queue, if the queue was full for example, will also generate an entered event.
 
 
 abandoned
-
    This event is produced when the called hangs up while waiting in the incoming queue or in the
    hold queue.
 
 
 transferred
-
    This event is produced when a call is transferred from the switchboard by the operator. For
    attended transfers, the event is sent when the transfer is completed.
 
 
 forwarded
-
    This event is produced when a call is redirected to another destination under certain conditions.
    This include:
 
@@ -102,12 +101,10 @@ forwarded
 
 
 completed
-
    This event is produced when a call was answered by the operator without being transferred to
    another destination.
 
 
 wait_time
-
    This event is produced when a call is completed, its value is the sum of all times spent in the
    hold queue and the time spent in the incoming queue before being answered.
