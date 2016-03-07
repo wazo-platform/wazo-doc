@@ -57,8 +57,10 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/network/if-up.d/xivo-routes`
 * :file:`/etc/network/interfaces`
 * :file:`/etc/ntp.conf`
+* :file:`/etc/profile.d/xivo_uuid.sh`
 * :file:`/etc/resolv.conf`
 * :file:`/etc/ssl/`
+* :file:`/etc/systemd/`
 * :file:`/etc/wanpipe/`
 * :file:`/etc/xivo-agentd/`
 * :file:`/etc/xivo-agid/`
@@ -284,6 +286,12 @@ After Restoring The System
 Resynchronize the xivo-auth keys::
 
    xivo-update-keys
+
+Update systemd runtime configuration::
+
+   source /etc/profile.d/xivo_uuid.sh
+   systemctl set-environment XIVO_UUID=$XIVO_UUID
+   systemctl daemon-reload
 
 Restart the services you stopped in the first step::
 
