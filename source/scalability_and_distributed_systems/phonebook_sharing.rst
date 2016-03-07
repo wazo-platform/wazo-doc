@@ -1,7 +1,7 @@
 .. _phonebook_sharing:
 
 *****************
-Phonebook sharing
+Phonebook Sharing
 *****************
 
 Sharing phonebooks allows users of different XiVO servers to access the contacts in the
@@ -10,11 +10,11 @@ Sharing phonebooks allows users of different XiVO servers to access the contacts
 .. figure:: images/phonebook_sharing_diagram.png
 
 
-This procedure follows the :ref:`contact_and_presence_sharing`, so we assume you have what is
-described there.
+This procedure follows the :ref:`contact_and_presence_sharing` (but it's not mandatory), so we will
+use the same conventions.
 
 
-Open phonebook access
+Open Phonebook Access
 =====================
 
 On each XiVO, you must have a :ref:`Web Services User <web_services_access>` that authorizes access
@@ -27,7 +27,7 @@ authorization.
 This Web Services user will allow other XiVO servers to access the phonebook of this XiVO.
 
 
-Configuring the directories
+Configuring the Directories
 ===========================
 
 For each remote XiVO a new phonebook has to be created in
@@ -61,3 +61,22 @@ We just defined the directories, now let's use them:
 
 .. figure:: images/list_direct_directories.png
 .. figure:: images/create_direct_directories_phonebook.png
+
+
+Check That Everything is Working
+================================
+
+There is no further configuration needed, you should now be able to connect your XiVO Client and
+search phonebook contacts from the People Xlet.
+
+
+Troubleshooting
+===============
+
+Chances are that everything won't work the first time, here are some interesting
+commands to help you debug the problem.
+
+.. code-block:: sh
+
+    tail -f /var/log/xivo-dird.log
+    tail -f /var/log/nginx/xivo.access.log
