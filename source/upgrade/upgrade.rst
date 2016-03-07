@@ -162,6 +162,14 @@ Upgrading from i386 (32 bits) to amd64 (64 bits)
 Upgrade Notes
 =============
 
+16.03
+-----
+
+Consult the `16.03 Roadmap <https://projects.xivo.io/versions/239>`_
+
+* Update the switchboard configuration page for the statistics in
+  :ref:`switchboard_configuration_multi_queues`.
+
 
 16.02
 -----

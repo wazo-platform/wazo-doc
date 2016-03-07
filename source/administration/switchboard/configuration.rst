@@ -249,6 +249,8 @@ Directory xlet
 The transfer destination is chosen in the Directory xlet. You **must** follow the :ref:`directory-xlet` section to be able to use it.
 
 
+.. _switchboard_configuration_multi_queues:
+
 Configuration for multiple switchboards
 ---------------------------------------
 
@@ -258,3 +260,14 @@ and configuring the operators XiVO client accordingly in the
 :menuselection:`XiVO Client --> Configure --> Functions --> Switchboard` window.
 
 .. figure:: images/multi_switchboard.png
+
+
+All switchboard queues should be added to the xivo-ctid configuration. New
+queues can be added by adding a file in :file:`/etc/xivo-ctid/conf.d`. For
+example, the following content should be used for a new switchboard queue
+names *__switchboard_two* and an hold queue names *__switchboard_hold_two*.
+
+.. code-block:: javascript
+
+  {"switchboard_queues": {"__switchboard_two": true},
+   "switchboard_hold_queues": {"__switchboard_hold_two": true}}
