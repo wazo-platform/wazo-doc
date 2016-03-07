@@ -23,8 +23,10 @@ Limitations
 Daily Statistics
 ================
 
-Switchboard statistics can be retrieved in CSV format via xivo-confd (see http://api.xivo.io for
-more details).
+Switchboard statistics can be retrieved in CSV format via the web interface in
+:menuselection:`Services --> Statistics --> Switchboard --> Statistics`.
+
+.. image:: images/statistics.png
 
 
 Events
