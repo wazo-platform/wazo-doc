@@ -82,6 +82,8 @@ Things to be aware when writing a client/consumer:
   that are still in queues will be lost.
 
 
+.. _bus-events:
+
 Events
 ======
 
@@ -192,6 +194,8 @@ Example::
        }
    }
 
+
+.. _bus-call_created:
 
 call_created, call_updated, call_ended
 --------------------------------------
