@@ -45,9 +45,10 @@ the client/server interaction.
 
 To receive events on your WebSocket connection, you need to tell the server which type of events you
 are interested in, and then tell it to start sending you these events. For example, if you are
-interested in the :ref:`"call_created" events <bus-call_created>`, you send the following command::
+interested in the :ref:`"endpoint_status_update" events <bus-endpoint_status_update>`, you send the
+following command::
 
-   {"op": "subscribe", "data": {"event_name": "call_created"}}
+   {"op": "subscribe", "data": {"event_name": "endpoint_status_update"}}
 
 If all goes well, the server will respond with::
 
@@ -105,8 +106,8 @@ Here's a rudimentary example of a web page accessing the service:
            var msg = JSON.parse(event.data);
            switch (msg.op) {
                case "init":
-                   subscribe("call_created");
-                   subscribe("call_ended");
+                   subscribe("endpoint_status_update");
+                   subscribe("user_status_update");
                    start();
                    break;
                case "start":
@@ -175,8 +176,8 @@ Then, at line 23, a ``onmessage`` callback is set on the WebSocket object:
        var msg = JSON.parse(event.data);
        switch (msg.op) {
            case "init":
-               subscribe("call_created");
-               subscribe("call_ended");
+               subscribe("endpoint_status_update");
+               subscribe("user_status_update");
                start();
                break;
            case "start":
@@ -188,9 +189,9 @@ Then, at line 23, a ``onmessage`` callback is set on the WebSocket object:
 
 After a successful connection to the service, an "init" message will be received by the client. When
 the client receives this message, it sends two subscribe commands (e.g.
-``subscribe("call_created")``) and a start command (e.g. ``start()``).  When the client receives the
-"start" message, it sets the ``started`` flag. After that, all the other messages it receives will
-be logged to the console.
+``subscribe("endpoint_status_update")``) and a start command (e.g. ``start()``).  When the client
+receives the "start" message, it sets the ``started`` flag. After that, all the other messages it
+receives will be logged to the console.
 
 
 Reference
@@ -299,7 +300,7 @@ with the same name is published on the "xivo" exchange of the bus, the server fo
 to all the subscribed clients that are authorized to receive it. For this command, the "data" value
 is a dictionary with an "event_name" key (mandatory). Example::
 
-   {"op": "subscribe", "data": {"event_name": "call_created"}}
+   {"op": "subscribe", "data": {"event_name": "endpoint_status_update"}}
 
 You can subscribe to any event. The special event name ``*`` can be used to match all events.
 
