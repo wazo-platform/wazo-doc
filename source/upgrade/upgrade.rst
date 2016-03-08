@@ -167,18 +167,12 @@ Upgrade Notes
 
 Consult the `16.03 Roadmap <https://projects.xivo.io/versions/239>`_
 
-* Update the switchboard configuration page for the statistics in
-  :ref:`switchboard_configuration_multi_queues`.
-
-
-16.03
------
-
-Consult the `16.03 Roadmap <https://projects.xivo.io/versions/239>`_
-
 * The new section :menuselection:`Services --> Statistics --> Switchboard` in the web interface will
   only be visible by a non-root administrator after adding the corresponding permissions in the
   administrator configuration.
+* Update the switchboard configuration page for the statistics in
+  :ref:`switchboard_configuration_multi_queues`.
+* The API for associating a line to a device has been replaced. Consult the :ref:`confd_changelog` for further details
 
 
 16.02
