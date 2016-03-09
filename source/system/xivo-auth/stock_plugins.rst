@@ -16,21 +16,61 @@ LDAP
 
 Backend name: ldap_user
 
-Purpose: Authenticate via an ldap user.
+Purpose: Authenticate with an LDAP user.
 
-Work flow followed when creating a token:
+For example, with the given configuration:
 
-* Perform a simple bind with one of the following method.
+.. code-block:: yaml
 
-  * Bind with ``bind_dn`` / ``bind_password``
-  * Bind anonymous
-  * No bind for search (user DN = "``{user_login_attribute}={username},{user_base_dn}``")
+   ldap:
+       uri: ldap://example.org
+       bind_dn: cn=xivo,dc=example,dc=org
+       bind_password: bindpass
+       user_base_dn: ou=people,dc=example,dc=org
+       user_login_attribute: uid
+       user_email_attribute: mail
 
-* Perform a search on ``user_base_dn`` to find the value of ``user_login_attribute``.
-* Match the value of ``user_login_attribute`` to ``username`` and return the user DN.
-* Bind with user DN and retrieve the ``user_email_attribute`` value.
-* Find the XiVO user associated to the ``user_email_attribute`` value.
-* Return a token with the same access privileges as the user.
+When an authentication request is received for username ``alice`` and password ``userpass``, the
+backend will:
+
+#. Connect to the LDAP server at example.org
+#. Do an LDAP "bind" operation with bind DN ``cn=xivo,dc=example,dc=org`` and password ``bindpass``
+#. Do an LDAP "search" operation to find an LDAP user matching ``alice``, using:
+
+   * the base DN ``ou=people,dc=example,dc=org``
+   * the filter ``(uid=alice)``
+   * a SUBTREE scope
+
+#. If the search returns exactly 1 LDAP user, do an LDAP "bind" operation with the user's DN and the
+   password ``userpass``
+#. If the LDAP "bind" operation is successful, search in XiVO a user with an email matching the
+   ``mail`` attribute of the LDAP user
+#. If a XiVO user is found, success
+
+To use an anonymous bind instead, the following configuration would be used:
+
+.. code-block:: yaml
+
+   ldap:
+       uri: ldap://example.org
+       bind_anonymous: True
+       user_base_dn: ou=people,dc=example,dc=org
+       user_login_attribute: uid
+       user_email_attribute: mail
+
+The backend can also works in a "no search" mode, for example with the following configuration:
+
+.. code-block:: yaml
+
+   ldap:
+       uri: ldap://example.org
+       user_base_dn: ou=people,dc=example,dc=org
+       user_login_attribute: uid
+       user_email_attribute: mail
+
+When the server receives the same authentication request as above, it will directly do an
+LDAP "bind" operation with the DN ``uid=alice,ou=people,dc=example,dc=org`` and password
+``userpass``, and continue at step 5.
 
 .. note:: User's email and voicemail's email are two separate things. This plugin only use the
    user's email.
@@ -38,20 +78,6 @@ Work flow followed when creating a token:
 
 Configuration
 ^^^^^^^^^^^^^
-
-Configuration example:
-
-.. code-block:: yaml
-   :linenos:
-
-   ldap:
-       uri: "ldap://example.org"
-       bind_dn: "cn=xivo-auth,ou=people,dc=company,dc=org"
-       bind_password: "X1V0-4u|H"
-       bind_anonymous: false
-       user_base_dn: "ou-people,dc=company,dc=org"
-       user_login_attribute: "userPrincipalName"
-       user_email_attribute: "userPrincipalName"
 
 uri
    the URI of the LDAP server. Can only contain the scheme, host and port of an LDAP URL.
