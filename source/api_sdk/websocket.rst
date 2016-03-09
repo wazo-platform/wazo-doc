@@ -197,9 +197,9 @@ Reference
 =========
 
 The WebSocket service is provided by ``xivo-websocketd``, and its behaviour can be configured via
-its configuration files located under the :file:`/etc/xivo-websocketd` directory. After modifying
-the configuration files, you need to restart xivo-websocketd with ``systemctl restart
-xivo-websocketd``.
+its :ref:`configuration files <configuration-files>` located under the :file:`/etc/xivo-websocketd`
+directory. After modifying the configuration files, you need to restart ``xivo-websocketd`` with
+``systemctl restart xivo-websocketd``.
 
 
 .. _ws-connection:
