@@ -4,6 +4,16 @@
 xivo-confd REST API changelog
 *****************************
 
+16.04
+=====
+
+* A new API for user's services has been added:
+
+  * GET ``/1.1/users/<user_uuid>/services``
+  * GET ``/1.1/users/<user_uuid>/services/<service>``
+  * PUT ``/1.1/users/<user_uuid>/services/<service>``
+
+
 16.03
 =====
 
