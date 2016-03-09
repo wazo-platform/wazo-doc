@@ -175,6 +175,8 @@ Consult the `16.03 Roadmap <https://projects.xivo.io/versions/239>`_
 * The API for associating a line to a device has been replaced. Consult the :ref:`confd_changelog` for further details
 * The configuration parameters of *xivo_ldap_user* plugin of *xivo-auth* has been changed. See
   :ref:`xivo_ldap plugin <auth-backends-ldap>`.
+* The user's email is now a unique constraint. Every duplicate email will be deleted during
+  the migration. (This does not apply to the voicemail's email)
 
 
 16.02

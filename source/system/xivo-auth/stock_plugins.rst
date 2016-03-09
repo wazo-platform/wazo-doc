@@ -32,11 +32,6 @@ Work flow followed when creating a token:
 * Find the XiVO user associated to the ``user_email_attribute`` value.
 * Return a token with the same access privileges as the user.
 
-Limitations:
-
-* Emails stored in the users **MUST** be unique. Authentication bugs might occur if the email is
-  found in more than one user.
-
 .. note:: User's email and voicemail's email are two separate things. This plugin only use the
    user's email.
 
