@@ -13,6 +13,12 @@ xivo-confd REST API changelog
   * GET ``/1.1/users/<user_uuid>/services/<service>``
   * PUT ``/1.1/users/<user_uuid>/services/<service>``
 
+* A new API for user's forwards has been added:
+
+  * GET ``/1.1/users/<user_uuid>/forwards``
+  * GET ``/1.1/users/<user_uuid>/forwards/<forward_name>``
+  * PUT ``/1.1/users/<user_uuid>/forwards/<forward_name>``
+
 
 16.03
 =====
