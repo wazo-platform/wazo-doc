@@ -266,7 +266,7 @@ Status Code
 The WebSocket connection might be closed by the server using one of following status code:
 
 * 4001: No token ID was provided.
-* 4002: Authentication failed. Either the token ID is invalid, expired, or has not the necessary ACL.
+* 4002: Authentication failed. Either the token ID is invalid, expired, or does not have the necessary ACL.
 * 4003: Authentication expired. The token has expired or was deleted.
 * 4004: Protocol error. The server received a frame that it could not understand. For example, the
   content was not valid JSON, or was requesting an unknown operation, or a mandatory argument to an
