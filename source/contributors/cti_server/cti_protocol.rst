@@ -14,6 +14,12 @@ The versions below indicate the xivo version followed by the protocol version.
    to check that the protocol did not change before upgrading XiVO
 
 
+16.?? - ?.?
+-----------
+
+* the :ref:`cti_protocol_chitchat` command `to` and `from` fields are now a list of two elements, `xivo_uuid` and `user_uuid`.
+
+
 16.01 - 2.0
 -----------
 
@@ -938,7 +944,7 @@ Chitchat
        "class": "chitchat",
        "alias": "Alice",
        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse venenatis velit nibh, ac condimentum felis rutrum id.",
-       "to": ["xivo_uuid", <user_id>],
+       "to": [<xivo_uuid>, <user_uuid>],
        "commandid": <commandid>
     }
 
@@ -951,11 +957,10 @@ The following message is received by the remote XiVO client
 
     {
         "class": "chitchat",
-        "from": ["e4d147b6-f747-4b64-955d-8c36fbcd1d3f", 2],
-        "to": ["e4d147b6-f747-4b64-955d-8c36fbcd1d3f", 1]
+        "from": [<xivo_uuid>, <user_uuid>],
+        "to": [<xivo_uuid>, <user_uuid>]
         "alias": "Alice",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse venenatis velit nibh, ac condimentum felis rutrum id.",
-        "timenow": 1449588554.010736,
     }
 
 
