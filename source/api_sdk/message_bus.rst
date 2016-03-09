@@ -99,12 +99,10 @@ All events have the same basic structure, namely, a JSON object with 4 keys:
 name
     A string representing the name of the event. Each event type has a unique name.
 
-required_acl
+required_acl (optional)
     Either a string or null. Currently used by xivo-websocketd to determine if
     a client can receive the event or not. See the :ref:`ws-events-acl` section for
     more information.
-
-    This key is optional.
 
 origin_uuid
     The uuid to identify the message producer.
