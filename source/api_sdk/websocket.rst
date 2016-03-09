@@ -106,8 +106,7 @@ Here's a rudimentary example of a web page accessing the service:
            var msg = JSON.parse(event.data);
            switch (msg.op) {
                case "init":
-                   subscribe("endpoint_status_update");
-                   subscribe("user_status_update");
+                   subscribe("*");
                    start();
                    break;
                case "start":
