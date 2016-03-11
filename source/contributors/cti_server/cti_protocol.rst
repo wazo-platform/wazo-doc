@@ -14,7 +14,7 @@ The versions below indicate the xivo version followed by the protocol version.
    to check that the protocol did not change before upgrading XiVO
 
 
-16.?? - ?.?
+16.04 - 2.1
 -----------
 
 * the :ref:`cti_protocol_chitchat` command `to` and `from` fields are now a list of two elements, `xivo_uuid` and `user_uuid`.
