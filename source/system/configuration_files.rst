@@ -56,9 +56,10 @@ Configuration files for every service running on a XiVO server will respect thes
 * Default configuration file in :file:`/etc/xivo-{{service}}/config.yml` (e.g.
   :file:`/etc/xivo-agentd/config.yml`)
 
-These files should not be modified because **they will be overridden during upgrades**. However,
-they may be used as examples for creating additional configuration files as long as they respect the
-:ref:`configuration-priority`. Any exceptions to these rules are documented below.
+The files :file:`/etc/xivo-{{service}}/config.yml` should not be modified because **they will be
+overridden during upgrades**. However, they may be used as examples for creating additional
+configuration files as long as they respect the :ref:`configuration-priority`. Any exceptions to
+these rules are documented below.
 
 
 xivo-agentd
@@ -104,6 +105,13 @@ xivo-dird-phoned
 
 * Default configuration directory: :file:`/etc/xivo-dird-phoned/conf.d`
 * Default configuration file: :file:`/etc/xivo-dird-phoned/config.yml`
+
+
+xivo-websocketd
+================
+
+* Default configuration directory: :file:`/etc/xivo-websocketd/conf.d`
+* Default configuration file: :file:`/etc/xivo-websocketd/config.yml`
 
 
 xivo_ring.conf

@@ -75,6 +75,20 @@ the normal upgrade::
    && apt-get update
 
 
+Upgrading from XiVO 13.24 and before
+====================================
+
+When upgrading from XiVO 13.24 or earlier, you must do the following, before the normal upgrade::
+
+   cat > /etc/apt/sources.list.d/squeeze-archive.list <<EOF
+   deb http://archive.debian.org/debian/ squeeze main
+   EOF
+
+And after the upgrade::
+
+   rm /etc/apt/sources.list.d/squeeze-archive.list
+
+
 Upgrading from XiVO 13.03 and before
 ====================================
 
@@ -147,6 +161,22 @@ Upgrading from i386 (32 bits) to amd64 (64 bits)
 
 Upgrade Notes
 =============
+
+16.03
+-----
+
+Consult the `16.03 Roadmap <https://projects.xivo.io/versions/239>`_
+
+* The new section :menuselection:`Services --> Statistics --> Switchboard` in the web interface will
+  only be visible by a non-root administrator after adding the corresponding permissions in the
+  administrator configuration.
+* Update the switchboard configuration page for the statistics in
+  :ref:`switchboard_configuration_multi_queues`.
+* The API for associating a line to a device has been replaced. Consult the :ref:`confd_changelog` for further details
+* The configuration parameters of *xivo_ldap_user* plugin of *xivo-auth* has been changed. See
+  :ref:`xivo_ldap plugin <auth-backends-ldap>`.
+* The user's email is now a unique constraint. Every duplicate email will be deleted during
+  the migration. (This does not apply to the voicemail's email)
 
 
 16.02

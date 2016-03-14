@@ -48,6 +48,7 @@ Data
 Here is the list of folders and files that are backed-up:
 
 * :file:`/etc/asterisk/`
+* :file:`/etc/consul/`
 * :file:`/etc/dahdi/`
 * :file:`/etc/dhcp/`
 * :file:`/etc/hostname`
@@ -56,8 +57,10 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/network/if-up.d/xivo-routes`
 * :file:`/etc/network/interfaces`
 * :file:`/etc/ntp.conf`
+* :file:`/etc/profile.d/xivo_uuid.sh`
 * :file:`/etc/resolv.conf`
 * :file:`/etc/ssl/`
+* :file:`/etc/systemd/`
 * :file:`/etc/wanpipe/`
 * :file:`/etc/xivo-agentd/`
 * :file:`/etc/xivo-agid/`
@@ -194,6 +197,7 @@ Before Restoring the System
 Stop monit and all the xivo services::
 
    xivo-service stop
+   systemctl stop consul
 
 
 Restoring System Files
@@ -206,10 +210,7 @@ provisioning server configuration database.
 
 To restore the file ::
 
-   systemctl stop consul
    tar xvfp /var/backups/xivo/data.tgz -C /
-   dpkg-reconfigure consul
-   systemctl start consul
 
 
 Restoring the Database
@@ -275,7 +276,8 @@ backed up in Consul <what_is_backed_up_in_consul>`.
 
 To restore the file ::
 
-   xivo-restore-consul-kv -i /var/backup/xivo/consul-kv.json
+   systemctl start consul
+   xivo-restore-consul-kv -i /var/backups/xivo/consul-kv.json
 
 
 After Restoring The System
@@ -285,8 +287,15 @@ Resynchronize the xivo-auth keys::
 
    xivo-update-keys
 
+Update systemd runtime configuration::
+
+   source /etc/profile.d/xivo_uuid.sh
+   systemctl set-environment XIVO_UUID=$XIVO_UUID
+   systemctl daemon-reload
+
 Restart the services you stopped in the first step::
 
+   systemctl start consul
    xivo-service start
 
 You may also reboot the system.

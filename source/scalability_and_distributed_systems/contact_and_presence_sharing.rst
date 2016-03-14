@@ -61,9 +61,9 @@ For this procedure, the following name and IP addresses will be used:
 Add a Web Service User
 ======================
 
-The first thing is to make XiVO accept remote connections to your internal users
-directory. For this, you must create a Web service access by authorizing either
-an IP address or a login/password.
+The first thing is to make XiVO accept remote connections to your internal users directory. For
+this, you must create a :ref:`Web service access <web_services_access>` by authorizing either an IP
+address or a login/password.
 
 This can be done in :menuselection:`Configuration --> Management --> Web Services Access`
 
@@ -91,7 +91,7 @@ For each remote XiVO a new directory has to be created in
 Add a Directory Definition for Each New Directories
 ---------------------------------------------------
 
-To and a new directory definition, go to :menuselection:`Services --> CTI Server
+To add a new directory definition, go to :menuselection:`Services --> CTI Server
 --> Directories --> Definitions`
 
 .. figure:: images/list_definition.png
@@ -166,7 +166,7 @@ Configure xivo-ctid
 Create a Custom Configuration File
 ----------------------------------
 
-Create a configuration file for xivo-ctid, e.g */etc/xivo-ctid/conf.d/interconnection.yml*
+Create a configuration file for xivo-ctid, e.g ``/etc/xivo-ctid/conf.d/interconnection.yml``
 
 .. code-block:: yaml
 
@@ -258,7 +258,7 @@ following content where `advertise_addr` is reachable from other XiVO.
     {
     "client_addr": "0.0.0.0",
     "bind_addr": "0.0.0.0",
-    "advertise_addr": "192.168.1.124"  # The IP address of this XiVO, reachable from outside
+    "advertise_addr": "192.168.1.124"  // The IP address of this XiVO, reachable from outside
     }
 
 
@@ -346,3 +346,9 @@ commands to help you debug the problem.
     consul members -wan
     consul-cli agent-services --ssl --ssl-verify=false
     rabbitmqctl eval 'rabbit_federation_status:status().'
+
+
+What's next?
+============
+
+One you get this part working, check out :ref:`phonebook_sharing`.

@@ -12,14 +12,14 @@ The service is provided by the ``xivo-websocketd`` component.
 Getting Started
 ===============
 
-First, you need a XiVO in version 16.02 or later.
+First, you need a XiVO in version 16.03 or later.
 
 Then, to use the service, you need to:
 
 #. connect to it on port 9502 using an encrypted WebSocket connection.
-#. authenticate to it by providing a xivo-auth token that has the ``websocketd`` ACL. If you don't
-   know how to obtain a xivo-auth token from your XiVO, consult the :ref:`documentation on xivo-auth
-   <xivo-auth>`.
+#. authenticate to it by providing a xivo-auth token that has the ``websocketd`` ACL. If you
+   don't know how to obtain a xivo-auth token from your XiVO, consult the :ref:`documentation on
+   xivo-auth <xivo-auth>`.
 
 For example, if you want to use the service located at ``example.org`` with the token
 ``some-token-id``, you would use the URL ``wss://example.org:9502/?token=some-token-id``.
@@ -45,18 +45,17 @@ the client/server interaction.
 
 To receive events on your WebSocket connection, you need to tell the server which type of events you
 are interested in, and then tell it to start sending you these events. For example, if you are
-interested in the events published on the ``xivo`` exchange that match the routing key ``calls.#``,
-you send the following command::
+interested in the :ref:`"endpoint_status_update" events <bus-endpoint_status_update>`, you send the
+following command::
 
-   {"op": "bind", "data": {"exchange_name": "xivo", "routing_key": "calls.#"}}
+   {"op": "subscribe", "data": {"event_name": "endpoint_status_update"}}
 
-The server will then create a binding on your behalf on the RabbitMQ server. If all goes well, the
-server will respond with::
+If all goes well, the server will respond with::
 
-   {"op": "bind", "code": 0, "msg": ""}
+   {"op": "subscribe", "code": 0, "msg": ""}
 
-Once you have created all your bindings, you ask the server to start sending you the matching events
-by sending the following command::
+Once you have subscribed to all the events you are interested in, you ask the server to start
+sending you the matching events by sending the following command::
 
    {"op": "start"}
 
@@ -107,7 +106,7 @@ Here's a rudimentary example of a web page accessing the service:
            var msg = JSON.parse(event.data);
            switch (msg.op) {
                case "init":
-                   bind("xivo", "calls.#");
+                   subscribe("*");
                    start();
                    break;
                case "start":
@@ -119,12 +118,11 @@ Here's a rudimentary example of a web page accessing the service:
        started = false;
    }
 
-   function bind(exchange_name, routing_key) {
+   function subscribe(event_name) {
        var msg = {
-           op: "bind",
+           op: "subscribe",
            data: {
-             exchange_name: exchange_name,
-             routing_key: routing_key
+             event_name: event_name
            }
        };
        socket.send(JSON.stringify(msg));
@@ -177,7 +175,8 @@ Then, at line 23, a ``onmessage`` callback is set on the WebSocket object:
        var msg = JSON.parse(event.data);
        switch (msg.op) {
            case "init":
-               bind("xivo", "calls.#");
+               subscribe("endpoint_status_update");
+               subscribe("user_status_update");
                start();
                break;
            case "start":
@@ -188,18 +187,19 @@ Then, at line 23, a ``onmessage`` callback is set on the WebSocket object:
    };
 
 After a successful connection to the service, an "init" message will be received by the client. When
-the client receives this message, it sends a bind command (e.g. ``bind("xivo", "calls.#")``) and a
-start command (e.g. ``start()``).  When the client receives the "start" message, it sets the
-``started`` flag. After that, all the other messages it receives will be logged to the console.
+the client receives this message, it sends two subscribe commands (e.g.
+``subscribe("endpoint_status_update")``) and a start command (e.g. ``start()``).  When the client
+receives the "start" message, it sets the ``started`` flag. After that, all the other messages it
+receives will be logged to the console.
 
 
 Reference
 =========
 
 The WebSocket service is provided by ``xivo-websocketd``, and its behaviour can be configured via
-its configuration files located under the :file:`/etc/xivo-websocketd` directory. After modifying
-the configuration files, you need to restart xivo-websocketd with ``systemctl restart
-xivo-websocketd``.
+its :ref:`configuration files <configuration-files>` located under the :file:`/etc/xivo-websocketd`
+directory. After modifying the configuration files, you need to restart ``xivo-websocketd`` with
+``systemctl restart xivo-websocketd``.
 
 
 .. _ws-connection:
@@ -229,11 +229,33 @@ Authentication
 Authentication is done by passing a xivo-auth token ID in the ``token`` query parameter.
 Authentication is mandatory.
 
-The token must have the ``ẁebsocketd`` ACL.
+The token must have the ``websocketd`` ACL.
 
 When the token expires, the server close the connection with the status code 4003. There is
 currently no way to change the token of an existing connection. A new connection must be made when
 the token expires.
+
+
+.. _ws-events-acl:
+
+Events Access Control
+---------------------
+
+Clients connected to ``xivo-websocketd`` only receive events that they are authorized to receive.
+For example, a client connected with a token obtained from the "xivo_user" ``xivo-auth`` backend
+will *not* receive call events of other users.
+
+When a message is received from the bus by ``xivo-websocketd``, it extracts the ACL from the
+``required_acl`` key of the event. If the field is missing, no clients will receive the event. If
+the value is null, all subscribed clients will receive the event. If the value is a string, then all
+subscribed clients which have a matching ACL will receive the event.
+
+No authorization check is done at subscription time. Checks are only done when an event is received
+by the server. This mean a client can subscribe to an event "foo", but will never receive any of
+these events if it does not have the matching ACL.
+
+See the :ref:`bus-events` section for more information on the required ACL of events which are
+available by default on XiVO.
 
 
 .. _ws-status-code:
@@ -244,7 +266,7 @@ Status Code
 The WebSocket connection might be closed by the server using one of following status code:
 
 * 4001: No token ID was provided.
-* 4002: Authentication failed. Either the token ID is invalid, expired, or has not the necessary ACL.
+* 4002: Authentication failed. Either the token ID is invalid, expired, or does not have the necessary ACL.
 * 4003: Authentication expired. The token has expired or was deleted.
 * 4004: Protocol error. The server received a frame that it could not understand. For example, the
   content was not valid JSON, or was requesting an unknown operation, or a mandatory argument to an
@@ -269,21 +291,20 @@ The format of the messages sent by the client are all of the same format::
 
    {"op": "<operation-name>", "data": <operation-specific-value>}
 
-The "op" key is mandatory, and the value is either "bind" or "start". The "data" key is mandatory for the "bind" operation.
+The "op" key is mandatory, and the value is either "subscribe" or "start". The "data" key is
+mandatory for the "subscribe" operation.
 
-The "bind" message ask the server to create a new binding on the AMQP broker on its behalf. The AMQP
-messages published on the given exchange that match the routing key will be sent to the WebSocket
-client when it starts consuming messages. For this command, the "data" value is a dictionary with
-the "exchange_name" and "routing_key" keys, both of which are mandatory. Example::
+The "subscribe" message ask the server to subscribe the client to the given event. When a message
+with the same name is published on the "xivo" exchange of the bus, the server forwards the message
+to all the subscribed clients that are authorized to receive it. For this command, the "data" value
+is a dictionary with an "event_name" key (mandatory). Example::
 
-   {"op": "bind", "data": {"exchange_name": "xivo", "routing_key": "calls.#"}}
+   {"op": "subscribe", "data": {"event_name": "endpoint_status_update"}}
 
-The client can bind to any exchange, as long as the exchange is properly declared in the
-xivo-websocketd configuration files. The number of binding the client can create is only limited by
-the RabbitMQ configuration.
+You can subscribe to any event. The special event name ``*`` can be used to match all events.
 
-See the :ref:`message-bus` section for more information on the exchanges and messages which are
-available by default on XiVO.
+See the :ref:`bus-events` section for more information on the events which are available by default
+on XiVO.
 
 The "start" message ask the server to start sending messages from the bus to the client. Example::
 
@@ -302,22 +323,21 @@ The format of the messages sent by the server are all of the same format (until 
 
    {"op": "<operation-name>", "code": <status-code>, "msg": "<error message>"}
 
-The 3 keys are always present. The value of the "op" key can be one of "init", "bind" or "start". The value of the
-"code" key is an integer representing the status of the operation, 0 meaning there was no error, other
-values meaning there was an error. The "msg" is an empty string unless "code" is non-zero, in which case
-it's a human-readable message of the error.
+The 3 keys are always present. The value of the "op" key can be one of "init", "subscribe" or
+"start". The value of the "code" key is an integer representing the status of the operation, 0
+meaning there was no error, other values meaning there was an error. The "msg" is an empty string
+unless "code" is non-zero, in which case it's a human-readable message of the error.
 
-The "init" message is only sent after the connection is succesfully established between the client
+The "init" message is only sent after the connection is successfully established between the client
 and the server. It's code is always zero; if the connection could not be established, the connection is
 simply closed. Example::
 
    {"op": "init", "code": 0, "msg": ""}
 
-The "bind" message is sent as a response to a client "bind" message. The code can be non-zero in the
-case the exchange is unknown or another error occured while interacting with the AMQP broker.
-Example::
+The "subscribe" message is sent as a response to a client "subscribe" message. The code is always
+zero. Example::
 
-   {"op": "bind", "code": 0, "msg": ""}
+   {"op": "subscribe", "code": 0, "msg": ""}
 
 The "start" message is sent as a response to a client "start" message. The code is always zero.
 Example::
@@ -327,7 +347,7 @@ Example::
 After receiving the "start" message, the server switch into the "bus/started" mode, where all messages that the server will ever sent
 will be the body of the messages it received on the bus on behalf of the client.
 
-Note that a client can create more binding after sending its "start" message, but it won't receive any
-response from the server, e.g. the server won't send a corresponding "bind" message. Said differently, once
-the client has sent a "start" message, every message the client will ever receive are messages coming
-from the bus.
+Note that a client can subscribe to more events after sending its "start" message, but it won't
+receive any response from the server, e.g. the server won't send a corresponding "subscribe"
+message. Said differently, once the client has sent a "start" message, every message the client will
+ever receive are messages coming from the bus.

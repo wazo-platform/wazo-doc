@@ -4,6 +4,25 @@
 xivo-confd REST API changelog
 *****************************
 
+16.03
+=====
+
+* Added switchboard endpoints:
+
+  * GET ``/1.1/switchboards``
+  * GET ``/1.1/switchboards/<switchboard_id>/stats``
+
+* A new API for associating a line with a device has been added:
+
+  * PUT ``/1.1/lines/<line_id>/devices/<device_id>``
+  * DELETE ``/1.1/lines/<line_id>/devices/<device_id>``
+
+* The following URLs have been deleted. Please use the new API instead:
+
+  * GET ``/1.1/devices/<device_id>/associate_line/<line_id>``
+  * GET ``/1.1/devices/<device_id>/dissociate_line/<line_id>``
+
+
 16.02
 =====
 
