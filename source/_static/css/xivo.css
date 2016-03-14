@@ -149,7 +149,7 @@ dt {
 	margin-bottom: 5px;
 }
 
-dd {
+.document dd {
 	background-color: #eeeee7;
 	padding: 7px;
 }
