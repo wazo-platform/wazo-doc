@@ -23,6 +23,7 @@ The following features are impacted by xivo-purge-db:
 
 - :ref:`call_logs`
 - :ref:`Call center statistics <call_center_stats>`
+- :ref:`switchboard_stats`
 
 More technically, the tables purged by ``xivo-purge-db`` are:
 
@@ -32,6 +33,7 @@ More technically, the tables purged by ``xivo-purge-db`` are:
 -  ``stat_agent_periodic``
 -  ``stat_call_on_queue``
 -  ``stat_queue_periodic``
+-  ``stat_switchboard_queue``
 
 
 .. _purge_logs_config_file:

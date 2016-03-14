@@ -1,3 +1,5 @@
+.. _switchboard_stats:
+
 **********************
 Switchboard Statistics
 **********************
@@ -30,6 +32,10 @@ Switchboard statistics can be retrieved in CSV format via the web interface in
 
 * Start date: when empty, the result will contain statistics from the beginning
 * End date: when empty, the result will contain statistics until the current time
+
+
+.. note:: Switchboard statistics older than a year are automatically removed. See :ref:`purge_logs`
+          for more details.
 
 
 Events
