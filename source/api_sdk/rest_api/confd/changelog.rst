@@ -10,8 +10,8 @@ xivo-confd REST API changelog
 * A new API for user's services has been added:
 
   * GET ``/1.1/users/<user_uuid>/services``
-  * GET ``/1.1/users/<user_uuid>/services/<service>``
-  * PUT ``/1.1/users/<user_uuid>/services/<service>``
+  * GET ``/1.1/users/<user_uuid>/services/<service_name>``
+  * PUT ``/1.1/users/<user_uuid>/services/<service_name>``
 
 * A new API for user's forwards has been added:
 
