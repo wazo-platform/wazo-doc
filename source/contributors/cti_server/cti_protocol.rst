@@ -9,15 +9,16 @@ Protocol Changelog
 
 The versions below indicate the xivo version followed by the protocol version.
 
-.. warning::
-   The CTI server protocol is subject to change without any prior warning. If you are using this protocol in your own tools please be sure
-   to check that the protocol did not change before upgrading XiVO
+.. warning:: The CTI server protocol is subject to change without any prior warning. If you are
+   using this protocol in your own tools please be sure to check that the protocol did not change
+   before upgrading XiVO
 
 
 16.04 - 2.1
 -----------
 
-* the :ref:`cti_protocol_chitchat` command `to` and `from` fields are now a list of two strings, `xivo_uuid` and `user_uuid`.
+* the :ref:`cti_protocol_chitchat` command `to` and `from` fields are now a list of two strings,
+  `xivo_uuid` and `user_uuid`.
 
 
 16.01 - 2.0
@@ -25,8 +26,10 @@ The versions below indicate the xivo version followed by the protocol version.
 
 * the `lastconnswins` field has been removed from the :ref:`cti_protocol_login_capas` command
 * the `loginkind` field has been removed from the :ref:`cti_protocol_login_capas` command
-* the `ipbxcommands` and `regcommands` capakinds have been removed from :ref:`cti_protocol_login_capas` command
-* the :ref:`cti_protocol_login_pass` command has been modified. The `hashedpassword` has been replaced by the `password` field which is now sent verbatim.
+* the `ipbxcommands` and `regcommands` capakinds have been removed from
+  :ref:`cti_protocol_login_capas` command
+* the :ref:`cti_protocol_login_pass` command has been modified. The `hashedpassword` has been
+  replaced by the `password` field which is now sent verbatim.
 
 
 15.20 - 1.2
@@ -38,7 +41,8 @@ The versions below indicate the xivo version followed by the protocol version.
 15.19 - 1.2
 -----------
 
-* the :ref:`cti_protocol_chitchat` command `to` field is now a list of two elements, `xivo_uuid` and `user_id`.
+* the :ref:`cti_protocol_chitchat` command `to` field is now a list of two elements, `xivo_uuid` and
+  `user_id`.
 * the ``getlist`` command has been removed for the *channels* listname.
 * many fields have been removed from the ``getlist`` command.
 
