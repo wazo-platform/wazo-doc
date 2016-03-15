@@ -162,6 +162,14 @@ Upgrading from i386 (32 bits) to amd64 (64 bits)
 Upgrade Notes
 =============
 
+16.04
+-----
+
+Consult the `16.04 Roadmap <https://projects.xivo.io/versions/240>`_
+
+* :ref:`cti-protocol` is now in version *2.1*
+
+
 16.03
 -----
 

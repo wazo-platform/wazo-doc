@@ -245,22 +245,25 @@ This message is used to send a chat message to a user
 * event specific data:
 
   * alice: The nickname of the chatter
-  * to: The destination's XiVO UUID and user ID
-  * from: The chatter's XiVO UUID and user ID
+  * to: The destination's XiVO UUID and user UUID
+  * from: The chatter's XiVO UUID and user UUID
   * msg: The message
 
-Example::
+Example:
+
+.. code-block:: javascript
 
   {
       "name": "chat_message_event",
       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
       "data": {
           "alias": "Alice"
-          "to": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", 42],
-          "from": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", 22],
+          "to": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "fcb36731-c50a-453e-92c7-571297d41616"],
+          "from": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "4f2e2249-ae2b-4bc2-b5fc-ad42ee01ddaf"],
           "msg": "Hi!"
       }
   }
+
 
 .. _bus-endpoint_status_update:
 
