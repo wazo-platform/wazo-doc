@@ -17,7 +17,7 @@ The versions below indicate the xivo version followed by the protocol version.
 16.04 - 2.1
 -----------
 
-* the :ref:`cti_protocol_chitchat` command `to` and `from` fields are now a list of two elements, `xivo_uuid` and `user_uuid`.
+* the :ref:`cti_protocol_chitchat` command `to` and `from` fields are now a list of two strings, `xivo_uuid` and `user_uuid`.
 
 
 16.01 - 2.0
