@@ -13,13 +13,6 @@ General Options
 The general options allow the administrator to manage network connections between the CTI server
 and other services and clients.
 
-The section named AMI connection allows the administrator to configure the
-information required to connect to the Asterisk Manager Interface
-(AMI). These fields should match the entries in :file:`/etc/asterisk/manager.conf`.
-
-.. figure:: images/ami_connection.png
-   :scale: 85%
-
 The section named ``Listening Ports`` allows the administrator to specify listening
 addresses and ports for the CTI server's interfaces.
 
