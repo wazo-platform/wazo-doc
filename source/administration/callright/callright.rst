@@ -44,6 +44,10 @@ Denying a user from calling a specific extension
 * Add the extension in the extensions list
 * In the :guilabel:`Users` tab, select the user
 
+.. note::
+    User's :guilabel:`Rightcall Code` (:menuselection:`Services -> IPBX -> IPBX Settings -> Users` under
+    :guilabel:`Services` tab) overwrite all password call permissions for the user.
+
 .. warning::
    The extension can be anything but it will only work if it's the extension of a user or
    an extension that pass through an outgoing call. It does *not* work, for example, if

@@ -168,6 +168,8 @@ Upgrade Notes
 Consult the `16.04 Roadmap <https://projects.xivo.io/versions/240>`_
 
 * :ref:`cti-protocol` is now in version *2.1*
+* The field :guilabel:`Rightcall Code` from :menuselection:`Services -> IPBX -> IPBX Settings ->
+  Users` under :guilabel:`Services` tab  will overwrite all password call permissions for the user.
 
 
 16.03
