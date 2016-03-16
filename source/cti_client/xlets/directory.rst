@@ -7,6 +7,9 @@ Directory Xlet
 Overview
 ========
 
+.. warning:: This xlet should only be used with a Switchboard profile. It is not meant to be used
+             alone.
+
 The goal of the directory xlet is to allow the user to search through XiVO users, directory entries and arbitrary numbers to be able to call and transfer calls to these destinations.
 
 .. figure:: ./images/xlet_directory.png
