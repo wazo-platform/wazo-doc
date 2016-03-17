@@ -34,6 +34,30 @@ Switchboard statistics can be retrieved in CSV format via the web interface in
 * End date: when empty, the result will contain statistics until the current time
 
 
+Report
+------
+
+The generated CSV report includes the following columns:
+
+* date: The date at which the calls were received
+* entered: The number of calls to the switchboard for the given date excluding calls when the switchboard was closed
+* answered: The number of calls that have been answered by the operator and then transfered or completed by the operator
+* transferred: The number of calls that have been transferred by the switchboard operator to another destination
+* abandoned: The number of calls that have been abandoned in the switchboard queue or while waiting in the hold queue
+* forwarded: The number of calls that have been forwarded to another destination
+* waiting_time_average: The average time spend in the switchboard and hold queue for all calls that entered the switchboard
+
+
+Forwarded
+^^^^^^^^^
+
+The forwarded counter includes the following cases:
+
+* a call on a full queue
+* a call with no answer before the max ring time is reached
+* a call that have been forwarded based on a diversion rule
+* a call that have been forwarded based on a leave empty condition
+
 .. note:: Switchboard statistics older than a year are automatically removed. See :ref:`purge_logs`
           for more details.
 
