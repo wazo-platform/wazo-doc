@@ -270,6 +270,8 @@ ST2030   |y|         10         |y|
 .. note:: Function keys are shared with line keys
 
 
+.. _yealink-community-devices:
+
 Yealink
 -------
 

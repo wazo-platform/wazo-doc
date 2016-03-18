@@ -805,6 +805,8 @@ Yealink
 | Paging                                     | N    | N       | Y    | Y    | Y       | Y    | Y    | Y    | NYT     | N    | Y    | Y    | Y    | Y    | Y    | N    |
 +--------------------------------------------+------+---------+------+------+---------+------+------+------+---------+------+------+------+------+------+------+------+
 
+See also the list of :ref:`community supported Yealink models <yealink-community-devices>`.
+
 Regarding the W52P (DECT), there is firmware for both the base station and the handset. The base and the
 handset are `probably going to work if they are not using the same firmware version
 <http://forum.yealink.com/forum/showthread.php?tid=2489>`_, although this does not seem to be officially
