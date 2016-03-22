@@ -9,15 +9,15 @@ xivo-confd REST API changelog
 
 * A new API for user's services has been added:
 
-  * GET ``/1.1/users/<user_uuid>/services``
-  * GET ``/1.1/users/<user_uuid>/services/<service_name>``
-  * PUT ``/1.1/users/<user_uuid>/services/<service_name>``
+  * GET ``/1.1/users/<user_id>/services``
+  * GET ``/1.1/users/<user_id>/services/<service_name>``
+  * PUT ``/1.1/users/<user_id>/services/<service_name>``
 
 * A new API for user's forwards has been added:
 
-  * GET ``/1.1/users/<user_uuid>/forwards``
-  * GET ``/1.1/users/<user_uuid>/forwards/<forward_name>``
-  * PUT ``/1.1/users/<user_uuid>/forwards/<forward_name>``
+  * GET ``/1.1/users/<user_id>/forwards``
+  * GET ``/1.1/users/<user_id>/forwards/<forward_name>``
+  * PUT ``/1.1/users/<user_id>/forwards/<forward_name>``
 
 
 16.03
