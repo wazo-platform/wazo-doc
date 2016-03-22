@@ -66,3 +66,14 @@ internal contact ID from XiVO.
 
 * The first line (the list of field names) is ordered in alphabetical order.
 * The file will be encoded in ``UTF-8``.
+
+
+Copying the number or email address
+===================================
+
+It is possible to copy a contact's number or email address to the system's
+clipboard. To do so, right click on a contact's action menu and select the value
+you wish to copy.
+
+
+.. note:: When using a mac without a right mouse button use `ctrl-Left click` to show the copy menu.
