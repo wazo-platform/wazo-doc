@@ -23,6 +23,15 @@ xivo-confd REST API changelog
 
    Accept: text/csv; charset=utf-8
 
+* Added call permissions endpoints:
+
+  * GET ``/1.1/callpermissions``
+  * POST ``/1.1/callpermissions``
+  * GET ``/1.1/callpermissions/<callpermission_id>``
+  * PUT ``/1.1/callpermissions/<callpermission_id>``
+  * DELETE ``/1.1/callpermissions/<callpermission_id>``
+
+
 16.03
 =====
 
