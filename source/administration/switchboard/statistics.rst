@@ -49,7 +49,6 @@ The generated CSV report includes the following columns:
 * abandoned: The number of calls that have been abandoned in the switchboard queue or while waiting in the hold queue
 * forwarded: The number of calls that have been forwarded to another destination:
 
-  * a call manually transferred by the operator
   * a call reaching a full queue
   * a call waiting until the max ring time is reached
   * a call forwarded because of a diversion rule
