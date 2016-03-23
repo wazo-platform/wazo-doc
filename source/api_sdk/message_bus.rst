@@ -341,7 +341,7 @@ The users_forwards_<forward_name>_updated is sent when a user changes his forwar
 * required ACL: events.config.users.<user_uuid>.forwards.<forward_name>.updated
 * event specific data: a dictionary with 3 keys
 
-  * uuid: the user uuid
+  * user_uuid: the user uuid
   * enabled: the state of the forward
   * destination: the destination of the forward
 
@@ -352,7 +352,7 @@ Example::
        "required_acl": "events.config.users.a1223fe6-bff8-4fb6-a982-f9157dea5094.forwards.busy.updated",
        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
-           "uuid": "a1223fe6-bff8-4fb6-a982-f9157dea5094",
+           "user_uuid": "a1223fe6-bff8-4fb6-a982-f9157dea5094",
            "enabled": true
            "destination": "1234"
        }
@@ -375,7 +375,7 @@ The users_services_<service_name>_updated is sent when a user changes his servic
 * required ACL: events.config.users.<user_uuid>.services.<service_name>.updated
 * event specific data: a dictionary with 2 keys
 
-  * uuid: the user uuid
+  * user_uuid: the user uuid
   * enabled: the state of the service
 
 Example::
@@ -385,7 +385,7 @@ Example::
        "required_acl": "events.config.users.a1223fe6-bff8-4fb6-a982-f9157dea5094.services.dnd.updated",
        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
-           "uuid": "a1223fe6-bff8-4fb6-a982-f9157dea5094",
+           "user_uuid": "a1223fe6-bff8-4fb6-a982-f9157dea5094",
            "enabled": true
        }
    }
