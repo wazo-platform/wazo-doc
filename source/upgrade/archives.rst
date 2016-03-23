@@ -18,6 +18,13 @@ Using archive versions enable you to upgrade your XiVO to a specific version, in
 to upgrade to the latest (which is not recommended, but sometimes necessary). You will then be able
 to upgrade your newer archive version to the latest version or to an even newer archive version.
 
+Prerequisites
+=============
+
+.. warning:: These procedures are *complementary* to the upgrade procedure listed in
+             :ref:`version_specific_upgrade`. You must follow the version-specific procedure
+             *before* running the following procedures.
+
 Archive package names
 =====================
 
@@ -31,6 +38,8 @@ Archive packages are named as follow:
 | 12.14 to 13.24 | xivo-fai-skaro-13.04        |
 +----------------+-----------------------------+
 | 13.25 to 14.17 | xivo-fai-14.06              |
++----------------+-----------------------------+
+| 14.18+         | *packages removed*          |
 +----------------+-----------------------------+
 
 

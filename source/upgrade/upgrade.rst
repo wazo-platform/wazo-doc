@@ -62,8 +62,13 @@ Preparing for an Upgrade
  * and with actual checks like SIP registration, ISDN links status, internal/incoming/outgoing calls, XiVO Client connections etc.
 
 
+.. _version_specific_upgrade:
+
+Version-specific procedures
+===========================
+
 Upgrading from XiVO 14.01, 14.02, 14.03, 14.04 installed from the ISO
-=====================================================================
+---------------------------------------------------------------------
 
 In those versions, xivo-upgrade keeps XiVO on the same version. You must do the following, before
 the normal upgrade::
@@ -76,13 +81,21 @@ the normal upgrade::
 
 
 Upgrading from XiVO 13.24 and before
-====================================
+------------------------------------
 
-When upgrading from XiVO 13.24 or earlier, you must do the following, before the normal upgrade::
+When upgrading from XiVO 13.24 or earlier, you must do the following, before the normal upgrade:
 
-   cat > /etc/apt/sources.list.d/squeeze-archive.list <<EOF
-   deb http://archive.debian.org/debian/ squeeze main
-   EOF
+#. Ensure that the file :file:`/etc/apt/sources.list` is *not* configured on ``archive.debian.org``.
+   Instead, it must be configured with a non-archive mirror, but still on the ``squeeze``
+   distribution, even if it is not present on this mirror. For example::
+
+    deb http://ftp.us.debian.org/debian squeeze main
+
+#. Add ``archive.debian.org`` in another file::
+
+    cat > /etc/apt/sources.list.d/squeeze-archive.list <<EOF
+    deb http://archive.debian.org/debian/ squeeze main
+    EOF
 
 And after the upgrade::
 
@@ -90,7 +103,7 @@ And after the upgrade::
 
 
 Upgrading from XiVO 13.03 and before
-====================================
+------------------------------------
 
 When upgrading from XiVO 13.03 or earlier, you must do the following, before the normal upgrade::
 
@@ -98,7 +111,7 @@ When upgrading from XiVO 13.03 or earlier, you must do the following, before the
 
 
 Upgrading from XiVO 12.13 and before
-====================================
+------------------------------------
 
 When upgrading from XiVO 12.13 or earlier, you must do the following, before the normal upgrade::
 
@@ -107,7 +120,7 @@ When upgrading from XiVO 12.13 or earlier, you must do the following, before the
 
 
 Upgrading from XiVO 1.2.1 and before
-====================================
+------------------------------------
 
 Upgrading from 1.2.0 or 1.2.1 requires a special procedure before executing ``xivo-upgrade``::
 
