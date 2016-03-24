@@ -90,7 +90,7 @@ Given an :ref:`dird-backend-ldap` directory source using Active Directory named 
 
 .. image:: images/active-directory-unique.png
 
-Add a file with the following content to enable favorites on this source.
+Add a file :file:`/etc/xivo-dird/sources.d/myactivedirectory.yml` with the following content to enable favorites on this source.
 
 .. code-block:: yaml
 
