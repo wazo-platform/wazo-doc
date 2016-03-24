@@ -82,7 +82,9 @@ Enabling favorites in the XiVO client.
 Adding a `unique_column` to your sources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The web interface does not allow the administrator to specify the `unique_column` and `unique_column_format`. To add these configuration options, add a file to `/etc/xivo-dird/sources.d` containing *the same name* than the directory definition and all missing fields.
+The web interface does not allow the administrator to specify the `unique_column` and
+`unique_column_format`. To add these configuration options, add a file to `/etc/xivo-dird/sources.d`
+containing *the same name* than the directory definition and all missing fields.
 
 Example:
 
@@ -90,7 +92,8 @@ Given an :ref:`dird-backend-ldap` directory source using Active Directory named 
 
 .. image:: images/active-directory-unique.png
 
-Add a file :file:`/etc/xivo-dird/sources.d/myactivedirectory.yml` with the following content to enable favorites on this source.
+Add a file :file:`/etc/xivo-dird/sources.d/myactivedirectory.yml` with the following content to
+enable favorites on this source.
 
 .. code-block:: yaml
 
@@ -111,7 +114,9 @@ In the web interface under :menuselection:`Services --> CTI Server --> Directori
 Customizing sources
 -------------------
 
-Some configuration options are not available in the web interface. To add configuration to a source that is configured in the web interface, create a file in `/etc/xivo-dird/sources.d/` with the key `name` matching your web interface configuration and add all missing fields.
+Some configuration options are not available in the web interface. To add configuration to a source
+that is configured in the web interface, create a file in `/etc/xivo-dird/sources.d/` with the key
+`name` matching your web interface configuration and add all missing fields.
 
 Example:
 
