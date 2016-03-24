@@ -19,6 +19,9 @@ xivo-confd REST API changelog
   * GET ``/1.1/users/<user_id>/forwards/<forward_name>``
   * PUT ``/1.1/users/<user_id>/forwards/<forward_name>``
 
+* GET ``/1.1/users/export`` now requires the following header for CSV output::
+
+   Accept: text/csv; charset=utf-8
 
 16.03
 =====
