@@ -184,6 +184,7 @@ Consult the `16.04 Roadmap <https://projects.xivo.io/versions/240>`_
 * The field :guilabel:`Rightcall Code` from :menuselection:`Services -> IPBX -> IPBX Settings ->
   Users` under :guilabel:`Services` tab  will overwrite all password call permissions for the user.
 * It is now possible to copy a contact's number or email address in the :ref:`people-xlet`
+* Fax Application : default file format for ftp_backend is now pdf. The optional parameter convert_to_pdf is added into xivo_fax.conf in order to keep tiff files if needed.
 
 
 16.03
