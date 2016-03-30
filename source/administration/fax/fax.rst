@@ -154,11 +154,14 @@ for a backend named ``ftp_example_org``::
 
    [ftp_example_org]
    host = example.org
+   port = 2121
    username = foo
    password = bar
    directory = /foobar
    convert_to_pdf = 0
 
+
+The ``port`` option is optional and defaults to 21.
 
 The ``directory`` option is optional and if not specified, the document will be put in the user's
 root directory.
