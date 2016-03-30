@@ -78,6 +78,17 @@ The ``agid`` service must be restarted to apply changes::
 
    service xivo-agid restart
 
+Changing the email realname
+-----------------------
+
+You can change the realname of the email sent upon fax reception by editing
+:file:`/etc/xivo/asterisk/xivo_fax.conf`.
+
+Look for the ``[mail]`` section, and in this section, modify the value of the ``email_realname`` option.
+
+The ``agid`` service must be restarted to apply changes::
+
+   service xivo-agid restart
 
 Using the advanced features
 ---------------------------
@@ -107,6 +118,7 @@ Here's an example of a valid :file:`/etc/xivo/asterisk/xivo_fax.conf` configurat
    subject = FAX reception to %(dstnum)s
    content_file = /etc/xivo/mail.txt
    email_from = no-reply+fax@xivo.io
+   email_realname = Service Fax
 
    [ftp_example_org]
    host = example.org
@@ -141,10 +153,14 @@ for a backend named ``ftp_example_org``::
    username = foo
    password = bar
    directory = /foobar
+   convert_to_pdf = 1
 
 
 The ``directory`` option is optional and if not specified, the document will be put in the user's
 root directory.
+
+The ``convert_to_pdf`` option is optional and defaults to 1. If it is set to 0, the TIFF file will
+not be converted to PDF before being sent to the FTP directory.
 
 The uploaded file are named like ``${XIVO_SRCNUM}-${EPOCH}.pdf``.
 
