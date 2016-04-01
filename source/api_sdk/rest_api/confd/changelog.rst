@@ -7,6 +7,8 @@ xivo-confd REST API changelog
 16.04
 =====
 
+* The ``summary`` view has been added to ``/users`` (GET ``/users?view=summary``)
+
 * A new API for user's services has been added:
 
   * GET ``/1.1/users/<user_id>/services``
