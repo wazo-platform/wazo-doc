@@ -183,7 +183,6 @@ Consult the `16.04 Roadmap <https://projects.xivo.io/versions/240>`_
 * :ref:`cti-protocol` is now in version *2.1*
 * The field :guilabel:`Rightcall Code` from :menuselection:`Services -> IPBX -> IPBX Settings ->
   Users` under :guilabel:`Services` tab  will overwrite all password call permissions for the user.
-* It is now possible to copy a contact's number or email address in the :ref:`people-xlet`
 * Faxes stored on FTP servers are now converted to PDF by default. See :ref:`fax-ftp` if you want
   to keep the old behavior of storing faxes as TIFF files.
 
