@@ -4,6 +4,36 @@
 xivo-confd REST API changelog
 *****************************
 
+16.04
+=====
+
+* The ``summary`` view has been added to ``/users`` (GET ``/users?view=summary``)
+
+* A new API for user's services has been added:
+
+  * GET ``/1.1/users/<user_id>/services``
+  * GET ``/1.1/users/<user_id>/services/<service_name>``
+  * PUT ``/1.1/users/<user_id>/services/<service_name>``
+
+* A new API for user's forwards has been added:
+
+  * GET ``/1.1/users/<user_id>/forwards``
+  * GET ``/1.1/users/<user_id>/forwards/<forward_name>``
+  * PUT ``/1.1/users/<user_id>/forwards/<forward_name>``
+
+* GET ``/1.1/users/export`` now requires the following header for CSV output::
+
+   Accept: text/csv; charset=utf-8
+
+* Added call permissions endpoints:
+
+  * GET ``/1.1/callpermissions``
+  * POST ``/1.1/callpermissions``
+  * GET ``/1.1/callpermissions/<callpermission_id>``
+  * PUT ``/1.1/callpermissions/<callpermission_id>``
+  * DELETE ``/1.1/callpermissions/<callpermission_id>``
+
+
 16.03
 =====
 

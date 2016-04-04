@@ -245,22 +245,25 @@ This message is used to send a chat message to a user
 * event specific data:
 
   * alice: The nickname of the chatter
-  * to: The destination's XiVO UUID and user ID
-  * from: The chatter's XiVO UUID and user ID
+  * to: The destination's XiVO UUID and user UUID
+  * from: The chatter's XiVO UUID and user UUID
   * msg: The message
 
-Example::
+Example:
+
+.. code-block:: javascript
 
   {
       "name": "chat_message_event",
       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
       "data": {
           "alias": "Alice"
-          "to": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", 42],
-          "from": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", 22],
+          "to": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "fcb36731-c50a-453e-92c7-571297d41616"],
+          "from": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "4f2e2249-ae2b-4bc2-b5fc-ad42ee01ddaf"],
           "msg": "Hi!"
       }
   }
+
 
 .. _bus-endpoint_status_update:
 
@@ -317,6 +320,73 @@ Example::
            "user_id": 42,
            "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
            "status": "busy"
+       }
+   }
+
+
+.. _bus-users_forwards_forward_updated:
+
+users_forwards_<forward_name>_updated
+-------------------------------------
+
+The users_forwards_<forward_name>_updated is sent when a user changes his forward using REST API.
+
+* forward_name:
+
+  * busy
+  * noanswer
+  * unconditional
+
+* routing key: config.users.<user_uuid>.forwards.<forward_name>.updated
+* required ACL: events.config.users.<user_uuid>.forwards.<forward_name>.updated
+* event specific data: a dictionary with 3 keys
+
+  * user_uuid: the user uuid
+  * enabled: the state of the forward
+  * destination: the destination of the forward
+
+Example::
+
+   {
+       "name": "users_forwards_busy_updated",
+       "required_acl": "events.config.users.a1223fe6-bff8-4fb6-a982-f9157dea5094.forwards.busy.updated",
+       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+       "data": {
+           "user_uuid": "a1223fe6-bff8-4fb6-a982-f9157dea5094",
+           "enabled": true
+           "destination": "1234"
+       }
+   }
+
+
+.. _bus-users_services_service_updated:
+
+users_services_<service_name>_updated
+-------------------------------------
+
+The users_services_<service_name>_updated is sent when a user changes his service using REST API.
+
+* service_name:
+
+  * dnd
+  * incallfilter
+
+* routing key: config.users.<user_uuid>.services.<service_name>.updated
+* required ACL: events.config.users.<user_uuid>.services.<service_name>.updated
+* event specific data: a dictionary with 2 keys
+
+  * user_uuid: the user uuid
+  * enabled: the state of the service
+
+Example::
+
+   {
+       "name": "users_services_dnd_updated",
+       "required_acl": "events.config.users.a1223fe6-bff8-4fb6-a982-f9157dea5094.services.dnd.updated",
+       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+       "data": {
+           "user_uuid": "a1223fe6-bff8-4fb6-a982-f9157dea5094",
+           "enabled": true
        }
    }
 

@@ -270,15 +270,21 @@ ST2030   |y|         10         |y|
 .. note:: Function keys are shared with line keys
 
 
+.. _yealink-community-devices:
+
 Yealink
 -------
 
-======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
-======== =========== ========== ============
-T20P     |n|         2          |n|
-T26P     |n|         13         |n|
-======== =========== ========== ============
+======== =========== ========== ============ ================
+Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_ Plugin
+======== =========== ========== ============ ================
+CP860    |n|         0          |u|          xivo-yealink-v72
+T23P     |n|         3          |u|          xivo-yealink-v80
+T23G     |y|         3          |y|          xivo-yealink-v80
+T27P     |y|         21         |y|          xivo-yealink-v80
+T29G     |n|         27         |u|          xivo-yealink-v80
+T49G     |y|         29         |y|          xivo-yealink-v80
+======== =========== ========== ============ ================
 
 .. note:: Some function keys are shared with line keys
 

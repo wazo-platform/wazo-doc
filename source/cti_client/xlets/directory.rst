@@ -7,7 +7,11 @@ Directory Xlet
 Overview
 ========
 
-The goal of the directory xlet is to allow the user to search through XiVO users, directory entries and arbitrary numbers to be able to call and transfer calls to these destinations.
+.. warning:: This xlet should only be used with a Switchboard profile. It is not meant to be used
+             alone.
+
+The goal of the directory xlet is to allow the user to search through XiVO users, directory entries
+and arbitrary numbers to be able to call and transfer calls to these destinations.
 
 .. figure:: ./images/xlet_directory.png
 
@@ -15,9 +19,11 @@ The goal of the directory xlet is to allow the user to search through XiVO users
 Usage
 =====
 
-The list of entries in the xlet is searched using the top field. Entries are filtered by column content. The entry list will initially appear as empty.
+The list of entries in the xlet is searched using the top field. Entries are filtered by column
+content. The entry list will initially appear as empty.
 
-If the current search term is a valid number, it will be displayed in the result list with no name to allow transfer to numbers that are not currently in the phonebook or configured on the XiVO.
+If the current search term is a valid number, it will be displayed in the result list with no name
+to allow transfer to numbers that are not currently in the phonebook or configured on the XiVO.
 
 
 Legend
