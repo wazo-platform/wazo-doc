@@ -4,6 +4,17 @@
 xivo-confd REST API changelog
 *****************************
 
+16.05
+=====
+
+* A new API for associating a user with a call permission has been added:
+
+  * GET ``/1.1/users/<user_id>/callpermissions``
+  * PUT ``/1.1/users/<user_id>/callpermissions/<call_permission_id>``
+  * DELETE ``/1.1/users/<user_id>/callpermissions/<call_permission_id>``
+  * GET ``/1.1/callpermissions/<call_permission_id>/users``
+
+
 16.04
 =====
 
