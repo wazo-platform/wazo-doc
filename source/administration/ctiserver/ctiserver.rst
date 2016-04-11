@@ -10,8 +10,8 @@ The CTI server configuration options can be found in the web-interface under the
 General Options
 ===============
 
-The general options allow the administrator to manage network connections between the CTI server
- and the clients.
+The general options allow the administrator to manage network connections between the CTI server and
+the clients.
 
 The section named ``STARTTLS options`` allows the administrator to enable
 encrypted communications between the clients and xivo-ctid and specify the
