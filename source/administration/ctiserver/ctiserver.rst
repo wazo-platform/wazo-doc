@@ -11,17 +11,7 @@ General Options
 ===============
 
 The general options allow the administrator to manage network connections between the CTI server
-and other services and clients.
-
-The section named ``Listening Ports`` allows the administrator to specify listening
-addresses and ports for the CTI server's interfaces.
-
-* CTI is used for the client's connection.
-* Web Interface is for the port used to receive events from the XiVO web interface
-* Info server a debugging console to do some introspection on the state of the CTI server
-
-.. figure:: images/listening_ports.png
-   :scale: 85%
+ and the clients.
 
 The section named ``STARTTLS options`` allows the administrator to enable
 encrypted communications between the clients and xivo-ctid and specify the
@@ -32,15 +22,6 @@ located in */usr/share/xivo-certs*.
 
 .. figure:: images/starttls_options.png
     :scale: 85%
-
-The section names ``Timeouts``  allows the administrator to configure multiple timeouts.
-
-* Socket timeout is the default timeout used for network connections.
-* Login timeout is the timeout before a CTI connection is dropped if the
-  authentication is not completed.
-
-.. figure:: images/cti_timeouts.png
-   :scale: 85%
 
 Parting options are used to isolate XiVO users from each other. These options
 should be used when using the same XiVO for different enterprises.
