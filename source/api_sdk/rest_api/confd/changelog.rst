@@ -19,6 +19,10 @@ xivo-confd REST API changelog
   * ``call_permission_password``
   * ``enabled``
 
+* A new API for user's forwards has been added:
+
+  * PUT ``/1.1/users/<user_id>/forwards``
+
 
 16.04
 =====
