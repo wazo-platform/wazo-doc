@@ -59,6 +59,8 @@ For this, follow these steps:
         host: xivo.example.com
       auth:
         host: xivo.example.com
+      confd:
+        host: xivo.example.com
       dird:
         host: xivo.example.com
       ajam:
