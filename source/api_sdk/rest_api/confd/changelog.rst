@@ -14,6 +14,11 @@ xivo-confd REST API changelog
   * DELETE ``/1.1/users/<user_id>/callpermissions/<call_permission_id>``
   * GET ``/1.1/callpermissions/<call_permission_id>/users``
 
+* A new parameters for users endpoints has been added:
+
+  * ``call_permission_password``
+  * ``enabled``
+
 
 16.04
 =====
