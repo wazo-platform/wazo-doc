@@ -23,6 +23,9 @@ xivo-confd REST API changelog
 
   * PUT ``/1.1/users/<user_id>/forwards``
 
+* SIP endpoint: ``allow`` and ``disallow`` options are not split into multiple options anymore.
+* SCCP endpoint: ``allow`` and ``disallow`` options are not split into multiple options anymore.
+
 
 16.04
 =====
