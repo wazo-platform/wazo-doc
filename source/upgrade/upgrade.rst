@@ -180,6 +180,10 @@ Upgrade Notes
 
 Consult the `16.05 Roadmap <https://projects.xivo.io/versions/241>`_
 
+* The "lines" web service provided by the web interface has been modified and the following actions
+  have been removed: view, add, edit, delete, deleteall. Note that the web services provided by the
+  web interface are deprecated.
+
 
 16.04
 -----
