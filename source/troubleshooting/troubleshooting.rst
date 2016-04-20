@@ -280,11 +280,12 @@ call. In the agent statistics, this will be shown as a non-answered call by the 
 PostgreSQL localization errors
 ------------------------------
 
-The database and the underlying `database cluster <http://www.postgresql.org/docs/9.4/interactive/creating-cluster.html>`_
-used by XiVO is sensitive to the system locale configuration. The locale used by the database and
-the database cluster is set when XiVO is installed. If you change your system locale without
-particular attention to PostgreSQL, you might make the database and database cluster temporarily
-unusable.
+The database and the underlying `database cluster`_ used by XiVO is sensitive to the system locale
+configuration. The locale used by the database and the database cluster is set when XiVO is
+installed. If you change your system locale without particular attention to PostgreSQL, you might
+make the database and database cluster temporarily unusable.
+
+.. _database cluster: http://www.postgresql.org/docs/9.4/interactive/creating-cluster.html
 
 When working with locale and PostgreSQL, there's a few useful commands and things to know:
 
@@ -294,7 +295,7 @@ When working with locale and PostgreSQL, there's a few useful commands and thing
   database cluster
 * ``sudo -u postgres psql -l`` to see the locale of your databases
 * the :file:`/etc/locale.gen` file and the associated ``locale-gen`` command to configure the
-  available system locale
+  available system locales
 * ``systemctl restart postgresql.service`` to restart your database cluster
 * the PostgreSQL log file located at :file:`/var/log/postgresql/postgresql-9.4-main.log`
 
@@ -318,7 +319,7 @@ have two choices to fix this issue:
 
 * either make the locale available by uncommenting it in the :file:`/etc/locale.gen` file and running
   ``locale-gen``
-* or modify the :file:`/etc/postgresql/9.4/main/postgresql.conf` file to set the various lc_*
+* or modify the :file:`/etc/postgresql/9.4/main/postgresql.conf` file to set the various ``lc_*``
   options to a locale that is available on your system
 
 Once this is done, restart your database cluster.
@@ -358,8 +359,8 @@ If during a database restore, you get the following error::
    pg_restore: [archiver (db)] could not execute query: ERROR:  invalid locale name: "en_US.UTF-8"
        Command was: CREATE DATABASE asterisk WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8';
 
-Then this usually means that your database backup has a locale that is not currently available on your
-system. You have two choices to fix this issue:
+Then this usually means that your database backup has a locale that is not currently available on
+your system. You have two choices to fix this issue:
 
 * either make the locale available by uncommenting it in the :file:`/etc/locale.gen` file, running
   ``locale-gen`` and restarting your database cluster
@@ -386,11 +387,11 @@ Changing the locale (LC_COLLATE and LC_CTYPE) of the database
 If you have decided to change the locale of your database, you must:
 
 * make sure that you have enough space on your hard drive, more precisely in the file system holding
-  the :file:`/var/lib/postgresql` directory. You'll have, for a moment, 2 copy of the
-  asterisk database.
+  the :file:`/var/lib/postgresql` directory. You'll have, for a moment, two copies of the
+  ``asterisk`` database.
 * prepare for a service interruption. The procedure requires the services to be restarted twice,
   and the system performance will be degraded while the database with the new locale is being
-  created, which can takes a lot of time (i.e. hours) if you have a really large database.
+  created, which can take a few hours if you have a really large database.
 * make sure the new locale is available on your system, i.e. shows up in the output of ``locale -a``
 
 Then use the following commands (replacing ``fr_FR.UTF-8`` by your locale)::
@@ -405,8 +406,8 @@ Then use the following commands (replacing ``fr_FR.UTF-8`` by your locale)::
    EOF
    xivo-service start
 
-You should also modify the :file:`/etc/postgresql/9.4/main/postgresql.conf` file to set the various lc_*
-options to the new locale value.
+You should also modify the :file:`/etc/postgresql/9.4/main/postgresql.conf` file to set the various
+``lc_*`` options to the new locale value.
 
 For more information, consult the `official documentation on PostgreSQL localization support
 <http://www.postgresql.org/docs/9.4/interactive/charset.html>`_.
