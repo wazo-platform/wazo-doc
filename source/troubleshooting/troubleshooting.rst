@@ -275,3 +275,141 @@ with user members.
 
 Also, the subroutine prevent asterisk from calling an agent twice by hanguping the second
 call. In the agent statistics, this will be shown as a non-answered call by the agent.
+
+
+.. _postgresql_localization_errors:
+
+PostgreSQL localization errors
+------------------------------
+
+The database and the underlying `database cluster`_ used by XiVO is sensitive to the system locale
+configuration. The locale used by the database and the database cluster is set when XiVO is
+installed. If you change your system locale without particular attention to PostgreSQL, you might
+make the database and database cluster temporarily unusable.
+
+.. _database cluster: http://www.postgresql.org/docs/9.4/interactive/creating-cluster.html
+
+When working with locale and PostgreSQL, there's a few useful commands and things to know:
+
+* ``locale -a`` to see the list of currently available locales on your system
+* ``locale`` to display information about the current locale of your shell
+* ``grep ^lc_ /etc/postgresql/9.4/main/postgresql.conf`` to see the locale configuration of your
+  database cluster
+* ``sudo -u postgres psql -l`` to see the locale of your databases
+* the :file:`/etc/locale.gen` file and the associated ``locale-gen`` command to configure the
+  available system locales
+* ``systemctl restart postgresql.service`` to restart your database cluster
+* the PostgreSQL log file located at :file:`/var/log/postgresql/postgresql-9.4-main.log`
+
+.. note:: You can use any locale with XiVO as long as it uses an UTF-8 encoding.
+
+
+Database cluster is not starting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the database cluster doesn't start and you have the following errors in your log file::
+
+   LOG:  invalid value for parameter "lc_messages": "en_US.UTF-8"
+   LOG:  invalid value for parameter "lc_monetary": "en_US.UTF-8"
+   LOG:  invalid value for parameter "lc_numeric": "en_US.UTF-8"
+   LOG:  invalid value for parameter "lc_time": "en_US.UTF-8"
+   FATAL:  configuration file "/etc/postgresql/9.4/main/postgresql.conf" contains errors
+
+Then this usually means that the locale that is configured in :file:`postgresql.conf` (here ``en_US.UTF-8``)
+is not currently available on your system, i.e. does not show up the output of ``locale -a``. You
+have two choices to fix this issue:
+
+* either make the locale available by uncommenting it in the :file:`/etc/locale.gen` file and running
+  ``locale-gen``
+* or modify the :file:`/etc/postgresql/9.4/main/postgresql.conf` file to set the various ``lc_*``
+  options to a locale that is available on your system
+
+Once this is done, restart your database cluster.
+
+
+Can't connect to the database
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the database cluster is up but you get the following error when trying to connect to the
+``asterisk`` database::
+
+   FATAL:  database locale is incompatible with operating system
+   DETAIL:  The database was initialized with LC_COLLATE "en_US.UTF-8",  which is not recognized by setlocale().
+   HINT:  Recreate the database with another locale or install the missing locale.
+
+Then this usually means that the database locale is not currently available on your system. You have
+two choices to fix this issue:
+
+* either make the locale available by uncommenting it in the :file:`/etc/locale.gen` file, running
+  ``locale-gen`` and restarting your database cluster
+* or :ref:`recreate the database using a different locale <postgres-change-locale>`
+
+
+Error during the upgrade
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Then you are mostly in one of the cases described above. Check your log file.
+
+
+Error while restoring a database backup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If during a database restore, you get the following error::
+
+   pg_restore: [archiver (db)] Error while PROCESSING TOC:
+   pg_restore: [archiver (db)] Error from TOC entry 4203; 1262 24745 DATABASE asterisk asterisk
+   pg_restore: [archiver (db)] could not execute query: ERROR:  invalid locale name: "en_US.UTF-8"
+       Command was: CREATE DATABASE asterisk WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8';
+
+Then this usually means that your database backup has a locale that is not currently available on
+your system. You have two choices to fix this issue:
+
+* either make the locale available by uncommenting it in the :file:`/etc/locale.gen` file, running
+  ``locale-gen`` and restarting your database cluster
+* or if you want to restore your backup using a different locale (for example ``fr_FR.UTF-8``),
+  then restore your backup using the following commands instead::
+
+     sudo -u postgres dropdb asterisk
+     sudo -u postgres createdb -l fr_FR.UTF-8 -O asterisk -T template0 asterisk
+     sudo -u postgres pg_restore -d asterisk asterisk-*.dump
+
+
+Error during master-slave replication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Then the slave database is most likely not using an UTF-8 encoding. You'll need to
+:ref:`recreate the database using a different locale <postgres-change-locale>`
+
+
+.. _postgres-change-locale:
+
+Changing the locale (LC_COLLATE and LC_CTYPE) of the database
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you have decided to change the locale of your database, you must:
+
+* make sure that you have enough space on your hard drive, more precisely in the file system holding
+  the :file:`/var/lib/postgresql` directory. You'll have, for a moment, two copies of the
+  ``asterisk`` database.
+* prepare for a service interruption. The procedure requires the services to be restarted twice,
+  and the system performance will be degraded while the database with the new locale is being
+  created, which can take a few hours if you have a really large database.
+* make sure the new locale is available on your system, i.e. shows up in the output of ``locale -a``
+
+Then use the following commands (replacing ``fr_FR.UTF-8`` by your locale)::
+
+   xivo-service restart all
+   sudo -u postgres createdb -l fr_FR.UTF-8 -O asterisk -T template0 asterisk_newlocale
+   sudo -u postgres pg_dump asterisk | sudo -u postgres psql -d asterisk_newlocale
+   xivo-service stop
+   sudo -u postgres psql <<'EOF'
+   DROP DATABASE asterisk;
+   ALTER DATABASE asterisk_newlocale RENAME TO asterisk;
+   EOF
+   xivo-service start
+
+You should also modify the :file:`/etc/postgresql/9.4/main/postgresql.conf` file to set the various
+``lc_*`` options to the new locale value.
+
+For more information, consult the `official documentation on PostgreSQL localization support
+<http://www.postgresql.org/docs/9.4/interactive/charset.html>`_.

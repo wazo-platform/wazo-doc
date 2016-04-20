@@ -172,6 +172,13 @@ Upgrading from i386 (32 bits) to amd64 (64 bits)
    migrate_i386_to_amd64
 
 
+Troubleshooting
+===============
+
+When upgrading XiVO, if you encounter problems related to the system locale, see
+:ref:`postgresql_localization_errors`.
+
+
 Upgrade Notes
 =============
 

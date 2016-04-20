@@ -242,6 +242,13 @@ Drop the asterisk database and restore it with the one from the backup::
    sudo -u postgres pg_restore -C -d postgres asterisk-*.dump
 
 
+Troubleshooting
+---------------
+
+When restoring the database, if you encounter problems related to the system locale, see
+:ref:`postgresql_localization_errors`.
+
+
 Restoring and Keeping System Configuration
 ==========================================
 
