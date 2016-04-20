@@ -240,7 +240,7 @@ Create the resource file
 
 In a file res.qrc in your XLet directory, put these lines :
 
-.. code-block:: javascript
+.. code-block:: xml
 
     <!DOCTYPE RCC><RCC version="1.0">
         <qresource>
