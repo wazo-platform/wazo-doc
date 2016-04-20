@@ -245,3 +245,10 @@ Berofos Integration
    :maxdepth: 2
 
    berofos
+
+
+Troubleshooting
+===============
+
+When replicating the database between master and slave, if you encounter problems related to the
+system locale, see :ref:`postgresql_localization_errors`.
