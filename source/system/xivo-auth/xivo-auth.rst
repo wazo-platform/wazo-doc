@@ -33,7 +33,7 @@ Alice retrieves a token using her username/password::
     {"data": {"issued_at": "2015-06-05T10:16:58.557553", "token": "1823c1ee-6c6a-0cdc-d869-964a7f08a744", "auth_id": "63f3dc3c-865d-419e-bec2-e18c4b118224", "xivo_user_uuid": "63f3dc3c-865d-419e-bec2-e18c4b118224", "expires_at": "2015-06-05T11:16:58.557595"}}
 
 In this example Alice used here XiVO CTI client login ``alice`` and password ``s3cre7``. The
-authentication source is determined by the backend in the POST data.
+authentication source is determined by the :ref:`backend <auth-backends>` in the POST data.
 
 Alice could also have specified an expiration time on her POST request. The
 expiration value is the number of seconds before the token expires.

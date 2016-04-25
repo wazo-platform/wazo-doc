@@ -9,12 +9,41 @@ Stock Plugins Documentation
 Backends Plugins
 ================
 
+XiVO Admin
+-----------
+
+Backend name: ``xivo_admin``
+
+Purpose: Authenticate a XiVO administrator. The login/password is configured in
+:menuselection:`Configuration --> Management --> Users`.
+
+
+.. _auth-backends-service:
+
+XiVO Service
+------------
+
+Backend name: ``xivo_service``
+
+Purpose: Authenticate a XiVO :ref:`Web Services Access <web_services_access>`. The login/password is
+configured in :menuselection:`Configuration --> Management --> Web Service Access`.
+
+
+XiVO User
+---------
+
+Backend name: ``xivo_user``
+
+Purpose: Authenticate a XiVO user. The login/password is configured in :menuselection:`IPBX -->
+Services --> PBX Settings --> Users` in the CTI client section.
+
+
 .. _auth-backends-ldap:
 
 LDAP
 ----
 
-Backend name: ldap_user
+Backend name: ``ldap_user``
 
 Purpose: Authenticate with an LDAP user.
 
@@ -79,43 +108,17 @@ LDAP "bind" operation with the DN ``uid=alice,ou=people,dc=example,dc=org`` and 
 Configuration
 ^^^^^^^^^^^^^
 
-uri
+``uri``
    the URI of the LDAP server. Can only contain the scheme, host and port of an LDAP URL.
-user_base_dn
+``user_base_dn``
    the base dn of the user
-user_login_attribute
+``user_login_attribute``
    the attribute to login a user
-user_email_attribute (optional)
+``user_email_attribute`` (optional)
    the attribute to match with the XiVO user's email (default: mail)
-bind_dn (optional)
+``bind_dn`` (optional)
    the bind DN for searching for the user DN.
-bind_password (optional)
+``bind_password`` (optional)
    the bind password for searching for the user DN.
-bind_anonymous (optional)
+``bind_anonymous`` (optional)
    use anonymous bind for searching for the user DN (default: false)
-
-
-XiVO Admin
------------
-
-Backend name: xivo_admin
-
-Purpose: Authenticate a XiVO admin.
-
-
-.. _auth-backends-service:
-
-XiVO Service
-------------
-
-Backend name: xivo_service
-
-Purpose: Authenticate a XiVO service.
-
-
-XiVO User
----------
-
-Backend name: xivo_user
-
-Purpose: Authenticate a XiVO user.

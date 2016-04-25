@@ -172,8 +172,25 @@ Upgrading from i386 (32 bits) to amd64 (64 bits)
    migrate_i386_to_amd64
 
 
+Troubleshooting
+===============
+
+When upgrading XiVO, if you encounter problems related to the system locale, see
+:ref:`postgresql_localization_errors`.
+
+
 Upgrade Notes
 =============
+
+16.05
+-----
+
+Consult the `16.05 Roadmap <https://projects.xivo.io/versions/241>`_
+
+* The ``view``, ``add``, ``edit``, ``delete`` and ``deleteall`` actions of the "lines" web service
+  provided by the web interface have been removed.  As a reminder, note that the web services
+  provided by the web interface are deprecated.
+
 
 16.04
 -----

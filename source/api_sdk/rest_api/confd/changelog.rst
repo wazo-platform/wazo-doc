@@ -4,6 +4,29 @@
 xivo-confd REST API changelog
 *****************************
 
+16.05
+=====
+
+* A new API for associating a user with a call permission has been added:
+
+  * GET ``/1.1/users/<user_id>/callpermissions``
+  * PUT ``/1.1/users/<user_id>/callpermissions/<call_permission_id>``
+  * DELETE ``/1.1/users/<user_id>/callpermissions/<call_permission_id>``
+  * GET ``/1.1/callpermissions/<call_permission_id>/users``
+
+* Two new parameters have been added to the users resource:
+
+  * ``call_permission_password``
+  * ``enabled``
+
+* A new API for user's forwards has been added:
+
+  * PUT ``/1.1/users/<user_id>/forwards``
+
+* SIP endpoint: ``allow`` and ``disallow`` options are not split into multiple options anymore.
+* SCCP endpoint: ``allow`` and ``disallow`` options are not split into multiple options anymore.
+
+
 16.04
 =====
 

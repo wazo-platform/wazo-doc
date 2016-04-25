@@ -49,6 +49,7 @@ Here is the list of folders and files that are backed-up:
 
 * :file:`/etc/asterisk/`
 * :file:`/etc/consul/`
+* :file:`/etc/crontab`
 * :file:`/etc/dahdi/`
 * :file:`/etc/dhcp/`
 * :file:`/etc/hostname`
@@ -77,6 +78,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/xivo-purge-db/`
 * :file:`/etc/xivo-websocketd/`
 * :file:`/etc/xivo/`
+* :file:`/usr/local/bin/`
 * :file:`/usr/local/sbin/`
 * :file:`/usr/share/xivo/XIVO-VERSION`
 * :file:`/var/lib/asterisk/`
@@ -85,6 +87,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/var/lib/xivo/`
 * :file:`/var/log/asterisk/`
 * :file:`/var/spool/asterisk/`
+* :file:`/var/spool/cron/crontabs/`
 
 The following files/folders are excluded from this backup:
 
@@ -237,6 +240,13 @@ Drop the asterisk database and restore it with the one from the backup::
 
    sudo -u postgres dropdb asterisk
    sudo -u postgres pg_restore -C -d postgres asterisk-*.dump
+
+
+Troubleshooting
+---------------
+
+When restoring the database, if you encounter problems related to the system locale, see
+:ref:`postgresql_localization_errors`.
 
 
 Restoring and Keeping System Configuration
