@@ -38,11 +38,16 @@ You will only need NSIS installed if you want to create an installer for the XiV
 
 During the installer, choose the full installation.
 
-The XiVO Client NSIS script file uses the NSIS Application Association Registration Plug-in.
-Download and extract the plug-in and place the DLL from /Plugins in the NSIS/Plugins folder.
+The XiVO Client NSIS script file uses two plug-ins:
 
-`NSIS Application Association Registration Plug-in download page
-<http://nsis.sourceforge.net/Application_Association_Registration_plug-in#Download>`_
+* the NSIS Application Association Registration Plug-in (`download page
+  <http://nsis.sourceforge.net/Application_Association_Registration_plug-in#Download>`__)
+* the NsProcess Plug-in (`download page <http://nsis.sourceforge.net/NsProcess_plugin>`__)
+
+For each plug-in, download and extract the plug-in and place:
+
+* the DLL from :file:`/Plugins` in the :file:`NSIS/Plugins` directory
+* the ``.nsh`` from :file:`/Include` in the :file:`NSIS/Include` directory
 
 
 Get sources
