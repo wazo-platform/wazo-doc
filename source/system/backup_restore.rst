@@ -97,6 +97,10 @@ The following files/folders are excluded from this backup:
   * :file:`/var/spool/asterisk/monitor/`
   * :file:`/var/spool/asterisk/meetme/`
 
+* files
+
+  * :file:`/var/lib/xivo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld`
+
 * log files, coredump files
 * audio recordings
 * and, files greater than 10 MiB or folders containing more than 100 files if they belong to one of
