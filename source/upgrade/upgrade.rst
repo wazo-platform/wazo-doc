@@ -28,6 +28,11 @@ There are 2 options you can pass to xivo-upgrade:
 * ``-f`` to force upgrade, without asking for user confirmation
 
 
+There are an environment variable you can pass to xivo-upgrade:
+
+* ``XIVO_CONFD_PORT`` to change the default port of xivo-confd.
+
+
 Preparing for an Upgrade
 ========================
 
