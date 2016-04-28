@@ -28,9 +28,10 @@ There are 2 options you can pass to xivo-upgrade:
 * ``-f`` to force upgrade, without asking for user confirmation
 
 
-There are an environment variable you can pass to xivo-upgrade:
+``xivo-upgrade`` uses the following environment variables:
 
-* ``XIVO_CONFD_PORT`` to change the default port of xivo-confd.
+* ``XIVO_CONFD_PORT`` to set the port used to query the :ref:`HTTP API of xivo-confd <confd-api>`
+  (default is 9486)
 
 
 Preparing for an Upgrade
