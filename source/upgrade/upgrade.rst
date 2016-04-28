@@ -27,25 +27,11 @@ There are 2 options you can pass to xivo-upgrade:
 * ``-d`` to only download packages without installing them. **This will still upgrade the package containing xivo-upgrade and xivo-service**.
 * ``-f`` to force upgrade, without asking for user confirmation
 
-.. warning::
 
-   If xivo-upgrade fails or aborts in mid-process, the system might end up in a
-   faulty condition. If in doubt, run the following command to check the current
-   state of xivo's firewall rules::
+``xivo-upgrade`` uses the following environment variables:
 
-      iptables -nvL
-
-   If, among others, it displays something like the following line (notice the
-   DROP and 5060) ::
-
-      0     0 DROP       udp  --  *      *       0.0.0.0/0            0.0.0.0/0           udp dpt:5060
-
-   Then your XiVO will not be able to register any SIP phones. In this case, you
-   must delete the DROP rules with the following command::
-
-      iptables -D INPUT -p udp --dport 5060 -j DROP
-
-   Repeat this command until no more unwanted rules are left.
+* ``XIVO_CONFD_PORT`` to set the port used to query the :ref:`HTTP API of xivo-confd <confd-api>`
+  (default is 9486)
 
 
 Upgrade procedure
@@ -177,8 +163,31 @@ Upgrading from i386 (32 bits) to amd64 (64 bits)
 Troubleshooting
 ===============
 
+Postgresql
+----------
+
 When upgrading XiVO, if you encounter problems related to the system locale, see
 :ref:`postgresql_localization_errors`.
+
+
+xivo-upgrade
+------------
+
+If xivo-upgrade fails or aborts in mid-process, the system might end up in a faulty condition. If in
+doubt, run the following command to check the current state of xivo's firewall rules::
+
+   iptables -nvL
+
+If, among others, it displays something like the following line (notice the DROP and 5060)::
+
+   0     0 DROP       udp  --  *      *       0.0.0.0/0            0.0.0.0/0           udp dpt:5060
+
+Then your XiVO will not be able to register any SIP phones. In this case, you must delete the DROP
+rules with the following command::
+
+   iptables -D INPUT -p udp --dport 5060 -j DROP
+
+Repeat this command until no more unwanted rules are left.
 
 
 Upgrade Notes

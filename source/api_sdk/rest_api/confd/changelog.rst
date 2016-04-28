@@ -4,6 +4,16 @@
 xivo-confd REST API changelog
 *****************************
 
+16.06
+=====
+
+* A new API for initializing a XiVO (passing the wizard):
+
+  * GET ``/1.1/wizard``
+  * POST ``/1.1/wizard``
+  * GET ``/1.1/wizard/discover``
+
+
 16.05
 =====
 
