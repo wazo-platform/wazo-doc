@@ -8,8 +8,8 @@ Upgrading a XiVO is done by executing commands through a terminal on the
 server. You can connect to the server either through SSH or with a physical
 console.
 
-To upgrade your XiVO to the latest version, you **must** use the `xivo-upgrade`
-script. You can start an upgrade with the command::
+To upgrade your XiVO to the latest version, you **must** use the ``xivo-upgrade`` script. You can
+start an upgrade with the command::
 
    xivo-upgrade
 
@@ -48,24 +48,26 @@ There are 2 options you can pass to xivo-upgrade:
    Repeat this command until no more unwanted rules are left.
 
 
-Preparing for an Upgrade
-========================
+Upgrade procedure
+=================
 
 * Consult the `roadmaps <https://projects.xivo.io/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
-* Read all existing Upgrade Notes (see below) starting from your version to the current prod version.
-* For custom setups, follow the required procedures described below (example : cluster).
-* To download the packages beforehand, run ``xivo-upgrade -d``. This is not necessary, but useful for upgrading more quickly prior to stopping telephone services.
-* When ready, run ``xivo-upgrade`` which will start the upgrade process. **Telephone services will be stopped during the process**
-* When finished, check that the services are running :
-
- * with ``xivo-service status`` command,
- * and with actual checks like SIP registration, ISDN links status, internal/incoming/outgoing calls, XiVO Client connections etc.
+* Read all existing Upgrade Notes (see below) starting from your version to the latest version.
+* For custom setups, follow the required procedures described below (e.g. HA cluster).
+* To download the packages beforehand, run ``xivo-upgrade -d``. This is not mandatory, but it does
+  not require stopping any service, so it may be useful to reduce the downtime of the server while
+  upgrading.
+* When ready, run ``xivo-upgrade`` which will start the upgrade process. **Telephony services will
+  be stopped during the process**
+* When finished, check that all services are running (the list is displayed at the end of the upgrade).
+* Check that services are correctly working like SIP registration, ISDN link status,
+  internal/incoming/outgoing calls, XiVO Client connections etc.
 
 
 .. _version_specific_upgrade:
 
-Version-specific procedures
-===========================
+Version-specific upgrade procedures
+===================================
 
 Upgrading from XiVO 14.01, 14.02, 14.03, 14.04 installed from the ISO
 ---------------------------------------------------------------------
@@ -130,10 +132,10 @@ Upgrading from 1.2.0 or 1.2.1 requires a special procedure before executing ``xi
 
 .. _upgrading-a-cluster:
 
-Upgrading a Cluster
+Upgrading a cluster
 ===================
 
-Here are the steps for upgrading a cluster:
+Here are the steps for upgrading a cluster, i.e. two XiVO with :ref:`high-availability`:
 
 #. On the master : deactivate the database replication by commenting the cron in
    :file:`/etc/cron.d/xivo-ha-master`
