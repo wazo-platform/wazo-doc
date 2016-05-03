@@ -71,6 +71,7 @@ Unless specified, the license is `CC BY-SA`_.
 | with `specific scripts`_                                                                                  |          |              |                |              |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 | :download:`How to configure XiVO with Untangle firewall<data/how_to_configure_untangle_firewall.pdf>`     | English  | Intermediate | Scott McCarthy | 16.04        |
+|                                                                                                           |          |              | (SMS IT Group) |              |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 
 .. _Définition de XiVO pour la communauté et tutoriel (video): https://www.youtube.com/watch?v=leMZi6cU8iM
