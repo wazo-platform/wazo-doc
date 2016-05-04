@@ -46,12 +46,7 @@ Configuration
 #. Enter the hostname  (Allowed characters are : ``A-Z a-z 0-9 -``)
 #. Enter the domain name (Allowed characters are : ``A-Z a-z 0-9 - .``)
 #. Enter the password for the ``root`` user of the web interface,
-#. Configure the IP address and gateway used by your XiVO (by default it pre-fills the fields with
-   the current IP and gateway of the network interface on which you are connected if the network
-   interface has a default gateway).
-
-   .. note:: The network configuration will be applied at the end of the wizard
-
+#. Configure the IP address and gateway used by the VoIP interface
 #. Finally, modify the DNS server information if needed.
 
 
