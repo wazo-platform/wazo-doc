@@ -64,6 +64,8 @@ At that point, the Asterisk command ``sip show registry`` should print a line
 showing that you are registered, meaning your trunk is established.
 
 
+.. _voip_provider_outcall:
+
 Set the outgoing calls
 ----------------------
 
@@ -92,6 +94,8 @@ The most useful special characters to match extensions are::
 You can find more details about pattern matching in Asterisk (hence in XiVO) on
 `the Asterisk wiki <https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching>`_.
 
+
+.. _voip_provider_incall:
 
 Set the incoming calls
 ----------------------
