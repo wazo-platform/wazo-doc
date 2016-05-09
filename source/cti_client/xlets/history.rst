@@ -16,6 +16,9 @@ Usage
 
 The user can click on the number to initiate a new call with a given correspondent.
 
-.. warning:: The column content is only refreshed when moving from one view to the other.
+.. warning:: 
+
+    * The column content is only refreshed when moving from one view to the other.
+    * The *Sent calls* tab displays only the phone number of the called party (the name column will be void).
 
 
