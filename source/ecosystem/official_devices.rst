@@ -600,6 +600,21 @@ Particularities:
 
 * Default password is **9486** (i.e. the word "xivo" on a telephone keypad).
 
+* On the VVX101 and VVX201, to have the two line keys mapped to the same SIP line, create a
+  :ref:`custom template <provd-custom-templates>` with the following content::
+
+     {% extends 'base.tpl' -%}
+
+     {% block remote_phonebook -%}
+     {% endblock -%}
+
+     {% block model_specific_parameters -%}
+     reg.1.lineKeys="2"
+     {% endblock -%}
+
+  This is especially useful on the VVX101 since it supports a maximum of 1 SIP line and does not
+  support function keys.
+
 .. note:: (XiVO HA cluster) BLF function key saved on the master node are not available.
 
 Supported expansion modules:
