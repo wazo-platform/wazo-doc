@@ -13,6 +13,11 @@ xivo-confd REST API changelog
   * POST ``/1.1/wizard``
   * GET ``/1.1/wizard/discover``
 
+* A new API for associating a user with an entity has been added:
+
+  * GET ``/1.1/users/<user_id>/entities``
+  * PUT ``/1.1/users/<user_id>/entities/<entity_id>``
+
 
 16.05
 =====
