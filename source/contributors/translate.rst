@@ -20,7 +20,8 @@ those languages are :
 
 Prompts transcripts are listed in `Transifex`_ (\*-prompts). You may translate them there.
 
-The prompts used in XiVO are stored in `xivo-sounds`_ git repository.
+The prompts used in XiVO are stored in `xivo-sounds`_ git repository. You may also want to
+:ref:`generate your own sound files <generate_custom_prompts>`.
 
 
 XiVO Client
