@@ -588,7 +588,7 @@ Polycom
 Particularities:
 
 * The latest Polycom firmwares can take a lot of time to download and install due to their size
-  (~650 MiB). The firmware files are also explicited excluded from the XiVO backups.
+  (~650 MiB). For this reason, these files are explicitly excluded from the XiVO backups.
 
 * For directed call pickup to work via the BLF function keys, you need to make sure that the option
   :guilabel:`Set caller-id in dialog-info+xml notify` is enabled on your XiVO. This option is located on
