@@ -10,6 +10,15 @@ Interconnections
    xivo_with_pbx
 
 
+Specific VoIP providers
+=======================
+
+.. toctree::
+   :maxdepth: 1
+
+   simonics
+
+
 Create an interconnection
 =========================
 
