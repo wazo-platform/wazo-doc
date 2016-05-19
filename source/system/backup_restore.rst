@@ -32,7 +32,6 @@ backups.
 Backup scripts:
 
     :file:`/usr/sbin/xivo-backup`
-    :file:`/usr/sbin/xivo-backup-consul-kv`
 
 Backup location:
 
@@ -120,18 +119,6 @@ The database ``asterisk`` from PostgreSQL is backed up. This include almost ever
 configured via the web interface.
 
 
-.. _what_is_backed_up_in_consul:
-
-Consul
-------
-
-The key-values of Consul whose key start with ``xivo/`` are backed up. These include:
-
-* authentication tokens from xivo-auth
-* bookmarked contacts of the People Xlet
-* personal contacts of the People Xlet
-
-
 .. _manual_backup:
 
 Creating backup files manually
@@ -159,17 +146,6 @@ You can manually create a *data* backup file named :file:`data-manual.tgz` in :f
 issuing the following commands::
 
    xivo-backup data /var/tmp/data-manual
-
-
-.. _consul_backup:
-
-Consul
-------
-
-You can manually create a *consul* backup file :file:`/var/tmp/consul-manual.json` by
-issuing the following commands::
-
-   xivo-backup-consul-kv -o /var/tmp/consul-manual.json
 
 
 .. _restore:
@@ -204,7 +180,6 @@ Before Restoring the System
 Stop monit and all the xivo services::
 
    xivo-service stop
-   systemctl stop consul
 
 
 Restoring System Files
@@ -280,20 +255,6 @@ Drop the asterisk_previous database::
    configuration if you restore the data.tgz file.
 
 
-.. _restoring_consul:
-
-Restoring Consul KV
-===================
-
-Consul key-values are stored in :file:`/var/backup/xivo/consul-kv.json`. See also :ref:`What is
-backed up in Consul <what_is_backed_up_in_consul>`.
-
-To restore the file ::
-
-   systemctl start consul
-   xivo-restore-consul-kv -i /var/backups/xivo/consul-kv.json
-
-
 After Restoring The System
 ==========================
 
@@ -309,7 +270,6 @@ Update systemd runtime configuration::
 
 Restart the services you stopped in the first step::
 
-   systemctl start consul
    xivo-service start
 
 You may also reboot the system.
