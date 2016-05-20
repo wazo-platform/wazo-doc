@@ -295,6 +295,87 @@ Example::
    }
 
 
+.. _bus-user_created:
+
+user_created
+------------
+
+The `user_created` event is published when a new user is created.
+
+* routing key: `config.user.created`
+* event specific data: a dictionary with 2 keys
+
+  * id: the ID of the created user
+  * uuid: the UUID of the created user
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "name": "user_created",
+        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+        "data": {
+            "id": 42,
+            "uuid": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2"
+        }
+    }
+
+
+.. _bus-user_deleted:
+
+user_deleted
+------------
+
+The `user_deleted` event is published when a user is deleted.
+
+* routing key: `config.user.deleted`
+* event specific data: a dictionary with 2 keys
+
+  * id: the ID of the deleted user
+  * uuid: the UUID of the deleted user
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "name": "user_deleted",
+        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+        "data": {
+            "id": 42,
+            "uuid": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2"
+        }
+    }
+
+
+.. _bus-user_edited:
+
+user_edited
+-----------
+
+The `user_edited` event is published when a user is modified.
+
+* routing key: `config.user.edited`
+* event specific data: a dictionary with 2 keys
+
+  * id: the ID of the modified user
+  * uuid: the UUID of the modified user
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "name": "user_edited",
+        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+        "data": {
+            "id": 42,
+            "uuid": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2"
+        }
+    }
+
+
 .. _bus-user_status_update:
 
 user_status_update
