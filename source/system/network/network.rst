@@ -139,15 +139,13 @@ are applied at startup (i.e.  each time the network interface goes up).
     
     #!/bin/sh
 
-    if [ "${IFACE}" = "eth0" ]; then
+    if [ "${IFACE}" = "eth0.2" ]; then
         ip route add 192.168.50.128/25 via 192.168.17.254
     fi
 
 .. note:: The above check is to ensure that the route will be applied only if the correct interface
-   goes up.  This check should only contain a *physical* interface name (i.e. `eth0` or `eth1` or
-   ...).  If the interface to which the route is to be applied is a VLAN interface (e.g. `eth0.100`
-   for VLAN 100) you *MUST* put `eth0` in the test (instead of `eth0.100`).  Otherwise the route
-   won't be set up in every cases.
+   goes up.  This check should contain the actual name of the interface (i.e. `eth0` or `eth0.2` or
+   `eth1` or ...).  Otherwise the route won't be set up in every cases.
 
 
 Change interface MTU
