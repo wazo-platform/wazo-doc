@@ -57,7 +57,7 @@ following::
 
     Monitoring: Yes
     
-This option will make Asterisk send a signal to the VoIP provider server every 60 seconds (default settings), so that NATs and firewall know the connection is still alive. If you want to change the value of this cycle period, you have to select the appropriate value of the following parameter :
+This option will make Asterisk send a signal to the VoIP provider server every 60 seconds (default settings), so that NATs and firewall know the connection is still alive. If you want to change the value of this cycle period, you have to select the appropriate value of the following parameter ::
 
     Qualify Frequency: 
     
