@@ -168,8 +168,7 @@ exiting. What this means is that you might have lots of "possibly lost" memory e
 If you already know which modules is responsible for the memory leak/bug, you should explicitly
 unload it before terminating asterisk.
 
-It is suggested to have 768 MiB of RAM or more, since running asterisk under valgrind takes a lots
-of extra memory.
+Running asterisk under valgrind takes a lots of extra memory, so make sure you have enough RAM.
 
 
 External links
