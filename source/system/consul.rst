@@ -83,8 +83,6 @@ Or
 Copying the consul configuration from the XiVO to a new host
 ------------------------------------------------------------
 
-Backup your consul server and copy data.
-
 On the new consul host, modify :file:`/etc/consul/xivo/config.json` to include to following lines.
 
 .. code-block:: javascript
@@ -95,16 +93,12 @@ On the new consul host, modify :file:`/etc/consul/xivo/config.json` to include t
 
 .. code-block:: sh
 
-   # on the xivo
-   xivo-backup-consul-kv -o /tmp/consul-kv.json
    # on the consul host
    scp root@<xivo-host>:/lib/systemd/system/consul.service /lib/systemd/system
    systemctl daemon-reload
    scp -r root@<xivo-host>:/etc/consul /etc
    scp -r root@<xivo-host>:/usr/share/xivo-certs /usr/share
    consul agent -data-dir /var/lib/consul -config-dir /etc/consul/xivo/
-   # on the xivo
-   xivo-restore-consul-kv -H <consul-host> --verify false -i /tmp/consul-kv.json
 
 .. note:: To start consul with the systemd unit file, you may need to change owner and group
           (consul:consul) for all files inside :file:`/etc/consul`, :file:`/usr/share/xivo-certs`

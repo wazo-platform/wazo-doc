@@ -217,16 +217,6 @@ reachable from other XiVO.
 Configure Consul
 ================
 
-Backup Consul Data
-------------------
-
-This backup is not a precaution, we are going to remove all consul data.
-
-.. code-block:: sh
-
-    xivo-backup-consul-kv -o /tmp/backup-consul-kv.json
-
-
 Stop XiVO
 ---------
 
@@ -278,14 +268,6 @@ Start Consul
 .. code-block:: sh
 
     service consul start
-
-
-Restore consul data
--------------------
-
-.. code-block:: sh
-
-    xivo-restore-consul-kv -i /tmp/backup-consul-kv.json
 
 
 Start XiVO
