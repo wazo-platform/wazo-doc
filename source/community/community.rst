@@ -85,6 +85,22 @@ Unless specified, the license is `CC BY-SA`_.
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 | `XiVO Platform Tutorial: Installing XiVO VM at CloudAtCost`_                                              | English  | Beginner     | Nerd Vittles   | 16.07        |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `XiVO Initial Setup Tutorial: Getting Started with XiVO`_                                                 | English  | Intermediate | Nerd Vittles   | 16.07        |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `XiVO Trunks: Installing a Vitelity SIP Trunk`_                                                           | English  | Intermediate | Nerd Vittles   | 16.07        |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `XiVO Trunks: Installing a VoIP.ms SIP Trunk`_                                                            | English  | Intermediate | Nerd Vittles   | 16.07        |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `XiVO Trunks: Installing a RingPlug SIP Trunk`_                                                           | English  | Intermediate | Nerd Vittles   | 16.07        |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `XiVO Trunks: Installing a FreeVoipDeal (Betamax) SIP Trunk`_                                             | English  | Intermediate | Nerd Vittles   | 16.07        |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `XiVO Trunks: Installing a Google Voice-Simonics SIP Trunk`_                                              | English  | Intermediate | Nerd Vittles   | 16.07        |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `XiVO Call Routing Tutorial: Creating Inbound Routes for DIDs`_                                           | English  | Intermediate | Nerd Vittles   | 16.07        |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| `XiVO Call Routing Tutorial: Creating Outbound Routes for PSTN Calling`_                                  | English  | Intermediate | Nerd Vittles   | 16.07        |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 
 .. _Définition de XiVO pour la communauté et tutoriel (video): https://www.youtube.com/watch?v=leMZi6cU8iM
 .. _Xivo pour les nuls: http://xivopourlesnuls.wordpress.com
@@ -108,6 +124,14 @@ Unless specified, the license is `CC BY-SA`_.
 .. _XiVO Platform Tutorial\: Installing XiVO VM at ImpactVPS: http://nerdvittles.com/?page_id=18299
 .. _XiVO Platform Tutorial\: Installing XiVO VM in the Digital Ocean Cloud: http://nerdvittles.com/?page_id=18297
 .. _XiVO Platform Tutorial\: Installing XiVO VM at CloudAtCost: http://nerdvittles.com/?page_id=18295
+.. _XiVO Initial Setup Tutorial\: Getting Started with XiVO: http://nerdvittles.com/?page_id=18398
+.. _XiVO Trunks\: Installing a Vitelity SIP Trunk: http://nerdvittles.com/?page_id=18278
+.. _XiVO Trunks\: Installing a VoIP.ms SIP Trunk: http://nerdvittles.com/?page_id=18275
+.. _XiVO Trunks\: Installing a RingPlug SIP Trunk: http://nerdvittles.com/?page_id=18283
+.. _XiVO Trunks\: Installing a FreeVoipDeal (Betamax) SIP Trunk: http://nerdvittles.com/?page_id=18285
+.. _XiVO Trunks\: Installing a Google Voice-Simonics SIP Trunk: http://nerdvittles.com/?page_id=18280
+.. _XiVO Call Routing Tutorial\: Creating Inbound Routes for DIDs: http://nerdvittles.com/?page_id=18591
+.. _XiVO Call Routing Tutorial\: Creating Outbound Routes for PSTN Calling: http://nerdvittles.com/?page_id=18593
 
 
 Contribute
