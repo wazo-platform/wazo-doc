@@ -8,8 +8,7 @@ The call completion feature (or CCSS, for Call Completion Supplementary Services
 a caller to be automatically called back when a called party has become available.
 
 #. To illustrate, let's say Alice attempts to call Bob.
-#. Bob is currently on a phone call with Carol, though, so Bob rejects the call from Alice, and
-   Alice hears a message saying that Bob is busy.
+#. Bob is currently on a phone call with Carol, though, so Bob rejects the call from Alice
 #. Alice then dials \*40 to request call completion.
 #. Once Bob has finished his phone call, Alice will be automatically called back by the system.
 #. When she answers, Bob will be called on her behalf.
@@ -83,8 +82,14 @@ There are four special scenarios:
 Call completion will not activate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Scenario: Alice tries to call Bob, but the call is redirected to Charlie. When activating call
-completion, Alice hears that the call completion can not be activated.
+It is not possible to activate call completion in the following two scenarios.
+
+First scenario: Alice tries to call Bob, but Bob has currently reached its "simultaneous calls"
+limit. When activating call completion, Alice hears that the call completion can not be activated.
+
+.. note:: The "simultaneous calls" option is configured per user via the XiVO web interface.
+
+Second scenario: Alice tries to call Bob, but the call is redirected to Charlie.
 
 This occurs when Bob redirects/rejects the call with any of the following:
 
