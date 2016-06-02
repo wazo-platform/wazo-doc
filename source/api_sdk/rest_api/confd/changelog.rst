@@ -263,7 +263,6 @@ Supported parameters on SIP endpoints
  * session-minse
  * session-refresher
  * callbackextension
- * registertrying
  * timert1
  * timerb
  * qualifyfreq
