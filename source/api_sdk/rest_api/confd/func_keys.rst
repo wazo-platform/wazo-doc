@@ -215,7 +215,7 @@ Parking Position
 +---------------+----------------+------------------------------------+
 | Field         | Type           | Value                              |
 +===============+================+====================================+
-| park_position | numeric string | Position of the parking to pick up |
+| position      | numeric string | Position of the parking to pick up |
 +---------------+----------------+------------------------------------+
 
 

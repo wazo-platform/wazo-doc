@@ -193,6 +193,20 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+16.07
+-----
+
+Consult the `16.07 Roadmap <https://projects.xivo.io/versions/243>`_
+
+* If you were affected by the `bug #6213 <http://projects.xivo.io/issues/6213>`_, i.e. if your agent
+  login time statistics were incorrect since your upgrade to XiVO 15.20 or later, and you want to
+  fix your statistics for that period of time, you'll need to `manually apply a fix
+  <http://projects.xivo.io/issues/6213#note-3>`_.
+* The :ref:`bus-user_created` bus message has been added.
+* The :ref:`bus-user_edited` bus message has been added.
+* The :ref:`bus-user_deleted` bus message has been added.
+
+
 16.06
 -----
 

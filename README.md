@@ -1,7 +1,10 @@
 XiVO-doc
 ========
 
-This is the project of documentation of the software XiVO.
+This is the documentation for the [XiVO project](http://xivo.io "XiVO homepage").
+
+The live version is hosted at http://documentation.xivo.io
+
 
 Dependencies
 ------------

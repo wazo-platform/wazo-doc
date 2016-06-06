@@ -55,10 +55,13 @@ Register tab::
 If your XiVO is behind a NAT device or a firewall, you should set the
 following::
 
-    Monitoring: 2000 milliseconds
+    Monitoring: Yes
 
-This option will make Asterisk send a signal to the VoIP provider server every 2
-seconds, so that NATs and firewall know the connection is still alive.
+This option will make Asterisk send a signal to the VoIP provider server every 60 seconds (default
+settings), so that NATs and firewall know the connection is still alive. If you want to change the
+value of this cycle period, you have to select the appropriate value of the following parameter::
+
+    Qualify Frequency:
 
 At that point, the Asterisk command ``sip show registry`` should print a line
 showing that you are registered, meaning your trunk is established.

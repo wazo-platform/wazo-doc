@@ -4,7 +4,30 @@
 XiVO Client
 ***********
 
-This section describes the XiVO Client.
+What is the XiVO Client
+=======================
+
+The XiVO Client is an application that you install on your computer and is connected to the XiVO
+server. This application offers the following features:
+
+* search contacts and show their presence, phone status
+* make calls through your phone (the XiVO Client is **NOT** a softphone, it is complementary to the
+  phone)
+* access your voicemail through your phone
+* enable call forwards, call filtering
+* show the history of your calls
+* list conference rooms and members
+* send faxes
+
+It also offers some call center features:
+
+* show screen popups or open URLs when you receive/answer a call
+* list agents, queues, calls in queues
+* login/logoff, pause/unpause other agents (for supervisors)
+* listen/whisper to agents through you phone (for supervisors)
+
+A lot of those features are modular and may be enabled for each user by choosing which :ref:`Xlets
+<xlet-list>` they can see.
 
 Getting the XiVO client
 =======================
@@ -39,6 +62,8 @@ For Mac OS, double-click on the file and drag-and-drop the inner file on the
 Application entry of the Finder.
 
 The XiVO Client should then be available in the applications menu of each platform.
+
+If you want to build your own XiVO Client, see :ref:`build_xivoclient`.
 
 .. index:: Xlets
 

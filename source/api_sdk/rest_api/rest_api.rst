@@ -17,7 +17,14 @@ Reference
    provd/api
    sysconfd/api
 
-For other services, see http://api.xivo.io.
+For other services, see http://api.xivo.io. This public instance does not allow you to directly test
+the requests (i.e. the "Try it out!" button will not work), but you may use the :ref:`embedded
+version of your XiVO <embedded_swagger>`, where this button will work.
+
+.. toctree::
+   :maxdepth: 1
+
+   embedded_swagger
 
 
 Access
@@ -25,6 +32,27 @@ Access
 
 Each REST API is available via HTTPS on :ref:`different ports <network_ports>`.
 
+
+Examples
+========
+
+::
+
+   # Get the list of users
+   curl --insecure \
+   -H 'Accept: application/json' \
+   -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' \
+   https://xivo:9486/1.1/users
+
+   # Create a user
+   # When sending data, you need the Content-Type header.
+   curl --insecure \
+   -X POST \
+   -d '{"firstname": "hello-world"} \
+   -H 'Accept: application/json' \
+   -H 'Content-Type: application/json' \
+   -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' \
+   https://xivo:9486/1.1/users
 
 .. _rest-api-authentication:
 
@@ -34,7 +62,7 @@ Authentication
 For all REST APIs, the main way to authenticate is to use an access token obtained from
 :ref:`xivo-auth`. This token should be given in the ``X-Auth-Token`` header in your request. For example::
 
-   curl --insecure -H 'Accept: application/json' -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' https://<xivo_address>:9486/1.1/users
+   curl <options...> -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' https://<xivo_address>:9486/1.1/users
 
 Also, your token needs to have the right ACLs to give you access to the resource you want. See
 :ref:`rest-api-acl`.
@@ -61,7 +89,7 @@ Services Access`):
   following command line allows to retrieve XiVO users through the REST API, using the login
   **admin** and the password **passadmin**::
 
-     curl --digest --insecure --cookie '' -H 'Accept: application/json' -u admin:passadmin https://<xivo_address>:9486/1.1/users
+     curl <options...> --digest --cookie '' -u admin:passadmin https://<xivo_address>:9486/1.1/users
 
 
 HTTP status codes
