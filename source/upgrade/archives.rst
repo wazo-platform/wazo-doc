@@ -124,14 +124,18 @@ not 12.16 to 13.16
    apt-get update
    apt-get install xivo-upgrade/xivo-14.16
 
-   cat > /etc/apt/preferences.d/50-xivo-five.pref <<EOF
+   cat > /etc/apt/preferences.d/50-xivo-14.16.pref <<EOF
    Package: *
    Pin: release a=xivo-five
    Pin-Priority: -10
+
+   Package: *
+   Pin: release a=xivo-14.16
+   Pin-Priority: 700
    EOF
 
    xivo-upgrade
-   rm /etc/apt/preferences.d/50-xivo-five.pref
+   rm /etc/apt/preferences.d/50-xivo-14.16.pref
    rm /etc/apt/sources.list.d/squeeze-archive.list
    apt-get update
 
