@@ -113,12 +113,6 @@ not 12.16 to 13.16
 
 ::
 
-   cat > /etc/apt/preferences.d/50-xivo-14.16.pref <<EOF
-   Package: *
-   Pin: release a=xivo-14.16
-   Pin-Priority: 700
-   EOF
-
    cat > /etc/apt/sources.list.d/squeeze-archive.list <<EOF
    deb http://archive.debian.org/debian/ squeeze main
    EOF
@@ -129,6 +123,17 @@ not 12.16 to 13.16
    apt-get install xivo-fai-14.16
    apt-get update
    apt-get install xivo-upgrade/xivo-14.16
+
+   cat > /etc/apt/preferences.d/50-xivo-14.16.pref <<EOF
+   Package: *
+   Pin: release a=xivo-five
+   Pin-Priority: -10
+
+   Package: *
+   Pin: release a=xivo-14.16
+   Pin-Priority: 700
+   EOF
+
    xivo-upgrade
    rm /etc/apt/preferences.d/50-xivo-14.16.pref
    rm /etc/apt/sources.list.d/squeeze-archive.list
@@ -144,12 +149,6 @@ not 12.16 to 13.16
 
 ::
 
-   cat > /etc/apt/preferences.d/50-xivo-14.16.pref <<EOF
-   Package: *
-   Pin: release a=xivo-14.16
-   Pin-Priority: 700
-   EOF
-
    apt-get update
    apt-get install xivo-fai
    apt-get purge xivo-fai-13.25
@@ -157,8 +156,15 @@ not 12.16 to 13.16
    apt-get install xivo-fai-14.16
    apt-get update
    apt-get install xivo-upgrade/xivo-14.16
+
+   cat > /etc/apt/preferences.d/50-xivo-five.pref <<EOF
+   Package: *
+   Pin: release a=xivo-five
+   Pin-Priority: -10
+   EOF
+
    xivo-upgrade
-   rm /etc/apt/preferences.d/50-xivo-14.16.pref
+   rm /etc/apt/preferences.d/50-xivo-five.pref
 
 .. We need to explicitly install xivo-upgrade before running it, in case the admin has already run
    xivo-upgrade, but cancelled the upgrade.
