@@ -234,6 +234,48 @@ Example::
    }
 
 
+.. _bus-call_held_event:
+
+call_held
+---------
+
+This message is send when a call is placed on hold
+
+* routing key: calls.hold.created
+* event specific data:
+
+  * call_id: The asterisk channels call unique ID
+
+Example:
+
+.. code-block:: javascript
+
+   {"name": "call_held",
+    "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+    "data": {"call_id": "1465572129.31"}}
+
+
+.. _bus-call_resumed_event:
+
+call_resumed
+------------
+
+This message is send when a call is resumed from hold
+
+* routing key: calls.hold.deleted
+* event specific data:
+
+  * call_id: The asterisk channels call unique ID
+
+Example:
+
+.. code-block:: javascript
+
+   {"name": "call_resumed",
+    "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+    "data": {"call_id": "1465572129.31"}}
+
+
 .. _bus-chat_message_event:
 
 chat_message_event
