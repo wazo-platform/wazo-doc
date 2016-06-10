@@ -82,6 +82,39 @@ Things to be aware when writing a client/consumer:
   that are still in queues will be lost.
 
 
+.. _bus-changelog:
+
+Changelog
+=========
+
+16.08
+-----
+
+* The :ref:`bus-call_held_event` bus message has been added.
+* The :ref:`bus-call_resumed_event` bus message has been added.
+
+
+16.07
+-----
+
+* The :ref:`bus-user_created` bus message has been added.
+* The :ref:`bus-user_edited` bus message has been added.
+* The :ref:`bus-user_deleted` bus message has been added.
+
+
+15.20
+-----
+
+* The :ref:`bus-chat_message_event` bus message has been added.
+
+
+15.17
+-----
+
+* The :ref:`bus-service_registered_event` and :ref:`bus-service_deregistered_event` bus messages have
+  been added.
+
+
 .. _bus-events:
 
 Events
