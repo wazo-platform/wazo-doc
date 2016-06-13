@@ -112,12 +112,12 @@ The steps are:
       mkdir -p ~/ast-rebuild
       cd ~/ast-rebuild
       apt-get update
-      apt-get install build-essential
+      apt-get install -y build-essential
       apt-get source asterisk
 
 #. Install the build dependencies::
 
-      apt-get build-dep asterisk
+      apt-get build-dep -y asterisk
 
 #. Enable the DEBUG_THREADS and DONT_OPTIMIZE flag::
 
@@ -144,7 +144,7 @@ The procedure is similar to the one described above. Before calling ``dpkg-build
 
 #. Make sure ``quilt`` is installed::
 
-      apt-get install quilt
+      apt-get install -y quilt
 
 #. Unapply all the currently applied patches::
 
