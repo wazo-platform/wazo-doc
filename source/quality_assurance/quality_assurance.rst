@@ -2,13 +2,13 @@
 Quality assurance
 *****************
 
-Testing architecture at Avencall
-================================
+Testing architecture
+====================
 
 .. figure:: images/testing_architecture.png
    :scale: 85%
 
-   Testing architecture at Avencall
+   Testing architecture
 
 Legend:
 
