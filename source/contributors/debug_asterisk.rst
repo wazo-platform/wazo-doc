@@ -135,6 +135,28 @@ The steps are:
 This will create a couple of .deb files in the parent directory, which you can install
 via dpkg.
 
+It is sometimes useful to produce a "vanilla" version of Asterisk, i.e. a version of Asterisk that
+has none of the XiVO patches applied, to make sure that the problem is present in the original
+upstream code. This is also sometimes necessary before opening a ticket on the `Asterisk issue
+tracker <https://issues.asterisk.org>`_.
+
+The procedure is similar to the one described above. Before calling ``dpkg-buildpackage``, you just need to:
+
+#. Make sure ``quilt`` is installed::
+
+      apt-get install quilt
+
+#. Unapply all the currently applied patches::
+
+      quilt pop -a
+
+#. Remove all the lines in the ``debian/patches/series`` file::
+
+      truncate -s0 debian/patches/series
+
+When installing a vanilla version of Asterisk on a XiVO, you'll need stop monit, otherwise it will
+restart asterisk every few minutes.
+
 
 Running Asterisk under Valgrind
 ===============================
