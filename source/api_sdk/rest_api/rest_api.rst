@@ -14,6 +14,7 @@ Reference
 
    agentd/api
    confd/api
+   ctid-ng/api
    provd/api
    sysconfd/api
 
@@ -33,8 +34,8 @@ Access
 Each REST API is available via HTTPS on :ref:`different ports <network_ports>`.
 
 
-Examples
-========
+Examples (xivo-confd)
+=====================
 
 ::
 
@@ -53,6 +54,7 @@ Examples
    -H 'Content-Type: application/json' \
    -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' \
    https://xivo:9486/1.1/users
+
 
 .. _rest-api-authentication:
 
