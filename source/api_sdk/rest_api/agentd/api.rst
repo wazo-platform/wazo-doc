@@ -1,6 +1,6 @@
-***************
-XiVO agentd API
-***************
+********************
+xivo-agentd REST API
+********************
 
 You can view the API documentation at http://api.xivo.io.
 
