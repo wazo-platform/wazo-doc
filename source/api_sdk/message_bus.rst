@@ -82,6 +82,39 @@ Things to be aware when writing a client/consumer:
   that are still in queues will be lost.
 
 
+.. _bus-changelog:
+
+Changelog
+=========
+
+16.08
+-----
+
+* The :ref:`bus-call_held_event` bus message has been added.
+* The :ref:`bus-call_resumed_event` bus message has been added.
+
+
+16.07
+-----
+
+* The :ref:`bus-user_created` bus message has been added.
+* The :ref:`bus-user_edited` bus message has been added.
+* The :ref:`bus-user_deleted` bus message has been added.
+
+
+15.20
+-----
+
+* The :ref:`bus-chat_message_event` bus message has been added.
+
+
+15.17
+-----
+
+* The :ref:`bus-service_registered_event` and :ref:`bus-service_deregistered_event` bus messages have
+  been added.
+
+
 .. _bus-events:
 
 Events
@@ -232,6 +265,48 @@ Example::
            "user_uuid": "2e752722-0864-4665-887d-a78a024cf7c7"
        }
    }
+
+
+.. _bus-call_held_event:
+
+call_held
+---------
+
+This message is sent when a call is placed on hold
+
+* routing key: calls.hold.created
+* event specific data:
+
+  * call_id: The asterisk channel unique ID
+
+Example:
+
+.. code-block:: javascript
+
+   {"name": "call_held",
+    "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+    "data": {"call_id": "1465572129.31"}}
+
+
+.. _bus-call_resumed_event:
+
+call_resumed
+------------
+
+This message is sent when a call is resumed from hold
+
+* routing key: calls.hold.deleted
+* event specific data:
+
+  * call_id: The asterisk channel unique ID
+
+Example:
+
+.. code-block:: javascript
+
+   {"name": "call_resumed",
+    "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+    "data": {"call_id": "1465572129.31"}}
 
 
 .. _bus-chat_message_event:

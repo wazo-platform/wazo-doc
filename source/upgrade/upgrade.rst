@@ -202,9 +202,6 @@ Consult the `16.07 Roadmap <https://projects.xivo.io/versions/243>`_
   login time statistics were incorrect since your upgrade to XiVO 15.20 or later, and you want to
   fix your statistics for that period of time, you'll need to `manually apply a fix
   <http://projects.xivo.io/issues/6213#note-3>`_.
-* The :ref:`bus-user_created` bus message has been added.
-* The :ref:`bus-user_edited` bus message has been added.
-* The :ref:`bus-user_deleted` bus message has been added.
 
 
 16.06
@@ -297,7 +294,6 @@ Consult the `15.20 Roadmap <https://projects.xivo.io/versions/214>`_
 * Debian has been upgraded from version 7 (wheezy) to 8 (jessie).
 * CSV webservices in the web interface have been removed. Please use the :ref:`confd-api` instead.
 * The CSV import format has been changed. Consult :ref:`15_20_csv_import_upgrade_notes` for further details.
-* The :ref:`bus-chat_message_event` bus message has been added.
 * xivo-ctid now uses STARTTLS for the client connections.
 
   * For users already using the CTIS protocol the client can be configured to use the default port (5003)
@@ -423,8 +419,6 @@ Consult the `15.17 Roadmap <https://projects.xivo.io/versions/233>`_
   by the web-interface (these web services are deprecated).
 * The agent status dashboard now shows that an agent is calling or receiving a non ACD call while in
   wrapup or paused.
-* The :ref:`bus-service_registered_event` and :ref:`bus-service_deregistered_event` bus messages have
-  been added.
 * SIP endpoints created through the REST API will not appear in the web interface until they have
   been associated with a line
 * Due to limitations in the database, only a limited number of optional parameters can be configured
