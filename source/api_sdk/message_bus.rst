@@ -272,12 +272,12 @@ Example::
 call_held
 ---------
 
-This message is send when a call is placed on hold
+This message is sent when a call is placed on hold
 
 * routing key: calls.hold.created
 * event specific data:
 
-  * call_id: The asterisk channels call unique ID
+  * call_id: The asterisk channel unique ID
 
 Example:
 
@@ -293,12 +293,12 @@ Example:
 call_resumed
 ------------
 
-This message is send when a call is resumed from hold
+This message is sent when a call is resumed from hold
 
 * routing key: calls.hold.deleted
 * event specific data:
 
-  * call_id: The asterisk channels call unique ID
+  * call_id: The asterisk channel unique ID
 
 Example:
 
