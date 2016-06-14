@@ -268,3 +268,30 @@ NAT will appear to the provisioning server as coming from the same source IP add
 address will then be more likely to get banned promptly if you, for example, reboot all your phones
 at the same time. Another solution would be to add your IP address to the list of ignored IP address
 of fail2ban. See the fail2ban(1) man page for more information.
+
+
+.. _provd-security-requirements:
+
+System Requirements
+-------------------
+
+XiVO 16.08 or later is required. You also need to use compatible xivo-provd plugins. Here's the list
+of official plugins which are compatible:
+
++------------------+---------+
+| Plugin family    | Version |
++==================+=========+
+| xivo-aastra      | >= 1.6  |
++------------------+---------+
+| xivo-cisco-sccp  | >= 1.1  |
++------------------+---------+
+| xivo-cisco-spa   | >= 1.0  |
++------------------+---------+
+| xivo-digium      | >= 1.0  |
++------------------+---------+
+| xivo-polycom     | >= 1.7  |
++------------------+---------+
+| xivo-snom        | >= 1.6  |
++------------------+---------+
+| xivo-yealink     | >= 1.26 |
++------------------+---------+

@@ -198,8 +198,11 @@ Upgrade Notes
 
 Consult the `16.08 Roadmap <https://projects.xivo.io/versions/244>`_
 
-* Some :ref:`security features have been added to the XiVO provisioning server <provd-security>`. If
-  you have many phones that are connected to your XiVO through a NAT equipment, you should review
+* Some :ref:`security features have been added to the XiVO provisioning server <provd-security>`.
+  To benefit from these new features, you'll need to :ref:`update your xivo-provd plugins to meet
+  the system requirements <provd-security-requirements>`.
+
+  If you have many phones that are connected to your XiVO through a NAT equipment, you should review
   the default configuration to make sure that the IP address of your NAT equipment don't get banned
   unintentionally by your XiVO.
 
