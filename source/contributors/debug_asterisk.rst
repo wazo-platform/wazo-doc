@@ -135,6 +135,9 @@ The steps are:
 This will create a couple of .deb files in the parent directory, which you can install
 via dpkg.
 
+Recompiling a vanilla version of Asterisk
+-----------------------------------------
+
 It is sometimes useful to produce a "vanilla" version of Asterisk, i.e. a version of Asterisk that
 has none of the XiVO patches applied, to make sure that the problem is present in the original
 upstream code. This is also sometimes necessary before opening a ticket on the `Asterisk issue
