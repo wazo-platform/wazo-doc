@@ -1,8 +1,8 @@
 .. _sysconfd-api:
 
-********************
-XiVO sysconfd API
-********************
+**********************
+xivo-sysconfd REST API
+**********************
 
 This service provides a public API that can be used to change the configuration that are
 on a XiVO.
