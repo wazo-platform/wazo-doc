@@ -319,7 +319,7 @@ This message is used to send a chat message to a user
 * routing key: chat.message.<xivo-uuid>.<user_id>
 * event specific data:
 
-  * alice: The nickname of the chatter
+  * alias: The nickname of the chatter
   * to: The destination's XiVO UUID and user UUID
   * from: The chatter's XiVO UUID and user UUID
   * msg: The message
