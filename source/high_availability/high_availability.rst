@@ -39,9 +39,9 @@ Quick Summary
 =============
 
 * You need two configured XiVO (wizard passed)
-* Configure one XiVO as a master -> setup the slave address
+* Configure one XiVO as a master -> setup the slave address (voice interface)
 * Restart services (xivo-service restart) on master
-* Configure the other XiVO as a slave -> setup the master address
+* Configure the other XiVO as a slave -> setup the master address (voice interface)
 * Configure file synchronization by runnning the script ``xivo-sync -i`` on the master
 * Start configuration synchronization by running the script ``xivo-master-slave-db-replication
   <slave_ip>`` on the master
