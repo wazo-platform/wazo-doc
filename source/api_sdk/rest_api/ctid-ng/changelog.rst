@@ -15,3 +15,7 @@ xivo-ctid-ng HTTP API changelog
 
     * POST ``/1.0/chats``
     * POST ``/1.0/users/me/chats``
+
+* A new parameter for transfer creation (POST ``/1.0/transfers``):
+
+    * ``variables``
