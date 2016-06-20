@@ -198,6 +198,7 @@ Upgrade Notes
 
 Consult the `16.08 Roadmap <https://projects.xivo.io/versions/244>`_
 
+* :ref:`cti-protocol` is now in version *2.2*
 * Some :ref:`security features have been added to the XiVO provisioning server <provd-security>`.
   To benefit from these new features, you'll need to :ref:`update your xivo-provd plugins to meet
   the system requirements <provd-security-requirements>`.

@@ -14,6 +14,13 @@ The versions below indicate the xivo version followed by the protocol version.
    before upgrading XiVO
 
 
+16.08 - 2.2
+-----------
+
+* the :ref:`register_user_status_update` now uses the `user_uuid` instead of the `user_id`
+* the :ref:`user_status_update_event` now uses the `user_uuid` instead of the `user_id`
+
+
 16.04 - 2.1
 -----------
 
@@ -2093,10 +2100,10 @@ The :ref:`unregister_user_status_update_command` command should be used to stop 
 
   {
     "class": "register_user_status_update",
-    "user_ids": [["<xivo-uuid>", "<user-id1>"],
-                 ["<xivo-uuid>", "<user-id2>"],
+    "user_ids": [["<xivo-uuid>", "<user-uuid1>"],
+                 ["<xivo-uuid>", "<user-uuid2>"],
                  ...,
-                 ["<xivo-uuid>", "<user-idn>"]],
+                 ["<xivo-uuid>", "<user-uuidn>"]],
     "commandid": <commandid>
   }
 
@@ -2118,10 +2125,10 @@ events for the specified users.
 
   {
     "class": "unregister_user_status_update",
-    "user_ids": [["<xivo-uuid>", "<agent-id1>"],
-                 ["<xivo-uuid>", "<agent-id2>"],
+    "user_ids": [["<xivo-uuid>", "<user-uuid1>"],
+                 ["<xivo-uuid>", "<user-uuid2>"],
                  ...,
-                 ["<xivo-uuid>", "<agent-idn>"]],
+                 ["<xivo-uuid>", "<user-uuidn>"]],
     "commandid": <commandid>
   }
 
@@ -2141,7 +2148,7 @@ To stop receiving this event, the user must send the
 
 * data, a dictionary containing 3 fields:
 
-  * user_id, is an integer containing the ID of the user affected by this status change
+  * user_uuid, a strinc containing the UUID of the user.
   * xivo_uuid: a string containing the UUID of the XiVO that sent the status update
   * status: a string containing the new status of the user based on the cti profile configuration
 
@@ -2155,7 +2162,7 @@ To stop receiving this event, the user must send the
   {
     "class": "user_status_update",
     "data": {
-      "user_id": 42,
+      "user_uuid": "<the-user-uuid>",
       "xivo_uuid": "<the-xivo-uuid>",
       "status": "<status-name>"
     }
