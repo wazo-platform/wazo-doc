@@ -206,6 +206,16 @@ Consult the `16.08 Roadmap <https://projects.xivo.io/versions/244>`_
   the default configuration to make sure that the IP address of your NAT equipment don't get banned
   unintentionally by your XiVO.
 
+* Newly created groups and queues now ignore call forward requests from members by default.
+  Previously, call forward requests from members were always followed. This only applies to call
+  forward configured directly on the member's phone: call forward configured via \*21 have always
+  been ignored in these cases.
+
+  Note that during the upgrade, the previous behaviour is kept for already existing queues and groups.
+
+  This behaviour is now configurable per queue/group, via the "Ignore call forward requests from
+  members" option under the "Application" tab. We recommend enabling this option.
+
 
 16.07
 -----
