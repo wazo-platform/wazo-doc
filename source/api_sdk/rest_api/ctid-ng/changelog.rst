@@ -19,3 +19,7 @@ xivo-ctid-ng HTTP API changelog
 * A new parameter for transfer creation (POST ``/1.0/transfers``):
 
     * ``variables``
+
+* A new API for making transfers from the authenticated user:
+
+    * POST ``/1.0/users/me/transfers``
