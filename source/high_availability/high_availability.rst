@@ -39,9 +39,9 @@ Quick Summary
 =============
 
 * You need two configured XiVO (wizard passed)
-* Configure one XiVO as a master -> setup the slave address (voice interface)
+* Configure one XiVO as a master -> setup the slave address (VoIP interface)
 * Restart services (xivo-service restart) on master
-* Configure the other XiVO as a slave -> setup the master address (voice interface)
+* Configure the other XiVO as a slave -> setup the master address (VoIP interface)
 * Configure file synchronization by runnning the script ``xivo-sync -i`` on the master
 * Start configuration synchronization by running the script ``xivo-master-slave-db-replication
   <slave_ip>`` on the master
@@ -126,7 +126,7 @@ Default status of :abbr:`High Availability (HA)` is disabled:
 Master node
 -----------
 
-In choosing the method ``Master`` you must enter the IP address of the slave node.
+In choosing the method ``Master`` you must enter the IP address **of the VoIP interface** of the slave node.
 
 .. figure:: images/ha_dashboard_master.png
 
@@ -138,7 +138,7 @@ In choosing the method ``Master`` you must enter the IP address of the slave nod
 Slave node
 ----------
 
-In choosing the method ``Slave`` you must enter the IP address of master node.
+In choosing the method ``Slave`` you must enter the IP address **of the VoIP interface** of the master node.
 
 .. figure:: images/ha_dashboard_slave.png
 
