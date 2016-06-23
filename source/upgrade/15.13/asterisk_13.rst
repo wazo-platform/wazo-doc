@@ -78,8 +78,3 @@ List of known bugs and limitations for Asterisk 13 in XiVO:
   also impossible to do an attended transfer from the XiVO client in these conditions.
   
   See http://projects.xivo.io/issues/5692.
-* There's a small memory leak occurring on certain call scenarios (mostly call center scenarios); you
-  should check the memory usage of your asterisk process once per month and do a ``xivo-service
-  restart`` when the memory usage grows too large.
-
-  See http://projects.xivo.io/issues/5694.
