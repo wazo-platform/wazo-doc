@@ -1,8 +1,8 @@
 .. _confd-api:
 
-**************
-XiVO confd API
-**************
+*******************
+xivo-confd REST API
+*******************
 
 .. note:: REST API 1.1 for confd is currently evolving. New features and small fixes are regularly being added
     over time. We invite the reader to periodically check the :ref:`changelog <confd_changelog>`

@@ -30,7 +30,7 @@ Available categories are:
   +------------------+--------------------------------------------------------------------+
   | iLBC             | .ilbc                                                              |
   +------------------+--------------------------------------------------------------------+
-  | Ogg Vorbis       | .ogg                                                               |
+  | Ogg Vorbis       | .ogg (only mono files sampled at 8000 Hz)                          |
   +------------------+--------------------------------------------------------------------+
   | G.711 A-law      | .alaw .al .alw                                                     |
   +------------------+--------------------------------------------------------------------+
@@ -53,7 +53,10 @@ Available categories are:
   | WAV GSM          | .WAV .wav49                                                        |
   +------------------+--------------------------------------------------------------------+
 
-  See :code:`asterisk -rx 'module show like format'`.
+  Only 1 audio channel must be present per file, i.e. files must be in mono.
+
+  If your music on hold files don't seem to work, you should look for errors in the asterisk logs.
+
   The on-hold music will always play from the start.
 
 * mp3: play MP3 files.

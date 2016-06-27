@@ -220,6 +220,8 @@ Drop the asterisk database and restore it with the one from the backup::
    sudo -u postgres dropdb asterisk
    sudo -u postgres pg_restore -C -d postgres asterisk-*.dump
 
+To finalize the restore, see :ref:`after_restore`.
+
 
 Troubleshooting
 ---------------
@@ -228,8 +230,8 @@ When restoring the database, if you encounter problems related to the system loc
 :ref:`postgresql_localization_errors`.
 
 
-Restoring and Keeping System Configuration
-==========================================
+Alternative: Restoring and Keeping System Configuration
+=======================================================
 
 System configuration like network interfaces is stored in the database. It is
 possible to keep this configuration and only restore xivo data.
@@ -254,6 +256,8 @@ Drop the asterisk_previous database::
    hostname, network interfaces, etc. You will need to reapply the network
    configuration if you restore the data.tgz file.
 
+
+.. _after_restore:
 
 After Restoring The System
 ==========================

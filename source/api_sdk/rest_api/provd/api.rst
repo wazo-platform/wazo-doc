@@ -1,6 +1,6 @@
-**************
-XiVO provd API
-**************
+*******************
+xivo-provd REST API
+*******************
 
 This section describes the REST API provided by the xivo-provd application.
 

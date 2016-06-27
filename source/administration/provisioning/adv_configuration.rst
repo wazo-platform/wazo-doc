@@ -214,6 +214,10 @@ page.
 
 Enabling the NAT option will also improve the performance of the provisioning server in this scenario.
 
+If you have many devices behind a NAT equipment, you should also check the :ref:`security
+<provd-security>` section to make sure the IP address of your NAT equipment doesn't get banned
+unintentionally.
+
 Limitations
 -----------
 
@@ -231,3 +235,63 @@ Limitations
 
 For technical information about why other devices are not supported, you can look at `this issue
 <https://projects.xivo.io/issues/5107>`_  on the XiVO bug tracker.
+
+
+.. _provd-security:
+
+Security
+========
+
+By design, the auto-provisioning process is vulnerable to:
+
+* Leakage of sensitive information: some files that are served by the provisioning server contains
+  sensitive information, e.g. SIP credentials that are used by SIP phones to make calls. Depending
+  on your network configuration and the amount of information an attacker has on your telephony
+  ecosystem (phone vendor, MAC address, etc.), he could retrieve the content of some files
+  containing sensitive information.
+* Denial-of-service attack: in its default configuration, each time the provisioning server identify
+  a request coming from a new device, it creates a new device object in its database. An attacker
+  could spoof requests to the provisioning server to create a huge amount of devices, creating a
+  denial-of-service condition.
+
+That said, starting from XiVO 16.08, XiVO adds `Fail2ban <http://www.fail2ban.org/>`_ support to the
+provisioning server to drastically lower the likelihood of such attacks. Every time a request for a
+file potentially containing sensitive information is requested, a log line is appended to the
+:file:`/var/log/xivo-provd-fail2ban.log` file, which is monitored by fail2ban. The same thing
+happens when a new device is automatically created by the provisioning server.
+
+The fail2ban configuration for the provisioning server is located at
+:file:`/etc/fail2ban/jail.d/xivo.conf`. You may want to adjust the ``findtime`` / ``maxretry`` value
+if you have special requirements. In particular, if you have many phones behind a NAT equipment,
+you'll probably have to adjust these values, since every request coming from your phones behind your
+NAT will appear to the provisioning server as coming from the same source IP address, and this IP
+address will then be more likely to get banned promptly if you, for example, reboot all your phones
+at the same time. Another solution would be to add your IP address to the list of ignored IP address
+of fail2ban. See the fail2ban(1) man page for more information.
+
+
+.. _provd-security-requirements:
+
+System Requirements
+-------------------
+
+XiVO 16.08 or later is required. You also need to use compatible xivo-provd plugins. Here's the list
+of official plugins which are compatible:
+
++------------------+---------+
+| Plugin family    | Version |
++==================+=========+
+| xivo-aastra      | >= 1.6  |
++------------------+---------+
+| xivo-cisco-sccp  | >= 1.1  |
++------------------+---------+
+| xivo-cisco-spa   | >= 1.0  |
++------------------+---------+
+| xivo-digium      | >= 1.0  |
++------------------+---------+
+| xivo-polycom     | >= 1.7  |
++------------------+---------+
+| xivo-snom        | >= 1.6  |
++------------------+---------+
+| xivo-yealink     | >= 1.26 |
++------------------+---------+

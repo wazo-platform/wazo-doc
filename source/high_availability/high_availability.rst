@@ -25,8 +25,8 @@ Prerequisites
 The HA in XiVO only works with telephony devices (i.e. phones) that support
 the notion of a primary and backup telephony server.
 
-* Phones must be able to reach the master and the slave (take special care if master 
-  and slave are not in the same subnet)
+* Phones must be able to reach the master and the slave (take special care if master and slave are
+  not in the same subnet)
 * If firewalling, the master must be allowed to join the slave on ports 22 and 5432
 * If firewalling, the slave must be allowed to join the master with an ICMP ping
 * Trunk registration timeout (``expiry``) should be less than 300 seconds (5 minutes)
@@ -39,9 +39,9 @@ Quick Summary
 =============
 
 * You need two configured XiVO (wizard passed)
-* Configure one XiVO as a master -> setup the slave address
+* Configure one XiVO as a master -> setup the slave address (VoIP interface)
 * Restart services (xivo-service restart) on master
-* Configure the other XiVO as a slave -> setup the master address
+* Configure the other XiVO as a slave -> setup the master address (VoIP interface)
 * Configure file synchronization by runnning the script ``xivo-sync -i`` on the master
 * Start configuration synchronization by running the script ``xivo-master-slave-db-replication
   <slave_ip>`` on the master
@@ -101,7 +101,7 @@ phones to switch from XiVO power failure.
    :menuselection:`Configuration --> Provisioning --> Template Line --> Edit default`
 
 
-.. warning:: Especially not change these values when the HA is configured, this could cause problems.
+.. warning:: Do not change these values when the HA is configured, as this may cause problems.
    These values will be reset to blank when the HA is disabled.
 
 .. important:: For the telephony devices to take the new proxy/registrar settings
@@ -126,7 +126,7 @@ Default status of :abbr:`High Availability (HA)` is disabled:
 Master node
 -----------
 
-In choosing the method ``Master`` you must enter the IP address of the slave node.
+In choosing the method ``Master`` you must enter the IP address **of the VoIP interface** of the slave node.
 
 .. figure:: images/ha_dashboard_master.png
 
@@ -138,7 +138,7 @@ In choosing the method ``Master`` you must enter the IP address of the slave nod
 Slave node
 ----------
 
-In choosing the method ``Slave`` you must enter the IP address of master node.
+In choosing the method ``Slave`` you must enter the IP address **of the VoIP interface** of the master node.
 
 .. figure:: images/ha_dashboard_slave.png
 

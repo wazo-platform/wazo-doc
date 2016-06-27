@@ -193,6 +193,30 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+16.08
+-----
+
+Consult the `16.08 Roadmap <https://projects.xivo.io/versions/244>`_
+
+* Some :ref:`security features have been added to the XiVO provisioning server <provd-security>`.
+  To benefit from these new features, you'll need to :ref:`update your xivo-provd plugins to meet
+  the system requirements <provd-security-requirements>`.
+
+  If you have many phones that are connected to your XiVO through a NAT equipment, you should review
+  the default configuration to make sure that the IP address of your NAT equipment don't get banned
+  unintentionally by your XiVO.
+
+* Newly created groups and queues now ignore call forward requests from members by default.
+  Previously, call forward requests from members were always followed. This only applies to call
+  forward configured directly on the member's phone: call forward configured via \*21 have always
+  been ignored in these cases.
+
+  Note that during the upgrade, the previous behaviour is kept for already existing queues and groups.
+
+  This behaviour is now configurable per queue/group, via the "Ignore call forward requests from
+  members" option under the "Application" tab. We recommend enabling this option.
+
+
 16.07
 -----
 
@@ -202,9 +226,6 @@ Consult the `16.07 Roadmap <https://projects.xivo.io/versions/243>`_
   login time statistics were incorrect since your upgrade to XiVO 15.20 or later, and you want to
   fix your statistics for that period of time, you'll need to `manually apply a fix
   <http://projects.xivo.io/issues/6213#note-3>`_.
-* The :ref:`bus-user_created` bus message has been added.
-* The :ref:`bus-user_edited` bus message has been added.
-* The :ref:`bus-user_deleted` bus message has been added.
 
 
 16.06
@@ -297,7 +318,6 @@ Consult the `15.20 Roadmap <https://projects.xivo.io/versions/214>`_
 * Debian has been upgraded from version 7 (wheezy) to 8 (jessie).
 * CSV webservices in the web interface have been removed. Please use the :ref:`confd-api` instead.
 * The CSV import format has been changed. Consult :ref:`15_20_csv_import_upgrade_notes` for further details.
-* The :ref:`bus-chat_message_event` bus message has been added.
 * xivo-ctid now uses STARTTLS for the client connections.
 
   * For users already using the CTIS protocol the client can be configured to use the default port (5003)
@@ -423,8 +443,6 @@ Consult the `15.17 Roadmap <https://projects.xivo.io/versions/233>`_
   by the web-interface (these web services are deprecated).
 * The agent status dashboard now shows that an agent is calling or receiving a non ACD call while in
   wrapup or paused.
-* The :ref:`bus-service_registered_event` and :ref:`bus-service_deregistered_event` bus messages have
-  been added.
 * SIP endpoints created through the REST API will not appear in the web interface until they have
   been associated with a line
 * Due to limitations in the database, only a limited number of optional parameters can be configured
