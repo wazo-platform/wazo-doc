@@ -4,6 +4,17 @@
 xivo-ctid-ng HTTP API changelog
 *******************************
 
+16.09
+=====
+
+* A new API for updating user presences:
+
+    * GET ``/1.0/users/{uuid}/presences``
+    * PUT ``/1.0/users/{uuid}/presences``
+    * GET ``/1.0/users/me/presences``
+    * PUT ``/1.0/users/me/presences``
+
+
 16.08
 =====
 
@@ -15,8 +26,3 @@ xivo-ctid-ng HTTP API changelog
 
     * POST ``/1.0/chats``
     * POST ``/1.0/users/me/chats``
-
-* A new API for updating user presences:
-
-    * PUT ``/1.0/presences``
-    * PUT ``/1.0/users/me/presences``
