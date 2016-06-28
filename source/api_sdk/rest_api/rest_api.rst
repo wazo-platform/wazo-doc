@@ -14,6 +14,7 @@ Reference
 
    agentd/api
    confd/api
+   ctid/api
    ctid-ng/api
    provd/api
    sysconfd/api
