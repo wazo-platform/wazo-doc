@@ -14,7 +14,7 @@ The versions below indicate the xivo version followed by the protocol version.
    before upgrading XiVO
 
 
-16.08 - 2.2
+16.09 - 2.2
 -----------
 
 * the :ref:`register_user_status_update` now uses the `user_uuid` instead of the `user_id`
