@@ -4,6 +4,17 @@
 xivo-confd REST API changelog
 *****************************
 
+16.09
+=====
+
+* Added entities endpoints:
+
+  * GET ``/1.1/entities``
+  * POST ``/1.1/entities``
+  * GET ``/1.1/entities/<entity_id>``
+  * DELETE ``/1.1/entities/<entity_id>``
+
+
 16.06
 =====
 
