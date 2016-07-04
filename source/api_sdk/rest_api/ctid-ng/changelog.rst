@@ -14,8 +14,9 @@ xivo-ctid-ng HTTP API changelog
     * GET ``/1.0/users/me/presences``
     * PUT ``/1.0/users/me/presences``
 
-* A new API for hanging up user calls:
+* New APIs for listing and hanging up calls of a user:
 
+    * GET ``/1.0/users/me/calls``
     * DELETE ``/1.0/users/me/calls/{id}``
 
 * POST ``/1.0/users/me/transfers`` may now return 403 status code.
