@@ -14,6 +14,10 @@ xivo-confd REST API changelog
   * GET ``/1.1/entities/<entity_id>``
   * DELETE ``/1.1/entities/<entity_id>``
 
+* A new API for updating all user's funckeys (delete funckey if undefined)
+
+  * PUT ``/1.1/users/<user_id>/funckeys``
+
 
 16.06
 =====
