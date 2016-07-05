@@ -55,12 +55,12 @@ Installation
 Once you have your Debian jessie properly installed, download the XiVO installation script and make
 it executable::
 
-   wget http://mirror.xivo.io/fai/xivo-migration/xivo_install
-   chmod +x xivo_install
+   wget http://mirror.xivo.io/fai/xivo-migration/xivo_install.sh
+   chmod +x xivo_install.sh
 
 And run it::
 
-   ./xivo_install
+   ./xivo_install.sh
 
 At the end of the installation, you can continue by running the :ref:`configuration
 wizard. <configuration_wizard>`
@@ -69,27 +69,20 @@ wizard. <configuration_wizard>`
 Alternatives versions
 ^^^^^^^^^^^^^^^^^^^^^
 
-For testing purposes, you can alternatively install the release candidate or development version of
-XiVO. Beware that there is no guarantee that these versions will work nor upgrade correctly, so you
-should not use them on a production server.
-
-To install the release candidate version::
-
-   ./xivo_install -r
-
-To install the development version::
-
-   ./xivo_install -d
-
 The installation script can also be used to install an :ref:`archive version <archive-version>` of
 XiVO (14.18 or later only). For example, if you want to install XiVO 16.03::
 
-   ./xivo_install -a 16.03
+   ./xivo_install.sh -a 16.03
 
 When installing an archive version, note that:
 
-* version 14.18 to 15.19 of XiVO can only be installed on a Debian 7 (wheezy) system
+* versions 14.18 to 15.19 of XiVO can only be installed on a Debian 7 (wheezy) system
 * the 64-bit versions of XiVO are only available starting from 15.16
+
+You may also install development versions of XiVO with this script. These versions may be unstable
+and should not be used on a production server. Please refer to the usage of the script::
+
+   ./xivo_install.sh -h
 
 
 Other installation methods
