@@ -14,6 +14,10 @@ xivo-confd REST API changelog
   * GET ``/1.1/entities/<entity_id>``
   * DELETE ``/1.1/entities/<entity_id>``
 
+* A new parameter have been added to the users resource:
+
+  * ``dtmf_hangup_enabled``
+
 
 16.06
 =====
