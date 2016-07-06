@@ -26,6 +26,7 @@ xivo-ctid-ng HTTP API changelog
     * PUT ``/1.0/users/me/transfers/{transfer_id}/complete``
 
 * POST ``/1.0/users/me/transfers`` may now return 403 status code.
+* Originates (POST ``/*/calls``) now return 400 if an invalid extension is given.
 
 
 16.08
