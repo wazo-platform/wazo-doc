@@ -19,9 +19,11 @@ xivo-ctid-ng HTTP API changelog
     * GET ``/1.0/users/me/calls``
     * DELETE ``/1.0/users/me/calls/{id}``
 
-* A new API for listing transfers of a user:
+* New APIs for listing, cancelling and completing transfers of a user:
 
     * GET ``/1.0/users/me/transfers``
+    * DELETE ``/1.0/users/me/transfers/{transfer_id}``
+    * PUT ``/1.0/users/me/transfers/{transfer_id}/complete``
 
 * POST ``/1.0/users/me/transfers`` may now return 403 status code.
 
