@@ -18,6 +18,10 @@ xivo-confd REST API changelog
 
   * PUT ``/1.1/users/<user_id>/funckeys``
 
+* A new parameter have been added to the users resource:
+
+  * ``dtmf_hangup_enabled``
+
 
 16.06
 =====
