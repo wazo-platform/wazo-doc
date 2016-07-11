@@ -37,7 +37,7 @@ for your language. Once all the translations have been checked, run the 3 follow
     git commit
     git push
 
-.. _Transifex: https://www.transifex.com/avencall/xivo/
+.. _Transifex: https://www.transifex.com/proformatique/xivo/
 
 .. warning:: Under Arch Linux, you must have qt5 installed and prepend ``QT_PATH=/usr/bin`` before
              ``make {pull,push}tr``.

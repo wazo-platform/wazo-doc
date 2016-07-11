@@ -38,4 +38,4 @@ Translations are currently available in French and English. There are no plans t
 interface in other languages.
 
 .. _xivo-sounds: https://github.com/xivo-pbx/xivo-sounds
-.. _Transifex: https://www.transifex.com/avencall/xivo/
+.. _Transifex: https://www.transifex.com/proformatique/xivo/
