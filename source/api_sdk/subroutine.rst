@@ -22,6 +22,16 @@ There are three possible categories :
 * Subroutine for global forwarding
 * Subroutine for global incoming call to an object
 
+Subroutines are called at the latest possible moment in the dialplan, so that the maximum of variables have already been set: this way, the variables can be read and modified at will before they are used.
+
+Here is an example of the dialplan execution flow when an external incoming call to a user being
+forwarded to another external number (like a forward to a mobile phone):
+
+.. figure:: images/subroutines.png
+   :scale: 50%
+
+   Where subroutines are called in dialplan
+
 
 Adding new subroutine
 =====================
@@ -86,7 +96,7 @@ You can also use a global subroutine for call forward.
 Dialplan variables
 ==================
 
-Some of the XiVO variables can be used and modified in subroutines.
+Some of the XiVO variables can be used and modified in subroutines (non exhaustive list):
 
 * ``XIVO_CALLOPTIONS``: the value is a list of options to be passed to the Dial application, e.g.
   ``hHtT``. This variable is available in agent, user and outgoing call subroutines. Please note
