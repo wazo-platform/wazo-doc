@@ -24,7 +24,8 @@ Changes Between Asterisk 11 and 13
 
 Some of the more common changes to look for:
 
-* SS7 support has been removed from the Asterisk package of XiVO.
+* SS7 support is not available in the Asterisk package of XiVO between version 15.13 and 16.08
+  inclusively.
 * All channel and global variable names are evaluated in a case-sensitive manner. In previous
   versions of Asterisk, variables created and evaluated in the dialplan were evaluated
   case-insensitively, but built-in variables and variable evaluation done internally within Asterisk
