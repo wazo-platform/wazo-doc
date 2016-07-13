@@ -114,6 +114,8 @@ xivo-websocketd
 * Default configuration file: :file:`/etc/xivo-websocketd/config.yml`
 
 
+.. _xivo_ring.conf:
+
 xivo_ring.conf
 ==============
 
