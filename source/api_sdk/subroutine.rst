@@ -41,11 +41,15 @@ You can also add this file by the web interface.
 
 An example::
 
-   [myexemple]
+   [myexample]
    exten = s,1,NoOp(This is an example)
    same  =   n,Return()
 
-Don't forget to finish your subroutine by a Return().
+Subroutines should always end with a ``Return()``. You may replace ``Return()`` by a ``Goto()`` if
+you want to completely bypass the XiVO dialplan, but this is not recommended.
+
+To plug your subroutine into the XiVO dialplan, you must add ``myexample`` in the subroutine field
+in the web interface, e.g. :menuselection:`Services --> IPBX --> PBX Settings --> Users --> Edit --> tab General --> Preprocess subroutine`.
 
 
 Global subroutine
