@@ -43,7 +43,7 @@ Requirements
 
 The installed Debian must:
 
-* use the architecure ``i386`` or ``amd64``
+* use the architecture ``i386`` or ``amd64``
 * have a default locale with charset UTF-8
 
 In case you want to migrate a XiVO from ``i386`` to ``amd64``, see :ref:`migrate_i386_to_amd64`.
