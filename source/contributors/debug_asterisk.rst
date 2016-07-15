@@ -157,8 +157,8 @@ The procedure is similar to the one described above. Before calling ``dpkg-build
 
       truncate -s0 debian/patches/series
 
-When installing a vanilla version of Asterisk on a XiVO, you'll need stop monit, otherwise it will
-restart asterisk every few minutes.
+When installing a vanilla version of Asterisk on a XiVO 16.08 or earlier, you'll need to stop monit,
+otherwise it will restart asterisk every few minutes.
 
 
 Running Asterisk under Valgrind
