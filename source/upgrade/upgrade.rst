@@ -198,6 +198,10 @@ Upgrade Notes
 
 Consult the `16.09 Roadmap <https://projects.xivo.io/versions/245>`_
 
+* The xivo-client now uses xivo-ctid-ng to do transfers. Those new transfers cannot be cancelled
+  with the `*0` DTMF and theres no interface in the xivo-client to cancel a transfer for profiles
+  other that the switchboard.
+
 
 16.08
 -----
