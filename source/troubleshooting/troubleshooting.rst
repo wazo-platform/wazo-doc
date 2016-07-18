@@ -413,3 +413,12 @@ You should also modify the :file:`/etc/postgresql/9.4/main/postgresql.conf` file
 
 For more information, consult the `official documentation on PostgreSQL localization support
 <http://www.postgresql.org/docs/9.4/interactive/charset.html>`_.
+
+
+Originate a call from the Asterisk console
+------------------------------------------
+
+It is sometimes useful to ring a phone from the asterisk console. For example, if you want
+to call the ``1234`` extension in context ``default``::
+
+   channel originate Local/1234@default extension 42@xivo-callme
