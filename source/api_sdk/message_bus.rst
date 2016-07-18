@@ -92,6 +92,7 @@ Changelog
 
 * The :ref:`bus-call_held_event` bus message has been added.
 * The :ref:`bus-call_resumed_event` bus message has been added.
+* The :ref:`bus-user_status_update` bus message now uses the user's UUID instead of the user's ID.
 
 
 16.07
@@ -463,7 +464,7 @@ The user_status_update is sent when a user changes his CTI presence using the Xi
 * event specific data: a dictionary with 3 keys
 
   * xivo_id: the uuid of the xivo
-  * user_id: an integer corresponding to the user ID of the user who changed its status
+  * user_uuid: the user's UUID
   * status: a string identifying the status
 
 Example::
@@ -473,7 +474,7 @@ Example::
        "required_acl": "events.statuses.users",
        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
        "data": {
-           "user_id": 42,
+           "user_uuid": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
            "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
            "status": "busy"
        }

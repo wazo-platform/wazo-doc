@@ -59,11 +59,17 @@ Presence Option
 ===============
 
 In the `Status` menu, under `Presences`, you can edit presences group.
-The default presence group is xivo. When editing
-a group, you will see a list of presences and there descriptions.
+The default presence group is `francais`. When editing
+a group, you will see a list of presences and their descriptions.
 
 .. figure:: images/presence_list.png
    :scale: 85%
+
+To use another presence group, you can edit the CTI profile you are using and select
+the appropriate presence group for that profile.
+
+.. figure:: images/presence_by_profile.png
+    :scale: 85%
 
 
 .. _presence-actions:

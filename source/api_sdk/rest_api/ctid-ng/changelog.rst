@@ -4,6 +4,31 @@
 xivo-ctid-ng HTTP API changelog
 *******************************
 
+16.09
+=====
+
+* A new API for updating user presences:
+
+    * GET ``/1.0/users/{uuid}/presences``
+    * PUT ``/1.0/users/{uuid}/presences``
+    * GET ``/1.0/users/me/presences``
+    * PUT ``/1.0/users/me/presences``
+
+* New APIs for listing and hanging up calls of a user:
+
+    * GET ``/1.0/users/me/calls``
+    * DELETE ``/1.0/users/me/calls/{id}``
+
+* New APIs for listing, cancelling and completing transfers of a user:
+
+    * GET ``/1.0/users/me/transfers``
+    * DELETE ``/1.0/users/me/transfers/{transfer_id}``
+    * PUT ``/1.0/users/me/transfers/{transfer_id}/complete``
+
+* POST ``/1.0/users/me/transfers`` may now return 403 status code.
+* Originates (POST ``/*/calls``) now return 400 if an invalid extension is given.
+
+
 16.08
 =====
 

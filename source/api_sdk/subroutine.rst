@@ -22,6 +22,16 @@ There are three possible categories :
 * Subroutine for global forwarding
 * Subroutine for global incoming call to an object
 
+Subroutines are called at the latest possible moment in the dialplan, so that the maximum of variables have already been set: this way, the variables can be read and modified at will before they are used.
+
+Here is an example of the dialplan execution flow when an external incoming call to a user being
+forwarded to another external number (like a forward to a mobile phone):
+
+.. figure:: images/subroutines.png
+   :scale: 50%
+
+   Where subroutines are called in dialplan
+
 
 Adding new subroutine
 =====================
@@ -31,11 +41,15 @@ You can also add this file by the web interface.
 
 An example::
 
-   [myexemple]
+   [myexample]
    exten = s,1,NoOp(This is an example)
    same  =   n,Return()
 
-Don't forget to finish your subroutine by a Return().
+Subroutines should always end with a ``Return()``. You may replace ``Return()`` by a ``Goto()`` if
+you want to completely bypass the XiVO dialplan, but this is not recommended.
+
+To plug your subroutine into the XiVO dialplan, you must add ``myexample`` in the subroutine field
+in the web interface, e.g. :menuselection:`Services --> IPBX --> PBX Settings --> Users --> Edit --> tab General --> Preprocess subroutine`.
 
 
 Global subroutine
@@ -86,9 +100,27 @@ You can also use a global subroutine for call forward.
 Dialplan variables
 ==================
 
-Some of the XiVO variables can be used in subroutines.
+Some of the XiVO variables can be used and modified in subroutines (non exhaustive list):
 
-::
+* ``XIVO_CALLOPTIONS``: the value is a list of options to be passed to the Dial application, e.g.
+  ``hHtT``. This variable is available in agent, user and outgoing call subroutines. Please note
+  that it may not be set earlier, because it will be overwritten.
 
-   XIVO_CALLORIGIN ; intern for internal calls, extern for external calls
+* ``XIVO_CALLORIGIN``: the value is:
 
+  * ``extern`` for calls coming from a DID
+  * ``intern`` for all other calls
+
+  This variable is used by xivo-agid when :ref:`selecting the ringtone <xivo_ring.conf>` for ringing
+  a user. This variable is available only in user subroutines.
+
+* ``XIVO_DSTNUM``: the value is the extension dialed, as received by XiVO (e.g. an internal
+  extension, a DID, or an outgoing extension including the local prefix). This
+  variable is available in all subroutines.
+
+* ``XIVO_MOBILEPHONENUMBER``: the value is the phone number of a user, as set in the web interface.
+  This variable is only available in user subroutines.
+
+* ``XIVO_SRCNUM``: the value is the callerid number of the originator of the call: the internal
+  extension of a user (outgoing callerid is ignored), or the public extension of an external
+  incoming call. This variable is available in all subroutines.

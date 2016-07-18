@@ -4,6 +4,25 @@
 xivo-confd REST API changelog
 *****************************
 
+16.09
+=====
+
+* Added entities endpoints:
+
+  * GET ``/1.1/entities``
+  * POST ``/1.1/entities``
+  * GET ``/1.1/entities/<entity_id>``
+  * DELETE ``/1.1/entities/<entity_id>``
+
+* A new API for updating all user's funckeys
+
+  * PUT ``/1.1/users/<user_id>/funckeys``
+
+* A new parameter have been added to the users resource:
+
+  * ``dtmf_hangup_enabled``
+
+
 16.06
 =====
 

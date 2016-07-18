@@ -5,6 +5,8 @@ Upgrade involving archive version of XiVO
 Introduction
 ============
 
+.. _archive-version:
+
 What is an archive version?
 ---------------------------
 

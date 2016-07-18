@@ -193,11 +193,28 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+16.09
+-----
+
+Consult the `16.09 Roadmap <https://projects.xivo.io/versions/245>`_
+
+* The XiVO Client now uses xivo-ctid-ng to do transfers. Those new transfers cannot be cancelled
+  with the ``*0`` DTMF sequence and there is no interface in the XiVO Client to cancel a transfer
+  for profiles other than the switchboard (bug `#6321`_). This will be addressed in a later version.
+
+* Transfers started from the XiVO Client do not respect the ``Dial timeout on transfer`` option
+  anymore (bug `#6322`_). This feature will be reintroduced in a later version.
+
+.. _#6321: http://projects.xivo.io/issues/6321
+.. _#6322: http://projects.xivo.io/issues/6322
+
+
 16.08
 -----
 
 Consult the `16.08 Roadmap <https://projects.xivo.io/versions/244>`_
 
+* :ref:`cti-protocol` is now in version *2.2*
 * Some :ref:`security features have been added to the XiVO provisioning server <provd-security>`.
   To benefit from these new features, you'll need to :ref:`update your xivo-provd plugins to meet
   the system requirements <provd-security-requirements>`.

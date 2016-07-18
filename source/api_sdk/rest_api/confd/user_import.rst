@@ -3,7 +3,7 @@ CSV User Import
 ***************
 
 Users and common related resources can be imported onto a XiVO server by sending a CSV file with a
-predefined set of fields.
+predefined :ref:`set of fields <user_import>`.
 
 This page only documents additional notes useful for API users. Consult the `API documentation
 <http://api.xivo.io>`_ for more details.
