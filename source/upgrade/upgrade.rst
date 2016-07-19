@@ -193,6 +193,19 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+16.10
+-----
+
+Consult the `16.10 Roadmap <https://projects.xivo.io/versions/246>`_
+
+* The config file ``/etc/xivo/xivo-confgend.conf`` has been replaced with
+  ``/etc/xivo-confgend/config.yml`` and ``/etc/xivo-confgend/conf.d``. Custom modifications to this
+  file are not migrated automatically, so manual intervention is required to migrate custom values
+  to the ``conf.d`` directory. The file ``/etc/xivo/xivo-confgend/asterisk/contexts.conf`` has been
+  moved to ``/etc/xivo-confgend/templates/contexts.conf``, but custom modification are left
+  untouched. See also :ref:`configuration-files` for more details about configuration files in XiVO.
+
+
 16.09
 -----
 

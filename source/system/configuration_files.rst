@@ -83,6 +83,14 @@ xivo-auth
 * Default configuration file: :file:`/etc/xivo-auth/config.yml`
 
 
+xivo-confgend
+=============
+
+* Default configuration directory: :file:`/etc/xivo-confgend/conf.d`
+* Default configuration file: :file:`/etc/xivo-confgend/config.yml`
+* Default templates directory: :file:`/etc/xivo-confgend/templates`
+
+
 xivo-ctid
 =========
 
