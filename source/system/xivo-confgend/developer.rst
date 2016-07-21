@@ -21,19 +21,19 @@ configuration file.
 
 The implementation of a plugin should have the following properties.
 
-#. It's *__init__* method should take one argument
-#. It should have a *generate* method which will return the content of the file
+#. It's ``__init__`` method should take one argument
+#. It should have a ``generate`` method which will return the content of the file
 #. A setup.py adding an entry point
 
 
-The *__init__* method argument is the content of the configuration of
+The ``__init__`` method argument is the content of the configuration of
 xivo-confgend. This allows the driver implementor to add values to the
-configuration in */etc/xivo-confgend/conf.d/*.yml* and these values will be
+configuration in ``/etc/xivo-confgend/conf.d/*.yml`` and these values will be
 available in the driver.
 
 The generate method has no argument, the configuration provided to the
-*__init__* should sufficent for most cases. The call to generate is within a
-*scoped_session* of xivo-dao, allowing the usage of xivo-dao without prior setup
+``__init__`` should be sufficient for most cases. ``generate`` is called within a
+``scoped_session`` of xivo-dao, allowing the usage of xivo-dao without prior setup
 in the driver.
 
 The namespaces used for entry points in xivo-confgend have the following form:
@@ -70,3 +70,10 @@ Here is a typical setup.py:
            ],
        }
    )
+
+With the following package structure::
+
+   .
+   ├── setup.py
+   └── src
+       └── driver.py  # declares a class MyDriver with methods __init__ and generate
