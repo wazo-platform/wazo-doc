@@ -38,11 +38,11 @@ in the driver.
 
 The namespaces used for entry points in xivo-confgend have the following form:
 
-    confgend.<resource>.<filename>
+    xivo-confgend.<resource>.<filename>
 
 as an example, a generator for sip.conf would have the following namespace:
 
-    confgend.asterisk.sip.conf
+    xivo-confgend.asterisk.sip.conf
 
 Here is a typical setup.py:
 
@@ -65,7 +65,7 @@ Here is a typical setup.py:
        packages=find_packages(),
 
        entry_points={
-           'confgend.asterisk.sip.conf': [
+           'xivo-confgend.asterisk.sip.conf': [
                'my_driver = src.driver:MyDriver',
            ],
        }
