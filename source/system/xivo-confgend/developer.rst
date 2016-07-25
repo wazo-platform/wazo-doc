@@ -44,13 +44,18 @@ as an example, a generator for sip.conf would have the following namespace:
 
     xivo-confgend.asterisk.sip.conf
 
-Here is a typical setup.py:
+Example
+-------
+
+Here is a typical ``setup.py``:
 
 .. code-block:: python
    :linenos:
 
    #!/usr/bin/env python
    # -*- coding: utf-8 -*-
+   # Copyright 2016 by Avencall
+   # SPDX-License-Identifier: GPL-3.0+
 
    from setuptools import setup
    from setuptools import find_packages
@@ -76,4 +81,39 @@ With the following package structure::
    .
    ├── setup.py
    └── src
-       └── driver.py  # declares a class MyDriver with methods __init__ and generate
+       └── driver.py
+
+
+``driver.py``:
+
+.. code-block:: python
+   :linenos:
+
+   # -*- coding: utf-8 -*-
+   # Copyright 2016 by Avencall
+   # SPDX-License-Identifier: GPL-3.0+
+
+
+   class MyDriver(object):
+
+       def __init__(self, config):
+           self._config = config
+
+       def generate(self):
+           return 'Hello World!'
+
+
+To enable this plugin, you need to:
+
+#. Install the plugin with::
+
+    python setup.py install
+
+#. Create a config file in ``/etc/xivo-confgend/conf.d``::
+
+    plugins:
+      xivo-confgend.asterisk.sip.conf: my_driver
+
+#. Restart xivo-confgend::
+
+    systemctl restart xivo-confgend
