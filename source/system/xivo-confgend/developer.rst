@@ -38,11 +38,11 @@ in the driver.
 
 The namespaces used for entry points in xivo-confgend have the following form:
 
-    xivo-confgend.<resource>.<filename>
+    xivo_confgend.<resource>.<filename>
 
 as an example, a generator for sip.conf would have the following namespace:
 
-    xivo-confgend.asterisk.sip.conf
+    xivo_confgend.asterisk.sip.conf
 
 Example
 -------
