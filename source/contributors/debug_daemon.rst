@@ -32,7 +32,7 @@ xivo-provd
 
 ::
 
-   twistd -no -u xivo-provd -g xivo-provd -r epoll xivo-provd -s -v
+   twistd -no -u xivo-provd -g xivo-provd -r epoll --logger provd.main.twistd_logs xivo-provd -s -v
 
 * -s for logging to stderr
 * -v for verbose
