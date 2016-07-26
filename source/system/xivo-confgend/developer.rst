@@ -70,7 +70,7 @@ Here is a typical ``setup.py``:
        packages=find_packages(),
 
        entry_points={
-           'xivo-confgend.asterisk.sip.conf': [
+           'xivo_confgend.asterisk.sip.conf': [
                'my_driver = src.driver:MyDriver',
            ],
        }
@@ -112,7 +112,7 @@ To enable this plugin, you need to:
 #. Create a config file in ``/etc/xivo-confgend/conf.d``::
 
     plugins:
-      xivo-confgend.asterisk.sip.conf: my_driver
+      asterisk.sip.conf: my_driver
 
 #. Restart xivo-confgend::
 
