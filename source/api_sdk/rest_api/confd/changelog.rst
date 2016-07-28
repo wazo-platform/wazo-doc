@@ -4,6 +4,22 @@
 xivo-confd REST API changelog
 *****************************
 
+16.10
+=====
+
+* A new API for associating a user with a voicemail has been added:
+
+  * DELETE ``/1.1/users/<user_id>/voicemails``
+  * GET ``/1.1/users/<user_id>/voicemails``
+  * PUT ``/1.1/users/<user_id>/voicemails``
+
+* The following URLs have been deprecated. Please use the new API instead:
+
+  * DELETE ``/1.1/users/<user_id>/voicemail``
+  * GET ``/1.1/users/<user_id>/voicemail``
+  * POST ``/1.1/users/<user_id>/voicemail``
+
+
 16.09
 =====
 
