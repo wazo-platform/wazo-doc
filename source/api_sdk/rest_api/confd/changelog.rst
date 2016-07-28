@@ -13,11 +13,16 @@ xivo-confd REST API changelog
   * GET ``/1.1/users/<user_id>/voicemails``
   * PUT ``/1.1/users/<user_id>/voicemails``
 
+* A new API for associating a line with an extension has been added:
+
+  * PUT ``/1.1/lines/<line_id>/extensions/<extension_id>``
+
 * The following URLs have been deprecated. Please use the new API instead:
 
   * DELETE ``/1.1/users/<user_id>/voicemail``
   * GET ``/1.1/users/<user_id>/voicemail``
   * POST ``/1.1/users/<user_id>/voicemail``
+  * POST ``/1.1/lines/<line_id>/extensions``
 
 
 16.09
