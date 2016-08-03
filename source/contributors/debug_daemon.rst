@@ -22,7 +22,7 @@ xivo-confgend
 
 ::
 
-   twistd -no --python=/usr/bin/xivo-confgend
+   twistd -no -u xivo-confgend -g xivo-confgend --python=/usr/bin/xivo-confgend --logger xivo_confgen.bin.daemon.twistd_logs
 
 No debug mode in confgend.
 
