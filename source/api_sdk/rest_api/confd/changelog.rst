@@ -7,6 +7,9 @@ xivo-confd REST API changelog
 16.10
 =====
 
+* Add possibility to associate many lines to the same user.
+* Add possibility to associate many extensions to the same line (only if these lines are
+  associated to the same user).
 * A new API for associating a user with a voicemail has been added:
 
   * DELETE ``/1.1/users/<user_id>/voicemails``
