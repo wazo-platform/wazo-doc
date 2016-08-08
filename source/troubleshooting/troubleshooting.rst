@@ -239,44 +239,6 @@ To disable the ami-proxy::
    systemctl restart xivo-ctid.service
 
 
-Agents receiving two ACD calls
-------------------------------
-
-An agent can sometimes receive more than 1 ACD call at the same time, even if the queues
-he's in have the "ringinuse" parameter set to no (default).
-
-This behaviour is caused by a bug in asterisk: https://issues.asterisk.org/jira/browse/ASTERISK-16115
-
-It's possible to workaround this bug in XiVO by adding an agent :ref:`subroutine <subroutine>`.
-The subroutine can be either set globally or per agent::
-
-   [pre-limit-agentcallback]
-   exten = s,1,NoOp()
-   same  =   n,Set(LOCKED=${LOCK(agentcallback-${XIVO_AGENT_ID})})
-   same  =   n,GotoIf(${LOCKED}?:not-locked,1)
-   same  =   n,Set(GROUP(agentcallback)=${XIVO_AGENT_ID})
-   same  =   n,Set(COUNT=${GROUP_COUNT(${XIVO_AGENT_ID}@agentcallback)})
-   same  =   n,NoOp(${UNLOCK(agentcallback-${XIVO_AGENT_ID})})
-   same  =   n,GotoIf($[ ${COUNT} <= 1 ]?:too-many-calls,1)
-   same  =   n,Return()
-
-   exten = not-locked,1,NoOp()
-   same  =   n,Log(ERROR,Could not obtain lock)
-   same  =   n,Wait(0.5)
-   same  =   n,Hangup()
-
-   exten = too-many-calls,1,NoOp()
-   same  =   n,Log(WARNING,Not calling agent ID/${XIVO_AGENT_ID} because already in use)
-   same  =   n,Wait(0.5)
-   same  =   n,Hangup()
-
-This workaround only applies to queues with agent members; it won't work for queues
-with user members.
-
-Also, the subroutine prevent asterisk from calling an agent twice by hanguping the second
-call. In the agent statistics, this will be shown as a non-answered call by the agent.
-
-
 .. _postgresql_localization_errors:
 
 PostgreSQL localization errors
@@ -413,3 +375,12 @@ You should also modify the :file:`/etc/postgresql/9.4/main/postgresql.conf` file
 
 For more information, consult the `official documentation on PostgreSQL localization support
 <http://www.postgresql.org/docs/9.4/interactive/charset.html>`_.
+
+
+Originate a call from the Asterisk console
+------------------------------------------
+
+It is sometimes useful to ring a phone from the asterisk console. For example, if you want
+to call the ``1234`` extension in context ``default``::
+
+   channel originate Local/1234@default extension 42@xivo-callme

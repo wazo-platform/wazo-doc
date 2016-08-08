@@ -4,6 +4,35 @@
 xivo-confd REST API changelog
 *****************************
 
+16.10
+=====
+
+* Add possibility to associate many lines to the same user.
+* Add possibility to associate many extensions to the same line (only if these lines are
+  associated to the same user).
+* A new API for associating a user with a voicemail has been added:
+
+  * DELETE ``/1.1/users/<user_id>/voicemails``
+  * GET ``/1.1/users/<user_id>/voicemails``
+  * PUT ``/1.1/users/<user_id>/voicemails``
+
+* A new API for associating a line with an extension has been added:
+
+  * PUT ``/1.1/lines/<line_id>/extensions/<extension_id>``
+
+* A new API for associating a user with a line has been added:
+
+  * PUT ``/1.1/users/<user_id>/lines/<line_id>``
+
+* The following URLs have been deprecated. Please use the new API instead:
+
+  * DELETE ``/1.1/users/<user_id>/voicemail``
+  * GET ``/1.1/users/<user_id>/voicemail``
+  * POST ``/1.1/users/<user_id>/voicemail``
+  * POST ``/1.1/users/<user_id>/lines``
+  * POST ``/1.1/lines/<line_id>/extensions``
+
+
 16.09
 =====
 

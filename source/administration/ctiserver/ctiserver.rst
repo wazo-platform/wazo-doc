@@ -18,7 +18,7 @@ encrypted communications between the clients and xivo-ctid and specify the
 certificate and private keys to use.
 
 If no certificate and private key is configured, xivo-ctid will use the ones
-located in */usr/share/xivo-certs*.
+located in ``/usr/share/xivo-certs``.
 
 .. figure:: images/starttls_options.png
     :scale: 85%
@@ -30,7 +30,7 @@ Context separation is based on the user's line context. A user
 with no line is not the member of any context and will not be able to do
 anything with the CTI client.
 
-.. note:: The CTI Server must be restarted to take into account this parameter.
+.. note:: xivo-dird must be restarted to take into account this parameter.
 
 .. figure:: images/cti_others.png
    :scale: 85%
