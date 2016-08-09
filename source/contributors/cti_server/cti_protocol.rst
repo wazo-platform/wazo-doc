@@ -2176,6 +2176,8 @@ To stop receiving this event, the user must send the
     }
   }
 
+.. warning:: The `user_id` field is **DEPRECATED** and **should not be used**. Use the `user_uuid` field instead.
+
 
 CTI server implementation
 =========================
