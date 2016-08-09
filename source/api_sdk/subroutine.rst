@@ -118,6 +118,10 @@ Some of the XiVO variables can be used and modified in subroutines (non exhausti
   extension, a DID, or an outgoing extension including the local prefix). This
   variable is available in all subroutines.
 
+* ``XIVO_INTERFACE``: the value is the `Technology/Resource` pairs that are used as the first
+  argument of the `Dial application <https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+Application_Dial>`_.
+  This variable is only available in the user subroutines.
+
 * ``XIVO_MOBILEPHONENUMBER``: the value is the phone number of a user, as set in the web interface.
   This variable is only available in user subroutines.
 
