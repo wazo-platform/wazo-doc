@@ -244,7 +244,7 @@ call_created, call_updated, call_ended
 The events ``call_created``, ``call_updated``, ``call_ended`` are sent when a call handled by
 xivo-ctid-ng is received, connected or hung up.
 
-* routing key: calls.call.created, calls.call.updated, call.call.ended
+* routing key: calls.call.created, calls.call.updated, calls.call.ended
 * required ACL: events.calls.<user_uuid>
 * event specific data: a dictionary with the same fields as the REST API model of Call (See
   http://api.xivo.io, section xivo-ctid-ng)
