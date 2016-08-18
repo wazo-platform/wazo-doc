@@ -4,6 +4,18 @@
 xivo-confd REST API changelog
 *****************************
 
+16.11
+=====
+* A new API to list lines associated to an extension
+
+  * GET ``/1.1/extensions/<extension_id>/lines``
+
+
+* The following URLs have been deprecated. Please use the new API instead:
+
+  * GET ``/1.1/extensions/<extension_id>/line``
+
+
 16.10
 =====
 
