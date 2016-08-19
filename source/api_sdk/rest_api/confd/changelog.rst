@@ -6,10 +6,15 @@ xivo-confd REST API changelog
 
 16.11
 =====
+
+* Added SIP general endpoints:
+
+  * GET ``/1.1/asterisk/sip/general``
+  * PUT ``/1.1/asterisk/sip/general``
+
 * A new API to list lines associated to an extension
 
   * GET ``/1.1/extensions/<extension_id>/lines``
-
 
 * The following URLs have been deprecated. Please use the new API instead:
 
