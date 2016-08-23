@@ -7,6 +7,12 @@ xivo-confd REST API changelog
 16.11
 =====
 
+* A new API for associating a user with an agent has been added:
+
+  * DELETE ``/1.1/users/<user_id>/agents/``
+  * GET ``/1.1/users/<user_id>/agents``
+  * PUT ``/1.1/users/<user_id>/agents/<agent_id>``
+
 * Added SIP general endpoints:
 
   * GET ``/1.1/asterisk/sip/general``
