@@ -4,12 +4,21 @@
 xivo-ctid-ng HTTP API changelog
 *******************************
 
+16.11
+=====
+
+* A new API for getting the status of lines:
+
+    * GET ``/1.0/lines/{id}/presences``
+
+
 16.10
 =====
 
 * A new API for checking the status of the daemon:
 
     * GET ``/1.0/status``
+
 
 16.09
 =====
