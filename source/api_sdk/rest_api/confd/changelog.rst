@@ -13,11 +13,6 @@ xivo-confd REST API changelog
   * GET ``/1.1/users/<user_id>/agents``
   * PUT ``/1.1/users/<user_id>/agents/<agent_id>``
 
-* Added SIP general endpoints:
-
-  * GET ``/1.1/asterisk/sip/general``
-  * PUT ``/1.1/asterisk/sip/general``
-
 * A new API to list lines associated to an extension
 
   * GET ``/1.1/extensions/<extension_id>/lines``
