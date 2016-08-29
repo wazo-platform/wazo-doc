@@ -193,6 +193,16 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+16.11
+-----
+
+Consult the `16.11 Roadmap <https://projects.xivo.io/versions/247>`_
+
+* Fax reception: the "log" backend type has been removed. You should remove references to it in your
+  :file:`/etc/xivo/asterisk/xivo_fax.conf` if you were using it. Now, every time a fax is processed,
+  a log line is added to :file:`/var/log/xivo-agid.log`.
+
+
 16.10
 -----
 

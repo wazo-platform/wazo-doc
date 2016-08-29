@@ -72,12 +72,8 @@ Or
    mv consul /usr/bin/consul
    mkdir -p /etc/consul/xivo
    mkdir -p /var/lib/consul
-   adduser --system --group --quiet \
-                    --shell /bin/sh \
-                    --home /var/lib/consul \
-                    --no-create-home --disabled-login \
-                    --gecos "Consul discovery service" \
-                    consul
+   adduser --quiet --system --group --no-create-home \
+           --home /var/lib/consul consul
 
 
 Copying the consul configuration from the XiVO to a new host

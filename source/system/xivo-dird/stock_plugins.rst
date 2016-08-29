@@ -28,6 +28,13 @@ View name: personal_view
 
 Purpose: Expose REST API to manage personal contacts (create, delete, list).
 
+phonebook_view
+--------------
+
+View name: phonebook_view
+
+Purpose: Expose REST API to manage xivo-dird's internal phonebooks.
+
 aastra_view
 -----------
 
@@ -127,7 +134,13 @@ Service name: personal
 
 Purpose: Add, delete, list personal contacts of users.
 
-The ``personal`` service needs a working Consul installation to store personal contacts.
+
+phonebook
+---------
+
+Service name: phonebook
+
+Purpose: Add, delete, list phonebooks and phonebook contacts.
 
 
 Configuration
@@ -300,6 +313,45 @@ delimiter (optional)
 
 timeout (optional)
     the number of seconds before the lookup on the web service is aborted. Default: 10.
+
+
+.. _dird-backend-dird_phonebook:
+
+dird_phonebook
+--------------
+
+back-end name: dird_phonebook
+
+Purpose: search the xivo-dird's internal phonebooks
+
+Configuration:
+^^^^^^^^^^^^^^
+
+.. code-block:: yaml
+   :linenos:
+
+    type: dird_phonebook
+    name: phonebook
+    db_uri: 'postgresql://asterisk:proformatique@localhost/asterisk'
+    tenant: default
+    phonebook_id: 42
+    first_matched_columns:
+      - number
+    searched_columns:
+      - firstname
+      - lastname
+    format_columns:
+        name: "{firstname} {lastname}"
+
+db_uri
+    the URI of the DB used by xivo-dird to store the phonebook.
+
+tenant
+    the tenant of the phonebook to query.
+
+phonebook_id
+    the `id` of the phonebook use by this source.
+
 
 
 .. _dird-backend-ldap:

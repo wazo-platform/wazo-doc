@@ -14,6 +14,12 @@ The versions below indicate the xivo version followed by the protocol version.
    before upgrading XiVO
 
 
+16.11 - 2.2
+-----------
+
+* the `user_id` field has been added back to the :ref:`user_status_update_event`
+
+
 16.09 - 2.2
 -----------
 
@@ -2146,9 +2152,10 @@ user using the :ref:`register_user_status_update_command` command.
 To stop receiving this event, the user must send the
 :ref:`unregister_user_status_update_command` command.
 
-* data, a dictionary containing 3 fields:
+* data, a dictionary containing the following fields:
 
-  * user_uuid, a strinc containing the UUID of the user.
+  * user_uuid, a string containing the UUID of the user.
+  * user_id, an integer containing the ID of the user.
   * xivo_uuid: a string containing the UUID of the XiVO that sent the status update
   * status: a string containing the new status of the user based on the cti profile configuration
 
@@ -2163,14 +2170,13 @@ To stop receiving this event, the user must send the
     "class": "user_status_update",
     "data": {
       "user_uuid": "<the-user-uuid>",
+      "user_id": <the-user-id>,
       "xivo_uuid": "<the-xivo-uuid>",
       "status": "<status-name>"
     }
   }
 
-The `user_status_update` event contains the same data as the :ref:`bus-user_status_update`.
-The latter should be preferred to the former for uses that do not require a
-persistent connection to xivo-ctid.
+.. warning:: The `user_id` field is **DEPRECATED** and **should not be used**. Use the `user_uuid` field instead.
 
 
 CTI server implementation

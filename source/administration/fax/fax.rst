@@ -98,9 +98,6 @@ Using the advanced features
 The following features are only available via the :file:`/etc/xivo/asterisk/xivo_fax.conf`
 configuration file. They are not available from the web-interface.
 
-The configuration file has documentation embedded in it in the form of comments, so we recommend you
-reading them before editing the configuration file.
-
 The way it works is the following:
 
 * you first declare some backends, i.e. actions to be taken when a fax is received. A backend name
@@ -201,13 +198,6 @@ Using the mail backend
 
 By default, a mail backend named ``mail`` is defined. You can define more mail backends if you
 want. Just look what the default mail backend looks like.
-
-
-Using the log backend
-^^^^^^^^^^^^^^^^^^^^^
-
-There's also a log backend available, which can be used to write a line to a file every time a fax
-is received.
 
 
 Fax detection
