@@ -4,6 +4,15 @@
 xivo-confd REST API changelog
 *****************************
 
+16.12
+=====
+
+* Added SIP general endpoints:
+
+  * GET ``/1.1/asterisk/sip/general``
+  * PUT ``/1.1/asterisk/sip/general``
+
+
 16.11
 =====
 
