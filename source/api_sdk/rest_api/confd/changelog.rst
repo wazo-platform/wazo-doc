@@ -7,6 +7,14 @@ xivo-confd REST API changelog
 16.12
 =====
 
+* Added trunks endpoints:
+
+  * GET ``/1.1/trunks/``
+  * POST ``/1.1/trunks/``
+  * DELETE ``/1.1/trunks/<trunk_id>``
+  * GET ``/1.1/trunks/<trunk_id>``
+  * PUT ``/1.1/trunks/<trunk_id>``
+
 * Added SIP general endpoints:
 
   * GET ``/1.1/asterisk/sip/general``
