@@ -7,6 +7,18 @@ xivo-confd REST API changelog
 16.12
 =====
 
+* A new API for associating an endpoint with a trunk has been added:
+
+  * DELETE ``/1.1/trunks/<trunk_id>/endpoints/sip/<endpoint_id>``
+  * PUT ``/1.1/trunks/<trunk_id>/endpoints/sip/<endpoint_id>``
+  * GET ``/1.1/trunks/<trunk_id>/endpoints/sip``
+  * GET ``/1.1/endpoints/sip/<endpoint_id>/trunks``
+
+  * DELETE ``/1.1/trunks/<trunk_id>/endpoints/custom/<endpoint_id>``
+  * PUT ``/1.1/trunks/<trunk_id>/endpoints/custom/<endpoint_id>``
+  * GET ``/1.1/trunks/<trunk_id>/endpoints/custom``
+  * GET ``/1.1/endpoints/custom/<endpoint_id>/trunks``
+
 * Added trunks endpoints:
 
   * GET ``/1.1/trunks``
