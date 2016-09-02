@@ -726,6 +726,8 @@ There's the following known limitations/issues with the provisioning of Snom pho
 
 * If you are using Snom phones with :ref:`HA <high-availability>`, you should not assign multiple lines
   to the same device.
+* The Snom D745 has limited space for function key labels: long labels might be split in a suboptimal
+  way.
 * When using a D7 expansion module, the function key label will not be shown on the first reboot or
   resynchronization. You'll need to reboot or resynchronize the phone a second time for the label to be
   shown properly.
