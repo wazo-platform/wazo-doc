@@ -9,8 +9,8 @@ xivo-confd REST API changelog
 
 * Added trunks endpoints:
 
-  * GET ``/1.1/trunks/``
-  * POST ``/1.1/trunks/``
+  * GET ``/1.1/trunks``
+  * POST ``/1.1/trunks``
   * DELETE ``/1.1/trunks/<trunk_id>``
   * GET ``/1.1/trunks/<trunk_id>``
   * PUT ``/1.1/trunks/<trunk_id>``
@@ -26,7 +26,7 @@ xivo-confd REST API changelog
 
 * A new API for associating a user with an agent has been added:
 
-  * DELETE ``/1.1/users/<user_id>/agents/``
+  * DELETE ``/1.1/users/<user_id>/agents``
   * GET ``/1.1/users/<user_id>/agents``
   * PUT ``/1.1/users/<user_id>/agents/<agent_id>``
 
