@@ -73,6 +73,9 @@ Unless specified, the license is `CC BY-SA`_.
 | :download:`How to configure XiVO with Untangle firewall<data/how_to_configure_untangle_firewall.pdf>`     | English  | Intermediate | Scott McCarthy | 16.04        |
 |                                                                                                           |          |              | (SMS IT Group) |              |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| :download:`How to use Keepalived with XiVO (high availability) <data/how_to_use_keepalived_with_xivo.odt>`| English  | Expert       | Eric Viel      | 16.11        |
+|                                                                                                           |          |              | (Iper Telecom) |              |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 | `Getting Started with XiVO`_                                                                              | English  | Beginner     | Nerd Vittles   | 16.07        |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 
