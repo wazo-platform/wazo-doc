@@ -179,6 +179,12 @@ username or administrator password for your phone in :menuselection:`Configurati
 --> Template Device`.
 
 
+Yealink Phones
+^^^^^^^^^^^^^^
+
+When using a Yealink switchboard, you must not configure a function key on position 1.
+
+
 Create an Agent for the Operator
 --------------------------------
 
