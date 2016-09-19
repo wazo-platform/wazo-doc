@@ -4,6 +4,18 @@
 xivo-confd REST API changelog
 *****************************
 
+16.13
+=====
+
+* Added incalls endpoints:
+
+  * GET ``/1.1/incalls``
+  * POST ``/1.1/incalls``
+  * DELETE ``/1.1/incalls/<incall_id>``
+  * GET ``/1.1/incalls/<incall_id>``
+  * PUT ``/1.1/incalls/<incall_id>``
+
+
 16.12
 =====
 
