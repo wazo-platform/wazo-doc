@@ -193,6 +193,12 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+16.12
+-----
+
+Consult the `16.12 Roadmap <https://projects.xivo.io/versions/248>`_
+
+
 16.11
 -----
 

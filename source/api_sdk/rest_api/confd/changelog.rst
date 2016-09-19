@@ -4,12 +4,41 @@
 xivo-confd REST API changelog
 *****************************
 
+16.12
+=====
+
+* A new API for associating an endpoint with a trunk has been added:
+
+  * DELETE ``/1.1/trunks/<trunk_id>/endpoints/sip/<endpoint_id>``
+  * PUT ``/1.1/trunks/<trunk_id>/endpoints/sip/<endpoint_id>``
+  * GET ``/1.1/trunks/<trunk_id>/endpoints/sip``
+  * GET ``/1.1/endpoints/sip/<endpoint_id>/trunks``
+
+  * DELETE ``/1.1/trunks/<trunk_id>/endpoints/custom/<endpoint_id>``
+  * PUT ``/1.1/trunks/<trunk_id>/endpoints/custom/<endpoint_id>``
+  * GET ``/1.1/trunks/<trunk_id>/endpoints/custom``
+  * GET ``/1.1/endpoints/custom/<endpoint_id>/trunks``
+
+* Added trunks endpoints:
+
+  * GET ``/1.1/trunks``
+  * POST ``/1.1/trunks``
+  * DELETE ``/1.1/trunks/<trunk_id>``
+  * GET ``/1.1/trunks/<trunk_id>``
+  * PUT ``/1.1/trunks/<trunk_id>``
+
+* Added SIP general endpoints:
+
+  * GET ``/1.1/asterisk/sip/general``
+  * PUT ``/1.1/asterisk/sip/general``
+
+
 16.11
 =====
 
 * A new API for associating a user with an agent has been added:
 
-  * DELETE ``/1.1/users/<user_id>/agents/``
+  * DELETE ``/1.1/users/<user_id>/agents``
   * GET ``/1.1/users/<user_id>/agents``
   * PUT ``/1.1/users/<user_id>/agents/<agent_id>``
 

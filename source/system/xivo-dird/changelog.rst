@@ -4,6 +4,21 @@
 xivo-dird changelog
 *******************
 
+16.12
+=====
+
+* Added phonebook imports
+
+  * POST ``0.1/tenants/<tenant>/phonebooks/<phonebook_id>/contacts/import``
+
+
+16.11
+=====
+
+* Added a new internal phonebook with a CRUD interface
+* Added a new backend to do lookups in the new phonebook
+
+
 15.20
 =====
 

@@ -125,6 +125,12 @@ Some of the XiVO variables can be used and modified in subroutines (non exhausti
 * ``XIVO_MOBILEPHONENUMBER``: the value is the phone number of a user, as set in the web interface.
   This variable is only available in user subroutines.
 
+* ``XIVO_QUEUENAME``: the value is the name of the queue being called.  This variable is only
+  available in queue subroutines.
+
+* ``XIVO_QUEUEOPTIONS``: the value is a list of options to be passed to the Queue application, e.g.
+  ``hHtT``. This variable is only available in queue subroutines.
+
 * ``XIVO_SRCNUM``: the value is the callerid number of the originator of the call: the internal
   extension of a user (outgoing callerid is ignored), or the public extension of an external
   incoming call. This variable is available in all subroutines.
