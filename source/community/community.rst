@@ -82,7 +82,6 @@ Unless specified, the license is `CC BY-SA`_.
 .. _Définition de XiVO pour la communauté et tutoriel (video): https://www.youtube.com/watch?v=leMZi6cU8iM
 .. _Xivo pour les nuls: http://xivopourlesnuls.wordpress.com
 .. _Installing XiVO (YouTube series): https://www.youtube.com/watch?v=EmY2KhCn418
-.. _Demo on line about XiVO: https://xivo-demo.avencall.com
 .. _Start\: how to create a user with a SIP line (YouTube series): https://www.youtube.com/watch?v=EmY2KhCn418
 .. _Start\: how to popup an URL (Document): https://drive.google.com/file/d/0B-gL3lbdXgynaklOMlFOZ0xETzA/view?pli=1
 .. _Start\: how to create a context, users, voicemails, ring group, music on hold, conf.call: http://www.networklab.fr/xivo-configuration-basique
