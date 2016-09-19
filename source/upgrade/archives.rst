@@ -52,6 +52,7 @@ Archive version < 13.25::
 
    apt-get update
    apt-get install {xivo-fai,xivo-fai-skaro}/squeeze-xivo-skaro-$(cat /usr/share/pf-xivo/XIVO-VERSION)
+   sed -i 's/xivo\.fr/xivo.io/g' /etc/apt/sources.list.d/*.list
    xivo-upgrade
 
 .. We need the old xivo-fai (squeeze), because the new xivo-fai (xivo-five) conflicts with
@@ -61,6 +62,7 @@ Archive version >= 13.25 and < 14.18::
 
    apt-get update
    apt-get install xivo-fai
+   sed -i 's/xivo\.fr/xivo.io/g' /etc/apt/sources.list.d/*.list
    xivo-upgrade
 
 Archive version >= 14.18::
@@ -87,6 +89,7 @@ Current version before 14.18 (here 13.25)
 ::
 
    apt-get install xivo-fai-13.25
+   sed -i 's/xivo\.fr/xivo.io/g' /etc/apt/sources.list.d/*.list
 
 You are now considered in an archived version, see the section `Upgrade from an older archive
 version to a newer archive version`_ below.
@@ -121,8 +124,10 @@ not 12.16 to 13.16
 
    apt-get update
    apt-get install {xivo-fai,xivo-fai-skaro}/squeeze-xivo-skaro-1.2.3
+   sed -i 's/xivo\.fr/xivo.io/g' /etc/apt/sources.list.d/*.list
    apt-get update
    apt-get install xivo-fai-14.16
+   sed -i 's/xivo\.fr/xivo.io/g' /etc/apt/sources.list.d/*.list
    apt-get update
    apt-get install xivo-upgrade/xivo-14.16
 
@@ -154,8 +159,10 @@ not 12.16 to 13.16
    apt-get update
    apt-get install xivo-fai
    apt-get purge xivo-fai-13.25
+   sed -i 's/xivo\.fr/xivo.io/g' /etc/apt/sources.list.d/*.list
    apt-get update
    apt-get install xivo-fai-14.16
+   sed -i 's/xivo\.fr/xivo.io/g' /etc/apt/sources.list.d/*.list
    apt-get update
    apt-get install xivo-upgrade/xivo-14.16
 
@@ -178,6 +185,7 @@ not 12.16 to 13.16
 
    apt-get update
    apt-get install xivo-fai
+   sed -i 's/xivo\.fr/xivo.io/g' /etc/apt/sources.list.d/*.list
    apt-get update
    apt-get install xivo-dist
    xivo-dist xivo-15.11
