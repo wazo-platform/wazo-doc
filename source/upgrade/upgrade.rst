@@ -27,7 +27,6 @@ There are 2 options you can pass to xivo-upgrade:
 * ``-d`` to only download packages without installing them. **This will still upgrade the package containing xivo-upgrade and xivo-service**.
 * ``-f`` to force upgrade, without asking for user confirmation
 
-
 ``xivo-upgrade`` uses the following environment variables:
 
 * ``XIVO_CONFD_PORT`` to set the port used to query the :ref:`HTTP API of xivo-confd <confd-api>`
@@ -54,6 +53,14 @@ Upgrade procedure
 
 Version-specific upgrade procedures
 ===================================
+
+Upgrading from XiVO 14.11 and before
+------------------------------------
+
+When upgrading from XiVO 14.11 or earlier, you must do the following, before the normal upgrade::
+
+   sed -i 's/xivo\.fr/xivo.io/g' /etc/apt/sources.list.d/*.list
+
 
 Upgrading from XiVO 14.01, 14.02, 14.03, 14.04 installed from the ISO
 ---------------------------------------------------------------------
