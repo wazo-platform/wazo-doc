@@ -7,6 +7,13 @@ xivo-confd REST API changelog
 16.13
 =====
 
+* A new API for associating an extension with an incall has been added:
+
+  * DELETE ``/1.1/incalls/<incall_id>/extensions/<extension_id>``
+  * PUT ``/1.1/incalls/<incall_id>/extensions/<extension_id>``
+  * GET ``/1.1/incalls/<incall_id>/extensions``
+  * GET ``/1.1/extensions/<extension_id>/incalls``
+
 * Added incalls endpoints:
 
   * GET ``/1.1/incalls``
