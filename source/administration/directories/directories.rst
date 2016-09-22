@@ -17,6 +17,7 @@ An example of `adding a source`_ and `configuring source access`_ is made for ea
    csv_file
    csv_web_service
    phonebook
+   dird_phonebook
 
 .. note:: Phone IP should be in the authorized subnet to access the directories. See :ref:`remote-directory`.
 
