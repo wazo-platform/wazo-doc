@@ -350,12 +350,11 @@ db_uri
 tenant
     the tenant of the phonebook to query.
 
-phonebook_id (optional)
-    the `id` of the phonebook used by this source.
-
-phonebook_name (optional)
+phonebook_name
     the `name` of the phonebook used by this source.
 
+phonebook_id (deprecated, use phonebook_name)
+    the `id` of the phonebook used by this source.
 
 
 .. _dird-backend-ldap:
