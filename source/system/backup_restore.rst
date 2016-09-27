@@ -81,7 +81,9 @@ Here is the list of folders and files that are backed-up:
 * :file:`/usr/local/sbin/`
 * :file:`/usr/share/xivo/XIVO-VERSION`
 * :file:`/var/lib/asterisk/`
-* :file:`/var/lib/consul/`
+* :file:`/var/lib/consul/master_token`
+* :file:`/var/lib/consul/default_xivo_consul_config.yml`
+* :file:`/var/lib/consul/default_xivo_consul_token.yml`
 * :file:`/var/lib/xivo-provd/`
 * :file:`/var/lib/xivo/`
 * :file:`/var/log/asterisk/`
