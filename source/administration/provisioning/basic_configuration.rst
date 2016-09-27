@@ -257,6 +257,8 @@ The phone doesn't restart and the phone is in autoprov mode in the device list.
 You can synchronize the device for reboot it.
 
 
+.. _reset-to-autoprov-device:
+
 From a Device
 -------------
 

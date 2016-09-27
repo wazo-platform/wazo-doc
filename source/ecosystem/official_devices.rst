@@ -494,6 +494,51 @@ Mitel
 The Mitel 6700 Series and 6800 Series SIP Phones are supported in XiVO. See the Aastra_ section.
 
 
+Patton
+------
+
+The following analog VoIP gateways are supported:
+
++--------------------------------------------+--------+--------+--------+--------+--------+--------+--------+
+|                                            | SN4112 | SN4114 | SN4116 | SN4118 | SN4316 | SN4324 | SN4332 |
++============================================+========+========+========+========+========+========+========+
+| Provisioning                               | Y      | Y      | Y      | Y      | Y      | Y      | Y      |
++--------------------------------------------+--------+--------+--------+--------+--------+--------+--------+
+| H-A                                        | Y      | Y      | Y      | Y      | Y      | Y      | Y      |
++--------------------------------------------+--------+--------+--------+--------+--------+--------+--------+
+
+XiVO only supports configuring the FXS ports of these gateways. It does not support configuring the
+FXO ports. If you have a gateway on which you would like to configure the FXO ports, you'll need to
+write the FXO ports configuration manually by creating a :ref:`custom template
+<provd-custom-templates>` for your gateway.
+
+It's only possible to enter a provisioning code on the first FXS port of a gateway. For example, if
+you have a gateway with 8 FXS ports, the first port can be configured by dialing a provisioning code
+from it, but ports 2 to 7 can only be configured via the XiVO web interface. Also, if you dial the
+:ref:`"reset to autoprov" extension <reset-to-autoprov-device>` from any port, the configuration of
+all the ports will be reset, not just the port on which the extension was dialed. These limitations
+might go away in the future.
+
+These gateways are configured with a few regional parameters (France by default). These parameters
+are easy to change by writing a :ref:`custom template <provd-custom-templates>`.
+
+Telnet access and web access are enabled by default. You should change the default password by
+setting an administrator password via a XiVO "template device".
+
+By downloading and installing the Patton firmwares, you agree to the `Patton Electronics Company
+conditions <http://www.patton.com/legal/eula.asp>`_.
+
+To provision a gateway that was previously configured manually, use the following commands
+on your gateway (configure mode), replacing XIVO_IP by the IP address of your XiVO server::
+
+   profile provisioning PF_PROVISIONING_CONFIG
+     destination configuration
+     location 1 http://XIVO_IP:8667/$(system.mac).cfg
+     activation reload graceful
+     exit
+   provisioning execute PF_PROVISIONING_CONFIG
+
+
 Polycom
 -------
 
