@@ -81,9 +81,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/usr/local/sbin/`
 * :file:`/usr/share/xivo/XIVO-VERSION`
 * :file:`/var/lib/asterisk/`
-* :file:`/var/lib/consul/master_token`
-* :file:`/var/lib/consul/default_xivo_consul_config.yml`
-* :file:`/var/lib/consul/default_xivo_consul_token.yml`
+* :file:`/var/lib/consul/`
 * :file:`/var/lib/xivo-provd/`
 * :file:`/var/lib/xivo/`
 * :file:`/var/log/asterisk/`
@@ -94,6 +92,10 @@ The following files/folders are excluded from this backup:
 
 * folders:
 
+  * :file:`/var/lib/consul/checks`
+  * :file:`/var/lib/consul/raft`
+  * :file:`/var/lib/consul/serf`
+  * :file:`/var/lib/consul/services`
   * :file:`/var/lib/xivo-provd/plugins/*/var/cache/*`
   * :file:`/var/spool/asterisk/monitor/`
   * :file:`/var/spool/asterisk/meetme/`
