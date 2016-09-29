@@ -4,6 +4,18 @@
 xivo-confd REST API changelog
 *****************************
 
+16.14
+=====
+
+* Added outcalls endpoints:
+
+  * GET ``/1.1/outcalls``
+  * POST ``/1.1/outcalls``
+  * DELETE ``/1.1/outcalls/<outcall_id>``
+  * GET ``/1.1/outcalls/<outcall_id>``
+  * PUT ``/1.1/outcalls/<outcall_id>``
+
+
 16.13
 =====
 
