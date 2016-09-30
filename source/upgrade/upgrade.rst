@@ -200,6 +200,19 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+16.13
+-----
+
+Consult the `16.13 Roadmap <https://projects.xivo.io/versions/249>`_
+
+* Previously, a user's :abbr:`DND (Do Not Distrub)` was effective only if this user had DND enabled
+  *and* the DND extension (\*25 by default) was also enabled. Said differently, disabling the DND
+  extension meant that no user could effectively be in DND. Starting from XiVO 16.13, a user's DND
+  is effective regardless of the state of the DND extension. The following features are impacted in
+  the same way: call recording, incoming call filtering, forward on non-answer, forward on busy and
+  unconditional forward.
+
+
 16.12
 -----
 
