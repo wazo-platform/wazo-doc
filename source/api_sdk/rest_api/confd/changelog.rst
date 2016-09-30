@@ -7,7 +7,7 @@ xivo-confd REST API changelog
 16.13
 =====
 
-* A new readonly parameters have been added to the trunks resource:
+* New readonly parameters have been added to the trunks resource:
 
   * ``endpoint_sip``
   * ``endpoint_sccp``
