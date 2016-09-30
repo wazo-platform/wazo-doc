@@ -7,6 +7,15 @@ xivo-confd REST API changelog
 16.13
 =====
 
+* New readonly parameters have been added to the trunks resource:
+
+  * ``endpoint_sip``
+  * ``endpoint_sccp``
+
+* A new readonly parameter have been added to the endpoint_sip and endpoint_custom resource:
+
+  * ``trunk``
+
 * A new API for associating an extension with an incall has been added:
 
   * DELETE ``/1.1/incalls/<incall_id>/extensions/<extension_id>``
