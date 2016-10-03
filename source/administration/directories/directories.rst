@@ -200,8 +200,8 @@ To include a directory in reverse directory definition:
 Applying changes
 ================
 
-Reload the directory configuration for XiVO Client, phone lookups and reverse lookups, use ONE of
+To reload the directory configuration for XiVO Client, phone lookups and reverse lookups, use *one* of
 these methods:
 
-* :menuselection:`Services --> CTI Server --> Control --> Restart Dird server`
+* :menuselection:`Services --> IPBX --> Control --> Restart Dird server`
 * console ``service xivo-dird restart``
