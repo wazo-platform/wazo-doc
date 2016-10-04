@@ -20,8 +20,6 @@ xivo-confd REST API changelog
 
   * DELETE ``/1.1/incalls/<incall_id>/extensions/<extension_id>``
   * PUT ``/1.1/incalls/<incall_id>/extensions/<extension_id>``
-  * GET ``/1.1/incalls/<incall_id>/extensions``
-  * GET ``/1.1/extensions/<extension_id>/incalls``
 
 * Added incalls endpoints:
 
