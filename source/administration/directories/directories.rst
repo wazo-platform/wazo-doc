@@ -16,16 +16,14 @@ An example of `adding a source`_ and `configuring source access`_ is made for ea
    xivo
    csv_file
    csv_web_service
-   phonebook
    dird_phonebook
+   ldap_filter
 
 .. note:: Phone IP should be in the authorized subnet to access the directories. See :ref:`remote-directory`.
 
 
 Adding a source
 ===============
-
-.. note:: See :ref:`ldap` for adding this source.
 
 You can add new data sources via the :menuselection:`Configuration --> Management --> Directories`
 page.
@@ -36,7 +34,8 @@ page.
     * :ref:`XiVO<xivo-directory>`
     * :ref:`CSV File<csv-file-directory>`
     * :ref:`CSV Web service<csv-web-service-directory>`
-    * :ref:`Phonebook<phonebook-directory>`
+    * :ref:`XiVO dird phonebook<dird_phonebook>`
+    * :ref:`LDAP filter directory<ldap_filter_directory>`
 
 * :guilabel:`URI`: the data source
 * :guilabel:`Description`: (optional) a description of the directory
@@ -47,20 +46,25 @@ page.
 Configuring source access
 =========================
 
-Go in :menuselection:`Services --> CTI Server --> Directories --> Definitions` and add a new
-directory definition.
+.. figure:: images/source_definition.png
 
-* :guilabel:`Name`: the name of the directory definition
-* :guilabel:`URI`: the data source
-* :guilabel:`Delimiter`: (optional) the field delimiter in the data source
-* :guilabel:`Direct match`: the list used to match entries for direct lookup (comma separated)
-* :guilabel:`Match reverse directories`: (optional) the list used to match entries for reverse
-  lookup (comma separated)
-* :guilabel:`Mapped fields`: used to add or modify columns in this directory source
+  :menuselection:`Services --> CTI Server --> Directories --> Definitions`
 
-  * :guilabel:`Fieldname`: the identifier for this new field
-  * :guilabel:`Value`: a python format string that can be used to modify the data returned from a
-    data source
+  :guilabel:`Name`: the name of the source
+
+  :guilabel:`Directory`: the name of the directory
+
+  :guilabel:`Delimiter`: (optional) the field delimiter in the data source
+
+  :guilabel:`Direct match`: the list used to match entries for direct lookup (comma separated)
+
+  :guilabel:`Match reverse directories`: (optional) the list used to match entries for reverse lookup (comma separated)
+
+  :guilabel:`Mapped fields`: used to add or modify columns in this directory source
+
+  :guilabel:`Fieldname`: the identifier for this new field
+
+  :guilabel:`Value`: a python format string that can be used to modify the data returned from a data source
 
 
 .. _reverse_lookup:
@@ -88,10 +92,9 @@ To enable reverse lookup, you need to add an entry in :guilabel:`Mapped fields`:
 Example
 ^^^^^^^
 
-* :guilabel:`Match reverse directories`:
-  ``phonebooknumber.office.number,phonebooknumber.mobile.number,phonebooknumber.home.number``
+* :guilabel:`Match reverse directories`: ``number_office,number_mobile``
 * :guilabel:`Fieldname`: ``reverse``
-* :guilabel:`Value`: ``phonebook.society``
+* :guilabel:`Value`: ``{society}``
 
 This configuration will show the contact's company name on the caller ID name, when the incoming
 call will match office, mobile or home number.
@@ -147,7 +150,6 @@ following :guilabel:`Mapped fields`:
 
 * :guilabel:`Fieldname`: ``directory``
 * :guilabel:`Value`: ``XiVO internal directory``
-
 
 
 Configuring source display
