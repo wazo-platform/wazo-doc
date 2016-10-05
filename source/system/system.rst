@@ -13,6 +13,7 @@ System
    configuration_files
    consul
    log_files
+   nginx
    ntp
    proxy
    service_discovery

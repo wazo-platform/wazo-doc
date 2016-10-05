@@ -142,14 +142,6 @@ user
    The owner of the process. Default: ``www-data``.
 
 
-rest_api section
-----------------
-
-wsgi_socket
-   The socket used for WSGI communications (between nginx and xivo-dird). Default:
-   ``/var/run/xivo-dird/xivo-dird.sock``.
-
-
 enabled_plugins section
 -----------------------
 
