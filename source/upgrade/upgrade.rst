@@ -211,6 +211,10 @@ Consult the `16.13 Roadmap <https://projects.xivo.io/versions/249>`_
   is effective regardless of the state of the DND extension. The following features are impacted in
   the same way: call recording, incoming call filtering, forward on non-answer, forward on busy and
   unconditional forward.
+* If you have manually added nginx configuration files to the :file:`/etc/nginx/locations/http`
+  directory, you'll need to move these files to :file:`/etc/nginx/locations/http-available` and then
+  create symlinks to them in the :file:`/etc/nginx/locations/http-enabled` directory. This also
+  applies to the https directory. See :ref:`nginx`.
 
 
 16.12
