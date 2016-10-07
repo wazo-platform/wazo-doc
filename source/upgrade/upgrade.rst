@@ -219,6 +219,15 @@ Consult the `16.14 Roadmap <https://projects.xivo.io/versions/250>`_
   * The selected phonebooks for reverse lookups can be modified in :menuselection:`Services --> CTI Server --> Directories --> Reverse directories`
   * Direct directories can be modified in :menuselection:`Services --> CTI Server --> Directories --> Direct directories`
 
+* Asterisk has been upgraded from version 13.11.2 to 14.0.2, which is a major Asterisk upgrade.
+
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   16.14/asterisk_14
+
 
 16.13
 -----
