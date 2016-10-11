@@ -118,6 +118,12 @@ Some of the XiVO variables can be used and modified in subroutines (non exhausti
   extension, a DID, or an outgoing extension including the local prefix). This
   variable is available in all subroutines.
 
+* ``XIVO_GROUPNAME``: the value is the name of the group being called. This variable is only
+  available in group subroutines.
+
+* ``XIVO_GROUPOPTIONS``: the value is a list of options to be passed to the Queue application, e.g.
+  ``hHtT``. This variable is only available in group subroutines.
+
 * ``XIVO_INTERFACE``: the value is the `Technology/Resource` pairs that are used as the first
   argument of the `Dial application <https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+Application_Dial>`_.
   This variable is only available in the user subroutines.
@@ -125,7 +131,7 @@ Some of the XiVO variables can be used and modified in subroutines (non exhausti
 * ``XIVO_MOBILEPHONENUMBER``: the value is the phone number of a user, as set in the web interface.
   This variable is only available in user subroutines.
 
-* ``XIVO_QUEUENAME``: the value is the name of the queue being called.  This variable is only
+* ``XIVO_QUEUENAME``: the value is the name of the queue being called. This variable is only
   available in queue subroutines.
 
 * ``XIVO_QUEUEOPTIONS``: the value is a list of options to be passed to the Queue application, e.g.

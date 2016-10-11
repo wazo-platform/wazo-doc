@@ -335,6 +335,7 @@ Configuration:
     db_uri: 'postgresql://asterisk:proformatique@localhost/asterisk'
     tenant: default
     phonebook_id: 42
+    phonebook_name: main
     first_matched_columns:
       - number
     searched_columns:
@@ -349,9 +350,11 @@ db_uri
 tenant
     the tenant of the phonebook to query.
 
-phonebook_id
-    the `id` of the phonebook use by this source.
+phonebook_name
+    the `name` of the phonebook used by this source.
 
+phonebook_id (deprecated, use phonebook_name)
+    the `id` of the phonebook used by this source.
 
 
 .. _dird-backend-ldap:

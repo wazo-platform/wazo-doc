@@ -92,6 +92,10 @@ The following files/folders are excluded from this backup:
 
 * folders:
 
+  * :file:`/var/lib/consul/checks`
+  * :file:`/var/lib/consul/raft`
+  * :file:`/var/lib/consul/serf`
+  * :file:`/var/lib/consul/services`
   * :file:`/var/lib/xivo-provd/plugins/*/var/cache/*`
   * :file:`/var/spool/asterisk/monitor/`
   * :file:`/var/spool/asterisk/meetme/`

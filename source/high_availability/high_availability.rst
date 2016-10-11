@@ -75,7 +75,6 @@ will then be rsync'ed every hour:
 * /etc/xivo/asterisk
 * /var/lib/asterisk/agi-bin
 * /var/lib/asterisk/moh
-* /var/lib/consul/raft
 * /var/lib/xivo/certificates
 * /var/lib/xivo/sounds/acd
 * /var/lib/xivo/sounds/playback

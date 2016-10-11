@@ -4,11 +4,10 @@
 XiVO |version| Documentation
 ****************************
 
-XiVO is an application suite developed by Avencall_ Group, based on several free existing components
+XiVO is an application suite based on several free existing components
 including Asterisk_, and our own developments to provide communication services (IPBX, Unified
 Messaging, ...) to businesses.
 
-.. _Avencall: http://www.avencall.com/
 .. _Asterisk: http://www.asterisk.org/
 
 XiVO is `free software`_. Most of its distinctive components, and XiVO as a whole, are distributed
