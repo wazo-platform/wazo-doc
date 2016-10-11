@@ -6,14 +6,16 @@ Asterisk 13 to 14 Upgrade Notes
 
 You might be impacted by the upgrade to Asterisk 14 if you have:
 
-* custom dialplan
-* custom Asterisk configuration
+* custom Asterisk configuration (other than custom dialplan)
 * custom application using AMI or ARI
 * custom Asterisk modules (e.g. codec_g729a.so)
-* customized Asterisk in some other way
 
 If you find yourself in one of these cases, you should make sure that your customizations still work
 with Asterisk 14.
+
+In particular, if you are using custom Asterisk modules, you'll need to either obtain the Asterisk
+14 version of these modules or recompile them against Asterisk 14. Not doing so usually leads to
+major instability issues in Asterisk.
 
 If you are upgrading from Asterisk 11, you should also check the :ref:`Asterisk 11 to 13 upgrade notes
 <asterisk-11-to-13>`.
@@ -32,7 +34,3 @@ You can see the complete list of changes from the Asterisk website:
 
 * https://wiki.asterisk.org/wiki/display/AST/Upgrading+to+Asterisk+14
 * https://github.com/asterisk/asterisk/blob/14/CHANGES
-
-The AGI protocol did not change between Asterisk 13 and Asterisk 14; if you have custom AGI
-applications, you only need to make sure that the dialplan applications and functions you are using
-from the AGI are still valid.
