@@ -19,6 +19,11 @@ xivo-confd REST API changelog
 
   * PUT ``/1.1/outcalls/<outcall_id>/trunks``
 
+* A new API for associating an extension with an outcall has been added:
+
+  * DELETE ``/1.1/outcalls/<outcall_id>/extensions/<extension_id>``
+  * PUT ``/1.1/outcalls/<outcall_id>/extensions/<extension_id>``
+
 
 16.13
 =====
