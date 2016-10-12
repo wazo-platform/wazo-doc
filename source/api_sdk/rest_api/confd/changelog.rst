@@ -15,7 +15,7 @@ xivo-confd REST API changelog
   * GET ``/1.1/outcalls/<outcall_id>``
   * PUT ``/1.1/outcalls/<outcall_id>``
 
-* A new API for associating a trunks with an outcall has been added:
+* A new API for associating trunks with an outcall has been added:
 
   * PUT ``/1.1/outcalls/<outcall_id>/trunks``
 
