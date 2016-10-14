@@ -200,6 +200,26 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+16.14
+-----
+
+Consult the `16.14 Roadmap <https://projects.xivo.io/versions/250>`_
+
+* The phonebook has been migrated from the web interface to xivo-dird. The phonebook contacts
+  from the web interface have been moved to new dird-phonebooks. For users with many entities
+  on the same XiVO, this will create one phonebook for each entity. The configuration has been
+  updated to keep the previous behavior. No manual actions are required for installations with only one entity or
+  if one phonebook by entity is the desired configuration. If only one phonebook is desired for all entities, some
+  of the duplicate phonebooks can be deleted from the web interface and their matching configuration
+  can also be removed.
+
+  * The list of phonebooks can be modified in :menuselection:`Services --> IPBX --> IPBX services --> Phonebook`
+  * The list of phonebooks sources can be modified in :menuselection:`Configuration --> Management --> Directories`
+  * and :menuselection:`Services --> CTI Server --> Directories --> Definitions`
+  * The selected phonebooks for reverse lookups can be modified in :menuselection:`Services --> CTI Server --> Directories --> Reverse directories`
+  * Direct directories can be modified in :menuselection:`Services --> CTI Server --> Directories --> Direct directories`
+
+
 16.13
 -----
 

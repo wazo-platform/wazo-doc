@@ -122,23 +122,3 @@ The new *Display filter* has to be assigned to the *__switchboard_directory* con
 You can then choose which directories will be searched by the Xlet.
 
 .. warning:: You must **not select internal** directory, as it is already handled.
-
-
-LDAP Configuration
-------------------
-
-To search in ldap directories, you must have an LDAP server configured. See :ref:`ldap` for more details.
-
-
-LDAP filter
-^^^^^^^^^^^
-
-If you already have an LDAP filter configured for the *Remote directory* Xlet, you can use it.
-
-If not, please refer to :ref:`add-ldap-filter`.
-
-
-Include the new directory for lookup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-You must use the new LDAP filter in the `Context and filter association`_ step.
