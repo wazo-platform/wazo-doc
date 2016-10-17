@@ -16,6 +16,7 @@ Reference
    confd/api
    ctid/api
    ctid-ng/api
+   dird/api
    provd/api
    sysconfd/api
 
