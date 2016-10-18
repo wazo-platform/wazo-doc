@@ -7,6 +7,27 @@ xivo-confd REST API changelog
 16.14
 =====
 
+* New readonly parameters have been added to the line resource:
+
+  * ``endpoint_sip``
+  * ``endpoint_sccp``
+  * ``endpoint_custom``
+  * ``extensions``
+  * ``users``
+
+* New readonly parameters have been added to the extension resource:
+
+  * ``lines``
+
+* New readonly parameters have been added to the user resource:
+
+  * ``lines``
+
+* A new readonly parameter have been added to the endpoint_sip, endpoint_sccp and endpoint_custom
+  resource:
+
+  * ``line``
+
 * Added outcalls endpoints:
 
   * GET ``/1.1/outcalls``
@@ -31,7 +52,7 @@ xivo-confd REST API changelog
 * New readonly parameters have been added to the trunks resource:
 
   * ``endpoint_sip``
-  * ``endpoint_sccp``
+  * ``endpoint_custom``
 
 * A new readonly parameter have been added to the endpoint_sip and endpoint_custom resource:
 
