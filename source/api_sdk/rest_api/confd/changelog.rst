@@ -7,6 +7,10 @@ xivo-confd REST API changelog
 16.14
 =====
 
+* Added users endpoints in REST API:
+
+  * GET ``/1.1/users/<user_uuid>/lines/<line_id>/associated/endpoints/sip``
+
 * New readonly parameters have been added to the line resource:
 
   * ``endpoint_sip``
