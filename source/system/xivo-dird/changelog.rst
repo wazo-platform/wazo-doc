@@ -4,6 +4,12 @@
 xivo-dird changelog
 *******************
 
+16.14
+=====
+
+* The ``phonebook`` backend has been removed in favor of the ``dird_phonebook`` backend.
+
+
 16.12
 =====
 
