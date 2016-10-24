@@ -40,6 +40,14 @@ xivo-confd REST API changelog
   * GET ``/1.1/outcalls/<outcall_id>``
   * PUT ``/1.1/outcalls/<outcall_id>``
 
+* Added IVR endpoints:
+
+  * GET ``/1.1/ivr``
+  * POST ``/1.1/ivr``
+  * DELETE ``/1.1/ivr/<ivr_id>``
+  * GET ``/1.1/ivr/<ivr_id>``
+  * PUT ``/1.1/ivr/<ivr_id>``
+
 * A new API for associating trunks with an outcall has been added:
 
   * PUT ``/1.1/outcalls/<outcall_id>/trunks``
