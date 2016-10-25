@@ -14,6 +14,10 @@ Changelog
 16.14
 -----
 
+* A new resource has been added to fetch the current configuration of xivo-dird
+
+    * GET ``/0.1/config``
+
 * The `exclude` query parameter has been added to the following routes to exclude
   directory sources from searches.
 
