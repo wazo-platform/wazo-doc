@@ -12,6 +12,12 @@ xivo-ctid-ng HTTP API changelog
     * POST ``/1.0/transfers``
     * POST ``/1.0/users/me/transfers``
 
+* A new ``line_id`` parameter has been added to the following URL:
+
+    * POST ``/1.0/calls``
+    * POST ``/1.0/users/me/calls``
+
+
 
 16.11
 =====
