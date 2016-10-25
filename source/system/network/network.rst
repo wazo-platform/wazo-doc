@@ -7,7 +7,7 @@ Network
 .. index:: network
 
 This section describes how to configure additional network devices that may be used to better
-accomodate more complex network infrastructures. Network interfaces are managed in the XiVO web
+accommodate more complex network infrastructures. Network interfaces are managed in the XiVO web
 interface via the page :menuselection:`Configuration --> Network --> Interfaces`.
 
 XiVO offers 2 types of interfaces: `VoIP` and `Data`. The `VoIP` interface is used by the DHCP
