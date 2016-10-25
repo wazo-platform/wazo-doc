@@ -4,6 +4,14 @@
 xivo-ctid-ng HTTP API changelog
 *******************************
 
+16.14
+=====
+
+* A new `timeout` parameter has been added to the following URL:
+
+    * POST ``/1.0/transfers``
+
+
 16.11
 =====
 
