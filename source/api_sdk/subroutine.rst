@@ -91,7 +91,6 @@ You can also use a global subroutine for call forward.
    XIVO_PRESUBR_FWD_MEETME = xivo-subrfwd-meetme
    XIVO_PRESUBR_FWD_VOICEMAIL = xivo-subrfwd-voicemail
    XIVO_PRESUBR_FWD_SCHEDULE = xivo-subrfwd-schedule
-   XIVO_PRESUBR_FWD_VOICEMENU = xivo-subrfwd-voicemenu
    XIVO_PRESUBR_FWD_SOUND = xivo-subrfwd-sound
    XIVO_PRESUBR_FWD_CUSTOM = xivo-subrfwd-custom
    XIVO_PRESUBR_FWD_EXTENSION = xivo-subrfwd-extension

@@ -15,7 +15,7 @@ Introduction
    -- Wikipedia
 
 The IVR function is not yet available in graphic mode in XiVO. This functionality is currently
-supported using scripts, also named dialplan.
+supported only via the :ref:`xivo-confd REST API <confd-api>` or using scripts, also named dialplan.
 
 
 Use Case: Minimal IVR
