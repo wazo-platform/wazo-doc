@@ -47,6 +47,10 @@ For this, follow these steps:
   * Private key: :file:`/usr/share/xivo-certs/server.key`
   * Certificate: :file:`/usr/share/xivo-certs/server.crt`
 
+  Those files *MUST* be readable by the group ``www-data``. You can check with the following command::
+
+      sudo -u www-data cat /usr/share/xivo-certs/server.{key,crt}
+
 2. Change the hostname of XiVO for each XiVO component: the different processes of XiVO heavily use
    HTTPS for internal communication, and for these connection to establish successfully, all
    hostnames used must match the Common Name (CN) of your certificate. Basically, you must replace
