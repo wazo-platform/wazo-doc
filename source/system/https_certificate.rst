@@ -44,10 +44,10 @@ For this, follow these steps:
 
 1. Replace the following files with your own private key/certificate pair:
 
-  * Private key: :file:`/usr/share/xivo-certs/server.key`
-  * Certificate: :file:`/usr/share/xivo-certs/server.crt`
-
-  Those files **must** be readable by the group ``www-data``. You can check with the following command::
+   * Private key: :file:`/usr/share/xivo-certs/server.key`
+   * Certificate: :file:`/usr/share/xivo-certs/server.crt`
+ 
+   Those files **must** be readable by the group ``www-data``. You can check with the following command::
 
       sudo -u www-data cat /usr/share/xivo-certs/server.{key,crt}
 
