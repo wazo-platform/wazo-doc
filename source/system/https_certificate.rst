@@ -47,7 +47,7 @@ For this, follow these steps:
   * Private key: :file:`/usr/share/xivo-certs/server.key`
   * Certificate: :file:`/usr/share/xivo-certs/server.crt`
 
-  Those files *MUST* be readable by the group ``www-data``. You can check with the following command::
+  Those files **must** be readable by the group ``www-data``. You can check with the following command::
 
       sudo -u www-data cat /usr/share/xivo-certs/server.{key,crt}
 
@@ -114,7 +114,7 @@ For this, follow these steps:
 
 4. You need an entry in :file:`/etc/hosts` resolving your CN to ``127.0.0.1``. For this, *do not*
    edit the file manually, because your modifications will be rewritten when you "Apply system
-   configuration" from the web interace. Instead, create a custom template for :file:`/etc/hosts`,
+   configuration" from the web interface. Instead, create a custom template for :file:`/etc/hosts`,
    and this template will be used when generating :file:`/etc/hosts`::
 
       mkdir -p /etc/xivo/custom-templates/system/etc
@@ -123,8 +123,7 @@ For this, follow these steps:
 
    You can check the configuration with the following command, it should give you ``127.0.0.1``::
 
-      getent hosts xivo.example.com
-
+      getent ahosts xivo.example.com
 
 5. Restart all XiVO services::
 
