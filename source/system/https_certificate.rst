@@ -57,15 +57,19 @@ For this, follow these steps:
       cat > /etc/xivo/custom/custom-certificate.yml << EOF
       consul:
         host: xivo.example.com
+      agentd:
+        host: xivo.example.com
+      ajam:
+        host: xivo.example.com
+      amid:
+        host: xivo.example.com
       auth:
         host: xivo.example.com
       confd:
         host: xivo.example.com
+      ctid_ng:
+        host: xivo.example.com
       dird:
-        host: xivo.example.com
-      ajam:
-        host: xivo.example.com
-      agentd:
         host: xivo.example.com
       EOF
       for config_dir in /etc/xivo-*/conf.d/ ; do
@@ -91,10 +95,10 @@ For this, follow these steps:
       consul:
         host: xivo.example.com
         verify: True
-      auth:
+      agentd:
         host: xivo.example.com
         verify_certificate: True
-      dird:
+      ajam:
         host: xivo.example.com
         verify_certificate: True
       ...
@@ -104,17 +108,19 @@ For this, follow these steps:
    machine, however, this is dangerous when XiVO services are separated by an untrusted network,
    such as the Internet.
 
-4. Ensure your CN resolves to a valid IP address with either:
+4. You need an entry in :file:`/etc/hosts` resolving your CN to ``127.0.0.1``. For this, *do not*
+   edit the file manually, because your modifications will be rewritten when you "Apply system
+   configuration" from the web interace. Instead, create a custom template for :file:`/etc/hosts`,
+   and this template will be used when generating :file:`/etc/hosts`::
 
-   * a DNS entry
-   * an entry in :file:`/etc/hosts` resolving your CN to 127.0.0.1. Note that :file:`/etc/hosts`
-     will be rewritten occasionally by xivo-sysconfd. To make the change persistent, you can:
+      mkdir -p /etc/xivo/custom-templates/system/etc
+      sed 's/127\.0\.1\.1/127.0.0.1/' /usr/share/xivo-config/templates/system/etc/hosts > /etc/xivo/custom-templates/system/etc/hosts
+      xivo-update-config
 
-     #. modify :file:`/usr/share/xivo-sysconfd/templates/resolvconf/hosts` instead (which will be
-        rewritten when xivo-sysconfd is upgraded...)
-     #. then add a script in :file:`/usr/share/xivo-upgrade/pre-start.d` to re-apply the
-        modification to :file:`/usr/share/xivo-sysconfd/templates/resolvconf/hosts` after each
-        ``xivo-upgrade``.
+   You can check the configuration with the following command, it should give you ``127.0.0.1``::
+
+      getent hosts xivo.example.com
+
 
 5. Restart all XiVO services::
 
