@@ -4,6 +4,18 @@
 xivo-confd REST API changelog
 *****************************
 
+16.15
+=====
+
+* Added contexts endpoints:
+
+  * GET ``/1.1/contexts``
+  * POST ``/1.1/contexts``
+  * DELETE ``/1.1/contexts/<context_id>``
+  * GET ``/1.1/contexts/<context_id>``
+  * PUT ``/1.1/contexts/<context_id>``
+
+
 16.14
 =====
 
