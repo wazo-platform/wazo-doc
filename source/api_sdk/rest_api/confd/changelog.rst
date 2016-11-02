@@ -7,6 +7,10 @@ xivo-confd REST API changelog
 16.15
 =====
 
+* New readonly parameter has been added to the user resource:
+
+  * ``voicemail``
+
 * Added contexts endpoints:
 
   * GET ``/1.1/contexts``
