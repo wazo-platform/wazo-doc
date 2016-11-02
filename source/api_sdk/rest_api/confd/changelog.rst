@@ -7,9 +7,15 @@ xivo-confd REST API changelog
 16.15
 =====
 
-* New readonly parameter has been added to the user resource:
+* New readonly parameters have been added to the incall resource when the destination is type `user`:
+
+  * ``destination->user_firstname``
+  * ``destination->user_lastname``
+
+* New readonly parameters have been added to the user resource:
 
   * ``voicemail``
+  * ``incalls``
 
 * Added contexts endpoints:
 
