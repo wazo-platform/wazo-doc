@@ -148,7 +148,7 @@ Restart RabbitMQ
 
 .. code-block:: sh
 
-    service rabbitmq-server restart
+    systemctl restart rabbitmq-server
 
 
 Setup Message Federation
@@ -182,7 +182,7 @@ Restart xivo-ctid
 
 .. code-block:: sh
 
-    service xivo-ctid restart
+    systemctl restart xivo-ctid
 
 
 Check That Service Discovery is Working
@@ -267,7 +267,7 @@ Start Consul
 
 .. code-block:: sh
 
-    service consul start
+    systemctl start consul
 
 
 Start XiVO
