@@ -270,6 +270,35 @@ Start Consul
     systemctl start consul
 
 
+Create tokens for service Discovery
+-----------------------------------
+
+For each Consul datacenter create a token that can be used for service Discovery
+
+.. code-block:: sh
+
+    consul-cli agent-services --ssl --ssl-verify=false acl create --rule='service:xivo-:read'
+
+
+Configure xivo-ctid to use the newly created tokens
+---------------------------------------------------
+
+Create a configuration file with the following content:
+
+.. code-block:: yaml
+
+    service_discovery:
+        tokens:
+            <dc1>: <token1>
+            <dc2>: <token2>
+
+
+replacing <dcN> with the name of each datacenters and <tokenN> with the tokens generated in the
+previous step.
+
+Copy that configuration file in `/etc/xivo-ctid/conf.d` on each of you XiVO.
+
+
 Start XiVO
 ----------
 
