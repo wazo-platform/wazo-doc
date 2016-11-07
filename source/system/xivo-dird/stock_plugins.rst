@@ -249,11 +249,11 @@ Example:
       https: true
       verify_certificate: false
     format_columns:
-        name: "{firstname} {lastname}"
-        phone: "{exten}"
-        number: "{exten}"
-        reverse: "{firstname} {lastname}"
-        voicemail: "{voicemail_number}"
+      name: "{firstname} {lastname}"
+      phone: "{exten}"
+      number: "{exten}"
+      reverse: "{firstname} {lastname}"
+      voicemail: "{voicemail_number}"
 
 
 Example:
