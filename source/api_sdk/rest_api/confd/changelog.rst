@@ -7,6 +7,15 @@ xivo-confd REST API changelog
 16.15
 =====
 
+* Added groups endpoints:
+
+  * GET ``/1.1/groups``
+  * POST ``/1.1/groups``
+  * DELETE ``/1.1/groups/<group_id>``
+  * GET ``/1.1/groups/<group_id>``
+  * PUT ``/1.1/groups/<group_id>``
+
+
 * New readonly parameters have been added to the ivr resource:
 
   * ``incalls``
