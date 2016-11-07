@@ -241,13 +241,13 @@ Example:
     first_matched_columns:
     - exten
     confd_config:
-    host: {{ hostname }}
-    port: {{ port }}
-    version: "1.1"
-    username: {{ service_id }}
-    password: {{ service_key }}
-    https: true
-    verify_certificate: false
+      host: {{ hostname }}
+      port: {{ port }}
+      version: "1.1"
+      username: {{ service_id }}
+      password: {{ service_key }}
+      https: true
+      verify_certificate: false
     format_columns:
         name: "{firstname} {lastname}"
         phone: "{exten}"
