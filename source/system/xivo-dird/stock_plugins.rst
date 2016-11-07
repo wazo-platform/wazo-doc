@@ -206,6 +206,132 @@ timeout
    answer are ignored. Default: 1.
 
 
+Service Discovery
+-----------------
+
+Service name: service_discovery
+
+Purpose: Creates sources when services are registered using service discovery.
+
+To configure new sources, the service needs the following things:
+
+#. A template the for the source configuration file.
+#. A set of configuration that will be applied to the template.
+#. A set of service and profile that will use the new source.
+
+
+Template
+^^^^^^^^
+
+The template is used to generate the content of the configuration file
+for the new service. Its content should be the same as the content of a
+source for the desired backend.
+
+The location of the templates are configured in the service configuration
+
+Example:
+
+.. code-block:: yaml
+
+    type: xivo
+    name: xivo-{{ uuid }}
+    searched_columns:
+    - firstname
+    - lastname
+    first_matched_columns:
+    - exten
+    confd_config:
+      host: {{ hostname }}
+      port: {{ port }}
+      version: "1.1"
+      username: {{ service_id }}
+      password: {{ service_key }}
+      https: true
+      verify_certificate: false
+    format_columns:
+      name: "{firstname} {lastname}"
+      phone: "{exten}"
+      number: "{exten}"
+      reverse: "{firstname} {lastname}"
+      voicemail: "{voicemail_number}"
+
+
+Example:
+
+.. code-block:: yaml
+
+    services:
+      service_discovery:
+        template_path: /etc/xivo-dird/templates.d
+        services:
+          xivo-confd:
+            template: confd.yml
+
+In this example, the file */etc/xivo-dird/templates.d/confd.yml* would
+be used to create a new source configuration when a new *xivo-confd* service
+is registered.
+
+The following keys are available to use in the templates:
+
+* uuid: The XiVO uuid that was in the service registry notification
+* hostname: The advertised host from the remote service
+* port: The advertised port from the remote service
+
+All other fields are configured in the *hosts* section of the service_discovery
+service.
+
+
+Host configuration
+^^^^^^^^^^^^^^^^^^
+
+The host section allow the administrator to configure some information that
+are not available in the service discovery to be available in the templates.
+This will typically be the *service_id* and *service_key* that are configured
+with the proper ACL on the remote XiVO.
+
+Example:
+
+.. code-block:: yaml
+
+    services:
+      service_discovery:
+        hosts:
+          ff791b0e-3d28-4b4d-bb90-2724c0a248cb:
+            uuid: ff791b0e-3d28-4b4d-bb90-2724c0a248cb
+            service_id: some-service-name
+            service_key: secre7
+
+In this example, the uuid is used to match an new service starting with a given
+XiVO uuid.
+
+
+Profile and service association
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The service and profile association for discovered services is defined in the
+service_discovery service configuration.
+
+Example:
+
+.. code-block:: yaml
+
+  services:
+    service_discovery:
+      services:
+        xivo-confd:
+          lookup:
+            default: true
+            foobar: true
+          reverse:
+            foobar: true
+          favorites:
+            default: true
+            foobar: true
+
+In this example, a new xivo-confd service would generate a configuration based
+on the template and that new source would be added to the lookup and favorites
+
+
 Back-end Configuration
 ======================
 
