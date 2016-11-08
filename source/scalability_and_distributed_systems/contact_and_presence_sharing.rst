@@ -194,7 +194,7 @@ Check That Service Discovery is Working
 
 .. code-block:: sh
 
-    consul-cli agent-services --ssl --ssl-verify=false
+    consul-cli agent services --ssl --ssl-verify=false
 
 The output should include a service names *xivo-ctid* with an address that is
 reachable from other XiVO.
@@ -277,13 +277,13 @@ For each Consul datacenter create a token that can be used for service Discovery
 
 .. code-block:: sh
 
-    consul-cli agent-services --ssl --ssl-verify=false acl create --rule='service:xivo-:read'
+    consul-cli --token=$(cat /var/lib/consul/master_token) --ssl=true --ssl-verify=false acl create --rule='service:xivo-:read'
 
 
 Configure xivo-ctid to use the newly created tokens
 ---------------------------------------------------
 
-Create a configuration file with the following content:
+On each XiVO create a new configuration file in `/etc/xivo-ctid/conf.d` with the following content:
 
 .. code-block:: yaml
 
@@ -296,7 +296,12 @@ Create a configuration file with the following content:
 replacing <dcN> with the name of each datacenters and <tokenN> with the tokens generated in the
 previous step.
 
-Copy that configuration file in `/etc/xivo-ctid/conf.d` on each of you XiVO.
+The name of the datacenters can be retrieved with the following command:
+
+
+.. code-block:: sh
+
+    consul-members -wan
 
 
 Start XiVO
@@ -355,7 +360,7 @@ commands to help you debug the problem.
     tail -f /var/log/xivo-confd.log
     consul monitor
     consul members -wan
-    consul-cli agent-services --ssl --ssl-verify=false
+    consul-cli agent services --ssl --ssl-verify=false
     rabbitmqctl eval 'rabbit_federation_status:status().'
 
 
