@@ -300,9 +300,14 @@ Example:
             uuid: ff791b0e-3d28-4b4d-bb90-2724c0a248cb
             service_id: some-service-name
             service_key: secre7
+            datacenter: dc1
+            token: 3f031816-84a6-3960-fcd1-9cca67eacde2
 
-In this example, the uuid is used to match an new service starting with a given
-Wazo uuid.
+* uuid: the XIVO_UUID of the remote Wazo
+* service_id: the web service login on the remote Wazo
+* service_key: the secret key of the web service
+* datacenter(optional): the name of the consul datacenter on which the other Wazo is running
+* token(optional): the token to access service discovery on the remote consul
 
 
 Profile and service association
