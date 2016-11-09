@@ -4,6 +4,27 @@
 xivo-ctid-ng HTTP API changelog
 *******************************
 
+16.15
+=====
+
+* A new API for managing voicemails messages:
+
+    * GET ``/1.0/voicemails/{voicemail_id}``
+    * GET ``/1.0/voicemails/{voicemail_id}/folders/{folder_id}``
+    * DELETE ``/1.0/voicemails/{voicemail_id}/messages/{message_id}``
+    * GET ``/1.0/voicemails/{voicemail_id}/messages/{message_id}``
+    * PUT ``/1.0/voicemails/{voicemail_id}/messages/{message_id}``
+    * POST ``/1.0/voicemails/{voicemail_id}/messages/{message_id}/listen``
+    * POST ``/1.0/voicemails/{voicemail_id}/messages/{message_id}/recording``
+    * GET ``/1.0/users/me/voicemails``
+    * GET ``/1.0/users/me/voicemails/folders/{folder_id}``
+    * DELETE ``/1.0/users/me/voicemails/messages/{message_id}``
+    * GET ``/1.0/users/me/voicemails/messages/{message_id}``
+    * PUT ``/1.0/users/me/voicemails/messages/{message_id}``
+    * POST ``/1.0/users/me/voicemails/messages/{message_id}/listen``
+    * POST ``/1.0/users/me/voicemails/messages/{message_id}/recording``
+
+
 16.14
 =====
 
