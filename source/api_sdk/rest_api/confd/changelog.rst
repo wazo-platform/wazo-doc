@@ -7,6 +7,10 @@ xivo-confd REST API changelog
 16.15
 =====
 
+* New readonly parameters have been added to the voicemail resource:
+
+  * ``users``
+
 * A new API for associating trunks with an group has been added:
 
   * PUT ``/1.1/groups/<group_id>/members/users``
