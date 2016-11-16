@@ -87,7 +87,7 @@ Unless specified, the license is `CC BY-SA`_.
 |                                                                                                           |          |              | Yohan Vitu     |              |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 
-.. _Définition de XiVO pour la communauté et tutoriel (video): https://www.youtube.com/watch?v=leMZi6cU8iM
+.. _What is XiVO and tutorial (video): https://www.youtube.com/watch?v=leMZi6cU8iM
 .. _Xivo pour les nuls: http://xivopourlesnuls.wordpress.com
 .. _Installing XiVO (YouTube series): https://www.youtube.com/watch?v=EmY2KhCn418
 .. _Start\: how to create a user with a SIP line (YouTube series): https://www.youtube.com/watch?v=EmY2KhCn418
