@@ -193,13 +193,13 @@ Configure Ctid-ng
 
 Add a configuration file on ctid-ng conf.d directory named discovery.yml with your configuration.
 
-.. code-block:: javascript
+.. code-block:: yaml
 
     remote_credentials:
       xivo-2:
         xivo_uuid: 1cc7fbf2-5f13-4898-9869-986990cb9b0a
-        service_id: test
-        service_key: test
+        service_id: my_service_id
+        service_key: my_secret_password
 
 To get the xivo_uuid information on your second xivo, use the command:
 
@@ -210,6 +210,13 @@ To get the xivo_uuid information on your second xivo, use the command:
 You need to add a user with the good ACL.
 
     ctid-ng.#
+
+Restart xivo-ctid-ng
+--------------------
+
+.. code-block:: sh
+
+    systemctl restart xivo-ctid-ng
 
 Configure Consul
 ================
