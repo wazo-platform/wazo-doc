@@ -160,31 +160,6 @@ Setup Message Federation
     rabbitmqctl set_policy federate-xivo 'xivo' '{"federation-upstream-set":"all"}' --priority 1 --apply-to exchanges
 
 
-Configure xivo-ctid
-===================
-
-Create a Custom Configuration File
-----------------------------------
-
-Create a configuration file for xivo-ctid, e.g ``/etc/xivo-ctid/conf.d/interconnection.yml``
-
-.. code-block:: yaml
-
-    rest_api:
-      http:
-        listen: 0.0.0.0
-    service_discovery:
-      advertise_address: auto
-      advertise_address_interface: eth0  # Interface bearing the IP address of this XiVO, reachable from outside
-
-Restart xivo-ctid
------------------
-
-.. code-block:: sh
-
-    systemctl restart xivo-ctid
-
-
 Check That Service Discovery is Working
 ---------------------------------------
 
@@ -213,6 +188,28 @@ reachable from other XiVO.
                                               "Port": 9495,
                                               "Address": "192.168.1.124"}}
 
+Configure Ctid-ng
+=================
+
+Add a configuration file on ctid-ng conf.d directory named discovery.yml with your configuration.
+
+.. code-block:: javascript
+
+    remote_credentials:
+      xivo-2:
+        xivo_uuid: 1cc7fbf2-5f13-4898-9869-986990cb9b0a
+        service_id: test
+        service_key: test
+
+To get the xivo_uuid information on your second xivo, use the command:
+
+.. code-block:: sh
+
+    echo $XIVO_UUID
+
+You need to add a user with the good ACL.
+
+    ctid-ng.#
 
 Configure Consul
 ================
@@ -251,6 +248,14 @@ following content where `advertise_addr` is reachable from other XiVO.
     "advertise_addr": "192.168.1.124"  // The IP address of this XiVO, reachable from outside
     }
 
+Adding an anonymous ACL
+-----------------------
+
+On each consul you need to add an access for reading the discovery service by our services.
+
+.. code-block:: sh
+
+    consul-cli  --token-file=/var/lib/consul/master_token --ssl --ssl-verify=false acl update anonymous --rule='service:xivo-:read' 
 
 Check that the Configuration is Valid
 -------------------------------------
@@ -322,7 +327,7 @@ commands to help you debug the problem.
 .. code-block:: sh
 
     tail -f /var/log/xivo-dird.log
-    tail -f /var/log/xivo-ctid.log
+    tail -f /var/log/xivo-ctid-ng.log
     tail -f /var/log/xivo-confd.log
     consul monitor
     consul members -wan
