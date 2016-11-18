@@ -476,13 +476,8 @@ Supported parameters on SIP endpoints
  * port
  * regexten
  * subscribecontext
- * fullcontact
  * vmexten
  * callingpres
- * ipaddr
- * regseconds
- * regserver
- * lastms
  * parkinglot
  * protocol
  * outboundproxy
