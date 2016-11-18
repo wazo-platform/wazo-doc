@@ -1,3 +1,5 @@
+.. _rest-api-examples:
+
 *****************
 REST API Examples
 *****************
