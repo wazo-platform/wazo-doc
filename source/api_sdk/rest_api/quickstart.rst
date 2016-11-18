@@ -134,7 +134,10 @@ And that's it, you are ready to use any REST API with your authentication token.
 What's next
 ===========
 
-Check our :ref:`rest-api-examples` for more elaborate examples of how to use the REST APIs of XiVO.
+* Check our :ref:`rest-api-examples` for more elaborate examples of how to use the REST APIs of
+  XiVO.
+* :ref:`rest-api-conventions` are also a good read
+* Explore the REST API in Swagger, it also serves as the reference documentation for REST API.
 
 
 Something went wrong...

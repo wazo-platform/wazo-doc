@@ -1,3 +1,5 @@
+.. _rest-api-conventions:
+
 ********************
 REST API Conventions
 ********************
