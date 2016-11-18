@@ -11,5 +11,6 @@ The XiVO REST APIs are the privileged way to programmatically interact with XiVO
 
    quickstart
    examples
+   troubleshooting
    reference
    conventions

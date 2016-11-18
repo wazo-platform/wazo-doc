@@ -135,3 +135,9 @@ What's next
 ===========
 
 Check our :ref:`rest-api-examples` for more elaborate examples of how to use the REST APIs of XiVO.
+
+
+Something went wrong...
+=======================
+
+Check :ref:`rest-api-troubleshooting`.
