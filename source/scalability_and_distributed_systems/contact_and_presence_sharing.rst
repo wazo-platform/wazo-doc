@@ -58,17 +58,22 @@ For this procedure, the following name and IP addresses will be used:
 * XiVO 2: 192.168.1.125
 
 
+.. _create_ws_user:
+
 Add a Web Service User
 ======================
 
-The first thing is to make XiVO accept remote connections to your internal users directory. For
-this, you must create a :ref:`Web service access <web_services_access>` by authorizing either an IP
-address or a login/password.
+The first thing to do is to create a new web service access to be able to search users and get
+there presences using the following ACL.
+
+* ctid-ng.lines.*.presences.read
+* ctid-ng.users.*.presences.read
+* confd.users.read
 
 This can be done in :menuselection:`Configuration --> Management --> Web Services Access`
 
-.. figure:: images/list_user_ws.png
 .. figure:: images/create_user_ws.png
+.. figure:: images/create_user_ws_acl.png
 
 
 Configuring the directories
@@ -160,31 +165,6 @@ Setup Message Federation
     rabbitmqctl set_policy federate-xivo 'xivo' '{"federation-upstream-set":"all"}' --priority 1 --apply-to exchanges
 
 
-Configure xivo-ctid
-===================
-
-Create a Custom Configuration File
-----------------------------------
-
-Create a configuration file for xivo-ctid, e.g ``/etc/xivo-ctid/conf.d/interconnection.yml``
-
-.. code-block:: yaml
-
-    rest_api:
-      http:
-        listen: 0.0.0.0
-    service_discovery:
-      advertise_address: auto
-      advertise_address_interface: eth0  # Interface bearing the IP address of this XiVO, reachable from outside
-
-Restart xivo-ctid
------------------
-
-.. code-block:: sh
-
-    systemctl restart xivo-ctid
-
-
 Check That Service Discovery is Working
 ---------------------------------------
 
@@ -212,6 +192,36 @@ reachable from other XiVO.
                                                        "607796fc-24e2-4e26-8009-cbb48a205512"],
                                               "Port": 9495,
                                               "Address": "192.168.1.124"}}
+
+
+Configure Ctid-ng
+=================
+
+Add a configuration file on ctid-ng conf.d directory named discovery.yml with your configuration.
+
+The `service_id` and `service_key` are the ones you defined :ref:`earlier <create_ws_user>` in the web interface.
+
+.. code-block:: yaml
+
+    remote_credentials:
+      xivo-2:
+        xivo_uuid: 1cc7fbf2-5f13-4898-9869-986990cb9b0a
+        service_id: remote-directory
+        service_key: supersecret
+
+To get the xivo_uuid information on your second xivo, use the command:
+
+.. code-block:: sh
+
+    echo $XIVO_UUID
+
+
+Restart xivo-ctid-ng
+--------------------
+
+.. code-block:: sh
+
+    systemctl restart xivo-ctid-ng
 
 
 Configure Consul
@@ -304,6 +314,7 @@ Check consul logs for problems
 
     consul monitor
 
+
 Check That Everything is Working
 ================================
 
@@ -322,7 +333,7 @@ commands to help you debug the problem.
 .. code-block:: sh
 
     tail -f /var/log/xivo-dird.log
-    tail -f /var/log/xivo-ctid.log
+    tail -f /var/log/xivo-ctid-ng.log
     tail -f /var/log/xivo-confd.log
     consul monitor
     consul members -wan
