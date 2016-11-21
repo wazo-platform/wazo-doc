@@ -58,17 +58,22 @@ For this procedure, the following name and IP addresses will be used:
 * XiVO 2: 192.168.1.125
 
 
+.. _create_ws_user:
+
 Add a Web Service User
 ======================
 
-The first thing is to make XiVO accept remote connections to your internal users directory. For
-this, you must create a :ref:`Web service access <web_services_access>` by authorizing either an IP
-address or a login/password.
+The first thing to do is to create a new web service access to be able to search users and get
+there presences using the following ACL.
+
+* ctid-ng.lines.*.presences.read
+* ctid-ng.users.*.presences.read
+* confd.users.read
 
 This can be done in :menuselection:`Configuration --> Management --> Web Services Access`
 
-.. figure:: images/list_user_ws.png
 .. figure:: images/create_user_ws.png
+.. figure:: images/create_user_ws_acl.png
 
 
 Configuring the directories
@@ -194,23 +199,21 @@ Configure Ctid-ng
 
 Add a configuration file on ctid-ng conf.d directory named discovery.yml with your configuration.
 
+The `service_id` and `service_key` are the ones you defined :ref:`earlier <create_ws_user>` in the web interface.
+
 .. code-block:: yaml
 
     remote_credentials:
       xivo-2:
         xivo_uuid: 1cc7fbf2-5f13-4898-9869-986990cb9b0a
-        service_id: my_service_id
-        service_key: my_secret_password
+        service_id: remote-directory
+        service_key: supersecret
 
 To get the xivo_uuid information on your second xivo, use the command:
 
 .. code-block:: sh
 
     echo $XIVO_UUID
-
-You need to add a user with the good ACL.
-
-    ctid-ng.#
 
 
 Restart xivo-ctid-ng
