@@ -12,7 +12,6 @@ xivo-confd REST API
    :maxdepth: 1
 
    changelog
-   examples
 
 
 API reference
