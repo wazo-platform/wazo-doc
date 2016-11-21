@@ -200,6 +200,22 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+16.16
+-----
+
+Consult the `16.16 Roadmap <https://projects.xivo.io/versions/251>`_
+
+* If you are using :ref:`custom sheets <custom-call-form>` that are stored locally, they *must* now
+  be readable by the system user ``xivo-ctid``. Make sure that this user has read access to the UI
+  file of your custom sheets.
+
+
+16.15
+-----
+
+Consult the `16.15 Roadmap <https://projects.xivo.io/versions/251>`_
+
+
 16.14
 -----
 
