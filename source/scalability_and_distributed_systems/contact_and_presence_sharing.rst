@@ -255,14 +255,6 @@ following content where `advertise_addr` is reachable from other XiVO.
     "advertise_addr": "192.168.1.124"  // The IP address of this XiVO, reachable from outside
     }
 
-Adding an anonymous ACL
------------------------
-
-On each consul you need to add an access for reading the discovery service by our services.
-
-.. code-block:: sh
-
-    consul-cli  --token-file=/var/lib/consul/master_token --ssl --ssl-verify=false acl update anonymous --rule='service:xivo-:read' 
 
 Check that the Configuration is Valid
 -------------------------------------
