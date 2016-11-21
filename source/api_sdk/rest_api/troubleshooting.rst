@@ -31,4 +31,4 @@ What you can do:
   copy-paste the URL of the top text box ending with ``api.yml`` into your browser.
 * check the HTTP requests/answers in your browser debugging tools
 * check that the daemon is running: in a console, type: ``xivo-service status``
-* check the log files of the daemon in ``/var/log/<daemon>.log`` (see also: :ref:`log_files`)
+* check the log files of the daemon in ``/var/log/<daemon>.log`` (see also: :ref:`log-files`)
