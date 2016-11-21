@@ -188,6 +188,7 @@ reachable from other XiVO.
                                               "Port": 9495,
                                               "Address": "192.168.1.124"}}
 
+
 Configure Ctid-ng
 =================
 
@@ -211,12 +212,14 @@ You need to add a user with the good ACL.
 
     ctid-ng.#
 
+
 Restart xivo-ctid-ng
 --------------------
 
 .. code-block:: sh
 
     systemctl restart xivo-ctid-ng
+
 
 Configure Consul
 ================
@@ -307,6 +310,7 @@ Check consul logs for problems
 .. code-block:: sh
 
     consul monitor
+
 
 Check That Everything is Working
 ================================
