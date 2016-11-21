@@ -4,6 +4,15 @@
 xivo-confd REST API changelog
 *****************************
 
+16.16
+=====
+
+* A new API for editing fallbacks for a group has been added:
+
+  * GET ``/1.1/groups/<group_id>/fallbacks``
+  * PUT ``/1.1/groups/<group_id>/fallbacks``
+
+
 16.15
 =====
 
