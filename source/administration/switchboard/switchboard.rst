@@ -47,4 +47,3 @@ Table of Contents
 
    configuration
    usage
-   statistics

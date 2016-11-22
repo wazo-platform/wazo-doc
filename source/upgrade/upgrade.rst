@@ -208,6 +208,8 @@ Consult the `16.16 Roadmap <https://projects.xivo.io/versions/251>`_
 * If you are using :ref:`custom sheets <custom-call-form>` that are stored locally, they *must* now
   be readable by the system user ``xivo-ctid``. Make sure that this user has read access to the UI
   file of your custom sheets.
+* Switchboard statistics have been removed. The existing statistics data remain in the database for
+  later migration but no more statistics will be collected.
 
 
 16.15
