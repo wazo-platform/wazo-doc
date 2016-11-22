@@ -10,7 +10,7 @@ xivo-auth HTTP API Changelog
 * The token data in the response of POST and GET on ``/0.1/token`` now include the following new fields
     * utc_expires_at
     * utc_issued_at
-* The body of POST and GET on ``/0.1/token`` now include the `xivo_uuid` field
+    * xivo_uuid
 
 
 16.02
