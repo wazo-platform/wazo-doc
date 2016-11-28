@@ -17,6 +17,14 @@ xivo-confd REST API changelog
   * GET ``/1.1/users/<user_id>/fallbacks``
   * PUT ``/1.1/users/<user_id>/fallbacks``
 
+* Added conferences endpoints:
+
+  * GET ``/1.1/conferences``
+  * POST ``/1.1/conferences``
+  * DELETE ``/1.1/conferences/<conference_id>``
+  * GET ``/1.1/conferences/<conference_id>``
+  * PUT ``/1.1/conferences/<conference_id>``
+
 
 16.15
 =====
