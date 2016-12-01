@@ -144,7 +144,7 @@ Example response
                        "rel": "srv.configure.param"
                    }
                ],
-               "value": "http://provd.xivo.io/plugins/1/stable"
+               "value": "http://provd.wazo.community/plugins/1/stable"
            },
            {
                "description": "The proxy for HTTP requests. Format is \"http://[user:password@]host:port\"",

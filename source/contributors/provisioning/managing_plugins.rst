@@ -109,7 +109,7 @@ Once it has been approved it can be uploaded to the production server
 
   Before uploading a plugin in the testing provd repository, make sure to git pull the xivo-provd-plugins git repository.
 
-To upload the modified plugin in the testing repo on `provd.xivo.io`,
+To upload the modified plugin in the testing repo on `provd.wazo.community`,
 you can execute the following command::
 
    $ make upload
@@ -117,7 +117,7 @@ you can execute the following command::
 Afterwards, in the web-interface, you must modify the URL in section
 :menuselection:`Configuration --> Provisioning --> General` to::
 
-   `http://provd.xivo.io/plugins/1/testing/`
+   `http://provd.wazo.community/plugins/1/testing/`
 
 You can then update the list of plugins and check the version number for the plugin that you modified.
 Don't forget to install the plugin to test it.
@@ -174,4 +174,4 @@ Go back to the `plugins` directory and upload the files to the stable and archiv
 The file are now up to date and you can test by putting back the `stable`
 url in the web-interface's configuration::
 
-   `http://provd.xivo.io/plugins/1/stable/`
+   `http://provd.wazo.community/plugins/1/stable/`
