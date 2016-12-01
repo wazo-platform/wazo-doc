@@ -25,6 +25,11 @@ xivo-confd REST API changelog
   * GET ``/1.1/conferences/<conference_id>``
   * PUT ``/1.1/conferences/<conference_id>``
 
+* A new API for associating an extension with a conference has been added:
+
+  * DELETE ``/1.1/conferences/<group_id>/extensions/<extension_id>``
+  * PUT ``/1.1/conferences/<group_id>/extensions/<extension_id>``
+
 
 16.15
 =====
