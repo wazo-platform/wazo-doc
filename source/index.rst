@@ -21,7 +21,7 @@ XiVO documentation is also available as a downloadable HTML, EPUB or PDF file.
 See the `downloads page <https://readthedocs.org/projects/xivo/downloads/>`_
 for a list of available files or use the menu on the lower right.
 
-.. _XiVO blog: http://blog.xivo.io/
+.. _XiVO blog: http://blog.wazo.community/
 
 
 Table of Contents

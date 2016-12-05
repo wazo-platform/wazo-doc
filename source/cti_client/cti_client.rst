@@ -34,8 +34,8 @@ Getting the XiVO client
 
 Binaries of the XiVO Client are available on our mirror. (`latest version`_) (`all versions`_)
 
-.. _all versions: http://mirror.xivo.io/iso/archives
-.. _latest version: http://mirror.xivo.io/iso/xivo-current
+.. _all versions: http://mirror.wazo.community/iso/archives
+.. _latest version: http://mirror.wazo.community/iso/xivo-current
 
 .. warning::
 

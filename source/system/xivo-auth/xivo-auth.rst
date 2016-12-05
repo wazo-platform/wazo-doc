@@ -9,7 +9,7 @@ It uses an HTTP interface to emit tokens to users who can then use those tokens
 to identify and authenticate themselves with other services compatible with
 xivo-auth.
 
-The HTTP API reference is at http://api.xivo.io.
+The HTTP API reference is at http://api.wazo.community.
 
 .. toctree::
    :maxdepth: 1
@@ -46,7 +46,7 @@ If Alice wants to revoke her token before its expiration::
 
     $ curl -k -X DELETE -H 'Content-Type: application/json' "https://localhost:9497/0.1/token/1823c1ee-6c6a-0cdc-d869-964a7f08a744"
 
-See http://api.xivo.io for more details about the HTTP API.
+See http://api.wazo.community for more details about the HTTP API.
 
 See :ref:`service-authentication` for details about the authentication process.
 
@@ -98,7 +98,7 @@ Launching xivo-auth
 HTTP API Reference
 ==================
 
-The complete HTTP API documentation is at http://api.xivo.io.
+The complete HTTP API documentation is at http://api.wazo.community.
 
 See also the :ref:`auth_changelog`.
 

@@ -16,7 +16,7 @@ Web services access may have two different meanings:
 REST API access and permissions
 ===============================
 
-Those REST API interfaces are documented on http://api.xivo.io. They all require an authorization
+Those REST API interfaces are documented on http://api.wazo.community. They all require an authorization
 token, obtained by giving valid credentials to the REST API of xivo-auth. The relevant settings are:
 
 * Login/Password: the xivo-auth credentials (for the xivo-auth :ref:`backend <auth-backends>` ``xivo_service``)

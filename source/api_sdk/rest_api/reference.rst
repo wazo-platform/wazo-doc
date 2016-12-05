@@ -22,5 +22,5 @@ API reference
    provd/api
    sysconfd/api
 
-For other services, see http://api.xivo.io. See also the :ref:`rest-api-quickstart` for an
+For other services, see http://api.wazo.community. See also the :ref:`rest-api-quickstart` for an
 interactive web UI.

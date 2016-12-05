@@ -247,7 +247,7 @@ xivo-ctid-ng is received, connected or hung up.
 * routing key: calls.call.created, calls.call.updated, calls.call.ended
 * required ACL: events.calls.<user_uuid>
 * event specific data: a dictionary with the same fields as the REST API model of Call (See
-  http://api.xivo.io, section xivo-ctid-ng)
+  http://api.wazo.community, section xivo-ctid-ng)
 
 Example::
 
@@ -622,7 +622,7 @@ voicemail is not associated to any user, no message is generated.
 * routing key: voicemails.messages.created, voicemails.messages.updated, voicemails.messages.deleted
 * required ACL: events.users.<user_uuid>.voicemails
 * event specific data: a dictionary with the same fields as the REST API model of VoicemailMessage (See
-  http://api.xivo.io, section xivo-ctid-ng)
+  http://api.wazo.community, section xivo-ctid-ng)
 
 Example::
 

@@ -17,4 +17,4 @@ now owned by Avencall SAS after a merge between Proformatique SARL and Avencall 
 in 2010. The XiVO core team works for Proformatique INC in Quebec City since 
 2010, after Sylvain Boily moved to Quebec city.
 
-`XiVO 1.2 was released <https://projects.xivo.io/news/49>`_ on February 3, 2012.
+`XiVO 1.2 was released <https://projects.wazo.community/news/49>`_ on February 3, 2012.

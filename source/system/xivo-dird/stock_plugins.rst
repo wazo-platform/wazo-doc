@@ -12,7 +12,7 @@ default_json
 
 View name: default_json
 
-Purpose: present directory entries in JSON format. The format is detailed in http://api.xivo.io.
+Purpose: present directory entries in JSON format. The format is detailed in http://api.wazo.community.
 
 headers
 -------

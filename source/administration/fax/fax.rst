@@ -5,7 +5,7 @@ Fax
 Fax transmission
 ================
 
-It's possible to send faxes from XiVO using the fax Xlet in the XiVO client.
+It's possible to send faxes from Wazo using the fax Xlet in the XiVO client.
 
 .. figure:: images/xivoclient-fax.png
 
@@ -21,7 +21,7 @@ Fax reception
 Adding a fax reception DID
 --------------------------
 
-If you want to receive faxes from XiVO, you need to add incoming calls definition with the
+If you want to receive faxes from Wazo, you need to add incoming calls definition with the
 `Application` destination and the `FaxToMail` application for every DID you want to receive faxes
 from.
 
@@ -116,7 +116,7 @@ Here's an example of a valid :file:`/etc/xivo/asterisk/xivo_fax.conf` configurat
    [mail]
    subject = FAX reception to %(dstnum)s
    content_file = /etc/xivo/mail.txt
-   email_from = no-reply+fax@xivo.io
+   email_from = no-reply+fax@wazo.community
    email_realname = Service Fax
 
    [ftp_example_org]

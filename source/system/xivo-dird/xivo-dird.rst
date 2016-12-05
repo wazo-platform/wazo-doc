@@ -71,4 +71,4 @@ functionality of xivo-dird. There are currently three types of plugins:
 API
 ===
 
-See http://api.xivo.io, section XiVO Dird.
+See http://api.wazo.community, section XiVO Dird.

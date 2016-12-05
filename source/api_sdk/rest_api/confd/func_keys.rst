@@ -6,7 +6,7 @@ Function keys can be used as shortcuts for dialing a number, or accomplishing ot
 
 Function keys can be added directly on a user, or in a template. Templates are useful for creating a set of common function keys that can be used by the same group of people.
 
-This page only describes the data models used by the REST API. Consult the `API documentation <http://api.xivo.io>`_ for further details on URLs.
+This page only describes the data models used by the REST API. Consult the `API documentation <http://api.wazo.community>`_ for further details on URLs.
 
 Function Key Template
 =====================

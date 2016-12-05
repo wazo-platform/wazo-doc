@@ -234,7 +234,7 @@ Limitations
   wrong device will be provisioned)
 
 For technical information about why other devices are not supported, you can look at `this issue
-<https://projects.xivo.io/issues/5107>`_  on the XiVO bug tracker.
+<https://projects.wazo.community/issues/5107>`_  on the XiVO bug tracker.
 
 
 .. _provd-security:

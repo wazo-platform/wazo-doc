@@ -5,7 +5,7 @@ xivo-dird REST API
 API reference
 =============
 
-API documentation is available on http://api.xivo.io.
+API documentation is available on http://api.wazo.community.
 
 
 Changelog

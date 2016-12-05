@@ -122,8 +122,8 @@ Now that we have an authentication token, we are ready to use the REST API.
 And that's it, you are ready to use any REST API with your authentication token.
 
 .. note:: Be aware that this token will expire, and that you will need to get a new one when that
-          happens. You can take a look at http://auth.xivo.io for an easier manual token generation
-          process. Note that the ``auth.xivo.io`` server will never know the tokens that you
+          happens. You can take a look at https://auth.wazo.community for an easier manual token generation
+          process. Note that the ``auth.wazo.community`` server will never know the tokens that you
           generate, you browser will ask your XiVO directly.
 
 .. warning:: Also, note that this authentication token gives **all permissions** to anyone who knows

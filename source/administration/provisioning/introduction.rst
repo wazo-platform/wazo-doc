@@ -40,6 +40,6 @@ Limitations
 External links
 ==============
 
-* `Introduction to provd plugin model <http://blog.xivo.io/introduction-to-the-plugin-model-of-the-new-provisioning-server.html>`_
-* `HTTP/TFTP requests processing in provd - part 1 <http://blog.xivo.io/httptftp-requests-processing-in-provd-part-1.html>`_
-* `HTTP/TFTP requests processing in provd - part 2 <http://blog.xivo.io/httptftp-requests-processing-in-provd-part-2.html>`_
+* `Introduction to provd plugin model <http://blog.wazo.community/introduction-to-the-plugin-model-of-the-new-provisioning-server.html>`_
+* `HTTP/TFTP requests processing in provd - part 1 <http://blog.wazo.community/httptftp-requests-processing-in-provd-part-1.html>`_
+* `HTTP/TFTP requests processing in provd - part 2 <http://blog.wazo.community/httptftp-requests-processing-in-provd-part-2.html>`_

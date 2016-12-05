@@ -85,6 +85,6 @@ Other installation methods
 
 It's also possible to install Wazo by PXE. More details available on our blog:
 
-* `<http://blog.xivo.io/around-xivo-describe-industrial-installation-process.html>`_
-* `<http://blog.xivo.io/around-xivo-pxe-server-setup.html>`_
-* `<http://blog.xivo.io/around-xivo-pxe-and-preseeding.html>`_
+* `<http://blog.wazo.community/around-xivo-describe-industrial-installation-process.html>`_
+* `<http://blog.wazo.community/around-xivo-pxe-server-setup.html>`_
+* `<http://blog.wazo.community/around-xivo-pxe-and-preseeding.html>`_

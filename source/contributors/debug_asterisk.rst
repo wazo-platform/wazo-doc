@@ -51,7 +51,7 @@ So There is a Problem with Asterisk. Now What ?
 
     cp -a /var/log/xivo-ctid.log /var/local/`date +"%Y%m%d"`-`hostname`-xivo-ctid.log
 
-#. Open a new issue on the `bugtracker <https://projects.xivo.io/projects/xivo/issues/new>`_ with
+#. Open a new issue on the `bugtracker <https://projects.wazo.community/projects/xivo/issues/new>`_ with
    following information
 
    * Tracker: Bug
@@ -200,5 +200,5 @@ External links
 ==============
 
 * https://wiki.asterisk.org/wiki/display/AST/Debugging
-* http://blog.xivo.io/visualizing-asterisk-deadlocks.html
+* http://blog.wazo.community/visualizing-asterisk-deadlocks.html
 * https://wiki.asterisk.org/wiki/display/AST/Valgrind

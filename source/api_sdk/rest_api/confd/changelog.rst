@@ -401,7 +401,7 @@ xivo-confd REST API changelog
 =====
 
 * A new API for SIP endpoints has been added. Consult the documentation
-  on http://api.xivo.io for further details.
+  on http://api.wazo.community for further details.
 * The ``/lines_sip`` API has been deprecated. Please use ``/lines`` and ``/endpoints/sip`` instead.
 * Due to certain limitations in the database, only a limited number of
   optional parameters can be configured. This limitation will be removed

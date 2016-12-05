@@ -6,7 +6,7 @@ Users and common related resources can be imported onto a XiVO server by sending
 predefined :ref:`set of fields <user_import>`.
 
 This page only documents additional notes useful for API users. Consult the `API documentation
-<http://api.xivo.io>`_ for more details.
+<http://api.wazo.community>`_ for more details.
 
 
 Uploading files

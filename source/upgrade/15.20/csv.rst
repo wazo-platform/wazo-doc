@@ -4,7 +4,7 @@
 CSV Migration
 *************
 
-This page describes how to migrate CSV files from the legacy format to the new format. Consult the `API documentation <http://api.xivo.io>`_ on user imports for further details.
+This page describes how to migrate CSV files from the legacy format to the new format. Consult the `API documentation <http://api.wazo.community>`_ on user imports for further details.
 
 
 CSV Data

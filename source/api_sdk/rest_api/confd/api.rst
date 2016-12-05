@@ -17,7 +17,7 @@ xivo-confd REST API
 API reference
 =============
 
-API documentation is available on http://api.xivo.io. This section
+API documentation is available on http://api.wazo.community. This section
 contains extended documentation for certain aspects of the API.
 
 .. toctree::
@@ -41,4 +41,4 @@ migrated to version 1.1 without much hassle by updating the URL. For example, in
 
 Please note that there are no trailing slashes in URLs for version 1.1.
 
-For further details consult the documentation at http://api.xivo.io
+For further details consult the documentation at http://api.wazo.community

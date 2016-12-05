@@ -222,5 +222,5 @@ Models not listed in the table above won't be able to connect to Asterisk at all
 The "Timezone aware" column indicates if the device supports the timezone tag in its configuration
 file, i.e. in the file that the device request to the provisioning server when it boots.  If you
 have devices that don't support the timezone tag and these devices are in a different timezone than
-the one of the XiVO, you can look at `the issue #5161 <https://projects.xivo.io/issues/5161>`_ for
+the one of the XiVO, you can look at `the issue #5161 <https://projects.wazo.community/issues/5161>`_ for
 a potential solution.
