@@ -206,7 +206,7 @@ Upgrade Notes
 Wazo 16.16 is the *first public release* of the project under the Wazo name. It
 is also the first release of Wazo under the "phoenix" codename.
 
-Consult the `16.16 Roadmap <https://projects.wazo.community/versions/251>`_
+Consult the `16.16 Roadmap <https://projects.wazo.community/versions/252>`_
 
 * A :ref:`special procedure <xivo-to-wazo>` is required to upgrade from XiVO to Wazo.
 * If you are using :ref:`custom sheets <custom-call-form>` that are stored locally, they *must* now
