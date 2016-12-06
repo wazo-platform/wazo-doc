@@ -18,11 +18,11 @@ Google TTS service.
 
 #. Create an account on Transifex and join the team of translation of Wazo.
 
-#. Translate the prompts in the xivo-prompts resource.
+#. Translate the prompts in the wazo-prompt resource.
 
-#. Go to https://www.transifex.com/wazo/wazo/xivo-prompt/pt_BR/download/for_use/ and
+#. Go to https://www.transifex.com/wazo/wazo/wazo-prompt/pt_BR/download/for_use/ and
    download the file on your Wazo. You should have a file named like
-   ``for_use_xivo_xivo-prompt_pt_BR.ini``.
+   ``for_use_wazo_wazo-prompt_pt_BR.ini``.
 
 #. On your Wazo, download the tool to automate the use of Google TTS::
 
@@ -35,7 +35,7 @@ Google TTS service.
     LANGUAGE=pt
     COUNTRY=BR
     mkdir -p wav/{digits,letters}
-    cat for_use_xivo_xivo-prompt_${LANGUAGE}_${COUNTRY}.ini | while IFS='=' read file text ; do
+    cat for_use_wazo_wazo-prompt_${LANGUAGE}_${COUNTRY}.ini | while IFS='=' read file text ; do
       echo $file
       ./googletts-cli.pl -t "$text" -l ${LANGUAGE}-${COUNTRY} -s 1.4 -r 8000 -o wav/$file.wav
     done
