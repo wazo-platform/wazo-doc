@@ -48,7 +48,7 @@ asterisk, which expect configuration file to have a specific format.
 
 See `sccp.conf.sample`_ for a configuration file example.
 
-.. _sccp.conf.sample: https://raw.github.com/xivo-pbx/xivo-libsccp/master/xivo-libsccp/configs/sccp.conf.sample
+.. _sccp.conf.sample: https://raw.github.com/wazo-pbx/xivo-libsccp/master/xivo-libsccp/configs/sccp.conf.sample
 
 
 Other

@@ -193,7 +193,7 @@ Implementation details
 ----------------------
 
 * Namespace: ``xivo_dird.services``
-* Abstract service plugin: `BaseServicePlugin <https://github.com/xivo-pbx/xivo-dird/blob/master/xivo_dird/plugins/base_plugins.py#L21>`_
+* Abstract service plugin: `BaseServicePlugin <https://github.com/wazo-pbx/xivo-dird/blob/master/xivo_dird/plugins/base_plugins.py#L21>`_
 
 * Methods:
 

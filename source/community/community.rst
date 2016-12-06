@@ -100,7 +100,7 @@ Unless specified, the license is `CC BY-SA`_.
 .. _SCCP provisioning, unsupported phones and no DHCP: http://retroplace.nyxd.org/2015/03/24/xivo-sccp-et-provisioning-sur-telephones-non-supportes-et-dhcp-desactive/
 .. _Date format on SCCP 7941: http://retroplace.nyxd.org/2015/02/06/xivo-probleme-daffichage-de-lheure-sur-cisco-7941-en-cas-de-redemarrage-dasterisk/
 .. _Installing XiVO on Raspberry Pi (Raspivo): http://raspivo.io/installation-depuis-nos-depots.html
-.. _phonebook_csv_export.py: https://raw.githubusercontent.com/xivo-pbx/xivo-tools/master/scripts/phonebook_csv_export.py
+.. _phonebook_csv_export.py: https://raw.githubusercontent.com/wazo-pbx/xivo-tools/master/scripts/phonebook_csv_export.py
 .. _specific scripts: https://github.com/jthomas74/prov-m700
 .. _Getting Started with XiVO: http://nerdvittles.com/?page_id=18324
 

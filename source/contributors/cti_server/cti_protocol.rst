@@ -2182,7 +2182,7 @@ To stop receiving this event, the user must send the
 CTI server implementation
 =========================
 
-In the git repository ``git://github.com/xivo-pbx/xivo-ctid.git``
+In the git repository ``git://github.com/wazo-pbx/xivo-ctid.git``
 
 * `cti_config` handles the configuration coming from the WEBI
 * `interfaces/interface_ami`, together with `asterisk_ami_definitions`, `amiinterpret` and `xivo_ami` handle the AMI connections (asterisk)

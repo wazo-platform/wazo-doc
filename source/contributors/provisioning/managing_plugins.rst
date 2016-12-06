@@ -6,7 +6,7 @@ Git Repository
 ==============
 
 Most plugin-related files are available in the
-`xivo-provd-plugins repository <https://github.com/xivo-pbx/xivo-provd-plugins.git>`_.
+`xivo-provd-plugins repository <https://github.com/wazo-pbx/xivo-provd-plugins.git>`_.
 Following examples are relative to the repository directory tree. Any modifications
 should be preceeded by a `git pull`.
 
