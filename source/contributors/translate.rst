@@ -4,14 +4,13 @@
 Translating XiVO
 ****************
 
-French and English are maintained by Avencall. Other languages are provided by the community.
+French and English are maintained by the Wazo authors. Other languages are provided by the community.
 
 
 Asterisk and XiVO Prompts
 =========================
 
-Avencall is in contact with several studios for different languages and prompts. The information for
-those languages are :
+Languages and prompts are recorded by several studios. The information for those languages are:
 
 * French : Super Sonic productions (supersonicprod@wanadoo.fr)
 * English : Asterisk voice (allison@theasteriskvoice.com)

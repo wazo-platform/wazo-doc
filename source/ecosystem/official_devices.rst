@@ -361,7 +361,7 @@ If you create the directory manually, the installation will fail.
 
 .. warning:: Access to Cisco firmware updates requires a Cisco account with sufficient privileges.
    The account requires paying for the service and remains under the responsibility of the client or partner.
-   Avencall is not responsible for these firmwares and does not offer any updates.
+   The Wazo authors is not responsible for these firmwares and does not offer any updates.
 
 For example, if you have installed the ``xivo-cisco-sccp-legacy`` plugin and you want to install the ``7940-7960-fw``, ``networklocale`` and ``userlocale_fr_FR`` package, you must:
 
