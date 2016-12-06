@@ -9,7 +9,7 @@ plugins, etc, still use the "xivo" name as to not break backward compatibility. 
 upgrading from XiVO 16.13 to Wazo 16.16 is not different from upgrading XiVO 16.10 to XiVO 16.13,
 for example.
 
-More information about the Wazo project is available on the `Wazo blog <http://blog.wazo.community>`_.
+More information about the Wazo project is available on the `Wazo blog <http://blog.wazo.community/introducing-wazo.html>`_.
 
 
 .. _using-wazo-infrastructure:
