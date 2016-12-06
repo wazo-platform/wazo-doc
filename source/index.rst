@@ -23,6 +23,8 @@ for a list of available files or use the menu on the lower right.
 
 .. _XiVO blog: http://blog.wazo.community/
 
+See :ref:`attribution`
+
 
 Table of Contents
 =================
@@ -47,6 +49,7 @@ Table of Contents
    troubleshooting/troubleshooting
    community/community
    changelog
+   attribution
 
 
 Changelog
