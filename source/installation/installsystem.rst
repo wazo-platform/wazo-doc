@@ -22,8 +22,10 @@ Installing from the ISO image
 * Download the ISO image. (`latest version`_) (`all versions`_)
 * Boot from the ISO image, select ``Install`` and follow the instructions. You must select a locale
   with charset UTF-8.
-* At the end of the installation, you can continue by running the :ref:`configuration
-  wizard. <configuration_wizard>`
+* At the end of the installation, if you are installing version 16.13 or before, you need to
+  configure your system to :ref:`use the Wazo infrastructure <using-wazo-infrastructure>`, otherwise
+  some errors might occurs.
+* Continue by running the :ref:`configuration wizard. <configuration_wizard>`
 
 .. _all versions: http://mirror.wazo.community/iso/archives
 .. _latest version: http://mirror.wazo.community/iso/xivo-current
