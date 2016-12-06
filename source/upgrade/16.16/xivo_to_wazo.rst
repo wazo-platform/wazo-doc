@@ -34,7 +34,7 @@ infrastructure of the Wazo project (e.g. mirror.wazo.community).
 The script can be run multiple times. If you want to revert the modification done by the script,
 just execute it with the ``--revert`` option.
 
-The modification done by this script will be automatically reverted when you'll upgrade to Wazo.
+This script is compatible with any future upgrade, you don't have to revert it manually.
 
 
 .. _upgrading-to-wazo:
