@@ -54,12 +54,11 @@ Upgrade procedure
 Version-specific upgrade procedures
 ===================================
 
-Upgrading from XiVO 14.11 and before
+Upgrading from XiVO 16.13 and before
 ------------------------------------
 
-When upgrading from XiVO 14.11 or earlier, you must do the following, before the normal upgrade::
-
-   sed -i 's/xivo\.fr/xivo.io/g' /etc/apt/sources.list.d/*.list
+When upgrading from XiVO 16.13 or before, you must use the special :ref:`XiVO to Wazo upgrade
+procedure <upgrading-to-wazo>` instead of simply running ``xivo-upgrade``.
 
 
 Upgrading from XiVO 14.01, 14.02, 14.03, 14.04 installed from the ISO
@@ -68,7 +67,7 @@ Upgrading from XiVO 14.01, 14.02, 14.03, 14.04 installed from the ISO
 In those versions, xivo-upgrade keeps XiVO on the same version. You must do the following, before
 the normal upgrade::
 
-   echo "deb http://mirror.xivo.io/debian/ xivo-five main" > /etc/apt/sources.list.d/xivo-upgrade.list \
+   echo "deb http://mirror.wazo.community/debian/ xivo-five main" > /etc/apt/sources.list.d/xivo-upgrade.list \
    && apt-get update \
    && apt-get install xivo-fai \
    && rm /etc/apt/sources.list.d/xivo-upgrade.list \
