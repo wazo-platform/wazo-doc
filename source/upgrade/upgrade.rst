@@ -203,23 +203,38 @@ Upgrade Notes
 16.16
 -----
 
+Wazo 16.16 is the *first public release* of the project under the Wazo name. It
+is also the first release of Wazo under the "phoenix" codename.
+
 Consult the `16.16 Roadmap <https://projects.wazo.community/versions/251>`_
 
+* A :ref:`special procedure <xivo-to-wazo>` is required to upgrade from XiVO to Wazo.
 * If you are using :ref:`custom sheets <custom-call-form>` that are stored locally, they *must* now
   be readable by the system user ``xivo-ctid``. Make sure that this user has read access to the UI
   file of your custom sheets.
 * Switchboard statistics have been removed. The existing statistics data remain in the database for
   later migration but no more statistics will be collected.
 
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   16.16/xivo_to_wazo
+
 
 16.15
 -----
+
+XiVO 16.15 is an internal release of the project under the XiVO name. This version was never announced publicly.
 
 Consult the `16.15 Roadmap <https://projects.wazo.community/versions/251>`_
 
 
 16.14
 -----
+
+XiVO 16.14 is an internal release of the project under the XiVO name. This version was never announced publicly.
 
 Consult the `16.14 Roadmap <https://projects.wazo.community/versions/250>`_
 
@@ -249,6 +264,8 @@ Please consult the following detailed upgrade notes for more information:
 
 16.13
 -----
+
+XiVO 16.13 is the *last public release* of the project under the XiVO name.
 
 Consult the `16.13 Roadmap <https://projects.wazo.community/versions/249>`_
 
