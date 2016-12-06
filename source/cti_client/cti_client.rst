@@ -7,7 +7,7 @@ XiVO Client
 What is the XiVO Client
 =======================
 
-The XiVO Client is an application that you install on your computer and is connected to the XiVO
+The XiVO Client is an application that you install on your computer and is connected to the Wazo
 server. This application offers the following features:
 
 * search contacts and show their presence, phone status
@@ -39,9 +39,9 @@ Binaries of the XiVO Client are available on our mirror. (`latest version`_) (`a
 
 .. warning::
 
-   The installed version of the XiVO Client must match the XiVO server's version installation. With
-   our current architecture, there is no way to guarantee that the XiVO server will be
-   retro-compatible with older versions of the XiVO Client. Non-matching XiVO server and XiVO
+   The installed version of the XiVO Client must match the Wazo server's version installation. With
+   our current architecture, there is no way to guarantee that the Wazo server will be
+   retro-compatible with older versions of the XiVO Client. Non-matching Wazo server and XiVO
    Clients versions might lead to unexpected behaviour.
 
 Choose the version you want and in the right directory, get :

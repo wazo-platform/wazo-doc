@@ -1,10 +1,10 @@
 .. _xivo-dird:
 
 ===========
- XiVO dird
+xivo-dird
 ===========
 
-xivo-dird is the directory server for XiVO. It offers a simple REST interface to query all
+xivo-dird is the directory server for Wazo. It offers a simple REST interface to query all
 directories that are configured. xivo-dird is extendable with plugins.
 
 .. toctree::
@@ -71,4 +71,4 @@ functionality of xivo-dird. There are currently three types of plugins:
 API
 ===
 
-See http://api.wazo.community, section XiVO Dird.
+See http://api.wazo.community, section Wazo Dird.

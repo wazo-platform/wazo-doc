@@ -17,7 +17,7 @@ Then install a plugin for SCCP Phone:
 
 .. figure:: images/list_plugin.png
 
-   Installing xivo cisco-sccp plugin
+   Installing xivo-cisco-sccp plugin
 
 At this point you should have a fully functional DHCP server that provides IP address to your
 phones.  Depending on what type of CISCO phone you have, you need to install the plugin sccp-legacy,
@@ -217,10 +217,10 @@ Telephone
 +-------------+-------------+----------------------+----------------+
 
 Models not listed in the table above won't be able to connect to Asterisk at all. Models listed as
-"Testing" are not yet officially supported in XiVO: use them at your own risk.
+"Testing" are not yet officially supported in Wazo: use them at your own risk.
 
 The "Timezone aware" column indicates if the device supports the timezone tag in its configuration
 file, i.e. in the file that the device request to the provisioning server when it boots.  If you
 have devices that don't support the timezone tag and these devices are in a different timezone than
-the one of the XiVO, you can look at `the issue #5161 <https://projects.wazo.community/issues/5161>`_ for
+the one of the Wazo, you can look at `the issue #5161 <https://projects.wazo.community/issues/5161>`_ for
 a potential solution.

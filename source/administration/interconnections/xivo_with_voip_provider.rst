@@ -1,19 +1,19 @@
 .. index:: interconnections
 
 **************************************
-Interconnect a XiVO to a VoIP provider
+Interconnect a Wazo to a VoIP provider
 **************************************
 
 When you want to send and receive calls to the global telephony network, one
-option is to subscribe to a VoIP provider. To receive calls, your XiVO needs to
+option is to subscribe to a VoIP provider. To receive calls, your Wazo needs to
 tell your provider that it is ready and to which IP the calls must be sent. To
-send calls, your XiVO needs to authenticate itself, so that the provider knows
-that your XiVO is authorized to send calls and whose account must be credited
+send calls, your Wazo needs to authenticate itself, so that the provider knows
+that your Wazo is authorized to send calls and whose account must be credited
 with the call fare.
 
 The steps to configure the interconnections are:
 
-* Establish the trunk between the two XiVO, that is the SIP connection
+* Establish the trunk between the two Wazo, that is the SIP connection
   between the two servers
 * Configure outgoing calls on the server(s) used to emit calls
 * Configure incoming calls on the server(s) used to receive calls
@@ -29,7 +29,7 @@ You need the following information from your provider:
 * the name of the provider VoIP server
 * a public phone number
 
-On your XiVO, go on page :menuselection:`Services --> IPBX --> Trunk management -->
+On your Wazo, go on page :menuselection:`Services --> IPBX --> Trunk management -->
 SIP Protocol`, and create a SIP/IAX trunk::
 
     Name : provider_username
@@ -52,7 +52,7 @@ Register tab::
 
    For the moment, Name and Username need to be the same value.
 
-If your XiVO is behind a NAT device or a firewall, you should set the
+If your Wazo is behind a NAT device or a firewall, you should set the
 following::
 
     Monitoring: Yes
@@ -72,7 +72,7 @@ showing that you are registered, meaning your trunk is established.
 Set the outgoing calls
 ----------------------
 
-The outgoing calls configuration will allow XiVO to know which extensions will
+The outgoing calls configuration will allow Wazo to know which extensions will
 be called through the trunk.
 
 Go on the page :menuselection:`Services --> IPBX --> Call management -->
@@ -86,7 +86,7 @@ Tab Exten::
 
     Exten: 418. (note the period at the end)
 
-This will tell XiVO: if an internal user dials a number beginning with ``418``,
+This will tell Wazo: if an internal user dials a number beginning with ``418``,
 then try to dial it on the trunk ``provider_username``.
 
 The most useful special characters to match extensions are::
@@ -94,7 +94,7 @@ The most useful special characters to match extensions are::
    . (period): will match one or more characters
    X: will match only one character
 
-You can find more details about pattern matching in Asterisk (hence in XiVO) on
+You can find more details about pattern matching in Asterisk (hence in Wazo) on
 `the Asterisk wiki <https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching>`_.
 
 
@@ -116,7 +116,7 @@ Tab General::
     Destination: User
     Redirect to: the_front_desk_guy
 
-This will tell XiVO: if you receive an incoming call to the public phone number
+This will tell Wazo: if you receive an incoming call to the public phone number
 in the context ``Incalls``, then route it to the user
 ``the_front_desk_guy``. The destination context will be found automatically,
 depending on the context of the line of the given user.

@@ -4,8 +4,8 @@
 Phonebook Sharing
 *****************
 
-Sharing phonebooks allows users of different XiVO servers to access the contacts in the
-:ref:`phonebooks <phonebook>` of the other XiVO servers.
+Sharing phonebooks allows users of different Wazo servers to access the contacts in the
+:ref:`phonebooks <phonebook>` of the other Wazo servers.
 
 .. figure:: images/phonebook_sharing_diagram.png
 
@@ -17,20 +17,20 @@ use the same conventions.
 Open Phonebook Access
 =====================
 
-On each XiVO, you must have a :ref:`Web Services User <web_services_access>` that authorizes access
+On each Wazo, you must have a :ref:`Web Services User <web_services_access>` that authorizes access
 from another host (not by login/password). The phonebook access does not support login/password
 authorization.
 
 .. figure:: images/create_user_ws_phonebook.png
 
 
-This Web Services user will allow other XiVO servers to access the phonebook of this XiVO.
+This Web Services user will allow other Wazo servers to access the phonebook of this Wazo.
 
 
 Configuring the Directories
 ===========================
 
-For each remote XiVO a new phonebook has to be created in
+For each remote Wazo a new phonebook has to be created in
 :menuselection:`Configuration --> Management --> Directories`
 
 .. figure:: images/list_directory_phonebook.png

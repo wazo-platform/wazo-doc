@@ -2,7 +2,7 @@
 Contact Center
 **************
 
-In XiVO, the contact center is implemented to fulfill the following objectives :
+In Wazo, the contact center is implemented to fulfill the following objectives :
 
 * Call routing
 

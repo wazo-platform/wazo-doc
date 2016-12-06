@@ -1,7 +1,7 @@
 .. _xivo-dird-integration:
 
 **********************************************
-Integration of XiVO dird with the rest of XiVO
+Integration of xivo-dird with the rest of Wazo
 **********************************************
 
 Configuration values

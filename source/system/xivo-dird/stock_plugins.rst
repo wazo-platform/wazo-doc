@@ -273,7 +273,7 @@ is registered.
 
 The following keys are available to use in the templates:
 
-* uuid: The XiVO uuid that was in the service registry notification
+* uuid: The Wazo uuid that was in the service registry notification
 * hostname: The advertised host from the remote service
 * port: The advertised port from the remote service
 
@@ -287,7 +287,7 @@ Host configuration
 The host section allow the administrator to configure some information that
 are not available in the service discovery to be available in the templates.
 This will typically be the *service_id* and *service_key* that are configured
-with the proper ACL on the remote XiVO.
+with the proper ACL on the remote Wazo.
 
 Example:
 
@@ -302,7 +302,7 @@ Example:
             service_key: secre7
 
 In this example, the uuid is used to match an new service starting with a given
-XiVO uuid.
+Wazo uuid.
 
 
 Profile and service association
@@ -621,7 +621,7 @@ xivo
 
 Back-end name: xivo
 
-Purpose: add users from a XiVO (may be remote) as directory entries
+Purpose: add users from a Wazo (may be remote) as directory entries
 
 Configuration
 ^^^^^^^^^^^^^
@@ -652,7 +652,7 @@ Example (a file inside ``source_config_dir``):
        mobile: "{mobile_phone_number}"
 
 confd_config:host
-   the hostname of the XiVO (more precisely, of the xivo-confd service)
+   the hostname of the Wazo (more precisely, of the xivo-confd service)
 
 confd_config:port
    the port of the xivo-confd service (usually 9486)

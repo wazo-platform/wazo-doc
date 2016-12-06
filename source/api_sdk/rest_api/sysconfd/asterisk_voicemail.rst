@@ -45,7 +45,7 @@ Example requests
 ::
 
     GET /delete_voicemail HTTP/1.1
-    Host: xivoserver
+    Host: wazoserver
     Accept: application/json
 
 

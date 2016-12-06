@@ -43,7 +43,7 @@ Now that we know the modules we need, we can create our configuration file:
 
 .. note::
   In the :file:`/usr/share/dahdi/modules.sample` file you can find all the modules supported in your
-  XiVO version.
+  Wazo version.
 
 
 Apply the configuration

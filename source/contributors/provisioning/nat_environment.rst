@@ -2,9 +2,9 @@
 Configuring a NAT Environment
 *****************************
 
-This is a configuration example to simulate the case of a hosted XiVO, i.e. an environment where:
+This is a configuration example to simulate the case of a hosted Wazo, i.e. an environment where:
 
-* the XiVO has a public IP address
+* the Wazo has a public IP address
 * the phones are behind a NAT
 
 In this example, we'll reproduce the following environment:
@@ -15,17 +15,17 @@ In this example, we'll reproduce the following environment:
 
 Where:
 
-* the XiVO is installed inside a virtual machine
+* the Wazo is installed inside a virtual machine
 * the host machine is used as a router, a NAT and a DHCP server for the phones
-* the phones are in a separate VLAN than the XiVO, and when they want to interact with it, they must pass
+* the phones are in a separate VLAN than the Wazo, and when they want to interact with it, they must pass
   through the NAT
 
-With this setup, we could also put some phones in the same VLAN as the XiVO. We would then have a
+With this setup, we could also put some phones in the same VLAN as the Wazo. We would then have a
 mixed environment, where some phones are behind the NAT and some phones aren't.
 
 Also, it's easy to go from a non-NAT environment to a NAT environment with this setup. What you usually
-have to do is only to switch your phone from the "XiVO" VLAN to the "phones" VLAN, and reconfiguring the
-lines on your XiVO.
+have to do is only to switch your phone from the "Wazo" VLAN to the "phones" VLAN, and reconfiguring the
+lines on your Wazo.
 
 The instruction in this page are written for Debian jessie and VirtualBox.
 
@@ -35,12 +35,12 @@ Prerequisite
 
 On the host machine:
 
-* 1 VLAN network interface for the XiVO. In our example, this will be ``eth0.341``, with IP 10.34.1.254/24.
+* 1 VLAN network interface for the Wazo. In our example, this will be ``eth0.341``, with IP 10.34.1.254/24.
 * 1 VLAN network interface for the phones. In our example, this will be ``eth0.342``, with IP 10.34.2.254/24.
 
-On the guest machine, i.e. on the XiVO:
+On the guest machine, i.e. on the Wazo:
 
-* 1 network adapter attached to the "XiVO" VLAN network interface. In our example, this interface inside
+* 1 network adapter attached to the "Wazo" VLAN network interface. In our example, this interface inside
   the virtual machine will have the IP 10.34.1.1/24.
 
 
@@ -121,7 +121,7 @@ Configuration
 
 #. Put all the phones in the "phones" VLAN on your switch
 
-#. Activate the ``NAT`` and ``Monitoring`` options on the :menuselection:`Services --> IPBX --> General settings --> SIP Protocol` page of your XiVO.
+#. Activate the ``NAT`` and ``Monitoring`` options on the :menuselection:`Services --> IPBX --> General settings --> SIP Protocol` page of your Wazo.
 
 Note that the iptables rules and the IP forwarding setting are not persistent. If you don't make them
 persistent (not documented here), don't forget to reactivate them each time you want to recreate a NAT

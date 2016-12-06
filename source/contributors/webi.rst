@@ -5,7 +5,7 @@ Web Interface
 Configuration for development
 =============================
 
-Default error level for XiVO web interface is E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED & ~E_RECOVERABLE_ERROR & ~E_STRICT
+Default error level for Wazo web interface is E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED & ~E_RECOVERABLE_ERROR & ~E_STRICT
 
 If you want to display warning or other error in your browser, edit the :file:`/etc/xivo/web-interface/xivo.ini`
 and replace report_type level to 3::
@@ -28,7 +28,7 @@ Interactive debugging in Eclipse
 
 Instructions for Eclipse 4.5.
 
-On your XiVO:
+On your Wazo:
 
 #. Install php5-xdebug::
 
@@ -58,7 +58,7 @@ On your machine where Eclipse is installed:
    * Add a new PHP server with the following information:
 
       * Name: anything you want
-      * Base URL: ``https://<xivo_ip>``
+      * Base URL: ``https://<wazo_ip>``
       * Path Mapping:
 
         * Path on Server: :file:`/usr/share/xivo-web-interface`

@@ -13,7 +13,7 @@ Server configuration
 Quick Summary
 -------------
 
-In order to configure a switchboard on your XiVO, you need to:
+In order to configure a switchboard on your Wazo, you need to:
 
 * Create a queue for your switchboard
 * Create a queue for your switchboard's calls on hold
@@ -140,8 +140,8 @@ The switchboard option must be activated on the phone. It's possible to activate
 Polycom Phones
 ^^^^^^^^^^^^^^
 
-To be able to use a Polycom phone for the switchboard, the XiVO must be able to do HTTP requests to
-the phone. This might be problematic if there's a NAT between your XiVO and your phone.
+To be able to use a Polycom phone for the switchboard, the Wazo must be able to do HTTP requests to
+the phone. This might be problematic if there's a NAT between your Wazo and your phone.
 
 It's possible to configure the Polycom switchboard via the :ref:`configuration files
 <configuration-files>` of xivo-ctid. The following options are available::
@@ -160,9 +160,9 @@ Snom Phones
 
 When using a Snom switchboard, you must not configure a function key on position 1.
 
-To be able to use a Snom phone for the switchboard, the XiVO must be able to do HTTP requests to
-the phone. This might be problematic if there's a NAT between your XiVO and your phone. The
-following command should work from your XiVO's bash command line ``wget http://guest:guest@<phone IP
+To be able to use a Snom phone for the switchboard, the Wazo must be able to do HTTP requests to
+the phone. This might be problematic if there's a NAT between your Wazo and your phone. The
+following command should work from your Wazo's bash command line ``wget http://guest:guest@<phone IP
 address>/command.htm?key=SPEAKER``. If this command does not activate the phone's speaker, your
 network configuration will have to be *fixed* before you can use the Snom switchboard.
 
@@ -261,7 +261,7 @@ Configuration for multiple switchboards
 ---------------------------------------
 
 The above documentation can be used for multiple switchboards on the same
-XiVO by replacing the *__switchboard* and *__switchboard_hold* queues name
+Wazo by replacing the *__switchboard* and *__switchboard_hold* queues name
 and configuring the operators XiVO client accordingly in the
 :menuselection:`XiVO Client --> Configure --> Functions --> Switchboard` window.
 

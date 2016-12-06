@@ -1,5 +1,5 @@
 *************************
-Debian packaging for XiVO
+Debian packaging for Wazo
 *************************
 
 Adding a package from backports
@@ -17,4 +17,4 @@ Adding a package from backports
 
     ssh mirror.wazo.community
     cd /data/reprepro/xivo
-    reprepro includedeb xivo-dev /tmp/name-of-package.deb
+    reprepro includedeb wazo-dev /tmp/name-of-package.deb

@@ -4,7 +4,7 @@
 REST API Troubleshooting
 ************************
 
-Here is a list of common problems you can encounter with XiVO REST APIs.
+Here is a list of common problems you can encounter with Wazo REST APIs.
 
 Swagger UI: Can't read from server...
 =====================================
@@ -12,7 +12,7 @@ Swagger UI: Can't read from server...
 Problem
 -------
 
-When trying to access Swagger UI via ``http://xivo/api``, I get::
+When trying to access Swagger UI via ``http://wazo/api``, I get::
 
    Can't read from server. It may not have the appropriate access-control-origin settings.
 

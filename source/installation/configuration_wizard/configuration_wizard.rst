@@ -4,7 +4,7 @@
 Running the Wizard
 ******************
 
-After the system installation, you must go through the wizard before being able to use your XiVO.
+After the system installation, you must go through the wizard before being able to use your Wazo.
 Open your browser and enter your server's IP address in the navigation bar. (For example:
 http://192.168.1.10)
 
@@ -25,7 +25,7 @@ You first have to select the language you want to use for the wizard.
 License
 =======
 
-You then have to accept the *GPLv3 License* under which XiVO is distributed.
+You then have to accept the *GPLv3 License* under which Wazo is distributed.
 
 .. figure:: images/wizard_step2_license.png
    :scale: 75%
@@ -82,6 +82,6 @@ on the ``Previous`` button.
 
 .. warning:: This is the last time the ``root`` password will be displayed. Take care to note it.
 
-Congratulations, you now have a fully functional XiVO server.
+Congratulations, you now have a fully functional Wazo server.
 
-To start configuring XiVO, see :ref:`getting_started`.
+To start configuring Wazo, see :ref:`getting_started`.

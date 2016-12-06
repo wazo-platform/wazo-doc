@@ -1,8 +1,8 @@
 =============
-XiVO sysconfd
+xivo-sysconfd
 =============
 
-xivo-sysconfd is the system configuration server for XiVO. It does quite a few different things;
+xivo-sysconfd is the system configuration server for Wazo. It does quite a few different things;
 here's a non exhaustive list:
 
 * configuring network (interfaces, hostname, DNS)
@@ -28,13 +28,13 @@ Here's an example of the configuration file:
    templates_path = /usr/share/xivo-sysconfd/templates
    custom_templates_path = /etc/xivo/sysconfd/custom-templates
    backup_path = /var/backups/xivo-sysconfd
-  
+
    [resolvconf]
    hostname_file = /etc/hostname
    hostname_update_cmd = /etc/init.d/hostname.sh start
    hosts_file = /etc/hosts
    resolvconf_file = /etc/resolv.conf
- 
+
    [network]
    interfaces_file = /etc/network/interfaces
 

@@ -7,11 +7,11 @@ CTI Protocol
 Protocol Changelog
 ==================
 
-The versions below indicate the xivo version followed by the protocol version.
+The versions below indicate the Wazo version followed by the protocol version.
 
 .. warning:: The CTI server protocol is subject to change without any prior warning. If you are
    using this protocol in your own tools please be sure to check that the protocol did not change
-   before upgrading XiVO
+   before upgrading Wazo
 
 
 16.11 - 2.2
@@ -369,7 +369,7 @@ Listen to an agent
 Configuration
 -------------
 
-The following messages are used to retrieve XiVO configuration.
+The following messages are used to retrieve Wazo configuration.
 
 Common fields
 ^^^^^^^^^^^^^
@@ -882,7 +882,7 @@ Others
 call_form_result
 ^^^^^^^^^^^^^^^^
 
-This message is received when a `call form` is submitted from a client to the XiVO.
+This message is received when a `call form` is submitted from a client to the Wazo.
 
 ``Client -> Server``
 
@@ -1975,7 +1975,7 @@ To stop receiving this event, the user must send the
 * data, a dictionary containing 3 fields:
 
   * agent_id, is an integer containing the ID of the user affected by this status change
-  * xivo_uuid: a string containing the UUID of the XiVO that sent the status update
+  * xivo_uuid: a string containing the UUID of the Wazo that sent the status update
   * status: a string containing the new status, "logged_in" or "logged_out"
 
 ``Server -> Client``
@@ -2065,7 +2065,7 @@ To stop receiving this event, the user must send the
 * data, a dictionary containing 3 fields:
 
   * endpoint_id, is an integer containing the ID of the line affected by this status change
-  * xivo_uuid: a string containing the UUID of the XiVO that sent the status update
+  * xivo_uuid: a string containing the UUID of the Wazo that sent the status update
   * status: an integer matching an entry in the cti hint configuration
 
 ``Server -> Client``
@@ -2156,11 +2156,11 @@ To stop receiving this event, the user must send the
 
   * user_uuid, a string containing the UUID of the user.
   * user_id, an integer containing the ID of the user.
-  * xivo_uuid: a string containing the UUID of the XiVO that sent the status update
+  * xivo_uuid: a string containing the UUID of the Wazo that sent the status update
   * status: a string containing the new status of the user based on the cti profile configuration
 
-.. note:: When multiple XiVO share user statuses, the cti profile configuration for presences and phone statuses
-   should match on all XiVO to be displayed properly
+.. note:: When multiple Wazo share user statuses, the cti profile configuration for presences and phone statuses
+   should match on all Wazo to be displayed properly
 
 ``Server -> Client``
 
@@ -2182,7 +2182,7 @@ To stop receiving this event, the user must send the
 CTI server implementation
 =========================
 
-In the git repository ``git://github.com/xivo-pbx/xivo-ctid.git``
+In the git repository ``git://github.com/wazo-pbx/xivo-ctid.git``
 
 * `cti_config` handles the configuration coming from the WEBI
 * `interfaces/interface_ami`, together with `asterisk_ami_definitions`, `amiinterpret` and `xivo_ami` handle the AMI connections (asterisk)

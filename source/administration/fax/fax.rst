@@ -172,7 +172,7 @@ The uploaded file are named like ``${XIVO_SRCNUM}-${EPOCH}.pdf``.
 Using the printer backend
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To use the printer backend, you must have the ``cups-client`` package installed on your XiVO::
+To use the printer backend, you must have the ``cups-client`` package installed on your Wazo::
 
    $ apt-get install cups-client
 
@@ -203,7 +203,7 @@ want. Just look what the default mail backend looks like.
 Fax detection
 =============
 
-XiVO **does not currently support Fax Detection**. A workaround is described in the :ref:`fax-detection` section.
+Wazo **does not currently support Fax Detection**. A workaround is described in the :ref:`fax-detection` section.
 
 
 .. _fax-analog-gateway:
@@ -211,7 +211,7 @@ XiVO **does not currently support Fax Detection**. A workaround is described in 
 Using analog gateways
 =====================
 
-XiVO is able to provision Cisco SPA122 and Linksys SPA2102, SPA3102 and SPA8000 analog gateways which can be used to
+Wazo is able to provision Cisco SPA122 and Linksys SPA2102, SPA3102 and SPA8000 analog gateways which can be used to
 connect fax equipments. This section describes the creation of custom template *for SPA3102* which
 modifies several parameters.
 

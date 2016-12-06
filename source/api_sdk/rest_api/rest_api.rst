@@ -4,7 +4,7 @@
 REST API
 ********
 
-The XiVO REST APIs are the privileged way to programmatically interact with XiVO.
+The Wazo REST APIs are the privileged way to programmatically interact with Wazo.
 
 .. toctree::
    :maxdepth: 2

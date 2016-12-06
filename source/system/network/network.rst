@@ -7,11 +7,11 @@ Network
 .. index:: network
 
 This section describes how to configure additional network devices that may be used to better
-accommodate more complex network infrastructures. Network interfaces are managed in the XiVO web
+accommodate more complex network infrastructures. Network interfaces are managed in the Wazo web
 interface via the page :menuselection:`Configuration --> Network --> Interfaces`.
 
-XiVO offers 2 types of interfaces: `VoIP` and `Data`. The `VoIP` interface is used by the DHCP
-server, provisioning server, and phone devices connected to your XiVO. These services will use the
+Wazo offers 2 types of interfaces: `VoIP` and `Data`. The `VoIP` interface is used by the DHCP
+server, provisioning server, and phone devices connected to your Wazo. These services will use the
 information provided on the `VoIP` interface for their configuration.  For example, the DHCP server
 will only listen on the VoIP interface by default.
 
@@ -23,7 +23,7 @@ to `Data`.
 Configuring a physical interface
 --------------------------------
 
-In this example, we'll add and configure the **eth1** network interface on our XiVO.
+In this example, we'll add and configure the **eth1** network interface on our Wazo.
 
 First, we see there's already an unconfigured network interface named **eth1** on our system:
 
@@ -61,7 +61,7 @@ This action must be clicked in order for the changes to take effect.
 Adding a VLAN interface
 -----------------------
 
-In this example, the XiVO already has 2 network interfaces configured:
+In this example, the Wazo already has 2 network interfaces configured:
 
 .. figure:: images/netiface_list_configured.png
 
@@ -115,7 +115,7 @@ After applying the network configuration:
 Add static network routes
 -------------------------
 
-Static routes cannot be added via the web interface. However, you may add static routes to your XiVO
+Static routes cannot be added via the web interface. However, you may add static routes to your Wazo
 by following following the steps described below. This procedure will ensure that your static routes
 are applied at startup (i.e.  each time the network interface goes up).
 

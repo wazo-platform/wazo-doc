@@ -54,7 +54,7 @@ Here is a typical ``setup.py``:
 
    #!/usr/bin/env python
    # -*- coding: utf-8 -*-
-   # Copyright 2016 by Avencall
+   # Copyright 2016 The Wazo Authors  (see the AUTHORS file)
    # SPDX-License-Identifier: GPL-3.0+
 
    from setuptools import setup
@@ -62,7 +62,7 @@ Here is a typical ``setup.py``:
 
 
    setup(
-       name='XiVO confgend driversample',
+       name='Wazo confgend driversample',
        version='0.0.1',
 
        description='An example driver',
@@ -90,7 +90,7 @@ With the following package structure::
    :linenos:
 
    # -*- coding: utf-8 -*-
-   # Copyright 2016 by Avencall
+   # Copyright 2016 The Wazo Authors  (see the AUTHORS file)
    # SPDX-License-Identifier: GPL-3.0+
 
 

@@ -4,27 +4,27 @@
 Generate your own prompts
 *************************
 
-If you want your XiVO to speak in your language that is not supported by XiVO, and you don't want to
+If you want your Wazo to speak in your language that is not supported by Wazo, and you don't want to
 record the whole package of sounds in a studio, you may generate them yourself with some
 text-to-speech services.
 
 The following procedure will generate prompts for ``pt_BR`` (portuguese from Brazil) based on the
 Google TTS service.
 
-.. note:: There are two sets of prompts: the `Asterisk prompts`_ and the XiVO prompts. This procedure
-          only covers the XiVO prompts, but it may be adapted for Asterisk prompts.
+.. note:: There are two sets of prompts: the `Asterisk prompts`_ and the Wazo prompts. This procedure
+          only covers the Wazo prompts, but it may be adapted for Asterisk prompts.
 
 .. _Asterisk prompts: http://www.asterisksounds.org/en
 
-#. Create an account on Transifex and join the team of translation of XiVO.
+#. Create an account on Transifex and join the team of translation of Wazo.
 
 #. Translate the prompts in the xivo-prompts resource.
 
-#. Go to https://www.transifex.com/proformatique/xivo/xivo-prompt/pt_BR/download/for_use/ and
-   download the file on your XiVO. You should have a file named like
+#. Go to https://www.transifex.com/wazo/wazo/xivo-prompt/pt_BR/download/for_use/ and
+   download the file on your Wazo. You should have a file named like
    ``for_use_xivo_xivo-prompt_pt_BR.ini``.
 
-#. On your XiVO, download the tool to automate the use of Google TTS::
+#. On your Wazo, download the tool to automate the use of Google TTS::
 
     wget https://github.com/zaf/asterisk-googletts/raw/master/cli/googletts-cli.pl
     chmod +x googletts-cli.pl

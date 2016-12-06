@@ -2,14 +2,14 @@
 Parking
 *******
 
-With XiVO it is possible to park calls, the same way you may park your car in a car parking.
+With Wazo it is possible to park calls, the same way you may park your car in a car parking.
 If you define supervised keys on a phone set for all the users of a system, when a call is parked, all the users are able to
 see that some one is waiting for an answer, push the phone key and get the call back to the phone.
 
 .. figure:: images/parking_intro.png
    :scale: 85%
 
-There is a default parking number, 700, which is already configured when you install XiVO,
+There is a default parking number, 700, which is already configured when you install Wazo,
 but you may change the default configuration by editing the parking extension in menu
 :menuselection:`Service --> IPBX --> IPBX Services --> Extensions --> Advanced --> Parking`
 

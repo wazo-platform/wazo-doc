@@ -12,7 +12,7 @@ Dependencies
 * Sphinx (package python-sphinx on Debian)
 * sphinx-git modified (for git changelog). To install it:
 
-   pushd /tmp && sudo pip install git+git://github.com/xivo-pbx/sphinx-git.git@tagtitles && popd
+   pushd /tmp && sudo pip install git+git://github.com/wazo-pbx/sphinx-git.git@tagtitles && popd
 
 
 Build

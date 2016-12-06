@@ -4,7 +4,7 @@
 Log Files
 *********
 
-Every XiVO service has its own log file, placed in :file:`/var/log`.
+Every Wazo service has its own log file, placed in :file:`/var/log`.
 
 
 asterisk

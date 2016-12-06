@@ -4,7 +4,7 @@
 Call Completion
 ***************
 
-The call completion feature (or CCSS, for Call Completion Supplementary Services) in XiVO allows for
+The call completion feature (or CCSS, for Call Completion Supplementary Services) in Wazo allows for
 a caller to be automatically called back when a called party has become available.
 
 #. To illustrate, let's say Alice attempts to call Bob.
@@ -66,7 +66,7 @@ Some timers governs the use of call completion. These are:
 * recall timer: when the caller who requested call completion is called back, how long the original
   caller's phone rings before giving up. Defaults to 30 (seconds).
 
-It's currently impossible to modify the value of these timers in XiVO.
+It's currently impossible to modify the value of these timers in Wazo.
 
 
 Special Scenarios
@@ -87,7 +87,7 @@ It is not possible to activate call completion in the following two scenarios.
 First scenario: Alice tries to call Bob, but Bob has currently reached its "simultaneous calls"
 limit. When activating call completion, Alice hears that the call completion can not be activated.
 
-.. note:: The "simultaneous calls" option is configured per user via the XiVO web interface.
+.. note:: The "simultaneous calls" option is configured per user via the Wazo web interface.
 
 Second scenario: Alice tries to call Bob, but the call is redirected to Charlie.
 
@@ -160,5 +160,5 @@ services --> Extensions` page, in the :guilabel:`General` tab.
 
    Call Completion Extension
 
-If your XiVO has been installed in version 14.16 or earlier, then this extension is by default
+If your Wazo has been installed in version 14.16 or earlier, then this extension is by default
 disabled. Otherwise, this extension is by default enabled.

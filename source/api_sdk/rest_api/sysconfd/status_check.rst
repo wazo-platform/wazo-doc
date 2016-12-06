@@ -20,7 +20,7 @@ Example request
 ::
 
     GET /status_check HTTP/1.1
-    Host: xivoserver
+    Host: wazoserver
     Content-Type: application/json
 
 Example response

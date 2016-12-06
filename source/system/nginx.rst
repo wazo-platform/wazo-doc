@@ -4,7 +4,7 @@
 Nginx
 *****
 
-XiVO use nginx as a web server and reverse proxy.
+Wazo use nginx as a web server and reverse proxy.
 
 In its default configuration, the nginx server listens on port TCP/80 and TCP/443 and allows these
 services to be used:
@@ -12,8 +12,8 @@ services to be used:
 * web interface (xivo-web-interface)
 * API documentation (xivo-swagger-doc)
 
-Starting from XiVO 16.13, an administrator can easily modify the configuration to allow
-additional services to be used (e.g. xivo-auth or xivo-confd).
+An administrator can easily modify the configuration to allow additional services to be used (e.g.
+xivo-auth or xivo-confd).
 
 To do so, an administrator only has to create a symbolic link inside the
 :file:`/etc/nginx/locations/http-enabled` directory to the corresponding file in the

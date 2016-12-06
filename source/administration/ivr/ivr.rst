@@ -14,7 +14,7 @@ Introduction
 
    -- Wikipedia
 
-The IVR function is not yet available in graphic mode in XiVO. This functionality is currently
+The IVR function is not yet available in graphic mode in Wazo. This functionality is currently
 supported only via the :ref:`xivo-confd REST API <confd-api>` or using scripts, also named dialplan.
 
 
@@ -172,7 +172,7 @@ Flowchart
 Configuration File and Dialplan
 -------------------------------
 
-Copy all these lines (2 contexts) in a configuration file on your XiVO server :
+Copy all these lines (2 contexts) in a configuration file on your Wazo server :
 
 ::
 

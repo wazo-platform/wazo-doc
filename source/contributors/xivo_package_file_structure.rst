@@ -1,5 +1,5 @@
 ***************************
-XiVO Package File Structure
+Wazo Package File Structure
 ***************************
 
 Package naming

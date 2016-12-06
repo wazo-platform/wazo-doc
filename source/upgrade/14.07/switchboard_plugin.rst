@@ -40,5 +40,5 @@ the only difference being the different plugin name.
 An unofficial script that automates this procedure is also available on github::
 
    cd /tmp
-   wget --no-check-certificate https://raw.githubusercontent.com/xivo-pbx/xivo-tools/master/scripts/migrate_switchboard_1407.py
+   wget --no-check-certificate https://raw.githubusercontent.com/wazo-pbx/xivo-tools/master/scripts/migrate_switchboard_1407.py
    python migrate_switchboard_1407.py

@@ -27,7 +27,7 @@ Here's an example on how to profile xivo-ctid for CPU/time usage:
 
    Note that profiling multi-threaded program (xivo-agid, xivo-confd) doesn't work reliably.
 
-   The :ref:`debug-daemons` section documents how to launch the various XiVO services
+   The :ref:`debug-daemons` section documents how to launch the various Wazo services
    in foreground/debug mode.
 
 #. Examine the result of the profiling::
@@ -64,7 +64,7 @@ want to have additional information about it.
       coverage erase
       coverage run /usr/bin/xivo-ctid -f
 
-   The :ref:`debug-daemons` section documents how to launch the various XiVO service
+   The :ref:`debug-daemons` section documents how to launch the various Wazo service
    in foreground/debug mode.
 
 #. After the process terminates, use ``coverage html`` to generate
@@ -77,14 +77,14 @@ want to have additional information about it.
 #. Browse the coverage report.
 
    Either copy the directory onto your computer and open it with a web browser,
-   or start a web server on the XiVO::
+   or start a web server on the Wazo::
 
       cd htmlcov
       python -m SimpleHTTPServer
 
-   Then open the page from your computer (i.e. not on the xivo)::
+   Then open the page from your computer (i.e. not on the Wazo)::
 
-      firefox http://<xivo-hostname>:8000
+      firefox http://<wazo-hostname>:8000
 
 
 External Links

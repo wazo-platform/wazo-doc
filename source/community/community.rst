@@ -4,7 +4,7 @@
 Community Documentation
 ***********************
 
-This page provides links to resources on various topics around XiVO. They have
+This page provides links to resources on various topics around Wazo. They have
 been generously created by people from the community.
 
 
@@ -12,7 +12,7 @@ Tutorials
 ---------
 
 Please note that these resources are provided on an "as is basis". They have
-not been reviewed by the XiVO team, therefore the information presented may be
+not been reviewed by the Wazo team, therefore the information presented may be
 innaccurate. We also accept resources provided in other languages besides
 English.
 
@@ -100,7 +100,7 @@ Unless specified, the license is `CC BY-SA`_.
 .. _SCCP provisioning, unsupported phones and no DHCP: http://retroplace.nyxd.org/2015/03/24/xivo-sccp-et-provisioning-sur-telephones-non-supportes-et-dhcp-desactive/
 .. _Date format on SCCP 7941: http://retroplace.nyxd.org/2015/02/06/xivo-probleme-daffichage-de-lheure-sur-cisco-7941-en-cas-de-redemarrage-dasterisk/
 .. _Installing XiVO on Raspberry Pi (Raspivo): http://raspivo.io/installation-depuis-nos-depots.html
-.. _phonebook_csv_export.py: https://raw.githubusercontent.com/xivo-pbx/xivo-tools/master/scripts/phonebook_csv_export.py
+.. _phonebook_csv_export.py: https://raw.githubusercontent.com/wazo-pbx/xivo-tools/master/scripts/phonebook_csv_export.py
 .. _specific scripts: https://github.com/jthomas74/prov-m700
 .. _Getting Started with XiVO: http://nerdvittles.com/?page_id=18324
 
@@ -110,7 +110,7 @@ Contribute
 
 We gladly accept new contributions. There are two ways to contribute:
 
-* The preferred way: open a pull request on `Github <https://github.com/xivo-pbx/xivo-doc>`_ and add
+* The preferred way: open a pull request on `Github <https://github.com/wazo-pbx/xivo-doc>`_ and add
   a line to this page (see: :ref:`contributing_to_the_documentation`).
 * You can also open a contribution ticket on the `bug tracker <https://projects.wazo.community/projects/xivo/issues>`_.
 

@@ -4,7 +4,7 @@
 Xivo Services
 *************
 
-Reload XiVO services
+Reload Wazo services
 ====================
 
 Query

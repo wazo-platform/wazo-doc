@@ -20,7 +20,7 @@ Example request
 ::
 
    GET /discover_netifaces HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/json
 
 
@@ -101,7 +101,7 @@ Example request
 ::
 
     GET /netiface/eth0 HTTP/1.1
-    Host: xivoserver
+    Host: wazoserver
     Content-Type: application/json
 
 Example response
@@ -183,7 +183,7 @@ Example request
 ::
 
     PUT /modify_physical_eth_ipv4 HTTP/1.1
-    Host: xivoserver
+    Host: wazoserver
     Content-Type: application/json
     {
         "ifname': "eth0",
@@ -207,7 +207,7 @@ Example request
 ::
 
     PUT /replace_virtual_eth_ipv4 HTTP/1.1
-    Host: xivoserver
+    Host: wazoserver
     Content-Type: application/json
     {
         "ifname": "eth0:0",
@@ -232,7 +232,7 @@ Example request
 ::
 
     PUT /modify_eth_ipv4 HTTP/1.1
-    Host: xivoserver
+    Host: wazoserver
     Content-Type: application/json
     {
         'ifname' : 'eth0'
@@ -263,7 +263,7 @@ Example request
 ::
 
     PUT /change_state_eth_ipv4 HTTP/1.1
-    Host: xivoserver
+    Host: wazoserver
     Content-Type: application/json
     {
         'ifname' : 'eth0',
@@ -286,5 +286,5 @@ Example request
 ::
 
     GET /delete_eth_ipv4/eth0 HTTP/1.1
-    Host: xivoserver
+    Host: wazoserver
     Content-Type: application/json

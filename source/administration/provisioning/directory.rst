@@ -4,7 +4,7 @@
 Remote directory
 ****************
 
-If you have a phone provisioned with XiVO and its one of the supported ones, you'll be able to search in your XiVO directory and place call directly
+If you have a phone provisioned with Wazo and its one of the supported ones, you'll be able to search in your XiVO directory and place call directly
 from your phone.
 
 See the list of :ref:`supported devices <official-devices>` to know if a model supports the XiVO directory or not.

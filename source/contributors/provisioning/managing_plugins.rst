@@ -6,7 +6,7 @@ Git Repository
 ==============
 
 Most plugin-related files are available in the
-`xivo-provd-plugins repository <https://github.com/xivo-pbx/xivo-provd-plugins.git>`_.
+`xivo-provd-plugins repository <https://github.com/wazo-pbx/xivo-provd-plugins.git>`_.
 Following examples are relative to the repository directory tree. Any modifications
 should be preceeded by a `git pull`.
 
@@ -78,7 +78,7 @@ Next modification will change the plugin version to 0.4.02, etc. When you are
 finished making changes, change the version to 0.5 and upload one last time.
 
 
-Edit directly on XiVO
+Edit directly on Wazo
 ^^^^^^^^^^^^^^^^^^^^^
 
 Edit the files in :file:`/var/lib/xivo-provd/plugins`.
@@ -126,7 +126,7 @@ Don't forget to install the plugin to test it.
 Mass-install all firmwares related to a given plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Using xivo-provd-cli on a xivo server, one can mass-install firmwares. Following
+Using xivo-provd-cli on a Wazo server, one can mass-install firmwares. Following
 example installs all firmwares for xivo-snom 8.7.3.25.5 plugin
 (note the auto-completion)::
 

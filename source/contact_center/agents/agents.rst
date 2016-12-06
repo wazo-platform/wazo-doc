@@ -14,7 +14,7 @@ Introduction
 
    -- SearchCRM
 
-In this respect, agents in XiVO have no fixed line and can login from any registered device.
+In this respect, agents in Wazo have no fixed line and can login from any registered device.
 
 
 Getting Started
