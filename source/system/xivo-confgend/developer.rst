@@ -62,7 +62,7 @@ Here is a typical ``setup.py``:
 
 
    setup(
-       name='XiVO confgend driversample',
+       name='Wazo confgend driversample',
        version='0.0.1',
 
        description='An example driver',

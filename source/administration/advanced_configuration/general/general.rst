@@ -1,17 +1,17 @@
 *********************
-XiVO General Settings
+Wazo General Settings
 *********************
 
 
-XiVO offers the possibility to configure the general settings via
+Wazo offers the possibility to configure the general settings via
 the :menuselection:`Configuration --> Management --> General` page.
 
 
 .. figure:: images/xivo-general-settings.png
 
-   Configure XiVO General Settings
+   Configure Wazo General Settings
 
    
 
-Live reload configuration permit to reload its configuration on command received from WEBI 
+Live reload configuration permit to reload its configuration on command received from WEBI
 (this option is enabled by default).

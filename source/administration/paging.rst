@@ -2,7 +2,7 @@
 Paging
 ******
 
-With XiVO, you can define paging (i.e. intercom) extensions to page a group of
+With Wazo, you can define paging (i.e. intercom) extensions to page a group of
 users. When calling a paging extension, the phones of the specified users will
 auto-answer, if they support it.
 

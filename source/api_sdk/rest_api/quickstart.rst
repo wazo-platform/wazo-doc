@@ -7,10 +7,10 @@ REST API Quickstart
 Introduction
 ============
 
-XiVO REST APIs are HTTP interfaces that allow you to programmatically interact with XiVO. In order
-to access the REST APIs of XiVO, you need:
+Wazo REST APIs are HTTP interfaces that allow you to programmatically interact with Wazo. In order
+to access the REST APIs of Wazo, you need:
 
-* a XiVO server up and running
+* a Wazo server up and running
 * a browser
 * somewhere you can copy-paste text (ids, tokens, etc.)
 
@@ -18,7 +18,7 @@ to access the REST APIs of XiVO, you need:
 REST API Permissions
 ====================
 
-First of all, you must have permission to use the REST API. In your XiVO web interface, go to
+First of all, you must have permission to use the REST API. In your Wazo web interface, go to
 :menuselection:`Configuration --> Management --> Web Services Access` and create a new user:
 
 * Name: ``rest-api-test``
@@ -35,15 +35,15 @@ Save the form, and store the login/password somewhere for later use.
 Swagger UI
 ==========
 
-In this article, we will use the Swagger Web UI, a small web application available in every XiVO
+In this article, we will use the Swagger Web UI, a small web application available in every Wazo
 installation since XiVO 15.10.
 
-In your browser, go to ``http://<xivo>/api``. You should see:
+In your browser, go to ``http://<wazo>/api``. You should see:
 
 * a list of available APIs
 * input boxes on the top, we will ignore those for now
 
-The list of available APIs reflects the different modules of XiVO. Each module is a Python process
+The list of available APIs reflects the different modules of Wazo. Each module is a Python process
 that serves its own REST API. We will concentrate on two of them:
 
 * xivo-auth
@@ -53,17 +53,17 @@ xivo-auth is the daemon responsible for authentication. Every API is protected b
 authentication mechanism. In order to use any REST API, we will need a valid authentication token,
 obtained from xivo-auth.
 
-xivo-confd is the daemon responsible for XiVO configuration. Its REST API allows you to read and
-modify users, lines, extensions, groups, etc. This is the programatic equivalent of the XiVO web
-interface. However, the xivo-confd REST API is not yet complete, and not all aspects of XiVO
+xivo-confd is the daemon responsible for Wazo configuration. Its REST API allows you to read and
+modify users, lines, extensions, groups, etc. This is the programatic equivalent of the Wazo web
+interface. However, the xivo-confd REST API is not yet complete, and not all aspects of Wazo
 configuration are available in xivo-confd.
 
 
 HTTPS certificates
 ==================
 
-Almost all REST APIs use encryption and are available via HTTPS. Unfortunately, XiVO does not come
-with a trusted certificate. So you have to manually trust the self-signed certificate of your XiVO.
+Almost all REST APIs use encryption and are available via HTTPS. Unfortunately, Wazo does not come
+with a trusted certificate. So you have to manually trust the self-signed certificate of your Wazo.
 To that end:
 
 #. Click on xivo-auth in the menu on the left.
@@ -74,10 +74,10 @@ To that end:
    This is expected. This is the kind of error (quite misleading, admittedly) you get when the
    certificate is not trusted.
 #. Copy the URL you see in the text box at the top of the page, something like:
-   ``https://xivo:9497/1.1/api/api.yml`` and paste it in your browser.
+   ``https://wazo:9497/1.1/api/api.yml`` and paste it in your browser.
 #. Accept the HTTPS certificate validation exception.
 #. You should see a YAML text file describing the xivo-confd API.
-#. Go back to ``http://xivo/api``.
+#. Go back to ``http://wazo/api``.
 #. Click on xivo-auth again.
 #. Now you should see a list of sections for the xivo-auth REST API, like ``backends`` or ``token``
 #. Repeat the whole procedure for xivo-confd (the port in the URL will be different, and the REST
@@ -124,7 +124,7 @@ And that's it, you are ready to use any REST API with your authentication token.
 .. note:: Be aware that this token will expire, and that you will need to get a new one when that
           happens. You can take a look at https://auth.wazo.community for an easier manual token generation
           process. Note that the ``auth.wazo.community`` server will never know the tokens that you
-          generate, you browser will ask your XiVO directly.
+          generate, you browser will ask your Wazo directly.
 
 .. warning:: Also, note that this authentication token gives **all permissions** to anyone who knows
              it. Same goes for the account password we created earlier. Remember to delete this
@@ -135,7 +135,7 @@ What's next
 ===========
 
 * Check our :ref:`rest-api-examples` for more elaborate examples of how to use the REST APIs of
-  XiVO.
+  Wazo.
 * :ref:`rest-api-conventions` are also a good read
 * Explore the REST API in Swagger, it also serves as the reference documentation for REST API.
 

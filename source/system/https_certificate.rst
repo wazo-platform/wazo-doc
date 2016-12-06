@@ -7,7 +7,7 @@ HTTPS certificate
 X.509 certificates are used to authorize and secure communications with the server. They are mainly
 used for HTTPS, but can also be used for SIPS, CTIS, WSS, etc.
 
-There are two categories of certificates in XiVO:
+There are two categories of certificates in Wazo:
 
 * the default certificate, used for HTTPS in the web interface, REST APIs and WebSockets
 * the certificates created and managed via the web interface
@@ -18,7 +18,7 @@ This article is about the former. For the latter, see :ref:`telephony_certificat
 Default certificate
 ===================
 
-XiVO uses HTTPS where possible. The certificates are generated at install time (or
+Wazo uses HTTPS where possible. The certificates are generated at install time (or
 during the :ref:`upgrade to 15.12+ <upgrade-note-15.12>`). The main certificate is placed in
 :file:`/usr/share/xivo-certs/server.crt`.
 
@@ -32,7 +32,7 @@ The default certificate is untrusted
 
 To make the HTTP client accept this certificate, you have two choices:
 
-* configure your HTTP client to trust the self-signed XiVO certificate by adding a new trusted CA.
+* configure your HTTP client to trust the self-signed Wazo certificate by adding a new trusted CA.
   The CA certificate (or bundle) is the file :file:`/usr/share/xivo-certs/server.crt`.
 * replace the self-signed certificate with your own trusted certificate.
 
@@ -46,35 +46,35 @@ For this, follow these steps:
 
    * Private key: :file:`/usr/share/xivo-certs/server.key`
    * Certificate: :file:`/usr/share/xivo-certs/server.crt`
- 
+
    Those files **must** be readable by the group ``www-data``. You can check with the following command::
 
       sudo -u www-data cat /usr/share/xivo-certs/server.{key,crt}
 
-2. Change the hostname of XiVO for each XiVO component: the different processes of XiVO heavily use
+2. Change the hostname of Wazo for each Wazo component: the different processes of Wazo heavily use
    HTTPS for internal communication, and for these connection to establish successfully, all
    hostnames used must match the Common Name (CN) of your certificate. Basically, you must replace
    all occurrences of ``localhost`` (the default hostname) with your CN in the :ref:`configuration of the
-   XiVO services <configuration-files>`. For example::
+   Wazo services <configuration-files>`. For example::
 
       mkdir /etc/xivo/custom
       cat > /etc/xivo/custom/custom-certificate.yml << EOF
       consul:
-        host: xivo.example.com
+        host: wazo.example.com
       agentd:
-        host: xivo.example.com
+        host: wazo.example.com
       ajam:
-        host: xivo.example.com
+        host: wazo.example.com
       amid:
-        host: xivo.example.com
+        host: wazo.example.com
       auth:
-        host: xivo.example.com
+        host: wazo.example.com
       confd:
-        host: xivo.example.com
+        host: wazo.example.com
       ctid_ng:
-        host: xivo.example.com
+        host: wazo.example.com
       dird:
-        host: xivo.example.com
+        host: wazo.example.com
       EOF
       for config_dir in /etc/xivo-*/conf.d/ ; do
           ln -s "/etc/xivo/custom/custom-certificate.yml" "$config_dir/010-custom-certificate.yml"
@@ -91,25 +91,25 @@ For this, follow these steps:
    The options are the following:
 
    * Consul: ``verify: True``
-   * Other XiVO services: ``verify_certificate: True``
+   * Other Wazo services: ``verify_certificate: True``
 
    The procedure is the same as 2. with more configuration for each service. For example::
 
       cat > /etc/xivo/custom/custom-certificate.yml << EOF
       consul:
-        host: xivo.example.com
+        host: wazo.example.com
         verify: True
       agentd:
-        host: xivo.example.com
+        host: wazo.example.com
         verify_certificate: True
       ajam:
-        host: xivo.example.com
+        host: wazo.example.com
         verify_certificate: True
       ...
 
    Setting ``verify_certificate`` to ``False`` will disable the certificate verification, but the
-   connection will still be encrypted. This is pretty safe as long as XiVO services stay on the same
-   machine, however, this is dangerous when XiVO services are separated by an untrusted network,
+   connection will still be encrypted. This is pretty safe as long as Wazo services stay on the same
+   machine, however, this is dangerous when Wazo services are separated by an untrusted network,
    such as the Internet.
 
 4. You need an entry in :file:`/etc/hosts` resolving your CN to ``127.0.0.1``. For this, *do not*
@@ -123,8 +123,8 @@ For this, follow these steps:
 
    You can check the configuration with the following command, it should give you ``127.0.0.1``::
 
-      getent ahosts xivo.example.com
+      getent ahosts wazo.example.com
 
-5. Restart all XiVO services::
+5. Restart all Wazo services::
 
       xivo-service restart all

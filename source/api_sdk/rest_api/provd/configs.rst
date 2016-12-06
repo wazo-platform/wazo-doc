@@ -27,7 +27,7 @@ Example request
 .. code-block:: http
 
    GET /provd/cfg_mgr HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -79,7 +79,7 @@ Example request
 .. code-block:: http
 
    GET /provd/cfg_mgr/configs HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -156,7 +156,7 @@ Example request
 .. code-block:: http
 
    POST /provd/cfg_mgr/configs HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Content-Type: application/vnd.proformatique.provd+json
 
    {
@@ -212,7 +212,7 @@ Example request
 .. code-block:: http
 
    GET /provd/cfg_mgr/configs/77839d0f05c84662864b0ae5c27b33e4 HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -263,7 +263,7 @@ Example request
 .. code-block:: http
 
    GET /provd/cfg_mgr/configs/77839d0f05c84662864b0ae5c27b33e4/raw HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -314,7 +314,7 @@ Example request
 .. code-block:: http
 
    PUT /provd/cfg_mgr/configs/77839d0f05c84662864b0ae5c27b33e4 HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Content-Type: application/vnd.proformatique.provd+json
 
    {
@@ -364,7 +364,7 @@ Example request
 .. code-block:: http
 
    DELETE /provd/cfg_mgr/configs/77839d0f05c84662864b0ae5c27b33e4
-   Host: xivoserver
+   Host: wazoserver
 
 
 Example response
@@ -397,7 +397,7 @@ Example request
 .. code-block:: http
 
    POST /provd/cfg_mgr/autocreate HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Content-Type: application/vnd.proformatique.provd+json
 
    {}

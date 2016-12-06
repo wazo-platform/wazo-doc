@@ -161,17 +161,17 @@ Restore
 Introduction
 ============
 
-A backup of both the configuration files and the database used by a XiVO installation is done
+A backup of both the configuration files and the database used by a Wazo installation is done
 automatically every day.
 These backups are created in the :file:`/var/backups/xivo` directory and are kept for 7 days.
 
 Limitations
 ===========
 
-* You must restore a backup on the **same version** of XiVO that was backed up (though the
+* You must restore a backup on the **same version** of Wazo that was backed up (though the
   architecture -- ``i386`` or ``amd64`` -- may differ)
 * You must restore a backup on a machine with the **same hostname and IP address**
-* Be aware that this procedure applies **only to XiVO >= 14.08** (see :ref:`upgrade_note_14.08`).
+* Be aware that this procedure applies **only to XiVO/Wazo >= 14.08** (see :ref:`upgrade_note_14.08`).
 
 
 Before Restoring the System
@@ -179,9 +179,9 @@ Before Restoring the System
 
 .. warning::
 
-    Before restoring a XiVO on a fresh install you have to setup XiVO using the wizard (see :ref:`configuration_wizard` section).
+    Before restoring a Wazo on a fresh install you have to setup Wazo using the wizard (see :ref:`configuration_wizard` section).
 
-Stop monit and all the xivo services::
+Stop monit and all the Wazo services::
 
    xivo-service stop
 
@@ -208,7 +208,7 @@ Restoring the Database
     * You have to check the free space on your system partition before extracting the backups.
 
 Database backups are created as :file:`db.tgz` files in the :file:`/var/backups/xivo` directory.
-These tarballs contains a dump of the database used in XiVO.
+These tarballs contains a dump of the database used in Wazo.
 
 In this example, we'll restore the database from a backup file named :file:`db.tgz`
 placed in the home directory of root.
@@ -238,7 +238,7 @@ Alternative: Restoring and Keeping System Configuration
 =======================================================
 
 System configuration like network interfaces is stored in the database. It is
-possible to keep this configuration and only restore xivo data.
+possible to keep this configuration and only restore Wazo data.
 
 Rename the asterisk database to asterisk_previous::
 

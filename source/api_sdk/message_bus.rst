@@ -4,13 +4,13 @@
 Message Bus
 ***********
 
-The message bus is used to receive events from XiVO. It is provided by
+The message bus is used to receive events from Wazo. It is provided by
 an `AMQP <http://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol>`_ 0-9-1
 broker (namely, `RabbitMQ <http://previous.rabbitmq.com/v2_8_x/documentation.html>`_)
-that is integrated in XiVO.
+that is integrated in Wazo.
 
 .. warning:: Interaction with the bus is presently experimental and
-   some things might change in the next XiVO versions.
+   some things might change in the next Wazo versions.
 
 
 Usage
@@ -317,12 +317,12 @@ chat_message_event
 
 This message is used to send a chat message to a user
 
-* routing key: chat.message.<xivo-uuid>.<user_id>
+* routing key: chat.message.<wazo-uuid>.<user_id>
 * event specific data:
 
   * alias: The nickname of the chatter
-  * to: The destination's XiVO UUID and user UUID
-  * from: The chatter's XiVO UUID and user UUID
+  * to: The destination's Wazo UUID and user UUID
+  * from: The chatter's Wazo UUID and user UUID
   * msg: The message
 
 Example:

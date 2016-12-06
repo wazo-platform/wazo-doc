@@ -4,8 +4,8 @@
 Contact and Presence Sharing
 ****************************
 
-XiVO allow the administrator to share presence and statuses between multiple
-installations. For example, an enterprise could have a XiVO in each office and
+Wazo allow the administrator to share presence and statuses between multiple
+installations. For example, an enterprise could have a Wazo in each office and
 still be able to search, contact and view the statuses of colleagues in other
 offices.
 
@@ -17,14 +17,13 @@ This page will describe the steps that are required to configure such use case.
 Prerequisite
 ============
 
-#. All XiVO that you interconnect should be on the same version
-#. This configuration is only possible with XiVO 15.19 and above
+#. All Wazo that you interconnect should be on the same version
 #. All ports necessary for communication should be open :ref:`network_configuration`
 
 .. warning::
 
    If you are cloning a virtual machine or copy the database, the UUID of the
-   two XiVO will be the same, you must regenerate them in the *infos* table of
+   two Wazo will be the same, you must regenerate them in the *infos* table of
    the *asterisk* database and restart all services. You must also remove all
    consul data that included the old UUID.
 
@@ -34,10 +33,10 @@ Prerequisite
 
 .. warning::
 
-   The configuration must be applied to each XiVO you want to interconnect. For
-   example, if 6 different XiVO are to be connected, the configuration for all
-   other XiVO should be added. This does not apply to the message bus which can
-   use a ring policy, each XiVO talking to its two neighbours.
+   The configuration must be applied to each Wazo you want to interconnect. For
+   example, if 6 different Wazo are to be connected, the configuration for all
+   other Wazo should be added. This does not apply to the message bus which can
+   use a ring policy, each Wazo talking to its two neighbours.
 
 .. warning::
 
@@ -46,7 +45,7 @@ Prerequisite
 
 .. note::
 
-   In an architecture with a lot of XiVO, we recommend that you centralize some
+   In an architecture with a lot of Wazo, we recommend that you centralize some
    services, such as xivo-dird, to make your life easier. Don't forget
    redundancy. This applies also to RabbitMQ and Consul. In this case, the
    configuration will have to be done entirely manually in YAML config files.
@@ -54,8 +53,8 @@ Prerequisite
 
 For this procedure, the following name and IP addresses will be used:
 
-* XiVO 1: 192.168.1.124
-* XiVO 2: 192.168.1.125
+* Wazo 1: 192.168.1.124
+* Wazo 2: 192.168.1.125
 
 
 .. _create_ws_user:
@@ -79,10 +78,10 @@ This can be done in :menuselection:`Configuration --> Management --> Web Service
 Configuring the directories
 ===========================
 
-Add New Directory Sources for Remote XiVO
+Add New Directory Sources for Remote Wazo
 -----------------------------------------
 
-For each remote XiVO a new directory has to be created in
+For each remote Wazo a new directory has to be created in
 :menuselection:`Configuration --> Management --> Directories`
 
 .. note:: We recommend doing a working configuration without certificate
@@ -111,7 +110,7 @@ Add the New Definitions to Your Dird Profiles
 
 At the moment of this writing xivo-dird profiles are mapped directly to the
 user's profile. For each internal context where you want to be able to see
-user's from other XiVO, add the new directory definitions in
+user's from other Wazo, add the new directory definitions in
 :menuselection:`Services --> CTI Server --> Directories --> Direct directories`.
 
 .. figure:: images/list_direct_directories.png
@@ -130,7 +129,7 @@ To apply the new directory configuration, you can either restart from:
 Check that the Configuration is Working
 ---------------------------------------
 
-At this point, you should be able to search for users on other XiVO from the
+At this point, you should be able to search for users on other Wazo from the
 :ref:`people-xlet`.
 
 
@@ -209,7 +208,7 @@ The `service_id` and `service_key` are the ones you defined :ref:`earlier <creat
         service_id: remote-directory
         service_key: supersecret
 
-To get the xivo_uuid information on your second xivo, use the command:
+To get the xivo_uuid information on your second Wazo, use the command:
 
 .. code-block:: sh
 
@@ -227,7 +226,7 @@ Restart xivo-ctid-ng
 Configure Consul
 ================
 
-Stop XiVO
+Stop Wazo
 ---------
 
 .. code-block:: sh
@@ -247,18 +246,18 @@ Remove All Consul Data
     rm -rf /var/lib/consul/checks/
 
 
-Configure Consul to be Reachable from Other XiVO
+Configure Consul to be Reachable from Other Wazo
 ------------------------------------------------
 
 Add a new configuration file `/etc/consul/xivo/interconnection.json` with the
-following content where `advertise_addr` is reachable from other XiVO.
+following content where `advertise_addr` is reachable from other Wazo.
 
 .. code-block:: javascript
 
     {
     "client_addr": "0.0.0.0",
     "bind_addr": "0.0.0.0",
-    "advertise_addr": "192.168.1.124"  // The IP address of this XiVO, reachable from outside
+    "advertise_addr": "192.168.1.124"  // The IP address of this Wazo, reachable from outside
     }
 
 
@@ -280,7 +279,7 @@ Start Consul
     systemctl start consul
 
 
-Start XiVO
+Start Wazo
 ----------
 
 .. code-block:: sh
@@ -320,7 +319,7 @@ Check That Everything is Working
 
 There is no further configuration needed, you should now be able to connect your
 XiVO Client and search contacts from the People Xlet. When looking up contacts
-of another XiVO, you should see their phone status, their user availability, and
+of another Wazo, you should see their phone status, their user availability, and
 agent status dynamically.
 
 

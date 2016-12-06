@@ -6,7 +6,7 @@ Purpose
 =======
 
 In some cases, as the telephony provider, you want different independent organisations to have their
-telephony served by your XiVO, e.g. different departments using the same telephony infrastructure,
+telephony served by your Wazo, e.g. different departments using the same telephony infrastructure,
 but you do not want each organisation to see or edit the configuration of other organisations.
 
 Configuration

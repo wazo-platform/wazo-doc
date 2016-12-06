@@ -4,7 +4,7 @@
 Service Authentication
 **********************
 
-XiVO services expose more and more resources through REST API, but they also ensure that the access
+Wazo services expose more and more resources through REST API, but they also ensure that the access
 is restricted to the authorized programs. For this, we use an :ref:`authentication daemon
 <xivo-auth>` who delivers authorizations via tokens.
 
@@ -12,7 +12,7 @@ is restricted to the authorized programs. For this, we use an :ref:`authenticati
 Call flow
 =========
 
-Here is the call flow to access a REST resource of a XiVO service:
+Here is the call flow to access a REST resource of a Wazo service:
 
 1. Create a username/password (also called service_id/service_key) with the right :ref:`ACLs
    <rest-api-acl>`, via :ref:`web_services_access`.
@@ -35,5 +35,5 @@ xivo-{daemon}
 xivo-auth
     Server that authenticates the `Service` and validates the required ACL with the token.
 
-XiVO services directly use this system to communicate with each other, as you can see in their Web
+Wazo services directly use this system to communicate with each other, as you can see in their Web
 Services Access.

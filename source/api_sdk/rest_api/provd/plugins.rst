@@ -29,7 +29,7 @@ Example request
 .. code-block:: http
 
    GET /provd/pg_mgr HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -83,7 +83,7 @@ Example request
 .. code-block:: http
 
    GET /provd/pg_mgr/plugins HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -141,7 +141,7 @@ Example request
 .. code-block:: http
 
    GET /provd/pg_mgr/plugins/xivo-aastra-3.3.1-SP2 HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -186,7 +186,7 @@ Example request
 .. code-block:: http
 
    GET /provd/pg_mgr/plugins/xivo-aastra-3.3.1-SP2/info HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -264,7 +264,7 @@ Example request
 .. code-block:: http
 
    POST /provd/pg_mgr/reload HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Content-Type: application/vnd.proformatique.provd+json
 
    {

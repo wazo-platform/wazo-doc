@@ -29,7 +29,7 @@ Example request
 .. code-block:: http
 
    GET /provd/dev_mgr HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -103,7 +103,7 @@ Example request
 .. code-block:: http
 
    GET /provd/dev_mgr/devices HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -152,7 +152,7 @@ Example request
 .. code-block:: http
 
    POST /provd/dev_mgr/devices HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Content-Type: application/vnd.proformatique.provd+json
 
    {
@@ -195,7 +195,7 @@ Example request
 .. code-block:: http
 
    GET /provd/dev_mgr/devices/68b10c99945b4fb889f22a7559fc3271 HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -242,7 +242,7 @@ Example request
 .. code-block:: http
 
    PUT /provd/dev_mgr/devices/68b10c99945b4fb889f22a7559fc3271 HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Content-Type: application/vnd.proformatique.provd+json
 
    {
@@ -288,7 +288,7 @@ Example request
 .. code-block:: http
 
    DELETE /provd/dev_mgr/devices/68b10c99945b4fb889f22a7559fc3271 HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
 
 
 Example response
@@ -318,7 +318,7 @@ Example request
 .. code-block:: http
 
    POST /provd/dev_mgr/synchronize HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Content-Type: application/vnd.proformatique.provd+json
 
    {
@@ -366,7 +366,7 @@ Example request
 .. code-block:: http
 
    POST /provd/dev_mgr/reconfigure HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Content-Type: application/vnd.proformatique.provd+json
 
    {
@@ -401,7 +401,7 @@ Example request
 .. code-block:: http
 
    POST /provd/dev_mgr/dhcpinfo HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Content-Type: application/vnd.proformatique.provd+json
 
    {

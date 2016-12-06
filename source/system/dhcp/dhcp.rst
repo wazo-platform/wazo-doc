@@ -4,7 +4,7 @@
 DHCP Server
 *******************
 
-XiVO includes a DHCP server used for assisting in the provisioning of phones and other devices. (See
+Wazo includes a DHCP server used for assisting in the provisioning of phones and other devices. (See
 :ref:`Basic Configuration <dhcpd-config>` for the basic setup). This section contains additional
 notes on how to configure more advanced options that may be helpful when integrating the server with
 different VOIP subnets.
@@ -13,7 +13,7 @@ different VOIP subnets.
 Activating DHCP on another interface
 ====================================
 
-DHCP Server can be activated through the XiVO Web Interface :menuselection:`Configuration -->
+DHCP Server can be activated through the Wazo Web Interface :menuselection:`Configuration -->
 Network --> DHCP` :
 
 .. figure:: img/dhcp.png
@@ -33,7 +33,7 @@ take effect.
 Changing default DHCP gateway 
 =============================
 
-By default, the XiVO DHCP server uses the XiVO's IP address as the routing address.  To change this
+By default, the Wazo DHCP server uses the Wazo's IP address as the routing address.  To change this
 you must create a custom-template:
 
 #. Create a custom template for the :file:`dhcpd_subnet.conf.head` file::
@@ -61,7 +61,7 @@ DHCP server should have been restarted and should now use the new routing addres
 Configuring DHCP server to serve unknown hosts
 ==============================================
 
-By default, the XiVO DHCP server serves only known hosts. That is:
+By default, the Wazo DHCP server serves only known hosts. That is:
 
 * either hosts which MAC address prefix (the `OUI
   <http://en.wikipedia.org/wiki/Organizationally_unique_identifier>`_) is known
@@ -69,7 +69,7 @@ By default, the XiVO DHCP server serves only known hosts. That is:
 
 Known OUIs and Vendor Class Identifiers are declared in :file:`/etc/dhcp/dhcpd_update/*` files.
 
-If you want your XiVO DHCP server to serve also unknown hosts (like PCs) follow these instructions:
+If you want your Wazo DHCP server to serve also unknown hosts (like PCs) follow these instructions:
 
 #. Create a custom template for the :file:`dhcpd_subnet.conf.tail` file::
 
@@ -95,23 +95,23 @@ DHCP server should have been restarted and should now serve all network equipmen
 DHCP-Relay
 ==========
 
-If your telephony devices aren't located on the same site and the same broadcast domain as the XiVO
+If your telephony devices aren't located on the same site and the same broadcast domain as the Wazo
 DHCP server, you will have to add the option *DHCP Relay* to the site's router.  This parameter will
 allow the DHCP requests from distant devices to be transmitted to the IP address you specify as DHCP
 Relay.
 
-.. warning:: Please make sure that the IP address used as DHCP Relay is the same as one of XiVO's
+.. warning:: Please make sure that the IP address used as DHCP Relay is the same as one of Wazo's
    interfaces, and that this interface is configured to listen to DHCP requests (as decribed in
    previous part). Also verify that routing is configured between the distant router and the choosen
-   interface, otherwise DHCP requests will never reach the XiVO server.
+   interface, otherwise DHCP requests will never reach the Wazo server.
 
 
 Configuring DHCP server for other subnets
 =========================================
 
-This section describes how to configure XiVO to serve other subnets that the VOIP subnet. As you
+This section describes how to configure Wazo to serve other subnets that the VOIP subnet. As you
 can't use the Web Interface to declare other subnets (for example to address DATA subnet, or a VOIP
-subnet that isn't on the same site that XiVO server), you'll have to do the following configuration
+subnet that isn't on the same site that Wazo server), you'll have to do the following configuration
 on the Command Line Interface.
 
 
@@ -172,7 +172,7 @@ In section **pool**, modify the options::
     range 172.30.8.10 172.30.8.200;
 
 
-.. warning:: XiVO only answers to DHCP requests from :ref:`supported devices <devices>`. In case of
+.. warning:: Wazo only answers to DHCP requests from :ref:`supported devices <devices>`. In case of
    you need to address other equipment, use the option *allow unknown-clients;* in the
    :file:`/etc/dhcp/dhcpd_sites/` files
 
@@ -181,6 +181,6 @@ At this point, you can apply the changes of the DHCP server with the command::
 
     service isc-dhcp-server restart
 
-After that, XiVO will start to serve the DHCP requests of the devices located on other sites or
+After that, Wazo will start to serve the DHCP requests of the devices located on other sites or
 other subnets than the VOIP subnet. You will see in :file:`/var/log/daemon.log` all the DHCP
-requests received and how they are handled by XiVO.
+requests received and how they are handled by Wazo.

@@ -2,7 +2,7 @@
 Graphics
 ********
 
-The Services/Graphics section gives a historical overview of a XiVO system's
+The Services/Graphics section gives a historical overview of a Wazo system's
 activity based on snapshots recorded every 5 minutes.
 Graphics are available for the following resources :
 

@@ -4,7 +4,7 @@
 Introduction
 ************
 
-The auto-provisioning feature found in XiVO make it possible to provision, i.e.
+The auto-provisioning feature found in Wazo make it possible to provision, i.e.
 configure, a lots of telephony devices in an efficient and effortless way.
 
 
@@ -19,7 +19,7 @@ Here's a simplified view of how auto-provisioning is supported on a typical SIP 
 #. The phone use the provided URL to retrieve a common configuration file, a
    MAC-specific configuration file, a firmware image and some language files.
 
-Building on this, configuring one of the supported phone on XiVO is as simple as:
+Building on this, configuring one of the supported phone on Wazo is as simple as:
 
 #. :ref:`dhcpd-config`
 #. :ref:`Installing the required provd plugin <provd-plugins-mgmt>`

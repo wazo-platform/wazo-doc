@@ -34,7 +34,7 @@ Getting Started
 * Apply the skill rule sets to call qualification, i.e. incoming calls by using the preprocess subroutine field
 
 Note that you shouldn't use skill based routing on a queue with queue members of type user because
-the behaviour is not defined and might change in a future XiVO version.
+the behaviour is not defined and might change in a future Wazo version.
 
 
 Skills
@@ -169,7 +169,7 @@ The waiting time (WT) is the elapsed time since the call entered the queue. The 
 in an IVR or another queue is not taken into account.
 
 The estimated waiting time (EWT) has never fully worked. It is mentioned here only for historical
-reason. You should not use it. It might be removed in a future XiVO version.
+reason. You should not use it. It might be removed in a future Wazo version.
 
 :Examples:
 
@@ -293,7 +293,7 @@ Monitoring
 You may monitor your waiting calls with skills using the asterisk CLI and the
 command ``queue show <queue_name>``::
 
-   xivo-jylebleu*CLI> queue show services
+   wazo*CLI> queue show services
    services has 1 calls (max unlimited) in 'ringall' strategy (0s holdtime, 2s talktime), W:0, C:1, A:10, SL:0.0% within 0s
      Members:
         Agent/2000 (Not in use) (skills: agent-1) has taken no calls yet
@@ -305,17 +305,17 @@ command ``queue show <queue_name>``::
 
 You may monitor your skills groups with the command ``queue show skills groups <agent_name>``::
 
-   xivo-jylebleu*CLI> queue show skills groups <PRESS TAB>
+   wazo*CLI> queue show skills groups <PRESS TAB>
    agent-2   agent-3   agent-4   agent-48  agent-7   agent-1
-   xivo-jylebleu*CLI> queue show skills groups agent-1
+   wazo*CLI> queue show skills groups agent-1
    Skill group 'agent-1':
      - bank           : 50
      - english        : 100
 
 You may monitor your skills rules with the command ``queue show skills rules <rule_name>``::
 
-   xivo-jylebleu*CLI> queue show skills rules <PRESS TAB>
+   wazo*CLI> queue show skills rules <PRESS TAB>
    english      french       select_lang
-   xivo-jylebleu*CLI> queue show skills rules english
+   wazo*CLI> queue show skills rules english
    Skill rules 'english':
      => english>90

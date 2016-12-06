@@ -36,10 +36,10 @@ Services Access`):
 * if an IP address is specified for the user, no authentication is needed
 * if you choose not to specify an IP address for the user, you can connect to the REST API with a
   HTTP Digest authentication, using the user name and password you provided. For instance, the
-  following command line allows to retrieve XiVO users through the REST API, using the login
+  following command line allows to retrieve Wazo users through the REST API, using the login
   **admin** and the password **passadmin**::
 
-     curl <options...> --digest --cookie '' -u admin:passadmin https://<xivo_address>:9486/1.1/users
+     curl <options...> --digest --cookie '' -u admin:passadmin https://<wazo_address>:9486/1.1/users
 
 
 HTTP status codes
@@ -66,7 +66,7 @@ General URL parameters
 
 Example usage of general parameters::
 
-   GET http://<xivo_address>:9486/1.1/voicemails?limit=X&offset=Y
+   GET http://<wazo_address>:9486/1.1/voicemails?limit=X&offset=Y
 
 Parameters
 ----------
@@ -159,7 +159,7 @@ default value being the equivalent to NULL in the content-type format.
 Data sent to the REST server
 ----------------------------
 
-The XiVO REST server implements POST and PUT methods for item creation and update respectively.
+The Wazo REST server implements POST and PUT methods for item creation and update respectively.
 Data is created using the POST method via a root URL and is updated using the PUT method via a root
 URL suffixed by /<id. The server expects to receive JSON encoded data. Only one item can be
 processed per request. The data format and required data fields are illustrated in the following

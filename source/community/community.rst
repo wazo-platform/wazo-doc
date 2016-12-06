@@ -4,7 +4,7 @@
 Community Documentation
 ***********************
 
-This page provides links to resources on various topics around XiVO. They have
+This page provides links to resources on various topics around Wazo. They have
 been generously created by people from the community.
 
 
@@ -12,7 +12,7 @@ Tutorials
 ---------
 
 Please note that these resources are provided on an "as is basis". They have
-not been reviewed by the XiVO team, therefore the information presented may be
+not been reviewed by the Wazo team, therefore the information presented may be
 innaccurate. We also accept resources provided in other languages besides
 English.
 
@@ -110,7 +110,7 @@ Contribute
 
 We gladly accept new contributions. There are two ways to contribute:
 
-* The preferred way: open a pull request on `Github <https://github.com/xivo-pbx/xivo-doc>`_ and add
+* The preferred way: open a pull request on `Github <https://github.com/wazo-pbx/xivo-doc>`_ and add
   a line to this page (see: :ref:`contributing_to_the_documentation`).
 * You can also open a contribution ticket on the `bug tracker <https://projects.wazo.community/projects/xivo/issues>`_.
 

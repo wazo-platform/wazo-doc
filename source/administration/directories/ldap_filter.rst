@@ -4,7 +4,7 @@
 LDAP filter directory
 *********************
 
-This page describes how to configure XiVO to search a LDAP server from its
+This page describes how to configure Wazo to search a LDAP server from its
 directory service.
 
 

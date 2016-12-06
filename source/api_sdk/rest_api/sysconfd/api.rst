@@ -5,7 +5,7 @@ xivo-sysconfd REST API
 **********************
 
 This service provides a public API that can be used to change the configuration that are
-on a XiVO.
+on a Wazo.
 
 .. warning:: The 0.1 API is currently in development. Major changes could still
    happen and new resources will be added over time.

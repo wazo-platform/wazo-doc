@@ -15,7 +15,7 @@ The conference xlet allow the user to join conferences and view conference room 
 Usage
 =====
 
-The *Conference room list* tab show all available conference rooms configured on the XiVO.
+The *Conference room list* tab show all available conference rooms configured on the Wazo.
 The user can click on a conference number to join the conference. When a user joins a
 conference, his phone will ring and the conference will be joined when the user answers
 the phone.

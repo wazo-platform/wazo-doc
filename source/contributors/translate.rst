@@ -1,13 +1,13 @@
-.. _translating-xivo:
+.. _translating-wazo:
 
 ****************
-Translating XiVO
+Translating Wazo
 ****************
 
 French and English are maintained by the Wazo authors. Other languages are provided by the community.
 
 
-Asterisk and XiVO Prompts
+Asterisk and Wazo Prompts
 =========================
 
 Languages and prompts are recorded by several studios. The information for those languages are:
@@ -19,7 +19,7 @@ Languages and prompts are recorded by several studios. The information for those
 
 Prompts transcripts are listed in `Transifex`_ (\*-prompts). You may translate them there.
 
-The prompts used in XiVO are stored in `xivo-sounds`_ git repository. You may also want to
+The prompts used in Wazo are stored in `xivo-sounds`_ git repository. You may also want to
 :ref:`generate your own sound files <generate_custom_prompts>`.
 
 
@@ -36,5 +36,5 @@ Web Interface
 Translations are currently available in French and English. There are no plans to translate the Web
 interface in other languages.
 
-.. _xivo-sounds: https://github.com/xivo-pbx/xivo-sounds
-.. _Transifex: https://www.transifex.com/proformatique/xivo/
+.. _xivo-sounds: https://github.com/wazo-pbx/xivo-sounds
+.. _Transifex: https://www.transifex.com/wazo/wazo/

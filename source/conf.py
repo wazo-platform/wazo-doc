@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 #
-# XiVO-doc build configuration file, created by
+# Wazo-doc build configuration file, created by
 # ReST Editor on 21-Dec-2011
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -203,7 +203,7 @@ latex_font_size = u'10pt'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-latex_documents = [('index', 'XiVO-doc.tex', u'XiVO Documentation', u'The Wazo Authors', 'manual')]
+latex_documents = [('index', 'Wazo-doc.tex', u'Wazo Documentation', u'The Wazo Authors', 'manual')]
 
 
 # A dictionary that contains LaTeX snippets that override those Sphinx usually
@@ -240,7 +240,7 @@ latex_use_parts = False
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [('index', 'XiVO-doc', u'XiVO Documentation', [u'The Wazo Authors'], 1)]
+man_pages = [('index', 'Wazo-doc', u'Wazo Documentation', [u'The Wazo Authors'], 1)]
 
 # -- Options for Epub output ---------------------------------------------------
 

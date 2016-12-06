@@ -51,7 +51,7 @@ Importing contacts via CSV file
 Imported files should have the following structure::
 
    firstname,lastname,number,email,company,fax,mobile
-   John,Doe,5555551111,my@email,xivo,5555552222,5555553333
+   John,Doe,5555551111,my@email,wazo,5555552222,5555553333
 
 * The field order is not important.
 * The file must be encoded in ``UTF-8``.
@@ -62,7 +62,7 @@ Exporting contacts via CSV file
 ===============================
 
 The file has the same structure as the import file, with a supplementary field: ``id``, which is the
-internal contact ID from XiVO.
+internal contact ID from Wazo.
 
 * The first line (the list of field names) is ordered in alphabetical order.
 * The file will be encoded in ``UTF-8``.

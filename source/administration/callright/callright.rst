@@ -24,7 +24,7 @@ Finally, instead of unconditionally denying calling a specific extension,
 call permissions can instead challenge the user for a password to be able
 to call that extension.
 
-As you can see, you can do a lot of things with XiVO's call permissions. They
+As you can see, you can do a lot of things with Wazo's call permissions. They
 can be used to create fairly complex rules. That said, it is probably
 *not* a good idea to so because it's pretty sure you'll get it somehow wrong.
 

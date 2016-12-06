@@ -11,11 +11,11 @@ This tutorial doesn't cover how to automatically provision a :ref:`supported dev
 <official-devices>`. For this, consult the :ref:`provisionning
 section. <intro-provisioning>`
 
-We first need to log into the XiVO web interface. The web interface is where you can administer the whole system.
+We first need to log into the Wazo web interface. The web interface is where you can administer the whole system.
 
 .. figure:: images/step-01.png
 
-   Logging into the XiVO
+   Logging into the Wazo
 
 When logged in, you will see a page with all the status information about your system.
 This page helps you monitor the health of your system and gives you information about your network. Please note the IP address of your server,

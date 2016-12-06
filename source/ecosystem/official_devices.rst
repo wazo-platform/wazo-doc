@@ -13,7 +13,7 @@ features are guaranteed to be supported on the latest version.
 Aastra
 ------
 
-Aastra has been acquired by Mitel in 2014. In XiVO, the 6700 series and 6800 series phones are still
+Aastra has been acquired by Mitel in 2014. In Wazo, the 6700 series and 6800 series phones are still
 referenced as Aastra phones, for historical and compatibility reasons.
 
 
@@ -241,7 +241,7 @@ ATAs
 | Funckeys          | 0      | 0       | 0       |
 +-------------------+--------+---------+---------+
 
-For best results, activate :ref:`dhcp-integration` on your XiVO.
+For best results, activate :ref:`dhcp-integration` on your Wazo.
 
 These devices can be used to connect faxes. For better success with faxes some parameters
 must be changed. You can read the :ref:`fax-analog-gateway` section.
@@ -250,12 +250,12 @@ must be changed. You can read the :ref:`fax-analog-gateway` section.
    If you want to manually resynchronize the configuration from the ATA device
    you should use the following url::
 
-     http://ATA_IP/admin/resync?http://XIVO_IP:8667/CONF_FILE
+     http://ATA_IP/admin/resync?http://WAZO_IP:8667/CONF_FILE
 
    where :
 
       * *ATA_IP*    is the IP address of the ATA,
-      * *XIVO_IP*   is the IP address of your XiVO,
+      * *WAZO_IP*   is the IP address of your Wazo,
       * *CONF_FILE* is one of ``spa3102.cfg``, ``spa8000.cfg``
 
 
@@ -348,7 +348,7 @@ Cisco 7900 Series
 | Paging                                     | N      | N     | N      | N     | N     | N     | N     | N     | N        | N     | N     | N     | N     |
 +--------------------------------------------+--------+-------+--------+-------+-------+-------+-------+-------+----------+-------+-------+-------+-------+
 
-.. warning:: These phones can only be used in SCCP mode. They are limited to the :ref:`features supported in XIVO's SCCP implementation <sccp-features>`.
+.. warning:: These phones can only be used in SCCP mode. They are limited to the :ref:`features supported in Wazo's SCCP implementation <sccp-features>`.
 
 .. _cisco-provisioning:
 
@@ -356,7 +356,7 @@ To install firmware for xivo-cisco-sccp plugins, you need to manually download
 the firmware files from the Cisco website and save them in the
 :file:`/var/lib/xivo-provd/plugins/$plugin-name/var/cache` directory.
 
-This directory is created by XiVO when you install the plugin (i.e. xivo-cisco-sccp-legacy).
+This directory is created by Wazo when you install the plugin (i.e. xivo-cisco-sccp-legacy).
 If you create the directory manually, the installation will fail.
 
 .. warning:: Access to Cisco firmware updates requires a Cisco account with sufficient privileges.
@@ -373,7 +373,7 @@ For example, if you have installed the ``xivo-cisco-sccp-legacy`` plugin and you
 * Click on "Skinny Client Control Protocol (SCCP) software"
 * Choose the same version as the one shown in the plugin
 * Download the file with an extension ending in ".zip", which is usually the last file in the list
-* In the XiVO web interface, you'll then be able to click on the "install" button for the firmware
+* In the Wazo web interface, you'll then be able to click on the "install" button for the firmware
 
 The procedure is similar for the network locale and the user locale package, but:
 
@@ -382,7 +382,7 @@ The procedure is similar for the network locale and the user locale package, but
 * Choose the same version of the one shown in the plugin
 * For the network locale, download the file named "po-locale-combined-network.cop.sgn"
 * For the user locale, download the file named "po-locale-$locale-name.cop.sgn, for example "po-locale-fr_FR.cop.sgn" for the "fr_FR" locale
-* Both files must be placed in :file:`/var/lib/xivo-provd/plugins/$plugin-name/var/cache` directory. Then install them in the XiVO Web Interface.
+* Both files must be placed in :file:`/var/lib/xivo-provd/plugins/$plugin-name/var/cache` directory. Then install them in the Wazo Web Interface.
 
 .. note:: Currently user and network locale 11.5.1 should be used for plugins xivo-sccp-legacy and xivo-cisco-sccp-9.4
 
@@ -480,18 +480,18 @@ Digium
 
 Particularities:
 
-* For best results, activate :ref:`dhcp-integration` on your XiVO.
+* For best results, activate :ref:`dhcp-integration` on your Wazo.
 * Impossible to do directed pickup using a BLF function key.
 * Only supports DTMF in RFC2833 mode.
 * Does not work reliably with Cisco ESW520 PoE switch. When connected to such a switch, the D40 tends to reboot randomly, and the D70 does not boot at all.
-* It's important to not edit the phone configuration via the phones' web interface when using these phones with XiVO.
+* It's important to not edit the phone configuration via the phones' web interface when using these phones with Wazo.
 * Paging doesn't work.
 
 
 Mitel
 -----
 
-The Mitel 6700 Series and 6800 Series SIP Phones are supported in XiVO. See the Aastra_ section.
+The Mitel 6700 Series and 6800 Series SIP Phones are supported in Wazo. See the Aastra_ section.
 
 
 Patton
@@ -507,14 +507,14 @@ The following analog VoIP gateways are supported:
 | H-A                                        | Y      | Y      | Y      | Y      | Y      | Y      | Y      |
 +--------------------------------------------+--------+--------+--------+--------+--------+--------+--------+
 
-XiVO only supports configuring the FXS ports of these gateways. It does not support configuring the
+Wazo only supports configuring the FXS ports of these gateways. It does not support configuring the
 FXO ports. If you have a gateway on which you would like to configure the FXO ports, you'll need to
 write the FXO ports configuration manually by creating a :ref:`custom template
 <provd-custom-templates>` for your gateway.
 
 It's only possible to enter a provisioning code on the first FXS port of a gateway. For example, if
 you have a gateway with 8 FXS ports, the first port can be configured by dialing a provisioning code
-from it, but ports 2 to 7 can only be configured via the XiVO web interface. Also, if you dial the
+from it, but ports 2 to 7 can only be configured via the Wazo web interface. Also, if you dial the
 :ref:`"reset to autoprov" extension <reset-to-autoprov-device>` from any port, the configuration of
 all the ports will be reset, not just the port on which the extension was dialed. These limitations
 might go away in the future.
@@ -523,17 +523,17 @@ These gateways are configured with a few regional parameters (France by default)
 are easy to change by writing a :ref:`custom template <provd-custom-templates>`.
 
 Telnet access and web access are enabled by default. You should change the default password by
-setting an administrator password via a XiVO "template device".
+setting an administrator password via a Wazo "template device".
 
 By downloading and installing the Patton firmwares, you agree to the `Patton Electronics Company
 conditions <http://www.patton.com/legal/eula.asp>`_.
 
 To provision a gateway that was previously configured manually, use the following commands
-on your gateway (configure mode), replacing XIVO_IP by the IP address of your XiVO server::
+on your gateway (configure mode), replacing WAZO_IP by the IP address of your Wazo server::
 
    profile provisioning PF_PROVISIONING_CONFIG
      destination configuration
-     location 1 http://XIVO_IP:8667/$(system.mac).cfg
+     location 1 http://WAZO_IP:8667/$(system.mac).cfg
      activation reload graceful
      exit
    provisioning execute PF_PROVISIONING_CONFIG
@@ -633,10 +633,10 @@ Polycom
 Particularities:
 
 * The latest Polycom firmwares can take a lot of time to download and install due to their size
-  (~650 MiB). For this reason, these files are explicitly excluded from the XiVO backups.
+  (~650 MiB). For this reason, these files are explicitly excluded from the Wazo backups.
 
 * For directed call pickup to work via the BLF function keys, you need to make sure that the option
-  :guilabel:`Set caller-id in dialog-info+xml notify` is enabled on your XiVO. This option is located on
+  :guilabel:`Set caller-id in dialog-info+xml notify` is enabled on your Wazo. This option is located on
   the :menuselection:`Services --> IPBX --> General settings --> SIP Protocol` page, in the
   :guilabel:`Signaling` tab.
 
@@ -660,7 +660,7 @@ Particularities:
   This is especially useful on the VVX101 since it supports a maximum of 1 SIP line and does not
   support function keys.
 
-.. note:: (XiVO HA cluster) BLF function key saved on the master node are not available.
+.. note:: (Wazo HA cluster) BLF function key saved on the master node are not available.
 
 Supported expansion modules:
 
@@ -767,7 +767,7 @@ Supported expansion modules:
 
 .. note:: For some models, function keys are shared with line keys
 
-There's the following known limitations/issues with the provisioning of Snom phones in XiVO:
+There's the following known limitations/issues with the provisioning of Snom phones in Wazo:
 
 * If you are using Snom phones with :ref:`HA <high-availability>`, you should not assign multiple lines
   to the same device.
@@ -777,7 +777,7 @@ There's the following known limitations/issues with the provisioning of Snom pho
   resynchronization. You'll need to reboot or resynchronize the phone a second time for the label to be
   shown properly.
 * After a factory reset of a phone, if no language and timezone are set for the "default config device"
-  in :menuselection:`XiVO --> Configuration --> Provisioning --> Template device`, you will be forced to
+  in :menuselection:`Wazo --> Configuration --> Provisioning --> Template device`, you will be forced to
   select a default language and timezone on the phone UI.
 
 
@@ -899,4 +899,4 @@ Supported expansion modules:
 Caption :
 
 .. [1] These devices are marked as ``Not Tested`` because other similar models using the same firmware have been tested instead.
-       If these devices ever present any bugs, they will be troubleshooted by the XiVO support team.
+       If these devices ever present any bugs, they will be troubleshooted by the Wazo support team.

@@ -4,7 +4,7 @@
 Switchboard
 ***********
 
-This page describes the configuration needed to have a switchboard on your XiVO.
+This page describes the configuration needed to have a switchboard on your Wazo.
 
 
 Overview

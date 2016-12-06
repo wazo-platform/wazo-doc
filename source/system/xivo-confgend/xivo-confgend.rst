@@ -1,7 +1,7 @@
 .. _xivo-confgend:
 
 =============
-XiVO confgend
+xivo-confgend
 =============
 
 xivo-confgend is a configuration file generator. It is mainly used to generate

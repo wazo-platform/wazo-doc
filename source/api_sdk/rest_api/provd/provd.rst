@@ -31,7 +31,7 @@ Example request
 .. code-block:: http
 
    GET /provd HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 

@@ -13,7 +13,7 @@ CURL Examples (xivo-confd)
    curl --insecure \
    -H 'Accept: application/json' \
    -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' \
-   https://xivo:9486/1.1/users
+   https://wazo:9486/1.1/users
 
    # Create a user
    # When sending data, you need the Content-Type header.
@@ -23,7 +23,7 @@ CURL Examples (xivo-confd)
    -H 'Accept: application/json' \
    -H 'Content-Type: application/json' \
    -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' \
-   https://xivo:9486/1.1/users
+   https://wazo:9486/1.1/users
 
 
 Create a user with a phone and a voicemail (xivo-confd)

@@ -2,7 +2,7 @@
 Proxy Configuration
 *******************
 
-If you use XiVO behind an HTTP proxy, you must do a couple of manipulations for
+If you use Wazo behind an HTTP proxy, you must do a couple of manipulations for
 it to work correctly.
 
 
@@ -24,7 +24,7 @@ page.
 dhcp-update
 ===========
 
-*This step is needed if you use the DHCP server of the XiVO. Otherwise the DHCP configuration won't be correct.*
+*This step is needed if you use the DHCP server of the Wazo. Otherwise the DHCP configuration won't be correct.*
 
 Proxy information is set via the :file:`/etc/xivo/dhcpd-update.conf` file.
 

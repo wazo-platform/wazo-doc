@@ -5,7 +5,7 @@ Debugging Asterisk
 Precondition
 ============
 
-To debug asterisk crashes or freezes, you need the following debug packages on your XiVO:
+To debug asterisk crashes or freezes, you need the following debug packages on your Wazo:
 
 +----------------+---------------------------------------------------------------+---------------------------------------------------------------+
 |General rule    |XiVO < 14.18                                                   |XiVO >= 14.18                                                  |
@@ -57,7 +57,7 @@ So There is a Problem with Asterisk. Now What ?
    * Tracker: Bug
    * Status: New
    * Category: Asterisk
-   * In versions: The version of your XiVO installation where the crash/freeze happened
+   * In versions: The version of your Wazo installation where the crash/freeze happened
    * Subject : ``Asterisk Crash`` or ``Asterisk Freeze``
    * Description : Add as much context as possible, if possible, a scenario that lead to the issue,
      the date and time of issue, where we can fetch logs and backtrace
@@ -98,12 +98,12 @@ Optionally, other information that can be interesting:
 Recompiling Asterisk
 ====================
 
-It's relatively straightforward to recompile the asterisk version of your XiVO with the
+It's relatively straightforward to recompile the asterisk version of your Wazo with the
 DEBUG_THREADS and DONT_OPTIMIZE flag, which make debugging an asterisk problem easier.
 
 The steps are:
 
-#. Uncomment the ``deb-src`` line for the XiVO sources::
+#. Uncomment the ``deb-src`` line for the Wazo sources::
 
       sed -i 's/^# *deb-src/deb-src/' /etc/apt/sources.list.d/xivo*
 
@@ -139,7 +139,7 @@ Recompiling a vanilla version of Asterisk
 -----------------------------------------
 
 It is sometimes useful to produce a "vanilla" version of Asterisk, i.e. a version of Asterisk that
-has none of the XiVO patches applied, to make sure that the problem is present in the original
+has none of the Wazo patches applied, to make sure that the problem is present in the original
 upstream code. This is also sometimes necessary before opening a ticket on the `Asterisk issue
 tracker <https://issues.asterisk.org>`_.
 
@@ -179,7 +179,7 @@ Running Asterisk under Valgrind
       monit quit
       service asterisk stop
 
-#. Stop all unneeded XiVO services. For example, it can be useful to stop xivo-ctid, so that
+#. Stop all unneeded Wazo services. For example, it can be useful to stop xivo-ctid, so that
    it won't interact with asterisk via the AMI.
 #. Copy the valgrind.supp file into /tmp. The valgrind.supp file is located in the contrib
    directory of the asterisk source code.

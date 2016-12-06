@@ -2,9 +2,9 @@
 WebSocket Event Service
 ***********************
 
-XiVO offers a service to receive messages published on the :ref:`bus (e.g. RabbitMQ) <message-bus>`
+Wazo offers a service to receive messages published on the :ref:`bus (e.g. RabbitMQ) <message-bus>`
 over an encrypted `WebSocket <https://en.wikipedia.org/wiki/WebSocket>`_ connection. This ease in
-building dynamic web applications that are using events from your XiVO.
+building dynamic web applications that are using events from your Wazo.
 
 The service is provided by the ``xivo-websocketd`` component.
 
@@ -12,23 +12,21 @@ The service is provided by the ``xivo-websocketd`` component.
 Getting Started
 ===============
 
-First, you need a XiVO in version 16.03 or later.
-
-Then, to use the service, you need to:
+To use the service, you need to:
 
 #. connect to it on port 9502 using an encrypted WebSocket connection.
 #. authenticate to it by providing a xivo-auth token that has the ``websocketd`` ACL. If you
-   don't know how to obtain a xivo-auth token from your XiVO, consult the :ref:`documentation on
+   don't know how to obtain a xivo-auth token from your Wazo, consult the :ref:`documentation on
    xivo-auth <xivo-auth>`.
 
 For example, if you want to use the service located at ``example.org`` with the token
 ``some-token-id``, you would use the URL ``wss://example.org:9502/?token=some-token-id``.
 
 The :ref:`SSL/TLS certificate <https_certificate>` that is used by the WebSocket server is the same
-as the one used by the XiVO web interface and the REST APIs. By default, this is a self-signed
+as the one used by the Wazo web interface and the REST APIs. By default, this is a self-signed
 certificate, and web browsers will prevent connections from being successfully established for
 security reasons. On most web browsers, this can be circumvented by first visiting the
-``https://<xivo-ip>:9502/`` URL and adding a security exception. Other solutions to this problem are
+``https://<wazo-ip>:9502/`` URL and adding a security exception. Other solutions to this problem are
 described in the :ref:`connection section <ws-connection>`.
 
 After a succesful connection and authentication to the service, the server will send the following
@@ -79,7 +77,7 @@ Here's a rudimentary example of a web page accessing the service:
    <html>
    <head>
      <meta charset="utf-8">
-     <title>XiVO WebSocket Example</title>
+     <title>Wazo WebSocket Example</title>
    <script>
    var socket = null;
    var started = false;
@@ -255,7 +253,7 @@ by the server. This mean a client can subscribe to an event "foo", but will neve
 these events if it does not have the matching ACL.
 
 See the :ref:`bus-events` section for more information on the required ACL of events which are
-available by default on XiVO.
+available by default on Wazo.
 
 
 .. _ws-status-code:
@@ -304,7 +302,7 @@ is a dictionary with an "event_name" key (mandatory). Example::
 You can subscribe to any event. The special event name ``*`` can be used to match all events.
 
 See the :ref:`bus-events` section for more information on the events which are available by default
-on XiVO.
+on Wazo.
 
 The "start" message ask the server to start sending messages from the bus to the client. Example::
 

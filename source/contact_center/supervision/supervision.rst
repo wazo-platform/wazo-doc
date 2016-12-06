@@ -47,7 +47,7 @@ Queue List
 ^^^^^^^^^^
 **General information**
 
-The queue list is a dashboard displaying queue statistics and real-time counters for each queue configured on the XiVO.
+The queue list is a dashboard displaying queue statistics and real-time counters for each queue configured on the Wazo.
 
 .. figure:: images/queue_list.png
    :scale: 90%
@@ -146,7 +146,7 @@ For each queue, you can configure the following information:
  * Qos:  maximum wait time for a call, in seconds.
  * Window: period of time used for accumulating statistics, in seconds.
 
-The data used to compute statistics on the XiVO server is only kept for a maximum of 3 hours.
+The data used to compute statistics on the Wazo server is only kept for a maximum of 3 hours.
 The window period cannot be configured to go beyond this limit.
 
 .. figure:: images/queue_list_fetch_param.png
@@ -189,7 +189,7 @@ Agent List
 
 **General information**
 
-The queue list is a dashboard displaying each agent configured on the XiVO.
+The queue list is a dashboard displaying each agent configured on the Wazo.
 
 .. figure:: images/agent_list.png
    :scale: 80%
@@ -289,7 +289,7 @@ Penalty
 Link XiVO Client presence to agent presence
 ===========================================
 
-You can configure XiVO to have the following scenario:
+You can configure Wazo to have the following scenario:
 
 * The agent person leaves temporarily his office (lunch, break, ...)
 * He sets his presence in the XiVO Client to the according state

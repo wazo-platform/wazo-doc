@@ -4,7 +4,7 @@ Community Supported Devices
 ===========================
 
 The community supported devices are only supported by the community. In other words, maintenance,
-bug, corrections and features are developed by members of the XiVO community. XiVO does not
+bug, corrections and features are developed by members of the Wazo community. Wazo does not
 officially endorse support for these devices.
 
 ``xivo-provd`` plugins for these devices can be installed from the
@@ -16,7 +16,7 @@ Aastra
 6700i and 9000i series:
 
 ======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model    Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 ======== =========== ========== ============
 6730i    |n|         8          |y|
 6753i    |y|         6          |y|
@@ -33,7 +33,7 @@ Alcatel-Lucent
 IP Touch series:
 
 ====================== =========== ========== ============
-Model                  Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model                  Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 ====================== =========== ========== ============
 4008 Extended Edition  |y|         4          |n|
 4018 Extended Edition  |y|         4          |n|
@@ -53,7 +53,7 @@ Avaya
 1200 series IP Deskphones (previously known as Nortel IP Phones):
 
 ======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model    Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 ======== =========== ========== ============
 1220 IP  |y|         0          |n|
 1230 IP  |n|         0          |n|
@@ -66,7 +66,7 @@ Cisco
 Cisco Small Business SPA300 series:
 
 =========== =========== ========== ============
-Model       Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model       Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 =========== =========== ========== ============
 SPA301      |n|         1          |n|
 SPA303      |n|         3          |n|
@@ -77,7 +77,7 @@ SPA303      |n|         3          |n|
 Cisco Small Business SPA500 series:
 
 =========== =========== ========== ============
-Model       Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model       Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 =========== =========== ========== ============
 SPA501G     |y|         8          |n|
 SPA502G     |n|         1          |n|
@@ -95,7 +95,7 @@ The SPA500 expansion module is supported.
 Cisco Small Business IP Phones (previously known as Linksys IP Phones)
 
 =========== =========== ========== ============
-Model       Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model       Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 =========== =========== ========== ============
 SPA901      |n|         1          |n|
 SPA921      |n|         1          |n|
@@ -113,7 +113,7 @@ The SPA932 expansion module is supported.
 ATAs:
 
 =========== =========== ========== ============
-Model       Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model       Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 =========== =========== ========== ============
 PAP2        |n|         0          |n|
 SPA2102     |n|         0          |n|
@@ -121,7 +121,7 @@ SPA8800     |n|         0          |n|
 SPA112      |n|         0          |n|
 =========== =========== ========== ============
 
-   For best results, activate :ref:`dhcp-integration` on your XiVO.
+   For best results, activate :ref:`dhcp-integration` on your Wazo.
 
 .. note::
    These devices can be used to connect Faxes. For better success with faxes some parameters
@@ -131,12 +131,12 @@ SPA112      |n|         0          |n|
    If you want to manually resynchronize the configuration from the ATA device
    you should use the following url::
 
-     http://ATA_IP/admin/resync?http://XIVO_IP:8667/CONF_FILE
+     http://ATA_IP/admin/resync?http://WAZO_IP:8667/CONF_FILE
 
    where :
 
       * *ATA_IP*    is the IP address of the ATA,
-      * *XIVO_IP*   is the IP address of your XiVO,
+      * *WAZO_IP*   is the IP address of your Wazo,
       * *CONF_FILE* is one of ``spa2102.cfg``, ``spa8000.cfg``
 
 
@@ -144,7 +144,7 @@ Fanvil
 ------
 
 =========== =========== ========== ============
-Model       Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model       Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 =========== =========== ========== ============
 C62P        |y|         5          |y|
 =========== =========== ========== ============
@@ -156,7 +156,7 @@ Gigaset
 Also known as Siemens.
 
 =========== =========== ========== ============
-Model       Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model       Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 =========== =========== ========== ============
 C470 IP     |n|         0          |n|
 C475 IP     |n|         0          |n|
@@ -176,7 +176,7 @@ Jitsi
 -----
 
 ======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model    Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 ======== =========== ========== ============
 Jitsi    |y|         |u|        |n|
 ======== =========== ========== ============
@@ -188,7 +188,7 @@ Panasonic
 Panasonic KX-HTXXX series:
 
 ======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model    Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 ======== =========== ========== ============
 KX-HT113   |n|         |u|         |n|
 KX-HT123   |n|         |u|         |n|
@@ -203,7 +203,7 @@ Polycom
 -------
 
 ======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model    Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 ======== =========== ========== ============
 SPIP320  |n|         0          |n|
 SPIP321  |n|         0          |n|
@@ -218,7 +218,7 @@ SPIP670  |n|         47         |n|
 SoundStation IP:
 
 ======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model    Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 ======== =========== ========== ============
 SPIP4000 |n|         0          |n|
 ======== =========== ========== ============
@@ -226,7 +226,7 @@ SPIP4000 |n|         0          |n|
 Others:
 
 ======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model    Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 ======== =========== ========== ============
 VVX1500  |n|         0          |n|
 ======== =========== ========== ============
@@ -236,7 +236,7 @@ Snom
 ----
 
 ======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model    Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 ======== =========== ========== ============
 300      |n|         6          |y|
 320      |y|         12         |y|
@@ -250,9 +250,9 @@ PA1      |n|         0          |y|
 
 .. warning:: If you are using Snom phones with HA, you should not assign multiple lines to the same device.
 
-There's a known issue with the provisioning of Snom phones in XiVO:
+There's a known issue with the provisioning of Snom phones in Wazo:
 
-* After a factory reset of a phone, if no language and timezone are set for the "default config device" in :menuselection:`XiVO --> Configuration --> Provisioning --> Template device`, you will be forced to select a default language and timezone on the phone UI.
+* After a factory reset of a phone, if no language and timezone are set for the "default config device" in :menuselection:`Wazo --> Configuration --> Provisioning --> Template device`, you will be forced to select a default language and timezone on the phone UI.
 
 
 Technicolor
@@ -261,7 +261,7 @@ Technicolor
 Previously known as Thomson:
 
 ======== =========== ========== ============
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model    Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 ======== =========== ========== ============
 ST2022   |n|         |u|        |u|
 ST2030   |y|         10         |y|
@@ -276,7 +276,7 @@ Yealink
 -------
 
 ======== =========== ========== ============ ================
-Model    Tested [1]_ Fkeys [2]_ XiVO HA [3]_ Plugin
+Model    Tested [1]_ Fkeys [2]_ Wazo HA [3]_ Plugin
 ======== =========== ========== ============ ================
 CP860    |n|         0          |u|          xivo-yealink-v72
 T23P     |n|         3          |u|          xivo-yealink-v80
@@ -293,20 +293,20 @@ Zenitel
 -------
 
 ========== =========== ========== ============
-Model      Tested [1]_ Fkeys [2]_ XiVO HA [3]_
+Model      Tested [1]_ Fkeys [2]_ Wazo HA [3]_
 ========== =========== ========== ============
 IP station |y|         1          |n|
 ========== =========== ========== ============
 
-.. [1] ``Tested`` means the device has been tested by the XiVO development team and that
+.. [1] ``Tested`` means the device has been tested by the Wazo development team and that
        the developers have access to this device.
 .. [2] ``Fkeys`` is the number of programmable function keys that you can configure from the
-       XiVO web interface. It is not necessarily the same as the number of physical function
+       Wazo web interface. It is not necessarily the same as the number of physical function
        keys the device has (for example, a 6757i has 12 physical keys but you can configure 30
        function keys because of the page system).
-.. [3] ``XiVO HA`` means the device is confirmed to work with :ref:`XiVO HA <high-availability>`.
+.. [3] ``Wazo HA`` means the device is confirmed to work with :ref:`Wazo HA <high-availability>`.
 .. [4] These devices are marked as ``Not Tested`` because other similar models using the same firmware have been tested instead.
-       If these devices ever present any bugs, they will be troubleshooted by the XiVO support team.
+       If these devices ever present any bugs, they will be troubleshooted by the Wazo support team.
 
 .. |y| replace:: Yes
 .. |n| replace:: No

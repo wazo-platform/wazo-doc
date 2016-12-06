@@ -1,8 +1,8 @@
 .. _purge_logs:
 
-**********
-Purge Logs
-**********
+*************
+xivo-purge-db
+*************
 
 Keeping records of personal communications for long periods may be subject to local legislation, to
 avoid personal data retention. Also, keeping too many records may become resource intensive for the
@@ -52,7 +52,7 @@ See :ref:`configuration-priority` and ``/etc/xivo-purge-db/config.yml`` for more
 Manual Purge
 ------------
 
-It is possible to purge logs manually. To do so, log on to the target XiVO server and run::
+It is possible to purge logs manually. To do so, log on to the target Wazo server and run::
 
     xivo-purge-db
 
@@ -99,7 +99,7 @@ Archive Plugins
 In the case you want to keep archives of the logs removed by xivo-purge-db, you may install plugins
 to xivo-purge-db that will be run before the purge.
 
-XiVO does not provide any archive plugin. You will need to develop plugins for your own need. If you
+Wazo does not provide any archive plugin. You will need to develop plugins for your own need. If you
 want to share your plugins, please open a `pull request`_.
 
 .. _pull request: https://github.com/xivo-pbx/xivo-purge-db/pulls
@@ -114,7 +114,7 @@ file. This allows you to add plugin-specific configuration in ``/etc/xivo-purge-
 
 There is an example plugin in the `xivo-purge-db git repo`_.
 
-.. _xivo-purge-db git repo: https://github.com/xivo-pbx/xivo-purge-db/tree/master/contribs
+.. _xivo-purge-db git repo: https://github.com/wazo-pbx/xivo-purge-db/tree/master/contribs
 
 
 Example

@@ -1,14 +1,14 @@
 .. _xivo-dird-developer:
 
-=============================
- XiVO dird developer's guide
-=============================
+===========================
+xivo-dird developer's guide
+===========================
 
 .. figure:: images/startup.png
 
    xivo-dird startup flow
 
-The XiVO dird architecture uses plugins as extension points for most of its
+The xivo-dird architecture uses plugins as extension points for most of its
 job. It uses `stevedore <http://docs.openstack.org/developer/stevedore/>`_ to do the plugin
 instantiation and discovery and `ABC <https://docs.python.org/2/library/abc.html>`_
 classes to define the required interface.
@@ -48,7 +48,7 @@ of each kind to xivo-dird:
 
 
    setup(
-       name='XiVO dird plugin sample',
+       name='Wazo dird plugin sample',
        version='0.0.1',
 
        description='An example program',
@@ -86,7 +86,7 @@ Implementation details
 ----------------------
 
 * Namespace: ``xivo_dird.backends``
-* Abstract source plugin: `BaseSourcePlugin <https://github.com/xivo-pbx/xivo-dird/blob/master/xivo_dird/plugins/base_plugins.py#L67>`_
+* Abstract source plugin: `BaseSourcePlugin <https://github.com/wazo-pbx/xivo-dird/blob/master/xivo_dird/plugins/base_plugins.py#L67>`_
 * Methods:
 
   * ``name``: the name of the source, typically retrieved from the configuration injected to
@@ -278,7 +278,7 @@ Implementation details
 ----------------------
 
 * Namespace: ``xivo_dird.views``
-* Abstract view plugin: `BaseViewPlugin <https://github.com/xivo-pbx/xivo-dird/blob/master/xivo_dird/plugins/base_plugins.py#L52>`_
+* Abstract view plugin: `BaseViewPlugin <https://github.com/wazo-pbx/xivo-dird/blob/master/xivo_dird/plugins/base_plugins.py#L52>`_
 
 * Methods:
 

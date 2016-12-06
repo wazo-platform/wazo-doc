@@ -7,7 +7,7 @@ You have two options to get your phone to be provisioned:
 * Set up a DHCP server
 * Tell manually each phone where to get the provisioning informations
 
-You may want to manually configure the phones if you are only trying XiVO or if your network configuration does not allow the phones to access the XiVO DHCP server.
+You may want to manually configure the phones if you are only trying Wazo or if your network configuration does not allow the phones to access the Wazo DHCP server.
 
 You may want to set up a DHCP server if you have a significant number of phones to connect, as no manual intervention will be required on each phone.
 
@@ -16,7 +16,7 @@ You may want to set up a DHCP server if you have a significant number of phones 
 Configuring the DHCP Server
 ===========================
 
-XiVO includes a DHCP server that facilitate the auto-provisioning of telephony devices.
+Wazo includes a DHCP server that facilitate the auto-provisioning of telephony devices.
 It is *not* activated by default.
 
 There's a few things to know about the peculiarities of the included DHCP server:
@@ -25,7 +25,7 @@ There's a few things to know about the peculiarities of the included DHCP server
 * it only answers to DHCP requests coming from the VoIP subnet (see :ref:`network configuration <network_configuration>`).
 
 This means that if your phones are on the same broadcast domain than your computers,
-and you would like the DHCP server on your XiVO to handle both your phones and your
+and you would like the DHCP server on your Wazo to handle both your phones and your
 computers, that won't do it.
 
 The DHCP server is configured via the :menuselection:`Configuration --> Network --> DHCP` page:
@@ -76,7 +76,7 @@ see if a plugin is installed or not by looking at the :guilabel:`Action` column.
 Here's the list of other things that can be done from this page:
 
 * update the list of installable plugins, by clicking on the top right icon. On a fresh
-  XiVO installation, this is the first thing to do.
+  Wazo installation, this is the first thing to do.
 * install a new plugin
 * upgrade an installed plugin
 * uninstall an installed plugin
@@ -138,7 +138,7 @@ of the :menuselection:`Configuration --> Provisioning --> Plugin` page.
 How to manually tell the phones to get their configuration
 ==========================================================
 
-If you have set up a DHCP server on XiVO and the phones can access it, you can skip this section.
+If you have set up a DHCP server on Wazo and the phones can access it, you can skip this section.
 
 The according provisioning plugins must be installed.
 
@@ -157,7 +157,7 @@ Polycom
 On the phone, go to :menuselection:`Menu --> Settings --> Advanced --> Admin Settings --> Network configuration --> Server Menu` and enter the following settings:
 
 * Server type: HTTP
-* Server address: ``http://<XiVO IP address>:8667/000000000000.cfg``
+* Server address: ``http://<Wazo IP address>:8667/000000000000.cfg``
 
 Then save and reboot the phone.
 
@@ -175,7 +175,7 @@ Yealink
 
 On the web interface of your phone, go to :menuselection:`Settings --> Auto Provision`, and enter the following settings:
 
-* Server URL: ``http://<XiVO IP address>:8667``
+* Server URL: ``http://<Wazo IP address>:8667``
 
 .. figure:: img/config_server_yealink.png
 
@@ -189,14 +189,14 @@ Once you have installed the proper provd plugins for your devices and setup corr
 DHCP server, you can then connect your devices to your network.
 
 But first, go to :menuselection:`Services --> IPBX --> Devices` page. You will then see that no
-devices are currently known by your XiVO:
+devices are currently known by your Wazo:
 
 .. figure:: img/Autoprov_no_devices.png
    :scale: 85%
 
 You can then power on your devices on your LAN. For example, after you power on an Aastra 6731i and
 give it the time to boot and maybe upgrade its firmware, you should then see the phone having its first
-line configured as 'autoprov', and if you refresh the devices page, you should see that your XiVO
+line configured as 'autoprov', and if you refresh the devices page, you should see that your Wazo
 now knows about your 6731i:
 
 .. figure:: img/Autoprov_new_aastra_6731i.png
@@ -217,7 +217,7 @@ Resetting a Device
 From the Device List in the Webi
 --------------------------------
 
-To remove a phone from XiVO or enable a device to be used for another user there are two different
+To remove a phone from Wazo or enable a device to be used for another user there are two different
 possibilities :
 
 * click on the ``reset to autoprov`` button on the web interface

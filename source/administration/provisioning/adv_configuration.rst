@@ -7,7 +7,7 @@ Advanced Configuration
 DHCP Integration
 ================
 
-If your phones are getting their network configuration from your XiVO's DHCP server,
+If your phones are getting their network configuration from your Wazo's DHCP server,
 it's possible to activate the DHCP integration on the
 :menuselection:`Configuration --> Provisioning --> General` page.
 
@@ -173,7 +173,7 @@ The older plugin is then considered "end-of-life", and won't receive any new upd
 nor be available for new installation.
 
 Let's suppose we have the old ``xivo-aastra-3.2.2.1136`` plugin installed on our
-xivo and want to use the newer ``xivo-aastra-3.3.1-SP2`` plugin.
+Wazo and want to use the newer ``xivo-aastra-3.3.1-SP2`` plugin.
 
 Both these plugins can be installed at the same time, and you can manually change
 the plugin used by a phone by editing it via the :menuselection:`Services --> IPBX --> Devices`
@@ -208,7 +208,7 @@ sure that only one device has the source IP address of the request. This is not 
 behaviour when the provisioning server is used in a NAT environment, since in this case, it's normal
 that more than 1 devices have the same source IP address (from the point of view of the server).
 
-If *all* your devices used on your XiVO are behind a NAT, you should disable this behaviour by
+If *all* your devices used on your Wazo are behind a NAT, you should disable this behaviour by
 setting the ``NAT`` option to 1 via the :menuselection:`Configuration --> Provisioning --> General`
 page.
 
@@ -234,7 +234,7 @@ Limitations
   wrong device will be provisioned)
 
 For technical information about why other devices are not supported, you can look at `this issue
-<https://projects.wazo.community/issues/5107>`_  on the XiVO bug tracker.
+<https://projects.wazo.community/issues/5107>`_  on the Wazo bug tracker.
 
 
 .. _provd-security:
@@ -275,7 +275,7 @@ of fail2ban. See the fail2ban(1) man page for more information.
 System Requirements
 -------------------
 
-XiVO 16.08 or later is required. You also need to use compatible xivo-provd plugins. Here's the list
+XiVO/Wazo 16.08 or later is required. You also need to use compatible xivo-provd plugins. Here's the list
 of official plugins which are compatible:
 
 +------------------+---------+

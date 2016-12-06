@@ -7,7 +7,7 @@ Debugging Daemons
 To activate debug mode, add ``debug: true`` in the daemon :ref:`configuration file
 <configuration-files>`). The output will be available in the daemon's :ref:`log file <log-files>`.
 
-It is also possible to run the XiVO daemon, in command line. This will allow to run in foreground
+It is also possible to run the Wazo daemon, in command line. This will allow to run in foreground
 and debug mode. To see how to use it, type::
 
    xivo-{name} -h
