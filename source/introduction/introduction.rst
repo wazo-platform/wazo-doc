@@ -9,12 +9,15 @@ Wazo is free software. Most of its distinctive components, and Wazo as a whole, 
 under the GPLv3 license.
 
 
-XiVO History
+Wazo History
 ============
 
-XiVO was created in 2005 by Sylvain Boily (Proformatique SARL). The XiVO mark is
-now owned by Avencall SAS after a merge between Proformatique SARL and Avencall SARL
-in 2010. The XiVO core team works for Proformatique INC in Quebec City since
-2010, after Sylvain Boily moved to Quebec city.
+Wazo if a fork of XiVO, which was created in 2005 by Sylvain Boily (Proformatique SARL).
+The XiVO mark is now owned by Avencall SAS after a merge between Proformatique SARL and
+Avencall SARL in 2010.
 
-`XiVO 1.2 was released <https://projects.wazo.community/news/49>`_ on February 3, 2012.
+The XiVO core development team worked for Proformatique, Inc. in Quebec City from 2010 to
+november 2016.
+
+In november 2016, the development team forked XiVO to create Wazo. Its first release, Wazo
+16.16, was released in december 2016.
