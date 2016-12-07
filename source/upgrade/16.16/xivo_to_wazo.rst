@@ -17,8 +17,14 @@ More information about the Wazo project is available on the `Wazo blog <http://b
 Using the Wazo Infrastructure on your XiVO
 ==========================================
 
-This step is only needed if you don't intend to upgrade to Wazo right away, i.e. you want to
-continue using your XiVO installation in its current version for some time.
+Since ``*.xivo.io`` has been shut down, you may use the infrastructure at ``*.wazo.community``
+instead of ``*.xivo.io``. This step is only needed if you **don't intend to upgrade to Wazo** right
+away, i.e. you want to continue using your XiVO installation in its current version for some time.
+The features needing ``*.xivo.io`` are:
+
+* installing new provisioning plugins
+* keeping your DHCP configuration up-to-date (for new phones OUI, for example)
+* upgrading to XiVO <= 16.13, i.e. not Wazo
 
 In this case, you'll need to run the following commands::
 

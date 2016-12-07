@@ -24,7 +24,7 @@ Installing from the ISO image
   with charset UTF-8.
 * At the end of the installation, if you are installing version 16.13 or before, you need to
   configure your system to :ref:`use the Wazo infrastructure <using-wazo-infrastructure>`, otherwise
-  some errors might occurs.
+  some errors might occur.
 * Continue by running the :ref:`configuration wizard. <configuration_wizard>`
 
 .. _all versions: http://mirror.wazo.community/iso/archives
