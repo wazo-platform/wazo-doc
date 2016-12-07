@@ -12,7 +12,7 @@ under the GPLv3 license.
 Wazo History
 ============
 
-Wazo if a fork of XiVO, which was created in 2005 by Sylvain Boily (Proformatique SARL).
+Wazo is a fork of XiVO, which was created in 2005 by Sylvain Boily (Proformatique SARL).
 The XiVO mark is now owned by Avencall SAS after a merge between Proformatique SARL and
 Avencall SARL in 2010.
 
