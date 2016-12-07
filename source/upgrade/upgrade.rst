@@ -4,11 +4,11 @@
 Upgrading
 *********
 
-Upgrading a XiVO is done by executing commands through a terminal on the
+Upgrading a Wazo is done by executing commands through a terminal on the
 server. You can connect to the server either through SSH or with a physical
 console.
 
-To upgrade your XiVO to the latest version, you **must** use the ``xivo-upgrade`` script. You can
+To upgrade your Wazo to the latest version, you **must** use the ``xivo-upgrade`` script. You can
 start an upgrade with the command::
 
    xivo-upgrade
@@ -20,7 +20,7 @@ start an upgrade with the command::
      currently no retro-compatibility on older XiVO Client versions. The only exception is Wazo
      16.16, which is compatible with XiVO Client 16.13.
 
-This script will update XiVO and restart all services.
+This script will update Wazo and restart all services.
 
 There are 2 options you can pass to xivo-upgrade:
 
@@ -46,7 +46,7 @@ Upgrade procedure
   be stopped during the process**
 * When finished, check that all services are running (the list is displayed at the end of the upgrade).
 * Check that services are correctly working like SIP registration, ISDN link status,
-  internal/incoming/outgoing calls, XiVO Client connections etc.
+  internal/incoming/outgoing calls, Wazo Client connections etc.
 
 
 .. _version_specific_upgrade:
@@ -127,7 +127,7 @@ Upgrading from 1.2.0 or 1.2.1 requires a special procedure before executing ``xi
 Upgrading a cluster
 ===================
 
-Here are the steps for upgrading a cluster, i.e. two XiVO with :ref:`high-availability`:
+Here are the steps for upgrading a cluster, i.e. two Wazo with :ref:`high-availability`:
 
 #. On the master : deactivate the database replication by commenting the cron in
    :file:`/etc/cron.d/xivo-ha-master`
@@ -172,7 +172,7 @@ Troubleshooting
 Postgresql
 ----------
 
-When upgrading XiVO, if you encounter problems related to the system locale, see
+When upgrading Wazo, if you encounter problems related to the system locale, see
 :ref:`postgresql_localization_errors`.
 
 
@@ -188,7 +188,7 @@ If, among others, it displays something like the following line (notice the DROP
 
    0     0 DROP       udp  --  *      *       0.0.0.0/0            0.0.0.0/0           udp dpt:5060
 
-Then your XiVO will not be able to register any SIP phones. In this case, you must delete the DROP
+Then your Wazo will not be able to register any SIP phones. In this case, you must delete the DROP
 rules with the following command::
 
    iptables -D INPUT -p udp --dport 5060 -j DROP
@@ -216,7 +216,7 @@ Consult the `16.16 Roadmap <https://projects.wazo.community/versions/252>`_
   later migration but no more statistics will be collected.
 * The phonebook has been migrated from the web interface to xivo-dird. The phonebook contacts
   from the web interface have been moved to new dird-phonebooks. For users with many entities
-  on the same XiVO, this will create one phonebook for each entity. The configuration has been
+  on the same Wazo, this will create one phonebook for each entity. The configuration has been
   updated to keep the previous behavior. No manual actions are required for installations with only one entity or
   if one phonebook by entity is the desired configuration. If only one phonebook is desired for all entities, some
   of the duplicate phonebooks can be deleted from the web interface and their matching configuration
@@ -240,7 +240,7 @@ Please consult the following detailed upgrade notes for more information:
 16.13
 -----
 
-XiVO 16.13 is the *last public release* of the project under the XiVO name.
+XiVO 16.13 is the *last public release* of the project under the name XiVO.
 
 Consult the `16.13 Roadmap <https://projects.wazo.community/versions/249>`_
 
