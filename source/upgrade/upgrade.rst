@@ -54,12 +54,11 @@ Upgrade procedure
 Version-specific upgrade procedures
 ===================================
 
-Upgrading from XiVO 14.11 and before
+Upgrading from XiVO 16.13 and before
 ------------------------------------
 
-When upgrading from XiVO 14.11 or earlier, you must do the following, before the normal upgrade::
-
-   sed -i 's/xivo\.fr/xivo.io/g' /etc/apt/sources.list.d/*.list
+When upgrading from XiVO 16.13 or before, you must use the special :ref:`XiVO to Wazo upgrade
+procedure <upgrading-to-wazo>` instead of simply running ``xivo-upgrade``.
 
 
 Upgrading from XiVO 14.01, 14.02, 14.03, 14.04 installed from the ISO
@@ -68,7 +67,7 @@ Upgrading from XiVO 14.01, 14.02, 14.03, 14.04 installed from the ISO
 In those versions, xivo-upgrade keeps XiVO on the same version. You must do the following, before
 the normal upgrade::
 
-   echo "deb http://mirror.xivo.io/debian/ xivo-five main" > /etc/apt/sources.list.d/xivo-upgrade.list \
+   echo "deb http://mirror.wazo.community/debian/ xivo-five main" > /etc/apt/sources.list.d/xivo-upgrade.list \
    && apt-get update \
    && apt-get install xivo-fai \
    && rm /etc/apt/sources.list.d/xivo-upgrade.list \
@@ -203,26 +202,18 @@ Upgrade Notes
 16.16
 -----
 
-Consult the `16.16 Roadmap <https://projects.wazo.community/versions/251>`_
+Wazo 16.16 is the *first public release* of the project under the Wazo name. It
+is also the first release of Wazo under the "phoenix" codename.
 
+Consult the `16.16 Roadmap <https://projects.wazo.community/versions/252>`_
+
+* A :ref:`special procedure <xivo-to-wazo>` is required to upgrade from XiVO to Wazo.
+* Asterisk has been upgraded from version 13.11.2 to 14.2.0, which is a major Asterisk upgrade.
 * If you are using :ref:`custom sheets <custom-call-form>` that are stored locally, they *must* now
   be readable by the system user ``xivo-ctid``. Make sure that this user has read access to the UI
   file of your custom sheets.
 * Switchboard statistics have been removed. The existing statistics data remain in the database for
   later migration but no more statistics will be collected.
-
-
-16.15
------
-
-Consult the `16.15 Roadmap <https://projects.wazo.community/versions/251>`_
-
-
-16.14
------
-
-Consult the `16.14 Roadmap <https://projects.wazo.community/versions/250>`_
-
 * The phonebook has been migrated from the web interface to xivo-dird. The phonebook contacts
   from the web interface have been moved to new dird-phonebooks. For users with many entities
   on the same XiVO, this will create one phonebook for each entity. The configuration has been
@@ -237,18 +228,19 @@ Consult the `16.14 Roadmap <https://projects.wazo.community/versions/250>`_
   * The selected phonebooks for reverse lookups can be modified in :menuselection:`Services --> CTI Server --> Directories --> Reverse directories`
   * Direct directories can be modified in :menuselection:`Services --> CTI Server --> Directories --> Direct directories`
 
-* Asterisk has been upgraded from version 13.11.2 to 14.0.2, which is a major Asterisk upgrade.
-
 Please consult the following detailed upgrade notes for more information:
 
 .. toctree::
    :maxdepth: 1
 
-   16.14/asterisk_14
+   16.16/xivo_to_wazo
+   16.16/asterisk_14
 
 
 16.13
 -----
+
+XiVO 16.13 is the *last public release* of the project under the XiVO name.
 
 Consult the `16.13 Roadmap <https://projects.wazo.community/versions/249>`_
 
