@@ -16,9 +16,9 @@ start an upgrade with the command::
 .. note::
    * You can't use xivo-upgrade if you have not run the wizard yet
    * Upgrading from a version prior to XiVO 1.2 is not supported.
-   * When upgrading XiVO, you **must** also upgrade **all** associated XiVO
-     Clients. There is currently no retro-compatibility on older XiVO Client
-     versions.
+   * When upgrading Wazo, you **must** also upgrade **all** associated XiVO Clients. There is
+     currently no retro-compatibility on older XiVO Client versions. The only exception is Wazo
+     16.16, which is compatible with XiVO Client 16.13.
 
 This script will update XiVO and restart all services.
 
