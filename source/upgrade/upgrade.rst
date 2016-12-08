@@ -214,6 +214,7 @@ Consult the `16.16 Roadmap <https://projects.wazo.community/versions/252>`_
   file of your custom sheets.
 * Switchboard statistics have been removed. The existing statistics data remain in the database for
   later migration but no more statistics will be collected.
+* The ``conference`` destination type in incalls REST API has been renamed to ``meetme``.
 * The phonebook has been migrated from the web interface to xivo-dird. The phonebook contacts
   from the web interface have been moved to new dird-phonebooks. For users with many entities
   on the same Wazo, this will create one phonebook for each entity. The configuration has been
