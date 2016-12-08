@@ -23,6 +23,15 @@ verbose debugging is required. Using this option in production would produce VER
 * Rotation frequence: Daily
 
 
+wazo-upgrade
+------------
+
+* File location: :file:`/var/log/xivo-upgrade.log`
+* Rotate configuration: :file:`/etc/logrotate.d/xivo-upgrade`
+* Number of archived files: 15
+* Rotation frequence: Daily
+
+
 xivo-agentd
 -----------
 
@@ -168,15 +177,6 @@ xivo-sysconfd
 
 * File location: :file:`/var/log/xivo-sysconfd.log`
 * Rotate configuration: :file:`/etc/logrotate.d/xivo-sysconfd`
-* Number of archived files: 15
-* Rotation frequence: Daily
-
-
-xivo-upgrade
-------------
-
-* File location: :file:`/var/log/xivo-upgrade.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-upgrade`
 * Number of archived files: 15
 * Rotation frequence: Daily
 

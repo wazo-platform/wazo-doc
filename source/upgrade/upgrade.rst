@@ -8,13 +8,13 @@ Upgrading a Wazo is done by executing commands through a terminal on the
 server. You can connect to the server either through SSH or with a physical
 console.
 
-To upgrade your Wazo to the latest version, you **must** use the ``xivo-upgrade`` script. You can
+To upgrade your Wazo to the latest version, you **must** use the ``wazo-upgrade`` script. You can
 start an upgrade with the command::
 
-   xivo-upgrade
+   wazo-upgrade
 
 .. note::
-   * You can't use xivo-upgrade if you have not run the wizard yet
+   * You can't use wazo-upgrade if you have not run the wizard yet
    * Upgrading from a version prior to XiVO 1.2 is not supported.
    * When upgrading Wazo, you **must** also upgrade **all** associated XiVO Clients. There is
      currently no retro-compatibility on older XiVO Client versions. The only exception is Wazo
@@ -22,12 +22,12 @@ start an upgrade with the command::
 
 This script will update Wazo and restart all services.
 
-There are 2 options you can pass to xivo-upgrade:
+There are 2 options you can pass to wazo-upgrade:
 
-* ``-d`` to only download packages without installing them. **This will still upgrade the package containing xivo-upgrade and xivo-service**.
+* ``-d`` to only download packages without installing them. **This will still upgrade the package containing wazo-upgrade**.
 * ``-f`` to force upgrade, without asking for user confirmation
 
-``xivo-upgrade`` uses the following environment variables:
+``wazo-upgrade`` uses the following environment variables:
 
 * ``XIVO_CONFD_PORT`` to set the port used to query the :ref:`HTTP API of xivo-confd <confd-api>`
   (default is 9486)
@@ -39,10 +39,10 @@ Upgrade procedure
 * Consult the `roadmaps <https://projects.wazo.community/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
 * Read all existing Upgrade Notes (see below) starting from your version to the latest version.
 * For custom setups, follow the required procedures described below (e.g. HA cluster).
-* To download the packages beforehand, run ``xivo-upgrade -d``. This is not mandatory, but it does
+* To download the packages beforehand, run ``wazo-upgrade -d``. This is not mandatory, but it does
   not require stopping any service, so it may be useful to reduce the downtime of the server while
   upgrading.
-* When ready, run ``xivo-upgrade`` which will start the upgrade process. **Telephony services will
+* When ready, run ``wazo-upgrade`` which will start the upgrade process. **Telephony services will
   be stopped during the process**
 * When finished, check that all services are running (the list is displayed at the end of the upgrade).
 * Check that services are correctly working like SIP registration, ISDN link status,
@@ -135,11 +135,11 @@ Here are the steps for upgrading a cluster, i.e. two Wazo with :ref:`high-availa
    :file:`/etc/cron.d/xivo-ha-slave`
 #. On the slave, start the upgrade::
 
-    xivo-slave:~$ xivo-upgrade
+    xivo-slave:~$ wazo-upgrade
 
 #. When the slave has finished, start the upgrade on the master::
 
-    xivo-master:~$ xivo-upgrade
+    xivo-master:~$ wazo-upgrade
 
 #. When done, launch the database replication manually::
 
@@ -176,10 +176,10 @@ When upgrading Wazo, if you encounter problems related to the system locale, see
 :ref:`postgresql_localization_errors`.
 
 
-xivo-upgrade
+wazo-upgrade
 ------------
 
-If xivo-upgrade fails or aborts in mid-process, the system might end up in a faulty condition. If in
+If wazo-upgrade fails or aborts in mid-process, the system might end up in a faulty condition. If in
 doubt, run the following command to check the current state of xivo's firewall rules::
 
    iptables -nvL
