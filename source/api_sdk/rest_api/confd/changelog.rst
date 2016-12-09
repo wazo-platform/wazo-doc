@@ -30,6 +30,8 @@ xivo-confd REST API changelog
   * DELETE ``/1.1/conferences/<group_id>/extensions/<extension_id>``
   * PUT ``/1.1/conferences/<group_id>/extensions/<extension_id>``
 
+* The ``conference`` destination type in incalls endpoints has been renamed to ``meetme``
+
 
 16.15
 =====
