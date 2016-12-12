@@ -11,7 +11,7 @@ API documentation is available on http://api.wazo.community.
 Changelog
 =========
 
-16.14
+16.16
 -----
 
 * A new resource has been added to fetch the current configuration of xivo-dird
