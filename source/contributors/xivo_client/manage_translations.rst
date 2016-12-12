@@ -4,7 +4,7 @@ Manage Translations of the XiVO Client
 
 This sections describes how to manage XiVO Client translations from a developer
 point of view. If you want to help translate the XiVO Client, see
-:doc:`Translating XiVO <../translate>`
+:doc:`Translating Wazo <../translate>`
 
 You need to install these tools::
 
@@ -37,7 +37,7 @@ for your language. Once all the translations have been checked, run the 3 follow
     git commit
     git push
 
-.. _Transifex: https://www.transifex.com/proformatique/xivo/
+.. _Transifex: https://www.transifex.com/wazo/wazo/
 
 .. warning:: Under Arch Linux, you must have qt5 installed and prepend ``QT_PATH=/usr/bin`` before
              ``make {pull,push}tr``.
@@ -99,7 +99,7 @@ Embed the translation files
 ---------------------------
 
 For each project previously edited, you should have a corresponding ``.qrc``
-file. These resource files list all files that will be embedded in the XiVO
+file. These resource files list all files that will be embedded in the Wazo
 Client binaries.  You should then add the corresponding translation files like
 below::
 

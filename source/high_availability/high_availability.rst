@@ -4,11 +4,11 @@
 High Availability (HA)
 **********************
 
-The :abbr:`HA (High Availability)` solution in XiVO makes it possible to maintain basic telephony
-function whether your main XiVO server is running or not. When running a XiVO HA cluster, users are
+The :abbr:`HA (High Availability)` solution in Wazo makes it possible to maintain basic telephony
+function whether your main Wazo server is running or not. When running a Wazo HA cluster, users are
 guaranteed to never experience a downtime of more than 5 minutes of their basic telephony service.
 
-The HA solution in XiVO is based on a 2-nodes "master and slave" architecture. In the normal
+The HA solution in Wazo is based on a 2-nodes "master and slave" architecture. In the normal
 situation, both the master and slave nodes are running in parallel, the slave acting as a "hot
 standby", and all the telephony services are provided by the master node. If the master fails or
 must be shutdown for maintenance, then the telephony devices automatically communicate with the
@@ -22,7 +22,7 @@ back to the master.
 Prerequisites
 =============
 
-The HA in XiVO only works with telephony devices (i.e. phones) that support
+The HA in Wazo only works with telephony devices (i.e. phones) that support
 the notion of a primary and backup telephony server.
 
 * Phones must be able to reach the master and the slave (take special care if master and slave are
@@ -38,10 +38,10 @@ The HA solution is guaranteed to work correctly with :ref:`the following devices
 Quick Summary
 =============
 
-* You need two configured XiVO (wizard passed)
-* Configure one XiVO as a master -> setup the slave address (VoIP interface)
+* You need two configured Wazo (wizard passed)
+* Configure one Wazo as a master -> setup the slave address (VoIP interface)
 * Restart services (xivo-service restart) on master
-* Configure the other XiVO as a slave -> setup the master address (VoIP interface)
+* Configure the other Wazo as a slave -> setup the master address (VoIP interface)
 * Configure file synchronization by runnning the script ``xivo-sync -i`` on the master
 * Start configuration synchronization by running the script ``xivo-master-slave-db-replication
   <slave_ip>`` on the master
@@ -55,10 +55,10 @@ will be reported to the slave.
 Configuration Details
 =====================
 
-First thing to do is to :ref:`install 2 XiVO <installation>`.
+First thing to do is to :ref:`install 2 Wazo <installation>`.
 
 .. important:: When you upgrade a node of your cluster, you must also upgrade the other so that
-   they both are running the same version of XiVO. Otherwise, the replication might not work
+   they both are running the same version of Wazo. Otherwise, the replication might not work
    properly.
 
 You must configure the :abbr:`HA (High Availability)` in the Web interface
@@ -80,7 +80,7 @@ will then be rsync'ed every hour:
 * /var/lib/xivo/sounds/playback
 
 .. warning:: When the HA is configured, some changes will be automatically
-   made to the configuration of XiVO.
+   made to the configuration of Wazo.
 
 SIP expiry value on master and slave will be automatically updated:
 
@@ -93,7 +93,7 @@ SIP expiry value on master and slave will be automatically updated:
    :menuselection:`Services --> IPBX --> General Settings --> SIP Protocol`
 
 The provisioning server configuration will be automatically updated in order to allow
-phones to switch from XiVO power failure.
+phones to switch from Wazo power failure.
 
 .. figure:: images/provd_config_registrar.png
 
@@ -147,7 +147,7 @@ In choosing the method ``Slave`` you must enter the IP address **of the VoIP int
 Replication Configuration
 -------------------------
 
-Once master slave configuration is completed, XiVO configuration is replicated from the master node
+Once master slave configuration is completed, Wazo configuration is replicated from the master node
 to the slave every hour (:00).
 
 Replication can be started manually by running the replication scripts on the master::
@@ -155,7 +155,7 @@ Replication can be started manually by running the replication scripts on the ma
    xivo-master-slave-db-replication <slave_ip>
    xivo-sync
 
-The replication does not copy the full XiVO configuration of the master. Notably, these
+The replication does not copy the full Wazo configuration of the master. Notably, these
 are excluded:
 
 * All the network configuration (i.e. everything under the
@@ -234,7 +234,7 @@ Additionally, only on failback:
 Here's the list of limitations that are more relevant on an administrator standpoint:
 
 * The master status is up or down, there's no middle status. This mean that if Asterisk is crashed
-  the XiVO is still up and the failover will NOT happen.
+  the Wazo is still up and the failover will NOT happen.
 
 
 Berofos Integration

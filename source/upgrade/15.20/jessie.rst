@@ -127,7 +127,7 @@ List of Known Bugs And Limitations
   you can try stopping the xivo services using ``xivo-service stop`` before rebooting to lessen the
   likelihood of this problem.
 
-  See http://projects.xivo.io/issues/6016
+  See http://projects.wazo.community/issues/6016
 
 
 External Links

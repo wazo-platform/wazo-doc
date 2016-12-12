@@ -1,8 +1,8 @@
 ************
-XiVO service
+xivo-service
 ************
 
-XiVO has many running services. To restart the whole stack, the *xivo-service* command can
+Wazo has many running services. To restart the whole stack, the *xivo-service* command can
 be used to make sure the service is restarted in the right order.
 
 
@@ -25,7 +25,7 @@ Restart XiVO services::
 
    xivo-service restart
 
-The commands above will only act upon XiVO services. Appending an argument
+The commands above will only act upon Wazo services. Appending an argument
 ``all`` will also act upon ``nginx`` and ``postgresql``. Example::
 
    xivo-service restart all

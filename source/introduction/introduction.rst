@@ -2,19 +2,25 @@
 Introduction
 ************
 
-XiVO is a PABX application based on several free existant components including Asterisk and our own developments. XiVO provides a
-solution for enterprises who wish to replace or add telephone services (PABX).
+Wazo is a PABX application based on several free existant components including Asterisk and our own
+developments. Wazo provides a solution for enterprises who wish to replace or add telephone services
+(PABX).
 
-XiVO is free software. Most of its distinctive components, and XiVO as a whole, are distributed
+Wazo is free software. Most of its distinctive components, and Wazo as a whole, are distributed
 under the GPLv3 license.
 
 
-XiVO History
+Wazo History
 ============
 
-XiVO was created in 2005 by Sylvain Boily (Proformatique SARL). The XiVO mark is
-now owned by Avencall SAS after a merge between Proformatique SARL and Avencall SARL
-in 2010. The XiVO core team works for Proformatique INC in Quebec City since 
-2010, after Sylvain Boily moved to Quebec city.
+Wazo is a fork of XiVO, which was created in 2005 in France by Sylvain Boily and the company
+Proformatique. In 2010, Proformatique merged with Avencall, and Avencall acquired the copyright and
+trademark of XiVO.
 
-`XiVO 1.2 was released <https://projects.xivo.io/news/49>`_ on February 3, 2012.
+Sylvain then moved to Quebec City and founded Proformatique, Inc. where the XiVO core development
+team worked from 2011 until November 2016.
+
+In November 2016, Proformatique Inc. was shut down and the development team `forked XiVO to create
+Wazo`_. Its first release, Wazo 16.16, was released in December 2016.
+
+.. _forked XiVO to create Wazo: http://blog.wazo.community/introducing-wazo.html

@@ -2,9 +2,9 @@
 Server/Hardware
 ***************
 
-This section describes how to configure the telephony hardware on a XiVO server.
+This section describes how to configure the telephony hardware on a Wazo server.
 
-.. note:: Currently XiVO supports only Digium Telephony Interface cards
+.. note:: Currently Wazo supports only Digium Telephony Interface cards
 
 The configuration process is the following :
 

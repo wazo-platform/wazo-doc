@@ -32,7 +32,7 @@ Example request
 .. code-block:: http
 
    GET <uri> HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -86,7 +86,7 @@ Example request
 .. code-block:: http
 
    DELETE <uri> HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
 
 
 Example response
@@ -121,7 +121,7 @@ Example request for the configuration service of the :ref:`provd manager <provd-
 .. code-block:: http
 
    GET /provd/configure HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -144,7 +144,7 @@ Example response
                        "rel": "srv.configure.param"
                    }
                ],
-               "value": "http://provd.xivo.io/plugins/1/stable"
+               "value": "http://provd.wazo.community/plugins/1/stable"
            },
            {
                "description": "The proxy for HTTP requests. Format is \"http://[user:password@]host:port\"",
@@ -224,7 +224,7 @@ Example request for the NAT option of the configuration service of the provd ent
 .. code-block:: http
 
    GET /provd/configure/NAT HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -263,7 +263,7 @@ Example request for the NAT option of the configuration service of the :ref:`pro
 .. code-block:: http
 
    PUT /provd/configure/NAT HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Content-Type: application/vnd.proformatique.provd+json
 
    {
@@ -306,7 +306,7 @@ Example request for the installation service of the :ref:`plugin manager <provd-
 .. code-block:: http
 
    GET /provd/pg_mgr/install HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -369,7 +369,7 @@ Example request for the installation service of the plugin manager.
 .. code-block:: http
 
    POST /provd/pg_mgr/install/install HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Content-Type: application/vnd.proformatique.provd+json
 
    {
@@ -408,7 +408,7 @@ Example request for the installation service of the plugin manager.
 .. code-block:: http
 
    POST /provd/pg_mgr/install/uninstall HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Content-Type: application/vnd.proformatique.provd+json
 
    {
@@ -444,7 +444,7 @@ Example request for the installation service of the plugin manager.
 .. code-block:: http
 
    POST /provd/pg_mgr/install/upgrade HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Content-Type: application/vnd.proformatique.provd+json
 
    {
@@ -483,7 +483,7 @@ Example request for the installation service of the plugin manager.
 .. code-block:: http
 
    POST /provd/pg_mgr/install/update HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Content-Type: application/vnd.proformatique.provd+json
 
    {}
@@ -520,7 +520,7 @@ Example request for the installation service of the plugin manager.
 .. code-block:: http
 
    GET /provd/pg_mgr/install/installable HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 
@@ -609,7 +609,7 @@ Example request for the installation service of the plugin manager.
 .. code-block:: http
 
    GET /provd/pg_mgr/install/installed HTTP/1.1
-   Host: xivoserver
+   Host: wazoserver
    Accept: application/vnd.proformatique.provd+json
 
 

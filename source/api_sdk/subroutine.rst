@@ -7,7 +7,7 @@ Subroutine
 What is it ?
 ============
 
-The preprocess subroutine allows you to enhance XiVO features through the Asterisk dialplan. Features that can be enhanced are :
+The preprocess subroutine allows you to enhance Wazo features through the Asterisk dialplan. Features that can be enhanced are :
 
 * User
 * Group
@@ -46,9 +46,9 @@ An example::
    same  =   n,Return()
 
 Subroutines should always end with a ``Return()``. You may replace ``Return()`` by a ``Goto()`` if
-you want to completely bypass the XiVO dialplan, but this is not recommended.
+you want to completely bypass the Wazo dialplan, but this is not recommended.
 
-To plug your subroutine into the XiVO dialplan, you must add ``myexample`` in the subroutine field
+To plug your subroutine into the Wazo dialplan, you must add ``myexample`` in the subroutine field
 in the web interface, e.g. :menuselection:`Services --> IPBX --> PBX Settings --> Users --> Edit --> tab General --> Preprocess subroutine`.
 
 
@@ -69,7 +69,7 @@ The variables are::
    XIVO_PRESUBR_GLOBAL_OUTCALL = xivo-subrgbl-outcall
    XIVO_PRESUBR_GLOBAL_PAGING = xivo-subrgbl-paging
 
-So if you want to add a subroutine for all of your XiVO users you can do this::
+So if you want to add a subroutine for all of your Wazo users you can do this::
 
    [xivo-subrgbl-user]
    exten = s,1,NoOp(This is an example for all my users)
@@ -91,7 +91,6 @@ You can also use a global subroutine for call forward.
    XIVO_PRESUBR_FWD_MEETME = xivo-subrfwd-meetme
    XIVO_PRESUBR_FWD_VOICEMAIL = xivo-subrfwd-voicemail
    XIVO_PRESUBR_FWD_SCHEDULE = xivo-subrfwd-schedule
-   XIVO_PRESUBR_FWD_VOICEMENU = xivo-subrfwd-voicemenu
    XIVO_PRESUBR_FWD_SOUND = xivo-subrfwd-sound
    XIVO_PRESUBR_FWD_CUSTOM = xivo-subrfwd-custom
    XIVO_PRESUBR_FWD_EXTENSION = xivo-subrfwd-extension
@@ -100,7 +99,7 @@ You can also use a global subroutine for call forward.
 Dialplan variables
 ==================
 
-Some of the XiVO variables can be used and modified in subroutines (non exhaustive list):
+Some of the Wazo variables can be used and modified in subroutines (non exhaustive list):
 
 * ``XIVO_CALLOPTIONS``: the value is a list of options to be passed to the Dial application, e.g.
   ``hHtT``. This variable is available in agent, user and outgoing call subroutines. Please note
@@ -114,7 +113,7 @@ Some of the XiVO variables can be used and modified in subroutines (non exhausti
   This variable is used by xivo-agid when :ref:`selecting the ringtone <xivo_ring.conf>` for ringing
   a user. This variable is available only in user subroutines.
 
-* ``XIVO_DSTNUM``: the value is the extension dialed, as received by XiVO (e.g. an internal
+* ``XIVO_DSTNUM``: the value is the extension dialed, as received by Wazo (e.g. an internal
   extension, a DID, or an outgoing extension including the local prefix). This
   variable is available in all subroutines.
 

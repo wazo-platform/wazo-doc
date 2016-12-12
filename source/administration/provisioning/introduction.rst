@@ -4,7 +4,7 @@
 Introduction
 ************
 
-The auto-provisioning feature found in XiVO make it possible to provision, i.e.
+The auto-provisioning feature found in Wazo make it possible to provision, i.e.
 configure, a lots of telephony devices in an efficient and effortless way.
 
 
@@ -19,7 +19,7 @@ Here's a simplified view of how auto-provisioning is supported on a typical SIP 
 #. The phone use the provided URL to retrieve a common configuration file, a
    MAC-specific configuration file, a firmware image and some language files.
 
-Building on this, configuring one of the supported phone on XiVO is as simple as:
+Building on this, configuring one of the supported phone on Wazo is as simple as:
 
 #. :ref:`dhcpd-config`
 #. :ref:`Installing the required provd plugin <provd-plugins-mgmt>`
@@ -40,6 +40,6 @@ Limitations
 External links
 ==============
 
-* `Introduction to provd plugin model <http://blog.xivo.io/introduction-to-the-plugin-model-of-the-new-provisioning-server.html>`_
-* `HTTP/TFTP requests processing in provd - part 1 <http://blog.xivo.io/httptftp-requests-processing-in-provd-part-1.html>`_
-* `HTTP/TFTP requests processing in provd - part 2 <http://blog.xivo.io/httptftp-requests-processing-in-provd-part-2.html>`_
+* `Introduction to provd plugin model <http://blog.wazo.community/introduction-to-the-plugin-model-of-the-new-provisioning-server.html>`_
+* `HTTP/TFTP requests processing in provd - part 1 <http://blog.wazo.community/httptftp-requests-processing-in-provd-part-1.html>`_
+* `HTTP/TFTP requests processing in provd - part 2 <http://blog.wazo.community/httptftp-requests-processing-in-provd-part-2.html>`_

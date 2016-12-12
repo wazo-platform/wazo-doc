@@ -10,7 +10,7 @@ Overview
 .. warning:: This xlet should only be used with a Switchboard profile. It is not meant to be used
              alone.
 
-The goal of the directory xlet is to allow the user to search through XiVO users, directory entries
+The goal of the directory xlet is to allow the user to search through Wazo users, directory entries
 and arbitrary numbers to be able to call and transfer calls to these destinations.
 
 .. figure:: ./images/xlet_directory.png
@@ -23,7 +23,7 @@ The list of entries in the xlet is searched using the top field. Entries are fil
 content. The entry list will initially appear as empty.
 
 If the current search term is a valid number, it will be displayed in the result list with no name
-to allow transfer to numbers that are not currently in the phonebook or configured on the XiVO.
+to allow transfer to numbers that are not currently in the phonebook or configured on the Wazo.
 
 
 Legend
@@ -58,7 +58,7 @@ Phonebook
 
 Phonebook searches are triggered after the user has entered 3 characters. Results from remote directories will appear after 1 second.
 
-If a directory entry as the same number as a mobile or a phone configured on the XiVO, it's extra columns will be added to the corresponding entry instead of creating a new line in the search result.
+If a directory entry as the same number as a mobile or a phone configured on the Wazo, it's extra columns will be added to the corresponding entry instead of creating a new line in the search result.
 
 For example:
 
@@ -122,23 +122,3 @@ The new *Display filter* has to be assigned to the *__switchboard_directory* con
 You can then choose which directories will be searched by the Xlet.
 
 .. warning:: You must **not select internal** directory, as it is already handled.
-
-
-LDAP Configuration
-------------------
-
-To search in ldap directories, you must have an LDAP server configured. See :ref:`ldap` for more details.
-
-
-LDAP filter
-^^^^^^^^^^^
-
-If you already have an LDAP filter configured for the *Remote directory* Xlet, you can use it.
-
-If not, please refer to :ref:`add-ldap-filter`.
-
-
-Include the new directory for lookup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-You must use the new LDAP filter in the `Context and filter association`_ step.

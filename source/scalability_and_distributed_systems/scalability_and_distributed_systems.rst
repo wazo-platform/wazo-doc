@@ -2,7 +2,7 @@
 Scalability and Distributed Systems
 ***********************************
 
-This section gathers configuration that are possible using XiVO to feature rich
+This section gathers configuration that are possible using Wazo to feature rich
 scalable communication systems.
 
 .. toctree::

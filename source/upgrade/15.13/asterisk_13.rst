@@ -1,3 +1,5 @@
+.. _asterisk-11-to-13:
+
 *******************************
 Asterisk 11 to 13 Upgrade Notes
 *******************************
@@ -77,5 +79,5 @@ List of known bugs and limitations for Asterisk 13 in XiVO:
 
 * When direct media is active and DTMF are sent using SIP INFO, DTMF are not working properly. It is
   also impossible to do an attended transfer from the XiVO client in these conditions.
-  
-  See http://projects.xivo.io/issues/5692.
+
+  See http://projects.wazo.community/issues/5692.

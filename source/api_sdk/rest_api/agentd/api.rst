@@ -2,7 +2,7 @@
 xivo-agentd REST API
 ********************
 
-You can view the API documentation at http://api.xivo.io.
+You can view the API documentation at http://api.wazo.community.
 
 Changelog
 =========

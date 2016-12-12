@@ -9,4 +9,3 @@ This section describes the advanced system configuration.
 
    general/general
    telephony_certificates/telephony_certificates
-   ldap/ldap

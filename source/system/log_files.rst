@@ -4,7 +4,7 @@
 Log Files
 *********
 
-Every XiVO service has its own log file, placed in :file:`/var/log`.
+Every Wazo service has its own log file, placed in :file:`/var/log`.
 
 
 asterisk
@@ -19,6 +19,15 @@ and errors. The full log entry is commented in :file:`logger.conf` and should on
 verbose debugging is required. Using this option in production would produce VERY large log files.
 
 * Files location: :file:`/var/log/asterisk/\*`
+* Number of archived files: 15
+* Rotation frequence: Daily
+
+
+wazo-upgrade
+------------
+
+* File location: :file:`/var/log/xivo-upgrade.log`
+* Rotate configuration: :file:`/etc/logrotate.d/xivo-upgrade`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
@@ -168,15 +177,6 @@ xivo-sysconfd
 
 * File location: :file:`/var/log/xivo-sysconfd.log`
 * Rotate configuration: :file:`/etc/logrotate.d/xivo-sysconfd`
-* Number of archived files: 15
-* Rotation frequence: Daily
-
-
-xivo-upgrade
-------------
-
-* File location: :file:`/var/log/xivo-upgrade.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-upgrade`
 * Number of archived files: 15
 * Rotation frequence: Daily
 

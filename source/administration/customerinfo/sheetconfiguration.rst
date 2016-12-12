@@ -50,7 +50,8 @@ Configuring the sheet
 .. figure:: images/sheets_configuration_sheet_custom.png
 
 The ``Qt interface`` field is the path to the UI file created by the Qt Designer. The path can
-either be a local file on your XiVO starting with ``file://``, or a HTTP URL.
+either be a local file on your Wazo starting with ``file://``, or a HTTP URL. When using a local
+file, make sure that the system user ``xivo-ctid`` has read access to the file.
 
 You must add a field with type ``form`` and display value ``qtui`` for the form to be displayed.
 
@@ -86,7 +87,7 @@ the :ref:`variable list<sheet-variables>` for more information.
 List of fields
 --------------
 
-Default XiVO sheet example :
+Default Wazo sheet example :
 
 .. figure:: images/sheets_configuration_sheet.png
    :scale: 85%
@@ -160,7 +161,7 @@ The ``{dp-test}`` displays Salut.
 Sending informations during/after a call
 ----------------------------------------
 
-After showing a sheet, the XiVO Client can also send back information to XiVO for post-processing or
+After showing a sheet, the XiVO Client can also send back information to Wazo for post-processing or
 archiving.
 
 Here are the requirements:

@@ -4,6 +4,35 @@
 xivo-ctid-ng HTTP API changelog
 *******************************
 
+16.16
+=====
+
+* A new API for managing voicemails messages:
+
+    * GET ``/1.0/voicemails/{voicemail_id}``
+    * GET ``/1.0/voicemails/{voicemail_id}/folders/{folder_id}``
+    * DELETE ``/1.0/voicemails/{voicemail_id}/messages/{message_id}``
+    * GET ``/1.0/voicemails/{voicemail_id}/messages/{message_id}``
+    * PUT ``/1.0/voicemails/{voicemail_id}/messages/{message_id}``
+    * POST ``/1.0/voicemails/{voicemail_id}/messages/{message_id}/recording``
+    * GET ``/1.0/users/me/voicemails``
+    * GET ``/1.0/users/me/voicemails/folders/{folder_id}``
+    * DELETE ``/1.0/users/me/voicemails/messages/{message_id}``
+    * GET ``/1.0/users/me/voicemails/messages/{message_id}``
+    * PUT ``/1.0/users/me/voicemails/messages/{message_id}``
+    * POST ``/1.0/users/me/voicemails/messages/{message_id}/recording``
+
+* A new ``timeout`` parameter has been added to the following URL:
+
+    * POST ``/1.0/transfers``
+    * POST ``/1.0/users/me/transfers``
+
+* A new ``line_id`` parameter has been added to the following URL:
+
+    * POST ``/1.0/calls``
+    * POST ``/1.0/users/me/calls``
+
+
 16.11
 =====
 

@@ -4,13 +4,13 @@
 Message Bus
 ***********
 
-The message bus is used to receive events from XiVO. It is provided by
+The message bus is used to receive events from Wazo. It is provided by
 an `AMQP <http://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol>`_ 0-9-1
 broker (namely, `RabbitMQ <http://previous.rabbitmq.com/v2_8_x/documentation.html>`_)
-that is integrated in XiVO.
+that is integrated in Wazo.
 
 .. warning:: Interaction with the bus is presently experimental and
-   some things might change in the next XiVO versions.
+   some things might change in the next Wazo versions.
 
 
 Usage
@@ -247,7 +247,7 @@ xivo-ctid-ng is received, connected or hung up.
 * routing key: calls.call.created, calls.call.updated, calls.call.ended
 * required ACL: events.calls.<user_uuid>
 * event specific data: a dictionary with the same fields as the REST API model of Call (See
-  http://api.xivo.io, section xivo-ctid-ng)
+  http://api.wazo.community, section xivo-ctid-ng)
 
 Example::
 
@@ -317,12 +317,12 @@ chat_message_event
 
 This message is used to send a chat message to a user
 
-* routing key: chat.message.<xivo-uuid>.<user_id>
+* routing key: chat.message.<wazo-uuid>.<user_id>
 * event specific data:
 
   * alias: The nickname of the chatter
-  * to: The destination's XiVO UUID and user UUID
-  * from: The chatter's XiVO UUID and user UUID
+  * to: The destination's Wazo UUID and user UUID
+  * from: The chatter's Wazo UUID and user UUID
   * msg: The message
 
 Example:
@@ -609,3 +609,42 @@ Example:
             "tags": ["xivo-ctid", "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "Québec"]
         }
     }
+
+
+user_voicemail_message_created
+------------------------------
+
+The events ``user_voicemail_message_created``, ``user_voicemail_message_updated``,
+``user_voicemail_message_deleted`` are sent when a message is left, updated or deleted from a
+voicemail. A distinct message is generated for each user associated to the voicemail: if the
+voicemail is not associated to any user, no message is generated.
+
+* routing key: voicemails.messages.created, voicemails.messages.updated, voicemails.messages.deleted
+* required ACL: events.users.<user_uuid>.voicemails
+* event specific data: a dictionary with the same fields as the REST API model of VoicemailMessage (See
+  http://api.wazo.community, section xivo-ctid-ng)
+
+Example::
+
+   {
+       "name": "user_voicemail_message_created",
+       "required_acl": "events.users.8a709eb7-897f-4183-aa3b-ffa2a74e7e37.voicemails",
+       "origin_uuid": "3b13295f-9f93-4c19-bd52-015a928a8a2a",
+       "data": {
+           "voicemail_id": 1,
+           "message": {
+               "timestamp": 1479226725,
+               "caller_id_num": "1001",
+               "caller_id_name": "Alice",
+               "duration": 0,
+               "folder": {
+                   "type": "new",
+                   "id": 1,
+                   "name": "inbox"
+               },
+               "id": "1479226725-00000003"
+           },
+           "user_uuid": "8a709eb7-897f-4183-aa3b-ffa2a74e7e37",
+           "message_id": "1479226725-00000003"
+       }
+   }

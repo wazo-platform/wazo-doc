@@ -4,6 +4,15 @@
 xivo-ctid HTTP API changelog
 ****************************
 
+16.14
+=====
+
+* Deprecate xivo-ctid APIs:
+
+  * GET ``/endpoints/<endpoint_id>``
+  * GET ``/users/<user_id>``
+
+
 16.08
 =====
 

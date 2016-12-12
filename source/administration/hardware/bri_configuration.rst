@@ -95,7 +95,7 @@ These configurations were tested on different type of french BRI lines with succ
 
 .. note:: The pre-requisites are:
 
-  * XiVO >= 14.12,
+  * XiVO/Wazo >= 14.12,
   * Use per-port dahdi interconnection (see the :ref:`interco_dahdi_conf` section)
 
 
@@ -144,7 +144,7 @@ Follow theses steps to configure:
 .. note:: Expected behavior:
 
   * The `dahdi show status` command should show the BRI spans in *RED* status if there is no call,
-  * For outgoing calls the layer1/layer2 should be brought back up by the XiVO (i.e. asterisk/chan_dahdi),
+  * For outgoing calls the layer1/layer2 should be brought back up by the Wazo (i.e. asterisk/chan_dahdi),
   * For incoming calls the layer1/layer2 should be brought back up by the operator,
   * You can consider that there is *a problem* only if incoming or outgoing calls are rejected.
 

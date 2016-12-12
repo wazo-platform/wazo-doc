@@ -1,2 +1,2 @@
-git+git://github.com/xivo-pbx/sphinx-git.git@tagtitles
+git+git://github.com/wazo-pbx/sphinx-git.git@tagtitles
 gitpython

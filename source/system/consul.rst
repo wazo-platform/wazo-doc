@@ -2,7 +2,7 @@
 Consul
 ******
 
-The default `consul <https://consul.io>`_ installation in XiVO uses the
+The default `consul <https://consul.io>`_ installation in Wazo uses the
 configuration file in :file:`/etc/consul/xivo/*.json`. All files in this directory
 are installed with the package and *should not* be modified by the
 administrator. To use a different configuration, the adminstrator can add it's
@@ -76,7 +76,7 @@ Or
            --home /var/lib/consul consul
 
 
-Copying the consul configuration from the XiVO to a new host
+Copying the consul configuration from the Wazo to a new host
 ------------------------------------------------------------
 
 On the new consul host, modify :file:`/etc/consul/xivo/config.json` to include to following lines.
@@ -90,10 +90,10 @@ On the new consul host, modify :file:`/etc/consul/xivo/config.json` to include t
 .. code-block:: sh
 
    # on the consul host
-   scp root@<xivo-host>:/lib/systemd/system/consul.service /lib/systemd/system
+   scp root@<wazo-host>:/lib/systemd/system/consul.service /lib/systemd/system
    systemctl daemon-reload
-   scp -r root@<xivo-host>:/etc/consul /etc
-   scp -r root@<xivo-host>:/usr/share/xivo-certs /usr/share
+   scp -r root@<wazo-host>:/etc/consul /etc
+   scp -r root@<wazo-host>:/usr/share/xivo-certs /usr/share
    consul agent -data-dir /var/lib/consul -config-dir /etc/consul/xivo/
 
 .. note:: To start consul with the systemd unit file, you may need to change owner and group
@@ -112,7 +112,7 @@ Create the file :file:`/etc/consul/agent/config.json` with the following content
         "datacenter": "xivo",
         "server": false,
         "bind_addr": "0.0.0.0",
-        "advertise_addr": "<xivo_address>",
+        "advertise_addr": "<wazo_address>",
         "client_addr": "127.0.0.1",
         "bootstrap": false,
         "rejoin_after_leave": true,
@@ -132,10 +132,10 @@ Create the file :file:`/etc/consul/agent/config.json` with the following content
         "key_file": "/usr/share/xivo-certs/server.key"
     }
 
-* ``node_name``: Arbitrary name to give this node, ``xivo-paris`` for example.
-* ``remote_host``: IP address of your new consul. Be sure the host is accessible from your XiVO and
+* ``node_name``: Arbitrary name to give this node, ``wazo-paris`` for example.
+* ``remote_host``: IP address of your new consul. Be sure the host is accessible from your Wazo and
   check the firewall. See the documentation :ref:`here <network>`.
-* ``xivo_address``: IP address of your xivo.
+* ``wazo_address``: IP address of your Wazo.
 
 This file should be owned by consul user.
 

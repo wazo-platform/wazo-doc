@@ -4,7 +4,7 @@
 Configuration Files
 *******************
 
-This section describes some of the XiVO configuration files.
+This section describes some of the Wazo configuration files.
 
 
 .. _configuration-priority:
@@ -49,7 +49,7 @@ The value that will be used for ``log_level`` will be ``debug`` since:
 File configuration structure
 ============================
 
-Configuration files for every service running on a XiVO server will respect these rules:
+Configuration files for every service running on a Wazo server will respect these rules:
 
 * Default configuration directory in :file:`/etc/xivo-{{service}}/conf.d` (e.g.
   :file:`/etc/xivo-agentd/conf.d/`)
@@ -104,8 +104,8 @@ xivo-dao
 * Default configuration directory: :file:`/etc/xivo-dao/conf.d`
 * Default configuration file: :file:`/etc/xivo-dao/config.yml`
 
-This configuration is read by many XiVO programs in order to connect to the Postgres database of
-XiVO.
+This configuration is read by many Wazo programs in order to connect to the Postgres database of
+Wazo.
 
 
 xivo-dird-phoned

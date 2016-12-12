@@ -1,42 +1,33 @@
-.. _ldap:
+.. _ldap_filter_directory:
 
-****
-LDAP
-****
+*********************
+LDAP filter directory
+*********************
 
-XiVO offers the possibility to integrate LDAP servers. Once configured properly, you'll be able to
-search your LDAP servers from your XiVO client and from your phones (if they support this feature).
-
-.. note:: This page describes how to add LDAP servers as sources of contacts. For other sources of
-          contacts, see :ref:`directories`.
+This page describes how to configure Wazo to search a LDAP server from its
+directory service.
 
 
-Add a LDAP Server
-=================
-
-You can add a LDAP server by clicking on the add button at the top right corner of the
-:menuselection:`Configuration --> Management --> LDAP Servers` page. You'll then
-be shown this page:
+Adding a LDAP server
+====================
 
 .. figure:: images/ldap_addserver.png
 
-   Adding a LDAP server
+    :menuselection:`Configuration --> Management --> LDAP Servers`
 
-Enter the following information:
+    :guilabel:`Name`: the server's display name
 
-* Name: the server's display name
-* Host: the hostname or IP address
-* Port: the port number (default: 389)
-* Security layer: select SSL if it is activated on your server and you want to use it (default: disabled)
+    :guilabel:`Host`: the hostname or IP address
 
-  * SSL means TLS/SSL (doesn't mean StartTLS) and port 636 should then be used
+    :guilabel:`Port`: the port number (default: 389)
 
-* Protocol version: the LDAP protocol version (default: 3)
+    :guilabel:`Security layer`: select SSL if it is activated on your server and you want to use it (default: disabled)
 
-.. warning::
+    :guilabel:`Protocol version`: the LDAP protocol version (default: 3)
 
-   When editing an LDAP server, you'll have to restart the CTI server
-   for the changes to be taken into account.
+
+.. note:: SSL means TLS/SSL (doesn't mean StartTLS) and port 636 should then be used
+
 
 .. _ldaps:
 
@@ -60,8 +51,8 @@ attribute of the server certificate.
 
 .. _add-ldap-filter:
 
-Add a LDAP Filter
-=================
+Adding a LDAP Filter
+====================
 
 Next thing to do after adding a LDAP server is to create a LDAP filter via the
 :menuselection:`Services --> IPBX configuration --> LDAP Filters` page.
@@ -71,16 +62,19 @@ You'll then be shown this page:
 
 .. figure:: images/ldap_addfilter.png
 
-   Adding a LDAP Filter
+    :menuselection:`Services --> IPBX configuration --> LDAP Filters`
 
-Enter the following information:
+    :guilabel:`Name`: the filter's display name
 
-* Name: the filter's display name
-* LDAP server: the LDAP server this filter applies to
-* User: the ``dn`` of the user used to do search requests
-* Password: the password of the given user
-* Base DN: the base ``dn`` of search requests
-* Filter: if specified, :ref:`it replace the default filter <custom-filter>`
+    :guilabel:`LDAP server`: the LDAP server this filter applies to
+
+    :guilabel:`User`: the ``dn`` of the user used to do search requests
+
+    :guilabel:`Password`: the password of the given user
+
+    :guilabel:`Base DN`: the base ``dn`` of search requests
+
+    :guilabel:`Filter`: if specified, :ref:`it replace the default filter <custom-filter>`
 
 
 .. _custom-filter:
@@ -101,10 +95,20 @@ Here's some examples of custom filters:
 * ``|(cn=*%Q*)(displayName=*%Q*)``
 
 
-Add a Directory Definition
-==========================
+Adding a source
+===============
 
-The next step is to add a directory defintion for the LDAP filter you just created. See the
+.. figure:: images/xivo_add_directory_ldap_filter.png
+
+    :menuselection:`Configuration --> Management --> Directories`
+
+    :guilabel:`LDAP filter name`: The LDAP filter this directory should use.
+
+
+Adding a Directory Definition
+=============================
+
+The next step is to add a directory defintion for the LDAP directory you just created. See the
 :ref:`directories <directory-definition>` section for more information.
 
 Here's an example of an LDAP directory definition:

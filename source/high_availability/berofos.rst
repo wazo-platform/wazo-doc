@@ -2,23 +2,23 @@
 Berofos Integration
 *******************
 
-XiVO offers the possibility to integrate a `berofos failover switch`_ within a HA cluster.
+Wazo offers the possibility to integrate a `berofos failover switch`_ within a HA cluster.
 
 .. _berofos failover switch: http://www.beronet.com/product/failover-switch/
 
 This is useful if you have one or more ISDN lines (i.e. T1/E1 or T0 lines) that you want to use
-whatever the state of your XiVO HA cluster. To use a berofos within your XiVO HA
-installation, you need to properly configure both your berofos and your XiVOs,
+whatever the state of your Wazo HA cluster. To use a berofos within your Wazo HA
+installation, you need to properly configure both your berofos and your Wazo,
 then the berofos will automatically switch your ISDN lines from your master node to
 your slave node if your master goes down, and vice-versa when it comes back up.
 
 
 You can also use a Berofos failover switch to secure the ISDN provider lines
-when installing a XiVO in front of an existing PBX.
-The goal of this configuration is to mitigate the consequences of an outage of the XiVO : with this
-equipment the ISDN provider links could be switched to the PBX directly if the XiVO goes down.
+when installing a Wazo in front of an existing PBX.
+The goal of this configuration is to mitigate the consequences of an outage of the Wazo : with this
+equipment the ISDN provider links could be switched to the PBX directly if the Wazo goes down.
 
-XiVO **does not offer natively** the possibility to configure Berofos in this failover mode.
+Wazo **does not offer natively** the possibility to configure Berofos in this failover mode.
 The :ref:`berofos-integration-with-pbx` section describes a workaround.
 
 
@@ -46,7 +46,7 @@ You can then connect your berofos to your network and power it on. By default, t
 will try to get an IP address via DHCP. If it is not able to get such address from a DHCP
 server, it will take the 192.168.0.2/24 IP address.
 
-.. note:: The DHCP server on XiVO does not offer IP addresses to berofos devices by default.
+.. note:: The DHCP server on Wazo does not offer IP addresses to berofos devices by default.
 
 Next step is to create the :file:`/etc/bnfos.conf` file via the following command::
 
@@ -104,7 +104,7 @@ You must then edit the :file:`/etc/bnfos.conf` and replace the login line to som
 
    login = admin:<password>
 
-Next, configure your berofos for it to work correctly with the XiVO HA::
+Next, configure your berofos for it to work correctly with the Wazo HA::
 
    bnfos --set wdog=0 -f fos1
    bnfos --set wdogdef=0 -f fos1
@@ -113,7 +113,7 @@ Next, configure your berofos for it to work correctly with the XiVO HA::
    bnfos --set modedef=1 -f fos1
 
 This, among other things, disable the watchdog. The switching from one relay mode to the other will
-be done by the XiVO slave node once it detects the master node is down, and vice-versa.
+be done by the Wazo slave node once it detects the master node is down, and vice-versa.
 
 Finally, you can make sure everything works fine by running the xivo-berofos command::
 
@@ -125,12 +125,12 @@ The green LEDs on your berofos should be lighted on ports A and B.
 Connection
 ----------
 
-Two XiVOs
-^^^^^^^^^
+Two Wazo
+^^^^^^^^
 
 Here's how to connect the ISDN lines between your berofos with:
 
-* two XiVOs in high availability
+* two Wazo in high availability
 
 In this configuration you can protect **up two 4** ISDN lines. If more than 4 ISDN lines to protect,
 you must set up a `Multiple berofos`_ configuration.
@@ -147,27 +147,27 @@ Here's an example with 4 ISDN lines coming from your telephony provider::
                  | | | |                 | | | |
                  | | | |                 | | | |
                +--------+              +--------+
-               | xivo-1 |              | xivo-2 |
+               | wazo-1 |              | wazo-2 |
                +--------+              +--------+
 
 
-Two XiVOs  and one PBX
-^^^^^^^^^^^^^^^^^^^^^^
+Two Wazo and one PBX
+^^^^^^^^^^^^^^^^^^^^
 
 Here's how to connect your berofos with:
 
-* two XiVOs in high availability,
+* two Wazo in high availability,
 * one PBX.
 
 In this configuration you can protect **up two 2** ISDN lines. If more than 2 ISDN lines to protect,
-you must set up a `Multiple berofos`_ configuration. 
+you must set up a `Multiple berofos`_ configuration.
 
 Logical view::
 
                    +--------+                            +-----+
-   -- Provider ----| xivo-1 | -- ISDN Interconnection  --| PBX | -- Phones
+   -- Provider ----| wazo-1 | -- ISDN Interconnection  --| PBX | -- Phones
                    +--------+                            +-----+
-                     | xivo-2 |
+                     | wazo-2 |
                      +--------+
 
 This example shows the case where there are 2 ISDN lines coming from your telephony provider::
@@ -182,7 +182,7 @@ This example shows the case where there are 2 ISDN lines coming from your teleph
          | |     CPE | |   | | NET          CPE | |   | | NET
          | |   spans | |   | | spans      spans | |   | | spans
          | |       +----------+              +------------+
-         | |       |  xivo-1  |              |   xivo-2   |
+         | |       |  wazo-1  |              |   wazo-2   |
          | |       +----------+              +------------+
          | |
          | |
@@ -191,7 +191,7 @@ This example shows the case where there are 2 ISDN lines coming from your teleph
        +------+
 
 
-One XiVO and one PBX
+One Wazo and one PBX
 ^^^^^^^^^^^^^^^^^^^^
 
 This case is not currently supported. You'll find a workaround in the :ref:`berofos-integration-with-pbx` section.
@@ -200,7 +200,7 @@ This case is not currently supported. You'll find a workaround in the :ref:`bero
 Multiple berofos
 ----------------
 
-It's possible to use more than 1 berofos with XiVO.
+It's possible to use more than 1 berofos with Wazo.
 
 For each supplementary berofos you want to use, you must first configure it properly
 like you did for the first one. The only difference is that you need to add a berofos
@@ -225,7 +225,7 @@ file. Here's an example of a valid config file for 2 berofos::
 Operation
 =========
 
-When your XiVO switch the relay mode of your berofos, it logs the event in the
+When your Wazo switch the relay mode of your berofos, it logs the event in the
 :file:`/var/log/syslog` file.
 
 
@@ -240,7 +240,7 @@ Uninstallation
 ==============
 
 It is important to remove the :file:`/etc/bnfos.conf` file on the slave node when you don't
-want to use anymore your berofos with your XiVOs.
+want to use anymore your berofos with your Wazo.
 
 
 Reset the Berofos

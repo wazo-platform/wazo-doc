@@ -1,27 +1,29 @@
-.. XiVO-doc Documentation master file.
+.. Wazo-doc Documentation master file.
 
 ****************************
-XiVO |version| Documentation
+Wazo |version| Documentation
 ****************************
 
-XiVO is an application suite based on several free existing components
+Wazo is an application suite based on several free existing components
 including Asterisk_, and our own developments to provide communication services (IPBX, Unified
 Messaging, ...) to businesses.
 
 .. _Asterisk: http://www.asterisk.org/
 
-XiVO is `free software`_. Most of its distinctive components, and XiVO as a whole, are distributed
+Wazo is `free software`_. Most of its distinctive components, and Wazo as a whole, are distributed
 under the *GPLv3 license*.
 
 .. _free software: http://www.gnu.org/philosophy/free-sw.html
 
-You may also check the `XiVO blog`_ for more information.
+You may also check the `Wazo blog`_ for more information.
 
-XiVO documentation is also available as a downloadable HTML, EPUB or PDF file.
-See the `downloads page <https://readthedocs.org/projects/xivo/downloads/>`_
+Wazo documentation is also available as a downloadable HTML, EPUB or PDF file.
+See the `downloads page <https://readthedocs.org/projects/wazo/downloads/>`_
 for a list of available files or use the menu on the lower right.
 
-.. _XiVO blog: http://blog.xivo.io/
+.. _Wazo blog: http://blog.wazo.community/
+
+See :ref:`attribution`
 
 
 Table of Contents
@@ -47,6 +49,7 @@ Table of Contents
    troubleshooting/troubleshooting
    community/community
    changelog
+   attribution
 
 
 Changelog

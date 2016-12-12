@@ -4,7 +4,7 @@
 Devices
 *******
 
-In XiVO, there is two kind of devices:
+In Wazo, there is two kind of devices:
 
 .. toctree::
    :maxdepth: 1
@@ -16,11 +16,11 @@ The officially supported devices will be supported across upgrades and phone fea
 to be supported on the latest version.
 
 The community supported devices are only supported by the community. In other words, maintenance,
-bug, corrections and features are developed by members of the XiVO community. XiVO does not
+bug, corrections and features are developed by members of the Wazo community. Wazo does not
 officially endorse support for these devices.
 
 The next topics lists the officially and community supported devices. For each vendor, a table shows
-the various features supported by XiVO. Here's an example:
+the various features supported by Wazo. Here's an example:
 
 +--------------------------------------------+---------+---------+--------------+
 |                                            | Model X | Model Y | Model Z      |
@@ -51,7 +51,7 @@ Directory XiVO
    possible to consult the XiVO's remote directory from the device ?
 
 Funckeys
-   How many function keys can be configured on the device from the XiVO web interface ?
+   How many function keys can be configured on the device from the Wazo web interface ?
 
    The number of function keys that can be configured on a device is not necessarily the same as
    the number of physical function keys the device has. For example, an Aastra 6757i has 12 physical

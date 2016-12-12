@@ -9,14 +9,14 @@ Management --> Web Services Access`.
 
 Web services access may have two different meanings:
 
-* Who may access REST APIs of various XiVO daemons, and which resources in those REST APIs?
-* Who may access PHP web services under ``https://xivo.example.com/xivo/configuration/json.php/*``?
+* Who may access REST APIs of various Wazo daemons, and which resources in those REST APIs?
+* Who may access PHP web services under ``https://wazo.example.com/xivo/configuration/json.php/*``?
 
 
 REST API access and permissions
 ===============================
 
-Those REST API interfaces are documented on http://api.xivo.io. They all require an authorization
+Those REST API interfaces are documented on http://api.wazo.community. They all require an authorization
 token, obtained by giving valid credentials to the REST API of xivo-auth. The relevant settings are:
 
 * Login/Password: the xivo-auth credentials (for the xivo-auth :ref:`backend <auth-backends>` ``xivo_service``)
@@ -25,11 +25,11 @@ token, obtained by giving valid credentials to the REST API of xivo-auth. The re
 Unlike PHP web services, there is no host-based authorization, so the ``Host`` setting is not
 relevant.
 
-A few REST API access are automatically generated during the installation of XiVO, so that XiVO
+A few REST API access are automatically generated during the installation of Wazo, so that Wazo
 services may authenticate each other.
 
-You will probably only need to create such a REST API access when you want another non-XiVO service
-to communicate with XiVO via REST API.
+You will probably only need to create such a REST API access when you want another non-Wazo service
+to communicate with Wazo via REST API.
 
 
 PHP web services

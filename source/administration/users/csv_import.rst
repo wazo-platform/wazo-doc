@@ -112,10 +112,10 @@ Incoming call
 +---------------------+--------+----------+--------+---------------------------------------------------------------------------------------+
 | Field               | Type   | Required | Values | Description                                                                           |
 +=====================+========+==========+========+=======================================================================================+
-| incall_exten        | string | Yes      |        | Number for calling the user from an incoming call (i.e outside of XiVO). The number   |
+| incall_exten        | string | Yes      |        | Number for calling the user from an incoming call (i.e outside of Wazo). The number   |
 |                     |        |          |        | must be inside the range of acceptable numbers defined for the context.               |
 +---------------------+--------+----------+--------+---------------------------------------------------------------------------------------+
-| incall_context      | string | Yes      |        | context used for calls coming from outside of XiVO                                    |
+| incall_context      | string | Yes      |        | context used for calls coming from outside of Wazo                                    |
 +---------------------+--------+----------+--------+---------------------------------------------------------------------------------------+
 | incall_ring_seconds | int    |          |        | Number of seconds a call will ring before ending                                      |
 +---------------------+--------+----------+--------+---------------------------------------------------------------------------------------+

@@ -4,8 +4,8 @@
 Contributing to the Documentation
 *********************************
 
-XiVO documentation is generated with Sphinx. The source code is available on
-GitHub at https://github.com/xivo-pbx/xivo-doc
+Wazo documentation is generated with Sphinx. The source code is available on
+GitHub at https://github.com/wazo-pbx/xivo-doc
 
 Provided you already have Python installed on your system. You need first to install Sphinx_ : ``easy_install -U Sphinx`` [1]_.
 
@@ -23,7 +23,7 @@ Quick Reference
 Documentation guideline
 =======================
 
-Here's the guideline/conventions to follow for the XiVO documentation.
+Here's the guideline/conventions to follow for the Wazo documentation.
 
 
 Language

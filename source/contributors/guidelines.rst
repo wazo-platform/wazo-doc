@@ -1,12 +1,12 @@
 ***************
-XiVO Guidelines
+Wazo Guidelines
 ***************
 
 
 Inter-process communication
 ===========================
 
-Our current goal is to use only two means of communication between XiVO processes:
+Our current goal is to use only two means of communication between Wazo processes:
 
 * a REST API over HTTP for synchronous commands
 * a software bus (RabbitMQ) for asynchronous events
@@ -19,10 +19,10 @@ Service API
 ===========
 
 The current `xivo-dao`_ Git repository contains the basis of the future services Python API. The
-API is split between different resources available in XiVO, such as users, groups, schedules... For
+API is split between different resources available in Wazo, such as users, groups, schedules... For
 each resource, there are different modules :
 
-.. _xivo-dao: https://github.com/xivo-pbx/xivo-dao
+.. _xivo-dao: https://github.com/wazo-pbx/xivo-dao
 
 * service: the public module, providing possible actions. It contains only business logic and no
   technical logic. There must be no file name, no SQL queries and no URLs in this module.
@@ -34,19 +34,19 @@ each resource, there are different modules :
 * validator: private, it checks input parameters from the service module.
 
 
-Definition of XiVO Daemon
+Definition of Wazo Daemon
 =========================
 
-The goal is to make XiVO as elastic as possible, i.e. the XiVO services need to be able to run on
+The goal is to make Wazo as elastic as possible, i.e. the Wazo services need to be able to run on
 separate machines and still talk to each other.
 
-To be in accordance with our goal, a XiVO daemon must (if applicable):
+To be in accordance with our goal, a Wazo daemon must (if applicable):
 
 * Offer a REST API (with encryption, authentication and accepting cross-site requests)
 * Be able to read and send events on a software bus
-* Be able to run inside a container, such as Docker, and be separated from the XiVO server
+* Be able to run inside a container, such as Docker, and be separated from the Wazo server
 * Offer a configuration file in YAML format.
-* Access the XiVO database through the ``xivo-dao`` library
+* Access the Wazo database through the ``xivo-dao`` library
 * Have a configurable level of logging
 * Have its own log file
 * Be extendable through the use of plugins
@@ -54,4 +54,4 @@ To be in accordance with our goal, a XiVO daemon must (if applicable):
 * Be installable from source
 * Service discovery with consul
 
-Currently, none of the XiVO daemons meet these expectations; it is a work in progress.
+Currently, none of the Wazo daemons meet these expectations; it is a work in progress.

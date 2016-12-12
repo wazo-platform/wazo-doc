@@ -2,11 +2,11 @@
 CSV User Import
 ***************
 
-Users and common related resources can be imported onto a XiVO server by sending a CSV file with a
+Users and common related resources can be imported onto a Wazo server by sending a CSV file with a
 predefined :ref:`set of fields <user_import>`.
 
 This page only documents additional notes useful for API users. Consult the `API documentation
-<http://api.xivo.io>`_ for more details.
+<http://api.wazo.community>`_ for more details.
 
 
 Uploading files
@@ -19,7 +19,7 @@ must be set and the CSV data must be sent in the body of the request. A file may
 
 .. code-block:: bash
 
-	curl -k -H "Content-Type: text/csv; charset=utf-8" -u username:password --data-binary "@file.csv" https://xivo:9486/1.1/users/import
+	curl -k -H "Content-Type: text/csv; charset=utf-8" -u username:password --data-binary "@file.csv" https://wazo:9486/1.1/users/import
 
 The response can be reindented in a more readable format by piping the output through `python -m
 json.tool` in the following way:

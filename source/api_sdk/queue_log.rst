@@ -3,7 +3,7 @@ Queue logs
 **********
 
 Queue logs are events logged by Asterisk in the queue_log table of the asterisk database.
-Queue logs are used to generate XiVO call center statistics.
+Queue logs are used to generate Wazo call center statistics.
 
 
 Queue log sample

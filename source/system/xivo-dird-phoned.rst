@@ -1,7 +1,7 @@
 .. _xivo-dird-phoned:
 
 ================
-XiVO dird phoned
+xivo-dird-phoned
 ================
 
 xivo-dird-phoned is an interface to use directory service with phone. It offers a simple REST
@@ -15,7 +15,7 @@ xivo-dird-phoned is used through HTTP requests, using HTTP and HTTPS. Its defaul
 and 9499. As a user, the common operation is to search through directory from a phone. The phone
 need to send 2 informations:
 
-* `xivo_user_uuid`: The XiVO user uuid that the phone is associated. It's used to search
+* `xivo_user_uuid`: The Wazo user uuid that the phone is associated. It's used to search
   through personal contacts (see :ref:`dird_services_personal`).
 * `profile`: The profile that the user is associated. It's used to format results as configured.
 

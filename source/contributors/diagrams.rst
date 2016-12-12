@@ -14,4 +14,4 @@ Architecture
 
 .. figure:: resources/architecture.png
 
-   Relationships between the components of Xivo. :download:`(source) <resources/architecture.odg>`
+   Relationships between the components of Wazo. :download:`(source) <resources/architecture.odg>`

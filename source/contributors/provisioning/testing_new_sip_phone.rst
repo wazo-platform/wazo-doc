@@ -3,12 +3,12 @@ Testing a new SIP phone
 ***********************
 
 Let's suppose you have received a brand new SIP phone that is not supported by
-the provisioning system of XiVO. You would like to know if it's possible
+the provisioning system of Wazo. You would like to know if it's possible
 to add auto-provisioning support for it. That said, you have never
 tested the phone before.
 
 This guide will help you get through the different steps that are needed to add
-auto-provisioning support for a phone to XiVO.
+auto-provisioning support for a phone to Wazo.
 
 
 Prerequisites
@@ -23,10 +23,10 @@ Before continuing, you'll need the following:
 Configuring a test environment
 ==============================
 
-Although it's possible to do all the testing directly on a XiVO, it's more
+Although it's possible to do all the testing directly on a Wazo, it's more
 comfortable and usually easier to do on a separate, dedicated machine.
 
-That said, you'll still need a XiVO near, since we'll be doing the call
+That said, you'll still need a Wazo near, since we'll be doing the call
 testing part on it and not on a separate asterisk.
 
 So, for the rest of this guide, we'll suppose you are doing your tests on a *Debian jessie*
@@ -80,9 +80,9 @@ to the following questions.
 
 #. *Is it worth the time adding auto-provisioning support for the phone ?*
 
-   Indeed. Adding quality auto-provisioning support for a phone to XiVO requires
+   Indeed. Adding quality auto-provisioning support for a phone to Wazo requires
    a non negligible amount of work, if you don't meet any real problem
-   and are comfortable with provisioning in XiVO. Not all phones are born equal.
+   and are comfortable with provisioning in Wazo. Not all phones are born equal.
    Some are cheap. Some are old and slow. Some are made to work on proprietary
    system and will only work in degraded mode on anything else.
 
@@ -120,12 +120,12 @@ to the following questions.
 
    Although you might not be able to answer to this question yet because you might not know
    if the phone needs such files to be either in English or in French (the two officially
-   supported language in XiVO), you'll need to have an easy access to these files if its
+   supported language in Wazo), you'll need to have an easy access to these files if its
    the case.
 
 #. *Does the phone supports auto-provisioning via DHCP + HTTP (or TFTP) ?*
 
-   The provisioning system in XiVO is based on the popular method of using a DHCP
+   The provisioning system in Wazo is based on the popular method of using a DHCP
    server to tell the phone where to download its configuration files, and a HTTP (or TFTP)
    server to serve these configuration files. Some phones support other methods of
    provisioning (like TR-069), but that's of no use here. Also, if your phone is
@@ -135,7 +135,7 @@ to the following questions.
    phone on the next firmware release.
 
    If the phone supports both HTTP and TFTP, pick HTTP, it usually works better with
-   the provisioning server of XiVO.
+   the provisioning server of Wazo.
 
 #. *What are the default usernames/passwords on the phone to access administrator menus (phone
    UI and web UI) ? How do you do a factory reset of the phone ?*
@@ -162,7 +162,7 @@ to the following questions.
 
 #. *What are the configuration files the phone needs (filename and content)
    and what do we need to put in it for the phone to minimally be able to
-   make and receive calls on XiVO ?*
+   make and receive calls on Wazo ?*
 
    Now that you are able to tell your phone where to look for its configuration files,
    you need to write these files with the right content in it. Again, at this

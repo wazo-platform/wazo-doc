@@ -4,30 +4,30 @@
 Upgrading
 *********
 
-Upgrading a XiVO is done by executing commands through a terminal on the
+Upgrading a Wazo is done by executing commands through a terminal on the
 server. You can connect to the server either through SSH or with a physical
 console.
 
-To upgrade your XiVO to the latest version, you **must** use the ``xivo-upgrade`` script. You can
+To upgrade your Wazo to the latest version, you **must** use the ``wazo-upgrade`` script. You can
 start an upgrade with the command::
 
-   xivo-upgrade
+   wazo-upgrade
 
 .. note::
-   * You can't use xivo-upgrade if you have not run the wizard yet
+   * You can't use wazo-upgrade if you have not run the wizard yet
    * Upgrading from a version prior to XiVO 1.2 is not supported.
-   * When upgrading XiVO, you **must** also upgrade **all** associated XiVO
-     Clients. There is currently no retro-compatibility on older XiVO Client
-     versions.
+   * When upgrading Wazo, you **must** also upgrade **all** associated XiVO Clients. There is
+     currently no retro-compatibility on older XiVO Client versions. The only exception is Wazo
+     16.16, which is compatible with XiVO Client 16.13.
 
-This script will update XiVO and restart all services.
+This script will update Wazo and restart all services.
 
-There are 2 options you can pass to xivo-upgrade:
+There are 2 options you can pass to wazo-upgrade:
 
-* ``-d`` to only download packages without installing them. **This will still upgrade the package containing xivo-upgrade and xivo-service**.
+* ``-d`` to only download packages without installing them. **This will still upgrade the package containing wazo-upgrade**.
 * ``-f`` to force upgrade, without asking for user confirmation
 
-``xivo-upgrade`` uses the following environment variables:
+``wazo-upgrade`` uses the following environment variables:
 
 * ``XIVO_CONFD_PORT`` to set the port used to query the :ref:`HTTP API of xivo-confd <confd-api>`
   (default is 9486)
@@ -36,17 +36,17 @@ There are 2 options you can pass to xivo-upgrade:
 Upgrade procedure
 =================
 
-* Consult the `roadmaps <https://projects.xivo.io/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
+* Consult the `roadmaps <https://projects.wazo.community/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
 * Read all existing Upgrade Notes (see below) starting from your version to the latest version.
 * For custom setups, follow the required procedures described below (e.g. HA cluster).
-* To download the packages beforehand, run ``xivo-upgrade -d``. This is not mandatory, but it does
+* To download the packages beforehand, run ``wazo-upgrade -d``. This is not mandatory, but it does
   not require stopping any service, so it may be useful to reduce the downtime of the server while
   upgrading.
-* When ready, run ``xivo-upgrade`` which will start the upgrade process. **Telephony services will
+* When ready, run ``wazo-upgrade`` which will start the upgrade process. **Telephony services will
   be stopped during the process**
 * When finished, check that all services are running (the list is displayed at the end of the upgrade).
 * Check that services are correctly working like SIP registration, ISDN link status,
-  internal/incoming/outgoing calls, XiVO Client connections etc.
+  internal/incoming/outgoing calls, Wazo Client connections etc.
 
 
 .. _version_specific_upgrade:
@@ -54,12 +54,11 @@ Upgrade procedure
 Version-specific upgrade procedures
 ===================================
 
-Upgrading from XiVO 14.11 and before
+Upgrading from XiVO 16.13 and before
 ------------------------------------
 
-When upgrading from XiVO 14.11 or earlier, you must do the following, before the normal upgrade::
-
-   sed -i 's/xivo\.fr/xivo.io/g' /etc/apt/sources.list.d/*.list
+When upgrading from XiVO 16.13 or before, you must use the special :ref:`XiVO to Wazo upgrade
+procedure <upgrading-to-wazo>` instead of simply running ``xivo-upgrade``.
 
 
 Upgrading from XiVO 14.01, 14.02, 14.03, 14.04 installed from the ISO
@@ -68,7 +67,7 @@ Upgrading from XiVO 14.01, 14.02, 14.03, 14.04 installed from the ISO
 In those versions, xivo-upgrade keeps XiVO on the same version. You must do the following, before
 the normal upgrade::
 
-   echo "deb http://mirror.xivo.io/debian/ xivo-five main" > /etc/apt/sources.list.d/xivo-upgrade.list \
+   echo "deb http://mirror.wazo.community/debian/ xivo-five main" > /etc/apt/sources.list.d/xivo-upgrade.list \
    && apt-get update \
    && apt-get install xivo-fai \
    && rm /etc/apt/sources.list.d/xivo-upgrade.list \
@@ -102,7 +101,7 @@ Upgrading from XiVO 13.03 and before
 
 When upgrading from XiVO 13.03 or earlier, you must do the following, before the normal upgrade::
 
-   wget http://mirror.xivo.io/xivo_current.key -O - | apt-key add -
+   wget http://mirror.wazo.community/xivo_current.key -O - | apt-key add -
 
 
 Upgrading from XiVO 12.13 and before
@@ -128,7 +127,7 @@ Upgrading from 1.2.0 or 1.2.1 requires a special procedure before executing ``xi
 Upgrading a cluster
 ===================
 
-Here are the steps for upgrading a cluster, i.e. two XiVO with :ref:`high-availability`:
+Here are the steps for upgrading a cluster, i.e. two Wazo with :ref:`high-availability`:
 
 #. On the master : deactivate the database replication by commenting the cron in
    :file:`/etc/cron.d/xivo-ha-master`
@@ -136,11 +135,11 @@ Here are the steps for upgrading a cluster, i.e. two XiVO with :ref:`high-availa
    :file:`/etc/cron.d/xivo-ha-slave`
 #. On the slave, start the upgrade::
 
-    xivo-slave:~$ xivo-upgrade
+    xivo-slave:~$ wazo-upgrade
 
 #. When the slave has finished, start the upgrade on the master::
 
-    xivo-master:~$ xivo-upgrade
+    xivo-master:~$ wazo-upgrade
 
 #. When done, launch the database replication manually::
 
@@ -173,14 +172,14 @@ Troubleshooting
 Postgresql
 ----------
 
-When upgrading XiVO, if you encounter problems related to the system locale, see
+When upgrading Wazo, if you encounter problems related to the system locale, see
 :ref:`postgresql_localization_errors`.
 
 
-xivo-upgrade
+wazo-upgrade
 ------------
 
-If xivo-upgrade fails or aborts in mid-process, the system might end up in a faulty condition. If in
+If wazo-upgrade fails or aborts in mid-process, the system might end up in a faulty condition. If in
 doubt, run the following command to check the current state of xivo's firewall rules::
 
    iptables -nvL
@@ -189,7 +188,7 @@ If, among others, it displays something like the following line (notice the DROP
 
    0     0 DROP       udp  --  *      *       0.0.0.0/0            0.0.0.0/0           udp dpt:5060
 
-Then your XiVO will not be able to register any SIP phones. In this case, you must delete the DROP
+Then your Wazo will not be able to register any SIP phones. In this case, you must delete the DROP
 rules with the following command::
 
    iptables -D INPUT -p udp --dport 5060 -j DROP
@@ -200,10 +199,54 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+16.16
+-----
+
+Wazo 16.16 is the *first public release* of the project under the Wazo name. It
+is also the first release of Wazo under the "phoenix" codename.
+
+Consult the `16.16 Roadmap <https://projects.wazo.community/versions/252>`_
+
+* A :ref:`special procedure <xivo-to-wazo>` is required to upgrade from XiVO to Wazo.
+* Asterisk has been upgraded from version 13.11.2 to 14.2.1, which is a major Asterisk upgrade.
+* If you are using :ref:`custom sheets <custom-call-form>` that are stored locally, they *must* now
+  be readable by the system user ``xivo-ctid``. Make sure that this user has read access to the UI
+  file of your custom sheets.
+* Switchboard statistics have been removed. The existing statistics data remain in the database for
+  later migration but no more statistics will be collected.
+* The ``conference`` destination type in incalls REST API has been renamed to ``meetme``.
+* The phonebook has been migrated from the web interface to xivo-dird. The phonebook contacts
+  from the web interface have been moved to new dird-phonebooks. For users with many entities
+  on the same Wazo, this will create one phonebook for each entity. The configuration has been
+  updated to keep the previous behavior. No manual actions are required for installations with only one entity or
+  if one phonebook by entity is the desired configuration. If only one phonebook is desired for all entities, some
+  of the duplicate phonebooks can be deleted from the web interface and their matching configuration
+  can also be removed.
+
+  * The list of phonebooks can be modified in :menuselection:`Services --> IPBX --> IPBX services --> Phonebook`
+  * The list of phonebooks sources can be modified in:
+
+    * :menuselection:`Configuration --> Management --> Directories`
+    * :menuselection:`Services --> CTI Server --> Directories --> Definitions`
+
+  * The selected phonebooks for reverse lookups can be modified in :menuselection:`Services --> CTI Server --> Directories --> Reverse directories`
+  * Direct directories can be modified in :menuselection:`Services --> CTI Server --> Directories --> Direct directories`
+
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   16.16/xivo_to_wazo
+   16.16/asterisk_14
+
+
 16.13
 -----
 
-Consult the `16.13 Roadmap <https://projects.xivo.io/versions/249>`_
+XiVO 16.13 is the *last public release* of the project under the name XiVO.
+
+Consult the `16.13 Roadmap <https://projects.wazo.community/versions/249>`_
 
 * Previously, a user's :abbr:`DND (Do Not Distrub)` was effective only if this user had DND enabled
   *and* the DND extension (\*25 by default) was also enabled. Said differently, disabling the DND
@@ -216,19 +259,19 @@ Consult the `16.13 Roadmap <https://projects.xivo.io/versions/249>`_
   create symlinks to them in the :file:`/etc/nginx/locations/http-enabled` directory. This also
   applies to the https directory. See :ref:`nginx`.
 * A regression has been introduced in the switchboard statistics. See `issue 6443
-  <http://projects.xivo.io/issues/6443>`_.
+  <http://projects.wazo.community/issues/6443>`_.
 
 
 16.12
 -----
 
-Consult the `16.12 Roadmap <https://projects.xivo.io/versions/248>`_
+Consult the `16.12 Roadmap <https://projects.wazo.community/versions/248>`_
 
 
 16.11
 -----
 
-Consult the `16.11 Roadmap <https://projects.xivo.io/versions/247>`_
+Consult the `16.11 Roadmap <https://projects.wazo.community/versions/247>`_
 
 * Fax reception: the "log" backend type has been removed. You should remove references to it in your
   :file:`/etc/xivo/asterisk/xivo_fax.conf` if you were using it. Now, every time a fax is processed,
@@ -238,7 +281,7 @@ Consult the `16.11 Roadmap <https://projects.xivo.io/versions/247>`_
 16.10
 -----
 
-Consult the `16.10 Roadmap <https://projects.xivo.io/versions/246>`_
+Consult the `16.10 Roadmap <https://projects.wazo.community/versions/246>`_
 
 * The config file ``/etc/xivo/xivo-confgend.conf`` has been replaced with
   ``/etc/xivo-confgend/config.yml`` and ``/etc/xivo-confgend/conf.d``. Custom modifications to this
@@ -251,7 +294,7 @@ Consult the `16.10 Roadmap <https://projects.xivo.io/versions/246>`_
 16.09
 -----
 
-Consult the `16.09 Roadmap <https://projects.xivo.io/versions/245>`_
+Consult the `16.09 Roadmap <https://projects.wazo.community/versions/245>`_
 
 * The XiVO Client now uses xivo-ctid-ng to do transfers. Those new transfers cannot be cancelled
   with the ``*0`` DTMF sequence and there is no interface in the XiVO Client to cancel a transfer
@@ -260,14 +303,14 @@ Consult the `16.09 Roadmap <https://projects.xivo.io/versions/245>`_
 * Transfers started from the XiVO Client do not respect the ``Dial timeout on transfer`` option
   anymore (bug `#6322`_). This feature will be reintroduced in a later version.
 
-.. _#6321: http://projects.xivo.io/issues/6321
-.. _#6322: http://projects.xivo.io/issues/6322
+.. _#6321: http://projects.wazo.community/issues/6321
+.. _#6322: http://projects.wazo.community/issues/6322
 
 
 16.08
 -----
 
-Consult the `16.08 Roadmap <https://projects.xivo.io/versions/244>`_
+Consult the `16.08 Roadmap <https://projects.wazo.community/versions/244>`_
 
 * :ref:`cti-protocol` is now in version *2.2*
 * Some :ref:`security features have been added to the XiVO provisioning server <provd-security>`.
@@ -292,24 +335,24 @@ Consult the `16.08 Roadmap <https://projects.xivo.io/versions/244>`_
 16.07
 -----
 
-Consult the `16.07 Roadmap <https://projects.xivo.io/versions/243>`_
+Consult the `16.07 Roadmap <https://projects.wazo.community/versions/243>`_
 
-* If you were affected by the `bug #6213 <http://projects.xivo.io/issues/6213>`_, i.e. if your agent
+* If you were affected by the `bug #6213 <http://projects.wazo.community/issues/6213>`_, i.e. if your agent
   login time statistics were incorrect since your upgrade to XiVO 15.20 or later, and you want to
   fix your statistics for that period of time, you'll need to `manually apply a fix
-  <http://projects.xivo.io/issues/6213#note-3>`_.
+  <http://projects.wazo.community/issues/6213#note-3>`_.
 
 
 16.06
 -----
 
-Consult the `16.06 Roadmap <https://projects.xivo.io/versions/242>`_
+Consult the `16.06 Roadmap <https://projects.wazo.community/versions/242>`_
 
 
 16.05
 -----
 
-Consult the `16.05 Roadmap <https://projects.xivo.io/versions/241>`_
+Consult the `16.05 Roadmap <https://projects.wazo.community/versions/241>`_
 
 * The ``view``, ``add``, ``edit``, ``delete`` and ``deleteall`` actions of the "lines" web service
   provided by the web interface have been removed.  As a reminder, note that the web services
@@ -319,7 +362,7 @@ Consult the `16.05 Roadmap <https://projects.xivo.io/versions/241>`_
 16.04
 -----
 
-Consult the `16.04 Roadmap <https://projects.xivo.io/versions/240>`_
+Consult the `16.04 Roadmap <https://projects.wazo.community/versions/240>`_
 
 * :ref:`cti-protocol` is now in version *2.1*
 * The field :guilabel:`Rightcall Code` from :menuselection:`Services -> IPBX -> IPBX Settings ->
@@ -331,7 +374,7 @@ Consult the `16.04 Roadmap <https://projects.xivo.io/versions/240>`_
 16.03
 -----
 
-Consult the `16.03 Roadmap <https://projects.xivo.io/versions/239>`_
+Consult the `16.03 Roadmap <https://projects.wazo.community/versions/239>`_
 
 * The new section :menuselection:`Services --> Statistics --> Switchboard` in the web interface will
   only be visible by a non-root administrator after adding the corresponding permissions in the
@@ -348,7 +391,7 @@ Consult the `16.03 Roadmap <https://projects.xivo.io/versions/239>`_
 16.02
 -----
 
-Consult the `16.02 Roadmap <https://projects.xivo.io/versions/238>`_
+Consult the `16.02 Roadmap <https://projects.wazo.community/versions/238>`_
 
 * The experimental *xivo_ldap_voicemail* plugin of *xivo-auth* has been removed. Use the new
   :ref:`xivo_ldap plugin <auth-backends-ldap>`.
@@ -364,7 +407,7 @@ Consult the `16.02 Roadmap <https://projects.xivo.io/versions/238>`_
 16.01
 -----
 
-Consult the `16.01 Roadmap <https://projects.xivo.io/versions/237>`_
+Consult the `16.01 Roadmap <https://projects.wazo.community/versions/237>`_
 
 * The page :menuselection:`Configuration --> Management --> Web Services Access --> Acces rights`
   has been removed. Consequently, every Web Services Access has now all access rights on the web
@@ -385,7 +428,7 @@ Consult the `16.01 Roadmap <https://projects.xivo.io/versions/237>`_
 15.20
 -----
 
-Consult the `15.20 Roadmap <https://projects.xivo.io/versions/214>`_
+Consult the `15.20 Roadmap <https://projects.wazo.community/versions/214>`_
 
 * Debian has been upgraded from version 7 (wheezy) to 8 (jessie).
 * CSV webservices in the web interface have been removed. Please use the :ref:`confd-api` instead.
@@ -406,11 +449,11 @@ Please consult the following detailed upgrade notes for more information:
 15.19
 -----
 
-Consult the `15.19 Roadmap <https://projects.xivo.io/versions/236>`_
+Consult the `15.19 Roadmap <https://projects.wazo.community/versions/236>`_
 
 * The sound file :file:`/usr/share/asterisk/sounds/fr_FR/une.wav` has been moved to
   :file:`/usr/share/asterisk/sounds/fr_FR/digits/1F.wav`.
-* If you would like to use the new `"transfer to voicemail" feature <http://projects.xivo.io/issues/5905>`_
+* If you would like to use the new `"transfer to voicemail" feature <http://projects.wazo.community/issues/5905>`_
   from the People Xlet, you'll need to update your directory definition and your directory display, i.e.:
 
   * edit your "internal" directory definition (Services / CTI server / Directories / Definitions)
@@ -451,7 +494,7 @@ Please consult the following detailed upgrade notes for more information:
 15.18
 -----
 
-Consult the `15.18 Roadmap <https://projects.xivo.io/versions/234>`_
+Consult the `15.18 Roadmap <https://projects.wazo.community/versions/234>`_
 
 * The provd_pycli command (deprecated in 15.06) has been removed in favor of xivo-provd-cli. If you
   have custom scripts referencing provd_pycli, you'll need to update them.
@@ -500,7 +543,7 @@ daemon.
 15.17
 -----
 
-Consult the `15.17 Roadmap <https://projects.xivo.io/versions/233>`_
+Consult the `15.17 Roadmap <https://projects.wazo.community/versions/233>`_
 
 * Online call recording is now done via `automixmon
   <https://wiki.asterisk.org/wiki/display/AST/One-Touch+Features>`_ instead of automon. This has no
@@ -532,7 +575,7 @@ Please consult the following detailed upgrade notes for more information:
 15.16
 -----
 
-Consult the `15.16 Roadmap <https://projects.xivo.io/versions/232>`_
+Consult the `15.16 Roadmap <https://projects.wazo.community/versions/232>`_
 
 * The directory column type "mobile" was removed in favor of the new "callable" type. If you have
   hand-written configuration files for xivo-dird, in section "views", subsection "displays", all
@@ -547,7 +590,7 @@ Consult the `15.16 Roadmap <https://projects.xivo.io/versions/232>`_
 15.15
 -----
 
-Consult the `15.15 Roadmap <https://projects.xivo.io/versions/231>`_
+Consult the `15.15 Roadmap <https://projects.wazo.community/versions/231>`_
 
 **Voicemail Upgrade Notes**
 
@@ -588,7 +631,7 @@ See :ref:`directories` and :ref:`xivo-dird-integration` for more details
 15.14
 -----
 
-* Consult the `15.14 Roadmap <https://projects.xivo.io/versions/230>`_
+* Consult the `15.14 Roadmap <https://projects.wazo.community/versions/230>`_
 * Default password for ``xivo-polycom-4.0.4`` plugin version >= 1.3 is now **9486** (i.e. the word
   "xivo" on a telephone keypad).
 * Default password for ``xivo-polycom-5.3.0`` plugin version >= 1.4 is now **9486**.
@@ -600,7 +643,7 @@ See :ref:`directories` and :ref:`xivo-dird-integration` for more details
 15.13
 -----
 
-* Consult the `15.13 Roadmap <https://projects.xivo.io/versions/229>`_
+* Consult the `15.13 Roadmap <https://projects.wazo.community/versions/229>`_
 * Asterisk has been upgraded from version 11.17.1 to 13.4.0, which is a major Asterisk upgrade.
 * An `ARI <https://wiki.asterisk.org/wiki/display/AST/Getting+Started+with+ARI>`_ user has been
   added to :file:`/etc/asterisk/ari.conf`. If you have configured Asterisk HTTP server to bind on a
@@ -625,7 +668,7 @@ Please consult the following detailed upgrade notes for more information:
 15.12
 -----
 
-* Consult the `15.12 Roadmap <https://projects.xivo.io/versions/228>`_
+* Consult the `15.12 Roadmap <https://projects.wazo.community/versions/228>`_
 * The certificate used for HTTPS in the web interface will be regenerated if the default certificate
   was used. Your browser will complain about the new certificate, and it is safe to accept it (see
   `#3656`_). See also :ref:`https_certificate`.
@@ -635,13 +678,13 @@ Please consult the following detailed upgrade notes for more information:
 * xivo-auth and xivo-dird now use HTTPS, if you have custom development using these services, update
   your configuration accordingly.
 
-.. _#3656: http://projects.xivo.io/issues/5636
+.. _#3656: http://projects.wazo.community/issues/5636
 
 
 15.11
 -----
 
-* Consult the `15.11 Roadmap <https://projects.xivo.io/versions/227>`_
+* Consult the `15.11 Roadmap <https://projects.wazo.community/versions/227>`_
 * The call records older than 365 days will be periodically removed. The first automatic purge will
   occur in the night after the upgrade. See :ref:`purge_logs` for more details.
 
@@ -649,34 +692,34 @@ Please consult the following detailed upgrade notes for more information:
 15.10
 -----
 
-* Consult the `15.10 Roadmap <https://projects.xivo.io/versions/223>`_
+* Consult the `15.10 Roadmap <https://projects.wazo.community/versions/223>`_
 
 
 15.09
 -----
 
-* Consult the `15.09 Roadmap <https://projects.xivo.io/versions/226>`_
+* Consult the `15.09 Roadmap <https://projects.wazo.community/versions/226>`_
 
 
 15.08
 -----
 
-* Consult the `15.08 Roadmap <https://projects.xivo.io/versions/225>`_
+* Consult the `15.08 Roadmap <https://projects.wazo.community/versions/225>`_
 * The Dialer Xlet has been integrated in Identity Xlet.
 
 
 15.07
 -----
 
-* Consult the `15.07 Roadmap <https://projects.xivo.io/versions/224>`_
+* Consult the `15.07 Roadmap <https://projects.wazo.community/versions/224>`_
 
 
 15.06
 -----
 
-* Consult the `15.06 Roadmap <https://projects.xivo.io/versions/222>`_
+* Consult the `15.06 Roadmap <https://projects.wazo.community/versions/222>`_
 * The provd client has been moved into a new python package, xivo_provd_client. If you have custom scripts
-  using this client, you'll need to update them. See http://projects.xivo.io/issues/5469 for more
+  using this client, you'll need to update them. See http://projects.wazo.community/issues/5469 for more
   information.
 * The provd_pycli command name has been deprecated in favor of xivo-provd-cli. These 2 commands do the
   same thing, the only difference being the name of the command. The provd_pycli command name will be
@@ -689,7 +732,7 @@ Please consult the following detailed upgrade notes for more information:
 15.05
 -----
 
-* Consult the `15.05 Roadmap <https://projects.xivo.io/versions/221>`_
+* Consult the `15.05 Roadmap <https://projects.wazo.community/versions/221>`_
 * The Xlet identity has been modified to follow the new XiVO Client design which implies the removal
   of some details.
 
@@ -697,25 +740,25 @@ Please consult the following detailed upgrade notes for more information:
 15.04
 -----
 
-* Consult the `15.04 Roadmap <https://projects.xivo.io/versions/220>`_
+* Consult the `15.04 Roadmap <https://projects.wazo.community/versions/220>`_
 
 
 15.03
 -----
 
-* Consult the `15.03 Roadmap <https://projects.xivo.io/versions/219>`_
+* Consult the `15.03 Roadmap <https://projects.wazo.community/versions/219>`_
 
 
 15.02
 -----
 
-* Consult the `15.02 Roadmap <https://projects.xivo.io/versions/218>`_
+* Consult the `15.02 Roadmap <https://projects.wazo.community/versions/218>`_
 
 
 15.01
 -----
 
-* Consult the `15.01 Roadmap <https://projects.xivo.io/versions/217>`_
+* Consult the `15.01 Roadmap <https://projects.wazo.community/versions/217>`_
 
 * The :ref:`confd REST API <confd-api>` is now more restrictive on HTTP headers. Particularly, the
   headers Accept and Content-Type must be set to (typically) ``application/json``.

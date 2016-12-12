@@ -23,8 +23,8 @@ located in ``/usr/share/xivo-certs``.
 .. figure:: images/starttls_options.png
     :scale: 85%
 
-Parting options are used to isolate XiVO users from each other. These options
-should be used when using the same XiVO for different enterprises.
+Parting options are used to isolate Wazo users from each other. These options
+should be used when using the same Wazo for different enterprises.
 
 Context separation is based on the user's line context. A user
 with no line is not the member of any context and will not be able to do

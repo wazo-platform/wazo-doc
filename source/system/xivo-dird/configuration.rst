@@ -1,7 +1,7 @@
 .. _dird-configuration-file:
 
 =======================
-XiVO dird configuration
+xivo-dird configuration
 =======================
 
 There are three sources of configuration for xivo-dird:
@@ -162,7 +162,7 @@ displays
    * title: The label of the field
    * default: The default value of the field
    * type: An arbitrary identifier of the field. May be used by consumers to identify the field
-     without matching the label. For meaningful values inside XiVO, see
+     without matching the label. For meaningful values inside Wazo, see
      :ref:`xivo-dird-integration`.
    * field: the key of the data from the source that will be used for this field.
 

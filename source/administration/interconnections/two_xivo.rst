@@ -1,7 +1,7 @@
 .. index:: interconnections
 
 ******************************
-Interconnect two XiVO directly
+Interconnect two Wazo directly
 ******************************
 
 .. figure:: images/two_xivo.png
@@ -9,12 +9,12 @@ Interconnect two XiVO directly
 
    Situation diagram
 
-Interconnecting two XiVO will allow you to send and receive calls between the
+Interconnecting two Wazo will allow you to send and receive calls between the
 users configured on both sides.
 
 The steps to configure the interconnections are:
 
-* Establish the trunk between the two XiVO, that is the SIP connection
+* Establish the trunk between the two Wazo, that is the SIP connection
   between the two servers
 * Configure outgoing calls on the server(s) used to emit calls
 * Configure incoming calls on the server(s) used to receive calls
@@ -28,13 +28,13 @@ Establish the trunk
 The settings below allow a trunk to be used in both directions, so it doesn't
 matter which server is A and which is B.
 
-Consider XiVO A wants to establish a trunk with XiVO B.
+Consider Wazo A wants to establish a trunk with Wazo B.
 
-On XiVO B, go on page :menuselection:`Services --> IPBX --> Trunk management -->
+On Wazo B, go on page :menuselection:`Services --> IPBX --> Trunk management -->
 SIP Protocol`, and create a SIP trunk::
 
-    Name : xivo-trunk
-    Username: xivo-trunk
+    Name : wazo-trunk
+    Username: wazo-trunk
     Password: pass
     Connection type: Friend
     IP addressing type: Dynamic
@@ -58,39 +58,39 @@ other side of the trunk:
   other end. This is the role of the incoming calls: making bridges from the
   ``Incalls`` context to other contexts.
 
-On XiVO A, create the other end of the SIP trunk on the :menuselection:`Services
+On Wazo A, create the other end of the SIP trunk on the :menuselection:`Services
 --> IPBX --> Trunk management --> SIP Protocol`::
 
-    Name: xivo-trunk
-    Username: xivo-trunk
+    Name: wazo-trunk
+    Username: wazo-trunk
     Password: pass
     Identified by: Friend
     Connection type: Static
-    Address: <XiVO B IP address or hostname>
+    Address: <Wazo B IP address or hostname>
     Context: Incalls
 
 Register tab::
 
     Register: checked
     Transport: udp
-    Username: xivo-trunk
+    Username: wazo-trunk
     Password: pass
-    Remote server: <XiVO B IP address or hostname>
+    Remote server: <Wazo B IP address or hostname>
 
 
-On both XiVO, activate some codecs, :menuselection:`Services
+On both Wazo, activate some codecs, :menuselection:`Services
 --> IPBX --> General Settings --> SIP protocol`, tab ``Signaling``::
 
    Enabled codecs: at least GSM (audio)
 
-At that point, the Asterisk command ``sip show registry`` on XiVO B should print
-a line showing that XiVO A is registered, meaning your trunk is established.
+At that point, the Asterisk command ``sip show registry`` on Wazo B should print
+a line showing that Wazo A is registered, meaning your trunk is established.
 
 
 Set the outgoing calls
 ----------------------
 
-The outgoing calls configuration will allow XiVO to know which extensions will
+The outgoing calls configuration will allow Wazo to know which extensions will
 be called through the trunk.
 
 On the call emitting server(s), go on the page :menuselection:`Services
@@ -98,15 +98,15 @@ On the call emitting server(s), go on the page :menuselection:`Services
 
 Tab General::
 
-   Trunks: xivo-trunk
+   Trunks: wazo-trunk
 
 Tab Exten::
 
     Exten: **99. (note the period at the end)
     Stripnum: 4
 
-This will tell XiVO: if any extension begins with ``**99``, then try to dial it
-on the trunk ``xivo-trunk``, after removing the 4 first characters (the ``**99``
+This will tell Wazo: if any extension begins with ``**99``, then try to dial it
+on the trunk ``wazo-trunk``, after removing the 4 first characters (the ``**99``
 prefix).
 
 The most useful special characters to match extensions are::
@@ -114,15 +114,15 @@ The most useful special characters to match extensions are::
    . (period): will match one or more characters
    X: will match only one character
 
-You can find more details about pattern matching in Asterisk (hence in XiVO) on
+You can find more details about pattern matching in Asterisk (hence in Wazo) on
 `the Asterisk wiki <https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching>`_.
 
 
 Set the incoming calls
 ----------------------
 
-Now that we have calls going out from a XiVO, we need to route incoming calls on
-the XiVO destination.
+Now that we have calls going out from a Wazo, we need to route incoming calls on
+the Wazo destination.
 
 .. note::
 
@@ -140,11 +140,11 @@ Tab General::
     Destination: User
     Redirect to: someone
 
-This will tell XiVO: if you receive an incoming call to the extension ``101`` in
+This will tell Wazo: if you receive an incoming call to the extension ``101`` in
 the context ``Incalls``, then route it to the user ``someone``. The destination
 context will be found automatically, depending on the context of the line of the
 given user.
 
-So, with the outgoing call set earlier on XiVO A, and with the incoming call
-above set on XiVO B, a user on XiVO A will dial ``**99101``, and the user
-``someone`` will ring on XiVO B.
+So, with the outgoing call set earlier on Wazo A, and with the incoming call
+above set on Wazo B, a user on Wazo A will dial ``**99101``, and the user
+``someone`` will ring on Wazo B.

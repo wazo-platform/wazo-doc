@@ -17,11 +17,11 @@ called ``setsheeturl.conf``. In this file, put the following::
 
    [setsheeturl]
    exten = s,1,NoOp(Starting Set Sheet URL)
-   same  = n,Set(SHEET_URL_CTI=http://documentation.xivo.io)
+   same  = n,Set(SHEET_URL_CTI=http://documentation.wazo.community)
    same  = n,UserEvent(dialplan2cti,UNIQUEID: ${UNIQUEID},CHANNEL: ${CHANNEL},VARIABLE: mysheeturl,VALUE: ${SHEET_URL_CTI})
    same  = n,Return()
 
-You can replace ``documentation.xivo.io`` by the URL you want.
+You can replace ``documentation.wazo.community`` by the URL you want.
 
 The second step is to set the URL when the call is queued. To do that, we will
 use a preprocessing subroutine. This is configured in the queue configuration :

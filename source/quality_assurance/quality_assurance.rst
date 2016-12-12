@@ -12,7 +12,7 @@ Testing architecture
 
 Legend:
 
-* assu is our production XiVO, used to make calls in the company. We also use it as a source of
+* assu is our production Wazo, used to make calls in the company. We also use it as a source of
   "external" calls to the test servers.
 * dev-gateway is a simple gateway, to link all other servers.
 * xivo-daily is reinstalled every day and runs all the automatic tests in `xivo-acceptance`_.
@@ -21,4 +21,4 @@ Legend:
 * xivo-test and xivo-test-slave are used for manual tests we run before each release
 * xivo-premium (not yet installed) will allow us to test the new xivo-premium hardware
 
-.. _xivo-acceptance: https://github.com/xivo-pbx/xivo-acceptance
+.. _xivo-acceptance: https://github.com/wazo-pbx/xivo-acceptance

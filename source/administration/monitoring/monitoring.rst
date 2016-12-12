@@ -2,7 +2,7 @@
 Monitoring
 **********
 
-The Monitoring section gives an overview of a XiVO system's status and of all
+The Monitoring section gives an overview of a Wazo system's status and of all
 monitored processes. It is divided into 6 sections :
 
 * :ref:`monitoring-system`
@@ -62,6 +62,6 @@ Displays Physical and swap memory usage. Read only.
 Other Services
 ==============
 
-Lists XiVO related processes (most of which are daemons) with their corresponding
+Lists Wazo related processes (most of which are daemons) with their corresponding
 status, uptime, resource usage and controls to Restart service (blue button),
 stop service (red button) and stop monitoring service (grey button).

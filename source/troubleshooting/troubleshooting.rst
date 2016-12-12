@@ -4,7 +4,7 @@ Troubleshooting
 ===============
 
 The list of current bugs can be found on
-`the official XiVO issue tracker <https://projects.xivo.io/issues?set_filter=1&tracker_id=1>`_.
+`the official Wazo issue tracker <https://projects.wazo.community/issues?set_filter=1&tracker_id=1>`_.
 
 
 Transfers using DTMF
@@ -35,7 +35,7 @@ to be able to transfer the called person to another extension.
 Fax detection
 -------------
 
-XiVO **does not currently support Fax detection**. The following describe a workaround to use this
+Wazo **does not currently support Fax detection**. The following describe a workaround to use this
 feature. The behavior is to answer all incoming (external) call, wait for a number of seconds (4 in
 this example) : if a fax is detected, receive it otherwise route the call normally.
 
@@ -44,7 +44,7 @@ this example) : if a fax is detected, receive it otherwise route the call normal
     * on incoming calls towards an User (and an User only),
     * if the incoming trunk is a DAHDI or a SIP trunk,
     * if the user has a voicemail which is activated and with the email field filled
-    * XiVO >= 13.08 (needs asterisk 11)
+    * XiVO/Wazo >= 13.08 (needs asterisk 11)
 
     Be aware that this workaround will probably not survive any upgrade.
 
@@ -84,17 +84,17 @@ Berofos Integration with PBX
 ----------------------------
 
 You can use a Berofos failover switch to secure the ISDN provider lines
-when installing a XiVO in front of an existing PBX.
-The goal of this configuration is to mitigate the consequences of an outage of the XiVO : with this
-equipment the ISDN provider links could be switched to the PBX directly if the XiVO goes down.
+when installing a Wazo in front of an existing PBX.
+The goal of this configuration is to mitigate the consequences of an outage of the Wazo : with this
+equipment the ISDN provider links could be switched to the PBX directly if the Wazo goes down.
 
-XiVO **does not offer natively** the possibility to configure Berofos in this failover mode.
+Wazo **does not offer natively** the possibility to configure Berofos in this failover mode.
 This section describes a workaround.
 
 Logical view::
 
                    +------+                            +-----+
-   -- Provider ----| XiVO | -- ISDN Interconnection  --| PBX | -- Phones
+   -- Provider ----| Wazo | -- ISDN Interconnection  --| PBX | -- Phones
                    +------+                            +-----+
 
 Connection::
@@ -106,14 +106,14 @@ Connection::
          | |      | |      | |      | |
         / /       | |      | |      | |
        / /    +--------+   / /   +---------+
-     2 T2     |  XiVO  |  / /    |   PBX   |
+     2 T2     |  Wazo  |  / /    |   PBX   |
               +--------+ / /     +---------+
                   | |   / /
                   \ \__/ /
                    \____/
 
 
-The following describes how to configure your XiVO and your Berofos.
+The following describes how to configure your Wazo and your Berofos.
 
 #. Follow the Berofos general configuration (firmware, IP, login/password) described
    in the the :ref:`Berofos Installation and Configuration <berofos-installation-and-configuration>`
@@ -131,7 +131,7 @@ The following describes how to configure your XiVO and your Berofos.
 #. Add the following script :file:`/usr/local/sbin/berofos-workaround`::
 
     #!/bin/bash
-    # Script workaround for berofos integration with a XiVO in front of PABX
+    # Script workaround for berofos integration with a Wazo in front of PABX
 
     res=$(/usr/sbin/service asterisk status)
     does_ast_run=$?
@@ -229,7 +229,7 @@ To enable the ami-proxy, you must:
 
       systemctl restart xivo-ctid.service
 
-If you are on a XiVO cluster, you must do the same procedure on the slave if you want the ami-proxy
+If you are on a Wazo cluster, you must do the same procedure on the slave if you want the ami-proxy
 to also be enabled on the slave.
 
 To disable the ami-proxy::
@@ -247,7 +247,7 @@ he's in have the "ringinuse" parameter set to no (default).
 
 This behaviour is caused by a bug in asterisk: https://issues.asterisk.org/jira/browse/ASTERISK-16115
 
-It's possible to workaround this bug in XiVO by adding an agent :ref:`subroutine <subroutine>`.
+It's possible to workaround this bug in Wazo by adding an agent :ref:`subroutine <subroutine>`.
 The subroutine can be either set globally or per agent::
 
    [pre-limit-agentcallback]
@@ -282,8 +282,8 @@ call. In the agent statistics, this will be shown as a non-answered call by the 
 PostgreSQL localization errors
 ------------------------------
 
-The database and the underlying `database cluster`_ used by XiVO is sensitive to the system locale
-configuration. The locale used by the database and the database cluster is set when XiVO is
+The database and the underlying `database cluster`_ used by Wazo is sensitive to the system locale
+configuration. The locale used by the database and the database cluster is set when Wazo is
 installed. If you change your system locale without particular attention to PostgreSQL, you might
 make the database and database cluster temporarily unusable.
 
@@ -301,7 +301,7 @@ When working with locale and PostgreSQL, there's a few useful commands and thing
 * ``systemctl restart postgresql.service`` to restart your database cluster
 * the PostgreSQL log file located at :file:`/var/log/postgresql/postgresql-9.4-main.log`
 
-.. note:: You can use any locale with XiVO as long as it uses an UTF-8 encoding.
+.. note:: You can use any locale with Wazo as long as it uses an UTF-8 encoding.
 
 
 Database cluster is not starting

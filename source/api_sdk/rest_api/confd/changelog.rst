@@ -4,13 +4,145 @@
 xivo-confd REST API changelog
 *****************************
 
+16.16
+=====
+
+* The ``conference`` destination type in incalls endpoints has been renamed to ``meetme``
+
+* Added conferences endpoints:
+
+  * GET ``/1.1/conferences``
+  * POST ``/1.1/conferences``
+  * DELETE ``/1.1/conferences/<conference_id>``
+  * GET ``/1.1/conferences/<conference_id>``
+  * PUT ``/1.1/conferences/<conference_id>``
+
+* A new API for associating an extension with a conference has been added:
+
+  * DELETE ``/1.1/conferences/<group_id>/extensions/<extension_id>``
+  * PUT ``/1.1/conferences/<group_id>/extensions/<extension_id>``
+
+* Added groups endpoints:
+
+  * GET ``/1.1/groups``
+  * POST ``/1.1/groups``
+  * DELETE ``/1.1/groups/<group_id>``
+  * GET ``/1.1/groups/<group_id>``
+  * PUT ``/1.1/groups/<group_id>``
+
+* A new API for associating an extension with a group has been added:
+
+  * DELETE ``/1.1/groups/<group_id>/extensions/<extension_id>``
+  * PUT ``/1.1/groups/<group_id>/extensions/<extension_id>``
+
+* A new API for editing fallbacks for a group has been added:
+
+  * GET ``/1.1/groups/<group_id>/fallbacks``
+  * PUT ``/1.1/groups/<group_id>/fallbacks``
+
+* A new API for associating trunks with an group has been added:
+
+  * PUT ``/1.1/groups/<group_id>/members/users``
+
+* Added contexts endpoints:
+
+  * GET ``/1.1/contexts``
+  * POST ``/1.1/contexts``
+  * DELETE ``/1.1/contexts/<context_id>``
+  * GET ``/1.1/contexts/<context_id>``
+  * PUT ``/1.1/contexts/<context_id>``
+
+* A new API for editing fallbacks for a user has been added:
+
+  * GET ``/1.1/users/<user_id>/fallbacks``
+  * PUT ``/1.1/users/<user_id>/fallbacks``
+
+* New readonly parameters have been added to the incall resource:
+
+  * For destinations of type `ivr`:
+
+      * ``ivr_name``
+
+  * For destinations of type `user`:
+
+      * ``user_firstname``
+      * ``user_lastname``
+
+  * For destinations of type `voicemail`:
+
+      * ``voicemail_name``
+
+* New readonly parameters have been added to the voicemail resource:
+
+  * ``users``
+
+* New readonly parameters have been added to the user resource:
+
+  * ``voicemail``
+  * ``incalls``
+
+
+16.14
+=====
+
+* Added users endpoints in REST API:
+
+  * GET ``/1.1/users/<user_uuid>/lines/<line_id>/associated/endpoints/sip``
+
+* New readonly parameters have been added to the line resource:
+
+  * ``endpoint_sip``
+  * ``endpoint_sccp``
+  * ``endpoint_custom``
+  * ``extensions``
+  * ``users``
+
+* New readonly parameters have been added to the extension resource:
+
+  * ``lines``
+
+* New readonly parameters have been added to the user resource:
+
+  * ``lines``
+
+* A new readonly parameter have been added to the endpoint_sip, endpoint_sccp and endpoint_custom
+  resource:
+
+  * ``line``
+
+* Added outcalls endpoints:
+
+  * GET ``/1.1/outcalls``
+  * POST ``/1.1/outcalls``
+  * DELETE ``/1.1/outcalls/<outcall_id>``
+  * GET ``/1.1/outcalls/<outcall_id>``
+  * PUT ``/1.1/outcalls/<outcall_id>``
+
+* Added IVR endpoints:
+
+  * GET ``/1.1/ivr``
+  * POST ``/1.1/ivr``
+  * DELETE ``/1.1/ivr/<ivr_id>``
+  * GET ``/1.1/ivr/<ivr_id>``
+  * PUT ``/1.1/ivr/<ivr_id>``
+
+* A new API for associating trunks with an outcall has been added:
+
+  * PUT ``/1.1/outcalls/<outcall_id>/trunks``
+
+* A new API for associating an extension with an outcall has been added:
+
+  * DELETE ``/1.1/outcalls/<outcall_id>/extensions/<extension_id>``
+  * PUT ``/1.1/outcalls/<outcall_id>/extensions/<extension_id>``
+
+
 16.13
 =====
 
 * New readonly parameters have been added to the trunks resource:
 
   * ``endpoint_sip``
-  * ``endpoint_sccp``
+  * ``endpoint_custom``
 
 * A new readonly parameter have been added to the endpoint_sip and endpoint_custom resource:
 
@@ -129,7 +261,7 @@ xivo-confd REST API changelog
 16.06
 =====
 
-* A new API for initializing a XiVO (passing the wizard):
+* A new API for initializing a Wazo (passing the wizard):
 
   * GET ``/1.1/wizard``
   * POST ``/1.1/wizard``
@@ -275,7 +407,7 @@ xivo-confd REST API changelog
 =====
 
 * A new API for SIP endpoints has been added. Consult the documentation
-  on http://api.xivo.io for further details.
+  on http://api.wazo.community for further details.
 * The ``/lines_sip`` API has been deprecated. Please use ``/lines`` and ``/endpoints/sip`` instead.
 * Due to certain limitations in the database, only a limited number of
   optional parameters can be configured. This limitation will be removed
@@ -364,13 +496,8 @@ Supported parameters on SIP endpoints
  * port
  * regexten
  * subscribecontext
- * fullcontact
  * vmexten
  * callingpres
- * ipaddr
- * regseconds
- * regserver
- * lastms
  * parkinglot
  * protocol
  * outboundproxy

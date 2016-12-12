@@ -31,7 +31,7 @@ Get sources
 
 In a bash shell, enter::
 
-   $ git clone git://github.com/xivo-pbx/xivo-client-qt.git
+   $ git clone git://github.com/wazo-pbx/xivo-client-qt.git
 
 
 Building

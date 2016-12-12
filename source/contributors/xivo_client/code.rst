@@ -9,9 +9,9 @@ baselib
 -------
 
 The folder `baselib` contains all files necessary to build the baselib. It contains the necessary
-code and data structures to communicate with the XiVO CTI server.
+code and data structures to communicate with the Wazo CTI server.
 
-This library is designed to be reusable by other XiVO CTI clients. If you want to build it
+This library is designed to be reusable by other Wazo CTI clients. If you want to build it
 without the rest of the XiVO Client, go in its folder and type::
 
    $ qmake && make
@@ -312,7 +312,7 @@ CTI debugging tool
 ==================
 
 If you have a problem and you want to see what is going on between the CTI server and client,
-you can use a specific script, designed specifically for XiVO, instead of using something like
+you can use a specific script, designed specifically for Wazo, instead of using something like
 Wireshark to listen network communications.
 
 Profiling

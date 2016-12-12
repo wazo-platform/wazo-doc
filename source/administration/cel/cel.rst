@@ -45,7 +45,7 @@ Call logs are also available from :ref:`xivo-confd REST API <confd-api>`.
 Manual generation
 -----------------
 
-Call logs can also be generated manually. To do so, log on to the target XiVO server and run::
+Call logs can also be generated manually. To do so, log on to the target Wazo server and run::
 
    xivo-call-logs
 

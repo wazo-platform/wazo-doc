@@ -1,24 +1,24 @@
 .. index:: interconnections
 
 *********************************************
-Interconnect a XiVO to a PBX via an ISDN link
+Interconnect a Wazo to a PBX via an ISDN link
 *********************************************
 
 The goal of this architecture can be one of:
 
-* start a smooth migration between an old telephony system towards IP telephony with XiVO
+* start a smooth migration between an old telephony system towards IP telephony with Wazo
 * bring new features to the PBX like voicemail, conference, IVR etc.
 
-First, XiVO is to be integrated transparently between the operator and the PBX. Then users or
-features are to be migrated from the PBX to the XiVO.
+First, Wazo is to be integrated transparently between the operator and the PBX. Then users or
+features are to be migrated from the PBX to the Wazo.
 
-.. warning:: It requires a special call routing configuration on both the XiVO **and the PBX**.
+.. warning:: It requires a special call routing configuration on both the Wazo **and the PBX**.
 
 .. figure:: images/xivo-pbx.png
    :align: center
    :scale: 65%
 
-   Interconnect a XiVO to a PBX
+   Interconnect a Wazo to a PBX
 
 
 Hardware
@@ -29,7 +29,7 @@ General uses
 
 You must have an ISDN card able to support both the provider and PBX ISDN links.
 
-*Example :* If you have two provider links towards the PBX, XiVO should have a 4 spans card : two
+*Example :* If you have two provider links towards the PBX, Wazo should have a 4 spans card : two
 towards the provider, and two towards the PBX.
 
 
@@ -58,9 +58,9 @@ system.conf
 
 You mainly need to configure the ``timing`` parameter on each *span*. As a general rule :
 
-* Provider *span* - XiVO will get the clock from the provider :
+* Provider *span* - Wazo will get the clock from the provider :
   the ``timing`` value is to be different from 0 (see :ref:`system_conf` section)
-* PBX *span* - XiVO will provide the clock to the PBX :
+* PBX *span* - Wazo will provide the clock to the PBX :
   the ``timing`` value is to be set to 0 (see :ref:`system_conf` section)
 
 
@@ -158,7 +158,7 @@ We first need to create a route for calls coming from the PBX
     exten = _X.,1,NoOp(### Call from PBX ${CARLLERID(num)} towards ${EXTEN} ###)
     exten = _X.,n,Goto(default,${EXTEN},1)
 
-This dialplan routes incoming calls from the PBX in the ``default`` context of XiVO.
+This dialplan routes incoming calls from the PBX in the ``default`` context of Wazo.
 It enables call from the PBX :
 * towards a SIP phone (in ``default`` context)
 * towards outgoing destniation (via the ``to-extern`` context included in ``default`` context)
@@ -173,7 +173,7 @@ In the webi, create a context named ``to-pabx``:
 * Context type : Outcall
 * Include sub-contexts : No context inclusion
 
-This context will permit to route incoming calls from the XiVO to the PBX.
+This context will permit to route incoming calls from the Wazo to the PBX.
 
 .. figure:: images/context-to-extern.png
    :align: center
