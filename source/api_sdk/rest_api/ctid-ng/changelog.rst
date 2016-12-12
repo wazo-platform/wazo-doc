@@ -4,7 +4,7 @@
 xivo-ctid-ng HTTP API changelog
 *******************************
 
-16.15
+16.16
 =====
 
 * A new API for managing voicemails messages:
@@ -22,10 +22,6 @@ xivo-ctid-ng HTTP API changelog
     * PUT ``/1.0/users/me/voicemails/messages/{message_id}``
     * POST ``/1.0/users/me/voicemails/messages/{message_id}/recording``
 
-
-16.14
-=====
-
 * A new ``timeout`` parameter has been added to the following URL:
 
     * POST ``/1.0/transfers``
@@ -35,7 +31,6 @@ xivo-ctid-ng HTTP API changelog
 
     * POST ``/1.0/calls``
     * POST ``/1.0/users/me/calls``
-
 
 
 16.11
