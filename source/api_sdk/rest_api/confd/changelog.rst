@@ -7,15 +7,7 @@ xivo-confd REST API changelog
 16.16
 =====
 
-* A new API for editing fallbacks for a group has been added:
-
-  * GET ``/1.1/groups/<group_id>/fallbacks``
-  * PUT ``/1.1/groups/<group_id>/fallbacks``
-
-* A new API for editing fallbacks for a user has been added:
-
-  * GET ``/1.1/users/<user_id>/fallbacks``
-  * PUT ``/1.1/users/<user_id>/fallbacks``
+* The ``conference`` destination type in incalls endpoints has been renamed to ``meetme``
 
 * Added conferences endpoints:
 
@@ -30,25 +22,6 @@ xivo-confd REST API changelog
   * DELETE ``/1.1/conferences/<group_id>/extensions/<extension_id>``
   * PUT ``/1.1/conferences/<group_id>/extensions/<extension_id>``
 
-* The ``conference`` destination type in incalls endpoints has been renamed to ``meetme``
-
-
-16.15
-=====
-
-* New readonly parameters have been added to the voicemail resource:
-
-  * ``users``
-
-* A new API for associating trunks with an group has been added:
-
-  * PUT ``/1.1/groups/<group_id>/members/users``
-
-* A new API for associating an extension with a group has been added:
-
-  * DELETE ``/1.1/groups/<group_id>/extensions/<extension_id>``
-  * PUT ``/1.1/groups/<group_id>/extensions/<extension_id>``
-
 * Added groups endpoints:
 
   * GET ``/1.1/groups``
@@ -57,10 +30,32 @@ xivo-confd REST API changelog
   * GET ``/1.1/groups/<group_id>``
   * PUT ``/1.1/groups/<group_id>``
 
+* A new API for associating an extension with a group has been added:
 
-* New readonly parameters have been added to the ivr resource:
+  * DELETE ``/1.1/groups/<group_id>/extensions/<extension_id>``
+  * PUT ``/1.1/groups/<group_id>/extensions/<extension_id>``
 
-  * ``incalls``
+* A new API for editing fallbacks for a group has been added:
+
+  * GET ``/1.1/groups/<group_id>/fallbacks``
+  * PUT ``/1.1/groups/<group_id>/fallbacks``
+
+* A new API for associating trunks with an group has been added:
+
+  * PUT ``/1.1/groups/<group_id>/members/users``
+
+* Added contexts endpoints:
+
+  * GET ``/1.1/contexts``
+  * POST ``/1.1/contexts``
+  * DELETE ``/1.1/contexts/<context_id>``
+  * GET ``/1.1/contexts/<context_id>``
+  * PUT ``/1.1/contexts/<context_id>``
+
+* A new API for editing fallbacks for a user has been added:
+
+  * GET ``/1.1/users/<user_id>/fallbacks``
+  * PUT ``/1.1/users/<user_id>/fallbacks``
 
 * New readonly parameters have been added to the incall resource:
 
@@ -77,18 +72,14 @@ xivo-confd REST API changelog
 
       * ``voicemail_name``
 
+* New readonly parameters have been added to the voicemail resource:
+
+  * ``users``
+
 * New readonly parameters have been added to the user resource:
 
   * ``voicemail``
   * ``incalls``
-
-* Added contexts endpoints:
-
-  * GET ``/1.1/contexts``
-  * POST ``/1.1/contexts``
-  * DELETE ``/1.1/contexts/<context_id>``
-  * GET ``/1.1/contexts/<context_id>``
-  * PUT ``/1.1/contexts/<context_id>``
 
 
 16.14
