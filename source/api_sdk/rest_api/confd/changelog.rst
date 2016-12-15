@@ -4,6 +4,12 @@
 xivo-confd REST API changelog
 *****************************
 
+16.17
+=====
+
+* Added ``conference`` destination type for incalls and ivr.
+
+
 16.16
 =====
 
