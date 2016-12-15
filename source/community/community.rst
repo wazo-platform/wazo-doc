@@ -81,6 +81,8 @@ Unless specified, the license is `CC BY-SA`_.
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 | :download:`Function key redirects calls to a DID/user towards extension<data/fk-redirect-to-exten.pdf>`   | French   | Intermediate | Yohan Vitu     | 16.13        |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| :download:`Function key redirects calls to a DID/user towards voicemail<data/fk-redirect-to-vm.pdf>`      | French   | Intermediate | Yohan Vitu     | 16.13        |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 | :download:`Play music when user is called from DID<data/user-did-music.pdf>`                              | French   | Intermediate | Yohan Vitu     | 16.13        |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 | :download:`Reverse lookup from a text file<data/reverse-lookup-text-file.pdf>`                            | French   | Intermediate | TiJof &        | 16.13        |
