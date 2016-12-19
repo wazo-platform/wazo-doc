@@ -4,10 +4,23 @@
 xivo-confd REST API changelog
 *****************************
 
-16.17
+17.01
 =====
 
 * Added ``conference`` destination type for incalls and ivr.
+
+* Added parkinglots endpoints:
+
+  * GET ``/1.1/parkinglots``
+  * POST ``/1.1/parkinglots``
+  * DELETE ``/1.1/parkinglots/<parking_lot_id>``
+  * GET ``/1.1/parkinglots/<parking_lot_id>``
+  * PUT ``/1.1/parkinglots/<parking_lot_id>``
+
+* A new API for associating an extension with a parking_lot has been added:
+
+  * DELETE ``/1.1/parkinglots/<parking_lot_id>/extensions/<extension_id>``
+  * PUT ``/1.1/parkinglots/<parking_lot_id>/extensions/<extension_id>``
 
 
 16.16
