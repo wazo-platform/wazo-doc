@@ -4,6 +4,13 @@
 xivo-ctid-ng HTTP API changelog
 *******************************
 
+17.01
+=====
+
+* A new parameter for call creation (``POST /calls`` and ``POST /users/me/calls``)
+
+  * ``from_mobile``
+
 16.16
 =====
 
