@@ -22,6 +22,17 @@ xivo-confd REST API changelog
   * DELETE ``/1.1/parkinglots/<parking_lot_id>/extensions/<extension_id>``
   * PUT ``/1.1/parkinglots/<parking_lot_id>/extensions/<extension_id>``
 
+* New readonly parameters have been added to the funckeys resource:
+
+  * For destinations of type `user`:
+
+      * ``user_firstname``
+      * ``user_lastname``
+
+  * For destinations of type `group`:
+
+      * ``group_name``
+
 
 16.16
 =====
