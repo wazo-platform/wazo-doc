@@ -8,8 +8,8 @@ Architecture
 ============
 
 xivo-auth contains 4 major components, an HTTP interface, a celery worker,
-authentication backends and a consul client. All operations are made through
-the HTTP interface, tokens are stored by consul as well as the persistence
+authentication backends and a storage module. All operations are made through
+the HTTP interface, tokens are stored in postgres as well as the persistence
 for some of the data attached to tokens. The celery worker is used to schedule
 tasks that outlive the lifetime of the xivo-auth process. Backends are used
 to test if a supplied username/password combination is valid and provide the
@@ -55,7 +55,6 @@ The token modules contains the business logic of xivo-auth.
 * Creates and delete tokens
 * Creates ACLs for Wazo
 * Schedule token expiration
-* Read/write token data to consul
 
 
 tasks
