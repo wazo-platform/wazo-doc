@@ -33,6 +33,10 @@ xivo-confd REST API changelog
 
       * ``group_name``
 
+* New readonly parameters have been added to the infos resource:
+
+  * ``wazo_version``
+
 
 16.16
 =====
