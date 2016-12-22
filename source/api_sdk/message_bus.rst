@@ -87,6 +87,13 @@ Things to be aware when writing a client/consumer:
 Changelog
 =========
 
+17.01
+-----
+
+* The :ref:`bus-favorite_added` bus message has been added.
+* The :ref:`bus-favorite_deleted` bus message has been added.
+
+
 16.08
 -----
 
@@ -369,6 +376,70 @@ Example::
            "status": 0
        }
    }
+
+
+.. _bus-favorite_added:
+
+favorite_added
+--------------
+
+The `favorite_added` event is published when a contact is marked as a favorite by a user.
+
+* routing key: directory.<user_uuid>.favorite.created
+* required ACL: events.directory.<user_uuid>.favorite.created
+* event specific data:
+
+    * xivo_id: The user's Wazo server UUID
+    * user_uuid: The user's UUID
+    * source: The source in which this contact can be found
+    * source_entry_id: The ID of the contact within this source
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "name": "favorite_added",
+        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+        "data": {
+            "xivo_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+            "user_uuid": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
+            "source": "internal",
+            "source_entry_id": 42
+        }
+    }
+
+.. _bus-favorite_deleted:
+
+favorite_deleted
+----------------
+
+The `favorite_deleted` event is published when a favorited contact is marked a not
+favorite by a user
+
+* routing key: directory.<user_uuid>.favorite.deleted
+* required ACL: events.directory.<user_uuid>.favorite.deleted
+* event specific data:
+
+    * xivo_id: The user's Wazo server UUID
+    * user_uuid: The user's UUID
+    * source: The source in which this contact can be found
+    * source_entry_id: The ID of the contact within this source
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "name": "favorite_deleted",
+        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+        "data": {
+            "xivo_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+            "user_uuid": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
+            "source": "internal",
+            "source_entry_id": 42
+        }
+    }
 
 
 .. _bus-user_created:
