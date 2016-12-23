@@ -47,13 +47,6 @@ Table of Contents
    quality_assurance/quality_assurance
    troubleshooting/troubleshooting
    community/community
-   changelog
-
-
-Changelog
-=========
-
-The :ref:`changelog` is available.
 
 
 Indices and tables
