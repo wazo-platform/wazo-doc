@@ -26,7 +26,7 @@ The following packages are required to compile xivo-libsccp on Debian.
 
 ::
 
-   git clone https://github.com/xivo-pbx/xivo-libsccp.git
+   git clone https://github.com/wazo-pbx/xivo-libsccp.git
    cd xivo-libsccp
    make
    make install
@@ -40,7 +40,7 @@ Configuration
 
 See `sccp.conf.sample`_ for a configuration file example.
 
-.. _sccp.conf.sample: https://raw.github.com/xivo-pbx/xivo-libsccp/master/configs/sccp.conf.sample
+.. _sccp.conf.sample: https://raw.github.com/wazo-pbx/xivo-libsccp/master/configs/sccp.conf.sample
 
 
 FAQ

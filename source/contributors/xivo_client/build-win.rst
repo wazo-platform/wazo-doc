@@ -50,7 +50,7 @@ Get sources
 
 In a **Cygwin shell**::
 
-   git clone git://github.com/xivo-pbx/xivo-client-qt.git
+   git clone git://github.com/wazo-pbx/xivo-client-qt.git
    cd xivo-client-qt
 
 

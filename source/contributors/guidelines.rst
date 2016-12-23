@@ -22,7 +22,7 @@ The current `xivo-dao`_ Git repository contains the basis of the future services
 API is split between different resources available in XiVO, such as users, groups, schedules... For
 each resource, there are different modules :
 
-.. _xivo-dao: https://github.com/xivo-pbx/xivo-dao
+.. _xivo-dao: https://github.com/wazo-pbx/xivo-dao
 
 * service: the public module, providing possible actions. It contains only business logic and no
   technical logic. There must be no file name, no SQL queries and no URLs in this module.

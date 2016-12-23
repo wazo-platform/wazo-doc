@@ -5,11 +5,11 @@ CTI Proxy
 Here's how to run the various CTI client-server development/debugging
 tools. These tools can be found on GitHub, in the `XiVO project`_.
 
-.. _XiVO project: https://github.com/xivo-pbx/xivo-tools
+.. _XiVO project: https://github.com/wazo-pbx/xivo-tools
 
 You can get the scripts by using Git::
 
-   $ git clone https://github.com/xivo-pbx/xivo-tools.git
+   $ git clone https://github.com/wazo-pbx/xivo-tools.git
 
 General Information
 ===================

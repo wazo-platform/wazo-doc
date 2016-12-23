@@ -4,7 +4,7 @@ Troubleshooting
 ===============
 
 The list of current bugs can be found on
-`the official XiVO issue tracker <https://projects.xivo.io/issues?set_filter=1&tracker_id=1>`_.
+`the official Wazo issue tracker <https://projects.wazo.community/issues?set_filter=1&tracker_id=1>`_.
 
 
 Transfers using DTMF

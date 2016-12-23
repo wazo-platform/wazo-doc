@@ -15,4 +15,4 @@ XiVO History
 
 XiVO was created in 2005 by Proformatique.
 
-`XiVO 1.2 was released <https://projects.xivo.io/news/49>`_ on February 3, 2012.
+`XiVO 1.2 was released <https://projects.wazo.community/news/49>`_ on February 3, 2012.

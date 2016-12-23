@@ -77,9 +77,9 @@ List of known bugs and limitations for Asterisk 13 in XiVO:
 * When direct media is active and DTMF are sent using SIP INFO, DTMF are not working properly. It is
   also impossible to do an attended transfer from the XiVO client in these conditions.
   
-  See http://projects.xivo.io/issues/5692.
+  See http://projects.wazo.community/issues/5692.
 * There's a small memory leak occurring on certain call scenarios (mostly call center scenarios); you
   should check the memory usage of your asterisk process once per month and do a ``xivo-service
   restart`` when the memory usage grows too large.
 
-  See http://projects.xivo.io/issues/5694.
+  See http://projects.wazo.community/issues/5694.

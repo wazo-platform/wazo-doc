@@ -49,7 +49,7 @@ There are 2 options you can pass to xivo-upgrade:
 Preparing for an Upgrade
 ========================
 
-* Consult the `roadmaps <https://projects.xivo.io/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
+* Consult the `roadmaps <https://projects.wazo.community/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
 * Read all existing Upgrade Notes (see below) starting from your version to the current prod version.
 * For custom setups, follow the required procedures described below (example : cluster).
 * To download the packages beforehand, run ``xivo-upgrade -d``. This is not necessary, but useful for upgrading more quickly prior to stopping telephone services.
@@ -140,11 +140,11 @@ Upgrade Notes
 15.19
 -----
 
-Consult the `15.19 Roadmap <https://projects.xivo.io/versions/236>`_
+Consult the `15.19 Roadmap <https://projects.wazo.community/versions/236>`_
 
 * The sound file :file:`/usr/share/asterisk/sounds/fr_FR/une.wav` has been moved to
   :file:`/usr/share/asterisk/sounds/fr_FR/digits/1F.wav`.
-* If you would like to use the new `"transfer to voicemail" feature <http://projects.xivo.io/issues/5905>`_
+* If you would like to use the new `"transfer to voicemail" feature <http://projects.wazo.community/issues/5905>`_
   from the People Xlet, you'll need to update your directory definition and your directory display, i.e.:
 
   * edit your "internal" directory definition (Services / CTI server / Directories / Definitions)
@@ -184,7 +184,7 @@ Please consult the followin detailed upgrade notes for more information:
 15.18
 -----
 
-Consult the `15.18 Roadmap <https://projects.xivo.io/versions/234>`_
+Consult the `15.18 Roadmap <https://projects.wazo.community/versions/234>`_
 
 * The provd_pycli command (deprecated in 15.06) has been removed in favor of xivo-provd-cli. If you
   have custom scripts referencing provd_pycli, you'll need to update them.
@@ -233,7 +233,7 @@ daemon.
 15.17
 -----
 
-Consult the `15.17 Roadmap <https://projects.xivo.io/versions/233>`_
+Consult the `15.17 Roadmap <https://projects.wazo.community/versions/233>`_
 
 * Online call recording is now done via `automixmon
   <https://wiki.asterisk.org/wiki/display/AST/One-Touch+Features>`_ instead of automon. This has no
@@ -267,7 +267,7 @@ Please consult the following detailed upgrade notes for more information:
 15.16
 -----
 
-Consult the `15.16 Roadmap <https://projects.xivo.io/versions/232>`_
+Consult the `15.16 Roadmap <https://projects.wazo.community/versions/232>`_
 
 * The directory column type "mobile" was removed in favor of the new "callable" type. If you have
   hand-written configuration files for xivo-dird, in section "views", subsection "displays", all
@@ -282,7 +282,7 @@ Consult the `15.16 Roadmap <https://projects.xivo.io/versions/232>`_
 15.15
 -----
 
-Consult the `15.15 Roadmap <https://projects.xivo.io/versions/231>`_
+Consult the `15.15 Roadmap <https://projects.wazo.community/versions/231>`_
 
 **Voicemail Upgrade Notes**
 
@@ -323,7 +323,7 @@ See :ref:`directories` and :ref:`xivo-dird-integration` for more details
 15.14
 -----
 
-* Consult the `15.14 Roadmap <https://projects.xivo.io/versions/230>`_
+* Consult the `15.14 Roadmap <https://projects.wazo.community/versions/230>`_
 * Default password for ``xivo-polycom-4.0.4`` plugin version >= 1.3 is now **9486** (i.e. the word
   "xivo" on a telephone keypad).
 * Default password for ``xivo-polycom-5.3.0`` plugin version >= 1.4 is now **9486**.
@@ -335,7 +335,7 @@ See :ref:`directories` and :ref:`xivo-dird-integration` for more details
 15.13
 -----
 
-* Consult the `15.13 Roadmap <https://projects.xivo.io/versions/229>`_
+* Consult the `15.13 Roadmap <https://projects.wazo.community/versions/229>`_
 * Asterisk has been upgraded from version 11.17.1 to 13.4.0, which is a major Asterisk upgrade.
 * An `ARI <https://wiki.asterisk.org/wiki/display/AST/Getting+Started+with+ARI>`_ user has been
   added to :file:`/etc/asterisk/ari.conf`. If you have configured Asterisk HTTP server to bind on a
@@ -360,7 +360,7 @@ Please consult the following detailed upgrade notes for more information:
 15.12
 -----
 
-* Consult the `15.12 Roadmap <https://projects.xivo.io/versions/228>`_
+* Consult the `15.12 Roadmap <https://projects.wazo.community/versions/228>`_
 * The certificate used for HTTPS in the web interface will be regenerated if the default certificate
   was used. Your browser will complain about the new certificate, and it is safe to accept it (see
   `#3656`_). See also :ref:`https_certificate`.
@@ -370,13 +370,13 @@ Please consult the following detailed upgrade notes for more information:
 * xivo-auth and xivo-dird now use HTTPS, if you have custom development using these services, update
   your configuration accordingly.
 
-.. _#3656: http://projects.xivo.io/issues/5636
+.. _#3656: http://projects.wazo.community/issues/5636
 
 
 15.11
 -----
 
-* Consult the `15.11 Roadmap <https://projects.xivo.io/versions/227>`_
+* Consult the `15.11 Roadmap <https://projects.wazo.community/versions/227>`_
 * The call records older than 365 days will be periodically removed. The first automatic purge will
   occur in the night after the upgrade. See :ref:`purge_logs` for more details.
 
@@ -384,34 +384,34 @@ Please consult the following detailed upgrade notes for more information:
 15.10
 -----
 
-* Consult the `15.10 Roadmap <https://projects.xivo.io/versions/223>`_
+* Consult the `15.10 Roadmap <https://projects.wazo.community/versions/223>`_
 
 
 15.09
 -----
 
-* Consult the `15.09 Roadmap <https://projects.xivo.io/versions/226>`_
+* Consult the `15.09 Roadmap <https://projects.wazo.community/versions/226>`_
 
 
 15.08
 -----
 
-* Consult the `15.08 Roadmap <https://projects.xivo.io/versions/225>`_
+* Consult the `15.08 Roadmap <https://projects.wazo.community/versions/225>`_
 * The Dialer Xlet has been integrated in Identity Xlet.
 
 
 15.07
 -----
 
-* Consult the `15.07 Roadmap <https://projects.xivo.io/versions/224>`_
+* Consult the `15.07 Roadmap <https://projects.wazo.community/versions/224>`_
 
 
 15.06
 -----
 
-* Consult the `15.06 Roadmap <https://projects.xivo.io/versions/222>`_
+* Consult the `15.06 Roadmap <https://projects.wazo.community/versions/222>`_
 * The provd client has been moved into a new python package, xivo_provd_client. If you have custom scripts
-  using this client, you'll need to update them. See http://projects.xivo.io/issues/5469 for more
+  using this client, you'll need to update them. See http://projects.wazo.community/issues/5469 for more
   information.
 * The provd_pycli command name has been deprecated in favor of xivo-provd-cli. These 2 commands do the
   same thing, the only difference being the name of the command. The provd_pycli command name will be
@@ -424,7 +424,7 @@ Please consult the following detailed upgrade notes for more information:
 15.05
 -----
 
-* Consult the `15.05 Roadmap <https://projects.xivo.io/versions/221>`_
+* Consult the `15.05 Roadmap <https://projects.wazo.community/versions/221>`_
 * The Xlet identity has been modified to follow the new XiVO Client design which implies the removal
   of some details.
 
@@ -432,25 +432,25 @@ Please consult the following detailed upgrade notes for more information:
 15.04
 -----
 
-* Consult the `15.04 Roadmap <https://projects.xivo.io/versions/220>`_
+* Consult the `15.04 Roadmap <https://projects.wazo.community/versions/220>`_
 
 
 15.03
 -----
 
-* Consult the `15.03 Roadmap <https://projects.xivo.io/versions/219>`_
+* Consult the `15.03 Roadmap <https://projects.wazo.community/versions/219>`_
 
 
 15.02
 -----
 
-* Consult the `15.02 Roadmap <https://projects.xivo.io/versions/218>`_
+* Consult the `15.02 Roadmap <https://projects.wazo.community/versions/218>`_
 
 
 15.01
 -----
 
-* Consult the `15.01 Roadmap <https://projects.xivo.io/versions/217>`_
+* Consult the `15.01 Roadmap <https://projects.wazo.community/versions/217>`_
 
 * The :ref:`confd REST API <confd-api>` is now more restrictive on HTTP headers. Particularly, the
   headers Accept and Content-Type must be set to (typically) ``application/json``.
