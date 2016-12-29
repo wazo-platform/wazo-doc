@@ -37,6 +37,14 @@ xivo-confd REST API changelog
 
   * ``wazo_version``
 
+* Added pagings endpoints:
+
+  * GET ``/1.1/pagings``
+  * POST ``/1.1/pagings``
+  * DELETE ``/1.1/pagings/<paging_id>``
+  * GET ``/1.1/pagings/<paging_id>``
+  * PUT ``/1.1/pagings/<paging_id>``
+
 
 16.16
 =====
