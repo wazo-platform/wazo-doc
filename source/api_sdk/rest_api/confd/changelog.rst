@@ -45,6 +45,11 @@ xivo-confd REST API changelog
   * GET ``/1.1/pagings/<paging_id>``
   * PUT ``/1.1/pagings/<paging_id>``
 
+* A new API for associating users with a paging has been added:
+
+  * PUT ``/1.1/pagings/<paging_id>/members/users``
+  * PUT ``/1.1/pagings/<paging_id>/callers/users``
+
 
 16.16
 =====
@@ -82,7 +87,7 @@ xivo-confd REST API changelog
   * GET ``/1.1/groups/<group_id>/fallbacks``
   * PUT ``/1.1/groups/<group_id>/fallbacks``
 
-* A new API for associating trunks with an group has been added:
+* A new API for associating trunks with a group has been added:
 
   * PUT ``/1.1/groups/<group_id>/members/users``
 
