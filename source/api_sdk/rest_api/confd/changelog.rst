@@ -4,6 +4,53 @@
 xivo-confd REST API changelog
 *****************************
 
+17.01
+=====
+
+* Added ``conference`` destination type for incalls and ivr.
+
+* Added parkinglots endpoints:
+
+  * GET ``/1.1/parkinglots``
+  * POST ``/1.1/parkinglots``
+  * DELETE ``/1.1/parkinglots/<parking_lot_id>``
+  * GET ``/1.1/parkinglots/<parking_lot_id>``
+  * PUT ``/1.1/parkinglots/<parking_lot_id>``
+
+* A new API for associating an extension with a parking_lot has been added:
+
+  * DELETE ``/1.1/parkinglots/<parking_lot_id>/extensions/<extension_id>``
+  * PUT ``/1.1/parkinglots/<parking_lot_id>/extensions/<extension_id>``
+
+* New readonly parameters have been added to the funckeys resource:
+
+  * For destinations of type `user`:
+
+      * ``user_firstname``
+      * ``user_lastname``
+
+  * For destinations of type `group`:
+
+      * ``group_name``
+
+* New readonly parameters have been added to the infos resource:
+
+  * ``wazo_version``
+
+* Added pagings endpoints:
+
+  * GET ``/1.1/pagings``
+  * POST ``/1.1/pagings``
+  * DELETE ``/1.1/pagings/<paging_id>``
+  * GET ``/1.1/pagings/<paging_id>``
+  * PUT ``/1.1/pagings/<paging_id>``
+
+* A new API for associating users with a paging has been added:
+
+  * PUT ``/1.1/pagings/<paging_id>/members/users``
+  * PUT ``/1.1/pagings/<paging_id>/callers/users``
+
+
 16.16
 =====
 
@@ -19,8 +66,8 @@ xivo-confd REST API changelog
 
 * A new API for associating an extension with a conference has been added:
 
-  * DELETE ``/1.1/conferences/<group_id>/extensions/<extension_id>``
-  * PUT ``/1.1/conferences/<group_id>/extensions/<extension_id>``
+  * DELETE ``/1.1/conferences/<conference_id>/extensions/<extension_id>``
+  * PUT ``/1.1/conferences/<conference_id>/extensions/<extension_id>``
 
 * Added groups endpoints:
 
@@ -40,7 +87,7 @@ xivo-confd REST API changelog
   * GET ``/1.1/groups/<group_id>/fallbacks``
   * PUT ``/1.1/groups/<group_id>/fallbacks``
 
-* A new API for associating trunks with an group has been added:
+* A new API for associating trunks with a group has been added:
 
   * PUT ``/1.1/groups/<group_id>/members/users``
 
