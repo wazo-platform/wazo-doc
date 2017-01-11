@@ -4,6 +4,14 @@
 xivo-auth HTTP API Changelog
 ****************************
 
+17.02
+=====
+
+* A new resource has been added to manage ACL policies
+
+    * POST ``/0.1/policy``
+
+
 16.16
 =====
 
