@@ -4,6 +4,18 @@
 xivo-confd REST API changelog
 *****************************
 
+17.02
+=====
+
+* Added schedules endpoints:
+
+  * GET ``/1.1/schedules``
+  * POST ``/1.1/schedules``
+  * DELETE ``/1.1/schedules/<schedule_id>``
+  * GET ``/1.1/schedules/<schedule_id>``
+  * PUT ``/1.1/schedules/<schedule_id>``
+
+
 17.01
 =====
 
