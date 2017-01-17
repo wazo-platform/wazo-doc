@@ -14,6 +14,8 @@ xivo-auth HTTP API Changelog
     * GET ``/0.1/policies/<policy_uuid>``
     * PUT ``/0.1/policies/<policy_uuid>``
     * DELETE ``/0.1/policies/<policy_uuid>``
+    * PUT ``/0.1/policies/<policy_uuid>/acl_templates/<template>``
+    * DELETE ``/0.1/policies/<policy_uuid>/acl_templates/<template>``
 
 
 16.16
