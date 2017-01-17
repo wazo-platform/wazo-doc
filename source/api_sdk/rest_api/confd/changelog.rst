@@ -15,6 +15,11 @@ xivo-confd REST API changelog
   * GET ``/1.1/schedules/<schedule_id>``
   * PUT ``/1.1/schedules/<schedule_id>``
 
+* A new API for associating an incall with a schedule has been added:
+
+  * DELETE ``/1.1/incalls/<incall_id>/schedules/<schedule_id>``
+  * PUT ``/1.1/incalls/<incall_id>/schedules/<schedule_id>``
+
 
 17.01
 =====
