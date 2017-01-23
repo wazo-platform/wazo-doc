@@ -50,6 +50,7 @@ See http://api.wazo.community for more details about the HTTP API.
 
 See :ref:`service-authentication` for details about the authentication process.
 
+
 Usage for services using xivo-auth
 ==================================
 
@@ -93,6 +94,74 @@ Launching xivo-auth
       -l LOG_LEVEL, --log-level LOG_LEVEL
                             Logs messages with LOG_LEVEL details. Must be one of:
                             critical, error, warning, info, debug. Default: None
+
+
+Configuration
+=============
+
+Policies
+--------
+
+Policies can be assigned to backends in order to generate the appropriate permissions
+for a token created with this backend.
+
+To change to policy associated to a backend, add a new configuration file in ``/etc/xivo-auth/conf.d``
+with the following content:
+
+.. code-block:: yaml
+
+    backend_policies:
+      <backend_name>: <policy_name>
+
+* backend_name: The name of the backend to associate to a new policy
+* policy_name: The name of the policy to assign to the backend
+
+.. note::
+
+    Each backend may support different variables. A policy tailored for a user oriented
+    backend will probably not be usable if assigned to an administrator backend.
+
+
+Policies
+========
+
+A policy is a list of ACL templates that is used to generate the ACL of a token. Policies
+can be created, deleted or modified using the REST API.
+
+
+ACL templates
+-------------
+
+ACL templates use `jinja2 templates`_. Each backend is responsible of supplying a list of variables
+to the template engine for rendering.
+
+.. _jinja2 templates: http://jinja.pocoo.org/docs/2.9/templates/#
+
+A backend supplying the following variables:
+
+.. code-block:: javascript
+
+    {"user": {"lines": [{"id": 1, ...}, {"id": 42, ...}],
+              "uuid": "fd64193f-7260-4299-9bc2-87c0106e5302"}}
+
+
+With the following ACL templates:
+
+.. code-block:: none
+
+    confd.users.{{ user.uuid }}.read
+    {% for line in user.lines %}confd.lines.{{ line.id }}.#\n{% endfor %}
+    dird.me.#
+
+
+Would create tokens with the following ACL:
+
+.. code-block:: none
+
+    confd.users.fd64193f-7260-4299-9bc2-87c0106e5302.read
+    confd.lines.1.#
+    confd.lines.42.#
+    dird.me.#
 
 
 HTTP API Reference

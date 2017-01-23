@@ -38,6 +38,12 @@ Purpose: Authenticate a Wazo user. The login/password is configured in :menusele
 Services --> PBX Settings --> Users` in the CTI client section.
 
 
+Supported policy variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* user.uuid: The UUID of the user authenticating
+
+
 .. _auth-backends-ldap:
 
 LDAP
@@ -122,3 +128,9 @@ Configuration
    the bind password for searching for the user DN.
 ``bind_anonymous`` (optional)
    use anonymous bind for searching for the user DN (default: false)
+
+
+Supported policy variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* user.uuid: The UUID of the user authenticating
