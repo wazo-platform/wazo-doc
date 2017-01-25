@@ -11,13 +11,14 @@ services to be used:
 
 * The agent management server (xivo-agentd)
 * The authentication server (xivo-auth)
+* The configuration server (xivo-confd)
 * The telephony service interface (xivo-ctid-ng)
 * The directory service (xivo-dird)
 * The AMI HTTP interface (xivo-amid)
 * web interface (xivo-web-interface)
 * API documentation (xivo-swagger-doc)
 * The websocket interface (xivo-websocketd)
-* Asterisk (xivo-config)
+* Asterisk WebSocket (xivo-config)
 
 An administrator can easily modify the configuration to allow or disallow some services.
 
