@@ -10,7 +10,7 @@ xivo-auth HTTP API Changelog
 * A new resource has been added to manage ACL policies
 
     * POST ``/0.1/polices``
-    * GET ``/0.1/policies`
+    * GET ``/0.1/policies``
     * GET ``/0.1/policies/<policy_uuid>``
     * PUT ``/0.1/policies/<policy_uuid>``
     * DELETE ``/0.1/policies/<policy_uuid>``
