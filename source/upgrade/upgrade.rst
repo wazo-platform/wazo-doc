@@ -199,6 +199,16 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.02
+-----
+
+Consult the `17.02 Roadmap <https://projects.wazo.community/versions/254>`_
+
+* A few more services are now available by default on port TCP/443 (the complete list is documented
+  in the :ref:`nginx` section). This does not pose any additional security risk by default, but if
+  you have extra strict requirements about security, they can be manually disabled.
+
+
 17.01
 -----
 
