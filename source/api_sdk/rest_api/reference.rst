@@ -7,6 +7,8 @@ Access
 
 Each REST API is available via HTTPS on :ref:`different ports <network_ports>`.
 
+Most of them can also be reached by default via :ref:`nginx` using the port TCP/443.
+
 
 API reference
 =============
