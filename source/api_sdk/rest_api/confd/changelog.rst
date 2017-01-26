@@ -20,6 +20,14 @@ xivo-confd REST API changelog
   * DELETE ``/1.1/incalls/<incall_id>/schedules/<schedule_id>``
   * PUT ``/1.1/incalls/<incall_id>/schedules/<schedule_id>``
 
+* A new API for managing switchboards:
+
+  * GET ``/1.1/switchboards``
+  * POST ``/1.1/switchboards``
+  * DELETE ``/1.1/switchboards/<switchboard_uuid>``
+  * GET ``/1.1/switchboards/<switchboard_uuid>``
+  * PUT ``/1.1/switchboards/<switchboard_uuid>``
+  * PUT ``/1.1/switchboards/<switchboard_uuid>/members/users``
 
 17.01
 =====
