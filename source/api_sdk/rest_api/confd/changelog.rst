@@ -4,6 +4,31 @@
 xivo-confd REST API changelog
 *****************************
 
+17.02
+=====
+
+* Added schedules endpoints:
+
+  * GET ``/1.1/schedules``
+  * POST ``/1.1/schedules``
+  * DELETE ``/1.1/schedules/<schedule_id>``
+  * GET ``/1.1/schedules/<schedule_id>``
+  * PUT ``/1.1/schedules/<schedule_id>``
+
+* A new API for associating an incall with a schedule has been added:
+
+  * DELETE ``/1.1/incalls/<incall_id>/schedules/<schedule_id>``
+  * PUT ``/1.1/incalls/<incall_id>/schedules/<schedule_id>``
+
+* A new API for managing switchboards:
+
+  * GET ``/1.1/switchboards``
+  * POST ``/1.1/switchboards``
+  * DELETE ``/1.1/switchboards/<switchboard_uuid>``
+  * GET ``/1.1/switchboards/<switchboard_uuid>``
+  * PUT ``/1.1/switchboards/<switchboard_uuid>``
+  * PUT ``/1.1/switchboards/<switchboard_uuid>/members/users``
+
 17.01
 =====
 
