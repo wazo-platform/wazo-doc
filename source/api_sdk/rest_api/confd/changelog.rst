@@ -4,6 +4,21 @@
 xivo-confd REST API changelog
 *****************************
 
+17.03
+=====
+
+* A new API for managing :abbr:`MOH (Music On Hold)`:
+
+  * GET ``/1.1/moh``
+  * POST ``/1.1/moh``
+  * DELETE ``/1.1/moh/<moh_id>``
+  * GET ``/1.1/moh/<moh_id>``
+  * PUT ``/1.1/moh/<moh_id>``
+  * DELETE ``/1.1/moh/<moh_id>/files/<filename>``
+  * GET ``/1.1/moh/<moh_id>/files/<filename>``
+  * PUT ``/1.1/moh/<moh_id>/files/<filename>``
+
+
 17.02
 =====
 
@@ -28,6 +43,7 @@ xivo-confd REST API changelog
   * GET ``/1.1/switchboards/<switchboard_uuid>``
   * PUT ``/1.1/switchboards/<switchboard_uuid>``
   * PUT ``/1.1/switchboards/<switchboard_uuid>/members/users``
+
 
 17.01
 =====
