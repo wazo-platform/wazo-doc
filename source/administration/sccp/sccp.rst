@@ -49,6 +49,25 @@ When connecting a second SCCP phone, the device will be automatically detected a
    Device list
 
 
+Auto-provisioning support
+-------------------------
+
+Starting from Wazo 18.07, an SCCP device can be associated to a user by entering the user's provisioning code
+directly from the SCCP device while in autoprov mode.
+
+There's two settings in :menuselection:`Services --> IPBX --> IPBX settings --> SCCP
+general settings` influencing the auto-provisioning behaviour:
+
+* the :guilabel:`Allow guest connections` option must be enabled to allow SCCP devices to connect to
+  the server and allow a provisioning code from being dialed from them. Disabling this option can
+  provide some additional security if your Wazo is in an hostile environment, at the cost of making
+  auto-provisioning support unavailable for SCCP devices.
+* the :guilabel:`Maximum number of guest connections` option limits the number of SCCP devices that
+  can simultaneously connect to the server in autoprov mode. You should set this value to the
+  maximum number of SCCP devices you expect to be in autoprov mode at any moment, unless your
+  Wazo is in an hostile environment, where you should probably set it to a fairly low value.
+
+
 SCCP General Settings
 =====================
 
@@ -157,7 +176,7 @@ Features
 +------------------------------+-----------+
 | Group pickup                 | Yes       |
 +------------------------------+-----------+
-| Auto-provisioning            | Not yet   |
+| Auto-provisioning            | Yes       |
 +------------------------------+-----------+
 | Multi line                   | Not yet   |
 +------------------------------+-----------+
