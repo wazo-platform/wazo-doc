@@ -5,7 +5,7 @@ SCCP Configuration
 ******************
 
 Provisioning
-------------
+============
 
 To be able to provision SCCP phones you should :
 
@@ -50,7 +50,7 @@ When connecting a second SCCP phone, the device will be automatically detected a
 
 
 SCCP General Settings
----------------------
+=====================
 
 Review SCCP general settings:
  :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
@@ -61,7 +61,7 @@ Review SCCP general settings:
 
 
 User creation
--------------
+=============
 
 The last step is to create a user with a **SCCP line**.
 
@@ -87,7 +87,7 @@ Congratulations ! Your SCCP phone is now ready to be called !
 
 
 Function keys
--------------
+=============
 
 With SCCP phones, the only function keys that can be configured are:
 
@@ -99,7 +99,7 @@ With SCCP phones, the only function keys that can be configured are:
 
 
 Direct Media
-------------
+============
 
 SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use directmedia, one must enable the directmedia option in SCCP general settings:
  :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
@@ -108,7 +108,7 @@ SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use di
 .. _sccp-features:
 
 Features
---------
+========
 
 +------------------------------+-----------+
 | Features                     | Supported |
@@ -170,7 +170,7 @@ Features
 
 
 Telephone
----------
+=========
 
 +-------------+-------------+----------------------+----------------+
 | Device type | Supported   | Firmware version     | Timezone aware |
