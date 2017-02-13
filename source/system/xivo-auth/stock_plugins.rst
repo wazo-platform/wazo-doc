@@ -41,7 +41,14 @@ Services --> PBX Settings --> Users` in the CTI client section.
 Supported policy variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* user.uuid: The UUID of the user authenticating
+* id: The ID of the user authenticating
+* uuid: The UUID of the user authenticating
+* voicemails: a list of voicemail ID associated to this user
+* lines: a list of line ID associated to this user
+* extensions: a list of extension ID associated to this user
+* endpoint_sip: a list of SIP endpoint ID associated to this user
+* endpoing_sccp: a list of SCCP endpoint ID associated to this user
+* endpoint_custom: a list of custum endpoint ID associated to this user
 
 
 .. _auth-backends-ldap:
@@ -133,4 +140,11 @@ Configuration
 Supported policy variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* user.uuid: The UUID of the user authenticating
+* id: The ID of the user authenticating
+* uuid: The UUID of the user authenticating
+* voicemails: a list of voicemail ID associated to this user
+* lines: a list of line ID associated to this user
+* extensions: a list of extension ID associated to this user
+* endpoint_sip: a list of SIP endpoint ID associated to this user
+* endpoing_sccp: a list of SCCP endpoint ID associated to this user
+* endpoint_custom: a list of custum endpoint ID associated to this user
