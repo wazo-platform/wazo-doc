@@ -4,6 +4,16 @@
 xivo-ctid-ng HTTP API changelog
 *******************************
 
+17.03
+=====
+
+* New routes for switchboard operations. This is not (yet) related to the current switchboard
+  implementation.
+
+  * ``GET /1.0/switchboards/{switchboard_uuid}/calls/held``
+  * ``PUT /1.0/switchboards/{switchboard_uuid}/calls/held/{call_id}``
+  * ``PUT /1.0/switchboards/{switchboard_uuid}/calls/held/{call_id}/answer``
+
 17.02
 =====
 
