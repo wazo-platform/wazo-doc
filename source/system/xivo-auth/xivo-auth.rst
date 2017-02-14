@@ -149,8 +149,8 @@ With the following ACL templates:
 
 .. code-block:: none
 
-    confd.users.{{ user.uuid }}.read
-    {% for line in user.lines %}confd.lines.{{ line.id }}.#\n{% endfor %}
+    confd.users.{{ uuid }}.read
+    {% for line in lines %}confd.lines.{{ line }}.#\n{% endfor %}
     dird.me.#
 
 
