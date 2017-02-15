@@ -141,8 +141,8 @@ A backend supplying the following variables:
 
 .. code-block:: javascript
 
-    {"user": {"lines": [{"id": 1, ...}, {"id": 42, ...}],
-              "uuid": "fd64193f-7260-4299-9bc2-87c0106e5302"}}
+    {"uuid": "fd64193f-7260-4299-9bc2-87c0106e5302",
+     "lines": [1, 42]}
 
 
 With the following ACL templates:
