@@ -61,6 +61,9 @@ Available categories are:
 
 * mp3: play MP3 files.
 
+  .. warning:: The mp3 mode is deprecated and you should not use it. Instead, you should
+     convert your MP3 files to another format and use the "files" mode.
+
   The on-hold music will play from an arbitrary position on the track, it will not play from the start.
 
 * custom: do not play sound files. Instead, run an external process. That process must send on
@@ -68,6 +71,6 @@ Available categories are:
 
   Example process: :code:`/usr/bin/mpg123 -s --mono -y -f 8192 -r 8000 http://streaming.example.com/stream.mp3`
 
-.. note:: Processes run by custom categories are started as soon as the category is created and will
-          only stop when the category is deleted. This means that on-hold music fed from online
-          streaming will constantly be receiving network traffic, even when there are no calls.
+  .. note:: Processes run by custom categories are started as soon as the category is created and will
+     only stop when the category is deleted. This means that on-hold music fed from online
+     streaming will constantly be receiving network traffic, even when there are no calls.

@@ -199,6 +199,12 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.03
+-----
+
+Consult the `17.03 Roadmap <https://projects.wazo.community/versions/255>`_
+
+
 17.02
 -----
 

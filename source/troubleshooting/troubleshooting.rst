@@ -422,3 +422,23 @@ It is sometimes useful to ring a phone from the asterisk console. For example, i
 to call the ``1234`` extension in context ``default``::
 
    channel originate Local/1234@default extension 42@xivo-callme
+
+
+Network packets capture
+-----------------------
+
+In some extreme cases, packet capture may be very useful to find out what is happening between Wazo
+and other equipment (phones, trunks, etc.)
+
+Local capture, for later analysis::
+
+   # change interface eth0 and filter 'udp port 5060' as you wish
+   tcpdump -i eth0 -w /tmp/wazo.pcap udp port 5060
+
+Remote packet capture, streamed to Wireshark via SSH::
+
+   # install dumpcap on the server wazo.example.com
+   ssh wazo.example.com apt-get install -y wireshark-common
+
+   # run the capture on interface eth0, for SIP packets only (UDP port 5060)
+   wireshark -k -i <(ssh wazo.example.com "dumpcap -P -i eth0 -w - -f 'udp port 5060'")
