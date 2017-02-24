@@ -88,6 +88,10 @@ Unless specified, the license is `CC BY-SA`_.
 | :download:`Reverse lookup from a text file<data/reverse-lookup-text-file.pdf>`                            | French   | Intermediate | TiJof &        | 16.13        |
 |                                                                                                           |          |              | Yohan Vitu     |              |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| :download:`Wazo star codes (en)<data/wazo-star-codes-en.pdf>`                                             | English  | Intermediate | Ward Mundy     | 2016         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| :download:`Wazo star codes (fr)<data/wazo-star-codes-fr.pdf>`                                             | French   | Intermediate | Thomas Faure   | 2017         |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 
 .. _What is XiVO and tutorial (video): https://www.youtube.com/watch?v=leMZi6cU8iM
 .. _Xivo pour les nuls: http://xivopourlesnuls.wordpress.com
