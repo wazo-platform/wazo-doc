@@ -1,3 +1,5 @@
+.. _archive-upgrade:
+
 *****************************************
 Upgrade involving archive version of XiVO
 *****************************************
