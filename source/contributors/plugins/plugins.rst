@@ -14,6 +14,26 @@ A plugin is a set of additions made to a custom Wazo installation to add a new
 functionnality.
 
 
+What can be done with a plugin
+===
+
+Wazo plugins allow a third party to add almost anything to Wazo. Most of our services
+have extension points that can be used togeter to create a complete feature as a plugin.
+
+Here's a non exaustive list of what can be done with plugins
+
+* Add configuration files to wazo services in `/etc/*/conf.d/`
+* Add configuration files and dialplan files to Asterisk
+* Reload services to complete the installation
+* Extend wazo services using the available extension points
+
+    * xivo-auth
+    * xivo-confd
+    * xivo-confgend
+    * xivo-ctid-ng
+    * xivo-dird
+
+
 Creating a plugin
 ===
 
