@@ -18,6 +18,17 @@ Purpose: Authenticate a Wazo administrator. The login/password is configured in
 :menuselection:`Configuration --> Management --> Users`.
 
 
+Supported policy variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* entity: The entity of the administrator
+
+.. note::
+
+    The `entity` variable can be `None` which usually mean that this administrator
+    has access to all entities.
+
+
 .. _auth-backends-service:
 
 xivo_service
