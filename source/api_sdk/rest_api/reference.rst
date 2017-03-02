@@ -17,6 +17,7 @@ API reference
    :maxdepth: 1
 
    agentd/api
+   call-logd/api
    confd/api
    ctid/api
    ctid-ng/api
