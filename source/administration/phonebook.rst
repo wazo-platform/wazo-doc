@@ -15,11 +15,12 @@ You can add entries one by one or you can mass-import from a CSV file.
 Mass-import contacts
 ====================
 
-Go in the :menuselection:`Services --> IPBX --> IPBX Services --> Phonebook` section and move your
-mouse cursor on the *+* button in the upper right corner. Select *Import a file*.
+Go in the :menuselection:`Services --> IPBX --> IPBX Services --> Phonebook` section:
 
-The file to be imported must be a CSV file, with a comma character `,` as field delimiter. The file
-must be encoded in UTF-8.
+.. figure:: images/phonebook-import.png
+
+The file to be imported must be a CSV file, with a comma character (``,``) as field delimiter. The
+file must be encoded in UTF-8.
 
 Available fields are :
 
@@ -39,7 +40,7 @@ Address fields:
 * address_<location>_city
 * address_<location>_state
 * address_<location>_zipcode
-* address_<location>_country [#country]
+* address_<location>_country [#country]_
 
 Available locations:
 
@@ -55,8 +56,9 @@ Number fields:
 * number_mobile [#numeric]_
 * number_other [#numeric]_
 
-.. [#numeric] These fields must contain only numeric characters, no space, point, etc.
 .. [#country] These fields must contain ISO country codes. The complete list is described `here`_.
+.. [#numeric] These fields must contain only phone number characters: ``+`` and ``*`` are allowed,
+              but not space, point, etc.
 .. _here: http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm
 
 
