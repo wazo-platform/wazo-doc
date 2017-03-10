@@ -69,8 +69,8 @@ The following configuration is mandatory
 * The :menuselection:`General --> Name` field has to be *__switchboard*
 * The :menuselection:`General --> Ring strategy` field has to be *Ring all*
 * The :menuselection:`General --> Preprocess subroutine` field has to be *xivo_subr_switchboard*
-* The :menuselection:`Application --> Allow caller to hang up call` option has to be *enabled*
-* The :menuselection:`Application --> Allow callee to transfer the call` option has to be *enabled*
+* The :menuselection:`Application --> Enable DTMF hangup by caller` option has to be *enabled*
+* The :menuselection:`Application --> Enable DTMF transfers by callee` option has to be *enabled*
 * The :menuselection:`Advanced --> Member reachability timeout` option has to be *disabled*
 * The :menuselection:`Advanced --> Time before retrying a call to a member` option has to be *1 second*
 * The :menuselection:`Advanced --> Delay before reassigning a call` option has to be *disabled*
