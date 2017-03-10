@@ -208,6 +208,12 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.04
+-----
+
+Consult the `17.04 Roadmap <https://projects.wazo.community/versions/256>`_
+
+
 17.03
 -----
 
