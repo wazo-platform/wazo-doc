@@ -116,7 +116,7 @@ The following configuration is mandatory for switchboard users
 * The :menuselection:`General --> Profile` field has to be set to *Switchboard*
 * The :menuselection:`Lines --> Number` field has to have a valid extension
 * The :menuselection:`Lines --> Device` field has to be a :ref:`supported device <switchboard_supported_devices>`
-* The :menuselection:`Services --> Enable call transfer` option has to be *enabled*
+* The :menuselection:`Services --> Enable DTMF transfers` option has to be *enabled*
 * The :menuselection:`Services --> Enable supervision` option has to be *enabled*
 
 .. figure:: images/user_general.png
