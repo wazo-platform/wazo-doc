@@ -252,7 +252,8 @@ XiVO Client configuration
 Directory xlet
 --------------
 
-The transfer destination is chosen in the Directory xlet. You **must** follow the :ref:`directory-xlet` section to be able to use it.
+The transfer destination is chosen in the Directory xlet. You **must** follow the
+:ref:`directory-xlet` section to be able to use it.
 
 
 .. _switchboard_configuration_multi_queues:
