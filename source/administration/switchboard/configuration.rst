@@ -69,8 +69,8 @@ The following configuration is mandatory
 * The :menuselection:`General --> Name` field has to be *__switchboard*
 * The :menuselection:`General --> Ring strategy` field has to be *Ring all*
 * The :menuselection:`General --> Preprocess subroutine` field has to be *xivo_subr_switchboard*
-* The :menuselection:`Application --> Allow caller to hang up call` option has to be *enabled*
-* The :menuselection:`Application --> Allow callee to transfer the call` option has to be *enabled*
+* The :menuselection:`Application --> Enable DTMF hangup by caller` option has to be *enabled*
+* The :menuselection:`Application --> Enable DTMF transfers by callee` option has to be *enabled*
 * The :menuselection:`Advanced --> Member reachability timeout` option has to be *disabled*
 * The :menuselection:`Advanced --> Time before retrying a call to a member` option has to be *1 second*
 * The :menuselection:`Advanced --> Delay before reassigning a call` option has to be *disabled*
@@ -116,7 +116,7 @@ The following configuration is mandatory for switchboard users
 * The :menuselection:`General --> Profile` field has to be set to *Switchboard*
 * The :menuselection:`Lines --> Number` field has to have a valid extension
 * The :menuselection:`Lines --> Device` field has to be a :ref:`supported device <switchboard_supported_devices>`
-* The :menuselection:`Services --> Enable call transfer` option has to be *enabled*
+* The :menuselection:`Services --> Enable DTMF transfers` option has to be *enabled*
 * The :menuselection:`Services --> Enable supervision` option has to be *enabled*
 
 .. figure:: images/user_general.png
@@ -252,7 +252,8 @@ XiVO Client configuration
 Directory xlet
 --------------
 
-The transfer destination is chosen in the Directory xlet. You **must** follow the :ref:`directory-xlet` section to be able to use it.
+The transfer destination is chosen in the Directory xlet. You **must** follow the
+:ref:`directory-xlet` section to be able to use it.
 
 
 .. _switchboard_configuration_multi_queues:

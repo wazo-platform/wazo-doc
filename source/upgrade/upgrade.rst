@@ -15,7 +15,7 @@ start an upgrade with the command::
 
 .. note::
    * You can't use wazo-upgrade if you have not run the wizard yet
-   * Upgrading from a version prior to XiVO 1.2 is not supported.
+   * Upgrading from a :ref:`deprecated version<deprecated_versions>` is not supported.
    * When upgrading Wazo, you **must** also upgrade **all** associated XiVO Clients. There is
      currently no retro-compatibility on older XiVO Client versions. The only exception is Wazo
      16.16, which is compatible with XiVO Client 16.13.
@@ -166,6 +166,15 @@ Upgrading from i386 (32 bits) to amd64 (64 bits)
    migrate_i386_to_amd64
 
 
+Unsupported versions
+====================
+
+.. toctree::
+   :maxdepth: 1
+
+   version_deprecation_policy
+
+
 Troubleshooting
 ===============
 
@@ -198,6 +207,12 @@ Repeat this command until no more unwanted rules are left.
 
 Upgrade Notes
 =============
+
+17.04
+-----
+
+Consult the `17.04 Roadmap <https://projects.wazo.community/versions/256>`_
+
 
 17.03
 -----
