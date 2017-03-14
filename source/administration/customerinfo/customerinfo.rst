@@ -6,7 +6,24 @@ Display customer informations
    sheetconfiguration
 
 The informations about a call are displayed via the XiVO Client on forms called
-sheets.
+sheets. Sheets or customer info is a mechanism that allow the user to receive information
+about a call in its client. There are many events that can trigger a sheet to be
+displayed and there are many variables available for display.
+
+
+Enabling the sheets for a user
+==============================
+
+To be able to receive sheets, a user must have a CTI profile with the `Customer Info` xlet.
+
+.. figure:: images/sheets_xlet_customer_info.png
+   :scale: 85%
+
+The user must also enable `Screen Popup` in its client.
+
+.. figure:: images/sheets_client_screen_popup.png
+   :scale: 85%
+
 
 Example: Display a Web page when an agent answers a call
 --------------------------------------------------------
