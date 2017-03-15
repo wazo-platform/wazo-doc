@@ -4,6 +4,14 @@
 xivo-confd REST API changelog
 *****************************
 
+17.05
+=====
+
+* New readonly parameters have been added to the user resource:
+
+  * ``agent``
+
+
 17.03
 =====
 
