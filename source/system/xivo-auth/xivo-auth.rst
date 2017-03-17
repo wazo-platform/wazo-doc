@@ -142,7 +142,8 @@ A backend supplying the following variables:
 .. code-block:: javascript
 
     {"uuid": "fd64193f-7260-4299-9bc2-87c0106e5302",
-     "lines": [1, 42]}
+     "lines": [1, 42],
+     "agent": {"id": 50, "number": "1001"}}
 
 
 With the following ACL templates:
@@ -152,6 +153,7 @@ With the following ACL templates:
     confd.users.{{ uuid }}.read
     {% for line in lines %}confd.lines.{{ line }}.#\n{% endfor %}
     dird.me.#
+    {% if agent %}agentd.agents.by-id.{{ agent.id }}.read{% endif %}
 
 
 Would create tokens with the following ACL:
@@ -162,6 +164,7 @@ Would create tokens with the following ACL:
     confd.lines.1.#
     confd.lines.42.#
     dird.me.#
+    agentd.agentd.by-id.50.read
 
 
 HTTP API Reference

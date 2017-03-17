@@ -60,7 +60,9 @@ Supported policy variables
 * endpoint_sip: a list of SIP endpoint ID associated to this user
 * endpoing_sccp: a list of SCCP endpoint ID associated to this user
 * endpoint_custom: a list of custum endpoint ID associated to this user
-
+* agent: a dictionnary containing the agent's property, may be none and should be tested with an if before accessing its fields
+* agent.id: an agent id if the user is an agent
+* agent.number: an agent number if the user is an agent
 
 .. _auth-backends-ldap:
 
@@ -159,4 +161,6 @@ Supported policy variables
 * endpoint_sip: a list of SIP endpoint ID associated to this user
 * endpoing_sccp: a list of SCCP endpoint ID associated to this user
 * endpoint_custom: a list of custum endpoint ID associated to this user
-* agent: a dictionnary with ID and agent number associated to this user
+* agent: a dictionnary containing the agent's property, may be none and should be tested with an if before accessing its fields
+* agent.id: an agent id if the user is an agent
+* agent.number: an agent number if the user is an agent
