@@ -7,7 +7,7 @@ xivo-ctid-ng HTTP API changelog
 17.05
 =====
 
-* New attribute ``direction`` for Call objects in routes:
+* New attribute ``is_caller`` for Call objects in routes:
 
   * ``GET,POST /calls``
   * ``GET /calls/{call_id}``
