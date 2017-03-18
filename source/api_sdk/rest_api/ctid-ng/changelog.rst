@@ -4,6 +4,15 @@
 xivo-ctid-ng HTTP API changelog
 *******************************
 
+17.05
+=====
+
+* New attribute ``is_caller`` for Call objects in routes:
+
+  * ``GET,POST /calls``
+  * ``GET /calls/{call_id}``
+  * ``GET,POST /users/me/calls``
+
 17.03
 =====
 

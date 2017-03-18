@@ -139,3 +139,13 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
 * ``XIVO_SRCNUM``: the value is the callerid number of the originator of the call: the internal
   extension of a user (outgoing callerid is ignored), or the public extension of an external
   incoming call. This variable is available in all subroutines.
+
+* ``WAZO_CHANNEL_DIRECTION``: can have two values:
+
+  * ``from-wazo`` when the channel was initiated by Wazo: the channel links Wazo to the called
+    party. From Asterisk, this is an outbound channel. From the peer, this is an incoming call
+  * ``to-wazo`` when the channel was initiated by the user: the channel links Wazo to the calling
+  party. From Asterisk, this is an inbound channel. From the peer, this is an outgoing call.
+
+  The default value is ``from-wazo``. If you write scripts using originates to place new calls, you
+  should set ``WAZO_CHANNEL_DIRECTION`` to ``to-wazo`` on the originator channel.
