@@ -7,6 +7,14 @@ You can view the API documentation at http://api.wazo.community.
 Changelog
 =========
 
+17.05
+-----
+
+* The pause resource has an optional reason pause
+
+  * POST /agents/by-number/{agent_number}/pause
+
+
 15.19
 -----
 
