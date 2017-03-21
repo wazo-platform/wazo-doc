@@ -193,9 +193,6 @@ htmlhelp_basename = 'Wazo-docdoc'
 
 # -- Options for LaTeX output --------------------------------------------------
 
-# The paper size ('letter' or 'a4').
-latex_paper_size = u'a4'
-
 
 # The font size ('10pt', '11pt' or '12pt').
 latex_font_size = u'10pt'
@@ -208,7 +205,8 @@ latex_documents = [('index', 'Wazo-doc.tex', u'Wazo Documentation', u'The Wazo A
 
 # A dictionary that contains LaTeX snippets that override those Sphinx usually
 # puts into the generated .tex files.
-latex_elements = {'babel': '\\usepackage[english]{babel}'}
+latex_elements = {'babel': '\\usepackage[english]{babel}',
+                  'papersize': u'letter'}
 
 
 # The name of an image file (relative to this directory) to place at the top of
