@@ -10,7 +10,7 @@ Changelog
 17.05
 -----
 
-* The pause resource has an optional reason pause
+* Add an optional `reason` field to the body of the pause resource.
 
   * POST /agents/by-number/{agent_number}/pause
 
