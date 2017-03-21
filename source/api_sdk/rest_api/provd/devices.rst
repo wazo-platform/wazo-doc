@@ -18,7 +18,7 @@ The device manager links to the following resources:
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    GET /provd/dev_mgr
 
@@ -71,7 +71,7 @@ List Devices
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    GET /provd/dev_mgr/devices
 
@@ -141,7 +141,7 @@ Create a Device
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    POST /provd/dev_mgr/devices
 
@@ -184,7 +184,7 @@ Get a Device
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    GET /provd/dev_mgr/devices/<device_id>
 
@@ -231,7 +231,7 @@ Update a Device
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    PUT /provd/dev_mgr/devices/<device_id>
 
@@ -277,7 +277,7 @@ Delete a Device
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    DELETE /provd/dev_mgr/devices/<device_id>
 
@@ -307,7 +307,7 @@ Synchronize a Device
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    POST /provd/dev_mgr/synchronize
 
@@ -345,7 +345,7 @@ Reconfigure a Device
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    POST /provd/dev_mgr/reconfigure
 
@@ -390,7 +390,7 @@ Push DHCP Request Information
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    POST /provd/dev_mgr/dhcpinfo
 

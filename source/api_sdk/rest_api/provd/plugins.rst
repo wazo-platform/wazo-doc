@@ -18,7 +18,7 @@ The plugin manager links to the following resources:
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    GET /provd/pg_mgr
 
@@ -72,7 +72,7 @@ If you want to install/uninstall plugins, you need to go trough the plugin insta
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    GET /provd/pg_mgr/plugins
 
@@ -130,7 +130,7 @@ The plugin links to the following resources:
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    GET /provd/pg_mgr/plugins/<plugin_id>
 
@@ -175,7 +175,7 @@ Get Information of a Plugin
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    GET /provd/pg_mgr/plugins/<plugin_id>/info
 
@@ -253,7 +253,7 @@ the plugin, instead of restarting the xivo-provd application.
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    POST /provd/pg_mgr/reload
 
