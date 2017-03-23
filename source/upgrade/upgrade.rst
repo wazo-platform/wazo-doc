@@ -208,6 +208,22 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.05
+-----
+
+Consult the `17.05 Roadmap <https://projects.wazo.community/versions/257>`_
+
+* `python-flask-cors` has been updated from 1.10.3 to 3.0.2. Configuration files with custom `allow_headers` will
+  have to be updated to the new syntax. The following command can be used to see if you have a configuration file
+  which needs to be updated.
+
+.. code-block:: sh
+
+   for f in $(find /etc/*/conf.d -name '*.yml'); do grep -H allow_headers $f; done
+
+Refer to `#6617 <https://projects.wazo.community/issues/6617>`_ for the upgrade instructions.
+
+
 17.04
 -----
 
