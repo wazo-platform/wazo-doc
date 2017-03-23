@@ -147,3 +147,9 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
 
   The default value is ``from-wazo``. If you write scripts using originates to place new calls, you
   should set ``WAZO_CHANNEL_DIRECTION`` to ``to-wazo`` on the originator channel.
+
+* ``XIVO_CALLORIGIN``: can have two values:
+
+  * ``intern`` when the call does not involve DID or trunks, e.g. a simple call between two phones
+    or one phone and its voicemail
+  * ``extern`` when the call is received via a DID or emitted through an Outgoing Call
