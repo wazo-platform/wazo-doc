@@ -53,9 +53,9 @@ Sources
 ``bin/``
    Contains the binaries. Not applicable for pure libraries.
 
-``integration-tests/``
+``integration_tests/``
    Contains the tests bigger than unit-tests. Tests should be runnable simply, e.g.
-   ``nosetests integration-tests``.
+   ``nosetests integration_tests``.
 
 ``README.md``
    Read me in markdown (Github flavor).
