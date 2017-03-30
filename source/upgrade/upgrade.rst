@@ -217,11 +217,23 @@ Consult the `17.05 Roadmap <https://projects.wazo.community/versions/257>`_
   have to be updated to the new syntax. The following command can be used to see if you have a configuration file
   which needs to be updated.
 
-.. code-block:: sh
+  .. code-block:: sh
 
-   for f in $(find /etc/*/conf.d -name '*.yml'); do grep -H allow_headers $f; done
+     for f in $(find /etc/*/conf.d -name '*.yml'); do grep -H allow_headers $f; done
 
-Refer to `#6617 <https://projects.wazo.community/issues/6617>`_ for the upgrade instructions.
+  The old config in ``/etc/xivo-*/conf.d`` looked like::
+
+     rest_api:
+       cors:
+         allow_headers: Content-Type, X-Auth-Token
+
+  The new config in ``/etc/xivo-*/conf.d`` looks like::
+
+     rest_api:
+       cors:
+         allow_headers: ["Content-Type", "X-Auth-Token"]
+
+  See also the reference ticket `#6617 <https://projects.wazo.community/issues/6617>`_.
 
 
 17.04
