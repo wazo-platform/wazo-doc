@@ -21,7 +21,7 @@ Get Current Status
 Query
 ^^^^^
 
-.. code-block:: http
+.. code-block:: none
 
    GET <uri>
 
@@ -75,7 +75,7 @@ memory.
 Query
 ^^^^^
 
-.. code-block:: http
+.. code-block:: none
 
    DELETE <uri>
 
@@ -108,7 +108,7 @@ Get the Configuration
 Query
 ^^^^^
 
-.. code-block:: http
+.. code-block:: none
 
    GET <uri>
 
@@ -211,7 +211,7 @@ Get the Value of a Parameter
 Query
 ^^^^^
 
-.. code-block:: http
+.. code-block:: none
 
    GET <uri>
 
@@ -249,7 +249,7 @@ Set the Value of a Parameter
 Query
 ^^^^^
 
-.. code-block:: http
+.. code-block:: none
 
    PUT <uri>
 
@@ -293,7 +293,7 @@ Get the Installation Service
 Query
 ^^^^^
 
-.. code-block:: http
+.. code-block:: none
 
    GET <uri>
 
@@ -356,7 +356,7 @@ Install a Package
 Query
 ^^^^^
 
-.. code-block:: http
+.. code-block:: none
 
    POST <uri>
 
@@ -395,7 +395,7 @@ Uninstall a Package
 Query
 ^^^^^
 
-.. code-block:: http
+.. code-block:: none
 
    POST <uri>
 
@@ -431,7 +431,7 @@ Upgrade a Package
 Query
 ^^^^^
 
-.. code-block:: http
+.. code-block:: none
 
    POST <uri>
 
@@ -470,7 +470,7 @@ Update the List of Installable Packages
 Query
 ^^^^^
 
-.. code-block:: http
+.. code-block:: none
 
    POST <uri>
 
@@ -507,7 +507,7 @@ List Installable Packages
 Query
 ^^^^^
 
-.. code-block:: http
+.. code-block:: none
 
    GET <uri>
 
@@ -596,7 +596,7 @@ List Installed Packages
 Query
 ^^^^^
 
-.. code-block:: http
+.. code-block:: none
 
    GET <uri>
 

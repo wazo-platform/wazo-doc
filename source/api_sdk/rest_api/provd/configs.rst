@@ -16,7 +16,7 @@ The config manager links to the following resources:
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    GET /provd/cfg_mgr
 
@@ -62,7 +62,7 @@ List Configs
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    GET /provd/cfg_mgr/configs
 
@@ -145,7 +145,7 @@ Create a Config
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    POST /provd/cfg_mgr/configs
 
@@ -201,7 +201,7 @@ Get a Config
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    GET /provd/cfg_mgr/configs/<config_id>
 
@@ -252,7 +252,7 @@ Get a Raw Config
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    GET /provd/cfg_mgr/configs/<config_id>/raw
 
@@ -303,7 +303,7 @@ Update a Config
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    PUT /provd/cfg_mgr/configs/<config_id>
 
@@ -353,7 +353,7 @@ Delete a Config
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    DELETE /provd/cfg_mgr/configs/<config_id>
 
@@ -361,7 +361,7 @@ Query
 Example request
 ---------------
 
-.. code-block:: http
+.. code-block:: none
 
    DELETE /provd/cfg_mgr/configs/77839d0f05c84662864b0ae5c27b33e4
    Host: wazoserver
@@ -386,7 +386,7 @@ This service is used to create a new config from the config that has the ``autoc
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    POST /provd/cfg_mgr/autocreate
 

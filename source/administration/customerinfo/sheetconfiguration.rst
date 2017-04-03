@@ -55,6 +55,7 @@ file, make sure that the system user ``xivo-ctid`` has read access to the file.
 
 You must add a field with type ``form`` and display value ``qtui`` for the form to be displayed.
 
+
 Create a custom sheet with Qt Designer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -112,6 +113,7 @@ Each field is represented by the following parameters :
 * Default value : if given, this value will be used when all substitutions in the display value field fail.
 * Display value : you can define text, variables or both. See the :ref:`variable list<sheet-variables>` for more
   information.
+
 
 .. _sheet-variables:
 

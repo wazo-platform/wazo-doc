@@ -20,7 +20,7 @@ It links to the following resources:
 Query
 -----
 
-.. code-block:: http
+.. code-block:: none
 
    GET /provd
 

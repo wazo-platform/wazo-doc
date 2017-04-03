@@ -28,7 +28,7 @@ Installing from the ISO image
 * Continue by running the :ref:`configuration wizard. <configuration_wizard>`
 
 .. _all versions: http://mirror.wazo.community/iso/archives
-.. _latest version: http://mirror.wazo.community/iso/xivo-current
+.. _latest version: http://mirror.wazo.community/iso/wazo-current
 
 
 Installing from a minimal Debian installation

@@ -9,6 +9,7 @@ Administration
    boss_secretary_filter
    call_completion/call_completion
    callright/callright
+   call_recording/call_recording
    cel/cel
    cli_tools/cli_tools
    conference_room/conference_room
