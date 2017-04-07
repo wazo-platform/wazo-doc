@@ -442,3 +442,65 @@ Remote packet capture, streamed to Wireshark via SSH::
 
    # run the capture on interface eth0, for SIP packets only (UDP port 5060)
    wireshark -k -i <(ssh wazo.example.com "dumpcap -P -i eth0 -w - -f 'udp port 5060'")
+
+
+Getting help
+------------
+
+Sometime its just not possible to fix a problem by yourself. In that case, you will most
+likely need to get help from someone outside your network.
+
+*ngrok* can be used to give access to someone outside your network to your Wazo server.
+
+To make that possible, you will have to follow these 4 easy steps.
+
+* Create an account on `ngrok <https://dashboard.ngrok.com/user/signup>`_
+* Install ngrok on your Wazo server:
+
+On a 32 bit server:
+
+.. code-block:: sh
+
+  wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip
+
+On a 64 bit server:
+
+.. code-block:: sh
+
+  wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+
+* unzip *ngrok*
+
+.. code-block:: sh
+
+   unzip ngrok-stable-linux*.zip
+
+* Add your *ngrok* token
+
+.. code-block:: sh
+
+   ./ngrok authtoken <YOUR AUTH TOKEN>
+
+* Add ssh and http access in your *ngrok* config
+
+.. code-block:: sh
+
+   cat << EOF >> ~/.ngrok2/ngrok.yml
+   tunnels:
+     webi:
+       addr: 443
+       proto: tcp
+     ssh:
+       addr: 22
+       proto: tcp
+   EOF
+
+* Start *ngrok*
+
+.. code-block:: sh
+
+   ./ngrok start --all
+
+The output will show the public URL and ports that are now available to access you server.
+
+To stop *ngrok* hit Ctrl-c
