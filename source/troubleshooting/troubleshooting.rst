@@ -447,7 +447,7 @@ Remote packet capture, streamed to Wireshark via SSH::
 Getting help
 ------------
 
-Sometime its just not possible to fix a problem by yourself. In that case, you will most
+Sometimes it's just not possible to fix a problem by yourself. In that case, you will most
 likely need to get help from someone outside your network.
 
 *ngrok* can be used to give access to someone outside your network to your Wazo server.
@@ -462,26 +462,23 @@ On a 32 bit server:
 .. code-block:: sh
 
   wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip
+  unzip ngrok-stable-linux-386.zip
 
 On a 64 bit server:
 
 .. code-block:: sh
 
   wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+  unzip ngrok-stable-linux-amd64.zip
 
-* unzip *ngrok*
-
-.. code-block:: sh
-
-   unzip ngrok-stable-linux*.zip
-
-* Add your *ngrok* token
+* Add your ngrok token (given when you signed up on `ngrok
+  <https://dashboard.ngrok.com/user/signup>`_)
 
 .. code-block:: sh
 
    ./ngrok authtoken <YOUR AUTH TOKEN>
 
-* Add ssh and http access in your *ngrok* config
+* Add SSH and HTTPS access in your *ngrok* config
 
 .. code-block:: sh
 
@@ -501,6 +498,29 @@ On a 64 bit server:
 
    ./ngrok start --all
 
-The output will show the public URL and ports that are now available to access you server.
+The output will show the public URL and ports that are now available to access you server. For example::
 
-To stop *ngrok* hit Ctrl-c
+  tcp://0.tcp.ngrok.io:12345 -> localhost:22
+  tcp://0.tcp.ngrok.io:9876 -> localhost:443
+
+means:
+
+* anyone can use this command to SSH into your machine: ``ssh root@0.tcp.ngrok.io -p 12345``
+
+* anyone can access the web interface via: ``https://0.tcp.ngrok.io:12346``.
+
+To stop *ngrok* hit Ctrl-C.
+
+.. note:: The ngrok tunnel will not survive a reboot of the server, you'll have to set it up again after restart.
+
+.. warning::
+   This setup is a typical scenario for a `man-in-the-middle attack`_. If you don't trust the Ngrok servers, you should ensure that:
+
+   * the HTTPS certificate is the right one, i.e. it has the same fingerprint:
+
+     * on the server: ``openssl x509 -text -noout -in /usr/share/xivo-certs/server.crt -sha256 -fingerprint | grep Fingerprint``
+     * in the browser, check the details of the certificate to see the fingerprint
+
+   * the SSH key fingerprint of the server is correct, when SSH asks you upon the first connection (TOFU)
+
+.. _man-in-the-middle attack: https://en.wikipedia.org/wiki/Man-in-the-middle_attack
