@@ -4,6 +4,12 @@
 xivo-call-logd REST API changelog
 *********************************
 
+17.06
+=====
+
+* Call logs objects now have a new attribute ``end``
+
+
 17.05
 =====
 
