@@ -16,6 +16,7 @@ API reference
 .. toctree::
    :maxdepth: 1
 
+   plugind/api
    agentd/api
    call-logd/api
    confd/api
