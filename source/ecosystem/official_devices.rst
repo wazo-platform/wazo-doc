@@ -356,6 +356,11 @@ To install firmware for xivo-cisco-sccp plugins, you need to manually download
 the firmware files from the Cisco website and save them in the
 :file:`/var/lib/xivo-provd/plugins/$plugin-name/var/cache` directory.
 
+File permissions should be modified to make the files readable to `xivo-provd`:
+
+* `chmod 640 <filename>`
+* `chown xivo-provd:xivo-provd <filename>`
+
 This directory is created by Wazo when you install the plugin (i.e. xivo-cisco-sccp-legacy).
 If you create the directory manually, the installation will fail.
 
