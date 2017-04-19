@@ -1,3 +1,5 @@
+.. _managing-plugins:
+
 ****************
 Managing Plugins
 ****************
