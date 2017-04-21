@@ -213,6 +213,8 @@ Upgrade Notes
 
 Consult the `17.06 Roadmap <https://projects.wazo.community/versions/258>`_
 
+* Upgrade from version older than 13.01 are not supported anymore.
+
 
 17.05
 -----
