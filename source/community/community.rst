@@ -92,6 +92,8 @@ Unless specified, the license is `CC BY-SA`_.
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 | :download:`Wazo star codes (fr)<data/wazo-star-codes-fr.pdf>`                                             | French   | Intermediate | Thomas Faure   | 2017         |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
+| :download:`Configuring FOP2 with Wazo<data/fop2.pdf>`                                                     | English  | Intermediate | Richard Cantin | 17.04        |
++-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 
 .. _What is XiVO and tutorial (video): https://www.youtube.com/watch?v=leMZi6cU8iM
 .. _Xivo pour les nuls: http://xivopourlesnuls.wordpress.com

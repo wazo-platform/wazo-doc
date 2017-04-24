@@ -165,6 +165,10 @@ Then save and reboot the phone.
 Snom
 ----
 
+First, you need to run the following command on the Wazo server::
+
+   sed -i 's/dhcp:stop/dhcp:proceed/' /var/lib/xivo-provd/plugins/xivo-snom-8.7.5.35/var/tftpboot/snom-general.xml
+
 On the web interface of your phone, go to :menuselection:`Setup --> Advanced --> Update` and enter the following settings:
 
 .. figure:: img/config_server_snom.png

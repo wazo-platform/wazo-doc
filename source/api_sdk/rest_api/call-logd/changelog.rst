@@ -4,6 +4,24 @@
 xivo-call-logd REST API changelog
 *********************************
 
+17.06
+=====
+
+* Call logs objects now have a new attribute ``end``
+* ``GET /cdr`` has new parameters:
+
+  * ``from``
+  * ``until``
+  * ``order``
+  * ``direction``
+  * ``limit``
+  * ``offset``
+
+* ``GET /cdr`` has new attributes:
+
+  * ``total``
+  * ``filtered``
+
 17.05
 =====
 

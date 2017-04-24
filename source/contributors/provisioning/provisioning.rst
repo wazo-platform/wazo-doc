@@ -11,3 +11,4 @@ This section describes the informations and tools for xivo-provd.
    managing_plugins
    testing_new_sip_phone
    nat_environment
+   developing_plugins
