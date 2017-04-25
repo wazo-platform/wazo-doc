@@ -104,24 +104,6 @@ When upgrading from XiVO 13.03 or earlier, you must do the following, before the
    wget http://mirror.wazo.community/xivo_current.key -O - | apt-key add -
 
 
-Upgrading from XiVO 12.13 and before
-------------------------------------
-
-When upgrading from XiVO 12.13 or earlier, you must do the following, before the normal upgrade::
-
-   apt-get update
-   apt-get install debian-archive-keyring
-
-
-Upgrading from XiVO 1.2.1 and before
-------------------------------------
-
-Upgrading from 1.2.0 or 1.2.1 requires a special procedure before executing ``xivo-upgrade``::
-
-   apt-get update
-   apt-get install xivo-upgrade
-   /usr/bin/xivo-upgrade
-
 .. _upgrading-a-cluster:
 
 Upgrading a cluster

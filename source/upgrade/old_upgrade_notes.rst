@@ -861,39 +861,3 @@ Please consult the following detailed upgrade notes for more information:
 * Upgrade procedure for HA Cluster has changed. Refer to :ref:`Specific Procedure : Upgrading a Cluster <upgrading-a-cluster>`.
 * Configuration of switchboards has changed. Since the directory xlet can now display any column from the lookup source, a display filter has to be configured and assigned to the __switchboard_directory context. Refer to :ref:`Directory xlet documenttion <directory-xlet>`.
 * There is no more context field directly associated with a call filter. Boss and secretary users associated with a call filter must necessarily be in the same context.
-
-2012
-====
-
-12.24
------
-
-* Consult the `12.24 Roadmap <https://projects.wazo.community/versions/165>`_
-* XiVO 12.24 has some limitations mainly affecting the contact center features due to the rewriting of the code handling agents.
-
-Please consult the following detailed upgrade notes for more information:
-
-.. toctree::
-   :maxdepth: 1
-
-   12.24/contactcenter
-
-Another change is in effect beginning with XiVO 12.24: the field
-``profileclient`` in the CSV user import sees its values change.
-
-+-------------+-------------+
-| Old value   | New value   |
-+=============+=============+
-| client      | Client      |
-+-------------+-------------+
-| agent       | Agent       |
-+-------------+-------------+
-| switchboard | Switchboard |
-+-------------+-------------+
-| agentsup    | Supervisor  |
-+-------------+-------------+
-| oper        | *removed*   |
-+-------------+-------------+
-| clock       | *removed*   |
-+-------------+-------------+
-
