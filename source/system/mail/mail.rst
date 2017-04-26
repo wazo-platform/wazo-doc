@@ -53,7 +53,7 @@ In :menuselection:`Configuration --> Mail`:
 
 * set `Relay SMTP` to ``smtp.example.com:587``
 * set `Source address of the server` to ``example.com``
-* set `Rewriting shipping addresses` to something like ``asterisk stmp_user\nroot stmp_user\nxivo-agid stmp_user``
+* set `Rewriting shipping addresses` to something like ``asterisk smtp_user\nroot smtp_user\nxivo-agid smtp_user``
 
 Then apply the changed in :menuselection:`Configuration --> Apply system configuration`.
 
@@ -70,7 +70,7 @@ Then, add at the end of the file ``/etc/xivo/custom-templates/mail/etc/postfix/m
 
 Create the file ``/etc/postfix/sasl_passwd``::
 
-   smtp.example.com:587 stmp_user@example.com:smtp_password
+   smtp.example.com:587 smtp_user@example.com:smtp_password
 
 The SMTP hostname must be the exact same value than :menuselection:`Configuration --> Mail --> Relay
 SMTP`.
