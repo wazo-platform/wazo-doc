@@ -29,6 +29,42 @@ There are three types of interconnections :
 * IAX
 
 
+SIP interconnections
+--------------------
+
+SIP interconnections are used to connect to a SIP provider to to another PBX that is part
+of your telecom infrastructure.
+
+General SIP configurations are available in :menuselection:`General Settings --> SIP Protocol`
+and trunk configurations are in :menuselection:`Trunk Management --> SIP Protocol`
+
+
+Environment with NAT
+^^^^^^^^^^^^^^^^^^^^
+
+There are some configuration steps that are required when connecting to a SIP provider
+from a NAT environment.
+
+In :menuselection:`General Settings --> SIP Protocol --> Network` set your *External IP address*
+and your *Local network*.
+
+* External IP address: This is your public IP address
+* Local network: Your internal network range
+
+.. figure:: images/sip_protocol_network.png
+   :scale: 85%
+
+In :menuselection:`Trunk Management --> SIP Protocol` set the *NAT* option to *Yes* and the
+*Monitoring* option to *Yes*.
+
+.. figure:: images/sip_trunk_nat.png
+   :scale: 85%
+
+.. figure:: images/sip_trunk_monitoring.png
+   :scale: 85%
+
+
+
 Customized interconnections
 ---------------------------
 
