@@ -4,12 +4,13 @@
 wazo-plugind REST API changelog
 *********************************
 
-17.06
+17.07
 =====
 
-* New endpoint for installing plugins:
+* New endpoing for plugins
 
   * ``POST /plugins``
+  * ``GET /plugins``
 
 
 17.05
