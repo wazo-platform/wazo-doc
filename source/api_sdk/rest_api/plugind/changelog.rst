@@ -11,6 +11,7 @@ wazo-plugind REST API changelog
 
   * ``POST /plugins``
   * ``GET /plugins``
+  * ``DELETE /plugins/<namespace>/<name>``
 
 
 17.05
