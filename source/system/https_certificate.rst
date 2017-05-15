@@ -128,3 +128,23 @@ For this, follow these steps:
 5. Restart all Wazo services::
 
       xivo-service restart all
+
+
+Troubleshooting
+===============
+
+Here are a few commands that can help find what is wrong::
+
+   # Tell me curl, what is the problem with my certificate?
+   curl https://localhost:443
+
+   # Check that nginx has the right certificate loaded
+   grep -R ssl /etc/nginx/sites-enabled/
+
+   # See the certificate returned by nginx
+   openssl s_client -connect localhost:443 </dev/null
+
+   # See the certificate chain returned by nginx
+   openssl s_client -connect localhost:443 </dev/null 2>/dev/null | sed -ne '/Certificate chain/,/---/p'
+
+Note that you can replace 443 with the ports of the Wazo daemons, e.g. 9497 for xivo-auth. See the full list in :ref:`network_ports`.

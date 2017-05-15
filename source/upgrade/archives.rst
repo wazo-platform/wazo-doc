@@ -37,9 +37,7 @@ Archive packages are named as follow:
 +----------------+-----------------------------+
 | XiVO version   | Archive package name        |
 +================+=============================+
-| 1.2 to 1.2.12  | pf-fai-xivo-1.2-skaro-1.2.1 |
-+----------------+-----------------------------+
-| 12.14 to 13.24 | xivo-fai-skaro-13.04        |
+| 13.01 to 13.24 | xivo-fai-skaro-13.04        |
 +----------------+-----------------------------+
 | 13.25 to 14.17 | xivo-fai-14.06              |
 +----------------+-----------------------------+
@@ -82,8 +80,8 @@ pre-installed Debian, xivo-upgrade).
 
 Downgrades are not supported: you can only upgrade to a greater version.
 
-We only support upgrades to archive versions >= 13.25, e.g. you can upgrade a 12.16 to 14.16, but
-not 12.16 to 13.16
+We only support upgrades to archive versions >= 13.25, e.g. you can upgrade a 13.01 to 14.16, but
+not 13.01 to 13.16
 
 Current version before 14.18 (here 13.25)
 -----------------------------------------
@@ -112,8 +110,8 @@ Upgrade from an older archive version to a newer archive version
 
 Downgrades are not supported: you can only upgrade to a greater version.
 
-We only support upgrades to archive versions >= 13.25, e.g. you can upgrade a 12.16 to 14.16, but
-not 12.16 to 13.16
+We only support upgrades to archive versions >= 13.25, e.g. you can upgrade a 13.01 to 14.16, but
+not 13.01 to 13.16
 
 1.2 - 13.24 to 13.25 - 14.17 (here 1.2.3 to 14.16)
 --------------------------------------------------

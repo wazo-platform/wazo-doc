@@ -195,10 +195,8 @@ Counters
 * Wrapup: Total time spent in wrapup by an agent.
 * Pause: Total pause time of an agent
 
-.. warning:: Data generated before XiVO 12.19 might have erroneous results for the Login time counter
 .. note:: The Pause time counter only supports **PAUSEALL** and **UNPAUSEALL** command from cticlient.
           The agent must also be a member of a least 1 queue.
-.. note:: Wrapup time events were added to XiVO in version 12.21
 
 Agent summary
 -------------

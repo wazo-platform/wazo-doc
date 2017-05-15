@@ -4,6 +4,14 @@
 xivo-call-logd REST API changelog
 *********************************
 
+17.07
+=====
+
+* New endpoints for listing call logs:
+
+  * ``GET /users/<user_uuid>/cdr``
+  * ``GET /users/me/cdr``
+
 17.06
 =====
 
