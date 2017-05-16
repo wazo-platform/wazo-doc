@@ -4,6 +4,14 @@
 xivo-call-logd REST API changelog
 *********************************
 
+17.08
+=====
+
+* ``GET /cdr`` has new attribute:
+
+  * ``answer``
+
+
 17.07
 =====
 
