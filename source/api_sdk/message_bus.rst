@@ -87,6 +87,11 @@ Things to be aware when writing a client/consumer:
 Changelog
 =========
 
+17.08
+-----
+
+* The :ref:`bus-plugin_install_progress` bus message has been added.
+
 17.01
 -----
 
@@ -440,6 +445,34 @@ Example:
             "source_entry_id": 42
         }
     }
+
+
+.. _bus-plugin_install_progress:
+
+plugin_install_progress
+-----------------------
+
+The `plugin_install_progress` event is published during the installation of a plugin.
+
+* routing key: `plugin.install.<uuid>.<status>`
+* required ACL: `events.plugin.install.<uuid>.<status>`
+* event specific data:
+
+  * uuid: The installation task UUID
+  * status: The status of the installation
+
+Example:
+
+.. code-block:: javascript
+
+   {
+       "name": "plugin_install_progress",
+       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+       "data": {
+           "uuid": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
+           "status": "completed"
+       }
+   }
 
 
 .. _bus-user_created:
