@@ -455,6 +455,7 @@ plugin_install_progress
 The `plugin_install_progress` event is published during the installation of a plugin.
 
 * routing key: `plugin.install.<uuid>.<status>`
+* required ACL: `events.plugin.install.<uuid>.<status>`
 * event specific data:
 
   * uuid: The installation task UUID
