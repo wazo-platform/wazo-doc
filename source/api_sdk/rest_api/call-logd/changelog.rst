@@ -11,6 +11,7 @@ xivo-call-logd REST API changelog
 
   * ``answer``
   * ``direction``
+  * ``tags``
 
 
 17.07
