@@ -91,6 +91,8 @@ Changelog
 -----
 
 * The :ref:`bus-plugin_install_progress` bus message has been added.
+* The :ref:`bus-plugin_uninstall_progress` bus message has been added.
+
 
 17.01
 -----
@@ -471,6 +473,34 @@ Example:
        "data": {
            "uuid": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
            "status": "completed"
+       }
+   }
+
+
+.. _bus-plugin_uninstall_progress:
+
+plugin_uninstall_progress
+-------------------------
+
+The `plugin_uninstall_progress` event is published during the removal of a plugin.
+
+* routing key: `plugin.uninstall.<uuid>.<status>`
+* required ACL: `events.plugin.uninstall.<uuid>.<status>`
+* event specific data:
+
+  * uuid: The removal task UUID
+  * status: The status of the removal
+
+Example:
+
+.. code-block:: javascript
+
+   {
+       "name": "plugin_uninstall_progress",
+       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+       "data": {
+           "uuid": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
+           "status": "removing"
        }
    }
 
