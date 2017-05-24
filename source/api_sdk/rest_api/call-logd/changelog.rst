@@ -10,6 +10,7 @@ xivo-call-logd REST API changelog
 * ``GET /cdr`` and ``GET /users/<user_uuid>/cdr`` accept new query string arguments:
 
   * ``call_direction``
+  * ``number``
 
 * ``GET /cdr`` has new attribute:
 
