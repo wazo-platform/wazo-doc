@@ -16,6 +16,7 @@ xivo-call-logd REST API changelog
 
   * ``call_direction``
   * ``number``
+  * ``user_uuid``
   * ``tags``
 
 * ``GET /cdr`` has new attribute:
