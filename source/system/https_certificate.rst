@@ -71,12 +71,16 @@ For this, follow these steps:
         host: wazo.example.com
       confd:
         host: wazo.example.com
+      call_logd:
+        host: wazo.example.com
       ctid_ng:
         host: wazo.example.com
       dird:
         host: wazo.example.com
+      plugind:
+        host: wazo.example.com
       EOF
-      for config_dir in /etc/xivo-*/conf.d/ ; do
+      for config_dir in /etc/{xivo,wazo}-*/conf.d/ ; do
           ln -s "/etc/xivo/custom/custom-certificate.yml" "$config_dir/010-custom-certificate.yml"
       done
 
