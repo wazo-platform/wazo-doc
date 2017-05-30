@@ -58,3 +58,13 @@ You can specify the number of CEL entries to consider. For example, to generate 
 100,000 last unprocessed CEL entries::
 
    xivo-call-logs -c 100000
+
+
+Regeneration of call logs
+-------------------------
+
+Since call logs are based on CEL, they can be deleted and generated without problems. To regenerate
+the last month of call logs::
+
+   xivo-call-logs delete -d 30
+   xivo-call-logs generate -d 30  // the default behavior of xivo-call-logs command is `generate`
