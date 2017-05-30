@@ -193,7 +193,7 @@ Upgrade Notes
 17.08
 -----
 * The call logs has been improved by adding `date_end` and `date_answer` informations. If you want
-  to add these new informations to the old call logs, you need to regenerate them. Example for
+  to add these new informations to the old call logs, you need to regenerate them. For example, to
   regenerate the last month of call logs::
 
     xivo-call-logs delete -d 30
