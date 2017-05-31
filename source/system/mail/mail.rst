@@ -79,6 +79,10 @@ The file containing the credentials must have specific permissions::
 
    chmod 400 /etc/postfix/sasl_passwd
 
+Then tell Postfix about this new config file::
+
+   postmap /etc/postfix/sasl_passwd
+
 Then regenerate the Postfix configuration (this does the same thing than
 :menuselection:`Configuration --> Apply system configuration`)::
 
