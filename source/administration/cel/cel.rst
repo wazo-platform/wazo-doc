@@ -42,20 +42,22 @@ REST API
 Call logs are also available from :ref:`xivo-call-logd REST API <call-logd-api>`.
 
 
-Separate call logs by custom tags
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Categorize call logs with custom tags
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Sometime, it's useful to separate call logs from a specific value (department, city, etc.). It's
-possible with the `User field` of a user and the `tags` of a call log. Each `User field` will be
-copied into the `tags` for a call log and each `User field` must be separated by a comma.
+Sometimes, it's useful to separate call logs according to a specific value (department, city, etc.).
+It's possible with the ``User field`` of a user and the ``tags`` of a call log. Each ``User field``
+will be copied into the ``tags`` for a call log and each ``User field`` must be separated by a
+comma.
 
 
 Example
 -------
 
-There are employees in `comptability` and `sales` departments. To list call logs from sales
-department, you only need to set the `User field` of each user to `sales` and filter by tags
-`sales`.
+Your company has employees in the `accounting` and `sales` departments. To list call logs from the
+`sales` department, you must set the ``User field`` of each user to ``sales``. Now when a user
+tagged with ``sales`` places or receives a call, this call will be also tagged ``sales``. You can now
+filter call logs by tags ``sales``.
 
 
 Manual generation
