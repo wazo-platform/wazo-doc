@@ -4,9 +4,7 @@
 Call Logs
 *********
 
-Call logs are pre-generated from CEL entries. The generation is done automatically
-by xivo-call-logd. xivo-call-logs is also run nightly to generate call logs from
-CEL that were missed by xivo-call-logd.
+Call logs allow users to see the history of the calls placed and received by Wazo.
 
 .. note:: The oldest call logs are periodically removed. See :ref:`purge_logs` for more details.
 
@@ -86,3 +84,10 @@ the last month of call logs::
 
    xivo-call-logs delete -d 30
    xivo-call-logs generate -d 30  // the default behavior of xivo-call-logs command is `generate`
+
+Technicals
+==========
+
+Call logs are pre-generated from CEL entries. The generation is done automatically
+by xivo-call-logd. xivo-call-logs is also run nightly to generate call logs from
+CEL that were missed by xivo-call-logd.
