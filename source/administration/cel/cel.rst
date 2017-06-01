@@ -12,7 +12,7 @@ CEL that were missed by xivo-call-logd.
 
 
 Search Dashboard
-----------------
+================
 
 Call logs can be accessed using the menu :menuselection:`Services --> IPBX --> Call management --> Call Logs` page.
 
@@ -37,13 +37,29 @@ The CSV format has the following specifications:
 
 
 REST API
---------
+========
 
-Call logs are also available from :ref:`xivo-confd REST API <confd-api>`.
+Call logs are also available from :ref:`xivo-call-logd REST API <call-logd-api>`.
+
+
+Separate call logs by custom tags
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sometime, it's useful to separate call logs from a specific value (department, city, etc.). It's
+possible with the `User field` of a user and the `tags` of a call log. Each `User field` will be
+copied into the `tags` for a call log and each `User field` must be separated by a comma.
+
+
+Example
+-------
+
+There are employees in `comptability` and `sales` departments. To list call logs from sales
+department, you only need to set the `User field` of each user to `sales` and filter by tags
+`sales`.
 
 
 Manual generation
------------------
+=================
 
 Call logs can also be generated manually. To do so, log on to the target Wazo server and run::
 
@@ -61,7 +77,7 @@ You can specify the number of CEL entries to consider. For example, to generate 
 
 
 Regeneration of call logs
--------------------------
+=========================
 
 Since call logs are based on CEL, they can be deleted and generated without problems. To regenerate
 the last month of call logs::
