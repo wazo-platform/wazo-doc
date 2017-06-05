@@ -190,6 +190,22 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.08
+-----
+
+* The call logs has been improved by adding ``date_end`` and ``date_answer`` informations. If you want
+  to add these new informations to the old call logs, you need to regenerate them. For example, to
+  regenerate the last month of call logs::
+
+    xivo-call-logs delete -d 30
+    xivo-call-logs generate -d 30
+
+  This is only useful if you plan to use the call logs REST API to read calls that have been placed
+  before the upgrade.
+
+Consult the `17.08 Roadmap <https://projects.wazo.community/versions/260>`_
+
+
 17.07
 -----
 

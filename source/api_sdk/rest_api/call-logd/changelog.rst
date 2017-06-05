@@ -4,6 +4,29 @@
 xivo-call-logd REST API changelog
 *********************************
 
+17.08
+=====
+
+* ``GET /users/me/cdr`` and ``GET /users/<user_uuid>/cdr`` accept new query string arguments:
+
+  * ``call_direction``
+  * ``number``
+
+* ``GET /cdr`` accepts new query string arguments:
+
+  * ``call_direction``
+  * ``number``
+  * ``user_uuid``
+  * ``tags``
+
+* ``GET /cdr`` has new attribute:
+
+  * ``id``
+  * ``answer``
+  * ``call_direction``
+  * ``tags``
+
+
 17.07
 =====
 

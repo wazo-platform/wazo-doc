@@ -53,7 +53,8 @@ In :menuselection:`Configuration --> Mail`:
 
 * set `Relay SMTP` to ``smtp.example.com:587``
 * set `Source address of the server` to ``example.com``
-* set `Rewriting shipping addresses` to something like ``asterisk smtp_user\nroot smtp_user\nxivo-agid smtp_user``
+* set `Rewriting shipping addresses` to something like ``asterisk smtp_user\nroot
+  smtp_user\nxivo-agid smtp_user`` (you must leave the ``\n`` verbatim)
 
 Then apply the changed in :menuselection:`Configuration --> Apply system configuration`.
 
@@ -78,6 +79,10 @@ SMTP`.
 The file containing the credentials must have specific permissions::
 
    chmod 400 /etc/postfix/sasl_passwd
+
+Then tell Postfix about this new config file::
+
+   postmap /etc/postfix/sasl_passwd
 
 Then regenerate the Postfix configuration (this does the same thing than
 :menuselection:`Configuration --> Apply system configuration`)::
