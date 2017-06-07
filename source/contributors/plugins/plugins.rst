@@ -1,6 +1,6 @@
-***
+*******
 Plugins
-***
+*******
 
 This section cover the preferred way to extend the functionnalities of a
 Wazo server. There are many extension point in Wazo, all of them can be used
@@ -8,14 +8,14 @@ in combination to add complete features to you favorite PBX.
 
 
 What is a plugin
-===
+================
 
 A plugin is a set of additions made to a custom Wazo installation to add a new
 functionnality.
 
 
 What can be done with a plugin
-===
+==============================
 
 Wazo plugins allow a third party to add almost anything to Wazo. Most of our services
 have extension points that can be used togeter to create a complete feature as a plugin.
@@ -35,7 +35,7 @@ Here's a non exaustive list of what can be done with plugins
 
 
 Creating a plugin
-===
+=================
 
 A plugin has the following structure:
 
@@ -43,8 +43,8 @@ A plugin has the following structure:
 * Makefile
 
 
-package.yml
----
+plugin.yml
+----------
 
 The `package.yml` file contains all the metadata of plugin. It should contains
 the following fields:
@@ -54,8 +54,8 @@ the following fields:
 * version: The version of the plugin
 
 
-Makefile
----
+rules
+-----
 
 The `Makefile` file is a standard makefile.
 
@@ -66,7 +66,7 @@ The following targets should be present in the Makefile:
 
 
 Hello World
----
+-----------
 
 This example will create a plugin that adds an extension `***42` that
 says `Hello World` when called.

@@ -14,7 +14,7 @@ General information:
    guidelines
    network
    packaging
-   plugins
+   plugins/plugins
    profile_python
    style_guide
    translate
