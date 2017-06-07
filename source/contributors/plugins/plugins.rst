@@ -39,28 +39,29 @@ Creating a plugin
 
 A plugin has the following structure:
 
-* package.yml
-* Makefile
+* wazo/plugin.yml
+* wazo/Makefile
 
 
 plugin.yml
 ----------
 
-The `package.yml` file contains all the metadata of plugin. It should contains
+The `plugin.yml` file contains all the metadata of plugin. It should contains
 the following fields:
 
 * description: The description of the plugin
 * name: The name of the plugin
+* namespace: An identifier for the author of the plugin
 * version: The version of the plugin
 
 
 rules
 -----
 
-The `Makefile` file is a standard makefile.
+The `rules` file is an executable that will accept the following commands
 
-The following targets should be present in the Makefile:
-
+* build
+* package
 * install
 * uninstall
 
@@ -72,37 +73,45 @@ This example will create a plugin that adds an extension `***42` that
 says `Hello World` when called.
 
 
-package.yml:
+wazo/plugin.yml:
 
-.. code-block::yml
+.. code-block:: yaml
 
-    name: helloworld
-    description: Adds the extension "***42" to you dialplan to greet users
-    version: 0.0.1
-
-
-Makefile:
-
-.. code-block::Makefile
-
-    .PHONY: install uninstall
-
-    install:
-        cp helloworld.conf /etc/asterisk/extensions_extra.d/
-        asterisk -x 'dialplan reload'
-
-    uninstall:
-        rm -f /etc/asterisk/extensions_extra.d/helloworld.conf
-        asterisk -x 'dialplan reload'
-
-.. warning:: Tabs should be used in the makefile
+   namespace: demo
+   name: helloworld
+   description: Adds the extension "***42" to you dialplan to greet users
+   version: 0.0.1
 
 
-helloworkd.conf:
+wazo/rules:
 
-.. code-block::ini
+.. code-block:: sh
 
-    [xivo-extrafeatures]
-    exten = ***42,1,Playback(hello-world)
-    same = n,Return()
+   #!/bin/sh
 
+   case "$1" in
+       build)
+           ;;
+       package)
+           mkdir -p ${pkgdir}/etc/asterisk/extensions_extra.d
+           cp helloworld.conf ${pkgdir}/etc/asterisk/extensions_extra.d/
+           ;;
+       install)
+           asterisk -x 'dialplan reload'
+           ;;
+       uninstall)
+           ;;
+       *)
+           echo "$0 called with unknown argument '$1'" >&2
+           exit 1
+           ;;
+   esac
+
+
+helloworld.conf:
+
+.. code-block:: ini
+
+   [xivo-extrafeatures]
+   exten = ***42,1,Playback(hello-world)
+   same = n,Return()
