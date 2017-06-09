@@ -4,6 +4,12 @@
 xivo-call-logd REST API changelog
 *********************************
 
+17.09
+=====
+
+* All CDR endpoints can return CSV data, provided a header ``Accept: text/csv; charset=utf-8``.
+
+
 17.08
 =====
 
