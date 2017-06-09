@@ -190,6 +190,17 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.09
+-----
+
+Consult the `17.09 Roadmap <https://projects.wazo.community/versions/261>`_
+
+* Codecs can now be customized in the `/etc/asterisk/codecs.d/` directory. If you had custom configuration
+  in `/etc/asterisk/codecs.conf` you will have to create a new file in `codecs.d` to use your customized
+  configuration. A file named `codecs.conf.dpkg-old` will be left in `/etc/asterisk` if this operation is
+  required.
+
+
 17.08
 -----
 
