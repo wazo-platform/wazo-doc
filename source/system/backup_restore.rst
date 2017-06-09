@@ -183,7 +183,7 @@ Before Restoring the System
 
 Stop monit and all the Wazo services::
 
-   xivo-service stop
+   wazo-service stop
 
 
 Restoring System Files
@@ -278,6 +278,6 @@ Update systemd runtime configuration::
 
 Restart the services you stopped in the first step::
 
-   xivo-service start
+   wazo-service start
 
 You may also reboot the system.

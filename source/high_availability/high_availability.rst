@@ -40,7 +40,7 @@ Quick Summary
 
 * You need two configured Wazo (wizard passed)
 * Configure one Wazo as a master -> setup the slave address (VoIP interface)
-* Restart services (xivo-service restart) on master
+* Restart services (wazo-service restart) on master
 * Configure the other Wazo as a slave -> setup the master address (VoIP interface)
 * Configure file synchronization by runnning the script ``xivo-sync -i`` on the master
 * Start configuration synchronization by running the script ``xivo-master-slave-db-replication
@@ -119,7 +119,7 @@ Default status of :abbr:`High Availability (HA)` is disabled:
 
    HA Dashboard Disabled (default state)
 
-.. important:: You have to restart services (xivo-service restart) once the master node is disabled.
+.. important:: You have to restart services (wazo-service restart) once the master node is disabled.
 
 
 Master node
@@ -131,7 +131,7 @@ In choosing the method ``Master`` you must enter the IP address **of the VoIP in
 
    HA Dashboard Master
 
-.. important:: You have to restart all services (xivo-service restart) once the master node is configured.
+.. important:: You have to restart all services (wazo-service restart) once the master node is configured.
 
 
 Slave node

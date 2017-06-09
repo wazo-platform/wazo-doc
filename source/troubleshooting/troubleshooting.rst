@@ -370,15 +370,15 @@ If you have decided to change the locale of your database, you must:
 
 Then use the following commands (replacing ``fr_FR.UTF-8`` by your locale)::
 
-   xivo-service restart all
+   wazo-service restart all
    sudo -u postgres createdb -l fr_FR.UTF-8 -O asterisk -T template0 asterisk_newlocale
    sudo -u postgres pg_dump asterisk | sudo -u postgres psql -d asterisk_newlocale
-   xivo-service stop
+   wazo-service stop
    sudo -u postgres psql <<'EOF'
    DROP DATABASE asterisk;
    ALTER DATABASE asterisk_newlocale RENAME TO asterisk;
    EOF
-   xivo-service start
+   wazo-service start
 
 You should also modify the :file:`/etc/postgresql/9.4/main/postgresql.conf` file to set the various
 ``lc_*`` options to the new locale value.

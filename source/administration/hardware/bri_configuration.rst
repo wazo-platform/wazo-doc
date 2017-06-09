@@ -138,7 +138,7 @@ Follow theses steps to configure:
 
 #. Then, apply the configuration by restarting the services::
 
-    xivo-service restart
+    wazo-service restart
 
 
 .. note:: Expected behavior:
@@ -177,7 +177,7 @@ Follow theses steps to configure:
 
 #. Then, apply the configuration by restarting the services::
 
-    xivo-service restart
+    wazo-service restart
 
 
 .. note:: Expected behavior:
@@ -212,7 +212,7 @@ Follow theses steps to configure:
 
 #. Then, apply the configuration by restarting the services::
 
-    xivo-service restart
+    wazo-service restart
 
 
 .. note:: Expected behavior:

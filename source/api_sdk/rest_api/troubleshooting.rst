@@ -30,5 +30,5 @@ What you can do:
 * check that the Swagger API spec is accessible: when choosing an API in the Swagger menu,
   copy-paste the URL of the top text box ending with ``api.yml`` into your browser.
 * check the HTTP requests/answers in your browser debugging tools
-* check that the daemon is running: in a console, type: ``xivo-service status``
+* check that the daemon is running: in a console, type: ``wazo-service status``
 * check the log files of the daemon in ``/var/log/<daemon>.log`` (see also: :ref:`log-files`)

@@ -51,7 +51,7 @@ Apply the configuration
 
 To apply the configuration, restart the services::
 
-  xivo-service restart
+  wazo-service restart
 
 
 Next step
@@ -101,6 +101,6 @@ the line mode to E1:
 
 #. Then, restart the services::
 
-    xivo-service restart
+    wazo-service restart
 
 

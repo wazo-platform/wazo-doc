@@ -231,7 +231,7 @@ Stop Wazo
 
 .. code-block:: sh
 
-    xivo-service stop
+    wazo-service stop
 
 
 Remove All Consul Data
@@ -284,7 +284,7 @@ Start Wazo
 
 .. code-block:: sh
 
-    xivo-service start
+    wazo-service start
 
 
 Join the Consul Cluster
