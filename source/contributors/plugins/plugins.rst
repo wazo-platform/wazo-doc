@@ -53,6 +53,7 @@ the following fields:
 * name: The name of the plugin
 * namespace: An identifier for the author of the plugin
 * version: The version of the plugin
+* plugin_format_version: The version of the plugin specification implemented by this plugin.
 
 
 rules
@@ -81,6 +82,7 @@ wazo/plugin.yml:
    name: helloworld
    description: Adds the extension "***42" to you dialplan to greet users
    version: 0.0.1
+   plugin_format_version: 0
 
 
 wazo/rules:
@@ -115,3 +117,56 @@ helloworld.conf:
    [xivo-extrafeatures]
    exten = ***42,1,Playback(hello-world)
    same = n,Return()
+
+
+Plugin format version
+=====================
+
+0 (default)
+-----------
+
+A plugin in version `0` should implement the following requirements:
+
+* an executable name `rules` in the `wazo` directory with that returns `0` on success for the following commands:
+
+  * build
+  * package
+  * install
+  * uninstall
+
+
+rules
+=====
+
+build
+-----
+
+The `build` command is used to compile or generate files that will be included in the package.
+
+
+package
+-------
+
+The `package` command is used to copy all files required by the plugin in the pkgdir directory.
+
+The `pkgdir` environment variable holds the prefix that will be used to build the package. If the plugin
+needs to install a file in `/etc/foo/bar` do the following commands
+
+.. code-block:: sh
+
+   mkdir -p ${pkgdir}/etc/foo
+   cp bar ${pkgdir}/etc/foo/bar
+
+
+install
+-------
+
+The `install` command is used at the end of the installation to execute instructions that are usualy not
+related to the file system. It will be used as the postinst of the generated debian package.
+
+
+uninstall
+---------
+
+The `uninstall` command is used before the debian package is removed. It will be used as the prerm of the generated debian package.
+
