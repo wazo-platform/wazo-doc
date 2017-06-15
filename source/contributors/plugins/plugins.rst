@@ -135,6 +135,12 @@ A plugin in version `0` should implement the following requirements:
   * uninstall
 
 
+1 (recommended)
+---------------
+
+Version `1` adds support for the postrm instruction in the rules file.
+
+
 .. _contribs_plugins:
 
 rules commands
@@ -164,3 +170,6 @@ uninstall
   The `uninstall` command is used before the debian package is removed. It will be used as the `prerm of the generated debian package`__.
 
 __ https://www.debian.org/doc/manuals/maint-guide/dother.en.html#maintscripts
+
+postrm (added in version 1)
+  The `postrm` command is used at the end of the debian package removal. It will be used as the postrm of the generated debian package.
