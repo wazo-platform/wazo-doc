@@ -22,7 +22,7 @@ have extension points that can be used together to create a complete feature as 
 
 Here's a non exhaustive list of what can be done with plugins
 
-* Add configuration files to wazo services in `/etc/*/conf.d/`
+* Add configuration files to wazo services in ``/etc/*/conf.d/``
 * Add configuration files and dialplan files to Asterisk
 * Reload services to complete the installation
 * Extend wazo services using the available extension points
@@ -39,27 +39,27 @@ Creating a plugin
 
 A plugin has the following structure:
 
-* wazo/plugin.yml
-* wazo/rules
+* ``wazo/plugin.yml``
+* ``wazo/rules``
 
 
 plugin.yml
 ----------
 
-The `plugin.yml` file contains all the metadata of plugin. It should contains
+The ``plugin.yml`` file contains all the metadata of plugin. It should contains
 the following fields:
 
-* description: The description of the plugin
-* name: The name of the plugin
-* namespace: An identifier for the author of the plugin
-* version: The version of the plugin
-* plugin_format_version: The version of the plugin specification implemented by this plugin.
+* ``description``: The description of the plugin
+* ``name``: The name of the plugin
+* ``namespace``: An identifier for the author of the plugin
+* ``version``: The version of the plugin
+* ``plugin_format_version``: The version of the plugin specification implemented by this plugin.
 
 
 rules
 -----
 
-The `rules` file is an executable that will accept the following commands
+The :ref:`rules<contribs_plugins>` file is an executable that will accept the following commands
 
 * build
 * package
@@ -74,7 +74,7 @@ This example will create a plugin that adds an extension `***42` that
 says `Hello World` when called.
 
 
-wazo/plugin.yml:
+``wazo/plugin.yml``:
 
 .. code-block:: yaml
 
@@ -85,7 +85,7 @@ wazo/plugin.yml:
    plugin_format_version: 0
 
 
-wazo/rules:
+``wazo/rules``:
 
 .. code-block:: sh
 
@@ -110,7 +110,7 @@ wazo/rules:
    esac
 
 
-helloworld.conf:
+``helloworld.conf``:
 
 .. code-block:: ini
 
@@ -127,7 +127,7 @@ Plugin format version
 
 A plugin in version `0` should implement the following requirements:
 
-* an executable name `rules` in the `wazo` directory with that returns `0` on success for the following commands:
+* an executable name ``wazo/rules`` that returns `0` on success for the following commands:
 
   * build
   * package
@@ -135,37 +135,32 @@ A plugin in version `0` should implement the following requirements:
   * uninstall
 
 
-rules
-=====
+.. _contribs_plugins:
+
+rules commands
+==============
 
 build
------
-
-The `build` command is used to compile or generate files that will be included in the package.
-
+  The `build` command is used to compile or generate files that will be included in the package.
 
 package
--------
+  The `package` command is used to copy all files required by the plugin in the ``<pkgdir>`` directory.
 
-The `package` command is used to copy all files required by the plugin in the pkgdir directory.
+  The `pkgdir` environment variable holds the prefix that will be used to build the package. If the plugin
+  needs to install a file in ``/etc/foo/bar`` do the following commands
 
-The `pkgdir` environment variable holds the prefix that will be used to build the package. If the plugin
-needs to install a file in `/etc/foo/bar` do the following commands
+  .. code-block:: sh
 
-.. code-block:: sh
-
-   mkdir -p ${pkgdir}/etc/foo
-   cp bar ${pkgdir}/etc/foo/bar
-
+     mkdir -p ${pkgdir}/etc/foo
+     cp bar ${pkgdir}/etc/foo/bar
 
 install
--------
+  The `install` command is used at the end of the installation to execute instructions that are usually not
+  related to the file system. It will be used as the `postinst of the generated debian package`__.
 
-The `install` command is used at the end of the installation to execute instructions that are usually not
-related to the file system. It will be used as the postinst of the generated debian package.
-
+__ https://www.debian.org/doc/manuals/maint-guide/dother.en.html#maintscripts
 
 uninstall
----------
+  The `uninstall` command is used before the debian package is removed. It will be used as the `prerm of the generated debian package`__.
 
-The `uninstall` command is used before the debian package is removed. It will be used as the prerm of the generated debian package.
+__ https://www.debian.org/doc/manuals/maint-guide/dother.en.html#maintscripts
