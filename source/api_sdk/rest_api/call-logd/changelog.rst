@@ -8,6 +8,7 @@ xivo-call-logd REST API changelog
 =====
 
 * All CDR endpoints can return CSV data, provided a header ``Accept: text/csv; charset=utf-8``.
+* The default value of query string ``direction`` has been changed from ``asc`` to ``desc``.
 
 
 17.08
