@@ -40,7 +40,7 @@ Creating a plugin
 A plugin has the following structure:
 
 * wazo/plugin.yml
-* wazo/Makefile
+* wazo/rules
 
 
 plugin.yml
