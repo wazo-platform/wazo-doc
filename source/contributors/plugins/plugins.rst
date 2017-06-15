@@ -2,7 +2,7 @@
 Plugins
 *******
 
-This section cover the preferred way to extend the functionnalities of a
+This section cover the preferred way to extend the functionalities of a
 Wazo server. There are many extension point in Wazo, all of them can be used
 in combination to add complete features to you favorite PBX.
 
@@ -11,16 +11,16 @@ What is a plugin
 ================
 
 A plugin is a set of additions made to a custom Wazo installation to add a new
-functionnality.
+functionality.
 
 
 What can be done with a plugin
 ==============================
 
 Wazo plugins allow a third party to add almost anything to Wazo. Most of our services
-have extension points that can be used togeter to create a complete feature as a plugin.
+have extension points that can be used together to create a complete feature as a plugin.
 
-Here's a non exaustive list of what can be done with plugins
+Here's a non exhaustive list of what can be done with plugins
 
 * Add configuration files to wazo services in `/etc/*/conf.d/`
 * Add configuration files and dialplan files to Asterisk
@@ -161,7 +161,7 @@ needs to install a file in `/etc/foo/bar` do the following commands
 install
 -------
 
-The `install` command is used at the end of the installation to execute instructions that are usualy not
+The `install` command is used at the end of the installation to execute instructions that are usually not
 related to the file system. It will be used as the postinst of the generated debian package.
 
 
@@ -169,4 +169,3 @@ uninstall
 ---------
 
 The `uninstall` command is used before the debian package is removed. It will be used as the prerm of the generated debian package.
-
