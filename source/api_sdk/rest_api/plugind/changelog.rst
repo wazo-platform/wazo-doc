@@ -4,6 +4,18 @@
 wazo-plugind REST API changelog
 *********************************
 
+17.09
+=====
+
+* ``POST /plugins`` now accepts a branch parameter
+
+
+17.08
+=====
+
+* ``POST /plugins`` and ``DELETE /plugins`` are now asynchronous
+
+
 17.07
 =====
 
