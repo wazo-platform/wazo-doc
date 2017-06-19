@@ -7,7 +7,7 @@ wazo-plugind REST API changelog
 17.07
 =====
 
-* New endpoing for plugins
+* New endpoint for plugins
 
   * ``POST /plugins``
   * ``GET /plugins``
