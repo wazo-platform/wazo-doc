@@ -7,7 +7,7 @@ wazo-plugind REST API changelog
 17.09
 =====
 
-* ``POST /plugins`` now accepts a branch parameter
+* ``POST /plugins`` now accepts an ``options`` parameter for method specific arguments
 
 
 17.08
