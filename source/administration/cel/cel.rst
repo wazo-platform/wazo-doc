@@ -37,7 +37,7 @@ The CSV format has the following specifications:
 REST API
 ========
 
-Call logs are also available from :ref:`xivo-call-logd REST API <call-logd-api>`.
+Call logs are also available from :ref:`wazo-call-logd REST API <call-logd-api>`.
 
 
 Categorize call logs with custom tags
@@ -89,5 +89,5 @@ Technicals
 ==========
 
 Call logs are pre-generated from CEL entries. The generation is done automatically
-by xivo-call-logd. xivo-call-logs is also run nightly to generate call logs from
-CEL that were missed by xivo-call-logd.
+by wazo-call-logd. xivo-call-logs is also run nightly to generate call logs from
+CEL that were missed by wazo-call-logd.

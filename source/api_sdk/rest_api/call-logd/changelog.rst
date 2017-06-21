@@ -1,7 +1,7 @@
 .. _call_logd_changelog:
 
 *********************************
-xivo-call-logd REST API changelog
+wazo-call-logd REST API changelog
 *********************************
 
 17.09

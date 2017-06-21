@@ -68,11 +68,11 @@ xivo-auth
 * Rotation frequence: Daily
 
 
-xivo-call-logd
+wazo-call-logd
 --------------
 
 * File location: :file:`/var/log/xivo-call-logd.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-call-logd`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-call-logd`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
