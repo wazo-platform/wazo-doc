@@ -131,7 +131,7 @@ Consult the `15.17 Roadmap <https://projects.wazo.community/versions/233>`_
   impact unless you have custom dialplan that is passing directly the "w" or "W" option to the Dial
   or Queue application. In these cases, you should modify your dialplan to pass the "x" or "X"
   option instead.
-* The remote directory service available from :ref:`supported phones <official-devices>` is now
+* The remote directory service available from :ref:`supported phones <supported-devices>` is now
   provided by the new unified directory service, i.e. xivo-dird. Additional upgrade steps are
   required to get the full benefit of the new directory service; see the :ref:`detailed upgrade
   notes <upgrade-notes-webi-to-dird>`.

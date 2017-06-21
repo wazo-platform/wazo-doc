@@ -4,22 +4,15 @@
 Devices
 *******
 
-In Wazo, there is two kind of devices:
+The supported devices are expected to work across upgrades and phone features should work on
+the latest version.
 
 .. toctree::
    :maxdepth: 1
 
-   official_devices
-   community_devices
+   supported_devices
 
-The officially supported devices will be supported across upgrades and phone features are guaranteed
-to be supported on the latest version.
-
-The community supported devices are only supported by the community. In other words, maintenance,
-bug, corrections and features are developed by members of the Wazo community. Wazo does not
-officially endorse support for these devices.
-
-The next topics lists the officially and community supported devices. For each vendor, a table shows
+The supported devices page lists, for each vendor, a table that shows
 the various features supported by Wazo. Here's an example:
 
 +--------------------------------------------+---------+---------+--------------+
@@ -41,17 +34,17 @@ the various features supported by Wazo. Here's an example:
 The rows have the following meaning:
 
 Provisioning
-   Is the device supported by the :ref:`auto-provisioning <provisioning>` system ?
+   Is the device supported by the :ref:`auto-provisioning <provisioning>` system?
 
 H-A
-   Is the device supported by the :ref:`high availability <high-availability>` system ?
+   Is the device supported by the :ref:`high availability <high-availability>` system?
 
 Directory XiVO
-   Is the device supported by the :ref:`remote directory <remote-directory>` ? In other word, is it
-   possible to consult the XiVO's remote directory from the device ?
+   Is the device supported by the :ref:`remote directory <remote-directory>`? In other word, is it
+   possible to consult the XiVO's remote directory from the device?
 
 Funckeys
-   How many function keys can be configured on the device from the Wazo web interface ?
+   How many function keys can be configured on the device from the Wazo web interface?
 
    The number of function keys that can be configured on a device is not necessarily the same as
    the number of physical function keys the device has. For example, an Aastra 6757i has 12 physical

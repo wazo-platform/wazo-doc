@@ -8,7 +8,7 @@ This section will show you how to create a user with a SIP line. This simple use
 You can use these steps for configuring a phone (e.g  a softphone, an Analog-to-Digital switch or a SIP phone).
 
 This tutorial doesn't cover how to automatically provision a :ref:`supported device
-<official-devices>`. For this, consult the :ref:`provisionning
+<supported-devices>`. For this, consult the :ref:`provisionning
 section. <intro-provisioning>`
 
 We first need to log into the Wazo web interface. The web interface is where you can administer the whole system.
