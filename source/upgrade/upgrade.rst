@@ -201,6 +201,7 @@ Consult the `17.09 Roadmap <https://projects.wazo.community/versions/261>`_
   required.
 * Provd plugins from the addons repository have been merged into the main plugin repository. If you were using
   the addons repository you can safely switch back to the stable repository.
+* The command ``xivo-call-logs`` has been deprecated in favor of ``wazo-call-logs``.
 
 
 17.08
