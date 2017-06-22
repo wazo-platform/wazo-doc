@@ -199,9 +199,11 @@ Consult the `17.09 Roadmap <https://projects.wazo.community/versions/261>`_
   in `/etc/asterisk/codecs.conf` you will have to create a new file in `codecs.d` to use your customized
   configuration. A file named `codecs.conf.dpkg-old` will be left in `/etc/asterisk` if this operation is
   required.
-* Provd plugins from the addons repository have been merged into the main plugin repository. If you were using
-  the addons repository you can safely switch back to the stable repository.
+* Provd plugins from the addons repository have been merged into the main plugin repository. If you
+  were using the addons repository you can safely switch back to the stable repository. See
+  :ref:`alternative-plugins-repo` for more details.
 * The command ``xivo-call-logs`` has been deprecated in favor of ``wazo-call-logs``.
+* The command ``xivo-service`` has been deprecated in favor of ``wazo-service``.
 
 
 17.08
