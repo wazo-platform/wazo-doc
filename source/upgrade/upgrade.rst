@@ -204,6 +204,10 @@ Consult the `17.09 Roadmap <https://projects.wazo.community/versions/261>`_
   :ref:`alternative-plugins-repo` for more details.
 * The command ``xivo-call-logs`` has been deprecated in favor of ``wazo-call-logs``.
 * The command ``xivo-service`` has been deprecated in favor of ``wazo-service``.
+* If you have a :ref:`custom certificate configured<https_certificate>`, you will need to add a new
+  symlink for the new daemon wazo-webhookd::
+
+    ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-webhookd/conf.d/010-custom-certificate.yml"
 
 
 17.08
