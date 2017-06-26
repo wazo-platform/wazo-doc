@@ -1,8 +1,15 @@
 .. _call_logd_changelog:
 
 *********************************
-xivo-call-logd REST API changelog
+wazo-call-logd REST API changelog
 *********************************
+
+17.09
+=====
+
+* All CDR endpoints can return CSV data, provided a header ``Accept: text/csv; charset=utf-8``.
+* The default value of query string ``direction`` has been changed from ``asc`` to ``desc``.
+
 
 17.08
 =====

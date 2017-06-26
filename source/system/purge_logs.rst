@@ -88,9 +88,9 @@ a `VACUUM`_ FULL to recover disk space.
 
 You need to::
 
-   $ xivo-service stop
+   $ wazo-service stop
    $ sudo -u postgres psql asterisk -c "VACUUM (FULL)"
-   $ xivo-service start
+   $ wazo-service start
 
 
 Archive Plugins

@@ -124,7 +124,7 @@ List of Known Bugs And Limitations
   the current systemd version.
 
   If you find yourself in this case, you should try allocating more RAM to your system. Otherwise,
-  you can try stopping the xivo services using ``xivo-service stop`` before rebooting to lessen the
+  you can try stopping the xivo services using ``wazo-service stop`` before rebooting to lessen the
   likelihood of this problem.
 
   See http://projects.wazo.community/issues/6016

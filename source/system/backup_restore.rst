@@ -62,6 +62,9 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/ssl/`
 * :file:`/etc/systemd/`
 * :file:`/etc/wanpipe/`
+* :file:`/etc/wazo-admin-ui/`
+* :file:`/etc/wazo-plugind/`
+* :file:`/etc/wazo-webhookd/`
 * :file:`/etc/xivo-agentd/`
 * :file:`/etc/xivo-agid/`
 * :file:`/etc/xivo-amid/`
@@ -183,7 +186,7 @@ Before Restoring the System
 
 Stop monit and all the Wazo services::
 
-   xivo-service stop
+   wazo-service stop
 
 
 Restoring System Files
@@ -278,6 +281,6 @@ Update systemd runtime configuration::
 
 Restart the services you stopped in the first step::
 
-   xivo-service start
+   wazo-service start
 
 You may also reboot the system.

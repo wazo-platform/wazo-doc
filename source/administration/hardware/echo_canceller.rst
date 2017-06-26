@@ -19,7 +19,7 @@ You first need to know which firmware you have to install.
 The simplest way is to restart dahdi and then to lookup in the dmesg which
 firmware does DAHDI request at startup::
 
-   xivo-service restart
+   wazo-service restart
    dmesg |grep firmware
    [5461540.738209] wct4xxp 0000:01:0e.0: firmware: agent aborted loading dahdi-fw-oct6114-064.bin (not found?)
    [5461540.738310] wct4xxp 0000:01:0e.0: VPM450: firmware dahdi-fw-oct6114-064.bin not available from userspace
@@ -59,7 +59,7 @@ Apply the configuration
 
 To apply the configuration, restart the services::
 
-  xivo-service restart
+  wazo-service restart
 
 
 Next step
@@ -97,5 +97,5 @@ If you have an hardware echo-canceller you *may* want to use it to detect the DT
 
 #. Then, restart the services::
 
-     xivo-service restart
+     wazo-service restart
 

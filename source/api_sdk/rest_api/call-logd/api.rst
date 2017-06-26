@@ -1,7 +1,7 @@
 .. _call-logd-api:
 
 ***********************
-xivo-call-logd REST API
+wazo-call-logd REST API
 ***********************
 
 .. toctree::

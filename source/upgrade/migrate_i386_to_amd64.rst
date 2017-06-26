@@ -19,6 +19,6 @@ that there won't be a conflict between the two machines, e.g. two DHCP servers o
 domain, or both Wazo fighting over the same SIP trunk register. You can disable the Wazo ``i386`` by
 running::
 
-  xivo-service stop
+  wazo-service stop
 
 But be aware the Wazo ``i386`` will be enabled again after you reboot it.

@@ -190,8 +190,30 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.09
+-----
+
+Consult the `17.09 Roadmap <https://projects.wazo.community/versions/261>`_
+
+* Codecs can now be customized in the `/etc/asterisk/codecs.d/` directory. If you had custom configuration
+  in `/etc/asterisk/codecs.conf` you will have to create a new file in `codecs.d` to use your customized
+  configuration. A file named `codecs.conf.dpkg-old` will be left in `/etc/asterisk` if this operation is
+  required.
+* Provd plugins from the addons repository have been merged into the main plugin repository. If you
+  were using the addons repository you can safely switch back to the stable repository. See
+  :ref:`alternative-plugins-repo` for more details.
+* The command ``xivo-call-logs`` has been deprecated in favor of ``wazo-call-logs``.
+* The command ``xivo-service`` has been deprecated in favor of ``wazo-service``.
+* If you have a :ref:`custom certificate configured<https_certificate>`, you will need to add a new
+  symlink for the new daemon wazo-webhookd::
+
+    ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-webhookd/conf.d/010-custom-certificate.yml"
+
+
 17.08
 -----
+
+Consult the `17.08 Roadmap <https://projects.wazo.community/versions/260>`_
 
 * The call logs has been improved by adding ``date_end`` and ``date_answer`` informations. If you want
   to add these new informations to the old call logs, you need to regenerate them. For example, to
@@ -202,8 +224,9 @@ Upgrade Notes
 
   This is only useful if you plan to use the call logs REST API to read calls that have been placed
   before the upgrade.
-
-Consult the `17.08 Roadmap <https://projects.wazo.community/versions/260>`_
+* If you have setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), you have to
+  update your config in ``/etc/xivo/custom/custom-certificate.yml``, according to the :ref:`updated
+  documentation <https_certificate>`, namely for the config regarding ``plugind``.
 
 
 17.07

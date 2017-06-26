@@ -131,7 +131,7 @@ For this, follow these steps:
 
 5. Restart all Wazo services::
 
-      xivo-service restart all
+      wazo-service restart all
 
 
 Troubleshooting

@@ -68,7 +68,7 @@ Depending on the codec you want to transcode, you can modify the ``mode`` parame
 
 #. Apply the configuration by restarting the services::
 
-    xivo-service restart
+    wazo-service restart
 
 #. Verify that the card is correctly seen by asterisk with the ``transcoder show`` CLI command
    - this command should show the encoders/decoders registered by the TC400 card::

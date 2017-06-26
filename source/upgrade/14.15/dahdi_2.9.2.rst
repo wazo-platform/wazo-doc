@@ -22,7 +22,7 @@ First, you need to install the latest firmware for your TE133/TE131 or TE435/TE2
 
 Then stop all the services and reload the DAHDI modules. Reloading the DAHDI module might take up to 30 seconds::
 
-   xivo-service stop
+   wazo-service stop
    service dahdi stop
    service dahdi start
 
