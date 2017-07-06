@@ -17,7 +17,7 @@ xivo-confd REST API changelog
 
 * A new API for associating groups with a user has been added:
 
-  * PUT ``/1.1/user/<user_uuid>/groups``
+  * PUT ``/1.1/users/<user_uuid>/groups``
 
 
 17.05
