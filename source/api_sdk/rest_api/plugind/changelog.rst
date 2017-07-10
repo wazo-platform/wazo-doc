@@ -11,6 +11,8 @@ wazo-plugind REST API changelog
 
   * ``GET /market``
 
+* Added the ``market`` install method to ``POST /plugins``
+
 
 17.09
 =====
