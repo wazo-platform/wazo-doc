@@ -4,12 +4,20 @@
 xivo-confd REST API changelog
 *****************************
 
+17.10
+=====
+
+* A new API for associating lines with a user has been added:
+
+  * PUT ``/1.1/users/<user_uuid>/lines``
+
+
 17.09
 =====
 
 * A new API for associating groups with a user has been added:
 
-  * PUT ``/1.1/user/<user_uuid>/groups``
+  * PUT ``/1.1/users/<user_uuid>/groups``
 
 
 17.05
