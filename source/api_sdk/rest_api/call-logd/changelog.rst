@@ -4,6 +4,14 @@
 wazo-call-logd REST API changelog
 *********************************
 
+17.11
+=====
+
+* New endpoint for getting a single call log:
+
+  * ``GET /cdr/<cdr_id>``
+
+
 17.09
 =====
 
