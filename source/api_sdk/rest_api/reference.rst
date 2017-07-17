@@ -16,9 +16,9 @@ API reference
 .. toctree::
    :maxdepth: 1
 
+   call-logd/api
    plugind/api
    agentd/api
-   call-logd/api
    confd/api
    ctid/api
    ctid-ng/api
