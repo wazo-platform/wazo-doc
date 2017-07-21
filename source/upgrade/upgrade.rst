@@ -190,6 +190,13 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.11
+-----
+
+Consult the `17.11 Roadmap <https://projects.wazo.community/versions/263>`_
+
+* wazo-plugind REST API version ``0.1`` has been deprecated and will be removed in Wazo ``18.02``. See changelog for version :ref:`plugind_changelog_v02`
+
 17.10
 -----
 
