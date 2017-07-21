@@ -18,6 +18,7 @@ API reference
 
    call-logd/api
    plugind/api
+   webhookd/api
    agentd/api
    confd/api
    ctid/api
@@ -25,7 +26,6 @@ API reference
    dird/api
    provd/api
    sysconfd/api
-   webhookd/api
 
 For other services, see http://api.wazo.community. See also the :ref:`rest-api-quickstart` for an
 interactive web UI.
