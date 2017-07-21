@@ -18,6 +18,7 @@ API reference
 
    call-logd/api
    plugind/api
+   webhookd/api
    agentd/api
    confd/api
    ctid/api
