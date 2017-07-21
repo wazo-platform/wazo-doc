@@ -24,16 +24,16 @@ Example:
 
    # Version 0.1
    curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \
-     "url": "<URL>", \
+     "url": "https://git.example.com/repo.git", \
      "method": "git", \
      "options": {"ref": "v1"} \
-   }' 'https://<host>:9503/0.1/plugins'
+   }' 'https://wazo.example.com:9503/0.1/plugins'
 
    # Version 0.2
    curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \
      "method": "git", \
-     "options": {"ref": "v1", "url": "<URL>"} \
-   }' 'https://<host>:9503/0.1/plugins'
+     "options": {"ref": "v1", "url": "https://git.example.com/repo.git"} \
+   }' 'https://wazo.example.com:9503/0.2/plugins'
 
 
 17.10
