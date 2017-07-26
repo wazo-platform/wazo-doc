@@ -54,6 +54,26 @@ the following fields:
 * ``namespace``: An identifier for the author of the plugin
 * ``version``: The version of the plugin
 * ``plugin_format_version``: The version of the plugin specification implemented by this plugin.
+* ``depends``: Other plugins which this plugin depends on
+* ``debian_depends``: Debian packages which this plugin depends on
+
+Example:
+
+.. code-block:: yaml
+
+    name: foobar
+    namespace: foocorp
+    version: 0.0.1
+    description: This plugin adds some foo to your Wazo
+    plugin_format_version: 1
+    depends:
+      - name: foobaz
+        namespace: foocorp
+      - name: admin-ui-context
+        namespace: official
+        version: 0.0.1
+    debian_depends:
+      - golang-go
 
 
 rules
