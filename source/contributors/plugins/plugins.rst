@@ -73,7 +73,7 @@ Example:
         namespace: official
         version: 0.0.1
     debian_depends:
-      - docker
+      - golang-go
 
 
 rules
