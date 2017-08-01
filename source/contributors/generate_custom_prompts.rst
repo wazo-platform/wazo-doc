@@ -29,8 +29,8 @@ Google TTS service.
     wget https://github.com/zaf/asterisk-googletts/raw/master/cli/googletts-cli.pl
     chmod +x googletts-cli.pl
 
-#. Then run the tool, and generate the sound files (set ``LANGUAGE`` and ``COUNTRY`` to your own
-   language)::
+#. Then run the following script to generate the sound files (set ``LANGUAGE`` and ``COUNTRY`` to
+   your own language)::
 
     LANGUAGE=pt
     COUNTRY=BR
