@@ -201,6 +201,8 @@ To restore the file ::
 
    tar xvfp /var/backups/xivo/data.tgz -C /
 
+Once the database and files have been restored, you can :ref:`finalize the restore <after_restore>`
+
 
 Restoring the Database
 ======================
@@ -227,7 +229,7 @@ Drop the asterisk database and restore it with the one from the backup::
    sudo -u postgres dropdb asterisk
    sudo -u postgres pg_restore -C -d postgres asterisk-*.dump
 
-To finalize the restore, see :ref:`after_restore`.
+Once the database and files have been restored, you can :ref:`finalize the restore <after_restore>`
 
 
 Troubleshooting
@@ -263,24 +265,26 @@ Drop the asterisk_previous database::
    hostname, network interfaces, etc. You will need to reapply the network
    configuration if you restore the data.tgz file.
 
+Once the database and files have been restored, you can :ref:`finalize the restore <after_restore>`
+
 
 .. _after_restore:
 
 After Restoring The System
 ==========================
 
-Resynchronize the xivo-auth keys::
+#. Resynchronize the xivo-auth keys::
 
-   xivo-update-keys
+    xivo-update-keys
 
-Update systemd runtime configuration::
+#. You may reboot the system, or execute the following steps.
+#. Update systemd runtime configuration::
 
-   source /etc/profile.d/xivo_uuid.sh
-   systemctl set-environment XIVO_UUID=$XIVO_UUID
-   systemctl daemon-reload
+    source /etc/profile.d/xivo_uuid.sh
+    systemctl set-environment XIVO_UUID=$XIVO_UUID
+    systemctl daemon-reload
 
-Restart the services you stopped in the first step::
+#. Restart the services you stopped in the first step::
 
-   wazo-service start
+    wazo-service start
 
-You may also reboot the system.
