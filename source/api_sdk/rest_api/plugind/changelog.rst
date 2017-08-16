@@ -11,6 +11,7 @@ wazo-plugind REST API changelog
 =====
 
 * New resource added ``GET /plugins/<namespace>/<name>``
+* The ``url`` parameter is now ignored when doing market installation
 
 
 17.11
