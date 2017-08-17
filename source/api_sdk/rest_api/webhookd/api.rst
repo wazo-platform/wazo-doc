@@ -14,7 +14,10 @@ Changelog
 17.12
 -----
 
-* New config option ``verify_certificate`` for subscriptions with service ``http``
+* New config options for subscriptions with service ``http``:
+
+  * ``verify_certificate``
+  * ``content_type``
 
 
 17.11
