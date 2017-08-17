@@ -11,6 +11,12 @@ API documentation is available on http://api.wazo.community.
 Changelog
 =========
 
+17.12
+-----
+
+* New config option ``verify_certificate`` for subscriptions with service ``http``
+
+
 17.11
 -----
 
