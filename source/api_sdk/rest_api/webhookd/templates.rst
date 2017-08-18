@@ -9,40 +9,17 @@ Templates use the Jinja2 syntax. See `the Jinja documentation for more details <
 Example
 =======
 
-Given a subscription::
+Given a subscription:
 
-   {
-     "name": "Hello subscription",
-     "service": "http",
-     "events": [
-       "hello"
-     ],
-     "config": {
-       "content_type": "text/plain",
-       "method": "POST",
-       "url": "https://example.com/event_handler?v=1.0",
-       "verify_certificate": "true",
-       "body": "I just received an event named {{ event_name }}, from the Wazo server {{ wazo_uuid }}. The event contained the following data: hello = \"{{ event['hello'] }}\", bye = \"{{ event['bye'] }}\"."
-     }
-   }
+.. figure:: images/template-subscription.png
 
-When an event is emitted::
+When an event is emitted:
 
-   {
-     "name": "hello_event",
-     "origin_uuid": "my-wazo",
-     "data": {
-       "hello": "world",
-       "bye": "bye"
-     }
-   }
+.. figure:: images/template-event.png
 
-Then a HTTP request is sent to https://example.com::
+Then a HTTP request is sent to https://example.com:
 
-   POST /event_handler?v=1.0
-   Content-Type: text/plain
-   
-   I just received an event named hello_event, from the Wazo server my-wazo. The event contained the following data: hello = "world", bye = "bye".
+.. figure:: images/template-request.png
 
 
 Reference
