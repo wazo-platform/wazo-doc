@@ -54,6 +54,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/hostname`
 * :file:`/etc/hosts`
 * :file:`/etc/ldap/`
+* :file:`/etc/mongooseim/`
 * :file:`/etc/network/if-up.d/xivo-routes`
 * :file:`/etc/network/interfaces`
 * :file:`/etc/ntp.conf`
