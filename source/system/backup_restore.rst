@@ -122,8 +122,8 @@ The following files/folders are excluded from this backup:
 Database
 --------
 
-The database ``asterisk`` from PostgreSQL is backed up. This include almost everything that is
-configured via the web interface.
+The database ``asterisk`` and ``mongooseim`` from PostgreSQL are backed up. This include almost
+everything that is configured via the web interface and chat history.
 
 
 .. _manual_backup:
@@ -232,6 +232,11 @@ Drop the asterisk database and restore it with the one from the backup::
    sudo -u postgres dropdb asterisk
    sudo -u postgres pg_restore -C -d postgres asterisk-*.dump
 
+Drop the mongooseim database and restore it with the one from the backup::
+
+   sudo -u postgres dropdb mongooseim
+   sudo -u postgres pg_restore -C -d postgres mongooseim-*.dump
+
 Once the database and files have been restored, you can :ref:`finalize the restore <after_restore>`
 
 
@@ -267,6 +272,11 @@ Drop the asterisk_previous database::
 .. warning:: Restoring the data.tgz file also restores system files such as host
    hostname, network interfaces, etc. You will need to reapply the network
    configuration if you restore the data.tgz file.
+
+Drop the mongooseim database and restore it with the one from the backup::
+
+   sudo -u postgres dropdb mongooseim
+   sudo -u postgres pg_restore -C -d postgres mongooseim-*.dump
 
 Once the database and files have been restored, you can :ref:`finalize the restore <after_restore>`
 
