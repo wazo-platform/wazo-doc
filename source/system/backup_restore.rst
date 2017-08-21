@@ -123,8 +123,11 @@ The following files/folders are excluded from this backup:
 Database
 --------
 
-The database ``asterisk`` and ``mongooseim`` from PostgreSQL are backed up. This include almost
-everything that is configured via the web interface and chat history.
+The following databases from PostgreSQL are backed up:
+
+* ``asterisk``: all the configuration done via the web interface (exceptions: High Availability,
+  Provisioning, Certificates)
+* ``mongooseim``: chat history
 
 
 .. _manual_backup:
