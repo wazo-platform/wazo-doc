@@ -165,8 +165,9 @@ Introduction
 ============
 
 A backup of both the configuration files and the database used by a Wazo installation is done
-automatically every day.
-These backups are created in the :file:`/var/backups/xivo` directory and are kept for 7 days.
+automatically every day. These backups are created in the :file:`/var/backups/xivo` directory and
+are kept for 7 days.
+
 
 Limitations
 ===========
@@ -174,7 +175,8 @@ Limitations
 * You must restore a backup on the **same version** of Wazo that was backed up (though the
   architecture -- ``i386`` or ``amd64`` -- may differ)
 * You must restore a backup on a machine with the **same hostname and IP address**
-* Be aware that this procedure applies **only to XiVO/Wazo >= 14.08** (see :ref:`upgrade_note_14.08`).
+* Be aware that this procedure applies **only to XiVO/Wazo >= 14.08** (see
+  :ref:`upgrade_note_14.08`).
 
 
 Before Restoring the System
@@ -182,7 +184,8 @@ Before Restoring the System
 
 .. warning::
 
-    Before restoring a Wazo on a fresh install you have to setup Wazo using the wizard (see :ref:`configuration_wizard` section).
+    Before restoring a Wazo on a fresh install you have to setup Wazo using the wizard (see
+    :ref:`configuration_wizard` section).
 
 Stop monit and all the Wazo services::
 
@@ -218,8 +221,8 @@ These tarballs contains a dump of the database used in Wazo.
 In this example, we'll restore the database from a backup file named :file:`db.tgz`
 placed in the home directory of root.
 
-First, extract the content of the :file:`db.tgz` file into the :file:`/var/tmp` directory and go inside
-the newly created directory::
+First, extract the content of the :file:`db.tgz` file into the :file:`/var/tmp` directory and go
+inside the newly created directory::
 
    tar xvf db.tgz -C /var/tmp
    cd /var/tmp/pg-backup
