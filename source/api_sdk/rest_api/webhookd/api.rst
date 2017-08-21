@@ -7,6 +7,13 @@ API reference
 
 API documentation is available on http://api.wazo.community.
 
+More specific documentation:
+
+.. toctree::
+   :maxdepth: 2
+
+   templates
+
 
 Changelog
 =========
@@ -18,6 +25,9 @@ Changelog
 
   * ``verify_certificate``
   * ``content_type``
+
+* The config option ``body`` for subscriptions with service ``http`` now accept template values. See
+  :ref:`webhookd_templates` for more details.
 
 
 17.11
