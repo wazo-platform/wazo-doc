@@ -18,11 +18,12 @@ System
    proxy
    service_discovery
    service_authentication/service_authentication
+   wazo-webhookd <wazo-webhookd>
+   wazo-service <service>
    xivo-auth <xivo-auth/xivo-auth>
    xivo-confd <xivo-confd/xivo-confd>
    xivo-confgend <xivo-confgend/xivo-confgend>
    xivo-dird <xivo-dird/xivo-dird>
    xivo-dird-phoned <xivo-dird-phoned>
    xivo-purge-db <purge_logs>
-   wazo-service <service>
    xivo-sysconfd <xivo-sysconfd>
