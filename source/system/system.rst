@@ -18,8 +18,8 @@ System
    proxy
    service_discovery
    service_authentication/service_authentication
-   wazo-webhookd <wazo-webhookd>
    wazo-service <service>
+   wazo-webhookd <wazo-webhookd>
    xivo-auth <xivo-auth/xivo-auth>
    xivo-confd <xivo-confd/xivo-confd>
    xivo-confgend <xivo-confgend/xivo-confgend>
