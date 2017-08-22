@@ -28,7 +28,9 @@ Changelog
 
 * The config option ``body`` for subscriptions with service ``http`` now accept template values. See
   :ref:`webhookd_templates` for more details.
+* A new API for checking the status of the daemon:
 
+  * GET ``/1.0/status``
 
 17.11
 -----
