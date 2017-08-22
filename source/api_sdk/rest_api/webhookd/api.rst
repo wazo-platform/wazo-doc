@@ -32,6 +32,10 @@ Changelog
 
   * GET ``/1.0/status``
 
+* A new API for getting the available services:
+
+  * GET ``/1.0/subscriptions/services``
+
 17.11
 -----
 
