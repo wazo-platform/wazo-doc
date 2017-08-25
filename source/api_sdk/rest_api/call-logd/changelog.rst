@@ -4,6 +4,15 @@
 wazo-call-logd REST API changelog
 *********************************
 
+17.12
+=====
+
+* ``GET /cdr``, ``GET /users/me/cdr`` and ``GET /users/<user_uuid>/cdr`` accepts new query string
+  argument:
+
+  * ``from_id``
+
+
 17.11
 =====
 
