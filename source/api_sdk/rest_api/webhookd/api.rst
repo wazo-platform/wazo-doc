@@ -7,9 +7,34 @@ API reference
 
 API documentation is available on http://api.wazo.community.
 
+More specific documentation:
+
+.. toctree::
+   :maxdepth: 2
+
+   templates
+
 
 Changelog
 =========
+
+17.12
+-----
+
+* New config options for subscriptions with service ``http``:
+
+  * ``verify_certificate``
+  * ``content_type``
+
+* The config option ``body`` for subscriptions with service ``http`` now accept template values. See
+  :ref:`webhookd_templates` for more details.
+* A new API for checking the status of the daemon:
+
+  * GET ``/1.0/status``
+
+* A new API for getting the available services:
+
+  * GET ``/1.0/subscriptions/services``
 
 17.11
 -----

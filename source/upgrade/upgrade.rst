@@ -190,6 +190,14 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.12
+-----
+
+Consult the `17.12 Roadmap <https://projects.wazo.community/versions/265>`_
+
+* Wazo has a new database named ``mongooseim``. The :ref:`backup-restore procedure<backup>` has been
+  updated to include this new database.
+
 17.11
 -----
 
