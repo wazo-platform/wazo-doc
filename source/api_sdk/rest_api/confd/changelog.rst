@@ -4,6 +4,12 @@
 xivo-confd REST API changelog
 *****************************
 
+17.13
+=====
+
+* A line that is associated to a device can now be deleted
+
+
 17.10
 =====
 
