@@ -20,6 +20,7 @@ The current list of events that is supported by the ``user_uuid`` parameter is:
 - ``favorite_deleted``
 - ``user_status_update``
 - ``users_services_dnd_updated``
+- ``users_services_incallfilter_updated``
 - ``users_forwards_unconditional_updated``
 - ``users_forwards_noanswer_updated``
 - ``users_forwards_busy_updated``
