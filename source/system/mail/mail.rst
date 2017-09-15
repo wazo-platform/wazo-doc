@@ -49,6 +49,10 @@ Let's say we want to send mails from Wazo through the following SMTP server:
 * SMTP user: ``smtp_user@example.com``
 * SMTP password: ``smtp_password``
 
+Install the required dependencies::
+
+  apt-get update && apt-get install libsasl2-modules sasl2-bin
+
 In :menuselection:`Configuration --> Mail`:
 
 * set `Relay SMTP` to ``smtp.example.com:587``
