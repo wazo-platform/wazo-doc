@@ -4,6 +4,15 @@
 xivo-confd REST API changelog
 *****************************
 
+17.13
+=====
+
+* A line that is associated to a device can now be deleted
+* A new API for user's services has been added:
+
+  * PUT ``/1.1/users/<user_id>/services``
+
+
 17.10
 =====
 

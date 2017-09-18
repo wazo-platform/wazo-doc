@@ -1,8 +1,8 @@
 .. _https_certificate:
 
-*****************
-HTTPS certificate
-*****************
+**********************
+Certificates for HTTPS
+**********************
 
 X.509 certificates are used to authorize and secure communications with the server. They are mainly
 used for HTTPS, but can also be used for SIPS, CTIS, WSS, etc.
@@ -45,9 +45,19 @@ For this, follow these steps:
 1. Replace the following files with your own private key/certificate pair:
 
    * Private key: :file:`/usr/share/xivo-certs/server.key`
-   * Certificate: :file:`/usr/share/xivo-certs/server.crt`
+   * Certificate chain: :file:`/usr/share/xivo-certs/server.crt`
 
-   Those files **must** be readable by the group ``www-data``. You can check with the following command::
+   The certificate chain file ``server.crt`` must contain all necessary certificates to verify that it is trusted. In particular, if you got your certificate from a provider, ``server.crt`` must contain the intermediary certificates, allowing the client to follow the trust chain from the CA down to your certificate. There are three possible situations:
+
+   * The certificate provider gave you only the certificate file. In this case, you don't have much choice and the certificate file will serve as ``server.crt``
+   * The certificate provider gave you a complete chain file (also called bundle) and you must use this complete chain file as ``server.crt``.
+   * The certificate provider gave you (among others) two different files: a certificate file and an "intermediate" file containing all intermediate certificates. You must get those two files into one with the following command::
+
+      cat certificate.crt intermediate.pem > full-certificate-chain.pem
+
+     Then ``full-certificate-chain.pem`` must be used for ``server.crt``.
+
+   Both ``server.crt`` and ``server.key`` **must** be readable by the group ``www-data``. You can check with the following command::
 
       sudo -u www-data cat /usr/share/xivo-certs/server.{key,crt}
 
@@ -141,6 +151,9 @@ Here are a few commands that can help find what is wrong::
 
    # Tell me curl, what is the problem with my certificate?
    curl https://localhost:443
+
+   # Tell me openssl, what is the problem with my certificate?
+   openssl s_client -connect localhost:443 >/dev/null </dev/null
 
    # Check that nginx has the right certificate loaded
    grep -R ssl /etc/nginx/sites-enabled/

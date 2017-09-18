@@ -190,6 +190,12 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.13
+-----
+
+Consult the `17.13 Roadmap <https://projects.wazo.community/versions/266>`_
+
+
 17.12
 -----
 
@@ -198,12 +204,14 @@ Consult the `17.12 Roadmap <https://projects.wazo.community/versions/265>`_
 * Wazo has a new database named ``mongooseim``. The :ref:`backup-restore procedure<backup>` has been
   updated to include this new database.
 
+
 17.11
 -----
 
 Consult the `17.11 Roadmap <https://projects.wazo.community/versions/263>`_
 
 * wazo-plugind REST API version ``0.1`` has been deprecated and will be removed in Wazo ``18.02``. See changelog for version :ref:`plugind_changelog_v02`
+
 
 17.10
 -----
