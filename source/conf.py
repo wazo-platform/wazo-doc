@@ -63,7 +63,7 @@ master_doc = u'index'
 # General information about the project.
 project = u'Wazo'
 
-copyright = u'2016, The Wazo Authors'
+copyright = u'2017, The Wazo Authors'
 
 
 # The version info for the project you're documenting, acts as replacement for
@@ -246,7 +246,7 @@ man_pages = [('index', 'Wazo-doc', u'Wazo Documentation', [u'The Wazo Authors'],
 epub_title = u'Wazo'
 epub_author = u'The Wazo Authors'
 epub_publisher = u'The Wazo Authors'
-epub_copyright = u'2016, The Wazo Authors'
+epub_copyright = u'2017, The Wazo Authors'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.
