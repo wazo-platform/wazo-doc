@@ -12,6 +12,9 @@ Supported events
 
 The current list of events that is supported by the ``user_uuid`` parameter is:
 
+- ``agent_paused``
+- ``agent_status_update``
+- ``agent_unpaused``
 - ``call_log_user_created``
 - ``call_created``
 - ``call_updated``
