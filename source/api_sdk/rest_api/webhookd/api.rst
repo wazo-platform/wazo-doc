@@ -19,6 +19,18 @@ More specific documentation:
 Changelog
 =========
 
+17.14
+-----
+
+* New resources to manage webhooks as a user:
+
+  * GET ``/1.0/users/me/subscriptions``
+  * POST ``/1.0/users/me/subscriptions``
+  * GET ``/1.0/users/me/subscriptions/<uuid>``
+  * PUT ``/1.0/users/me/subscriptions/<uuid>``
+  * DELETE ``/1.0/users/me/subscriptions/<uuid>``
+
+
 17.12
 -----
 
