@@ -1,2 +1,3 @@
 git+git://github.com/wazo-pbx/sphinx-git.git@tagtitles
 gitpython
+sphinx<=1.6.4
