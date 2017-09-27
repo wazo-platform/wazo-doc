@@ -79,8 +79,8 @@ xivo-amid
 xivo-auth
 =========
 
-* Default configuration directory: :file:`/etc/xivo-auth/conf.d`
-* Default configuration file: :file:`/etc/xivo-auth/config.yml`
+* Default configuration directory: :file:`/etc/wazo-auth/conf.d`
+* Default configuration file: :file:`/etc/wazo-auth/config.yml`
 
 
 xivo-confgend

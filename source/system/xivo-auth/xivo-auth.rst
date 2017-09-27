@@ -105,7 +105,7 @@ Policies
 Policies can be assigned to backends in order to generate the appropriate permissions
 for a token created with this backend.
 
-To change to policy associated to a backend, add a new configuration file in ``/etc/xivo-auth/conf.d``
+To change to policy associated to a backend, add a new configuration file in ``/etc/wazo-auth/conf.d``
 with the following content:
 
 .. code-block:: yaml
