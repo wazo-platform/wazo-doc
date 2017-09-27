@@ -62,7 +62,7 @@ xivo-amid
 xivo-auth
 ---------
 
-* File location: :file:`/var/log/xivo-auth.log`
+* File location: :file:`/var/log/wazo-auth.log`
 * Rotate configuration: :file:`/etc/logrotate.d/xivo-auth`
 * Number of archived files: 15
 * Rotation frequence: Daily
