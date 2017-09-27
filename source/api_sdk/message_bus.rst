@@ -9,9 +9,6 @@ an `AMQP <http://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol>`_ 0-9-
 broker (namely, `RabbitMQ <http://previous.rabbitmq.com/v2_8_x/documentation.html>`_)
 that is integrated in Wazo.
 
-.. warning:: Interaction with the bus is presently experimental and
-   some things might change in the next Wazo versions.
-
 
 Usage
 =====
