@@ -27,7 +27,7 @@ Here's a non exhaustive list of what can be done with plugins
 * Reload services to complete the installation
 * Extend wazo services using the available extension points
 
-    * xivo-auth
+    * wazo-auth
     * xivo-confd
     * xivo-confgend
     * xivo-ctid-ng

@@ -1,13 +1,13 @@
-.. _xivo-auth:
+.. _wazo-auth:
 
 =========
-xivo-auth
+wazo-auth
 =========
 
-xivo-auth is a scalable, extendable and configurable authentication service.
+wazo-auth is a scalable, extendable and configurable authentication service.
 It uses an HTTP interface to emit tokens to users who can then use those tokens
 to identify and authenticate themselves with other services compatible with
-xivo-auth.
+wazo-auth.
 
 The HTTP API reference is at http://api.wazo.community.
 
@@ -22,7 +22,7 @@ The HTTP API reference is at http://api.wazo.community.
 Usage
 =====
 
-xivo-auth is used through HTTP requests, using HTTPS. Its default port is 9497.
+wazo-auth is used through HTTP requests, using HTTPS. Its default port is 9497.
 As a user, the most common operation is to get a new token. This is done with
 the POST method.
 
@@ -38,7 +38,7 @@ authentication source is determined by the :ref:`backend <auth-backends>` in the
 Alice could also have specified an expiration time on her POST request. The
 expiration value is the number of seconds before the token expires.
 
-After retrieving her token, Alice can query other services that use xivo-auth
+After retrieving her token, Alice can query other services that use wazo-auth
 and send her token to those service. Those services can then use this token
 on Alice's behalf to access her personal storage.
 
@@ -51,10 +51,10 @@ See http://api.wazo.community for more details about the HTTP API.
 See :ref:`service-authentication` for details about the authentication process.
 
 
-Usage for services using xivo-auth
+Usage for services using wazo-auth
 ==================================
 
-A service that requires authentication and identification can use xivo-auth to
+A service that requires authentication and identification can use wazo-auth to
 externalise the burden of authentication. The new service can then accept a
 token as part of its operations to authenticate the user using the service.
 
@@ -77,7 +77,7 @@ Checking if a token is valid::
     {"data": {"issued_at": "2015-06-05T10:16:58.557553", "utc_issued_at": "2015-06-05T15:16:58.557553", "token": "1823c1ee-6c6a-0cdc-d869-964a7f08a744", "auth_id": "63f3dc3c-865d-419e-bec2-e18c4b118224", "xivo_user_uuid": "63f3dc3c-865d-419e-bec2-e18c4b118224", "expires_at": "2015-06-05T11:16:58.557595", "utc_expires_at": "2015-06-05T16:16:58.557595"}}
 
 
-Launching xivo-auth
+Launching wazo-auth
 ===================
 
 ::
@@ -178,4 +178,4 @@ See also the :ref:`auth_changelog`.
 Development
 ===========
 
-See :ref:`xivo-auth-developer`.
+See :ref:`wazo-auth-developer`.

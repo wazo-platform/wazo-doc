@@ -164,4 +164,4 @@ Here are a few commands that can help find what is wrong::
    # See the certificate chain returned by nginx
    openssl s_client -connect localhost:443 </dev/null 2>/dev/null | sed -ne '/Certificate chain/,/---/p'
 
-Note that you can replace 443 with the ports of the Wazo daemons, e.g. 9497 for xivo-auth. See the full list in :ref:`network_ports`.
+Note that you can replace 443 with the ports of the Wazo daemons, e.g. 9497 for wazo-auth. See the full list in :ref:`network_ports`.

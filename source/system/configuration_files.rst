@@ -62,6 +62,13 @@ configuration files as long as they respect the :ref:`configuration-priority`. A
 these rules are documented below.
 
 
+wazo-auth
+=========
+
+* Default configuration directory: :file:`/etc/wazo-auth/conf.d`
+* Default configuration file: :file:`/etc/wazo-auth/config.yml`
+
+
 xivo-agentd
 ===========
 
@@ -74,13 +81,6 @@ xivo-amid
 
 * Default configuration directory: :file:`/etc/xivo-amid/conf.d`
 * Default configuration file: :file:`/etc/xivo-amid/config.yml`
-
-
-xivo-auth
-=========
-
-* Default configuration directory: :file:`/etc/wazo-auth/conf.d`
-* Default configuration file: :file:`/etc/wazo-auth/config.yml`
 
 
 xivo-confgend

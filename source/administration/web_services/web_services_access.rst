@@ -17,9 +17,9 @@ REST API access and permissions
 ===============================
 
 Those REST API interfaces are documented on http://api.wazo.community. They all require an authorization
-token, obtained by giving valid credentials to the REST API of xivo-auth. The relevant settings are:
+token, obtained by giving valid credentials to the REST API of wazo-auth. The relevant settings are:
 
-* Login/Password: the xivo-auth credentials (for the xivo-auth :ref:`backend <auth-backends>` ``xivo_service``)
+* Login/Password: the wazo-auth credentials (for the wazo-auth :ref:`backend <auth-backends>` ``xivo_service``)
 * ACL: The list of authorized REST API resources. See :ref:`rest-api-acl`.
 
 Unlike PHP web services, there is no host-based authorization, so the ``Host`` setting is not

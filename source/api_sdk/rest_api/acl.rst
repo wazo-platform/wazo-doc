@@ -4,9 +4,9 @@
 REST API Permissions
 ********************
 
-The tokens delivered by :ref:`xivo-auth` have a list of permissions associated (ACL), that determine
+The tokens delivered by :ref:`wazo-auth` have a list of permissions associated (ACL), that determine
 which REST resources are authorized for this token. Each REST resource has an associated required
-ACL. When you try to access to a REST resource, this resource requests xivo-auth with your token and
+ACL. When you try to access to a REST resource, this resource requests wazo-auth with your token and
 the required ACL to validate the access.
 
 
