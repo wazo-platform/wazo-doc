@@ -82,7 +82,7 @@ Launching xivo-auth
 
 ::
 
-    usage: xivo-auth [-h] [-c CONFIG_FILE] [-u USER] [-d] [-f] [-l LOG_LEVEL]
+    usage: wazo-auth [-h] [-c CONFIG_FILE] [-u USER] [-d] [-f] [-l LOG_LEVEL]
 
     optional arguments:
       -h, --help            show this help message and exit
