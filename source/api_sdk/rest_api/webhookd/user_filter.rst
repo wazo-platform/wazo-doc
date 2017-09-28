@@ -20,6 +20,7 @@ The current list of events that is supported by the ``user_uuid`` parameter is:
 - ``call_log_user_created``
 - ``call_updated``
 - ``chat_message_event``
+- ``endpoint_status_update``
 - ``favorite_added``
 - ``favorite_deleted``
 - ``user_status_update``
