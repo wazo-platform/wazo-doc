@@ -91,7 +91,7 @@ xivo-auth allows its administrator to configure one or many sources of
 authentication. Implementing a new kind of authentication is quite simple.
 
 #. Create a python module implementing the `backend interface
-   <https://github.com/wazo-pbx/xivo-auth/blob/master/xivo_auth/interfaces.py>`_.
+   <https://github.com/wazo-pbx/xivo-auth/blob/master/wazo_auth/interfaces.py>`_.
 #. Install the python module with an entry point *wazo_auth.backends*
 
 An example backend implementation is available `here
