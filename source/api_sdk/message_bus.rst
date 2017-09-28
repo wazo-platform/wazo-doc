@@ -13,6 +13,14 @@ that is integrated in Wazo.
 Usage
 =====
 
+Websocket
+---------
+
+The easiest way to listen for events is to use the :ref:`Wazo WebSocket <wazo-websocketd>`.
+
+Direct AMQP connection
+----------------------
+
 At the moment, the AMQP broker only listen on the 127.0.0.1 address. This means
 that if you want to connect to the AMQP broker from a distant machine, you
 must modify the RabbitMQ server configuration, which is not yet an officially

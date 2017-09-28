@@ -1,3 +1,5 @@
+.. _wazo-websocketd:
+
 ***********************
 WebSocket Event Service
 ***********************
