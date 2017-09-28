@@ -1,3 +1,5 @@
+.. _xivo-ctid-ng-rest-api:
+
 *********************
 xivo-ctid-ng REST API
 *********************

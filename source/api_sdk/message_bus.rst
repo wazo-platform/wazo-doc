@@ -92,6 +92,14 @@ Things to be aware when writing a client/consumer:
 Changelog
 =========
 
+17.14
+-----
+
+* The :ref:`bus-chat_message_sent` bus message has been added.
+* The :ref:`bus-chat_message_received` bus message has been added.
+* The ``chat_message_event`` bus message has been deprecated.
+
+
 17.08
 -----
 
@@ -329,14 +337,13 @@ Example:
     "data": {"call_id": "1465572129.31"}}
 
 
-.. _bus-chat_message_event:
+.. _bus-chat_message_received:
+.. _bus-chat_message_sent:
 
-chat_message_event
-------------------
+chat_message_received, chat_message_sent
+----------------------------------------
 
-This message is used to send a chat message to a user
-
-* routing key: chat.message.<wazo-uuid>.<user_id>
+* routing key: ``chat.message.<wazo-uuid>.<user_id>``. The ``wazo-uuid`` and ``user-uuid`` are the sender for ``chat_message_sent`` and the recipient for ``chat_message_received``.
 * event specific data:
 
   * alias: The nickname of the chatter
@@ -349,7 +356,7 @@ Example:
 .. code-block:: javascript
 
   {
-      "name": "chat_message_event",
+      "name": "chat_message_received",
       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
       "data": {
           "alias": "Alice"
@@ -358,6 +365,8 @@ Example:
           "msg": "Hi!"
       }
   }
+
+.. note:: The message named ``chat_message_event`` is deprecated since Wazo 17.14. You should not use it anymore. If you want to send a new chat message, you should use the :ref:`xivo-ctid-ng REST API <xivo-ctid-ng-rest-api>` instead.
 
 
 .. _bus-endpoint_status_update:
