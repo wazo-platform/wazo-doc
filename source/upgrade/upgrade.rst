@@ -190,6 +190,16 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.14
+-----
+
+Consult the `17.14 Roadmap <https://projects.wazo.community/versions/267>`_
+
+* *xivo-auth* has been renamed *wazo-auth*
+
+  * If you have developped a xivo-auth authentication backend the name of the entry point has changed to `wazo_auth.backends`. You should make this modification in your plugin's setup.py file in the entry_point section.
+
+
 17.13
 -----
 
