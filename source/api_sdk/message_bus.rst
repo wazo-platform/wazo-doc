@@ -95,9 +95,9 @@ Changelog
 17.14
 -----
 
-* The :ref:`bus-chat_message_sent` bus message has been added.
-* The :ref:`bus-chat_message_received` bus message has been added.
-* The ``chat_message_event`` bus message has been deprecated.
+* The :ref:`chat_message_sent <bus-chat_message>` bus message has been added.
+* The :ref:`chat_message_received <bus-chat_message>` bus message has been added.
+* The :ref:`chat_message_event <bus-chat_message>` bus message has been deprecated.
 
 
 17.08
@@ -133,7 +133,7 @@ Changelog
 15.20
 -----
 
-* The :ref:`bus-chat_message_event` bus message has been added.
+* The :ref:`chat_message_event <bus-chat_message>` bus message has been added.
 
 
 15.17
@@ -337,8 +337,7 @@ Example:
     "data": {"call_id": "1465572129.31"}}
 
 
-.. _bus-chat_message_received:
-.. _bus-chat_message_sent:
+.. _bus-chat_message:
 
 chat_message_received, chat_message_sent
 ----------------------------------------
