@@ -95,4 +95,4 @@ authentication. Implementing a new kind of authentication is quite simple.
 #. Install the python module with an entry point *wazo_auth.backends*
 
 An example backend implementation is available `here
-<http://github.com/wazo-pbx/xivo-auth-example-backend>`_.
+<http://github.com/wazo-pbx/wazo-auth-example-backend>`_.
