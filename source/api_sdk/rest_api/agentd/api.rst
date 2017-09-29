@@ -19,7 +19,7 @@ Changelog
 -----
 
 * Token authentication is now required for all routes, i.e. it is not possible to interact with
-  xivo-agentd without a xivo-auth authentication token.
+  xivo-agentd without a wazo-auth authentication token.
 
 
 15.18

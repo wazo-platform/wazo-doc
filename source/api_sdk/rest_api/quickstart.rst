@@ -46,12 +46,12 @@ In your browser, go to ``http://<wazo>/api``. You should see:
 The list of available APIs reflects the different modules of Wazo. Each module is a Python process
 that serves its own REST API. We will concentrate on two of them:
 
-* xivo-auth
+* wazo-auth
 * xivo-confd
 
-xivo-auth is the daemon responsible for authentication. Every API is protected by a token-based
+wazo-auth is the daemon responsible for authentication. Every API is protected by a token-based
 authentication mechanism. In order to use any REST API, we will need a valid authentication token,
-obtained from xivo-auth.
+obtained from wazo-auth.
 
 xivo-confd is the daemon responsible for Wazo configuration. Its REST API allows you to read and
 modify users, lines, extensions, groups, etc. This is the programatic equivalent of the Wazo web
@@ -66,7 +66,7 @@ Almost all REST APIs use encryption and are available via HTTPS. Unfortunately, 
 with a trusted certificate. So you have to manually trust the self-signed certificate of your Wazo.
 To that end:
 
-#. Click on xivo-auth in the menu on the left.
+#. Click on wazo-auth in the menu on the left.
 #. You should see an error like::
 
     Can't read from server. It may not have the appropriate access-control-origin settings.
@@ -78,8 +78,8 @@ To that end:
 #. Accept the HTTPS certificate validation exception.
 #. You should see a YAML text file describing the xivo-confd API.
 #. Go back to ``http://wazo/api``.
-#. Click on xivo-auth again.
-#. Now you should see a list of sections for the xivo-auth REST API, like ``backends`` or ``token``
+#. Click on wazo-auth again.
+#. Now you should see a list of sections for the wazo-auth REST API, like ``backends`` or ``token``
 #. Repeat the whole procedure for xivo-confd (the port in the URL will be different, and the REST
    API description will take longer to load), and you should be ready to go.
 
@@ -87,9 +87,9 @@ To that end:
 Authentication token
 ====================
 
-Let's ask xivo-auth for an authentication token:
+Let's ask wazo-auth for an authentication token:
 
-#. Choose the ``xivo-auth`` service in the list of REST APIs
+#. Choose the ``wazo-auth`` service in the list of REST APIs
 #. In the top-right text box of the page (left to the "Explore" button), fill "token" with the
    ``rest-api-test:password``: those credentials are the ones from the Web Services Access you
    created earlier.
@@ -101,7 +101,7 @@ Let's ask xivo-auth for an authentication token:
    * ``expiration`` to the number of seconds for the token to be valid (e.g. 3600 for one hour). After
      the expiration time, you will need to re-authenticate to get a new token.
 
-#. Click ``Try it out`` at the end of the section. This will make an HTTP request to xivo-auth.
+#. Click ``Try it out`` at the end of the section. This will make an HTTP request to wazo-auth.
 #. You should see a response to your HTTP request, containing a JSON object. In the response, you
    should see a ``token`` attribute. That little string is your authentication token. Save it
    somewhere, in case you need it later.

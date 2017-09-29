@@ -10,7 +10,7 @@ In its default configuration, the nginx server listens on port TCP/80 and TCP/44
 services to be used:
 
 * The agent management server (xivo-agentd)
-* The authentication server (xivo-auth)
+* The authentication server (wazo-auth)
 * The configuration server (xivo-confd)
 * The telephony service interface (xivo-ctid-ng)
 * The directory service (xivo-dird)

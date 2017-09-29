@@ -23,6 +23,15 @@ verbose debugging is required. Using this option in production would produce VER
 * Rotation frequence: Daily
 
 
+wazo-auth
+---------
+
+* File location: :file:`/var/log/wazo-auth.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-auth`
+* Number of archived files: 15
+* Rotation frequence: Daily
+
+
 wazo-upgrade
 ------------
 
@@ -55,15 +64,6 @@ xivo-amid
 
 * File location: :file:`/var/log/xivo-amid.log`
 * Rotate configuration: :file:`/etc/logrotate.d/xivo-amid`
-* Number of archived files: 15
-* Rotation frequence: Daily
-
-
-xivo-auth
----------
-
-* File location: :file:`/var/log/xivo-auth.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-auth`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
