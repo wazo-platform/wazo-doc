@@ -197,8 +197,11 @@ Consult the `17.14 Roadmap <https://projects.wazo.community/versions/267>`_
 
 * *xivo-auth* has been renamed *wazo-auth*
 
-  * If you have developped a xivo-auth authentication backend the name of the entry point has changed to `wazo_auth.backends`. You should make this modification in your plugin's setup.py file in the entry_point section.
-  * If your custom development use service discovery to find xivo-auth, you will have to search for the *wazo-auth* service instead of *xivo-auth*.
+  * If you have developed a xivo-auth authentication backend the name of the entry point has
+    changed to `wazo_auth.backends`. You should make this modification in your plugin's setup.py
+    file in the entry_point section.
+  * If your custom development use service discovery to find xivo-auth, you will have to search for
+    the *wazo-auth* service instead of *xivo-auth*.
 
 
 17.13
