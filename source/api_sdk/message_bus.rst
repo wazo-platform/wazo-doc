@@ -13,6 +13,14 @@ that is integrated in Wazo.
 Usage
 =====
 
+Websocket
+---------
+
+The easiest way to listen for events is to use the :ref:`Wazo WebSocket <wazo-websocketd>`.
+
+Direct AMQP connection
+----------------------
+
 At the moment, the AMQP broker only listen on the 127.0.0.1 address. This means
 that if you want to connect to the AMQP broker from a distant machine, you
 must modify the RabbitMQ server configuration, which is not yet an officially
@@ -84,6 +92,14 @@ Things to be aware when writing a client/consumer:
 Changelog
 =========
 
+17.14
+-----
+
+* The :ref:`chat_message_sent <bus-chat_message>` bus message has been added.
+* The :ref:`chat_message_received <bus-chat_message>` bus message has been added.
+* The :ref:`chat_message_event <bus-chat_message>` bus message has been deprecated.
+
+
 17.08
 -----
 
@@ -117,7 +133,7 @@ Changelog
 15.20
 -----
 
-* The :ref:`bus-chat_message_event` bus message has been added.
+* The :ref:`chat_message_event <bus-chat_message>` bus message has been added.
 
 
 15.17
@@ -321,14 +337,12 @@ Example:
     "data": {"call_id": "1465572129.31"}}
 
 
-.. _bus-chat_message_event:
+.. _bus-chat_message:
 
-chat_message_event
-------------------
+chat_message_received, chat_message_sent
+----------------------------------------
 
-This message is used to send a chat message to a user
-
-* routing key: chat.message.<wazo-uuid>.<user_id>
+* routing key: ``chat.message.<wazo-uuid>.<user_id>``. The ``wazo-uuid`` and ``user-uuid`` are the sender for ``chat_message_sent`` and the recipient for ``chat_message_received``.
 * event specific data:
 
   * alias: The nickname of the chatter
@@ -341,7 +355,7 @@ Example:
 .. code-block:: javascript
 
   {
-      "name": "chat_message_event",
+      "name": "chat_message_received",
       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
       "data": {
           "alias": "Alice"
@@ -350,6 +364,8 @@ Example:
           "msg": "Hi!"
       }
   }
+
+.. note:: The message named ``chat_message_event`` is deprecated since Wazo 17.14. You should not use it anymore. If you want to send a new chat message, you should use the :ref:`xivo-ctid-ng REST API <xivo-ctid-ng-rest-api>` instead.
 
 
 .. _bus-endpoint_status_update:
