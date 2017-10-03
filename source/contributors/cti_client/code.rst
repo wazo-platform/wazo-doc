@@ -188,7 +188,7 @@ Here is a little script to accelerate the copy from XLetNull.
    
    if [ ! -d xletnull ] ; then
    
-       echo "Please execute this script in XIVO_CLIENT/plugins"
+       echo "Please execute this script in wazo-client-qt/wazoclient/src/xlets"
        echo $newname
        exit 1
    fi
