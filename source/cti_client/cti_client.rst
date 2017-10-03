@@ -139,7 +139,7 @@ automatically dial the number when you click on a link.
 .. note:: You must already be logged in for automatic dialing to work, otherwise the client will
            simply start up and wait for you to log in.
 
-.. warning:: The option in the Wazo Client :menuselection:`GUI Options --> Allow multiple instances
+.. warning:: The option in the Wazo Client :menuselection:`Advanced --> Allow multiple instances
              of Wazo Client` must be disabled, else you will launch one new Wazo Client with every click.
 
 Mac OS
@@ -167,23 +167,15 @@ Windows
 -------
 
 Wazo Client is associated with ``callto:`` and ``tel:`` upon installation. Installing other
-applications afterward could end up overriding these associations. Starting with Windows Vista, it is possible
-to configure these associations via the Default Programs. Users can access Default Programs from Control
-Panel or directly from the Start menu.
+applications afterward could end up overriding these associations.
+
+* Windows Vista: :menuselection:`Start menu --> Control Panel --> Default Programs`, subsection Protocols
+* Windows 7: :menuselection:`Start menu --> Control Panel --> Default Programs`, subsection Protocols
+* Windows 10: :menuselection:`Start menu --> Settings --> System --> Default apps --> Choose default apps by protocol`
 
 .. figure:: images/windows_default_programs.png
    :scale: 85%
 
-The following popups might appear when you open a ``callto:`` or ``tel:`` link for the first time in
-Internet Explorer:
-
-.. figure:: images/ie_warning_1.png
-.. figure:: images/ie_warning_2.png
-
-Simply click on *allow* to dial the number using the Wazo Client.
-
-.. note:: If you do not want these warnings to appear each time, do not forget to check/uncheck the
-          checkbox at the bottom of the popups.
 
 Ubuntu
 ------
