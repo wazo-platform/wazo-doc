@@ -1,10 +1,10 @@
-.. index:: single:XiVO Client
+.. index:: single:Wazo Client
 
 ***********************************************
-Building the XiVO Client on GNU/Linux platforms
+Building the Wazo Client on GNU/Linux platforms
 ***********************************************
 
-This page explains how to build an executable of the XiVO Client from its sources for GNU/Linux.
+This page explains how to build an executable of the Wazo Client from its sources for GNU/Linux.
 
 
 Prerequisites
@@ -23,7 +23,7 @@ Get sources
 
 In a bash shell::
 
-   $ git clone git://github.com/wazo-pbx/xivo-client-qt.git
+   $ git clone git://github.com/wazo-pbx/wazo-client-qt.git
 
 
 Building
@@ -33,7 +33,7 @@ You need to have the Qt5 binaries (qmake, lrelease, ...) in your $PATH.
 
 Launch qmake to generate the Makefile::
 
-   $ cd xivo-client-qt
+   $ cd wazo-client-qt
    $ /path/to/qt5/bin/qmake
 
 This will also generate a file ``versions.mak`` that contains version informations about the code
@@ -55,7 +55,7 @@ To generate debug symbols::
 
    $ make DEBUG=yes
 
-To compile the unit tests of the XiVO Client::
+To compile the unit tests of the Wazo Client::
 
    $ qmake CONFIG+=tests
 
@@ -63,7 +63,7 @@ or, if you have a recent version of Google Mock::
 
    $ qmake CONFIG+=tests CONFIG+=gmock
 
-To compile the XiVO Client ready for functional tests::
+To compile the Wazo Client ready for functional tests::
 
    $ make FUNCTESTS=yes
 
@@ -81,7 +81,7 @@ Launch
 
 You can launch the built executable with::
 
-   $ LD_LIBRARY_PATH=bin bin/xivoclient
+   $ LD_LIBRARY_PATH=bin bin/wazoclient
 
 Package
 =======

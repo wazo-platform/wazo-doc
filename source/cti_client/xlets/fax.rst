@@ -6,7 +6,7 @@ Fax Xlet
 Overview
 ========
 
-The Fax xlet allows the user to send faxes from his XiVO client.
+The Fax xlet allows the user to send faxes from his Wazo Client.
 
 .. figure:: ./images/cti_client-fax.png
 

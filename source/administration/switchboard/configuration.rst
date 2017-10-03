@@ -79,7 +79,7 @@ The following configuration is mandatory
 
 Other important fields
 
-* The :menuselection:`General --> Display name` field is the name displayed in the XiVO client xlets and in the statistics
+* The :menuselection:`General --> Display name` field is the name displayed in the Wazo Client xlets and in the statistics
 * The :menuselection:`General --> Number` field is the number that will be used to reach the switchboard internally (typically *9*)
 
 
@@ -97,7 +97,7 @@ The following configuration is mandatory
 
 Other important fields
 
-* The :menuselection:`General --> Display name` field is the name displayed in the XiVO client xlets and in the statistics
+* The :menuselection:`General --> Display name` field is the name displayed in the Wazo Client xlets and in the statistics
 
 .. warning:: This queue MUST have **NO** members
 
@@ -105,12 +105,12 @@ Other important fields
 Create the Users that Will be Operators
 ---------------------------------------
 
-Each operator needs to have a user configured with a line. The XiVO client profile has to be set to *Switchboard*.
+Each operator needs to have a user configured with a line. The Wazo Client profile has to be set to *Switchboard*.
 
 The following configuration is mandatory for switchboard users
 
 * The :menuselection:`General --> First name` field has to be set
-* The :menuselection:`General --> Enable XiVO Client` option has to be *enabled*
+* The :menuselection:`General --> Enable Wazo Client` option has to be *enabled*
 * The :menuselection:`General --> Login` field has to be set
 * The :menuselection:`General --> Password` field has to be set
 * The :menuselection:`General --> Profile` field has to be set to *Switchboard*
@@ -246,7 +246,7 @@ You can also choose to redirect all the calls to another user or a voice mail.
 .. figure:: images/queue_no_answer.png
 
 
-XiVO Client configuration
+Wazo Client configuration
 =========================
 
 Directory xlet
@@ -263,8 +263,8 @@ Configuration for multiple switchboards
 
 The above documentation can be used for multiple switchboards on the same
 Wazo by replacing the *__switchboard* and *__switchboard_hold* queues name
-and configuring the operators XiVO client accordingly in the
-:menuselection:`XiVO Client --> Configure --> Functions --> Switchboard` window.
+and configuring the operators Wazo Client accordingly in the
+:menuselection:`Wazo Client --> Configure --> Functions --> Switchboard` window.
 
 .. figure:: images/multi_switchboard.png
 

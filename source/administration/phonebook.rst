@@ -5,7 +5,7 @@ Phonebook
 *********
 
 Phone books can be defined in :menuselection:`Services --> IPBX --> IPBX Services -->
-Phonebook`. The phone books can be used from the XiVO Client, from the phones directory look key if
+Phonebook`. The phone books can be used from the Wazo Client, from the phones directory look key if
 the phone is compatible and are used to set the Caller ID for incoming calls.
 
 You can add entries one by one or you can mass-import from a CSV file.

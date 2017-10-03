@@ -5,11 +5,11 @@ Fax
 Fax transmission
 ================
 
-It's possible to send faxes from Wazo using the fax Xlet in the XiVO client.
+It's possible to send faxes from Wazo using the fax Xlet in the Wazo Client.
 
 .. figure:: images/xivoclient-fax.png
 
-   The fax Xlet in the XiVO Client
+   The fax Xlet in the Wazo Client
 
 
 The file to send must be in PDF format.
