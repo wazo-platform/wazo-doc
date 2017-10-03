@@ -37,12 +37,22 @@ Binaries of the Wazo Client are available on our mirror. (`latest version`_) (`a
 .. _all versions: http://mirror.wazo.community/iso/archives
 .. _latest version: http://mirror.wazo.community/iso/wazo-current
 
-.. warning::
+Versions
+--------
 
-   The installed version of the XiVO Client must match the Wazo server's version installation. With
-   our current architecture, there is no way to guarantee that the Wazo server will be
-   retro-compatible with older versions of the XiVO Client. Non-matching Wazo server and XiVO
-   Clients versions might lead to unexpected behaviour.
+Here is the compatibility table between Wazo server and Wazo Client:
+
++-----------------+----------------------------+
+| Server          | Compatible with client     |
++=================+============================+
+| Earlier - 16.12 | Same version as the server |
++-----------------+----------------------------+
+| 16.13 - latest  | 16.13 or 17.13 - latest    |
++-----------------+----------------------------+
+
+
+Download
+--------
 
 Choose the version you want and in the right directory, get :
 
