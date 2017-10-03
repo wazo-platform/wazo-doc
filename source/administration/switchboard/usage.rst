@@ -22,7 +22,7 @@ The Wazo Client Switchboard Profile
 
 When the user connects with his Wazo Client, he gets the Switchboard profile.
 
-.. figure:: images/xivoclient-answering.png
+.. figure:: images/cti-client-answering.png
 
 1. *Current Call* frame
 2. *Answer* button
@@ -127,7 +127,7 @@ Attended transfers are a bit more complicated: the operator needs to wait for th
 
 In this example, the operator is currently asking *Bernard Marx* if he can transfer *Alice Wonderland* to him.
 
-.. figure:: images/xivoclient-transferring.png
+.. figure:: images/cti-client-transferring.png
 
 1. *Complete transfer* button
 2. *Cancel transfer* button

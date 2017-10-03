@@ -7,7 +7,7 @@ Fax transmission
 
 It's possible to send faxes from Wazo using the fax Xlet in the Wazo Client.
 
-.. figure:: images/xivoclient-fax.png
+.. figure:: images/cti-client-fax.png
 
    The fax Xlet in the Wazo Client
 

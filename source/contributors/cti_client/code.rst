@@ -384,14 +384,14 @@ Figures
 
 Here's a call graph for the presence features. Not complete, but gives a good global view of the internal mechanism.
 
-.. figure:: /cti_client/images/Xivoclient-presence.png
+.. figure:: images/cti-client-presence.png
    :scale: 50%
    
    Wazo Client presence call graph
    
 Here's a call graph describing the chaining of calls when the Wazo Client connects to the server.
 
-.. figure:: /cti_client/images/Xivoclient-login.png
+.. figure:: images/cti-client-login.png
    :scale: 50%
    
    Wazo Client login call graph

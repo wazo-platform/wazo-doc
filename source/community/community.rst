@@ -49,12 +49,12 @@ Unless specified, the license is `CC BY-SA`_.
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 | `Installing XiVO on Raspberry Pi (Raspivo)`_                                                              | French   | Intermediate | Iris Network   | 2015         |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| :download:`How to popup an url with CTIClient<data/how_to_popup_an_url_with_xivoclient.pdf>`              | French   | Intermediate | Assonance      | 14.17        |
+| :download:`How to popup an url with CTIClient<data/how_to_popup_an_url_with_cti_client.pdf>`              | French   | Intermediate | Assonance      | 14.17        |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 | :download:`How to backup XiVO to external FTP<data/how_to_backup_xivo_to_external_ftp.pdf>`               | French   | Intermediate | Yohan Vitu     | 2015         |
 | with :download:`backup-ftp.sh<data/backup-ftp.sh>`                                                        |          |              |                |              |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| :download:`How to create a Wazo Client<data/how_to_create_a_xivo_client.pdf>`                             | French   | Intermediate | Yohan Vitu     | 2015         |
+| :download:`How to create a Wazo Client<data/how_to_create_a_cti_client.pdf>`                              | French   | Intermediate | Yohan Vitu     | 2015         |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 | :download:`How to configure a C610P IP on XiVO<data/how_to_configure_a_C610_on_xivo.pdf>`                 | French   | Intermediate | Yohan Vitu     | 2015         |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+

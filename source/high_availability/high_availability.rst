@@ -181,7 +181,7 @@ Wazo Client
 You have to enter the master and slave address in the ``Connection`` tab of the
 Wazo Client configuration :
 
-.. figure:: images/xivoclient-config_ha.png
+.. figure:: images/cti-client-config_ha.png
 
 The main server is the master node and the backup server is the slave node.
 
