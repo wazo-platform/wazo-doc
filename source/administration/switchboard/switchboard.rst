@@ -10,7 +10,7 @@ This page describes the configuration needed to have a switchboard on your Wazo.
 Overview
 ========
 
-Switchboard functionality is available in the XiVO client. The goal of this page is to explain how to
+Switchboard functionality is available in the Wazo Client. The goal of this page is to explain how to
 configure your switchboard and how to use it.
 
 The switchboard xlet and profile allow an operator to view incoming calls, answer them,
@@ -25,7 +25,7 @@ Limitations
 .. note::
 
   The shortcut keys of the switchboard do not work on the Mac version of the
-  XiVO client.
+  Wazo Client.
 
 .. note::
 

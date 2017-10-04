@@ -11,14 +11,14 @@ directory service, composed principally of :ref:`xivo-dird <xivo-dird>` and :ref
 <xivo-dird-phoned>`. It was previously provided by the XiVO web interface.
 
 This brings a few changes for the administrators, the biggest one being that lookup from both the
-XiVO client and phones are now configured at the same place, namely the (incorrectly named)
+Wazo Client and phones are now configured at the same place, namely the (incorrectly named)
 :menuselection:`Services --> CTI Server --> Directories` section, with some advanced configuration
 only available in the configuration files. This means that lookup from the phones can now also
 display results from CSV or web services directories. For details on how to configure directories,
 refer to the :ref:`directories` page.
 
 For users, the biggest change is that they can now consult their personal contacts (that they added
-from their XiVO client) when doing a search from their phone.
+from their Wazo Client) when doing a search from their phone.
 
 
 Changes
@@ -80,7 +80,7 @@ IPBX --> Phonebook` page:
 LDAP sources used for lookup from the phone are now selected in the same place as for the XiVO
 client, i.e. in :menuselection:`Services --> CTI Services --> Direct directories`.  A consequence of
 that is that it's not possible anymore to have sources only used for lookup from phone and other
-sources only used for lookup from the XiVO client.
+sources only used for lookup from the Wazo Client.
 
 .. note:: The LDAP filters that were used for phone lookup will be automatically added to all the
    profiles during the upgrade.

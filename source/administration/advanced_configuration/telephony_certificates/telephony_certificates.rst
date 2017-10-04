@@ -10,7 +10,7 @@ the :menuselection:`Configuration --> Management --> Certificates` page.
 These certificates can be used for:
 
 * enabling SIP TLS
-* enabling encryption between the CTI server and the XiVO clients
+* enabling encryption between the CTI server and the Wazo Clients
 
 For the certificate used for HTTPS, see :ref:`https_certificate`.
 

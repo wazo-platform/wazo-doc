@@ -23,10 +23,10 @@ The prompts used in Wazo are stored in `xivo-sounds`_ git repository. You may al
 :ref:`generate your own sound files <generate_custom_prompts>`.
 
 
-XiVO Client
+Wazo Client
 ===========
 
-All translations are in `Transifex`_ (xivo-client). The source language is English. Translations are
+All translations are in `Transifex`_ (wazo-client). The source language is English. Translations are
 synchronised with the code before every release.
 
 

@@ -41,7 +41,7 @@ Note that the agent status will only change when the communication is establishe
 Known bugs
 ^^^^^^^^^^
 
-#. If an agent emits a call via his XiVO Client, the status will change to *Int. Outgoing* or *Ext. Outgoing* when the destination phone rings, instead of when the destination answers.
+#. If an agent emits a call via his Wazo Client, the status will change to *Int. Outgoing* or *Ext. Outgoing* when the destination phone rings, instead of when the destination answers.
 
 #.
  * Given the agent is on an ACD call
@@ -69,7 +69,7 @@ The disposition of the Xlet can be changed in two ways:
 * Placement of queues
 * Which queues are displayed
 
-The disposition is saved whenever the XiVO Client is closed and restored when it is opened again.
+The disposition is saved whenever the Wazo Client is closed and restored when it is opened again.
 
 
 Changing the placement of queues

@@ -76,13 +76,13 @@ CTI Profile
 +---------------------+--------+-------------------------+--------+------------------------------------------------------------------------+
 | Field               | Type   | Required                | Values | Description                                                            |
 +=====================+========+=========================+========+========================================================================+
-| cti_profile_enabled | bool   | No                      |        | Activates the XiVO Client account for this user                        |
+| cti_profile_enabled | bool   | No                      |        | Activates the Wazo Client account for this user                        |
 +---------------------+--------+-------------------------+--------+------------------------------------------------------------------------+
-| username            | string | Yes, if profile enabled |        | XiVO Client username                                                   |
+| username            | string | Yes, if profile enabled |        | Wazo Client username                                                   |
 +---------------------+--------+-------------------------+--------+------------------------------------------------------------------------+
-| password            | string | Yes, if profile enabled |        | XiVO Client password                                                   |
+| password            | string | Yes, if profile enabled |        | Wazo Client password                                                   |
 +---------------------+--------+-------------------------+--------+------------------------------------------------------------------------+
-| cti_profile_name    | string | Yes, if profile enabled |        | XiVO Client profile (Defined in menu :menuselection:`Services -->      |
+| cti_profile_name    | string | Yes, if profile enabled |        | Wazo Client profile (Defined in menu :menuselection:`Services -->      |
 |                     |        |                         |        | CTI server --> Profiles`)                                              |
 +---------------------+--------+-------------------------+--------+------------------------------------------------------------------------+
 

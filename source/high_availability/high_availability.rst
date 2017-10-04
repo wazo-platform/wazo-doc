@@ -46,7 +46,7 @@ Quick Summary
 * Start configuration synchronization by running the script ``xivo-master-slave-db-replication
   <slave_ip>`` on the master
 * Resynchronize all your devices
-* Configure the XiVO Clients
+* Configure the Wazo Clients
 
 That's it, you now have a HA configuration, and every hour all the configuration done on the master
 will be reported to the slave.
@@ -175,17 +175,17 @@ Less importantly, these are also excluded:
 * CELs
 
 
-XiVO Client
+Wazo Client
 -----------
 
 You have to enter the master and slave address in the ``Connection`` tab of the
-XiVO Client configuration :
+Wazo Client configuration :
 
-.. figure:: images/xivoclient-config_ha.png
+.. figure:: images/cti-client-config_ha.png
 
 The main server is the master node and the backup server is the slave node.
 
-When connecting the XiVO Client with the main server down, the login screen will
+When connecting the Wazo Client with the main server down, the login screen will
 hang for 3 seconds before connecting to the backup server.
 
 

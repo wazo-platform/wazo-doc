@@ -5,7 +5,7 @@ Directories
 ***********
 
 This page documents how to add and configure directories from custom sources. Directories added from
-custom sources can be used for lookup via the :ref:`XiVO Client <people-xlet>`, directory feature of
+custom sources can be used for lookup via the :ref:`Wazo Client <people-xlet>`, directory feature of
 phones or for :ref:`reverse lookup <reverse_lookup>` on incoming calls.
 
 An example of `adding a source`_ and `configuring source access`_ is made for each type of source:
@@ -155,7 +155,7 @@ following :guilabel:`Mapped fields`:
 Configuring source display
 ==========================
 
-XiVO Client
+Wazo Client
 -----------
 
 Edit the default display filter or create your own in :menuselection:`Services --> CTI Server -->
@@ -165,10 +165,10 @@ Directories --> Display filters`.
 
    :menuselection:`Services --> CTI Server --> Directories --> Display filters`
 
-Each line in the display filter will result in a header in your XiVO Client.
+Each line in the display filter will result in a header in your Wazo Client.
 
 * :guilabel:`Field title`: text displayed in the header.
-* :guilabel:`Field type`: type of the column, this information is used by the XiVO Client. (see
+* :guilabel:`Field type`: type of the column, this information is used by the Wazo Client. (see
   :ref:`type description<dird-integration-views>`)
 * :guilabel:`Default value`: value that will be used if this field is empty for one of the
   configured sources.
@@ -202,7 +202,7 @@ To include a directory in reverse directory definition:
 Applying changes
 ================
 
-To reload the directory configuration for XiVO Client, phone lookups and reverse lookups, use *one* of
+To reload the directory configuration for Wazo Client, phone lookups and reverse lookups, use *one* of
 these methods:
 
 * :menuselection:`Services --> IPBX --> Control --> Restart Dird server`

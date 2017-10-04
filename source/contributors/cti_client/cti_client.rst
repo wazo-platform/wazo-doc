@@ -1,5 +1,5 @@
 ***********
-XiVO Client
+Wazo Client
 ***********
 
 .. toctree::

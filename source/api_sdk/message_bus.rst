@@ -604,7 +604,7 @@ Example:
 user_status_update
 ------------------
 
-The user_status_update is sent when a user changes his CTI presence using the XiVO client.
+The user_status_update is sent when a user changes his CTI presence using the Wazo Client.
 
 * routing key: status.user
 * required ACL: events.statuses.users

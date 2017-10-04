@@ -12,7 +12,7 @@ Allows a contact center supervisor to monitor contact center activities such as:
 * Agent detailed activities
 
 
-XiVO client as a Supervision Platform
+Wazo Client as a Supervision Platform
 =====================================
 
 Configuration
@@ -119,9 +119,9 @@ QOS
 
 **Counter availability**
 
-When the XiVO client is started, "na" is diplayed for counters that have not been initialized.
+When the Wazo Client is started, "na" is diplayed for counters that have not been initialized.
 
-When the XiVO client is restarted, the counters are always displayed and calculated as if
+When the Wazo Client is restarted, the counters are always displayed and calculated as if
 the application was not restarted. When the server is restarted, counters are reinitialized.
 
 **Enabling the xlet**
@@ -140,7 +140,7 @@ This option is expressed in seconds and the default is 30 seconds.
    :scale: 70%
 
 
-The statistical period can be configured through the XiVO client once logged in by right-clicking on the Queue's name in the `Queues` xlet.
+The statistical period can be configured through the Wazo Client once logged in by right-clicking on the Queue's name in the `Queues` xlet.
 For each queue, you can configure the following information:
 
  * Qos:  maximum wait time for a call, in seconds.
@@ -169,10 +169,10 @@ people. However, the default font will not be large enough, so the information
 will not be readable.
 
 You can change the font size of this Xlet by giving a configuration file when
-launching the XiVO Client::
+launching the Wazo Client::
 
-   > xivoclient -stylesheet big_fonts.qss   # Windows and Mac
-   $ xivoclient -- -stylesheet big_fonts.qss   # GNU/Linux
+   > wazoclient -stylesheet big_fonts.qss   # Windows and Mac
+   $ wazoclient -- -stylesheet big_fonts.qss   # GNU/Linux
 
 The :file:`big_fonts.qss` file should contain::
 
@@ -286,13 +286,13 @@ Penalty
     Penalty of the queue member.
 
 
-Link XiVO Client presence to agent presence
+Link Wazo Client presence to agent presence
 ===========================================
 
 You can configure Wazo to have the following scenario:
 
 * The agent person leaves temporarily his office (lunch, break, ...)
-* He sets his presence in the XiVO Client to the according state
+* He sets his presence in the Wazo Client to the according state
 * The agent will be automatically set in pause and his phone will not ring from
   queues
 * He comes back to his office and set his presence to 'Available'

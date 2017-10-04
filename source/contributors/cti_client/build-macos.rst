@@ -1,10 +1,10 @@
-.. index:: single:XiVO Client
+.. index:: single:Wazo Client
 
 **********************************
-Building the XiVO Client on Mac OS
+Building the Wazo Client on Mac OS
 **********************************
 
-This page explains how to build an executable of the XiVO Client from its sources for Mac OS.
+This page explains how to build an executable of the Wazo Client from its sources for Mac OS.
 
 
 Mac OS Prerequisites
@@ -31,7 +31,7 @@ Get sources
 
 In a bash shell, enter::
 
-   $ git clone git://github.com/wazo-pbx/xivo-client-qt.git
+   $ git clone git://github.com/wazo-pbx/wazo-client-qt.git
 
 
 Building
@@ -40,7 +40,7 @@ Building
 
 Launch qmake to generate the Makefile::
 
-   $ cd xivo-client-qt
+   $ cd wazo-client-qt
    $ /path/to/qt5/bin/qmake -spec macx-g++
 
 This will also generate a file ``versions.mak`` that contains version informations about the code
@@ -76,7 +76,7 @@ Launch
 
 You can launch the built executable with::
 
-   $ DYLD_LIBRARY_PATH=bin bin/xivoclient.app/Contents/MacOS/xivoclient
+   $ DYLD_LIBRARY_PATH=bin bin/wazoclient.app/Contents/MacOS/wazoclient
 
 
 Package

@@ -1,9 +1,9 @@
-.. index:: single:XiVO Client
+.. index:: single:Wazo Client
 
-.. _build_xivoclient:
+.. _build_wazoclient:
 
 ************************
-Building the XiVO Client
+Building the Wazo Client
 ************************
 
 .. toctree::

@@ -112,7 +112,7 @@ General`
 Custom certificates can be added in :menuselection:`Configuration --> Certificates`
 and used in :menuselection:`CTI Server --> General settings --> General`
 
-In your XiVO Client, in the menu :menuselection:`XiVO Client --> Configure -->
+In your Wazo Client, in the menu :menuselection:`Wazo Client --> Configure -->
 Connection`, click on the lock icon.
 
 .. note::

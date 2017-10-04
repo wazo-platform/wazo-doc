@@ -1,10 +1,10 @@
-.. index:: single:XiVO Client
+.. index:: single:Wazo Client
 
 *********************************************
-Building the XiVO Client on Windows platforms
+Building the Wazo Client on Windows platforms
 *********************************************
 
-This page explains how to build an executable of the XiVO Client from its sources for Windows.
+This page explains how to build an executable of the Wazo Client from its sources for Windows.
 
 
 Windows Prerequisites
@@ -32,13 +32,13 @@ You need the development files of the Qt 5 library, available on the `Qt website
 NSIS (installer only)
 ---------------------
 
-You will only need NSIS installed if you want to create an installer for the XiVO Client.
+You will only need NSIS installed if you want to create an installer for the Wazo Client.
 
 `NSIS download page <http://nsis.sourceforge.net/Download>`_
 
 During the installer, choose the full installation.
 
-The XiVO Client NSIS script file uses two plug-ins:
+The Wazo Client NSIS script file uses two plug-ins:
 
 * the NSIS Application Association Registration Plug-in (`download page
   <http://nsis.sourceforge.net/Application_Association_Registration_plug-in#Download>`__)
@@ -55,9 +55,9 @@ Get sources
 
 In a **Cygwin shell**::
 
-   git clone git://github.com/wazo-pbx/xivo-client-qt.git
-   cd xivo-client-qt
-   touch xivoclient/qt-solutions/qtsingleapplication/src/{QtSingleApplication,QtLockedFile}
+   git clone git://github.com/wazo-pbx/wazo-client-qt.git
+   cd wazo-client-qt
+   touch wazoclient/qt-solutions/qtsingleapplication/src/{QtSingleApplication,QtLockedFile}
 
 
 Building
@@ -66,7 +66,7 @@ Building
 Path configuration
 ------------------
 
-You must change the values in :file:`C:\\Cygwin\\home\\user\\xivo-client-qt\\build-deps` to match
+You must change the values in :file:`C:\\Cygwin\\home\\user\\wazo-client-qt\\build-deps` to match
 the paths of your installed programs. You must use an editor capable of understanding Unix end of
 lines, such as `Notepad++ <http://notepad-plus-plus.org>`_.
 
@@ -100,7 +100,7 @@ Launch
 You can launch the built executable with::
 
    source build_deps
-   PATH=$WIN_QT_PATH/bin:$PATH bin/xivoclient
+   PATH=$WIN_QT_PATH/bin:$PATH bin/wazoclient
 
 
 Package
