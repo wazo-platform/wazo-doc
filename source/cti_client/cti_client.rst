@@ -37,6 +37,8 @@ Binaries of the Wazo Client are available on our mirror. (`latest version`_) (`a
 .. _all versions: http://mirror.wazo.community/iso/archives
 .. _latest version: http://mirror.wazo.community/iso/wazo-current
 
+.. _cti_client_compatibility:
+
 Versions
 --------
 

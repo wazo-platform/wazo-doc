@@ -203,6 +203,10 @@ Consult the `17.14 Roadmap <https://projects.wazo.community/versions/267>`_
   * If your custom development use service discovery to find ``xivo-auth``, you will have to search for
     the ``wazo-auth`` service instead of ``xivo-auth``.
 
+* We released a new version of the CTI client, rebranded as `Wazo Client 17.14.1`. It is compatible
+  with all previous versions of Wazo (i.e. not before 16.16). See also the :ref:`compatibility table
+  <cti_client_compatibility>`.
+
 
 17.13
 -----
