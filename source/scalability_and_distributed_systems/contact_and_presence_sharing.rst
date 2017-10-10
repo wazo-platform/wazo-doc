@@ -232,6 +232,7 @@ Stop Wazo
 .. code-block:: sh
 
     wazo-service stop
+    systemctl stop consul
 
 
 Remove All Consul Data
