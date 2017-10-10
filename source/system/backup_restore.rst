@@ -294,6 +294,14 @@ After Restoring The System
 
     xivo-update-keys
 
+#. Restore the server UUID::
+
+    XIVO_UUID=$(sudo -u postgres psql -d asterisk -t -c 'select uuid from infos')
+    echo "export XIVO_UUID=$XIVO_UUID" > /etc/profile.d/xivo_uuid.sh
+
+   Then edit :file:`/etc/systemd/system.conf` to update ``XIVO_UUID`` in ``DefaultEnvironment``
+
+
 #. You may reboot the system, or execute the following steps.
 #. Update systemd runtime configuration::
 
