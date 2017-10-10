@@ -20,7 +20,7 @@ System
    service_authentication/service_authentication
    wazo-service <service>
    wazo-webhookd <wazo-webhookd>
-   xivo-auth <xivo-auth/xivo-auth>
+   wazo-auth <wazo-auth/wazo-auth>
    xivo-confd <xivo-confd/xivo-confd>
    xivo-confgend <xivo-confgend/xivo-confgend>
    xivo-dird <xivo-dird/xivo-dird>

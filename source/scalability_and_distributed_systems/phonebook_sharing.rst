@@ -66,7 +66,7 @@ We just defined the directories, now let's use them:
 Check That Everything is Working
 ================================
 
-There is no further configuration needed, you should now be able to connect your XiVO Client and
+There is no further configuration needed, you should now be able to connect your Wazo Client and
 search phonebook contacts from the People Xlet.
 
 

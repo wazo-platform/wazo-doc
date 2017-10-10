@@ -11,18 +11,18 @@ Switchboard Usage
     * Device, User, Agent and Queues configuration (see above),
     * Directory xlet configuration (see :ref:`directory-xlet`)
 
-  If it's not the case, the user must disconnect his XiVO client and reconnect.
+  If it's not the case, the user must disconnect his Wazo Client and reconnect.
 
 
 Be sure to read the :ref:`limitations <switchboard_limitations>` before using the switchboard.
 
 
-The XiVO Client Switchboard Profile
+The Wazo Client Switchboard Profile
 -----------------------------------
 
-When the user connects with his XiVO Client, he gets the Switchboard profile.
+When the user connects with his Wazo Client, he gets the Switchboard profile.
 
-.. figure:: images/xivoclient-answering.png
+.. figure:: images/cti-client-answering.png
 
 1. *Current Call* frame
 2. *Answer* button
@@ -58,7 +58,7 @@ and the phone starts ringing. The user can answer this call by:
 * clicking the *Answer* button
 * pressing the *Enter* key
 
-.. note:: The XiVO Client must be the active window for the keyboard shortcuts
+.. note:: The Wazo Client must be the active window for the keyboard shortcuts
           to be handled
 
 The operator can select which call to answer by:
@@ -127,7 +127,7 @@ Attended transfers are a bit more complicated: the operator needs to wait for th
 
 In this example, the operator is currently asking *Bernard Marx* if he can transfer *Alice Wonderland* to him.
 
-.. figure:: images/xivoclient-transferring.png
+.. figure:: images/cti-client-transferring.png
 
 1. *Complete transfer* button
 2. *Cancel transfer* button

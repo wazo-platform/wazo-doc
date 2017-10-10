@@ -1171,8 +1171,6 @@ IP station |y|         1          |n|
        keys the device has (for example, a 6757i has 12 physical keys but you can configure 30
        function keys because of the page system).
 .. [3] ``Wazo HA`` means the device is confirmed to work with :ref:`Wazo HA <high-availability>`.
-.. [4] These devices are marked as ``Not Tested`` because other similar models using the same firmware have been tested instead.
-       If these devices ever present any bugs, they will be troubleshooted by the Wazo support team.
 
 .. |y| replace:: Yes
 .. |n| replace:: No

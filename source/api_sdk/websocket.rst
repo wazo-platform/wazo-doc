@@ -1,3 +1,5 @@
+.. _wazo-websocketd:
+
 ***********************
 WebSocket Event Service
 ***********************
@@ -15,9 +17,9 @@ Getting Started
 To use the service, you need to:
 
 #. connect to it on port 9502 using an encrypted WebSocket connection.
-#. authenticate to it by providing a xivo-auth token that has the ``websocketd`` ACL. If you
-   don't know how to obtain a xivo-auth token from your Wazo, consult the :ref:`documentation on
-   xivo-auth <xivo-auth>`.
+#. authenticate to it by providing a wazo-auth token that has the ``websocketd`` ACL. If you
+   don't know how to obtain a wazo-auth token from your Wazo, consult the :ref:`documentation on
+   wazo-auth <wazo-auth>`.
 
 For example, if you want to use the service located at ``example.org`` with the token
 ``some-token-id``, you would use the URL ``wss://example.org:9502/?token=some-token-id``.
@@ -224,7 +226,7 @@ See the :ref:`https_certificate` section for more information on certificate con
 Authentication
 --------------
 
-Authentication is done by passing a xivo-auth token ID in the ``token`` query parameter.
+Authentication is done by passing a wazo-auth token ID in the ``token`` query parameter.
 Authentication is mandatory.
 
 The token must have the ``websocketd`` ACL.
@@ -240,7 +242,7 @@ Events Access Control
 ---------------------
 
 Clients connected to ``xivo-websocketd`` only receive events that they are authorized to receive.
-For example, a client connected with a token obtained from the "xivo_user" ``xivo-auth`` backend
+For example, a client connected with a token obtained from the "xivo_user" ``wazo-auth`` backend
 will *not* receive call events of other users.
 
 When a message is received from the bus by ``xivo-websocketd``, it extracts the ACL from the

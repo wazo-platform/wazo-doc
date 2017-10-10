@@ -5,7 +5,7 @@ Display customer informations
 
    sheetconfiguration
 
-The informations about a call are displayed via the XiVO Client on forms called
+The informations about a call are displayed via the Wazo Client on forms called
 sheets. Sheets or customer info is a mechanism that allow the user to receive information
 about a call in its client. There are many events that can trigger a sheet to be
 displayed and there are many variables available for display.
@@ -56,5 +56,5 @@ queued call. Go to :menuselection:`Services --> CTI Server --> Sheets -->
 Events` and link the event ``Agent linked`` to the sheet you just created.
 
 That's it, you can assign agents to your queue, log the agents and make them
-answer calls with the XiVO Client opened, and your browser should open the
+answer calls with the Wazo Client opened, and your browser should open the
 specified URL.

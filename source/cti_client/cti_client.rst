@@ -1,17 +1,17 @@
-.. index:: single:XiVO Client
+.. index:: single:Wazo Client
 
 ***********
-XiVO Client
+Wazo Client
 ***********
 
-What is the XiVO Client
+What is the Wazo Client
 =======================
 
-The XiVO Client is an application that you install on your computer and is connected to the Wazo
+The Wazo Client is an application that you install on your computer and is connected to the Wazo
 server. This application offers the following features:
 
 * search contacts and show their presence, phone status
-* make calls through your phone (the XiVO Client is **NOT** a softphone, it is complementary to the
+* make calls through your phone (the Wazo Client is **NOT** a softphone, it is complementary to the
   phone)
 * access your voicemail through your phone
 * enable call forwards, call filtering
@@ -29,20 +29,32 @@ It also offers some call center features:
 A lot of those features are modular and may be enabled for each user by choosing which :ref:`Xlets
 <xlet-list>` they can see.
 
-Getting the XiVO client
+Getting the Wazo Client
 =======================
 
-Binaries of the XiVO Client are available on our mirror. (`latest version`_) (`all versions`_)
+Binaries of the Wazo Client are available on our mirror. (`latest version`_) (`all versions`_)
 
 .. _all versions: http://mirror.wazo.community/iso/archives
 .. _latest version: http://mirror.wazo.community/iso/wazo-current
 
-.. warning::
+.. _cti_client_compatibility:
 
-   The installed version of the XiVO Client must match the Wazo server's version installation. With
-   our current architecture, there is no way to guarantee that the Wazo server will be
-   retro-compatible with older versions of the XiVO Client. Non-matching Wazo server and XiVO
-   Clients versions might lead to unexpected behaviour.
+Versions
+--------
+
+Here is the compatibility table between Wazo server and Wazo Client:
+
++-----------------+----------------------------+
+| Server          | Compatible with client     |
++=================+============================+
+| Earlier - 16.12 | Same version as the server |
++-----------------+----------------------------+
+| 16.13 - latest  | 16.13 or 17.13 - latest    |
++-----------------+----------------------------+
+
+
+Download
+--------
 
 Choose the version you want and in the right directory, get :
 
@@ -52,25 +64,25 @@ Choose the version you want and in the right directory, get :
 
 For Windows, double-click on the file and follow the instructions. You can also install it silently::
 
-   xivoclient-14.XX-x86.exe /S
+   wazoclient-17.XX-x86.exe /S
 
 For Ubuntu/Debian, double-click on the file or execute the following command::
 
-   $ gdebi xivoclient-*.deb
+   $ gdebi wazoclient-*.deb
 
 For Mac OS, double-click on the file and drag-and-drop the inner file on the
 Application entry of the Finder.
 
-The XiVO Client should then be available in the applications menu of each platform.
+The Wazo Client should then be available in the applications menu of each platform.
 
-If you want to build your own XiVO Client, see :ref:`build_xivoclient`.
+If you want to build your own Wazo Client, see :ref:`build_wazoclient`.
 
 .. index:: Xlets
 
 Connection to the server
 ========================
 
-To connect to the server using the XiVO client you need a user name, a password and the server's
+To connect to the server using the Wazo Client you need a user name, a password and the server's
 address. Optionally, it is possible to login an agent while connecting to the server.
 
 .. figure:: images/login_window.png
@@ -81,7 +93,7 @@ address. Optionally, it is possible to login an agent while connecting to the se
 Xlets
 =====
 
-Xlets are features of the XiVO Client. It is the contraction of XiVO applets. To select which xlets
+Xlets are features of the Wazo Client. It is the contraction of XiVO applets. To select which xlets
 are displayed in your client, see :ref:`cti-profiles`.
 
 .. toctree::
@@ -99,7 +111,7 @@ are displayed in your client, see :ref:`cti-profiles`.
 Configuration
 =============
 
-The XiVO Client configuration options can be accessed under :menuselection:`XiVO Client --> Configure`.
+The Wazo Client configuration options can be accessed under :menuselection:`Wazo Client --> Configure`.
 
 
 Connection Configuration
@@ -123,14 +135,14 @@ This page allows the user to set his network information to connect to the xivo-
 Handling callto: and tel: URLs
 ==============================
 
-The XiVO Client can handle telephone number links that appear in web pages. The client will
+The Wazo Client can handle telephone number links that appear in web pages. The client will
 automatically dial the number when you click on a link.
 
 .. note:: You must already be logged in for automatic dialing to work, otherwise the client will
            simply start up and wait for you to log in.
 
-.. warning:: The option in the XiVO Client :menuselection:`GUI Options --> Allow multiple instances
-             of XiVO Client` must be disabled, else you will launch one new XiVO Client with every click.
+.. warning:: The option in the Wazo Client :menuselection:`Advanced --> Allow multiple instances
+             of Wazo Client` must be disabled, else you will launch one new Wazo Client with every click.
 
 Mac OS
 ------
@@ -139,12 +151,12 @@ Mac OS
 after installing the client.
 
 ``tel:`` links will open FaceTime after installing the client. To make the
-XiVO Client the default application to open ``tel:`` URLs in Safari.
+Wazo Client the default application to open ``tel:`` URLs in Safari.
 
 1. Open the FaceTime application
 2. Connect using your apple account
 3. Open the FaceTime preferences
-4. Change the *Default for calls* entry to *xivoclient.app*
+4. Change the *Default for calls* entry to *wazoclient.app*
 
 
 .. figure:: images/facetime_preference.png
@@ -156,24 +168,16 @@ XiVO Client the default application to open ``tel:`` URLs in Safari.
 Windows
 -------
 
-XiVO Client is associated with ``callto:`` and ``tel:`` upon installation. Installing other
-applications afterward could end up overriding these associations. Starting with Windows Vista, it is possible
-to configure these associations via the Default Programs. Users can access Default Programs from Control
-Panel or directly from the Start menu.
+Wazo Client is associated with ``callto:`` and ``tel:`` upon installation. Installing other
+applications afterward could end up overriding these associations.
+
+* Windows Vista: :menuselection:`Start menu --> Control Panel --> Default Programs`, subsection Protocols
+* Windows 7: :menuselection:`Start menu --> Control Panel --> Default Programs`, subsection Protocols
+* Windows 10: :menuselection:`Start menu --> Settings --> System --> Default apps --> Choose default apps by protocol`
 
 .. figure:: images/windows_default_programs.png
    :scale: 85%
 
-The following popups might appear when you open a ``callto:`` or ``tel:`` link for the first time in
-Internet Explorer:
-
-.. figure:: images/ie_warning_1.png
-.. figure:: images/ie_warning_2.png
-
-Simply click on *allow* to dial the number using the XiVO Client.
-
-.. note:: If you do not want these warnings to appear each time, do not forget to check/uncheck the
-          checkbox at the bottom of the popups.
 
 Ubuntu
 ------
@@ -184,15 +188,15 @@ needed.
 GNU/Linux Debian
 ----------------
 
-Currently, ``callto:`` or ``tel:`` links are only supported in Firefox. If the XiVO Client is not
+Currently, ``callto:`` or ``tel:`` links are only supported in Firefox. If the Wazo Client is not
 listed in the proposition when you open the link, browse your files to find
-:file:`/usr/bin/xivoclient`.
+:file:`/usr/bin/wazoclient`.
 
 Manual association in Firefox
 -----------------------------
 
 If, for some reason, Firefox does not recognize ``callto:`` or ``tel:`` URIs you can manually
-associate them to the XiVO Client using the following steps:
+associate them to the Wazo Client using the following steps:
 
 1. Type ``about:config`` in the URL bar
 2. Click the *I'll be careful, I promise !* button to close the warning
@@ -202,4 +206,4 @@ associate them to the XiVO Client using the following steps:
 6. Repeat steps 3 to 6, but replace ``callto`` by ``tel`` at step 4
 
 The next time that you click on a telephone link, Firefox will ask you to choose an application. You
-will then be able to choose the XiVO client for handling telephone numbers.
+will then be able to choose the Wazo Client for handling telephone numbers.

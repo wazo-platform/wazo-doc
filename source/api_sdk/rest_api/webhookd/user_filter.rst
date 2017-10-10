@@ -12,20 +12,26 @@ Supported events
 
 The current list of events that is supported by the ``user_uuid`` parameter is:
 
-- ``call_log_user_created``
+- ``agent_paused``
+- ``agent_status_update``
+- ``agent_unpaused``
 - ``call_created``
-- ``call_updated``
 - ``call_ended``
+- ``call_log_user_created``
+- ``call_updated``
+- ``chat_message_sent``
+- ``chat_message_received``
+- ``endpoint_status_update``
 - ``favorite_added``
 - ``favorite_deleted``
 - ``user_status_update``
+- ``user_voicemail_message_created``
+- ``user_voicemail_message_deleted``
+- ``user_voicemail_message_updated``
+- ``users_forwards_busy_updated``
+- ``users_forwards_noanswer_updated``
+- ``users_forwards_unconditional_updated``
 - ``users_services_dnd_updated``
 - ``users_services_incallfilter_updated``
-- ``users_forwards_unconditional_updated``
-- ``users_forwards_noanswer_updated``
-- ``users_forwards_busy_updated``
-- ``user_voicemail_message_created``
-- ``user_voicemail_message_updated``
-- ``user_voicemail_message_deleted``
 
 Unsupported events will always trigger the webhook, regardless of the related user.

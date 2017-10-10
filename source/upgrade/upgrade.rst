@@ -16,9 +16,9 @@ start an upgrade with the command::
 .. note::
    * You can't use wazo-upgrade if you have not run the wizard yet
    * Upgrading from a :ref:`deprecated version<deprecated_versions>` is not supported.
-   * When upgrading Wazo, you **must** also upgrade **all** associated XiVO Clients. There is
-     currently no retro-compatibility on older XiVO Client versions. The only exception is Wazo
-     16.16, which is compatible with XiVO Client 16.13.
+   * When upgrading Wazo, you **must** also upgrade **all** associated Wazo Clients. There is
+     currently no retro-compatibility on older Wazo Client versions. The only exception is Wazo
+     16.16, which is compatible with Wazo Client 16.13.
 
 This script will update Wazo and restart all services.
 
@@ -189,6 +189,24 @@ Repeat this command until no more unwanted rules are left.
 
 Upgrade Notes
 =============
+
+17.14
+-----
+
+Consult the `17.14 Roadmap <https://projects.wazo.community/versions/267>`_
+
+* ``xivo-auth`` has been renamed ``wazo-auth``
+
+  * If you have developed a ``xivo-auth`` authentication backend the name of the entry point has
+    changed to ``wazo_auth.backends``. You should make this modification in your plugin's ``setup.py``
+    file in the ``entry_point`` section.
+  * If your custom development use service discovery to find ``xivo-auth``, you will have to search for
+    the ``wazo-auth`` service instead of ``xivo-auth``.
+
+* We released a new version of the CTI client, rebranded as `Wazo Client 17.14.1`. It is compatible
+  with all previous versions of Wazo (i.e. not before 16.16). See also the :ref:`compatibility table
+  <cti_client_compatibility>`.
+
 
 17.13
 -----
@@ -425,11 +443,11 @@ Consult the `16.10 Roadmap <https://projects.wazo.community/versions/246>`_
 
 Consult the `16.09 Roadmap <https://projects.wazo.community/versions/245>`_
 
-* The XiVO Client now uses xivo-ctid-ng to do transfers. Those new transfers cannot be cancelled
-  with the ``*0`` DTMF sequence and there is no interface in the XiVO Client to cancel a transfer
+* The Wazo Client now uses xivo-ctid-ng to do transfers. Those new transfers cannot be cancelled
+  with the ``*0`` DTMF sequence and there is no interface in the Wazo Client to cancel a transfer
   for profiles other than the switchboard (bug `#6321`_). This will be addressed in a later version.
 
-* Transfers started from the XiVO Client do not respect the ``Dial timeout on transfer`` option
+* Transfers started from the Wazo Client do not respect the ``Dial timeout on transfer`` option
   anymore (bug `#6322`_). This feature will be reintroduced in a later version.
 
 .. _#6321: http://projects.wazo.community/issues/6321
@@ -528,8 +546,8 @@ Consult the `16.02 Roadmap <https://projects.wazo.community/versions/238>`_
   Some libraries already do the message conversion based the content-type. Kombu users will
   receive a python dictionnary instead of a string containing json when a message is received.
 * :ref:`xivo-ctid encryption <ctid-encryption>` is automatically switched on for every XiVO server
-  and XiVO Client >= 16.02. If you really don't want encryption, you must disable it manually on
-  the server after the upgrade. In that case, XiVO Clients will ask whether to accept the connection
+  and Wazo Client >= 16.02. If you really don't want encryption, you must disable it manually on
+  the server after the upgrade. In that case, Wazo Clients will ask whether to accept the connection
   the first time.
 
 

@@ -1,9 +1,9 @@
 **************************************
-Manage Translations of the XiVO Client
+Manage Translations of the Wazo Client
 **************************************
 
-This sections describes how to manage XiVO Client translations from a developer
-point of view. If you want to help translate the XiVO Client, see
+This sections describes how to manage Wazo Client translations from a developer
+point of view. If you want to help translate the Wazo Client, see
 :doc:`Translating Wazo <../translate>`
 
 You need to install these tools::
@@ -26,11 +26,11 @@ Example::
 Updating translations on transifex
 ----------------------------------
 
-Run the following commands from the root of the xivo-client-qt project::
+Run the following commands from the root of the wazo-client-qt project::
 
     make pushtr
 
-After this command, you can visit `Transifex`_, and check that the xivo-client is 100% translated
+After this command, you can visit `Transifex`_, and check that the wazo-client is 100% translated
 for your language. Once all the translations have been checked, run the 3 following commands::
 
     make pulltr
@@ -43,10 +43,10 @@ for your language. Once all the translations have been checked, run the 3 follow
              ``make {pull,push}tr``.
 
 
-Add a new XiVO Client locale
+Add a new Wazo Client locale
 ============================
 
-Localizing the XiVO Client goes through four steps :
+Localizing the Wazo Client goes through four steps :
 
 * Creating the new translation in Transifex
 * Generatint the translation files
@@ -69,19 +69,19 @@ For the command to create files for your locale, you need to ensure it is listed
 in the project file.
 
 There are a few project files you should edit, each one will translate a module
-of the XiVO Client :
+of the Wazo Client :
 
 * :file:`baselib/baselib.pro`
-* :file:`xivoclient/xivoclient.pro`
-* :file:`xivoclient/xletlib.pro`
-* :file:`xivoclient/src/xlets/*/*.pro`
+* :file:`wazoclient/wazoclient.pro`
+* :file:`wazoclient/xletlib.pro`
+* :file:`wazoclient/src/xlets/*/*.pro`
 
 In these files, you should add a line like this one::
 
-   TRANSLATIONS += $$ROOT_DIR/i18n/xivoclient_fr.ts
+   TRANSLATIONS += $$ROOT_DIR/i18n/wazoclient_fr.ts
 
 This line adds a translation file for french. Please replace fr by the code of
-your locale. The ``$$ROOT_DIR`` variable references either xivoclient or
+your locale. The ``$$ROOT_DIR`` variable references either wazoclient or
 baselib.
 
 You can use a command like the following to automate this ($LANG is the new language)::
@@ -103,9 +103,9 @@ file. These resource files list all files that will be embedded in the Wazo
 Client binaries.  You should then add the corresponding translation files like
 below::
 
-   <file>obj/xivoclient_fr.qm</file>
+   <file>obj/wazoclient_fr.qm</file>
 
-This embeds the French translation of the ``xivoclient`` module, corresponding
+This embeds the French translation of the ``wazoclient`` module, corresponding
 to the translation file above. The path is changed to ``obj/`` because the
 ``.qm`` file will be generated from the ``.ts`` file.
 
@@ -117,5 +117,5 @@ You can use a command like the following to automate this ($LANG is the new lang
 Display the new locale
 ----------------------
 
-You have to edit the source file :file:`xivoclient/src/configwidget.cpp` and add
+You have to edit the source file :file:`wazoclient/src/configwidget.cpp` and add
 the entry corresponding to your locale in the locale-choosing combobox.

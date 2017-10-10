@@ -10,9 +10,9 @@ Authentication
 ==============
 
 For all REST APIs, the main way to authenticate is to use an access token obtained from
-:ref:`xivo-auth`. This token should be given in the ``X-Auth-Token`` header in your request. For example::
+:ref:`wazo-auth`. This token should be given in the ``X-Auth-Token`` header in your request. For example::
 
-   curl <options...> -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' https://<xivo_address>:9486/1.1/users
+   curl <options...> -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' https://<wazo_address>:9486/1.1/users
 
 Also, your token needs to have the right ACLs to give you access to the resource you want. See
 :ref:`rest-api-acl`.

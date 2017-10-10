@@ -1,7 +1,7 @@
 .. _auth_changelog:
 
 ****************************
-xivo-auth HTTP API Changelog
+wazo-auth HTTP API Changelog
 ****************************
 
 17.02

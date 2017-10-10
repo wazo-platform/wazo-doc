@@ -13,7 +13,7 @@ Views
 -----
 
 In the directory displays (also in the :ref:`main configuration file <dird-configuration-file>` of xivo-dird, in the ``views`` section), the
-following keys are interpreted and displayed in xlet people of the XiVO Client:
+following keys are interpreted and displayed in xlet people of the Wazo Client:
 
 ``title``
    The ``title`` will be shown as a header for the column
@@ -73,7 +73,7 @@ In the web interface under :menuselection:`Services --> CTI Server --> Directori
 Favorites
 ---------
 
-Enabling favorites in the XiVO client.
+Enabling favorites in the Wazo Client.
 
 * Add a `unique_column` to your sources.
 * Add a `favorite` column to your display

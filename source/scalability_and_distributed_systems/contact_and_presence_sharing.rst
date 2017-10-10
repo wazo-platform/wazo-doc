@@ -318,7 +318,7 @@ Check That Everything is Working
 ================================
 
 There is no further configuration needed, you should now be able to connect your
-XiVO Client and search contacts from the People Xlet. When looking up contacts
+Wazo Client and search contacts from the People Xlet. When looking up contacts
 of another Wazo, you should see their phone status, their user availability, and
 agent status dynamically.
 

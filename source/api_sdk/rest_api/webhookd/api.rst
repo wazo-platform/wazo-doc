@@ -19,6 +19,34 @@ More specific documentation:
 Changelog
 =========
 
+17.14
+-----
+
+* New resources to manage webhooks as a user:
+
+  * GET ``/1.0/users/me/subscriptions``
+  * POST ``/1.0/users/me/subscriptions``
+  * GET ``/1.0/users/me/subscriptions/<uuid>``
+  * PUT ``/1.0/users/me/subscriptions/<uuid>``
+  * DELETE ``/1.0/users/me/subscriptions/<uuid>``
+
+* New options for subscriptions:
+
+  * ``events_wazo_uuid`` 
+
+* New default value for config options for subscriptions with service ``http``:
+
+  * ``body`` defaults to the JSON-encoded form of ``event[data]``. When the default value is used, ``content-type`` is set to ``application/json``.
+
+
+17.13
+-----
+
+* New options for subscriptions:
+
+  * ``events_user_uuid``
+
+
 17.12
 -----
 

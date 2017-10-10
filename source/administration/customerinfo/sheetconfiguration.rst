@@ -24,7 +24,7 @@ General settings
 
 You must give a name to your sheet to be able to select it later.
 
-The ``Focus`` checkbox makes the XiVO Client pop up when the sheet is displayed, if the XiVO Client
+The ``Focus`` checkbox makes the Wazo Client pop up when the sheet is displayed, if the Wazo Client
 was hidden.
 
 
@@ -163,7 +163,7 @@ The ``{dp-test}`` displays Salut.
 Sending informations during/after a call
 ----------------------------------------
 
-After showing a sheet, the XiVO Client can also send back information to Wazo for post-processing or
+After showing a sheet, the Wazo Client can also send back information to Wazo for post-processing or
 archiving.
 
 Here are the requirements:
@@ -219,9 +219,9 @@ list of fields) and zero, one or more fields of type 'body'.
 Actions
 =======
 
-The action is for the xivo client, so if you configure an action, please be sure
+The action is for the Wazo Client, so if you configure an action, please be sure
 you understand it's executed *by the client*. You need to allow this action in
-the client configuration too (menu `XiVO Client -> Configure`, tab `Functions`,
+the client configuration too (menu `Wazo Client -> Configure`, tab `Functions`,
 tick option `Customer Info` and in sub-tab `Customer Info` tick the option
 `Allow the Automatic Opening of URL`).
 

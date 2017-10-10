@@ -41,7 +41,7 @@ anything with the CTI client.
 Authentication
 ================
 
-xivo-ctid uses xivo-auth to authenticate users. The default authentication
+xivo-ctid uses wazo-auth to authenticate users. The default authentication
 backend is `xivo_user`. To change the authentication backend, add a
 configuration file in `/etc/xivo-ctid/conf.d` with the following content:
 
@@ -50,7 +50,7 @@ configuration file in `/etc/xivo-ctid/conf.d` with the following content:
     auth:
         backend: backend_name
 
-where *backend* name is the name of an enabled *xivo-auth* :ref:`auth-backends`.
+where *backend* name is the name of an enabled *wazo-auth* :ref:`auth-backends`.
 
 
 .. _presence_option:
@@ -112,7 +112,7 @@ General`
 Custom certificates can be added in :menuselection:`Configuration --> Certificates`
 and used in :menuselection:`CTI Server --> General settings --> General`
 
-In your XiVO Client, in the menu :menuselection:`XiVO Client --> Configure -->
+In your Wazo Client, in the menu :menuselection:`Wazo Client --> Configure -->
 Connection`, click on the lock icon.
 
 .. note::

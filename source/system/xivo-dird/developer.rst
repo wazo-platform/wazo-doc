@@ -103,21 +103,21 @@ Implementation details
     * Empty values should be ``None``, instead of empty string.
     * ``args`` is a dictionary containing:
 
-      * key ``token_infos``: data associated to the authentication token (see :ref:`xivo-auth`)
+      * key ``token_infos``: data associated to the authentication token (see :ref:`wazo-auth`)
 
   * ``first_match(term, args)``: The first_match method returns a dictionary.
 
     * Empty values should be ``None``, instead of empty string.
     * ``args`` is a dictionary containing:
 
-      * key ``token_infos``: data associated to the authentication token (see :ref:`xivo-auth`)
+      * key ``token_infos``: data associated to the authentication token (see :ref:`wazo-auth`)
 
   * ``list(uids, args)``: The list method returns a list of dictionary from a list of uids. Each uid
     is a string identifying a contact within the source.
 
     * ``args`` is a dictionary containing:
 
-      * key ``token_infos``: data associated to the authentication token (see :ref:`xivo-auth`)
+      * key ``token_infos``: data associated to the authentication token (see :ref:`wazo-auth`)
 
 
 See :ref:`dird-sources_configuration`. The implementation of the back-end should take these values into

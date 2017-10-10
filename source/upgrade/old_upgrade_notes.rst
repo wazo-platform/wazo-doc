@@ -314,7 +314,7 @@ Please consult the following detailed upgrade notes for more information:
 -----
 
 * Consult the `15.05 Roadmap <https://projects.wazo.community/versions/221>`_
-* The Xlet identity has been modified to follow the new XiVO Client design which implies the removal
+* The Xlet identity has been modified to follow the new Wazo Client design which implies the removal
   of some details.
 
 
@@ -563,8 +563,8 @@ Please consult the following detailed updated notes for more information:
 -----
 
 * Consult the `14.06 Roadmap <https://projects.wazo.community/versions/197>`_
-* The XiVO client now uses Qt 5 instead of Qt 4. There is nothing to be aware of unless you
-  are :ref:`building your own version <build_xivoclient>` of it.
+* The Wazo Client now uses Qt 5 instead of Qt 4. There is nothing to be aware of unless you
+  are :ref:`building your own version <build_wazoclient>` of it.
 
 
 14.05
@@ -592,7 +592,7 @@ Please consult the following detailed updated notes for more information:
 
 * Consult the `14.04 Roadmap <https://projects.wazo.community/versions/195>`_
 * Live reload of the configuration can be enabled and disabled using the REST API
-* The generation of call logs for unanswered calls from the XiVO client have
+* The generation of call logs for unanswered calls from the Wazo Client have
   been improved.
 
 
@@ -766,7 +766,7 @@ Please consult the following detailed upgrade notes for more information:
 
 * Consult the `13.12 Roadmap <https://projects.wazo.community/versions/178>`_
 * CTI protocol: Modified values of agent ``availability``. Read :ref:`CTI Protocol changelog <cti-protocol>`
-* Clean-up was made related to the minimization of the XiVO Client. Some visual differences have been observed on Mac OS X that do not affect the XiVO Client in a functional way.
+* Clean-up was made related to the minimization of the Wazo Client. Some visual differences have been observed on Mac OS X that do not affect the Wazo Client in a functional way.
 
 
 13.11

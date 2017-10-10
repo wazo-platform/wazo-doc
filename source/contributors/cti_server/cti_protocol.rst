@@ -968,7 +968,7 @@ Chitchat
 
 ``Server > Client``
 
-The following message is received by the remote XiVO client
+The following message is received by the remote Wazo Client
 
 .. code-block:: javascript
 
