@@ -190,6 +190,14 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.15
+-----
+
+* ``xivo-call-logd`` has been renamed ``wazo-call-logd``
+
+  * The custom configuration is now in ``/etc/wazo-call-logd/conf.d/``.
+
+
 17.14
 -----
 
