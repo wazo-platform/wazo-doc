@@ -195,7 +195,8 @@ Upgrade Notes
 
 * ``xivo-call-logd`` has been renamed ``wazo-call-logd``
 
-  * The custom configuration is now in ``/etc/wazo-call-logd/conf.d/``.
+  * The custom configuration has been moved to ``/etc/wazo-call-logd/conf.d/``.
+  * The log file has been renamed to ``wazo-call-logd.log``.
 
 
 17.14
