@@ -65,12 +65,12 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/wanpipe/`
 * :file:`/etc/wazo-admin-ui/`
 * :file:`/etc/wazo-auth/`
+* :file:`/etc/wazo-call-logd/`
 * :file:`/etc/wazo-plugind/`
 * :file:`/etc/wazo-webhookd/`
 * :file:`/etc/xivo-agentd/`
 * :file:`/etc/xivo-agid/`
 * :file:`/etc/xivo-amid/`
-* :file:`/etc/xivo-call-logd/`
 * :file:`/etc/xivo-confd/`
 * :file:`/etc/xivo-confgend-client/`
 * :file:`/etc/xivo-ctid/`
