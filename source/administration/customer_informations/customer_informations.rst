@@ -1,3 +1,7 @@
+*********************
+Customer Informations
+*********************
+
 Display customer informations
 =============================
 
