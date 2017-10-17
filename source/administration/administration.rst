@@ -11,6 +11,7 @@ Administration
    callright/callright
    call_recording/call_recording
    cel/cel
+   callerid
    cli_tools/cli_tools
    conference_room/conference_room
    ctiserver/ctiserver
