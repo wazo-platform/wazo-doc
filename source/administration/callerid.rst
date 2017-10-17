@@ -1,6 +1,6 @@
-================
-CallerID in Wazo
-================
+========
+CallerID
+========
 
 The CallerID is what users see on their phones when they emit or receive a call, e.g. ``Rick Sanchez 963-555-9296``.
 
@@ -58,7 +58,7 @@ This option may also be enabled on specific SIP trunks, instead of globally.
 
 Trunk CallerID
 ^^^^^^^^^^^^^^
-    
+
 The trunk's `CallerID` option overwrites the incoming CallerID. Usually, this options is left blank
 to leave the incoming CallerID untouched.
 
