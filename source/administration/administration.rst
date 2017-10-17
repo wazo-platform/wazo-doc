@@ -8,6 +8,7 @@ Administration
    advanced_configuration/advanced_configuration
    boss_secretary_filter
    call_completion/call_completion
+   callerid
    callright/callright
    call_recording/call_recording
    cel/cel
