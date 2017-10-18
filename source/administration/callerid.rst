@@ -22,6 +22,7 @@ There are multiple settings coming into play:
 
 * The calling user's `Outgoing Caller ID`
 * The outgoing call's `Callerid` (one for each `Exten`)
+* The trunk's operator rules
 
 The current logic for outgoing calls is:
 
@@ -31,6 +32,11 @@ The current logic for outgoing calls is:
   * If the `Outgoing Caller ID` is Default, use the outgoing call's CallerID
   * If the `Outgoing Caller ID` is Anonymous, remove the CallerID
   * If the `Outgoing Caller ID` is set, use it
+
+Once the call is sent into the trunk, the operator may still override the CallerID before routing
+the call to the destination. Each operator has its own rules about CallerID: some will always
+rewrite the CallerID that is attached to the trunk, others will leave the CallerID untouched, some
+operators will only rewrite the CallerID if you use an unauthorized CallerID, etc.
 
 
 CallerID for incoming calls (from a trunk)
