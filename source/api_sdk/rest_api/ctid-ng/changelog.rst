@@ -18,7 +18,7 @@ xivo-ctid-ng HTTP API changelog
 
 * A new API for getting chat history:
 
-    * GET ``/1.0/users/me/chats``
+  * GET ``/1.0/users/me/chats``
 
 
 17.05
