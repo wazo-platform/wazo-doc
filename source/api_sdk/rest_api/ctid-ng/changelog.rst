@@ -4,6 +4,15 @@
 xivo-ctid-ng HTTP API changelog
 *******************************
 
+17.15
+=====
+
+* New APIs for relocating calls:
+
+  * ``GET,POST /users/me/relocates``
+  * ``GET /users/me/relocates/{relocate_uuid}``
+
+
 17.12
 =====
 
