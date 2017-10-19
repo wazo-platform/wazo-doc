@@ -36,8 +36,20 @@ forwarded to another external number (like a forward to a mobile phone):
 Adding new subroutine
 =====================
 
-If you want to add a new subroutine, we propose to edit a new configuration file in the directory :file:`/etc/asterisk/extensions_extra.d`.
-You can also add this file by the web interface.
+Where
+-----
+
+You can write the subroutine in two locations, depending on what you prefer:
+
+* add or edit a file in the web interface :menuselection:`Services --> IPBX --> IPBX Configuration --> Configuration files`
+* add/edit a file directly on the server in :file:`/etc/asterisk/extensions_extra.d`
+
+The two operations are strictly equivalent.
+
+.. note:: Since all configuration files will be merged together in the end, it does not matter in which file you write your subroutine. The different files are only here to find your way back more quickly than one big configuration file. So don't be afraid to create new files!
+
+What
+----
 
 An example::
 
