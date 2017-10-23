@@ -11,6 +11,7 @@ xivo-ctid-ng HTTP API changelog
 
   * ``GET,POST /users/me/relocates``
   * ``GET /users/me/relocates/{relocate_uuid}``
+  * ``PUT /users/me/relocates/{relocate_uuid}/complete``
 
 
 17.12
