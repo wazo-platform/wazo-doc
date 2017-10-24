@@ -4,18 +4,29 @@
 wazo-auth HTTP API Changelog
 ****************************
 
+17.15
+=====
+
+* A new resource has been added to manage Users
+
+  * POST ``0.1/users``
+  * GET ``0.1/users``
+  * GET ``0.1/users/<user_uuid>``
+  * DELETE ``0.1/users/<user_uuid>``
+
+
 17.02
 =====
 
 * A new resource has been added to manage ACL policies
 
-    * POST ``/0.1/polices``
-    * GET ``/0.1/policies``
-    * GET ``/0.1/policies/<policy_uuid>``
-    * PUT ``/0.1/policies/<policy_uuid>``
-    * DELETE ``/0.1/policies/<policy_uuid>``
-    * PUT ``/0.1/policies/<policy_uuid>/acl_templates/<template>``
-    * DELETE ``/0.1/policies/<policy_uuid>/acl_templates/<template>``
+  * POST ``/0.1/polices``
+  * GET ``/0.1/policies``
+  * GET ``/0.1/policies/<policy_uuid>``
+  * PUT ``/0.1/policies/<policy_uuid>``
+  * DELETE ``/0.1/policies/<policy_uuid>``
+  * PUT ``/0.1/policies/<policy_uuid>/acl_templates/<template>``
+  * DELETE ``/0.1/policies/<policy_uuid>/acl_templates/<template>``
 
 
 16.16
@@ -23,9 +34,9 @@ wazo-auth HTTP API Changelog
 
 * The token data in the response of POST and GET on ``/0.1/token`` now include the following new fields
 
-    * utc_expires_at
-    * utc_issued_at
-    * xivo_uuid
+  * utc_expires_at
+  * utc_issued_at
+  * xivo_uuid
 
 
 16.02
