@@ -4,6 +4,17 @@
 wazo-auth HTTP API Changelog
 ****************************
 
+17.15
+=====
+
+* A new resource has been added to manage Users
+
+  * POST ``0.1/users``
+  * GET ``0.1/users``
+  * GET ``0.1/users/<user_uuid>``
+  * DELETE ``0.1/users/<user_uuid>``
+
+
 17.02
 =====
 
