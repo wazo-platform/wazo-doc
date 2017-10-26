@@ -193,6 +193,8 @@ Upgrade Notes
 17.15
 -----
 
+Consult the `17.15 Roadmap <https://projects.wazo.community/versions/268>`_
+
 * ``xivo-call-logd`` has been renamed ``wazo-call-logd``
 
   * The custom configuration has been moved to ``/etc/wazo-call-logd/conf.d/``.
