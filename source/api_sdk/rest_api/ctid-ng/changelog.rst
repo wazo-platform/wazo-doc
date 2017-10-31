@@ -4,12 +4,22 @@
 xivo-ctid-ng HTTP API changelog
 *******************************
 
+17.15
+=====
+
+* New APIs for relocating calls:
+
+  * ``GET,POST /users/me/relocates``
+  * ``GET /users/me/relocates/{relocate_uuid}``
+  * ``PUT /users/me/relocates/{relocate_uuid}/complete``
+
+
 17.12
 =====
 
 * A new API for getting chat history:
 
-    * GET ``/1.0/users/me/chats``
+  * GET ``/1.0/users/me/chats``
 
 
 17.05

@@ -8,27 +8,28 @@ Administration
    advanced_configuration/advanced_configuration
    boss_secretary_filter
    call_completion/call_completion
-   callright/callright
+   call_permissions
    call_recording/call_recording
-   cel/cel
+   call_logs/call_logs
+   callerid
    cli_tools/cli_tools
    conference_room/conference_room
    ctiserver/ctiserver
-   Customer info <customerinfo/customerinfo>
+   customer_informations/customer_informations
    devices/devices
    directories/directories
-   directed_pickup/directed_pickup
-   entities/entities
+   directed_pickup
+   entities
    fax/fax
    graphics/graphics
-   Groups <group/group>
-   Group Pickup <group_pickup/group_pickup>
+   groups
+   group_pickup/group_pickup
    Hardware <hardware/hardware>
    incall
    interconnections/interconnections
    ivr/ivr
    monitoring/monitoring
-   moh/moh
+   music_on_hold
    paging
    parking
    phonebook
@@ -36,7 +37,7 @@ Administration
    sccp/sccp
    schedules/schedules
    sound_files
-   Switchboard <switchboard/switchboard>
+   switchboards/switchboards
    users/users
-   voicemail
+   voicemails
    web_services/web_services_access

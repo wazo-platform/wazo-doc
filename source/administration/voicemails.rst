@@ -1,6 +1,6 @@
-*********
-Voicemail
-*********
+**********
+Voicemails
+**********
 
 Voicemail Configuration.
 
@@ -11,6 +11,8 @@ General Configuration
 =====================
 
 The global voicemail configuration is located under :menuselection:`Services --> IPBX --> General Settings --> Voicemails`.
+
+To customize the email sent when a voicemail is received, you can use a few variables. The complete list is available on the `Asterisk wiki <https://wiki.asterisk.org/wiki/display/AST/VoiceMail+Channel+Variables>`_.
 
 
 Adding voicemails

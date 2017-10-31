@@ -71,7 +71,7 @@ xivo-amid
 wazo-call-logd
 --------------
 
-* File location: :file:`/var/log/xivo-call-logd.log`
+* File location: :file:`/var/log/wazo-call-logd.log`
 * Rotate configuration: :file:`/etc/logrotate.d/wazo-call-logd`
 * Number of archived files: 15
 * Rotation frequence: Daily

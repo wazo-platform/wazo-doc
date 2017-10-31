@@ -65,12 +65,12 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/wanpipe/`
 * :file:`/etc/wazo-admin-ui/`
 * :file:`/etc/wazo-auth/`
+* :file:`/etc/wazo-call-logd/`
 * :file:`/etc/wazo-plugind/`
 * :file:`/etc/wazo-webhookd/`
 * :file:`/etc/xivo-agentd/`
 * :file:`/etc/xivo-agid/`
 * :file:`/etc/xivo-amid/`
-* :file:`/etc/xivo-call-logd/`
 * :file:`/etc/xivo-confd/`
 * :file:`/etc/xivo-confgend-client/`
 * :file:`/etc/xivo-ctid/`
@@ -293,6 +293,14 @@ After Restoring The System
 #. Resynchronize the xivo-auth keys::
 
     xivo-update-keys
+
+#. Restore the server UUID::
+
+    XIVO_UUID=$(sudo -u postgres psql -d asterisk -t -c 'select uuid from infos')
+    echo "export XIVO_UUID=$XIVO_UUID" > /etc/profile.d/xivo_uuid.sh
+
+   Then edit :file:`/etc/systemd/system.conf` to update ``XIVO_UUID`` in ``DefaultEnvironment``
+
 
 #. You may reboot the system, or execute the following steps.
 #. Update systemd runtime configuration::

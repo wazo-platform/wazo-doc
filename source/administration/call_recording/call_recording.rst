@@ -68,7 +68,7 @@ Recordings are located in `/var/spool/asterisk/monitor`
 File names
 ^^^^^^^^^^
 
-The file names for call recording can be customized using [Jinja2](http://jinja.pocoo.org/docs/2.9/templates/) templates.
+The file names for call recording can be customized using `Jinja2 <http://jinja.pocoo.org/docs/2.9/templates/>`_ templates.
 
 The following variables can be used in the file name:
 
