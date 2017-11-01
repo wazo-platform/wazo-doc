@@ -4,6 +4,14 @@
 xivo-confd REST API changelog
 *****************************
 
+17.16
+=====
+
+* A new API to know if user exists has been added:
+
+  * HEAD ``/1.1/users/<user_uuid>``
+
+
 17.13
 =====
 
