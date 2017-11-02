@@ -38,14 +38,14 @@ Here's an example of the main configuration file:
 
    enabled_plugins:
       backends:
-          - csv
-          - ldap
-          - phonebook
+          csv: true
+          ldap: true
+          phonebook: true
       services:
-          - lookup
+          lookup: true
       views:
-          - cisco_view
-          - default_json
+          cisco_view: true
+          default_json: true
 
    views:
        displays:
