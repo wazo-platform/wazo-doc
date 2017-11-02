@@ -4,6 +4,17 @@
 wazo-auth HTTP API Changelog
 ****************************
 
+17.16
+=====
+
+* A new resource has been added to manage Tenants
+
+  * POST ``0.1/tenants``
+  * GET ``0.1/tenants``
+  * GET ``0.1/tenants/<tenant_uuid>``
+  * DELETE ``0.1/tenants/<tenant_uuid>``
+
+
 17.15
 =====
 
