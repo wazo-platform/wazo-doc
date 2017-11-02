@@ -77,6 +77,8 @@ For example, with the given configuration:
 
 .. code-block:: yaml
 
+   enabled_backend_plugins:
+       ldap_user: true
    ldap:
        uri: ldap://example.org
        bind_dn: cn=wazo,dc=example,dc=org
