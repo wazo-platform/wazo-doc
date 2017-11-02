@@ -203,10 +203,10 @@ Consult the `17.16 Roadmap <https://projects.wazo.community/versions/269>`_
 
   * If you are using the ``ldap_user`` authentication backend a file with the following content should be added to ``/etc/wazo-auth/conf.d``
 
-.. code-block:: yaml
-
-   enabled_backend_plugins:
-     ldap_user: true
+    .. code-block:: yaml
+    
+       enabled_backend_plugins:
+         ldap_user: true
 
 
 17.15
