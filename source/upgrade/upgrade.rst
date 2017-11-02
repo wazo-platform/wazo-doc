@@ -190,6 +190,25 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.16
+-----
+
+Consult the `17.16 Roadmap <https://projects.wazo.community/versions/269>`_
+
+* The *enabled_plugins* section of the ``wazo-auth`` service has been renamed *enabled_backend_plugins* and is now a dictionnary.
+
+  * If you have hand made configuration to modify the list of enabled backends it should be modified see ``/etc/wazo-auth/config.yml``
+
+* The *ldap_user* backend in ``wazo-auth`` is now disabled in the base configuration file.
+
+  * If you are using the ``ldap_user`` authentication backend a file with the following content should be added to ``/etc/wazo-auth/conf.d``
+
+    .. code-block:: yaml
+    
+       enabled_backend_plugins:
+         ldap_user: true
+
+
 17.15
 -----
 
