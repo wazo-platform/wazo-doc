@@ -195,7 +195,7 @@ Upgrade Notes
 
 Consult the `17.16 Roadmap <https://projects.wazo.community/versions/269>`_
 
-* The *enabled_plugins* section of the ``wazo-auth`` service has been renamed *enabled_backend_plugins* and is now a dictionnary.
+* The *enabled_plugins* section of the ``wazo-auth`` service has been renamed *enabled_backend_plugins* and is now a dictionary.
 
   * If you have hand made configuration to modify the list of enabled backends it should be modified see ``/etc/wazo-auth/config.yml``
 
@@ -208,6 +208,9 @@ Consult the `17.16 Roadmap <https://projects.wazo.community/versions/269>`_
        enabled_backend_plugins:
          ldap_user: true
 
+* The *enabled_plugins* section of the ``xivo-dird`` service is now a dictionary.
+
+  * If you have hand made configuration to modify the list of enabled plugins, it should be modified see ``/etc/xivo-dird/config.yml``
 
 17.15
 -----
