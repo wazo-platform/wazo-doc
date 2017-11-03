@@ -24,6 +24,10 @@ The current list of events that is supported by the ``user_uuid`` parameter is:
 - ``endpoint_status_update``
 - ``favorite_added``
 - ``favorite_deleted``
+- ``relocate_initiated``
+- ``relocate_answered``
+- ``relocate_completed``
+- ``relocate_ended``
 - ``user_status_update``
 - ``user_voicemail_message_created``
 - ``user_voicemail_message_deleted``
