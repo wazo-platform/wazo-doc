@@ -16,6 +16,15 @@ Asterisk is sensitive to timing issues, you might get better results by installi
 hardware.
 
 
+Requirements
+============
+
+For a small install of about 20 users, less than 20 calls per day:
+
+* RAM: 1 GiB is barely functional (with swap), 1.5 GiB gives a tight margin of operation, 2 GiB is quite comfortable
+* Storage: 2 GiB of storage is a very tight minimum, 8 GiB is comfortable
+
+
 Installing from the ISO image
 =============================
 
