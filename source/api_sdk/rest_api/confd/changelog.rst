@@ -7,6 +7,11 @@ xivo-confd REST API changelog
 17.16
 =====
 
+* Added Voicemail ZoneMessages endpoints:
+
+  * GET ``/1.1/asterisk/voicemail/zonemessages``
+  * PUT ``/1.1/asterisk/voicemail/zonemessages``
+
 * A new API to know if user exists has been added:
 
   * HEAD ``/1.1/users/<user_uuid>``
