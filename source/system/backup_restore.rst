@@ -290,6 +290,10 @@ Once the database and files have been restored, you can :ref:`finalize the resto
 After Restoring The System
 ==========================
 
+
+.. If you modify this procedure, please update xivo-acceptance/data/assets/xivo-backup-manager
+   accordingly
+
 #. Resynchronize the xivo-auth keys::
 
     xivo-update-keys
