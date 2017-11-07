@@ -14,6 +14,12 @@ wazo-auth HTTP API Changelog
   * GET ``0.1/tenants/<tenant_uuid>``
   * DELETE ``0.1/tenants/<tenant_uuid>``
 
+* A new resource has been added to assign policies to users
+
+  * PUT ``0.1/users/<user_uuid>/policies/<policy_uuid>``
+  * DELETE ``0.1/users/<user_uuid>/policies/<policy_uuid>``
+  * GET ``0.1/users/<user_uuid>/policies/``
+
 
 17.15
 =====
