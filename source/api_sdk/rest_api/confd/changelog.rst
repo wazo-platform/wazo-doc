@@ -174,7 +174,7 @@ xivo-confd REST API changelog
   * GET ``/1.1/groups/<group_id>/fallbacks``
   * PUT ``/1.1/groups/<group_id>/fallbacks``
 
-* A new API for associating trunks with a group has been added:
+* A new API for associating users with a group has been added:
 
   * PUT ``/1.1/groups/<group_id>/members/users``
 
