@@ -14,7 +14,6 @@ The HTTP API reference is at http://api.wazo.community.
 .. toctree::
    :maxdepth: 1
 
-   changelog
    developer
    stock_plugins
 
@@ -172,7 +171,7 @@ HTTP API Reference
 
 The complete HTTP API documentation is at http://api.wazo.community.
 
-See also the :ref:`auth_changelog`.
+See also the :ref:`wazo-auth changelog <rest-api_changelog>`.
 
 
 Development
