@@ -18,7 +18,6 @@ API reference
 
    webhookd/api
    confd/api
-   dird/api
    provd/api
    sysconfd/api
 
