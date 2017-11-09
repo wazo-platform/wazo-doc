@@ -18,7 +18,6 @@ API reference
 
    webhookd/api
    confd/api
-   ctid/api
    ctid-ng/api
    dird/api
    provd/api
