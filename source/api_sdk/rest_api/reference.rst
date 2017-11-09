@@ -17,7 +17,6 @@ API reference
    :maxdepth: 1
 
    webhookd/api
-   agentd/api
    confd/api
    ctid/api
    ctid-ng/api
