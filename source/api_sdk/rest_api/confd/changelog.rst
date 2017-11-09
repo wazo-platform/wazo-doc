@@ -16,6 +16,10 @@ xivo-confd REST API changelog
 
   * HEAD ``/1.1/users/<user_uuid>``
 
+* A new API for associating extensions with a group has been added:
+
+  * PUT ``/1.1/groups/<group_id>/members/extensions``
+
 
 17.13
 =====
