@@ -14,3 +14,4 @@ The Wazo REST APIs are the privileged way to programmatically interact with Wazo
    troubleshooting
    reference
    conventions
+   changelog

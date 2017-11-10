@@ -142,7 +142,7 @@ Consult the `15.17 Roadmap <https://projects.wazo.community/versions/233>`_
 * SIP endpoints created through the REST API will not appear in the web interface until they have
   been associated with a line
 * Due to limitations in the database, only a limited number of optional parameters can be configured
-  on a SIP endpoint. Consult the :ref:`confd_changelog` for further details
+  on a SIP endpoint. Consult the :ref:`xivo-confd changelog <rest-api_changelog>` for further details
 
 
 Please consult the following detailed upgrade notes for more information:
@@ -216,7 +216,7 @@ See :ref:`directories` and :ref:`xivo-dird-integration` for more details
 * Default password for ``xivo-polycom-4.0.4`` plugin version >= 1.3 is now **9486** (i.e. the word
   "xivo" on a telephone keypad).
 * Default password for ``xivo-polycom-5.3.0`` plugin version >= 1.4 is now **9486**.
-* Caller id management for users in confd has changed. Consult the :ref:`confd_changelog`.
+* Caller id management for users in confd has changed. Consult the :ref:`xivo-confd changelog <rest-api_changelog>`.
 * The Local Directory Xlet is replaced with the People Xlet. Contacts are automatically migrated to
   the server. Note that the CSV format for importing contacts has changed (see :ref:`people-xlet` for
   more information).
@@ -442,7 +442,7 @@ If you have Aastra phones and are using the remote directory on them, consult th
 -----
 
 * Consult the `14.16 Roadmap <https://projects.wazo.community/versions/207>`_
-* See the :ref:`changelog <confd_changelog>` for xivo-confd's REST API
+* See the :ref:`changelog <rest-api_changelog>` for xivo-confd's REST API
 * DAHDI is upgraded to 2.10.0. If the upgrade process asks about :file:`/etc/dahdi/modules`, we
   recommend that you keep the old version of the file.
 * Asterisk now inserts CEL and queue log entries via the ODBC asterisk modules instead of
@@ -469,7 +469,7 @@ If you have Aastra phones and are using the remote directory on them, consult th
 -----
 
 * Consult the `14.14 Roadmap <https://projects.wazo.community/versions/205>`_
-* See the :ref:`changelog <confd_changelog>` for REST API
+* See the :ref:`changelog <rest-api_changelog>` for REST API
 * Upon an important freeze of Asterisk, Asterisk will be restarted. See the `associated ticket
   <https://projects.wazo.community/issues/5165>`_ for more information.
 
@@ -478,7 +478,7 @@ If you have Aastra phones and are using the remote directory on them, consult th
 -----
 
 * Consult the `14.13 Roadmap <https://projects.wazo.community/versions/204>`_
-* See the :ref:`changelog <confd_changelog>` for REST API
+* See the :ref:`changelog <rest-api_changelog>` for REST API
 * Skills-based routing: for an agent which doesn't have the skill X, the rule X < 10 was
   previously evaluated to true, since not having the skill X was equivalent to having it with a
   value of 0. This behaviour has changed, and the same expression is now evaluated to false. If you

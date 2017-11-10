@@ -262,7 +262,7 @@ Consult the `17.12 Roadmap <https://projects.wazo.community/versions/265>`_
 
 Consult the `17.11 Roadmap <https://projects.wazo.community/versions/263>`_
 
-* wazo-plugind REST API version ``0.1`` has been deprecated and will be removed in Wazo ``18.02``. See changelog for version :ref:`plugind_changelog_v02`
+* wazo-plugind REST API version ``0.1`` has been deprecated and will be removed in Wazo ``18.02``. See changelog for version :ref:`rest-api_changelog`
 
 
 17.10
@@ -562,7 +562,8 @@ Consult the `16.03 Roadmap <https://projects.wazo.community/versions/239>`_
   administrator configuration.
 * Update the switchboard configuration page for the statistics in
   :ref:`switchboard_configuration_multi_queues`.
-* The API for associating a line to a device has been replaced. Consult the :ref:`confd_changelog` for further details
+* The API for associating a line to a device has been replaced. Consult the :ref:`xivo-confd
+  changelog <rest-api_changelog>` for further details
 * The configuration parameters of *xivo_ldap_user* plugin of *xivo-auth* has been changed. See
   :ref:`xivo_ldap plugin <auth-backends-ldap>`.
 * The user's email is now a unique constraint. Every duplicate email will be deleted during

@@ -376,7 +376,7 @@ Example:
       }
   }
 
-.. note:: The message named ``chat_message_event`` is deprecated since Wazo 17.14. You should not use it anymore. If you want to send a new chat message, you should use the :ref:`xivo-ctid-ng REST API <xivo-ctid-ng-rest-api>` instead.
+.. note:: The message named ``chat_message_event`` is deprecated since Wazo 17.14. You should not use it anymore. If you want to send a new chat message, you should use the :ref:`xivo-ctid-ng REST API <rest-api_changelog>` instead.
 
 
 .. _bus-endpoint_status_update:
