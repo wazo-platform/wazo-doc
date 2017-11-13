@@ -9,6 +9,23 @@ Stock Plugins Documentation
 Backends Plugins
 ================
 
+wazo_user
+---------
+
+Backend name: ``wazo_user``
+
+Purpose: Authenticate a user created by wazo-auth. These users do not map to telephony users at the moment.
+
+Supported policy variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* username: The username of the user
+* tenants: A list of tenants associated to this user
+
+  * tenant.uuid: The tenant UUID
+  * tenant.name: The tenant name
+
+
 xivo_admin
 ----------
 
@@ -27,23 +44,6 @@ Supported policy variables
 
     The `entity` variable can be `None` which usually mean that this administrator
     has access to all entities.
-
-
-wazo_user
----------
-
-Backend name: ``wazo_user``
-
-Purpose: Authenticate a user created by wazo-auth. These users do not map to telephony users at the moment.
-
-Supported policy variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-* username: The username of the user
-* tenants: A list of tenants associated to this user
-
-  * tenant.uuid: The tenant UUID
-  * tenant.name: The tenant name
 
 
 .. _auth-backends-service:
