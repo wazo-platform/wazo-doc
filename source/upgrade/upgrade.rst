@@ -223,6 +223,10 @@ Consult the `17.15 Roadmap <https://projects.wazo.community/versions/268>`_
   * The log file has been renamed to ``wazo-call-logd.log``.
   * The NGINX proxy has been recreated in ``/etc/nginx/locations/https-enabled/wazo-call-logd``
 
+* ``Asterisk`` has been upgraded to version 15.0.0
+
+  * If you have installed asterisk modules manually, you will have to install the asterisk 15 version, otherwise Asterisk will crash when starting.
+
 
 17.14
 -----
