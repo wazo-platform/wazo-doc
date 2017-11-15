@@ -212,6 +212,9 @@ Consult the `17.16 Roadmap <https://projects.wazo.community/versions/269>`_
 
   * If you have hand made configuration to modify the list of enabled plugins, it should be modified see ``/etc/xivo-dird/config.yml``
 
+* Admin-ui has been upgrade to python3. All admin-ui plugins still always in python2 will does not work. You must upgrade them to python3.
+
+
 17.15
 -----
 
