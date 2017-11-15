@@ -80,6 +80,11 @@ The following variables can be used in the file name:
 * base_context: The context in which this call entered the Wazo dialplan
 * tenant_name: The originating context's entity
 
+.. note::
+  You **must** restart xivo-agid to take any config change into effect::
+
+     systemctl restart xivo-agid
+
 Example 1:
 
 Creating recording in a sub-directory for each entity
