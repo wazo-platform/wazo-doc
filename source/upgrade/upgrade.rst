@@ -212,6 +212,9 @@ Consult the `17.16 Roadmap <https://projects.wazo.community/versions/269>`_
 
   * If you have hand made configuration to modify the list of enabled plugins, it should be modified see ``/etc/xivo-dird/config.yml``
 
+* wazo-admin-ui has been upgraded to python3. All plugins by `Wazo Team` has been migrated, but if you have installed a non-official/custom plugin that add something to the new interface, it probably broken. To fix this, you must convert your plugin to python3 or wait an available upgrade from the maintainer.
+
+
 17.15
 -----
 
