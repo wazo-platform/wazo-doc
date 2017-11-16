@@ -195,6 +195,8 @@ Upgrade Notes
 
 Consult the `17.16 Roadmap <https://projects.wazo.community/versions/269>`_
 
+* You must update the Wazo Client to 17.16. See the :ref:`Wazo Client compatibility table <cti_client_compatibility>`.
+
 * The *enabled_plugins* section of the ``wazo-auth`` service has been renamed *enabled_backend_plugins* and is now a dictionary.
 
   * If you have hand made configuration to modify the list of enabled backends it should be modified see ``/etc/wazo-auth/config.yml``
