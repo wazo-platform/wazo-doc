@@ -14,6 +14,13 @@ The versions below indicate the Wazo version followed by the protocol version.
    before upgrading Wazo
 
 
+17.16 - 2.3
+-----------
+
+* the :ref:`cti_protocol-login_id` now uses the `wazoversion` instead of the `xivoversion`
+
+
+
 16.11 - 2.2
 -----------
 
@@ -692,6 +699,9 @@ cti server.
 * class: defined what class of command use.
 * commandid : a unique integer number.
 
+
+.. _cti_protocol-login_id:
+
 Login ID
 ^^^^^^^^
 
@@ -707,7 +717,7 @@ Login ID
     "lastlogout-datetime": "2013-02-19T11:13:36",
     "lastlogout-stopper": "disconnect",
     "userlogin": <userlogin>,
-    "xivoversion": "<cti protocol version>"
+    "wazoversion": "<cti protocol version>"
     }
 
 
@@ -719,7 +729,7 @@ Login ID
        "class": "login_id",
        "sessionid": "21UaGDfst7",
        "timenow": 1361268824.64,
-       "xivoversion": "<cti protocol version>"
+       "wazoversion": "<cti protocol version>"
    }
 
 .. note::

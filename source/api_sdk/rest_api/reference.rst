@@ -16,14 +16,8 @@ API reference
 .. toctree::
    :maxdepth: 1
 
-   call-logd/api
-   plugind/api
    webhookd/api
-   agentd/api
    confd/api
-   ctid/api
-   ctid-ng/api
-   dird/api
    provd/api
    sysconfd/api
 

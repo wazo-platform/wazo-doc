@@ -9,6 +9,23 @@ Stock Plugins Documentation
 Backends Plugins
 ================
 
+wazo_user
+---------
+
+Backend name: ``wazo_user``
+
+Purpose: Authenticate a user created by wazo-auth. These users do not map to telephony users at the moment.
+
+Supported policy variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* username: The username of the user
+* tenants: A list of tenants associated to this user
+
+  * tenant.uuid: The tenant UUID
+  * tenant.name: The tenant name
+
+
 xivo_admin
 ----------
 
@@ -77,6 +94,8 @@ For example, with the given configuration:
 
 .. code-block:: yaml
 
+   enabled_backend_plugins:
+       ldap_user: true
    ldap:
        uri: ldap://example.org
        bind_dn: cn=wazo,dc=example,dc=org

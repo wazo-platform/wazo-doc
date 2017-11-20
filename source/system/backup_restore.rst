@@ -290,13 +290,17 @@ Once the database and files have been restored, you can :ref:`finalize the resto
 After Restoring The System
 ==========================
 
+
+.. If you modify this procedure, please update xivo-acceptance/data/assets/xivo-backup-manager
+   accordingly
+
 #. Resynchronize the xivo-auth keys::
 
     xivo-update-keys
 
 #. Restore the server UUID::
 
-    XIVO_UUID=$(sudo -u postgres psql -d asterisk -t -c 'select uuid from infos')
+    XIVO_UUID=$(sudo -u postgres psql -d asterisk -tA -c 'select uuid from infos')
     echo "export XIVO_UUID=$XIVO_UUID" > /etc/profile.d/xivo_uuid.sh
 
    Then edit :file:`/etc/systemd/system.conf` to update ``XIVO_UUID`` in ``DefaultEnvironment``

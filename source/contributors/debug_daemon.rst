@@ -57,3 +57,18 @@ Consul logs its output to ``/var/log/syslog`` to get the output of consul only u
    2015/08/03 11:04:08 [INFO] agent.rpc: Accepted client: 127.0.0.1:41545
 
 .. note:: The ca-file can be different when using custom HTTPS certificates
+
+mongooseim
+==========
+
+::
+
+   echo "{loglevel, 5}." >> /etc/mongooseim/wazo.cfg
+   systemctl restart mongooseim
+
+Log file: ``/var/log/mongooseim/ejabberd.log``. This file contains almost nothing before the loglevel is set.
+
+You should not leave the loglevel enabled in production for too long. To disable it::
+
+   sed -i '/loglevel, 5/d' /etc/mongooseim/wazo.cfg
+   systemctl restart mongooseim

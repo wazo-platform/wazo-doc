@@ -37,7 +37,7 @@ The CSV format has the following specifications:
 REST API
 ========
 
-Call logs are also available from :ref:`wazo-call-logd REST API <call-logd-api>`.
+Call logs are also available from :ref:`wazo-call-logd REST API <rest-api>`.
 
 
 Categorize call logs with custom tags

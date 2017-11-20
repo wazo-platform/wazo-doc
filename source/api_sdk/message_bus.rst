@@ -92,6 +92,17 @@ Things to be aware when writing a client/consumer:
 Changelog
 =========
 
+17.16
+-----
+
+* The following messages have been added:
+
+  * :ref:`relocate_initiated <bus-relocate_initiated>`
+  * :ref:`relocate_answered <bus-relocate_answered>`
+  * :ref:`relocate_completed <bus-relocate_completed>`
+  * :ref:`relocate_ended <bus-relocate_ended>`
+
+
 17.14
 -----
 
@@ -365,7 +376,7 @@ Example:
       }
   }
 
-.. note:: The message named ``chat_message_event`` is deprecated since Wazo 17.14. You should not use it anymore. If you want to send a new chat message, you should use the :ref:`xivo-ctid-ng REST API <xivo-ctid-ng-rest-api>` instead.
+.. note:: The message named ``chat_message_event`` is deprecated since Wazo 17.14. You should not use it anymore. If you want to send a new chat message, you should use the :ref:`xivo-ctid-ng REST API <rest-api_changelog>` instead.
 
 
 .. _bus-endpoint_status_update:
@@ -516,6 +527,44 @@ Example:
            "status": "removing"
        }
    }
+
+
+.. _bus-relocate_initiated:
+.. _bus-relocate_answered:
+.. _bus-relocate_completed:
+.. _bus-relocate_ended:
+
+relocate_initiated, relocate_answered, relocate_completed, relocate_ended
+-------------------------------------------------------------------------
+
+Those events are published during the different steps of a relocate operation.
+
+* routing key: ``calls.relocate.XXX`` where ``XXX`` is the event, e.g. ``calls.relocate.completed``
+* headers:
+
+  * ``"user_uuid:XXX": True`` where ``XXX`` is the initiator's user UUID
+
+* required ACL: ``events.relocates.XXX`` where XXX is the initiator's user UUID
+* event specific data: a relocate object, see http://api.wazo.community, section ``xivo-ctid-ng``.
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "name": "relocate_completed",
+        "origin_uuid": "cc5d0d76-687e-40a7-81cf-75e0540d1787",
+        "data": {
+            "uuid": "2fb9efc0-95d3-463b-9042-e2cf2183a303",
+            "completions": [
+              "answer"
+            ],
+            "relocated_call": "132456789.1",
+            "initiator_call": "132456789.2",
+            "recipient_call": "132456789.3",
+            "initiator": "b459e3c9-b0a9-43a6-86ff-b4f7d00f6737",
+        }
+    }
 
 
 .. _bus-user_created:

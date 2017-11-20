@@ -190,6 +190,36 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.16
+-----
+
+Consult the `17.16 Roadmap <https://projects.wazo.community/versions/269>`_
+
+* You must update the Wazo Client to 17.16. See the :ref:`Wazo Client compatibility table <cti_client_compatibility>`.
+
+* The *enabled_plugins* section of the ``wazo-auth`` service has been renamed *enabled_backend_plugins* and is now a dictionary.
+
+  * If you have hand made configuration to modify the list of enabled backends it should be modified see ``/etc/wazo-auth/config.yml``
+
+* The *ldap_user* backend in ``wazo-auth`` is now disabled in the base configuration file.
+
+  * If you are using the ``ldap_user`` authentication backend a file with the following content should be added to ``/etc/wazo-auth/conf.d``
+
+    .. code-block:: yaml
+    
+       enabled_backend_plugins:
+         ldap_user: true
+
+* The *enabled_plugins* section of the ``xivo-dird`` service is now a dictionary.
+
+  * If you have hand made configuration to modify the list of enabled plugins, it should be modified see ``/etc/xivo-dird/config.yml``
+
+* wazo-admin-ui has been upgraded to python3. All plugins by `Wazo Team` has been migrated, but if
+  you have installed a non-official/custom plugin that add something to the new interface, it
+  probably broken. To fix this, you must convert your plugin to python3 or wait an available upgrade
+  from the maintainer.
+
+
 17.15
 -----
 
@@ -200,6 +230,10 @@ Consult the `17.15 Roadmap <https://projects.wazo.community/versions/268>`_
   * The custom configuration has been moved to ``/etc/wazo-call-logd/conf.d/``.
   * The log file has been renamed to ``wazo-call-logd.log``.
   * The NGINX proxy has been recreated in ``/etc/nginx/locations/https-enabled/wazo-call-logd``
+
+* ``Asterisk`` has been upgraded to version 15.0.0
+
+  * If you have installed asterisk modules manually, you will have to install the asterisk 15 version, otherwise Asterisk will crash when starting.
 
 
 17.14
@@ -240,7 +274,7 @@ Consult the `17.12 Roadmap <https://projects.wazo.community/versions/265>`_
 
 Consult the `17.11 Roadmap <https://projects.wazo.community/versions/263>`_
 
-* wazo-plugind REST API version ``0.1`` has been deprecated and will be removed in Wazo ``18.02``. See changelog for version :ref:`plugind_changelog_v02`
+* wazo-plugind REST API version ``0.1`` has been deprecated and will be removed in Wazo ``18.02``. See changelog for version :ref:`rest-api_changelog`
 
 
 17.10
@@ -540,7 +574,8 @@ Consult the `16.03 Roadmap <https://projects.wazo.community/versions/239>`_
   administrator configuration.
 * Update the switchboard configuration page for the statistics in
   :ref:`switchboard_configuration_multi_queues`.
-* The API for associating a line to a device has been replaced. Consult the :ref:`confd_changelog` for further details
+* The API for associating a line to a device has been replaced. Consult the :ref:`xivo-confd
+  changelog <rest-api_changelog>` for further details
 * The configuration parameters of *xivo_ldap_user* plugin of *xivo-auth* has been changed. See
   :ref:`xivo_ldap plugin <auth-backends-ldap>`.
 * The user's email is now a unique constraint. Every duplicate email will be deleted during
