@@ -20,6 +20,12 @@ Supported policy variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * username: The username of the user
+* groups: A list of groups associated to this user
+
+  * group.uuid: The group UUID
+  * group.name: The group name
+
+
 * tenants: A list of tenants associated to this user
 
   * tenant.uuid: The tenant UUID
