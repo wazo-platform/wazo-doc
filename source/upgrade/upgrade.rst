@@ -190,6 +190,42 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.17
+-----
+
+Consult the `17.17 Roadmap <https://projects.wazo.community/versions/270>`_
+
+* The *sources* section of the ``xivo-dird`` service configuration has been changed to be a dictionnary.
+
+  * If you have configured directories manually you should update your manual configuration
+
+
+.. code-block:: yaml
+   :emphasize-lines: 4-6
+   :caption: old.yml
+
+   services:
+     lookup:
+       default:
+         sources:
+           - source_one
+           - source_two
+         timeout: 2
+
+
+.. code-block:: yaml
+   :emphasize-lines: 4-6
+   :caption: new.yml
+
+   services:
+     lookup:
+       default:
+         sources:
+           source_one: true
+           source_two: true
+         timeout: 2
+
+
 17.16
 -----
 

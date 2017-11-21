@@ -102,7 +102,7 @@ Example (excerpt from the main configuration file):
        lookup:
            default:
                sources:
-                   - my_csv
+                   my_csv: true
                timeout: 0.5
 
 The configuration is a dictionary whose keys are profile names and values are configuration specific
@@ -155,7 +155,7 @@ Example (excerpt from the main configuration file):
        favorites:
            default:
                sources:
-                   - my_csv
+                   my_csv: true
                timeout: 0.5
 
 The configuration is a dictionary whose keys are profile names and values are configuration specific
@@ -190,7 +190,7 @@ Example:
        reverse:
            default:
                sources:
-                   - my_csv
+                   my_csv: true
                timeout: 1
 
 The configuration is a dictionary whose keys are profile names and values are configuration specific
