@@ -190,6 +190,16 @@ Repeat this command until no more unwanted rules are left.
 Upgrade Notes
 =============
 
+17.17
+-----
+
+* NAT options has been changed. Default value is now: `auto_force_rport` in sip.conf
+
+  * We updated NAT option from `no` to `auto_force_rport`. If you want to keep `nat=no` you must explicitly
+      change this value in the administation interface `Services --> IPBX --> General Settings --> SIP Protocol in      tab Default`
+
+  * See `Asterisk sip.conf sample <https://github.com/asterisk/asterisk/blob/master/configs/samples/sip.conf.sample>`_ for more informations.
+
 17.16
 -----
 
