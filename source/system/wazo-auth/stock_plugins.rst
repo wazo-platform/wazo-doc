@@ -24,6 +24,10 @@ Supported policy variables
 
   * group.uuid: The group UUID
   * group.name: The group name
+  * group.users: A list of users associated to this group each user having the following fields
+
+    * username
+    * uuid
 
 
 * tenants: A list of tenants associated to this user
