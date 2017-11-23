@@ -193,12 +193,14 @@ Upgrade Notes
 17.17
 -----
 
-* NAT options has been changed. Default value is now: `auto_force_rport` in sip.conf
+* The default NAT option has changed from ``no`` to ``auto_force_rport``. This makes NAT
+  configuration easier but has no impact on environments without NAT.
 
-  * We updated NAT option from `no` to `auto_force_rport`. If you want to keep `nat=no` you must explicitly
-      change this value in the administation interface `Services --> IPBX --> General Settings --> SIP Protocol in      tab Default`
-
-  * See `Asterisk sip.conf sample <https://github.com/asterisk/asterisk/blob/master/configs/samples/sip.conf.sample>`_ for more informations.
+  * In the rare cases where you want to keep ``nat=no`` you must explicitly change this value in the
+    administation interface :menuselection:`Services --> IPBX --> General Settings --> SIP Protocol`
+    in tab `Default`. See `Asterisk sip.conf sample
+    <https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869>`_ for
+    more informations.
 
 17.16
 -----
