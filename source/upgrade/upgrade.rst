@@ -225,6 +225,15 @@ Consult the `17.17 Roadmap <https://projects.wazo.community/versions/270>`_
            source_two: true
          timeout: 2
 
+* The default NAT option has changed from ``no`` to ``auto_force_rport``. This makes NAT
+  configuration easier but has no impact on environments without NAT.
+
+  * In the rare cases where you want to keep ``nat=no`` you must explicitly change this value in the
+    administation interface :menuselection:`Services --> IPBX --> General Settings --> SIP Protocol`
+    in tab `Default`. See `Asterisk sip.conf sample
+    <https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869>`_ for
+    more informations.
+
 
 17.16
 -----
