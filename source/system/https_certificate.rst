@@ -89,6 +89,8 @@ For this, follow these steps:
         host: wazo.example.com
       plugind:
         host: wazo.example.com
+      websocketd:
+        host: wazo.example.com
       EOF
       for config_dir in /etc/{xivo,wazo}-*/conf.d/ ; do
           ln -s "/etc/xivo/custom/custom-certificate.yml" "$config_dir/010-custom-certificate.yml"
