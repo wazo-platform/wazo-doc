@@ -219,6 +219,10 @@ Consult the `17.16 Roadmap <https://projects.wazo.community/versions/269>`_
   probably broken. To fix this, you must convert your plugin to python3 or wait an available upgrade
   from the maintainer.
 
+* If you have setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), you have to
+  update your config in ``/etc/xivo/custom/custom-certificate.yml``, according to the :ref:`updated
+  documentation <https_certificate>`, namely for the config regarding ``websocketd``.
+
 
 17.15
 -----
