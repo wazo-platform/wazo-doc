@@ -195,35 +195,34 @@ Upgrade Notes
 
 Consult the `17.17 Roadmap <https://projects.wazo.community/versions/270>`_
 
-* The *sources* section of the ``xivo-dird`` service configuration has been changed to be a dictionnary.
+* The *sources* section of the ``xivo-dird`` service configuration has been changed to be a dictionary.
 
   * If you have configured directories manually you should update your manual configuration
 
+  .. code-block:: yaml
+     :emphasize-lines: 4-6
+     :caption: old.yml
 
-.. code-block:: yaml
-   :emphasize-lines: 4-6
-   :caption: old.yml
-
-   services:
-     lookup:
-       default:
-         sources:
-           - source_one
-           - source_two
-         timeout: 2
+     services:
+       lookup:
+         default:
+           sources:
+             - source_one
+             - source_two
+           timeout: 2
 
 
-.. code-block:: yaml
-   :emphasize-lines: 4-6
-   :caption: new.yml
+  .. code-block:: yaml
+     :emphasize-lines: 4-6
+     :caption: new.yml
 
-   services:
-     lookup:
-       default:
-         sources:
-           source_one: true
-           source_two: true
-         timeout: 2
+     services:
+       lookup:
+         default:
+           sources:
+             source_one: true
+             source_two: true
+           timeout: 2
 
 * The default NAT option has changed from ``no`` to ``auto_force_rport``. This makes NAT
   configuration easier but has no impact on environments without NAT.
@@ -254,7 +253,6 @@ Consult the `17.17 Roadmap <https://projects.wazo.community/versions/270>`_
      enabled_plugins:
        user: true
        conference: true
-
 
 
 17.16
