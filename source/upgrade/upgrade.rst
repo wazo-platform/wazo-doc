@@ -234,6 +234,28 @@ Consult the `17.17 Roadmap <https://projects.wazo.community/versions/270>`_
     <https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869>`_ for
     more informations.
 
+* The *enabled_plugins* section of the ``xivo-confd`` service configuration has been changed. If you have configured enabled plugins manually you should update your manual configuration
+
+  * This section is now a dictionary.
+
+  * All plugins has been renamed without the suffix `_plugins`.
+
+  .. code-block:: yaml
+     :caption: old.yml
+
+     enabled_plugins:
+       - user_plugin
+       - conference_plugin
+
+
+  .. code-block:: yaml
+     :caption: new.yml
+
+     enabled_plugins:
+       user: true
+       conference: true
+
+
 
 17.16
 -----
