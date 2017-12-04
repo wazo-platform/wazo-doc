@@ -26,7 +26,7 @@ Files::
     from setuptools import find_packages
 
     setup(
-        name=wazo-webhookd-service-example,
+        name='wazo-webhookd-service-example',
         version='1.0',
         packages=find_packages(),
         entry_points={
@@ -42,7 +42,7 @@ Files::
         }
     )
 
-``example/plugin.py``:
+``example_service/plugin.py``:
 
 .. code-block:: python
 
@@ -87,7 +87,7 @@ Once installed, you may create subscriptions with the type ``example``::
   {
     "name": "Example webhook",
     "service": "example",
-      "config": {
+    "config": {
       "time_sleep": 10
     },
     "events": ["user_created"],
