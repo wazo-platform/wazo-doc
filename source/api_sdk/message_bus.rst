@@ -92,6 +92,15 @@ Things to be aware when writing a client/consumer:
 Changelog
 =========
 
+17.17
+-----
+
+* The following messages have been added:
+
+  * :ref:`auth_user_external_auth_added <bus-external-auth-added>`
+  * :ref:`auth_user_external_auth_deleted <bus-external-auth-deleted>`
+
+
 17.16
 -----
 
@@ -214,6 +223,56 @@ Example event with binding key QueueMemberStatus::
            "StateInterface": "sip\/m4ylhs"
        }
    }
+
+
+.. _bus-external-auth-added:
+
+auth_user_external_auth_added
+-----------------------------
+
+This event is sent when a user adds an external authentification to its account.
+
+* routing_key: auth.users.{user_uuid}.external.{external_auth_name}.created
+* event specific data:
+
+  * user_uuid: The user's UUID
+  * external_auth_name: The name of the external service
+
+Example::
+
+  {
+    "name": "auth_user_external_auth_added",
+    "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+    "data": {
+      "user_uuid": "a1e05585-1421-4397-bd59-9cf9725888e9",
+      "external_auth_name": "zoho"
+    }
+  }
+
+
+.. _bus-external-auth-deleted:
+
+auth_user_external_auth_deleted
+-------------------------------
+
+This event is sent when a user removes an external authentification from its account.
+
+* routing_key: auth.users.{user_uuid}.external.{external_auth_name}.deleted
+* event specific data:
+
+  * user_uuid: The user's UUID
+  * external_auth_name: The name of the external service
+
+Example::
+
+  {
+    "name": "auth_user_external_auth_deleted",
+    "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+    "data": {
+      "user_uuid": "a1e05585-1421-4397-bd59-9cf9725888e9",
+      "external_auth_name": "zoho"
+    }
+  }
 
 
 .. _bus-call_form_result:
