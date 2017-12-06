@@ -7,9 +7,18 @@ Upgrade notes
 17.17
 =====
 
-* The *sources* section of the ``xivo-dird`` service configuration has been changed to be a dictionary.
+* The default NAT option has changed from ``no`` to ``auto_force_rport``. This makes NAT
+  configuration easier but has no impact on environments without NAT.
 
-  * If you have configured directories manually you should update your manual configuration
+  * In the rare cases where you want to keep ``nat=no`` you must explicitly change this value in the
+    administation interface :menuselection:`Services --> IPBX --> General Settings --> SIP Protocol`
+    in tab `Default`. See `Asterisk sip.conf sample
+    <https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869>`_ for
+    more informations.
+
+* The ``sources`` section of the ``xivo-dird`` service configuration has been changed to be a key-value setting.
+
+  * If you have configured directories manually in ``/etc/xivo-dird`` you should update your manual configuration:
 
   .. code-block:: yaml
      :emphasize-lines: 4-6
@@ -36,20 +45,11 @@ Upgrade notes
              source_two: true
            timeout: 2
 
-* The default NAT option has changed from ``no`` to ``auto_force_rport``. This makes NAT
-  configuration easier but has no impact on environments without NAT.
-
-  * In the rare cases where you want to keep ``nat=no`` you must explicitly change this value in the
-    administation interface :menuselection:`Services --> IPBX --> General Settings --> SIP Protocol`
-    in tab `Default`. See `Asterisk sip.conf sample
-    <https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869>`_ for
-    more informations.
-
 * The *enabled_plugins* section of the ``xivo-confd`` service configuration has been changed. If you have configured enabled plugins manually you should update your manual configuration
 
-  * This section is now a dictionary.
+  * This section is now a key-value setting.
 
-  * All plugins has been renamed without the suffix `_plugins`.
+  * All plugins have been renamed without the suffix `_plugins`.
 
   .. code-block:: yaml
      :caption: old.yml
