@@ -36,7 +36,6 @@ There are 2 options you can pass to wazo-upgrade:
 Upgrade procedure
 =================
 
-* Consult the `roadmaps <https://projects.wazo.community/projects/xivo/roadmap?tracker_ids%5B%5D=1&tracker_ids%5B%5D=2&completed=1>`_ starting from your current version to the current prod version.
 * Read all existing :ref:`upgrade-notes` starting from your version to the latest version.
 * For custom setups, follow the required procedures described below (e.g. HA cluster).
 * To download the packages beforehand, run ``wazo-upgrade -d``. This is not mandatory, but it does
