@@ -45,11 +45,12 @@ Upgrade notes
              source_two: true
            timeout: 2
 
-* The *enabled_plugins* section of the ``xivo-confd`` service configuration has been changed. If you have configured enabled plugins manually you should update your manual configuration
+* The ``enabled_plugins`` section of the ``xivo-confd`` service configuration has been changed. If
+  you have configured enabled plugins manually you should update your manual configuration
 
   * This section is now a key-value setting.
 
-  * All plugins have been renamed without the suffix `_plugins`.
+  * All plugins have been renamed without the suffix ``_plugins``.
 
   .. code-block:: yaml
      :caption: old.yml
@@ -65,6 +66,10 @@ Upgrade notes
      enabled_plugins:
        user: true
        conference: true
+
+* There is a new ``channelvars`` option in ``/etc/asterisk/manager.d/99-general.conf``. If you have
+  manually configured ``channelvars`` already, you will have to manually merge the Wazo version with
+  your version for them to work together.
 
 Consult the `17.17 Roadmap <https://projects.wazo.community/versions/270>`_ for more information.
 
