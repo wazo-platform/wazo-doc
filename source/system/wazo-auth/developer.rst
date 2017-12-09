@@ -7,26 +7,24 @@ wazo-auth Developer's Guide
 Architecture
 ============
 
-wazo-auth contains 4 major components, an HTTP interface, a celery worker,
-authentication backends and a storage module. All operations are made through
-the HTTP interface, tokens are stored in postgres as well as the persistence
-for some of the data attached to tokens. The celery worker is used to schedule
-tasks that outlive the lifetime of the wazo-auth process. Backends are used
-to test if a supplied username/password combination is valid and provide the
-xivo-user-uuid.
+wazo-auth contains 3 major components, an HTTP interface, authentication backends
+and a storage module. All operations are made through the HTTP interface, tokens
+are stored in postgres as well as the persistence for some of the data attached
+to tokens. Backends are used to test if a supplied username/password combination
+is valid and provide the xivo-user-uuid.
 
 wazo-auth is made of the following modules and packages.
 
 
-plugins
--------
+backend_plugins
+---------------
 
 the plugin package contains the wazo-auth backends that are packaged with
 wazo-auth.
 
 
-http
-----
+http_plugins
+------------
 
 The http module is the implementation of the HTTP interface.
 
@@ -42,7 +40,6 @@ controller
 The controller is the plumbin of wazo-auth, it has no business logic.
 
 * Start the HTTP application
-* Start the celery worker
 * Load all enabled plugins
 * Instanciate the token_manager
 
@@ -55,26 +52,6 @@ The token modules contains the business logic of wazo-auth.
 * Creates and delete tokens
 * Creates ACLs for Wazo
 * Schedule token expiration
-
-
-tasks
------
-
-The tasks module contains implementation of celery tasks that are executed by
-the worker.
-
-* Called by the celery worker
-* Forwards instructions to the *token manager*
-
-
-extension
----------
-
-This is a place holder for a global variable for the celery app. It will be
-removed and should not be used.
-
-
-Other modules that should not need documentation are *helpers*, *config*, *interfaces*
 
 
 Plugins
@@ -96,3 +73,30 @@ authentication. Implementing a new kind of authentication is quite simple.
 
 An example backend implementation is available `here
 <http://github.com/wazo-pbx/wazo-auth-example-backend>`_.
+
+
+External Auth
+-------------
+
+wazo-auth allows the user to enable arbitrary external authentication, store
+sensible information which can be retrieved later given an appropriate ACL.
+
+An external authentication plugin is made of the following parts.
+
+#. A flask_restful class implementing the route for this plugin
+#. A marshmallow model that can filter the stored data to be safe for unpriviledged view
+#. A setup.py adding the plugin the the `wazo_auth.http` entry point
+
+
+The restful class should do the following:
+
+* POST: This is where the plugin should setup any information with the external service and usually return
+  a validation code and a validateion URL to the user.
+
+* GET: After activating the external authentication, following the POST. The GET can be used to retrieve
+  credentials granting access to certain resource of the external service.
+
+* DELETE: Should remove the stored data from wazo-auth
+
+* PUT: (optional) Could be implemented to modify the scope of the generated credentials if the external
+  service allow that kind of modification.
