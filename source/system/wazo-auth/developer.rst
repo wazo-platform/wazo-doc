@@ -100,3 +100,6 @@ The restful class should do the following:
 
 * PUT: (optional) Could be implemented to modify the scope of the generated credentials if the external
   service allow that kind of modification.
+
+
+A minimal example without the external auth besiness logic can be found in the `tests <https://github.com/wazo-pbx/wazo-auth/blob/master/integration_tests/assets/external_auth/service_plugin/src/plugin.py>`_.
