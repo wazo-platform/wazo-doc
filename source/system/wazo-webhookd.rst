@@ -26,7 +26,7 @@ Files::
     from setuptools import find_packages
 
     setup(
-        name=wazo-webhookd-service-example,
+        name='wazo-webhookd-service-example',
         version='1.0',
         packages=find_packages(),
         entry_points={
@@ -42,7 +42,7 @@ Files::
         }
     )
 
-``example/plugin.py``:
+``example_service/plugin.py``:
 
 .. code-block:: python
 
@@ -54,10 +54,11 @@ Files::
             celery_app = dependencies['celery']
 
             @celery_app.task
-            def example_callback(options, event):
+            def example_callback(subscription, event):
                 '''
-                * "options" contains the options configured by the subscription,
-                  e.g. for http: the url, the method, the body, etc.
+                * "subscription" is the subscription dict, same as the one returned by the REST API.
+                  The service-specific options are available in the "config" key, e.g. for http: the
+                  url is in subscription['config']['url'].
                 * "event" contains the Wazo event that triggered the webhook.
                   "event" is of the form:
                   {
@@ -68,7 +69,7 @@ Files::
                       }
                   }
                 '''
-                tired = options['sleep_time']
+                tired = subscription['config']['sleep_time']
                 time.sleep(tired)
 
             self._callback = example_callback
@@ -87,7 +88,7 @@ Once installed, you may create subscriptions with the type ``example``::
   {
     "name": "Example webhook",
     "service": "example",
-      "config": {
+    "config": {
       "time_sleep": 10
     },
     "events": ["user_created"],

@@ -41,7 +41,7 @@ Building
 Launch qmake to generate the Makefile::
 
    $ cd wazo-client-qt
-   $ /path/to/qt5/bin/qmake -spec macx-g++
+   $ /path/to/qt5/bin/qmake
 
 This will also generate a file ``versions.mak`` that contains version informations about the code
 being compiled. It is necessary for compilation and packaging.

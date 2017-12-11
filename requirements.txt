@@ -1,3 +1,4 @@
 git+git://github.com/wazo-pbx/sphinx-git.git@tagtitles
+sphinx_rtd_theme==0.2.5b1
 gitpython
 sphinx==1.6.4

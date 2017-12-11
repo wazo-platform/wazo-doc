@@ -95,14 +95,14 @@ Here's an example of the main configuration file:
        lookup:
            default:
                sources:
-                   - my_csv
-                   - ldap_quebec
+                   my_csv: true
+                   ldap_quebec: true
                timeout: 0.5
            switchboard:
                sources:
-                   - my_csv
-                   - xivo_phonebook
-                   - ldap_quebec
+                   my_csv: true
+                   xivo_phonebook: true
+                   ldap_quebec: true
                timeout: 1
 
    sources:

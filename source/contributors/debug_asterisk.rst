@@ -136,8 +136,8 @@ The steps are:
 This will create a couple of .deb files in the parent directory, which you can install
 via dpkg.
 
-Recompiling a vanilla version of Asterisk
------------------------------------------
+Recompiling a vanilla version of Asterisk (Wazo < 17.17)
+--------------------------------------------------------
 
 It is sometimes useful to produce a "vanilla" version of Asterisk, i.e. a version of Asterisk that
 has none of the Wazo patches applied, to make sure that the problem is present in the original
@@ -160,6 +160,44 @@ The procedure is similar to the one described above. Before calling ``dpkg-build
 
 When installing a vanilla version of Asterisk on a XiVO 16.08 or earlier, you'll need to stop monit,
 otherwise it will restart asterisk every few minutes.
+
+
+Recompiling a vanilla version of Asterisk (Wazo >= 17.17)
+---------------------------------------------------------
+
+It is sometimes useful to produce a "vanilla" version of Asterisk, i.e. a version of Asterisk that
+has none of the Wazo patches applied, to make sure that the problem is present in the original
+upstream code. This is also sometimes necessary before opening a ticket on the `Asterisk issue
+tracker <https://issues.asterisk.org>`_.
+
+Wazo offers a vanilla version of Asterisk, compiled with the DONT_OPTIMIZE flag. This makes
+filing bug reports to Asterisk much easier.
+
+Note that this version of Asterisk loses some features that are specific to Wazo. The removed
+features include:
+
+* Queue skill-based routing
+* Voicemail message consultation via REST API
+* Call transfers via Wazo Client or REST API
+
+To install the vanilla version of Asterisk (replace 17.17 with your current version of Wazo)::
+
+   xivo-dist wazo-17.17
+   apt-get update
+   apt-get install -t wazo-17.17 asterisk-vanilla asterisk-vanilla-dbg
+   xivo-dist phoenix
+
+This command should replace the ``asterisk`` package with ``asterisk-vanilla``.
+
+Once the packages are installed, you can reproduce the crash and extract the backtrace logs from the
+core dump file. Those file may then be used to file a bug report to Asterisk.
+
+To revert this modification, reinstall ``asterisk`` (replace 17.17 with your current version of Wazo)::
+
+   xivo-dist wazo-17.17
+   apt-get update
+   apt-get install -t wazo-17.17 asterisk
+   xivo-dist phoenix
 
 
 Running Asterisk under Valgrind
