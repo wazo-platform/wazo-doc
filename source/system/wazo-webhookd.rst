@@ -93,3 +93,51 @@ Once installed, you may create subscriptions with the type ``example``::
     },
     "events": ["user_created"],
   }
+
+
+How to trigger code on a bus event
+----------------------------------
+
+``example_service/plugin.py``:
+
+.. code-block:: python
+
+    class Service:
+
+        def load(self, dependencies):
+            ...
+            bus_consumer = dependencies['bus_consumer']
+            bus_consumer.subscribe_to_event_names(uuid=uuid.uuid4(),
+                                                  event_names=['user_created'],
+                                                  user_uuid=None,
+                                                  wazo_uuid=None,
+                                                  callback=self.on_user_created)
+
+        def on_user_created(self, body, event):
+            logger.debug('User %s has been created!', body['uuid'])
+
+
+How to programmatically create a subscription
+---------------------------------------------
+
+``example_service/plugin.py``:
+
+.. code-block:: python
+
+    from wazo_webhookd.plugins.subscription.service import SubscriptionService
+
+    class Service:
+
+        def load(self, dependencies):
+            ...
+            subscription_service = SubscriptionService(dependencies['config'])
+            ...
+            subscription = subscription_service.create({
+                'name': 'my-subscription',
+                'service': 'http',
+                'events': ['call_created'],
+                'config': {
+                    'method': 'get',
+                    'url': 'https://me.example.com',
+                },
+            })
