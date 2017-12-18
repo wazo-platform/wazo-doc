@@ -185,6 +185,7 @@ To install the vanilla version of Asterisk (replace 17.17 with your current vers
    xivo-dist wazo-17.17
    apt-get update
    apt-get install -t wazo-17.17 asterisk-vanilla asterisk-vanilla-dbg
+   xivo-fix-paths-rights
    xivo-dist phoenix
 
 This command should replace the ``asterisk`` package with ``asterisk-vanilla``.
@@ -197,6 +198,7 @@ To revert this modification, reinstall ``asterisk`` (replace 17.17 with your cur
    xivo-dist wazo-17.17
    apt-get update
    apt-get install -t wazo-17.17 asterisk
+   xivo-fix-paths-rights
    xivo-dist phoenix
 
 
