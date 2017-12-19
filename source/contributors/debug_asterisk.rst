@@ -73,7 +73,7 @@ When asterisk crashes, it usually leaves a core file in :file:`/var/spool/asteri
 
 You can create a backtrace from a core file named ``core_file`` with::
 
-   gdb -batch -ex "bt full" -ex "thread apply all bt" asterisk core_file > bt-threads.txt
+   gdb -batch -ex "bt full" -ex "thread apply all bt" /usr/sbin/asterisk core_file > bt-threads.txt
 
 
 Debugging Asterisk Freeze
@@ -81,7 +81,7 @@ Debugging Asterisk Freeze
 
 You can create a backtrace of a running asterisk process with::
 
-   gdb -batch -ex "thread apply all bt" asterisk $(pidof asterisk) > bt-threads.txt
+   gdb -batch -ex "thread apply all bt" /usr/sbin/asterisk $(pidof asterisk) > bt-threads.txt
 
 If your version of asterisk has been compiled with the DEBUG_THREADS flag, you can
 get more information about locks with::
