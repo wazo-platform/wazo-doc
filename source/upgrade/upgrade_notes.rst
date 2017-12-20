@@ -4,6 +4,17 @@
 Upgrade notes
 *************
 
+18.01
+=====
+
+* If you have setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), you will have to add
+  a link to the wazo-auth-cli configuration using the following command.
+
+  .. code-block:: sh
+
+    ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-auth-cli/conf.d/010-custom-certificate.yml"
+
+
 17.17
 =====
 
