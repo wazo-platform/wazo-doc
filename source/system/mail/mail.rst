@@ -91,4 +91,4 @@ Then tell Postfix about this new config file::
 Then regenerate the Postfix configuration (this does the same thing than
 :menuselection:`Configuration --> Apply system configuration`)::
 
-   update-xivo-config
+   xivo-update-config
