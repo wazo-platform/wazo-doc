@@ -15,8 +15,8 @@ Upgrade notes
     ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-auth-cli/conf.d/010-custom-certificate.yml"
 
 
-* The xivo-confd's plugin interface has been updated to reflect the others daemon interface. If you
-  have created a custom xivo-confd's plugin, you must update it:
+* The Python API for xivo-confd plugins has been updated to reflect Python API of other daemons. If
+  you have created a custom xivo-confd plugin, you must update it:
 
   .. code-block:: python
      :emphasize-lines: 4-5
