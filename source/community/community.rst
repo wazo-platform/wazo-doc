@@ -35,17 +35,17 @@ Unless specified, the license is `CC BY-SA`_.
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 | `Start: how to create a context, users, voicemails, ring group, music on hold, conf.call`_                | French   | Beginner     | Networklab     | 2014         |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Tips: post-installation of XiVO on Kimsufi`_                                                             | French   | Intermediate | NyXD Systems   | 2015         |
+| `Tips: post-installation of XiVO on Kimsufi`_                                                             | French   | Intermediate | LabCellar      | 2015         |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Tips: username and password on XiVO`_                                                                    | French   | Intermediate | NyXD Systems   | 2015         |
+| `Tips: username and password on XiVO`_                                                                    | French   | Intermediate | LabCellar      | 2015         |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Tips: self-hosting and telephony with XiVO`_                                                             | French   | Intermediate | NyXD Systems   | 2015         |
+| `Tips: self-hosting and telephony with XiVO`_                                                             | French   | Intermediate | LabCellar      | 2015         |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `XiVO provisioning + pfSense + siproxd + OVH`_                                                            | French   | Intermediate | NyXD Systems   | 2015         |
+| `XiVO provisioning + pfSense + siproxd + OVH`_                                                            | French   | Intermediate | LabCellar      | 2015         |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `SCCP provisioning, unsupported phones and no DHCP`_                                                      | French   | Intermediate | NyXD Systems   | 2015         |
+| `SCCP provisioning, unsupported phones and no DHCP`_                                                      | French   | Intermediate | LabCellar      | 2015         |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
-| `Date format on SCCP 7941`_                                                                               | French   | Intermediate | NyXD Systems   | 2015         |
+| `Date format on SCCP 7941`_                                                                               | French   | Intermediate | LabCellar      | 2015         |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
 | `Installing XiVO on Raspberry Pi (Raspivo)`_                                                              | French   | Intermediate | Iris Network   | 2015         |
 +-----------------------------------------------------------------------------------------------------------+----------+--------------+----------------+--------------+
