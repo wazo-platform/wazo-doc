@@ -13,7 +13,7 @@ xivo-dist is the wazo repository sources manager. It is used to switch between d
 (production, development, release candidate, archived version). Example use cases :
 
 * switch to production repository : ``xivo-dist phoenix``
-* switch to development repository : ``xivo-dist wazo-dev``
+* switch to development repository : ``xivo-dist wazo-dev-stretch``
 * switch to release candidate repository : ``xivo-dist wazo-rc``
 * switch to an archived version's repository (here 14.18) : ``xivo-dist xivo-14.18``
 
