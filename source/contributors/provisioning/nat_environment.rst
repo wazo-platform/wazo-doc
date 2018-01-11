@@ -27,8 +27,6 @@ Also, it's easy to go from a non-NAT environment to a NAT environment with this 
 have to do is only to switch your phone from the "Wazo" VLAN to the "phones" VLAN, and reconfiguring the
 lines on your Wazo.
 
-The instruction in this page are written for Debian jessie and VirtualBox.
-
 
 Prerequisite
 ============
