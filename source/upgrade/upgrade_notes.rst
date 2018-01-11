@@ -39,6 +39,7 @@ Upgrade notes
         def load(self, dependencies):
             api = dependencies['api']
             config = dependencies['config']
+* The interface no longer validate the queue skill rules field.
 
 Please consult the following detailed upgrade notes for more information:
 
