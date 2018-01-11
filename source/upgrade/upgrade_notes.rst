@@ -7,6 +7,7 @@ Upgrade notes
 18.01
 =====
 
+* **Debian has been upgraded from version 8 (jessie) to 9 (stretch).**
 * If you have setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), you will have to add
   a link to the wazo-auth-cli configuration using the following command.
 
@@ -38,6 +39,15 @@ Upgrade notes
         def load(self, dependencies):
             api = dependencies['api']
             config = dependencies['config']
+
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   18.01/stretch
+
+Consult the `18.01 Roadmap <https://projects.wazo.community/versions/271>`_ for more information.
 
 
 17.17
