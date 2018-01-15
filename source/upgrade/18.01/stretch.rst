@@ -71,7 +71,11 @@ Changes
 
 Here's a non-exhaustive list of changes that comes with Wazo on Debian 9:
 
-* Talk about certificate
+* **Network interface names (only for new installs, not upgrades)**: Debian Stretch uses the new
+  standard naming scheme for network interfaces instead of ``eth0``, ``eth1``, etc. The new
+  enumeration method relies on more sources of information, to produce a more repeatable outcome. It
+  uses the firmware/BIOS provided index numbers and then tries PCI card slot numbers, producing
+  names like ``ens0`` or ``enp1s1``.
 
 
 External Links
