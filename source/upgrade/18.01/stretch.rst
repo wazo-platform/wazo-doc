@@ -22,9 +22,9 @@ Before the upgrade
   review the `official Debian release notes <https://www.debian.org/releases/stretch/releasenotes>`_
   before the upgrade. Most importantly, you should:
 
-  * Make sure you don't have any unofficial sources in your /etc/apt/sources.list or
-    /etc/apt/sources.list.d directory. If you were using the jessie-backports source, you must
-    remove it.
+  * Make sure you don't have any unofficial sources in your :file:`/etc/apt/sources.list` or
+    :file:`/etc/apt/sources.list.d` directory. If you were using the ``jessie-backports`` source,
+    you must remove it.
 
   * Remove packages that were automatically installed and are not needed anymore, by running
     ``apt-get autoremove --purge``.
@@ -41,8 +41,8 @@ Upgrade
 
 The upgrade must be done in two steps:
 
-* ``wazo-upgrade``: Upgrade to Wazo 17.17 with :file:`wazo-dist-upgrade` script.
-* ``wazo-dist-upgrade``: Upgrade to the last version of Wazo with Debian 9 (stretch).
+* ``wazo-upgrade``: Installs the ``wazo-dist-upgrade`` script.
+* ``wazo-dist-upgrade``: Upgrade to the latest version of Wazo with Debian 9 (stretch).
 
 
 After the upgrade
@@ -58,12 +58,12 @@ After the upgrade
   customization into the new file, then delete the :file:`.dpkg-old` file.
 
   You can see a list of affected files by running ``find /etc -name '*.dpkg-old'``. If some files
-  shows up that you didn't modify by yourself, you can ignore them.
+  show up that you didn't modify by yourself, you can ignore them.
 
 * Purge removed packages. You can see the list of packages in this state by running ``dpkg -l |
   awk '/^rc/ { print $2 }'`` and purge all of them with ``apt-get purge $(dpkg -l | awk '/^rc/ { print $2 }')``
 
-* Reboot your system. It is necessary for the upgrade to the Linux kernel to be effective.
+* Reboot your system. It is necessary for the new Linux kernel to be effective.
 
 
 Changes
