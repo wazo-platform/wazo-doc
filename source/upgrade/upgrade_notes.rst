@@ -15,14 +15,14 @@ Upgrade notes
 
     18.01/stretch
 
-* If you *did not* setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), the certificate
-  will be regenerated to include SubjectAltName fields. The two main reasons are Chrome
+* If you *did not* setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), the
+  certificate will be regenerated to include SubjectAltName fields. The two main reasons are Chrome
   compatibility and avoiding a lot of log warnings. This implies that you will have to add a new
-  exception in your browser to access the Wazo web interface or services like
-  [Unicom](https://phone.wazo.community).
+  exception in your browser to access the Wazo web interface or services like `Unicom
+  <https://phone.wazo.community>`_.
 
-* If you *did* setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), you will have to add
-  a link to the wazo-auth-cli configuration using the following command.
+* If you *did* setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), you will have
+  to add a link to the wazo-auth-cli configuration using the following command.
 
   .. code-block:: sh
 
