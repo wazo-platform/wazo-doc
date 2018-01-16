@@ -39,10 +39,14 @@ Before the upgrade
 Upgrade
 =======
 
-The upgrade must be done in two steps:
+The upgrade must be done with three commands:
 
-* ``wazo-upgrade``: Installs the ``wazo-dist-upgrade`` script.
-* ``wazo-dist-upgrade``: Upgrade to the latest version of Wazo with Debian 9 (stretch).
+* ``xivo-dist phoenix``: Ensures your system is not restricted to a specific version
+* ``wazo-upgrade``: Installs the ``wazo-dist-upgrade`` script and makes sure the system is up-to-date.
+* ``wazo-dist-upgrade``: Upgrade to the latest version of Wazo with Debian 9 (stretch). This upgrade will take longer than usual.
+
+You may need to reboot your machine before running ``wazo-dist-upgrade``. ``wazo-dist-upgrade`` will
+tell you if a reboot is needed.
 
 
 After the upgrade
