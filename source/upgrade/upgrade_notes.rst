@@ -52,7 +52,8 @@ Upgrade notes
         def load(self, dependencies):
             api = dependencies['api']
             config = dependencies['config']
-* The interface no longer validate the queue skill rules field.
+
+* The web interface no longer validates the queue skill rules fields added in :menuselection:`Services --> Call Center --> Configuration --> Skill rules`. If a rule is wrong, it will appear in the Asterisk console.
 
 Consult the `18.01 Roadmap <https://projects.wazo.community/versions/271>`_ for more information.
 
