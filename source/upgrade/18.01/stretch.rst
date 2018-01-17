@@ -48,6 +48,11 @@ The upgrade must be done with three commands:
 You may need to reboot your machine before running ``wazo-dist-upgrade``. ``wazo-dist-upgrade`` will
 tell you if a reboot is needed.
 
+To minimize the downtime, you can pre-download the packages required for the upgrade with::
+
+   wazo-upgrade -d
+   wazo-dist-upgrade -d
+
 
 After the upgrade
 =================
