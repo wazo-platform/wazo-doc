@@ -4,6 +4,60 @@
 Upgrade notes
 *************
 
+18.01
+=====
+
+* **Debian has been upgraded from version 8 (jessie) to 9 (stretch).**
+  Please consult the following detailed upgrade notes for more information:
+
+ .. toctree::
+    :maxdepth: 1
+
+    18.01/stretch
+
+* If you *did not* setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), the
+  certificate will be regenerated to include SubjectAltName fields. The two main reasons are Chrome
+  compatibility and avoiding a lot of log warnings. This implies that you will have to add a new
+  exception in your browser to access the Wazo web interface or services like `Unicom
+  <https://phone.wazo.community>`_.
+
+* If you *did* setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), you will have
+  to add a link to the wazo-auth-cli configuration using the following command.
+
+  .. code-block:: sh
+
+    ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-auth-cli/conf.d/010-custom-certificate.yml"
+
+
+* The Python API for xivo-confd plugins has been updated to reflect Python API of other daemons. If
+  you have created a custom xivo-confd plugin, you must update it:
+
+  .. code-block:: python
+     :emphasize-lines: 4-5
+     :caption: plugin.old.py
+
+     class Plugin(object):
+
+        def load(self, core):
+            api = core.api
+            config = core.config
+
+
+  .. code-block:: python
+     :emphasize-lines: 4-5
+     :caption: plugin.py
+
+     class Plugin(object):
+
+        def load(self, dependencies):
+            api = dependencies['api']
+            config = dependencies['config']
+
+* The web interface no longer validates the queue skill rules fields added in :menuselection:`Services --> Call Center --> Configuration --> Skill rules`. If a rule is wrong, it will appear in the Asterisk console.
+
+Consult the `18.01 Roadmap <https://projects.wazo.community/versions/271>`_ for more information.
+
+
 17.17
 =====
 

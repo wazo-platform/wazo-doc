@@ -308,23 +308,23 @@ bandwith. Here's a way to be able to receive a fax in this configuration.
 #. Create the file :file:`/etc/asterisk/extensions_extra.d/fax.conf` with the following content::
 
     ;; For faxes :
-    ; The following subroutine forces inbound and outbound codec to alaw.
+    ; The following subroutine forces inbound and outbound codec to alaw or ulaw.
     ; For outbound codec selection we must set the variable with inheritance.
     ; Must be set on each Fax DID
     [pre-incall-fax]
-    exten = s,1,NoOp(### Force alaw codec on both inbound (operator side) and outbound (analog gw side) when calling a Fax ###)
-    exten = s,n,Set(SIP_CODEC_INBOUND=alaw)
-    exten = s,n,Set(__SIP_CODEC_OUTBOUND=alaw)
+    exten = s,1,NoOp(### Force alaw,ulaw codec on both inbound (operator side) and outbound (analog gw side) when calling a Fax ###)
+    exten = s,n,Set(SIP_CODEC_INBOUND=alaw,ulaw)
+    exten = s,n,Set(__SIP_CODEC_OUTBOUND=alaw,ulaw)
     exten = s,n,Return()
 
-    ; The following subroutine forces outbound codec to alaw based on outgoing callerid number
+    ; The following subroutine forces outbound codec to alaw or ulaw based on outgoing callerid number
     ; For outbound codec selection we must set the variable with inheritance.
     ; Must be set on each outgoing call rule
     [pre-outcall-fax]
-    exten = s,1,NoOp(### Force alaw codec if caller is a Fax ###)
-    exten = s,n,GotoIf($["${CALLERID(num)}" = "0112697845"]?alaw:)
-    exten = s,n,GotoIf($["${CALLERID(num)}" = "0112697846"]?alaw:end)
-    exten = s,n(alaw),Set(__SIP_CODEC_OUTBOUND=alaw)
+    exten = s,1,NoOp(### Force alaw,ulaw codec if caller is a Fax ###)
+    exten = s,n,GotoIf($["${CALLERID(num)}" = "0112697845"]?g711:)
+    exten = s,n,GotoIf($["${CALLERID(num)}" = "0112697846"]?g711:end)
+    exten = s,n(g711),Set(__SIP_CODEC_OUTBOUND=alaw,ulaw)
     exten = s,n(end),Return()
 
 #. For each Fax users' DID add the following string in the ``Preprocess subroutine`` field::

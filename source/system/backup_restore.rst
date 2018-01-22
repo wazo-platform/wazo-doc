@@ -218,6 +218,9 @@ Restoring the Database
 
     * This will destroy all the current data in your database.
     * You have to check the free space on your system partition before extracting the backups.
+    * If restoring Wazo >= 18.01 on a different machine, you should not restore the system
+      configuration, because of network interface names that would change. See
+      :ref:`restore_keep_system_config`.
 
 Database backups are created as :file:`db.tgz` files in the :file:`/var/backups/xivo` directory.
 These tarballs contains a dump of the database used in Wazo.
@@ -250,6 +253,8 @@ Troubleshooting
 When restoring the database, if you encounter problems related to the system locale, see
 :ref:`postgresql_localization_errors`.
 
+
+.. _restore_keep_system_config:
 
 Alternative: Restoring and Keeping System Configuration
 =======================================================

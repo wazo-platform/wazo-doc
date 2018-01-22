@@ -13,7 +13,6 @@ General information:
    generate_custom_prompts
    guidelines
    network
-   packaging
    plugins/plugins
    profile_python
    style_guide

@@ -104,17 +104,17 @@ Make your changes in provd-plugins, update the plugin version to the new one and
 Uploading to testing
 ^^^^^^^^^^^^^^^^^^^^
 
-Before updating a plugin, it must be passed through the testing phase.
-Once it has been approved it can be uploaded to the production server
+Before updating a plugin, it must be passed through the testing phase. Once it has been approved it
+can be uploaded to the production server.
 
-.. important::
+In the ``xivo-provd-plugins`` repo, you must merge your changes in the ``testing`` branch before
+uploading the plugins to ``provd.wazo.community``::
 
-  Before uploading a plugin in the testing provd repository, make sure to git pull the xivo-provd-plugins git repository.
-
-To upload the modified plugin in the testing repo on `provd.wazo.community`,
-you can execute the following command::
-
-   $ make upload
+  git checkout testing
+  git pull
+  git merge my-new-branch
+  git push  # this step is important: it validates that your build is up-to-date and will not remove anything
+  make upload
 
 Afterwards, in the web-interface, you must modify the URL in section
 :menuselection:`Configuration --> Provisioning --> General` to::

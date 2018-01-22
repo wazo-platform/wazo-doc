@@ -43,10 +43,10 @@ Installing from the ISO image
 Installing from a minimal Debian installation
 =============================================
 
-Wazo can be installed directly over a **32-bit** or a **64-bit** Debian jessie. When doing so, you are strongly
-advised to start with a clean and minimal installation of Debian jessie.
+Wazo can be installed directly over a **32-bit** or a **64-bit** Debian stretch. When doing so, you are strongly
+advised to start with a clean and minimal installation of Debian stretch.
 
-The latest installation image for Debian jessie can be found at https://www.debian.org/releases/jessie/debian-installer.
+The latest installation image for Debian stretch can be found at https://www.debian.org/releases/stretch/debian-installer.
 
 
 Requirements
@@ -63,7 +63,7 @@ In case you want to migrate a Wazo from ``i386`` to ``amd64``, see :ref:`migrate
 Installation
 ^^^^^^^^^^^^
 
-Once you have your Debian jessie properly installed, download the Wazo installation script and make
+Once you have your Debian stretch properly installed, download the Wazo installation script and make
 it executable::
 
    wget http://mirror.wazo.community/fai/xivo-migration/wazo_install.sh
