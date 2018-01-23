@@ -57,6 +57,38 @@ For this procedure, the following name and IP addresses will be used:
 * Wazo 2: 192.168.1.125
 
 
+Configure service discovery on all wazo-services
+================================================
+
+The default configuration for each services in wazo uses the IP address of the "eth0"
+interface as it's advertised IP address. To advertise a different address you will have
+to override the default configuration.
+
+To do se you have to create a file in the conf.d directory of all services.
+
+First, create a configuration file that will be used for all services.
+
+.. code-block:: yaml
+
+   service_discovery:
+     advertise_address: 192.168.1.124
+
+or
+
+.. code-block:: yaml
+
+   service_discovery:
+     advertise_address: auto
+     advertise_address_interface: "<interface of the address to advertise. ex: enp0s3>"
+
+
+Save that file and create a symlink such that each service will be able to used that file.
+
+.. code-block:: sh
+
+  for dir in /etc/{xivo,wazo}-*/conf.d; do ln -sf /root/config/service_discovery.yml $dir/service_discovery.yml; done
+
+
 .. _create_ws_user:
 
 Add a Web Service User
