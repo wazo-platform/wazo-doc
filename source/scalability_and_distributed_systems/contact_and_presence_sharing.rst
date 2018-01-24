@@ -64,7 +64,7 @@ The default configuration for each services in wazo uses the IP address of the "
 interface as it's advertised IP address. To advertise a different address you will have
 to override the default configuration.
 
-To do se you have to create a file in the conf.d directory of all services.
+To do so you have to create a file in the :file:`conf.d` directory of all services.
 
 First, create a configuration file that will be used for all services.
 
