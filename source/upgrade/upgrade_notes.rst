@@ -4,6 +4,18 @@
 Upgrade notes
 *************
 
+18.02
+=====
+
+* For wazo-auth backend developpers: The API to implement a wazo-auth backend has changed.
+  Old implementations have to be updated. If the BaseAuthenticationBackend class was used
+  as a base class for the backend the `get_metadata` method from the base class will use
+  `get_ids` to generate the result of `get_metadata`.
+
+  * The `get_ids` method has been remove.
+  * The `get_metadata` method has been added.
+
+
 18.01
 =====
 
