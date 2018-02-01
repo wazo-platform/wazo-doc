@@ -19,47 +19,59 @@ failed to gain access to the server. There are 3 jails that a configured.
 asterisk-xivo
 -------------
 
-The "asterisk-xivo" jail watches the Asterisk log file for failed registration attempts.
+The ``asterisk-xivo`` jail watches the Asterisk log file for failed registration attempts.
 
-The goal of this jail is make brute force attacks against SIP accounts harder.
+This jail protects against brute force attacks attempting to guess SIP accounts usernames and
+password.
 
 
 xivo-provd
 ----------
 
-The "xivo-provd" jail will block attempts to create new devices and request for configuration files.
+The ``xivo-provd`` jail will block attempts to create new devices and request for configuration
+files.
 
-The goal of this jail is limit DOS attacks by creating new devices and to protect against
-brute force attacks trying to guess configuration file names.
+This jail has two goals:
+
+* limiting DOS attacks by creating new devices repeatedly
+* protecting against brute force attacks attempting to guess configuration file names.
 
 
 sshd
 ----
 
-The "sshd" jail protects against SSH brute force attacks.
+The ``sshd`` jail protects against SSH brute force attacks.
 
 
 Firewall
 ========
 
-Wazo comes with iptables installed but does not configure any security rules. It is used by fail2ban
-and by wazo-upgrade to block phone registration during an upgrade.
+Wazo comes with iptables installed but does not configure any security rules. The only interaction
+Wazo has with iptables are:
+
+* fail2ban
+* wazo-upgrade blocks SIP trafic during an upgrade, to avoid SIP phones to become temporarily
+  unusable after the upgrade.
+
+It is highly recommended that you configure firewall rules on your Wazo.
 
 
 Devices
 =======
 
-Your devices, phones and gateways, should not be accessible from the Internet. If you have no choice
-the passwords should be changed.
+Your devices, phones and VoIP gateways, should not be accessible from the Internet. If you have no
+choice, then the passwords should be changed. Most phones have two different passwords: admin and user passwords.
 
-Some devices allow Wazo to change the password from the auto provisioning system. To change the default
-values from the web-interface go to :menuselection:`Configuration -> Provisioning -> Template device`.
+Some devices allow Wazo to change the password from the auto provisioning system. To change the
+default values from the web-interface go to :menuselection:`Configuration --> Provisioning -->
+Template device`.
 
-The admin and user password should be modified.
+For other devices, you need to change the passwords manually.
 
 
 Open ports
 ==========
 
-See the list of network ports that are listening to `0.0.0.0` in the :ref:`network_ports` page. Change the
-service configurations for service that do not need to be accessible.
+See the list of network ports that are listening to `0.0.0.0` in the :ref:`network_ports` page.
+Change the service :ref:`configurations<configuration-files>` for services that do not need to be
+accessible.
