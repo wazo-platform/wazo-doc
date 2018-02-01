@@ -197,3 +197,29 @@ Files::
             external_auth_service.register_safe_auth_model('bar', BarSafeData)
     
             api.add_resource(BarService, '/users/<uuid:user_uuid>/external/bar', resource_class_args=args)
+
+
+OAuth2 helpers
+^^^^^^^^^^^^^^
+
+If the external service uses Loathe2 it is possible to use some helper functions in the external_auth service.
+
+Those helpers can be used to get notified when the user has accepted wazo-auth on the external service.
+
+The following helpers are available:
+
+external_auth_service.register_oauth2_callback(state, callback, *args, **kwargs)
+
+* state: The state returned from the authorization URL query
+* callback: the callable that should be triggered when the authorization is complete
+* args and kwargs: arguments that will be added to the callback arguments
+
+When the callback function gets called, its last args will be the message sent to the redirect URL by the
+external service.
+
+The callback is usually used to create a first token on the external service.
+
+external_auth_service.build_oauth2_redirect_url(auth_type)
+
+This helper returns a URL that can be used by the OAuth2Session to trigger a redirection and receives a callback
+when the authorization is complete.
