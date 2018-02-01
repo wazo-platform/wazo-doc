@@ -202,7 +202,7 @@ Files::
 OAuth2 helpers
 ^^^^^^^^^^^^^^
 
-If the external service uses Loathe2 it is possible to use some helper functions in the external_auth service.
+If the external service uses OAuth2 it is possible to use some helper functions in the external_auth service.
 
 Those helpers can be used to get notified when the user has accepted wazo-auth on the external service.
 
