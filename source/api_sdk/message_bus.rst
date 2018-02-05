@@ -92,6 +92,14 @@ Things to be aware when writing a client/consumer:
 Changelog
 =========
 
+18.02
+-----
+
+* The following message has been added:
+
+  * :ref:`auth_user_external_auth_authorized <bus-external-auth-authorized>`
+
+
 17.17
 -----
 
@@ -242,6 +250,31 @@ Example::
 
   {
     "name": "auth_user_external_auth_added",
+    "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+    "data": {
+      "user_uuid": "a1e05585-1421-4397-bd59-9cf9725888e9",
+      "external_auth_name": "zoho"
+    }
+  }
+
+
+.. _bus-external-auth-authorized:
+
+auth_user_external_auth_authorized
+----------------------------------
+
+This event is sent when a user authorizes an oauth2 request on an external authentification plugin.
+
+* routing_key: auth.users.{user_uuid}.external.{external_auth_name}.authorized
+* event specific data:
+
+  * user_uuid: The user's UUID
+  * external_auth_name: The name of the external service
+
+Example::
+
+  {
+    "name": "auth_user_external_auth_authorized",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
     "data": {
       "user_uuid": "a1e05585-1421-4397-bd59-9cf9725888e9",

@@ -112,8 +112,10 @@ Those helpers can be used to get notified when the user has accepted wazo-auth o
 
 The following helpers are available::
 
-   external_auth_service.register_oauth2_callback(state, callback, *args, **kwargs)
+   external_auth_service.register_oauth2_callback(auth_type, user_uuid, state, callback, *args, **kwargs)
 
+* auth_type: The name of the authentication backend
+* user_uuid: The user UUID of the user creating the external auth
 * state: The state returned from the authorization URL query
 * callback: the callable that should be triggered when the authorization is complete
 * args and kwargs: arguments that will be added to the callback arguments
