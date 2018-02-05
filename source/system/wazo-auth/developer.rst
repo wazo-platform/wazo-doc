@@ -103,6 +103,32 @@ The restful class should do the following:
   service allow that kind of modification.
 
 
+OAuth2 helpers
+^^^^^^^^^^^^^^
+
+If the external service uses OAuth2 it is possible to use some helper functions in the external_auth service.
+
+Those helpers can be used to get notified when the user has accepted wazo-auth on the external service.
+
+The following helpers are available:
+
+external_auth_service.register_oauth2_callback(state, callback, *args, **kwargs)
+
+* state: The state returned from the authorization URL query
+* callback: the callable that should be triggered when the authorization is complete
+* args and kwargs: arguments that will be added to the callback arguments
+
+When the callback function gets called, its last args will be the message sent to the redirect URL by the
+external service.
+
+The callback is usually used to create a first token on the external service.
+
+external_auth_service.build_oauth2_redirect_url(auth_type)
+
+This helper returns a URL that can be used by the OAuth2Session to trigger a redirection and receives a callback
+when the authorization is complete.
+
+
 Files::
 
   setup.py
@@ -146,9 +172,14 @@ Files::
     class BarService(http.AuthResource):
     
         auth_type = 'bar'  # Should be the same as the entry point
+        authorization_base_url = 'https://accounts.bar.com/oauth/v2/auth'
+        token_url = 'https://accounts.bar.com/oauth/v2/token'
+        client_id = 'client_id'
+        client_secret = 'client_secret'
     
         def __init__(self, external_auth_service):
             self.external_auth_service = external_auth_service
+            self.redirect_uri = self.external_auth_service.build_oauth2_redirect_url(self.auth_type)
     
         @http.required_acl('auth.users.{user_uuid}.external.bar.delete')
         def delete(self, user_uuid):
@@ -166,10 +197,37 @@ Files::
     
         @http.required_acl('auth.users.{user_uuid}.external.bar.create')
         def post(self, user_uuid):
+            session = OAuth2Session(self.client_id, scope=self.scope, redirect_uri=self.redirect_uri)
             # Should use the body of the POST and create a token with the Bar service
             data = request.get_json(force=True)
-            # The external auth service is used to store the data required by the GET
-            return self.external_auth_service.create(user_uuid, self.auth_type, data), 200
+            authorization_url, state = session.authorization_url(
+                self.authorization_base_url,
+                access_type='offline',
+            )
+            self.external_auth_service.register_oauth2_callback(
+                state,
+                self.create_first_token,
+                session,
+                user_uuid,
+           )
+
+           return {'authorization_url': authorization_url}, 201
+
+       def create_first_token(self, session, user_uuid, msg):
+           # This callback is triggered when the user authorize wazo-auth using the authorization_url
+           token_data = session.fetch_token(
+               self.token_url,
+               client_secret=self.client_secret['us'],
+               code=msg['code'],
+           )
+
+           data = {
+               'access_token': token_data['access_token'],
+               'refresh_token': token_data.get('refresh_token'),
+               'token_expiration': get_timestamp_expiration(token_data['expires_in'])
+           }
+
+           self.external_auth_service.update(user_uuid, self.auth_type, data)
     
     
     # When GET /users/:uuid/external is called this model will be used to filter the private data
@@ -197,29 +255,3 @@ Files::
             external_auth_service.register_safe_auth_model('bar', BarSafeData)
     
             api.add_resource(BarService, '/users/<uuid:user_uuid>/external/bar', resource_class_args=args)
-
-
-OAuth2 helpers
-^^^^^^^^^^^^^^
-
-If the external service uses OAuth2 it is possible to use some helper functions in the external_auth service.
-
-Those helpers can be used to get notified when the user has accepted wazo-auth on the external service.
-
-The following helpers are available:
-
-external_auth_service.register_oauth2_callback(state, callback, *args, **kwargs)
-
-* state: The state returned from the authorization URL query
-* callback: the callable that should be triggered when the authorization is complete
-* args and kwargs: arguments that will be added to the callback arguments
-
-When the callback function gets called, its last args will be the message sent to the redirect URL by the
-external service.
-
-The callback is usually used to create a first token on the external service.
-
-external_auth_service.build_oauth2_redirect_url(auth_type)
-
-This helper returns a URL that can be used by the OAuth2Session to trigger a redirection and receives a callback
-when the authorization is complete.
