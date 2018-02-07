@@ -238,7 +238,7 @@ Example event with binding key QueueMemberStatus::
 auth_user_external_auth_added
 -----------------------------
 
-This event is sent when a user adds an external authentification to its account.
+This event is sent when a user adds an external authentication to its account.
 
 * routing_key: auth.users.{user_uuid}.external.{external_auth_name}.created
 * event specific data:
@@ -263,7 +263,7 @@ Example::
 auth_user_external_auth_authorized
 ----------------------------------
 
-This event is sent when a user authorizes an oauth2 request on an external authentification plugin.
+This event is sent when a user authorizes an oauth2 request on an external authentication plugin.
 
 * routing_key: auth.users.{user_uuid}.external.{external_auth_name}.authorized
 * event specific data:
@@ -288,7 +288,7 @@ Example::
 auth_user_external_auth_deleted
 -------------------------------
 
-This event is sent when a user removes an external authentification from its account.
+This event is sent when a user removes an external authentication from its account.
 
 * routing_key: auth.users.{user_uuid}.external.{external_auth_name}.deleted
 * event specific data:
