@@ -65,13 +65,16 @@ Example:
     namespace: foocorp
     version: 0.0.1
     description: This plugin adds some foo to your Wazo
-    plugin_format_version: 1
+    plugin_format_version: 2
     depends:
       - name: foobaz
         namespace: foocorp
+        version: ">= 1.4, < 2"
       - name: admin-ui-context
         namespace: official
         version: 0.0.1
+      - name: bazinga
+        namespace: foocorp
     debian_depends:
       - golang-go
 
@@ -155,10 +158,16 @@ A plugin in version `0` should implement the following requirements:
   * uninstall
 
 
-1 (recommended)
+1
 ---------------
 
 Version `1` adds support for the postrm instruction in the rules file.
+
+
+2 (recommended)
+---------------
+
+Version `2` adds support for the version dependency operators. ex: >, >=, <=, <, =, ==
 
 
 .. _contribs_plugins:
