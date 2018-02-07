@@ -121,6 +121,8 @@ external_auth_service.register_oauth2_callback(state, callback, *args, **kwargs)
 When the callback function gets called, its last args will be the message sent to the redirect URL by the
 external service.
 
+.. note:: The callback is not executed in the main thread. You should take care of thread synchronization when sharing data structures between threads.
+
 The callback is usually used to create a first token on the external service.
 
 external_auth_service.build_oauth2_redirect_url(auth_type)
