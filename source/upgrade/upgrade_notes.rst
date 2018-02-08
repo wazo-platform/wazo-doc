@@ -15,6 +15,8 @@ Upgrade notes
   * The `get_ids` method has been remove.
   * The `get_metadata` method has been added.
 
+Consult the `18.02 Roadmap <https://projects.wazo.community/versions/264>`_ for more information.
+
 
 18.01
 =====
