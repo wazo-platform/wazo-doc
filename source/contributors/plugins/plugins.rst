@@ -84,6 +84,7 @@ The :ref:`rules<contribs_plugins>` file is an executable that will accept the fo
 * package
 * install
 * uninstall
+* postrm
 
 
 Hello World
@@ -192,3 +193,50 @@ __ https://www.debian.org/doc/manuals/maint-guide/dother.en.html#maintscripts
 
 postrm (added in version 1)
   The `postrm` command is used at the end of the debian package removal. It will be used as the postrm of the generated debian package.
+
+
+Upgrades
+========
+
+All official plugins are upgraded at the end of a wazo-upgrade using the latest version available
+on the market that is compatible with the newly upgraded Wazo. Plugins can also be upgraded
+manually using the administration interface.
+
+.. figure:: images/plugin_upgrade.png
+
+
+Dependencies
+============
+
+There are 2 kinds of dependencies that can be added on a plugin, "depends" and "debian_depends".
+
+
+depends
+-------
+
+The `depends` section of the `plugin.yml` file contains dependencies that are other plugins
+built for wazo-plugind.  Those dependencies should be already installed or available on the
+market.
+
+There's no version requirements for this kind of dependencies, they are used to make plugin
+installation less of a hassle.
+
+When installing a plugin if a dependency is already satisfied, the package will not be upgraded.
+
+Example::
+
+  Given a plugin "A" depending on plugin "B".
+  Given "B" is already installed in an older version.
+  When installing "A".
+  Then "B" will not be upgraded.
+
+`depends` also generate an entry in the `debian_depends` section.
+
+
+debian_depends
+--------------
+
+The `debian_depends` section of the `plugin.yml` file contains dependencies that will be added
+to the debian control file. This means that the debian packages listed here will be installed
+during the plugin installation. This also means that removing that dependency from the system
+will also remove all plugins depending on it.
