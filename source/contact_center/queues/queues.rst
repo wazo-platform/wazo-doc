@@ -141,3 +141,32 @@ Note that if a new call arrives when there are no waiting calls in the queue, th
 
 Even if the number of waiting calls per logged-in agent (1) is greater than the maximum (0.5), the call
 will still be accepted since there are currently no waiting calls.
+
+
+Music on Hold
+=============
+
+The music on hold of the queue will be played:
+
+* When the caller is waiting to be answered.
+* When the caller is put on hold by an agent who already answered.
+
+If you want a different music to be played when the caller is put on hold after being answered, you need to make some more configuration:
+
+#. Write an AGI script that will set the channel variable ``CHANNEL(musicclass)`` to the name of the music-on-hold class you want the caller to hear when he is put on hold by the agent. Save this script to e.g. ``/usr/local/bin/agi-agent-hold-moh``.
+#. Add the following :ref:`preprocess subroutine <subroutine>` on the queue::
+
+    [setup-agent-hold-moh]
+    exten = s,1,NoOp(Setting AGI script for custom agent hold music)
+    same  =   n,Set(XIVO_QUEUEAGI=/usr/local/bin/agi-agent-hold-moh)
+    same  =   n,Return
+
+This configuration will give the following scenario:
+
+* The caller calls the queue
+* The caller hears the music on hold of the queue
+* The agent answers the call
+* Wazo calls the AGI script, setting the new music on hold
+* The caller and the agent talk together
+* The agent puts the caller on hold
+* The caller hears the new music on hold, set by the AGI script

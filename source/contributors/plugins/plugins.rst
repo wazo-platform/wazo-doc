@@ -71,7 +71,6 @@ Example:
         namespace: foocorp
       - name: admin-ui-context
         namespace: official
-        version: 0.0.1
     debian_depends:
       - golang-go
 

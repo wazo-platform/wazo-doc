@@ -92,6 +92,14 @@ Things to be aware when writing a client/consumer:
 Changelog
 =========
 
+18.02
+-----
+
+* The following message has been added:
+
+  * :ref:`auth_user_external_auth_authorized <bus-external-auth-authorized>`
+
+
 17.17
 -----
 
@@ -230,7 +238,7 @@ Example event with binding key QueueMemberStatus::
 auth_user_external_auth_added
 -----------------------------
 
-This event is sent when a user adds an external authentification to its account.
+This event is sent when a user adds an external authentication to its account.
 
 * routing_key: auth.users.{user_uuid}.external.{external_auth_name}.created
 * event specific data:
@@ -250,12 +258,37 @@ Example::
   }
 
 
+.. _bus-external-auth-authorized:
+
+auth_user_external_auth_authorized
+----------------------------------
+
+This event is sent when a user authorizes an oauth2 request on an external authentication plugin.
+
+* routing_key: auth.users.{user_uuid}.external.{external_auth_name}.authorized
+* event specific data:
+
+  * user_uuid: The user's UUID
+  * external_auth_name: The name of the external service
+
+Example::
+
+  {
+    "name": "auth_user_external_auth_authorized",
+    "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+    "data": {
+      "user_uuid": "a1e05585-1421-4397-bd59-9cf9725888e9",
+      "external_auth_name": "zoho"
+    }
+  }
+
+
 .. _bus-external-auth-deleted:
 
 auth_user_external_auth_deleted
 -------------------------------
 
-This event is sent when a user removes an external authentification from its account.
+This event is sent when a user removes an external authentication from its account.
 
 * routing_key: auth.users.{user_uuid}.external.{external_auth_name}.deleted
 * event specific data:

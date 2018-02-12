@@ -34,6 +34,7 @@ Administration
    parking
    phonebook
    provisioning/provisioning
+   security
    sccp/sccp
    schedules/schedules
    sound_files
