@@ -1,120 +1,38 @@
 .. index:: single:Wazo Client
 
-*********************************************
-Building the Wazo Client on Windows platforms
-*********************************************
+**********************************************
+Building the Wazo Client for Windows platforms
+**********************************************
 
-This page explains how to build an executable of the Wazo Client from its sources for Windows.
-
-
-Windows Prerequisites
-=====================
-
-Cygwin
-------
-
-`Cygwin Web site <http://www.cygwin.com/>`_
-
-Click the "setup" link and execute.
-
-During the installer, check the package:
-
-* Devel > git
+This page explains how to build an executable of the Wazo Client from its sources for Windows. It uses cross-compilation from a Docker container, so you do not need a Windows machine to build. The following instructions are made to run on a Linux host.
 
 
-Qt SDK
-------
+Prerequisites
+=============
 
-You need the development files of the Qt 5 library, available on the `Qt website
-<http://qt-project.org/downloads>`_. The currently supported Qt version is 5.5.0.
-
-
-NSIS (installer only)
----------------------
-
-You will only need NSIS installed if you want to create an installer for the Wazo Client.
-
-`NSIS download page <http://nsis.sourceforge.net/Download>`_
-
-During the installer, choose the full installation.
-
-The Wazo Client NSIS script file uses two plug-ins:
-
-* the NSIS Application Association Registration Plug-in (`download page
-  <http://nsis.sourceforge.net/Application_Association_Registration_plug-in#Download>`__)
-* the NsProcess Plug-in (`download page <http://nsis.sourceforge.net/NsProcess_plugin>`__)
-
-For each plug-in, download and extract the plug-in and place:
-
-* the DLL from :file:`/Plugins` in the :file:`NSIS/Plugins` directory
-* the ``.nsh`` from :file:`/Include` in the :file:`NSIS/Include` directory
+* Docker installed on your machine, and access to Internet.
+* A copy of the Wazo Client source code including the Git repository. This directory must be clean of binary files (``.o``, ``.dll``, ``.exe``, etc.).
 
 
-Get sources
-===========
+Building the package
+====================
 
-In a **Cygwin shell**::
+Go to the ``wazo-client-qt`` cloned directory and run (first step will take a long time, about 1 hour)::
 
-   git clone git://github.com/wazo-pbx/wazo-client-qt.git
-   cd wazo-client-qt
-   touch wazoclient/qt-solutions/qtsingleapplication/src/{QtSingleApplication,QtLockedFile}
+   docker build -t wazopbx/windows-x86-qt:5.5.0 -f packaging/windows/Dockerfile-windows-x86-qt packaging/windows
+   docker build -t wazopbx/windows-x86-wazo-client-qt:qt-5.5.0 -f packaging/windows/Dockerfile-windows-x86-wazo-client-qt packaging/windows
+   docker rm wazo-client-qt-build-win32
+   docker run --name wazo-client-qt-build-win32 -v $PWD:/usr/src/wazo-client-qt wazopbx/windows-x86-wazo-client-qt:qt-5.5.0
+   mkdir -p ./bin
+   docker cp wazo-client-qt-build-win32:/usr/src/wazo-client-qt-build/bin/package-win32 ./bin
 
-
-Building
-========
-
-Path configuration
-------------------
-
-You must change the values in :file:`C:\\Cygwin\\home\\user\\wazo-client-qt\\build-deps` to match
-the paths of your installed programs. You must use an editor capable of understanding Unix end of
-lines, such as `Notepad++ <http://notepad-plus-plus.org>`_.
-
-Replace ``C:\`` with ``/cygdrive/c`` and backslashes (``\``) with slashes (``/``). You must respect
-the case of the directory names. Paths containing spaces must be enclosed in double quotes (``"``).
-
-For example, if you installed NSIS in :file:`C:\\Program Files (x86)\\nsis`, you should write::
-
-   WIN_NSIS_PATH="/cygdrive/c/Program files (x86)/nsis"
-
-
-Build
------
-
-In a **Cygwin shell**::
-
-   source build-deps
-   export PATH=$WIN_QT_PATH/bin:$WIN_MINGW_PATH/bin:$PATH
-
-   qmake
-   mingw32-make SHELL=
-
-Binaries are available in the ``bin`` directory.
-
-The version of the executable is taken from the ``git describe`` command.
-
-
-Launch
-======
-
-You can launch the built executable with::
-
-   source build_deps
-   PATH=$WIN_QT_PATH/bin:$PATH bin/wazoclient
-
-
-Package
-=======
-
-To create the installer::
-
-   mingw32-make pack
-
-This will result in a ``.exe`` file in the current directory.
+You will find the installer ready to install in ``./bin/package-win32``.
 
 
 Build options
 =============
+
+For more options, you have to edit ``packaging/windows/Dockerfile-windows-x86-wazo-client-qt``.
 
 To add a console::
 
@@ -122,7 +40,7 @@ To add a console::
 
 To generate debug symbols::
 
-   mingw32-make SHELL= DEBUG=yes
+   make DEBUG=yes
 
 
 Clean
@@ -130,4 +48,4 @@ Clean
 
 ::
 
-   mingw32-make distclean
+   make distclean
