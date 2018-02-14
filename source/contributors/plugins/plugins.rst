@@ -195,16 +195,6 @@ postrm (added in version 1)
   The `postrm` command is used at the end of the debian package removal. It will be used as the postrm of the generated debian package.
 
 
-Upgrades
-========
-
-All official plugins are upgraded at the end of a wazo-upgrade using the latest version available
-on the market that is compatible with the newly upgraded Wazo. Plugins can also be upgraded
-manually using the administration interface.
-
-.. figure:: images/plugin_upgrade.png
-
-
 Dependencies
 ============
 
