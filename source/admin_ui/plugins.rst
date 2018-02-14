@@ -1,3 +1,5 @@
+.. _admin_ui_plugins:
+
 *******
 Plugins
 *******
@@ -5,10 +7,12 @@ Plugins
 Wazo plugins can be installed from AdminUI in the plugin menu. Features can be installed here
 to customize your Wazo installation.
 
+For information about plugin development see the :ref:`developing_plugins` section.
+
 .. figure:: images/plugins.png
 
-Official plugins are developped by the Wazo development team, are tested and should not break
-during an upgrade. None official plugins are developped by the comunity are are available in
+Official plugins are developed by the Wazo development team, are tested and should not break
+during an upgrade. None official plugins are developed by the community are are available in
 the market for your convenience.  The default is to show only official plugins.
 
 Installing plugins
