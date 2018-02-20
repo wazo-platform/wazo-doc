@@ -10,6 +10,7 @@ Upgrade notes
 * If you have a :ref:`custom certificate configured<https_certificate>`, you will need to add a new
   symlink for wazo-upgrade::
 
+    mkdir -p /etc/wazo-upgrade/conf.d
     ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-upgrade/conf.d/010-custom-certificate.yml"
 
 
