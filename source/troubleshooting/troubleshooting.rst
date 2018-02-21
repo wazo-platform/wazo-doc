@@ -496,3 +496,20 @@ To stop *ngrok* hit Ctrl-C.
    * the SSH key fingerprint of the server is correct, when SSH asks you upon the first connection (TOFU)
 
 .. _man-in-the-middle attack: https://en.wikipedia.org/wiki/Man-in-the-middle_attack
+
+
+Collecting logs
+---------------
+
+When troubleshooting a problem, you may need to send logs for analysis.
+
+``wazo-debug-collect`` simplifies the gathering of logs::
+
+   apt-get update
+   apt-get install wazo-debug
+   wazo-debug-collect -o /tmp/logs.tar.gz
+
+``wazo-debug-collect`` will gather all the logs of the different Wazo daemons, including Asterisk, and
+bundle them into a tarball. You may then send this tarball for analysis.
+
+.. warning:: Be careful before sending the logs in a public place: they may contain sensible information, that can be used to connect to your Wazo.
