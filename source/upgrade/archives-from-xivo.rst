@@ -26,10 +26,13 @@ Example upgrade to Wazo 18.02::
    chmod +x xivo-to-wazo-upgrade
    ./xivo-to-wazo-upgrade
 
-This will upgrade your xivo to Wazo 17.17. From there, upgrade to Wazo 18.02::
+This will upgrade your xivo to Wazo 17.17. From there:
 
-  wazo-dist-upgrade -t wazo-18.02
-  wazo-dist phoenix-stretch
+1. Read the :ref:`upgrade notes<upgrade_notes_stretch>`
+2. upgrade to Wazo 18.02::
+
+     wazo-dist-upgrade -t wazo-18.02
+     wazo-dist phoenix-stretch
 
 
 My xivo is stuck in a specific version
