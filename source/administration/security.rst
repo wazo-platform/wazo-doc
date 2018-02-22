@@ -36,6 +36,7 @@ This jail has two goals:
 * limiting DOS attacks by creating new devices repeatedly
 * protecting against brute force attacks attempting to guess configuration file names.
 
+See :ref:`provd-security` for more details.
 
 sshd
 ----
