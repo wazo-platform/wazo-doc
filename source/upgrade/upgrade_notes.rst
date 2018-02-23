@@ -13,6 +13,9 @@ Upgrade notes
     mkdir -p /etc/wazo-upgrade/conf.d
     ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-upgrade/conf.d/010-custom-certificate.yml"
 
+* Default passwords for phones' web interfaces have been changed. You can change the password in
+  :menuselection:`Configuration --> Provisioning --> Template device`.
+
 
 18.02
 =====
