@@ -4,6 +4,12 @@
 Upgrade notes
 *************
 
+18.04
+=====
+
+* Invalid user email will be deleted automatically during upgrade.
+
+
 18.03
 =====
 
