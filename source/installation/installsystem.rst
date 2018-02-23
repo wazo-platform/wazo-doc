@@ -80,8 +80,8 @@ wizard. <configuration_wizard>`
 Alternatives versions
 ^^^^^^^^^^^^^^^^^^^^^
 
-The installation script can also be used to install an :ref:`archive version <archive-version>` of
-Wazo. For example, if you want to install Wazo 16.16::
+The installation script can also be used to install a specific version of Wazo. For example, if you
+want to install Wazo 16.16::
 
    ./wazo_install.sh -a 16.16
 
