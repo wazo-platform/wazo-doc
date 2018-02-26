@@ -35,7 +35,6 @@ Supported policy variables
   * tenant.uuid: The tenant UUID
   * tenant.name: The tenant name
 
-* id: The ID of the user authenticating
 * uuid: The UUID of the user authenticating
 * voicemails: a list of voicemail ID associated to this user
 * lines: a list of line ID associated to this user
