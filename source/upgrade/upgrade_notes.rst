@@ -16,6 +16,20 @@ Upgrade notes
 * Default passwords for phones' web interfaces have been changed. You can change the password in
   :menuselection:`Configuration --> Provisioning --> Template device`.
 
+* The default NAT option in General SIP settings has been automatically changed from
+  ``auto_force_rport`` to ``auto_force_rport,auto_comedia``. This makes NAT configuration easier but
+  has no impact on environments without NAT.
+
+  * In the rare cases where you want to keep ``nat=auto_force_rport`` you must explicitly change
+    this value in the administation interface :menuselection:`Services --> IPBX --> General Settings
+    --> SIP Protocol` in tab `Default`. See `Asterisk sip.conf sample
+    <https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869>`_ for
+    more informations.
+
+* The NAT configuration of every SIP line and SIP trunk has been automatically changed from ``nat=auto_force_rport`` to nothing, so that they inherit this setting from the General SIP settings.
+
+Consult the `18.03 Roadmap <https://projects.wazo.community/versions/272>`_ for more information.
+
 
 18.02
 =====
