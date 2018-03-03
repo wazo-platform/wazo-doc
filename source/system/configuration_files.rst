@@ -177,6 +177,31 @@ Here is the process you should follow if you want to use/customize this feature 
     service xivo-agid restart
 
 
+.. _asterisk-configuration:
+
+Asterisk configuration files
+============================
+
+Asterisk configuration files are located at `/etc/asterisk`. These files are packaged with
+Wazo and you should not modify files that are located at the root of this directory.
+
+To add you own configurations, you must add a new configuration file in the corresponding `.d`
+directory.
+
+For example, if you need to add a new user to the `manager.conf` configuration file, you would
+add a new file `/etc/asterisk/manager.d/my_new_user.conf` with the following content::
+
+.. code-block: ini
+
+ [my_new_user]
+ secret=v3ry5ecre7
+ deny=0.0.0.0/0.0.0.0
+ permit=127.0.0.1/255.255.255.0
+ read = system
+
+The same logic applies to all Asterisk configuration files except `asterisk.conf` and `modules.conf`.
+
+
 ipbx.ini
 ========
 
