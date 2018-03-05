@@ -129,8 +129,8 @@ Here are the steps for upgrading a cluster, i.e. two Wazo with :ref:`high-availa
 #. Reactivate the cronjobs (see steps 1 and 2)
 
 
-Upgrading to/from an archive version
-====================================
+Upgrading to a specific version of Wazo
+=======================================
 
 .. toctree::
    :maxdepth: 1

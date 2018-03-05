@@ -1,3 +1,5 @@
+.. _upgrade_notes_stretch:
+
 ********************************
 Debian 9 (stretch) Upgrade Notes
 ********************************
