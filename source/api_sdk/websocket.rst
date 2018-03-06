@@ -242,7 +242,7 @@ Events Access Control
 ---------------------
 
 Clients connected to ``xivo-websocketd`` only receive events that they are authorized to receive.
-For example, a client connected with a token obtained from the "xivo_user" ``wazo-auth`` backend
+For example, a client connected with a token obtained from the "wazo_user" ``wazo-auth`` backend
 will *not* receive call events of other users.
 
 When a message is received from the bus by ``xivo-websocketd``, it extracts the ACL from the

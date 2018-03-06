@@ -13,6 +13,19 @@ Upgrade notes
   in the corresponding `.d` directory to use your customized configuration. Files named
   :file:`*.conf.dpkg-old` will be left in :file:`/etc/asterisk` if this operation is required. See
   :ref:`asterisk-configuration` for more details.
+* The user authentication has been updated with the following impacts:
+  * User's password cannot be returned in plain text anymore.
+  * Users export (export CSV) cannot export password anymore.
+  * Time to import users (import CSV) has been increased significatively if the field password is
+    provided.
+  * Fields `username` and `password` in xivo-confd API `/users` don't have impact anymore on
+    authentication and must be considered as invalid. To change these values, use wazo-auth API
+    instead.
+  * Fields `enabled` for xivo-confd API `/users/<user_id>/cti` don't have impact anymore on
+    authentication and must be considered as invalid. To change this value, use wazo-auth API
+    instead.
+  * In wazo-auth, the backend `xivo_user` has been removed.
+  * In xivo-ctid, the default authentication backend is now `wazo_user`.
 
 
 18.03

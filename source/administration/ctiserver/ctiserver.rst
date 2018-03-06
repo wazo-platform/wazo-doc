@@ -42,7 +42,7 @@ Authentication
 ================
 
 xivo-ctid uses wazo-auth to authenticate users. The default authentication
-backend is `xivo_user`. To change the authentication backend, add a
+backend is `wazo_user`. To change the authentication backend, add a
 configuration file in `/etc/xivo-ctid/conf.d` with the following content:
 
 .. code-block:: yaml
