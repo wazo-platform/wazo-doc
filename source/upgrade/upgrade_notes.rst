@@ -8,6 +8,11 @@ Upgrade notes
 =====
 
 * Invalid user email will be deleted automatically during upgrade.
+* Asterisk configuration files can now be customized in the :file:`/etc/asterisk/*.d/` directories.
+  If you had custom configuration in :file:`/etc/asterisk/*.conf` you will have to create a new file
+  in the corresponding `.d` directory to use your customized configuration. Files named
+  :file:`*.conf.dpkg-old` will be left in :file:`/etc/asterisk` if this operation is required. See
+  :ref:`asterisk-configuration` for more details.
 
 
 18.03
