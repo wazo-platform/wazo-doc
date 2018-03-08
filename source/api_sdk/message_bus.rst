@@ -92,6 +92,16 @@ Things to be aware when writing a client/consumer:
 Changelog
 =========
 
+18.04
+-----
+
+* The following messages have been added:
+
+  * :ref:`auth_tenant_created <bus-auth-tenant-created>`
+  * :ref:`auth_tenant_deleted <bus-auth-tenant-deleted>`
+  * :ref:`auth_tenant_updated <bus-auth-tenant-updated>`
+
+
 18.02
 -----
 
@@ -304,6 +314,85 @@ Example::
     "data": {
       "user_uuid": "a1e05585-1421-4397-bd59-9cf9725888e9",
       "external_auth_name": "zoho"
+    }
+  }
+
+
+.. _bus-auth-tenant-created:
+
+auth_tenant_created
+-------------------
+
+This event is published when a tenant is created
+
+* routing_key: auth.tenants.{tenant_uuid}.created
+* event specific data:
+
+  * uuid: The tenant's UUID
+  * name: The name of the tenant
+
+Example:
+
+.. code-block:: javascript
+
+  {
+    "name": "auth_tenant_created",
+    "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+    "data": {
+      "uuid": "a1e05585-1421-4397-bd59-9cf9725888e9",
+      "name": "<name>"
+    }
+  }
+
+
+.. _bus-auth-tenant-deleted:
+
+auth_tenant_deleted
+-------------------
+
+This event is published when a tenant is deleted
+
+* routing_key: auth.tenants.{tenant_uuid}.deleted
+* event specific data:
+
+  * uuid: The tenant's UUID
+
+Example:
+
+.. code-block:: javascript
+
+  {
+    "name": "auth_tenant_deleted",
+    "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+    "data": {
+      "uuid": "a1e05585-1421-4397-bd59-9cf9725888e9",
+    }
+  }
+
+
+.. _bus-auth-tenant-updated:
+
+auth_tenant_updated
+-------------------
+
+This event is published when a tenant is updated
+
+* routing_key: auth.tenants.{tenant_uuid}.updated
+* event specific data:
+
+  * uuid: The tenant's UUID
+  * name: The name of the tenant
+
+Example:
+
+.. code-block:: javascript
+
+  {
+    "name": "auth_tenant_updated",
+    "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+    "data": {
+      "uuid": "a1e05585-1421-4397-bd59-9cf9725888e9",
+      "name": "<name>"
     }
   }
 
