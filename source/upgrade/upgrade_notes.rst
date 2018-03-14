@@ -14,6 +14,7 @@ Upgrade notes
   :file:`*.conf.dpkg-old` will be left in :file:`/etc/asterisk` if this operation is required. See
   :ref:`asterisk-configuration` for more details.
 * The user authentication has been updated with the following impacts:
+
   * User's password cannot be returned in plain text anymore.
   * Users export (export CSV) cannot export password anymore.
   * Time to import users (import CSV) has been increased significatively if the field password is
