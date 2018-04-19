@@ -155,6 +155,8 @@ You will also need to change the XML API username/password by creating a :ref:`c
 <provd-custom-templates>` for your phone.
 
 
+.. _switchboard_device_snom:
+
 Snom Phones
 ^^^^^^^^^^^
 
@@ -166,17 +168,17 @@ following command should work from your Wazo's bash command line ``wget http://g
 address>/command.htm?key=SPEAKER``. If this command does not activate the phone's speaker, your
 network configuration will have to be *fixed* before you can use the Snom switchboard.
 
-It's possible to configure the Snom switchboard via the :ref:`configuration files
+You must configure the Snom switchboard via the :ref:`configuration files
 <configuration-files>` of xivo-ctid. The following options are available::
 
    switchboard_snom:
-       username: guest
-       password: guest
+       username: admin
+       password: <admin password>
        answer_delay: 0.5
 
-You have to change the username and password option if you have changed the administrator
-username or administrator password for your phone in :menuselection:`Configuration --> Provisioning
---> Template Device`.
+You must set the username and password options according to the administrator username or
+administrator password that are configured in :menuselection:`Configuration --> Provisioning -->
+Template Device`.
 
 
 Yealink Phones

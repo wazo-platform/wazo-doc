@@ -17,16 +17,13 @@ Upgrade notes
 
   * User's password cannot be returned in plain text anymore.
   * Users export (export CSV) cannot export password anymore.
-  * Time to import users (import CSV) has been increased significatively if the field password is
-    provided.
-  * Fields `username` and `password` in xivo-confd API `/users` don't have impact anymore on
-    authentication and must be considered as invalid. To change these values, use wazo-auth API
-    instead.
-  * Fields `enabled` for xivo-confd API `/users/<user_id>/cti` don't have impact anymore on
-    authentication and must be considered as invalid. To change this value, use wazo-auth API
-    instead.
+  * Time to import users (import CSV) has been increased significatively if the field password is provided.
+  * Fields `username` and `password` in xivo-confd API `/users` don't have impact anymore on authentication and must be considered as invalid. To change these values, use wazo-auth API instead.
+  * Fields `enabled` for xivo-confd API `/users/<user_id>/cti` don't have impact anymore on authentication and must be considered as invalid. To change this value, use wazo-auth API instead.
   * In wazo-auth, the backend `xivo_user` has been removed.
   * In xivo-ctid, the default authentication backend is now `wazo_user`.
+
+* Default phone passwords are now auto-generated. Switchboard users with a Snom device will now have to add a configuration file to store the username and password. See :ref:`switchboard_device_snom`
 
 
 18.03
