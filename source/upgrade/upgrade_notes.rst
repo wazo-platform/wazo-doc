@@ -24,6 +24,8 @@ Upgrade notes
   * In xivo-ctid, the default authentication backend is now `wazo_user`.
 
 * Default phone passwords are now auto-generated. Switchboard users with a Snom device will now have to add a configuration file to store the username and password. See :ref:`switchboard_device_snom`
+* Creating user using the REST API now requires the Wazo-Tenant HTTP header when the created user is not in the same tenant has its creator.
+* Tenants have automatically created to match configured entities.
 
 
 18.03
