@@ -14,6 +14,12 @@ provides mainly authentication-related features.
 See ``wazo-auth-cli --help`` for a list of available operations.
 
 
+wazo-dist-upgrade
+-----------------
+
+``wazo-dist-upgrade`` is used to upgrade Wazo when a Debian upgrade is required.
+``wazo-dist-upgrade`` can only be used after ``wazo-upgrade``.
+
 wazo-plugind-cli
 ----------------
 
@@ -21,6 +27,12 @@ wazo-plugind-cli
 It provides mainly plugin-related features.
 
 See ``wazo-plugind-cli --help`` for a list of available operations.
+
+
+wazo-service
+------------
+
+``wazo-service`` is used to control and print the status of the Wazo services.
 
 
 .. _wazo_reset:
@@ -35,6 +47,14 @@ installation. For example, all customizations that you have made that are not st
 tool should be used with extra care.
 
 After using it, you need to pass the wizard once again.
+
+
+wazo-upgrade
+------------
+
+``wazo-upgrade`` is used to upgrade Wazo to a later version. Beginning with Wazo 17.17,
+``wazo-upgrade`` will not upgrade to a later Debian version. For this, you have to use
+``wazo-dist-upgrade``.
 
 
 xivo-agentd-cli
