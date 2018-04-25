@@ -4,6 +4,15 @@
 Upgrade notes
 *************
 
+18.05
+=====
+
+* xivo-dird now uses a token to authenticate when doing searches on xivo-confd
+
+  * See :ref:`dird-backend-xivo` if you have customized configuration files in `/etc/xivo-dird/sources.d` or `/etc/xivo-dird/conf.d` for a source of type `xivo`
+  * If you are using custom certificates you will have to modify your directory configuration to add your certificate. See :ref:`https_certificate` for more information in the `Use your own certificate` section.
+
+
 18.04
 =====
 

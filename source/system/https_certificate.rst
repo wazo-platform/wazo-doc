@@ -141,7 +141,13 @@ For this, follow these steps:
 
       getent ahosts wazo.example.com
 
-5. Restart all Wazo services::
+5. Edit your directories of type `xivo` to add you certificate CA path.
+
+   In the web interface under :menuselection:`Configuration -> Directories` edit all directories. For each directory of type `xivo` modify the `Authentication Server Verify Certificate` and `Directory Server Verify Certificate` to `Custom` if using a self-signed certificate or `Yes` for a certificate trusted by your system.
+
+   If you are using a self-signed certificate add the path to your certificate file in the `Authentication Server Custom CA Certificate` and `Directory Server Custom CA Certificate` fields.
+
+6. Restart all Wazo services::
 
       wazo-service restart all
 

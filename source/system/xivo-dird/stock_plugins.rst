@@ -628,6 +628,17 @@ Back-end name: xivo
 
 Purpose: add users from a Wazo (may be remote) as directory entries
 
+This backend requires a username and password that have the sufficient permissions
+to list users and get the xivo-confd server info.
+
+
+Required ACL
+^^^^^^^^^^^^
+
+* confd.users.read
+* confd.infos.read
+
+
 Configuration
 ^^^^^^^^^^^^^
 
@@ -638,14 +649,19 @@ Example (a file inside ``source_config_dir``):
 
    type: xivo
    name: my_xivo
-   confd_config:
-       https: True
+   auth:
+      host: xivo.example.com
+      port: 9497
+      username: admin
+      password: password
+      backend: xivo_service
+      verify_certificate: "/usr/share/xivo-certs/server.crt"
+   confd:
        host: xivo.example.com
        port: 9486
        version: 1.1
-       username: admin
-       password: password
        timeout: 3
+       verify_certificate: "/usr/share/xivo-certs/server.crt"
    unique_column: id
    first_matched_columns:
        - exten
@@ -656,11 +672,20 @@ Example (a file inside ``source_config_dir``):
        number: "{exten}"
        mobile: "{mobile_phone_number}"
 
-confd_config:host
-   the hostname of the Wazo (more precisely, of the xivo-confd service)
+auth:host
+   the hostname of the wazo-auth service
 
-confd_config:port
+auth:port
+   the port of the wazo-auth service
+
+auth:username
+   the username used to do queries on xivo-confd to search for users
+
+confd:host
+   the hostname of xivo-confd service
+
+confd:port
    the port of the xivo-confd service (usually 9486)
 
-confd_config:version
+confd:version
    the version of the xivo-confd API (should be 1.1)
