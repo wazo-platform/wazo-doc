@@ -220,6 +220,9 @@ To configure new sources, the service needs the following things:
 #. A set of service and profile that will use the new source.
 
 
+.. note:: Service discovery is limited to a single service being discovered. This means that discovering a xivo-confd server will assume that wazo-auth resides on the same host or that the template is already configured with the appropriate hostname.
+
+
 Template
 ^^^^^^^^
 
@@ -240,13 +243,16 @@ Example:
     - lastname
     first_matched_columns:
     - exten
-    confd_config:
+    auth:
+      host: {{ hostname }}
+      port: 9497
+      username: {{ service_id }}
+      password: {{ service_key }}
+      verify_certificate: false
+    confd:
       host: {{ hostname }}
       port: {{ port }}
       version: "1.1"
-      username: {{ service_id }}
-      password: {{ service_key }}
-      https: true
       verify_certificate: false
     format_columns:
       name: "{firstname} {lastname}"
@@ -276,6 +282,8 @@ The following keys are available to use in the templates:
 * uuid: The Wazo uuid that was in the service registry notification
 * hostname: The advertised host from the remote service
 * port: The advertised port from the remote service
+* service_id: The login used to query xivo-confd
+* service_key: The password used to query xivo-confd
 
 All other fields are configured in the *hosts* section of the service_discovery
 service.
