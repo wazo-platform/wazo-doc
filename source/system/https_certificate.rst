@@ -47,25 +47,33 @@ For this, follow these steps:
    * Private key: :file:`/usr/share/xivo-certs/server.key`
    * Certificate chain: :file:`/usr/share/xivo-certs/server.crt`
 
-   The certificate chain file ``server.crt`` must contain all necessary certificates to verify that it is trusted. In particular, if you got your certificate from a provider, ``server.crt`` must contain the intermediary certificates, allowing the client to follow the trust chain from the CA down to your certificate. There are three possible situations:
+   The certificate chain file ``server.crt`` must contain all necessary certificates to verify that
+   it is trusted. In particular, if you got your certificate from a provider, ``server.crt`` must
+   contain the intermediary certificates, allowing the client to follow the trust chain from the CA
+   down to your certificate. There are three possible situations:
 
-   * The certificate provider gave you only the certificate file. In this case, you don't have much choice and the certificate file will serve as ``server.crt``
-   * The certificate provider gave you a complete chain file (also called bundle) and you must use this complete chain file as ``server.crt``.
-   * The certificate provider gave you (among others) two different files: a certificate file and an "intermediate" file containing all intermediate certificates. You must get those two files into one with the following command::
+   * The certificate provider gave you only the certificate file. In this case, you don't have much
+     choice and the certificate file will serve as ``server.crt``
+   * The certificate provider gave you a complete chain file (also called bundle) and you must use
+     this complete chain file as ``server.crt``.
+   * The certificate provider gave you (among others) two different files: a certificate file and an
+     "intermediate" file containing all intermediate certificates. You must get those two files into
+     one with the following command::
 
       cat certificate.crt intermediate.pem > full-certificate-chain.pem
 
      Then ``full-certificate-chain.pem`` must be used for ``server.crt``.
 
-   Both ``server.crt`` and ``server.key`` **must** be readable by the group ``www-data``. You can check with the following command::
+   Both ``server.crt`` and ``server.key`` **must** be readable by the group ``www-data``. You can
+   check with the following command::
 
       sudo -u www-data cat /usr/share/xivo-certs/server.{key,crt}
 
 2. Change the hostname of Wazo for each Wazo component: the different processes of Wazo heavily use
    HTTPS for internal communication, and for these connection to establish successfully, all
    hostnames used must match the Common Name (CN) of your certificate. Basically, you must replace
-   all occurrences of ``localhost`` (the default hostname) with your CN in the :ref:`configuration of the
-   Wazo services <configuration-files>`. For example::
+   all occurrences of ``localhost`` (the default hostname) with your CN in the :ref:`configuration
+   of the Wazo services <configuration-files>`. For example::
 
       mkdir /etc/xivo/custom
       cat > /etc/xivo/custom/custom-certificate.yml << EOF
@@ -143,9 +151,14 @@ For this, follow these steps:
 
 5. Edit your directories of type `xivo` to add you certificate CA path.
 
-   In the web interface under :menuselection:`Configuration -> Directories` edit all directories. For each directory of type `xivo` modify the `Authentication Server Verify Certificate` and `Directory Server Verify Certificate` to `Custom` if using a self-signed certificate or `Yes` for a certificate trusted by your system.
+   In the web interface under :menuselection:`Configuration -> Directories` edit all directories.
+   For each directory of type `xivo` modify the `Authentication Server Verify Certificate` and
+   `Directory Server Verify Certificate` to `Custom` if using a self-signed certificate or `Yes` for
+   a certificate trusted by your system.
 
-   If you are using a self-signed certificate add the path to your certificate file in the `Authentication Server Custom CA Certificate` and `Directory Server Custom CA Certificate` fields.
+   If you are using a self-signed certificate add the path to your certificate file in the
+   `Authentication Server Custom CA Certificate` and `Directory Server Custom CA Certificate`
+   fields.
 
 6. Restart all Wazo services::
 
@@ -172,4 +185,5 @@ Here are a few commands that can help find what is wrong::
    # See the certificate chain returned by nginx
    openssl s_client -connect localhost:443 </dev/null 2>/dev/null | sed -ne '/Certificate chain/,/---/p'
 
-Note that you can replace 443 with the ports of the Wazo daemons, e.g. 9497 for wazo-auth. See the full list in :ref:`network_ports`.
+Note that you can replace 443 with the ports of the Wazo daemons, e.g. 9497 for wazo-auth. See the
+full list in :ref:`network_ports`.
