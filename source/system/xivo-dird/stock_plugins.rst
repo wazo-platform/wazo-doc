@@ -220,6 +220,9 @@ To configure new sources, the service needs the following things:
 #. A set of service and profile that will use the new source.
 
 
+.. note:: Service discovery is limited to a single service being discovered. This means that discovering a xivo-confd server will assume that wazo-auth resides on the same host or that the template is already configured with the appropriate hostname.
+
+
 Template
 ^^^^^^^^
 
@@ -240,13 +243,16 @@ Example:
     - lastname
     first_matched_columns:
     - exten
-    confd_config:
+    auth:
+      host: {{ hostname }}
+      port: 9497
+      username: {{ service_id }}
+      password: {{ service_key }}
+      verify_certificate: false
+    confd:
       host: {{ hostname }}
       port: {{ port }}
       version: "1.1"
-      username: {{ service_id }}
-      password: {{ service_key }}
-      https: true
       verify_certificate: false
     format_columns:
       name: "{firstname} {lastname}"
@@ -276,6 +282,8 @@ The following keys are available to use in the templates:
 * uuid: The Wazo uuid that was in the service registry notification
 * hostname: The advertised host from the remote service
 * port: The advertised port from the remote service
+* service_id: The login used to query xivo-confd
+* service_key: The password used to query xivo-confd
 
 All other fields are configured in the *hosts* section of the service_discovery
 service.
@@ -628,6 +636,17 @@ Back-end name: xivo
 
 Purpose: add users from a Wazo (may be remote) as directory entries
 
+This backend requires a username and password that have the sufficient permissions
+to list users and get the xivo-confd server info.
+
+
+Required ACL
+^^^^^^^^^^^^
+
+* confd.users.read
+* confd.infos.read
+
+
 Configuration
 ^^^^^^^^^^^^^
 
@@ -638,14 +657,19 @@ Example (a file inside ``source_config_dir``):
 
    type: xivo
    name: my_xivo
-   confd_config:
-       https: True
+   auth:
+      host: xivo.example.com
+      port: 9497
+      username: admin
+      password: password
+      backend: xivo_service
+      verify_certificate: "/usr/share/xivo-certs/server.crt"
+   confd:
        host: xivo.example.com
        port: 9486
        version: 1.1
-       username: admin
-       password: password
        timeout: 3
+       verify_certificate: "/usr/share/xivo-certs/server.crt"
    unique_column: id
    first_matched_columns:
        - exten
@@ -656,11 +680,20 @@ Example (a file inside ``source_config_dir``):
        number: "{exten}"
        mobile: "{mobile_phone_number}"
 
-confd_config:host
-   the hostname of the Wazo (more precisely, of the xivo-confd service)
+auth:host
+   the hostname of the wazo-auth service
 
-confd_config:port
+auth:port
+   the port of the wazo-auth service
+
+auth:username
+   the username used to do queries on xivo-confd to search for users
+
+confd:host
+   the hostname of xivo-confd service
+
+confd:port
    the port of the xivo-confd service (usually 9486)
 
-confd_config:version
+confd:version
    the version of the xivo-confd API (should be 1.1)

@@ -4,6 +4,18 @@
 Upgrade notes
 *************
 
+18.05
+=====
+
+* xivo-dird now uses a token to authenticate when doing searches on xivo-confd
+
+  * See :ref:`dird-backend-xivo` if you have customized configuration files in
+    `/etc/xivo-dird/sources.d` or `/etc/xivo-dird/conf.d` for a source of type `xivo`
+  * If you are using custom certificates you will have to modify your directory configuration to add
+    your certificate. See :ref:`https_certificate` for more information in the `Use your own
+    certificate` section.
+
+
 18.04
 =====
 
@@ -17,14 +29,21 @@ Upgrade notes
 
   * User's password cannot be returned in plain text anymore.
   * Users export (export CSV) cannot export password anymore.
-  * Time to import users (import CSV) has been increased significatively if the field password is provided.
-  * Fields `username` and `password` in xivo-confd API `/users` don't have impact anymore on authentication and must be considered as invalid. To change these values, use wazo-auth API instead.
-  * Fields `enabled` for xivo-confd API `/users/<user_id>/cti` don't have impact anymore on authentication and must be considered as invalid. To change this value, use wazo-auth API instead.
+  * Time to import users (import CSV) has been increased significatively if the field password is
+    provided.
+  * Fields `username` and `password` in xivo-confd API `/users` don't have impact anymore on
+    authentication and must be considered as invalid. To change these values, use wazo-auth API
+    instead.
+  * Fields `enabled` for xivo-confd API `/users/<user_id>/cti` don't have impact anymore on
+    authentication and must be considered as invalid. To change this value, use wazo-auth API
+    instead.
   * In wazo-auth, the backend `xivo_user` has been removed.
   * In xivo-ctid, the default authentication backend is now `wazo_user`.
 
-* Default phone passwords are now auto-generated. Switchboard users with a Snom device will now have to add a configuration file to store the username and password. See :ref:`switchboard_device_snom`
-* Creating user using the REST API now requires the Wazo-Tenant HTTP header when the created user is not in the same tenant has its creator.
+* Default phone passwords are now auto-generated. Switchboard users with a Snom device will now have
+  to add a configuration file to store the username and password. See :ref:`switchboard_device_snom`
+* Creating user using the REST API now requires the Wazo-Tenant HTTP header when the created user is
+  not in the same tenant has its creator.
 * Tenants have automatically created to match configured entities.
 
 
@@ -50,7 +69,9 @@ Upgrade notes
     <https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869>`_ for
     more informations.
 
-* The NAT configuration of every SIP line and SIP trunk has been automatically changed from ``nat=auto_force_rport`` to nothing, so that they inherit this setting from the General SIP settings.
+* The NAT configuration of every SIP line and SIP trunk has been automatically changed from
+  ``nat=auto_force_rport`` to nothing, so that they inherit this setting from the General SIP
+  settings.
 
 Consult the `18.03 Roadmap <https://projects.wazo.community/versions/272>`_ for more information.
 
@@ -118,7 +139,9 @@ Consult the `18.02 Roadmap <https://projects.wazo.community/versions/264>`_ for 
             api = dependencies['api']
             config = dependencies['config']
 
-* The web interface no longer validates the queue skill rules fields added in :menuselection:`Services --> Call Center --> Configuration --> Skill rules`. If a rule is wrong, it will appear in the Asterisk console.
+* The web interface no longer validates the queue skill rules fields added in
+  :menuselection:`Services --> Call Center --> Configuration --> Skill rules`. If a rule is wrong,
+  it will appear in the Asterisk console.
 
 Consult the `18.01 Roadmap <https://projects.wazo.community/versions/271>`_ for more information.
 
@@ -135,9 +158,11 @@ Consult the `18.01 Roadmap <https://projects.wazo.community/versions/271>`_ for 
     <https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869>`_ for
     more informations.
 
-* The ``sources`` section of the ``xivo-dird`` service configuration has been changed to be a key-value setting.
+* The ``sources`` section of the ``xivo-dird`` service configuration has been changed to be a
+  key-value setting.
 
-  * If you have configured directories manually in ``/etc/xivo-dird`` you should update your manual configuration:
+  * If you have configured directories manually in ``/etc/xivo-dird`` you should update your manual
+    configuration:
 
   .. code-block:: yaml
      :emphasize-lines: 4-6
@@ -196,15 +221,19 @@ Consult the `17.17 Roadmap <https://projects.wazo.community/versions/270>`_ for 
 17.16
 =====
 
-* You must update the Wazo Client to 17.16. See the :ref:`Wazo Client compatibility table <cti_client_compatibility>`.
+* You must update the Wazo Client to 17.16. See the :ref:`Wazo Client compatibility table
+  <cti_client_compatibility>`.
 
-* The *enabled_plugins* section of the ``wazo-auth`` service has been renamed *enabled_backend_plugins* and is now a dictionary.
+* The *enabled_plugins* section of the ``wazo-auth`` service has been renamed
+  *enabled_backend_plugins* and is now a dictionary.
 
-  * If you have hand made configuration to modify the list of enabled backends it should be modified see ``/etc/wazo-auth/config.yml``
+  * If you have hand made configuration to modify the list of enabled backends it should be modified
+    see ``/etc/wazo-auth/config.yml``
 
 * The *ldap_user* backend in ``wazo-auth`` is now disabled in the base configuration file.
 
-  * If you are using the ``ldap_user`` authentication backend a file with the following content should be added to ``/etc/wazo-auth/conf.d``
+  * If you are using the ``ldap_user`` authentication backend a file with the following content
+    should be added to ``/etc/wazo-auth/conf.d``
 
     .. code-block:: yaml
     
@@ -213,7 +242,8 @@ Consult the `17.17 Roadmap <https://projects.wazo.community/versions/270>`_ for 
 
 * The *enabled_plugins* section of the ``xivo-dird`` service is now a dictionary.
 
-  * If you have hand made configuration to modify the list of enabled plugins, it should be modified see ``/etc/xivo-dird/config.yml``
+  * If you have hand made configuration to modify the list of enabled plugins, it should be modified
+    see ``/etc/xivo-dird/config.yml``
 
 * wazo-admin-ui has been upgraded to python3. All plugins by `Wazo Team` has been migrated, but if
   you have installed a non-official/custom plugin that add something to the new interface, it
@@ -238,7 +268,8 @@ Consult the `17.16 Roadmap <https://projects.wazo.community/versions/269>`_ for 
 
 * ``Asterisk`` has been upgraded to version 15.0.0
 
-  * If you have installed asterisk modules manually, you will have to install the asterisk 15 version, otherwise Asterisk will crash when starting.
+  * If you have installed asterisk modules manually, you will have to install the asterisk 15
+    version, otherwise Asterisk will crash when starting.
 
 Consult the `17.15 Roadmap <https://projects.wazo.community/versions/268>`_ for more information.
 
@@ -249,10 +280,10 @@ Consult the `17.15 Roadmap <https://projects.wazo.community/versions/268>`_ for 
 * ``xivo-auth`` has been renamed ``wazo-auth``
 
   * If you have developed a ``xivo-auth`` authentication backend the name of the entry point has
-    changed to ``wazo_auth.backends``. You should make this modification in your plugin's ``setup.py``
-    file in the ``entry_point`` section.
-  * If your custom development use service discovery to find ``xivo-auth``, you will have to search for
-    the ``wazo-auth`` service instead of ``xivo-auth``.
+    changed to ``wazo_auth.backends``. You should make this modification in your plugin's
+    ``setup.py`` file in the ``entry_point`` section.
+  * If your custom development use service discovery to find ``xivo-auth``, you will have to search
+    for the ``wazo-auth`` service instead of ``xivo-auth``.
 
 * We released a new version of the CTI client, rebranded as `Wazo Client 17.14.1`. It is compatible
   with all previous versions of Wazo (i.e. not before 16.16). See also the :ref:`compatibility table
@@ -279,7 +310,8 @@ Consult the `17.12 Roadmap <https://projects.wazo.community/versions/265>`_ for 
 17.11
 =====
 
-* wazo-plugind REST API version ``0.1`` has been deprecated and will be removed in Wazo ``18.02``. See changelog for version :ref:`rest-api_changelog`
+* wazo-plugind REST API version ``0.1`` has been deprecated and will be removed in Wazo ``18.02``.
+  See changelog for version :ref:`rest-api_changelog`
 
 Consult the `17.11 Roadmap <https://projects.wazo.community/versions/263>`_ for more information.
 
@@ -293,10 +325,10 @@ Consult the `17.10 Roadmap <https://projects.wazo.community/versions/262>`_ for 
 17.09
 =====
 
-* Codecs can now be customized in the `/etc/asterisk/codecs.d/` directory. If you had custom configuration
-  in `/etc/asterisk/codecs.conf` you will have to create a new file in `codecs.d` to use your customized
-  configuration. A file named `codecs.conf.dpkg-old` will be left in `/etc/asterisk` if this operation is
-  required.
+* Codecs can now be customized in the `/etc/asterisk/codecs.d/` directory. If you had custom
+  configuration in `/etc/asterisk/codecs.conf` you will have to create a new file in `codecs.d` to
+  use your customized configuration. A file named `codecs.conf.dpkg-old` will be left in
+  `/etc/asterisk` if this operation is required.
 * Provd plugins from the addons repository have been merged into the main plugin repository. If you
   were using the addons repository you can safely switch back to the stable repository. See
   :ref:`alternative-plugins-repo` for more details.
@@ -313,9 +345,9 @@ Consult the `17.09 Roadmap <https://projects.wazo.community/versions/261>`_ for 
 17.08
 =====
 
-* The call logs has been improved by adding ``date_end`` and ``date_answer`` informations. If you want
-  to add these new informations to the old call logs, you need to regenerate them. For example, to
-  regenerate the last month of call logs::
+* The call logs has been improved by adding ``date_end`` and ``date_answer`` informations. If you
+  want to add these new informations to the old call logs, you need to regenerate them. For example,
+  to regenerate the last month of call logs::
 
     xivo-call-logs delete -d 30
     xivo-call-logs generate -d 30
@@ -346,9 +378,9 @@ Consult the `17.06 Roadmap <https://projects.wazo.community/versions/258>`_ for 
 17.05
 =====
 
-* `python-flask-cors` has been updated from 1.10.3 to 3.0.2. Configuration files with custom `allow_headers` will
-  have to be updated to the new syntax. The following command can be used to see if you have a configuration file
-  which needs to be updated.
+* `python-flask-cors` has been updated from 1.10.3 to 3.0.2. Configuration files with custom
+  `allow_headers` will have to be updated to the new syntax. The following command can be used to
+  see if you have a configuration file which needs to be updated.
 
   .. code-block:: sh
 
@@ -413,13 +445,13 @@ is also the first release of Wazo under the "phoenix" codename.
 * Switchboard statistics have been removed. The existing statistics data remain in the database for
   later migration but no more statistics will be collected.
 * The ``conference`` destination type in incalls REST API has been renamed to ``meetme``.
-* The phonebook has been migrated from the web interface to xivo-dird. The phonebook contacts
-  from the web interface have been moved to new dird-phonebooks. For users with many entities
-  on the same Wazo, this will create one phonebook for each entity. The configuration has been
-  updated to keep the previous behavior. No manual actions are required for installations with only one entity or
-  if one phonebook by entity is the desired configuration. If only one phonebook is desired for all entities, some
-  of the duplicate phonebooks can be deleted from the web interface and their matching configuration
-  can also be removed.
+* The phonebook has been migrated from the web interface to xivo-dird. The phonebook contacts from
+  the web interface have been moved to new dird-phonebooks. For users with many entities on the same
+  Wazo, this will create one phonebook for each entity. The configuration has been updated to keep
+  the previous behavior. No manual actions are required for installations with only one entity or if
+  one phonebook by entity is the desired configuration. If only one phonebook is desired for all
+  entities, some of the duplicate phonebooks can be deleted from the web interface and their
+  matching configuration can also be removed.
 
   * The list of phonebooks can be modified in :menuselection:`Services --> IPBX --> IPBX services --> Phonebook`
   * The list of phonebooks sources can be modified in:
@@ -535,9 +567,9 @@ Consult the `16.08 Roadmap <https://projects.wazo.community/versions/244>`_ for 
 16.07
 =====
 
-* If you were affected by the `bug #6213 <http://projects.wazo.community/issues/6213>`_, i.e. if your agent
-  login time statistics were incorrect since your upgrade to XiVO 15.20 or later, and you want to
-  fix your statistics for that period of time, you'll need to `manually apply a fix
+* If you were affected by the `bug #6213 <http://projects.wazo.community/issues/6213>`_, i.e. if
+  your agent login time statistics were incorrect since your upgrade to XiVO 15.20 or later, and you
+  want to fix your statistics for that period of time, you'll need to `manually apply a fix
   <http://projects.wazo.community/issues/6213#note-3>`_.
 
 Consult the `16.07 Roadmap <https://projects.wazo.community/versions/243>`_ for more information.

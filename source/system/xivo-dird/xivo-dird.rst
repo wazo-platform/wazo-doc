@@ -1,8 +1,8 @@
 .. _xivo-dird:
 
-===========
+=========
 xivo-dird
-===========
+=========
 
 xivo-dird is the directory server for Wazo. It offers a simple REST interface to query all
 directories that are configured. xivo-dird is extendable with plugins.

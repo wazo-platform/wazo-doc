@@ -18,7 +18,7 @@ Prerequisite
 ============
 
 #. All Wazo that you interconnect should be on the same version
-#. All ports necessary for communication should be open :ref:`network_ports`
+#. All ports necessary for communication should be open. See :ref:`network_ports`.
 
 .. warning::
 
