@@ -32,6 +32,15 @@ wazo-auth
 * Rotation frequence: Daily
 
 
+wazo-dird
+---------
+
+* File location: :file:`/var/log/wazo-dird.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-dird`
+* Number of archived files: 15
+* Rotation frequence: Daily
+
+
 wazo-upgrade
 ------------
 
@@ -114,15 +123,6 @@ xivo-ctid-ng
 
 * File location: :file:`/var/log/xivo-ctid-ng.log`
 * Rotate configuration: :file:`/etc/logrotate.d/xivo-ctid-ng`
-* Number of archived files: 15
-* Rotation frequence: Daily
-
-
-xivo-dird
----------
-
-* File location: :file:`/var/log/xivo-dird.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-dird`
 * Number of archived files: 15
 * Rotation frequence: Daily
 

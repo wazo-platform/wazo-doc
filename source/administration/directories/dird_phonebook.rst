@@ -1,13 +1,13 @@
 .. _dird_phonebook:
 
 ****************************
-XiVO dird internal phonebook
+Wazo dird internal phonebook
 ****************************
 
-This type of directory source is the internal phonebook of XiVO dird. The URI
-field is used to connect to the xivo-dird database.
+This type of directory source is the internal phonebook of Wazo dird. The URI
+field is used to connect to the wazo-dird database.
 
-This directory type matches the :ref:`dird-backend-dird_phonebook` backend in `xivo-dird`.
+This directory type matches the :ref:`dird-backend-dird_phonebook` backend in `wazo-dird`.
 
 Example
 =======
@@ -19,7 +19,7 @@ Adding a source
 
   :menuselection:`Configuration --> Management --> Directories`
 
-  :guilabel:`URI` : The URI to connect to the xivo-dird database
+  :guilabel:`URI` : The URI to connect to the wazo-dird database
 
   :guilabel:`Tenant` : Name of the tenant, the entity is used in the default configuration
 

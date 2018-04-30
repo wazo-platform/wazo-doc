@@ -32,10 +32,10 @@ Here's a non exhaustive list of what can be done with plugins
 * Extend wazo services using the available extension points
 
     * wazo-auth
+    * wazo-dird
     * xivo-confd
     * xivo-confgend
     * xivo-ctid-ng
-    * xivo-dird
 
 
 Creating a plugin

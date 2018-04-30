@@ -33,7 +33,7 @@ phonebook_view
 
 View name: phonebook_view
 
-Purpose: Expose REST API to manage xivo-dird's internal phonebooks.
+Purpose: Expose REST API to manage wazo-dird's internal phonebooks.
 
 aastra_view
 -----------
@@ -237,7 +237,7 @@ Example:
 .. code-block:: yaml
 
     type: xivo
-    name: xivo-{{ uuid }}
+    name: wazo-{{ uuid }}
     searched_columns:
     - firstname
     - lastname
@@ -268,12 +268,12 @@ Example:
 
     services:
       service_discovery:
-        template_path: /etc/xivo-dird/templates.d
+        template_path: /etc/wazo-dird/templates.d
         services:
           xivo-confd:
             template: confd.yml
 
-In this example, the file */etc/xivo-dird/templates.d/confd.yml* would
+In this example, the file */etc/wazo-dird/templates.d/confd.yml* would
 be used to create a new source configuration when a new *xivo-confd* service
 is registered.
 
@@ -409,7 +409,7 @@ Back-end name: csv_ws
 
 Purpose: search using a web service that returns CSV formatted results.
 
-Given the following configuration, *xivo-dird* would call
+Given the following configuration, *wazo-dird* would call
 "https://example.com:8000/ws-phonebook?firstname=alice&lastname=alice" for a
 lookup for the term "alice".
 
@@ -461,7 +461,7 @@ dird_phonebook
 
 back-end name: dird_phonebook
 
-Purpose: search the xivo-dird's internal phonebooks
+Purpose: search the wazo-dird's internal phonebooks
 
 Configuration:
 ^^^^^^^^^^^^^^
@@ -484,7 +484,7 @@ Configuration:
         name: "{firstname} {lastname}"
 
 db_uri
-    the URI of the DB used by xivo-dird to store the phonebook.
+    the URI of the DB used by wazo-dird to store the phonebook.
 
 tenant
     the tenant of the phonebook to query.

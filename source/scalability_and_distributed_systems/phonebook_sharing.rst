@@ -78,5 +78,5 @@ commands to help you debug the problem.
 
 .. code-block:: sh
 
-    tail -f /var/log/xivo-dird.log
+    tail -f /var/log/wazo-dird.log
     tail -f /var/log/nginx/xivo.access.log

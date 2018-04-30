@@ -5,7 +5,7 @@ xivo-dird-phoned
 ================
 
 xivo-dird-phoned is an interface to use directory service with phone. It offers a simple REST
-interface to authenticate a phone and search result from :ref:`xivo-dird`.
+interface to authenticate a phone and search result from :ref:`wazo-dird`.
 
 
 Usage
