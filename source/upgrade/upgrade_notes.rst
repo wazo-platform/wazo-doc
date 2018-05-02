@@ -7,13 +7,17 @@ Upgrade notes
 18.05
 =====
 
-* xivo-dird now uses a token to authenticate when doing searches on xivo-confd
+* wazo-dird now uses a token to authenticate when doing searches on xivo-confd
 
   * See :ref:`dird-backend-xivo` if you have customized configuration files in
-    `/etc/xivo-dird/sources.d` or `/etc/xivo-dird/conf.d` for a source of type `xivo`
+    `/etc/wazo-dird/sources.d` or `/etc/wazo-dird/conf.d` for a source of type `xivo`
   * If you are using custom certificates you will have to modify your directory configuration to add
     your certificate. See :ref:`https_certificate` for more information in the `Use your own
     certificate` section.
+
+* The directory service is now called wazo-dird and its python client is now named wazo-dird-client.
+  if you were using the xivo-dird-client in your python code you should use the wazo-dird-client which
+  has the same interface at the moment.
 
 
 18.04
