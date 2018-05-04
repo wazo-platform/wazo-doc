@@ -7,7 +7,7 @@ Phone Remote Directory Upgrade Notes
 If you are not using the remote directory from your phones, you can safely skip this page.
 
 Starting from XiVO 15.17, the remote directory used by the phones is now provided by the new
-directory service, composed principally of :ref:`xivo-dird <xivo-dird>` and :ref:`xivo-dird-phoned
+directory service, composed principally of :ref:`xivo-dird <wazo-dird>` and :ref:`xivo-dird-phoned
 <xivo-dird-phoned>`. It was previously provided by the XiVO web interface.
 
 This brings a few changes for the administrators, the biggest one being that lookup from both the
