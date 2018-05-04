@@ -30,7 +30,7 @@ Context separation is based on the user's line context. A user
 with no line is not the member of any context and will not be able to do
 anything with the CTI client.
 
-.. note:: xivo-dird must be restarted to take into account this parameter.
+.. note:: wazo-dird must be restarted to take into account this parameter.
 
 .. figure:: images/cti_others.png
    :scale: 85%

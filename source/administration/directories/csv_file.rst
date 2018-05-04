@@ -9,7 +9,7 @@ The source file of the directory must be in CSV format. You will be able to choo
     title|firstname|lastname|displayname|society|mobilenumber|email
     mr|Emmett|Brown|Brown Emmett|DMC|5555551234|emmet.brown@dmc.example.com
 
-This directory type matches the :ref:`dird-backend-csv` backend in `xivo-dird`.
+This directory type matches the :ref:`dird-backend-csv` backend in `wazo-dird`.
 
 For file directories, the :guilabel:`Direct match` and the :guilabel:`Match reverse directories`
 must be filled with the name of the column used to match entries.

@@ -34,7 +34,7 @@ page.
     * :ref:`XiVO<xivo-directory>`
     * :ref:`CSV File<csv-file-directory>`
     * :ref:`CSV Web service<csv-web-service-directory>`
-    * :ref:`XiVO dird phonebook<dird_phonebook>`
+    * :ref:`Wazo dird phonebook<dird_phonebook>`
     * :ref:`LDAP filter directory<ldap_filter_directory>`
 
 * :guilabel:`URI`: the data source
@@ -206,4 +206,4 @@ To reload the directory configuration for Wazo Client, phone lookups and reverse
 these methods:
 
 * :menuselection:`Services --> IPBX --> Control --> Restart Dird server`
-* console ``service xivo-dird restart``
+* console ``systemctl restart wazo-dird``

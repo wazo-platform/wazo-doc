@@ -46,7 +46,7 @@ Prerequisite
 .. note::
 
    In an architecture with a lot of Wazo, we recommend that you centralize some
-   services, such as xivo-dird, to make your life easier. Don't forget
+   services, such as wazo-dird, to make your life easier. Don't forget
    redundancy. This applies also to RabbitMQ and Consul. In this case, the
    configuration will have to be done entirely manually in YAML config files.
 
@@ -140,7 +140,7 @@ In each directory definition, add the fields to match the configured *Display fi
 Add the New Definitions to Your Dird Profiles
 ---------------------------------------------
 
-At the moment of this writing xivo-dird profiles are mapped directly to the
+At the moment of this writing wazo-dird profiles are mapped directly to the
 user's profile. For each internal context where you want to be able to see
 user's from other Wazo, add the new directory definitions in
 :menuselection:`Services --> CTI Server --> Directories --> Direct directories`.
@@ -149,13 +149,13 @@ user's from other Wazo, add the new directory definitions in
 .. figure:: images/create_direct_directories.png
 
 
-Restart xivo-dird
+Restart wazo-dird
 -----------------
 
 To apply the new directory configuration, you can either restart from:
 
 * :menuselection:`Services --> IPBX`
-* on the command line *service xivo-dird restart*
+* on the command line *systemctl restart wazo-dird*
 
 
 Check that the Configuration is Working
@@ -364,7 +364,7 @@ commands to help you debug the problem.
 
 .. code-block:: sh
 
-    tail -f /var/log/xivo-dird.log
+    tail -f /var/log/wazo-dird.log
     tail -f /var/log/xivo-ctid-ng.log
     tail -f /var/log/xivo-confd.log
     consul monitor

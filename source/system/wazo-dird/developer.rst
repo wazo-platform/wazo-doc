@@ -1,23 +1,23 @@
-.. _xivo-dird-developer:
+.. _wazo-dird-developer:
 
 ===========================
-xivo-dird developer's guide
+wazo-dird developer's guide
 ===========================
 
 .. figure:: images/startup.png
 
-   xivo-dird startup flow
+   wazo-dird startup flow
 
-The xivo-dird architecture uses plugins as extension points for most of its
+The wazo-dird architecture uses plugins as extension points for most of its
 job. It uses `stevedore <http://docs.openstack.org/developer/stevedore/>`_ to do the plugin
 instantiation and discovery and `ABC <https://docs.python.org/2/library/abc.html>`_
 classes to define the required interface.
 
-Plugins in xivo-dird use setuptools' entry points. That means that installing a
-new plugin to xivo-dird requires an entry point in the plugin's setup.py. Each
+Plugins in wazo-dird use setuptools' entry points. That means that installing a
+new plugin to wazo-dird requires an entry point in the plugin's setup.py. Each
 entry point's `namespace` is documented in the appropriate documentation
-section. These entry points allow xivo-dird to be able to discover and load
-extensions packaged with xivo-dird or installed separately.
+section. These entry points allow wazo-dird to be able to discover and load
+extensions packaged with wazo-dird or installed separately.
 
 Each kind of plugin does a specific job. There are three kinds of plugins in
 dird.
@@ -28,13 +28,13 @@ dird.
 
 .. figure:: images/query.png
 
-   xivo-dird HTTP query
+   wazo-dird HTTP query
 
 All plugins are instantiated by the core. The core then keeps a catalogue of
 loaded extensions that can be supplied to other extensions.
 
 The following setup.py shows an example of a python library that add a plugin
-of each kind to xivo-dird:
+of each kind to wazo-dird:
 
 .. code-block:: python
    :linenos:
@@ -56,13 +56,13 @@ of each kind to xivo-dird:
        packages=find_packages(),
 
        entry_points={
-           'xivo_dird.services': [
+           'wazo_dird.services': [
                'my_service = dummy:DummyServicePlugin',
            ],
-           'xivo_dird.backends': [
+           'wazo_dird.backends': [
                'my_backend = dummy:DummyBackend',
            ],
-           'xivo_dird.views': [
+           'wazo_dird.views': [
                'my_view = dummy:DummyView',
            ],
        }
@@ -85,8 +85,8 @@ source from the other LDAP at beta.example.com. Both of these sources use the LD
 Implementation details
 ----------------------
 
-* Namespace: ``xivo_dird.backends``
-* Abstract source plugin: `BaseSourcePlugin <https://github.com/wazo-pbx/xivo-dird/blob/master/xivo_dird/plugins/base_plugins.py#L67>`_
+* Namespace: ``wazo_dird.backends``
+* Abstract source plugin: `BaseSourcePlugin <https://github.com/wazo-pbx/wazo-dird/blob/master/wazo_dird/plugins/base_plugins.py#L67>`_
 * Methods:
 
   * ``name``: the name of the source, typically retrieved from the configuration injected to
@@ -95,7 +95,7 @@ Implementation details
     ``args`` is a dictionary containing:
 
     * key ``config``: the source configuration for this instance of the back-end
-    * key ``main_config``: the whole configuration of xivo-dird
+    * key ``main_config``: the whole configuration of wazo-dird
 
   * ``unload()``: free resources used by the plugin.
   * ``search(term, args)``: The search method returns a list of dictionary.
@@ -192,8 +192,8 @@ Some service examples that come to mind include:
 Implementation details
 ----------------------
 
-* Namespace: ``xivo_dird.services``
-* Abstract service plugin: `BaseServicePlugin <https://github.com/wazo-pbx/xivo-dird/blob/master/xivo_dird/plugins/base_plugins.py#L21>`_
+* Namespace: ``wazo_dird.services``
+* Abstract service plugin: `BaseServicePlugin <https://github.com/wazo-pbx/wazo-dird/blob/master/wazo_dird/plugins/base_plugins.py#L21>`_
 
 * Methods:
 
@@ -222,7 +222,7 @@ The following example adds a service that will return an empty list when used.
 
    import logging
 
-   from xivo_dird import BaseServicePlugin
+   from wazo_dird import BaseServicePlugin
 
    logger = logging.getLogger(__name__)
 
@@ -254,7 +254,7 @@ The following example adds a service that will return an empty list when used.
        def list(self):
            """
            This function must be called explicitly from the view, `list` is not a
-           special method name for xivo-dird
+           special method name for wazo-dird
            """
            return []
 
@@ -265,8 +265,8 @@ The following example adds a service that will return an empty list when used.
 View
 ====
 
-View plugins add new routes to the HTTP application in xivo-dird, in particular the REST API of
-xivo-dird: they define the URLs to which xivo-dird will respond and the formatting of data received
+View plugins add new routes to the HTTP application in wazo-dird, in particular the REST API of
+wazo-dird: they define the URLs to which wazo-dird will respond and the formatting of data received
 and sent through those URLs.
 
 For example, we can define a REST API formatted in JSON with one view and the same API formatted in
@@ -277,8 +277,8 @@ adding a new view for the format that the phone consumes.
 Implementation details
 ----------------------
 
-* Namespace: ``xivo_dird.views``
-* Abstract view plugin: `BaseViewPlugin <https://github.com/wazo-pbx/xivo-dird/blob/master/xivo_dird/plugins/base_plugins.py#L52>`_
+* Namespace: ``wazo_dird.views``
+* Abstract view plugin: `BaseViewPlugin <https://github.com/wazo-pbx/wazo-dird/blob/master/wazo_dird/plugins/base_plugins.py#L52>`_
 
 * Methods:
 

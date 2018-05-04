@@ -7,7 +7,7 @@ CSV Web service directories
 The data returned by the Web service must have the same format than the file directory. In the same
 way, you will be able to choose the headers and the separator in the next step.
 
-This directory type matches the :ref:`dird-backend-csv_ws` backend in `xivo-dird`.
+This directory type matches the :ref:`dird-backend-csv_ws` backend in `wazo-dird`.
 
 For web service directories, the :guilabel:`Direct match` and the :guilabel:`Match reverse
 directories` must be filled with the name of the HTTP query parameter that will be used when doing

@@ -1,12 +1,12 @@
 .. _dird-configuration-file:
 
 =======================
-xivo-dird configuration
+wazo-dird configuration
 =======================
 
-There are three sources of configuration for xivo-dird:
+There are three sources of configuration for wazo-dird:
 
-* the :ref:`command line options <xivo-dird-usage>`
+* the :ref:`command line options <wazo-dird-usage>`
 * the main configuration file
 * the sources configuration directory
 
@@ -16,7 +16,7 @@ The command-line options have priority over the main configuration file options.
 Main Configuration File
 =======================
 
-Default location: ``/etc/xivo-dird/config.yml``. Format: YAML
+Default location: ``/etc/wazo-dird/config.yml``. Format: YAML
 
 The default location may be overwritten by the command line options.
 
@@ -27,14 +27,11 @@ Here's an example of the main configuration file:
 
    debug: False
    foreground: False
-   log_filename: /var/log/xivo-dird.log
+   log_filename: /var/log/wazo-dird.log
    log_level: info
-   pid_filename: /var/run/xivo-dird/xivo-dird.pid
-   source_config_dir: /etc/xivo-dird/sources.d
+   pid_filename: /var/run/wazo-dird/wazo-dird.pid
+   source_config_dir: /etc/wazo-dird/sources.d
    user: www-data
-
-   rest_api:
-       wsgi_socket: /var/run/xivo-dird/xivo-dird.sock
 
    enabled_plugins:
       backends:
@@ -124,19 +121,19 @@ foreground
    Foreground, don't daemonize. Default: ``False``.
 
 log_filename
-   File to write logs to. Default: ``/var/log/xivo-dird.log``.
+   File to write logs to. Default: ``/var/log/wazo-dird.log``.
 
 log_level
    Logs messages with LOG_LEVEL details. Must be one of: ``critical``, ``error``, ``warning``,
    ``info``, ``debug``. Default: ``info``.
 
 pid_filename
-   File used as lock to avoid multiple xivo-dird instances. Default:
-   ``/var/run/xivo-dird/xivo-dird.pid``.
+   File used as lock to avoid multiple wazo-dird instances. Default:
+   ``/var/run/wazo-dird/wazo-dird.pid``.
 
 source_config_dir
    The directory from which sources configuration are read. See
-   :ref:`dird-sources_configuration`. Default: ``/etc/xivo-dird/sources.d``.
+   :ref:`dird-sources_configuration`. Default: ``/etc/wazo-dird/sources.d``.
 
 user
    The owner of the process. Default: ``www-data``.
@@ -145,8 +142,8 @@ user
 enabled_plugins section
 -----------------------
 
-This sections controls which plugins are to be loaded at xivo-dird startup. All plugin types must
-have at least one plugin enabled, or xivo-dird will not start. For back-end plugins, sources using a
+This sections controls which plugins are to be loaded at wazo-dird startup. All plugin types must
+have at least one plugin enabled, or wazo-dird will not start. For back-end plugins, sources using a
 back-end plugin that is not enabled will be ignored.
 
 
@@ -163,7 +160,7 @@ displays
    * default: The default value of the field
    * type: An arbitrary identifier of the field. May be used by consumers to identify the field
      without matching the label. For meaningful values inside Wazo, see
-     :ref:`xivo-dird-integration`.
+     :ref:`wazo-dird-integration`.
    * field: the key of the data from the source that will be used for this field.
 
    The display may be used by a plugin view to configure which fields are to be presented to the
@@ -208,7 +205,7 @@ displays_phone
    available, ``{name}`` and ``{number}``.
 
 profile_to_display
-   A dictionary associating a profile to a display. It allows xivo-dird to use the right display
+   A dictionary associating a profile to a display. It allows wazo-dird to use the right display
    when a consumer makes a query with a profile. The key is the profile name and the value is the
    display name.
 
@@ -243,10 +240,10 @@ There are two ways to configure sources:
 * in the sources section of the main configuration
 * in files of a directory, one file for each source:
 
-  * Default directory location ``/etc/xivo-dird/sources.d``
+  * Default directory location ``/etc/wazo-dird/sources.d``
   * Files format: YAML
   * File names are ignored
-  * Each file listed in this directory will be read and used to create a data source for xivo-dird.
+  * Each file listed in this directory will be read and used to create a data source for wazo-dird.
 
 Here is an example of a CSV source configuration in its own file:
 

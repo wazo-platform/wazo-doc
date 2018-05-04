@@ -23,7 +23,7 @@ System
    wazo-webhookd <wazo-webhookd>
    xivo-confd <xivo-confd/xivo-confd>
    xivo-confgend <xivo-confgend/xivo-confgend>
-   xivo-dird <xivo-dird/xivo-dird>
+   wazo-dird <wazo-dird/wazo-dird>
    xivo-dird-phoned <xivo-dird-phoned>
    xivo-purge-db <purge_logs>
    xivo-sysconfd <xivo-sysconfd>

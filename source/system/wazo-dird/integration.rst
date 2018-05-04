@@ -1,7 +1,7 @@
-.. _xivo-dird-integration:
+.. _wazo-dird-integration:
 
 **********************************************
-Integration of xivo-dird with the rest of Wazo
+Integration of wazo-dird with the rest of Wazo
 **********************************************
 
 Configuration values
@@ -12,7 +12,7 @@ Configuration values
 Views
 -----
 
-In the directory displays (also in the :ref:`main configuration file <dird-configuration-file>` of xivo-dird, in the ``views`` section), the
+In the directory displays (also in the :ref:`main configuration file <dird-configuration-file>` of wazo-dird, in the ``views`` section), the
 following keys are interpreted and displayed in xlet people of the Wazo Client:
 
 ``title``
@@ -83,7 +83,7 @@ Adding a `unique_column` to your sources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The web interface does not allow the administrator to specify the `unique_column` and
-`unique_column_format`. To add these configuration options, add a file to `/etc/xivo-dird/sources.d`
+`unique_column_format`. To add these configuration options, add a file to `/etc/wazo-dird/sources.d`
 containing *the same name* than the directory definition and all missing fields.
 
 Example:
@@ -92,7 +92,7 @@ Given an :ref:`dird-backend-ldap` directory source using Active Directory named 
 
 .. image:: images/active-directory-unique.png
 
-Add a file :file:`/etc/xivo-dird/sources.d/myactivedirectory.yml` with the following content to
+Add a file :file:`/etc/wazo-dird/sources.d/myactivedirectory.yml` with the following content to
 enable favorites on this source.
 
 .. code-block:: yaml
@@ -115,7 +115,7 @@ Customizing sources
 -------------------
 
 Some configuration options are not available in the web interface. To add configuration to a source
-that is configured in the web interface, create a file in `/etc/xivo-dird/sources.d/` with the key
+that is configured in the web interface, create a file in `/etc/wazo-dird/sources.d/` with the key
 `name` matching your web interface configuration and add all missing fields.
 
 Example:
