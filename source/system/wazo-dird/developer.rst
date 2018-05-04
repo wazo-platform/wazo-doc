@@ -56,13 +56,13 @@ of each kind to wazo-dird:
        packages=find_packages(),
 
        entry_points={
-           'xivo_dird.services': [
+           'wazo_dird.services': [
                'my_service = dummy:DummyServicePlugin',
            ],
-           'xivo_dird.backends': [
+           'wazo_dird.backends': [
                'my_backend = dummy:DummyBackend',
            ],
-           'xivo_dird.views': [
+           'wazo_dird.views': [
                'my_view = dummy:DummyView',
            ],
        }
@@ -85,7 +85,7 @@ source from the other LDAP at beta.example.com. Both of these sources use the LD
 Implementation details
 ----------------------
 
-* Namespace: ``xivo_dird.backends``
+* Namespace: ``wazo_dird.backends``
 * Abstract source plugin: `BaseSourcePlugin <https://github.com/wazo-pbx/wazo-dird/blob/master/wazo_dird/plugins/base_plugins.py#L67>`_
 * Methods:
 
@@ -192,7 +192,7 @@ Some service examples that come to mind include:
 Implementation details
 ----------------------
 
-* Namespace: ``xivo_dird.services``
+* Namespace: ``wazo_dird.services``
 * Abstract service plugin: `BaseServicePlugin <https://github.com/wazo-pbx/wazo-dird/blob/master/wazo_dird/plugins/base_plugins.py#L21>`_
 
 * Methods:
@@ -277,7 +277,7 @@ adding a new view for the format that the phone consumes.
 Implementation details
 ----------------------
 
-* Namespace: ``xivo_dird.views``
+* Namespace: ``wazo_dird.views``
 * Abstract view plugin: `BaseViewPlugin <https://github.com/wazo-pbx/wazo-dird/blob/master/wazo_dird/plugins/base_plugins.py#L52>`_
 
 * Methods:
