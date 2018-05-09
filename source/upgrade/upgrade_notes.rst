@@ -28,8 +28,9 @@ Upgrade notes
     your certificate. See :ref:`https_certificate` for more information in the `Use your own
     certificate` section.
 
-* policies now have a `tenant_uuid` and the relationship between tenants and policies has been removed.
-  If you did use policies with tenant association the policy is now associated to one of its tenant.
+* Authentication policies now have a `tenant_uuid` and the relationship between tenants and policies
+  has been removed. If you did use policies with tenant association, the policy is now associated to
+  one of its tenant. This feature is not used yet in Wazo, so most likely you are not affected.
 
 
 18.04
