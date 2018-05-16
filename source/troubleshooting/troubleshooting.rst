@@ -513,3 +513,9 @@ When troubleshooting a problem, you may need to send logs for analysis.
 bundle them into a tarball. You may then send this tarball for analysis.
 
 .. warning:: Be careful before sending the logs in a public place: they may contain sensible information, that can be used to connect to your Wazo.
+
+
+Asterisk crash
+--------------
+
+See :ref:`debugging_asterisk`.

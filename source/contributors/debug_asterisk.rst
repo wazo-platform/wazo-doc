@@ -1,3 +1,5 @@
+.. _debugging_asterisk:
+
 ******************
 Debugging Asterisk
 ******************
@@ -64,6 +66,8 @@ So There is a Problem with Asterisk. Now What ?
      the date and time of issue, where we can fetch logs and backtrace
    * Attach logs and backtrace (if available) to the ticket (issue must be saved, then edited and
      files attached to a comment).
+   * **DO NOT** attach the core file publicly! It may contain sensitive information like passwords
+     and should only be shared with people you trust.
 
 
 Debugging Asterisk Crash
