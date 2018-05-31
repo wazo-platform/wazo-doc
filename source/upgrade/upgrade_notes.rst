@@ -38,6 +38,8 @@ Consult the `18.06 Roadmap <https://projects.wazo.community/versions/276>`_ for 
   has been removed. If you did use policies with tenant association, the policy is now associated to
   one of its tenant. This feature is not used yet in Wazo, so most likely you are not affected.
 
+Consult the `18.05 Roadmap <https://projects.wazo.community/versions/275>`_ for more information.
+
 
 18.04
 =====
@@ -68,6 +70,8 @@ Consult the `18.06 Roadmap <https://projects.wazo.community/versions/276>`_ for 
 * Creating user using the REST API now requires the Wazo-Tenant HTTP header when the created user is
   not in the same tenant has its creator.
 * Tenants have automatically created to match configured entities.
+
+Consult the `18.04 Roadmap <https://projects.wazo.community/versions/274>`_ for more information.
 
 
 18.03
