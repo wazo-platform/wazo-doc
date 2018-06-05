@@ -5,7 +5,7 @@ SCCP Configuration
 ******************
 
 Provisioning
-------------
+============
 
 To be able to provision SCCP phones you should :
 
@@ -49,8 +49,27 @@ When connecting a second SCCP phone, the device will be automatically detected a
    Device list
 
 
+Auto-provisioning support
+-------------------------
+
+Starting from Wazo 18.07, an SCCP device can be associated to a user by entering the user's provisioning code
+directly from the SCCP device while in autoprov mode.
+
+There's two settings in :menuselection:`Services --> IPBX --> IPBX settings --> SCCP
+general settings` influencing the auto-provisioning behaviour:
+
+* the :guilabel:`Allow guest connections` option must be enabled to allow SCCP devices to connect to
+  the server and allow a provisioning code from being dialed from them. Disabling this option can
+  provide some additional security if your Wazo is in an hostile environment, at the cost of making
+  auto-provisioning support unavailable for SCCP devices.
+* the :guilabel:`Maximum number of guest connections` option limits the number of SCCP devices that
+  can simultaneously connect to the server in autoprov mode. You should set this value to the
+  maximum number of SCCP devices you expect to be in autoprov mode at any moment, unless your
+  Wazo is in an hostile environment, where you should probably set it to a fairly low value.
+
+
 SCCP General Settings
----------------------
+=====================
 
 Review SCCP general settings:
  :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
@@ -61,7 +80,7 @@ Review SCCP general settings:
 
 
 User creation
--------------
+=============
 
 The last step is to create a user with a **SCCP line**.
 
@@ -87,7 +106,7 @@ Congratulations ! Your SCCP phone is now ready to be called !
 
 
 Function keys
--------------
+=============
 
 With SCCP phones, the only function keys that can be configured are:
 
@@ -99,7 +118,7 @@ With SCCP phones, the only function keys that can be configured are:
 
 
 Direct Media
-------------
+============
 
 SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use directmedia, one must enable the directmedia option in SCCP general settings:
  :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
@@ -108,7 +127,7 @@ SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use di
 .. _sccp-features:
 
 Features
---------
+========
 
 +------------------------------+-----------+
 | Features                     | Supported |
@@ -157,7 +176,7 @@ Features
 +------------------------------+-----------+
 | Group pickup                 | Yes       |
 +------------------------------+-----------+
-| Auto-provisioning            | Not yet   |
+| Auto-provisioning            | Yes       |
 +------------------------------+-----------+
 | Multi line                   | Not yet   |
 +------------------------------+-----------+
@@ -170,7 +189,7 @@ Features
 
 
 Telephone
----------
+=========
 
 +-------------+-------------+----------------------+----------------+
 | Device type | Supported   | Firmware version     | Timezone aware |
