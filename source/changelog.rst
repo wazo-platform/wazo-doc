@@ -7,5 +7,5 @@ Documentation changelog
 .. only:: html
 
     .. git_changelog::
-        :rev-list: squeeze-xivo-skaro-13.18..
+        :rev-list: xivo-13.25..
         :show-tags: yes
