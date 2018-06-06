@@ -196,47 +196,6 @@ The versions below indicate the Wazo version followed by the protocol version.
 * the ``unhold_switchboard`` command was renamed ``resume_switchboard``.
 
 
-13.22 - 1.2
------------
-
-* the ``actionfiche`` message was renamed ``call_form_result``.
-
-
-13.17 - 1.2
------------
-
-* for messages of class ``login_capas`` from server to client: the key ``presence`` has been removed.
-
-
-13.14 - 1.2
------------
-
-* for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary has changed values:
-
-  * deleted values: ``on_call_non_acd_incoming`` and ``on_call_non_acd_outgoing``
-  * added values:
-    * ``on_call_non_acd_incoming_internal``
-    * ``on_call_non_acd_incoming_external``
-    * ``on_call_non_acd_outgoing_internal``
-    * ``on_call_non_acd_outgoing_external``
-
-
-13.12 - 1.2
------------
-
-* for messages of class ``getlist``, list ``agents`` and function ``updatestatus``: the key ``availability`` in the ``status`` object/dictionary has changed values:
-
-  * deleted value: ``on_call_non_acd``
-  * added values: ``on_call_non_acd_incoming`` and ``on_call_non_acd_outgoing``
-
-
-13.10 - 1.2
------------
-
-* for messages of class ``getlist`` and function ``updateconfig``, the ``config`` object/dictionary
-  does not have a ``rules_order`` key anymore.
-
-
 Commands
 ========
 
