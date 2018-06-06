@@ -4,6 +4,14 @@
 Upgrade notes
 *************
 
+18.07
+=====
+
+* Upgrade from version older than 14.01 are not supported anymore.
+
+Consult the `18.07 Roadmap <https://projects.wazo.community/versions/278>`_ for more information.
+
+
 18.06
 =====
 
