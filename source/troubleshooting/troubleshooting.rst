@@ -44,7 +44,6 @@ this example) : if a fax is detected, receive it otherwise route the call normal
     * on incoming calls towards an User (and an User only),
     * if the incoming trunk is a DAHDI or a SIP trunk,
     * if the user has a voicemail which is activated and with the email field filled
-    * XiVO/Wazo >= 13.08 (needs asterisk 11)
 
     Be aware that this workaround will probably not survive any upgrade.
 

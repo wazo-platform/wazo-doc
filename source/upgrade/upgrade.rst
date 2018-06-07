@@ -73,36 +73,6 @@ the normal upgrade::
    && apt-get update
 
 
-Upgrading from XiVO 13.24 and before
-------------------------------------
-
-When upgrading from XiVO 13.24 or earlier, you must do the following, before the normal upgrade:
-
-#. Ensure that the file :file:`/etc/apt/sources.list` is *not* configured on ``archive.debian.org``.
-   Instead, it must be configured with a non-archive mirror, but still on the ``squeeze``
-   distribution, even if it is not present on this mirror. For example::
-
-    deb http://ftp.us.debian.org/debian squeeze main
-
-#. Add ``archive.debian.org`` in another file::
-
-    cat > /etc/apt/sources.list.d/squeeze-archive.list <<EOF
-    deb http://archive.debian.org/debian/ squeeze main
-    EOF
-
-And after the upgrade::
-
-   rm /etc/apt/sources.list.d/squeeze-archive.list
-
-
-Upgrading from XiVO 13.03 and before
-------------------------------------
-
-When upgrading from XiVO 13.03 or earlier, you must do the following, before the normal upgrade::
-
-   wget http://mirror.wazo.community/xivo_current.key -O - | apt-key add -
-
-
 .. _upgrading-a-cluster:
 
 Upgrading a cluster
