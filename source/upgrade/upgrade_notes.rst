@@ -4,6 +4,12 @@
 Upgrade notes
 *************
 
+18.09
+=====
+
+Consult the `18.09 Roadmap <https://projects.wazo.community/versions/280>`_ for more information.
+
+
 18.08
 =====
 
