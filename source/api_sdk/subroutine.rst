@@ -113,6 +113,8 @@ Dialplan variables
 
 Some of the Wazo variables can be used and modified in subroutines (non exhaustive list):
 
+* ``WAZO_AUTO_ANSWER``: adds the SIP headers to auto answer the call automatically for supported devices.
+
 * ``WAZO_CHANNEL_DIRECTION``: can have two values:
 
   * ``from-wazo`` when the channel was initiated by Wazo: the channel links Wazo to the called party. From Asterisk, this is an outbound channel. From the peer, this is an incoming call
