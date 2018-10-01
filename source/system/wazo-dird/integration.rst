@@ -1,8 +1,8 @@
 .. _wazo-dird-integration:
 
-**********************************************
-Integration of wazo-dird with the rest of Wazo
-**********************************************
+*****************************
+Integrating wazo-dird in Wazo
+*****************************
 
 Configuration values
 ====================
