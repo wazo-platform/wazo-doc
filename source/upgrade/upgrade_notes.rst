@@ -4,6 +4,14 @@
 Upgrade notes
 *************
 
+18.11
+=====
+
+* Asterisk logs (``/var/log/asterisk/full``) now contain milliseconds
+
+Consult the `18.11 Roadmap <https://projects.wazo.community/versions/282>`_ for more information.
+
+
 18.10
 =====
 
