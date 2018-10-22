@@ -4,6 +4,19 @@
 Upgrade notes
 *************
 
+18.12
+=====
+
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   18.12/asterisk_16
+
+Consult the `18.12 Roadmap <https://projects.wazo.community/versions/283>`_ for more information.
+
+
 18.11
 =====
 
