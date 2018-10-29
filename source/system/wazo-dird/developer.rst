@@ -40,7 +40,7 @@ of each kind to wazo-dird:
    :linenos:
    :emphasize-lines: 15-26
 
-   #!/usr/bin/env python
+   #!/usr/bin/env python3
    # -*- coding: utf-8 -*-
 
    from setuptools import setup
