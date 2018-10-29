@@ -2,11 +2,11 @@
 SCCP
 ****
 
-xivo-libsccp is an alternative SCCP channel driver for Asterisk. It was originally based
+wazo-libsccp is an alternative SCCP channel driver for Asterisk. It was originally based
 on chan_skinny.
 
 This page is intended for developers and people interested in using
-xivo-libsccp on something other than Wazo.
+wazo-libsccp on something other than Wazo.
 
 
 Installation from the git repository
@@ -15,7 +15,7 @@ Installation from the git repository
 .. warning:: If you just want to use your SCCP phones with Wazo, refer to
              :ref:`sccp-configuration` instead.
 
-The following packages are required to compile xivo-libsccp on Debian.
+The following packages are required to compile wazo-libsccp on Debian.
 
 * build-essential
 * asterisk-dev
@@ -26,8 +26,8 @@ The following packages are required to compile xivo-libsccp on Debian.
 
 ::
 
-   git clone https://github.com/wazo-pbx/xivo-libsccp.git
-   cd xivo-libsccp
+   git clone https://github.com/wazo-pbx/wazo-libsccp.git
+   cd wazo-libsccp
    make
    make install
 
@@ -40,7 +40,7 @@ Configuration
 
 See `sccp.conf.sample`_ for a configuration file example.
 
-.. _sccp.conf.sample: https://raw.github.com/wazo-pbx/xivo-libsccp/master/configs/sccp.conf.sample
+.. _sccp.conf.sample: https://raw.github.com/wazo-pbx/wazo-libsccp/master/configs/sccp.conf.sample
 
 
 FAQ

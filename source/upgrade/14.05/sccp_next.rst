@@ -3,7 +3,7 @@ SCCP Upgrade Notes
 ******************
 
 Important modification have been made to the internal structure of the SCCP
-channel driver, xivo-libsccp.
+channel driver, wazo-libsccp.
 
 The modifications mostly affect administrators; users are not affected.
 
@@ -41,20 +41,20 @@ Configuration File
 ==================
 
 The format of the :file:`sccp.conf` configuration file has been changed. This
-will only impact you if you are using xivo-libsccp without using XiVO.
+will only impact you if you are using wazo-libsccp without using Wazo.
 
 The format has been changed because the module is now using the ACO module from
 asterisk, which expect configuration file to have a specific format.
 
 See `sccp.conf.sample`_ for a configuration file example.
 
-.. _sccp.conf.sample: https://raw.github.com/wazo-pbx/xivo-libsccp/master/xivo-libsccp/configs/sccp.conf.sample
+.. _sccp.conf.sample: https://raw.github.com/wazo-pbx/wazo-libsccp/master/wazo-libsccp/configs/sccp.conf.sample
 
 
 Other
 =====
 
 Each SCCP session/connection now use 3 file descriptors instead of 1 previously.
-On XiVO, the file descriptor limit for the asterisk process is 8192, which
+On Wazo, the file descriptor limit for the asterisk process is 8192, which
 means that the increase in used file descriptors should not be a problem, even
 on a large installation.
