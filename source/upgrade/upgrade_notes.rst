@@ -7,8 +7,8 @@ Upgrade notes
 18.13
 =====
 
-* The Python version for wazo-auth plugins has been updated to python 3. If
-  you have created a custom wazo-auth plugin, you must update it if necessary.
+* The Python version for wazo-auth and wazo-dird plugins has been updated to python 3. If you have
+  created a custom wazo-auth and/or wazo-dird plugin, you must update it if necessary.
 
 Consult the `18.13 Roadmap <https://projects.wazo.community/versions/285>`_ for more information.
 
