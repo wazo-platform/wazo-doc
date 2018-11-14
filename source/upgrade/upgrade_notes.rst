@@ -8,7 +8,8 @@ Upgrade notes
 =====
 
 * The username for all SIP devices in autoprov mode has been changed. Devices in autoprov mode will
-have to be restarted before entering the provisioning code.
+  have to be restarted before entering the provisioning code.
+* All agents will have to log out and log back in to receive calls from queues
 
 Consult the `18.14 Roadmap <https://projects.wazo.community/versions/286>`_ for more information.
 
