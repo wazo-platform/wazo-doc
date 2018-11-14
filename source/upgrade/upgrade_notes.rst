@@ -4,6 +4,15 @@
 Upgrade notes
 *************
 
+18.14
+=====
+
+* The username for all SIP devices in autoprov mode has been changed. Devices in autoprov mode will
+have to be restarted before entering the provisioning code.
+
+Consult the `18.14 Roadmap <https://projects.wazo.community/versions/286>`_ for more information.
+
+
 18.13
 =====
 
