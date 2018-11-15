@@ -12,6 +12,7 @@ Upgrade notes
 
   * wazo-auth
   * wazo-dird
+  * xivo-ctid-ng
 
 Consult the `18.13 Roadmap <https://projects.wazo.community/versions/285>`_ for more information.
 
