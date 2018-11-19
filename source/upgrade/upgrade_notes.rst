@@ -10,6 +10,7 @@ Upgrade notes
 * The username for all SIP devices in autoprov mode has been changed. Devices in autoprov mode will
   have to be restarted before entering the provisioning code.
 * All agents will have to log out and log back in to receive calls from queues
+* People using the xivo-aastra-2.6.0.2019 will have to upgrade to version 1.9.1 or later
 
 Consult the `18.14 Roadmap <https://projects.wazo.community/versions/286>`_ for more information.
 
