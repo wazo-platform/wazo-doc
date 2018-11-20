@@ -70,16 +70,16 @@ interactive mode, enter ``help`` for a list of available operations.
 
 .. _xivo_dist:
 
-xivo-dist
+wazo-dist
 ---------
 
-xivo-dist is the wazo repository sources manager. It is used to switch between distributions
+wazo-dist is the wazo repository sources manager. It is used to switch between distributions
 (production, development, release candidate, archived version). Example use cases :
 
-* switch to production repository : ``xivo-dist phoenix``
-* switch to development repository : ``xivo-dist wazo-dev-stretch``
-* switch to release candidate repository : ``xivo-dist wazo-rc``
-* switch to an archived version's repository (here 14.18) : ``xivo-dist xivo-14.18``
+* switch to production repository : ``wazo-dist phoenix``
+* switch to development repository : ``wazo-dist wazo-dev-stretch``
+* switch to release candidate repository : ``wazo-dist wazo-rc-stretch``
+* switch to an archived version's repository (here 14.18) : ``wazo-dist wazo-18.02``
 
 
 xivo-provd-cli
