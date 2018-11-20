@@ -68,7 +68,7 @@ It provides mainly agent-related features.
 interactive mode, enter ``help`` for a list of available operations.
 
 
-.. _xivo_dist:
+.. _wazo_dist:
 
 wazo-dist
 ---------

@@ -423,7 +423,7 @@ If you have Aastra phones and are using the remote directory on them, consult th
 * Consult the `14.18 Roadmap <https://projects.wazo.community/versions/209>`_
 * xivo-fai packages were replaced with xivo-dist : a new tool to handle repositories sources.
   Upon upgrade, xivo-dist is installed and run and all xivo-fai packages are purged.
-  :ref:`Consult xivo-dist use cases <xivo_dist>`
+  :ref:`Consult xivo-dist use cases <wazo_dist>`
 
 
 14.17
