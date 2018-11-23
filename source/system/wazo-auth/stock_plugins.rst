@@ -67,17 +67,6 @@ Supported policy variables
     has access to all entities.
 
 
-.. _auth-backends-service:
-
-xivo_service
-------------
-
-Backend name: ``xivo_service``
-
-Purpose: Authenticate a Wazo :ref:`Web Services Access <web_services_access>`. The login/password is
-configured in :menuselection:`Configuration --> Management --> Web Service Access`.
-
-
 .. _auth-backends-ldap:
 
 LDAP

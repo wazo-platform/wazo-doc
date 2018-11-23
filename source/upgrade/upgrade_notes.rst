@@ -11,6 +11,8 @@ Upgrade notes
   have to be restarted before entering the provisioning code.
 * All agents will have to log out and log back in to receive calls from queues
 * People using the xivo-aastra-2.6.0.2019 will have to upgrade to version 1.9.2 or later
+* the `xivo_service` backend in wazo-auth has been removed. All `xivo_service` users have been
+  migrated to `wazo_user` backend.
 
 Consult the `18.14 Roadmap <https://projects.wazo.community/versions/286>`_ for more information.
 

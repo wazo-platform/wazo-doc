@@ -97,7 +97,6 @@ Let's ask wazo-auth for an authentication token:
    parameter. This will pre-fill the ``body`` parameter.
 #. In the ``body`` parameter, set:
 
-   * ``backend`` to ``xivo_service``
    * ``expiration`` to the number of seconds for the token to be valid (e.g. 3600 for one hour). After
      the expiration time, you will need to re-authenticate to get a new token.
 
