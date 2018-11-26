@@ -662,7 +662,6 @@ Example (a file inside ``source_config_dir``):
       port: 9497
       username: admin
       password: password
-      backend: xivo_service
       verify_certificate: "/usr/share/xivo-certs/server.crt"
    confd:
        host: xivo.example.com
