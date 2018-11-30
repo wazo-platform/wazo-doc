@@ -81,11 +81,13 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/xivo-purge-db/`
 * :file:`/etc/xivo-websocketd/`
 * :file:`/etc/xivo/`
+* :file:`/root/.config/wazo-auth-cli/`
 * :file:`/usr/local/bin/`
 * :file:`/usr/local/sbin/`
 * :file:`/usr/share/xivo/XIVO-VERSION`
 * :file:`/var/lib/asterisk/`
 * :file:`/var/lib/consul/`
+* :file:`/var/lib/wazo-auth-keys/`
 * :file:`/var/lib/xivo-provd/`
 * :file:`/var/lib/xivo/`
 * :file:`/var/log/asterisk/`
@@ -298,10 +300,6 @@ After Restoring The System
 
 .. If you modify this procedure, please update xivo-acceptance/data/assets/xivo-backup-manager
    accordingly
-
-#. Resynchronize the xivo-auth keys::
-
-    xivo-update-keys
 
 #. Restore the server UUID::
 
