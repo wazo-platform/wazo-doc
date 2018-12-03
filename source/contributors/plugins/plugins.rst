@@ -8,8 +8,6 @@ This section cover the preferred way to extend the functionalities of a
 Wazo server. There are many extension point in Wazo, all of them can be used
 in combination to add complete features to you favorite PBX.
 
-For more information about installing, updating and removing plugins see the :ref:`admin_ui_plugins` section.
-
 
 What is a plugin
 ================

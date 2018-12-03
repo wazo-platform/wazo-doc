@@ -36,7 +36,6 @@ Table of Contents
    installation/installation
    getting_started/getting_started
    upgrade/upgrade
-   admin_ui/admin_ui
    cti_client/cti_client
    system/system
    ecosystem/ecosystem
