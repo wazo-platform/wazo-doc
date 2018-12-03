@@ -261,7 +261,7 @@ file potentially containing sensitive information is requested, a log line is ap
 happens when a new device is automatically created by the provisioning server.
 
 The fail2ban configuration for the provisioning server is located at
-:file:`/etc/fail2ban/jail.d/xivo.conf`. You may want to adjust the ``findtime`` / ``maxretry`` value
+:file:`/etc/fail2ban/jail.d/wazo.conf`. You may want to adjust the ``findtime`` / ``maxretry`` value
 if you have special requirements. In particular, if you have many phones behind a NAT equipment,
 you'll probably have to adjust these values, since every request coming from your phones behind your
 NAT will appear to the provisioning server as coming from the same source IP address, and this IP

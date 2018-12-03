@@ -16,10 +16,10 @@ Wazo comes with a pre-configured fail2ban. Fail2ban will block IP addresses that
 failed to gain access to the server. There are 3 jails that a configured.
 
 
-asterisk-xivo
+asterisk-wazo
 -------------
 
-The ``asterisk-xivo`` jail watches the Asterisk log file for failed registration attempts.
+The ``asterisk-wazo`` jail watches the Asterisk log file for failed registration attempts.
 
 This jail protects against brute force attacks attempting to guess SIP accounts usernames and
 password.

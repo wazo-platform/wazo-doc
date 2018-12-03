@@ -13,6 +13,7 @@ Upgrade notes
 * People using the xivo-aastra-2.6.0.2019 will have to upgrade to version 1.9.2 or later
 * the `xivo_service` backend in wazo-auth has been removed. All `xivo_service` users have been
   migrated to `wazo_user` backend.
+* The fail2ban jail was renamed from ``asterisk-xivo`` to ``asterisk-wazo``.
 
 Consult the `18.14 Roadmap <https://projects.wazo.community/versions/286>`_ for more information.
 
