@@ -14,7 +14,10 @@ Upgrade notes
 * the `xivo_service` backend in wazo-auth has been removed. All `xivo_service` users have been
   migrated to `wazo_user` backend.
 * The fail2ban jail was renamed from ``asterisk-xivo`` to ``asterisk-wazo``.
-* All custom lines with interface ``SIP/something`` must be changed to ``PJSIP/something``
+* Wazo now uses res_pjsip instead of chan_sip.
+
+  * All custom lines with interface ``SIP/something`` must be changed to ``PJSIP/something``
+  * All custom dialplan using the ``SIP_HEADER`` dialplan function must be changed to ``PJSIP_HEADER``
 
 
 18.13
