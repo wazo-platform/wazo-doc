@@ -17,7 +17,8 @@ Upgrade notes
 * Wazo now uses res_pjsip instead of chan_sip.
 
   * All custom lines with interface ``SIP/something`` must be changed to ``PJSIP/something``
-  * All custom dialplan using the ``SIP_HEADER`` dialplan function must be changed to ``PJSIP_HEADER``
+  * All custom dialplan using the ``SIP_HEADER`` dialplan function must be changed to ``PJSIP_HEADER`` function
+  * The ``SIPAddHeader`` and ``SIPRemoveHeader`` dialplan application must be changed to ``PJSIP_HEADER`` function
 
 
 18.13
