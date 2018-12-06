@@ -14,8 +14,7 @@ Upgrade notes
 * the `xivo_service` backend in wazo-auth has been removed. All `xivo_service` users have been
   migrated to `wazo_user` backend.
 * The fail2ban jail was renamed from ``asterisk-xivo`` to ``asterisk-wazo``.
-
-Consult the `18.14 Roadmap <https://projects.wazo.community/versions/286>`_ for more information.
+* All custom lines with interface ``SIP/something`` must be changed to ``PJSIP/something``
 
 
 18.13
