@@ -63,6 +63,11 @@ In :menuselection:`Trunk Management --> SIP Protocol` set the *NAT* option to *Y
 .. figure:: images/sip_trunk_monitoring.png
    :scale: 85%
 
+.. warning::
+
+   When changing the `External streams address`, the `External IP address` or the `External domain`
+   Asterisk has to be restarted using the `wazo-service restart` command for the changes to take effect.
+
 
 
 Customized interconnections
