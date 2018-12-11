@@ -26,10 +26,10 @@ There are no interface to set a blacklist, but you can build if by hand.
   * You need a preprocess subroutine on the incall with the following dialplan::
 
       [check-blacklist]
-      exten => s,1,GotoIf(${BLACKLIST()}?blacklisted)
-      exten => s,n,Return()
-      exten => s,n(blacklisted),Playback(no-user-find)
-      exten = s,n,Hangup()
+      exten = s,1,GotoIf(${BLACKLIST()}?blacklisted)
+      same = n,Return()
+      same = n(blacklisted),Playback(no-user-find)
+      same = n,Hangup()
 
   * Do a ``dialplan reload`` in the Asterisk CLI to load the new dialplan
 
