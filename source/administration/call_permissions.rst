@@ -11,7 +11,6 @@ Call permissions can be used for:
 * denying a user from calling a specific extension
 * denying a user of a group from calling a specific extension
 * denying a specific extension on a specific outgoing call from being called
-* denying an incoming call coming from a specific extension from calling you
 
 More than one extension can match a given call permission, either by specifying more
 than one extension for that permission or by using extension patterns.
@@ -77,15 +76,3 @@ doesn't mean the call permission applies only to that user. In fact, it means th
 user can't call that extension and that the extension can't be called on the specific
 outgoing call. This in redundant and you will get the same result by not
 selecting the user.
-
-
-Denying an incoming call coming from a specific extension from calling you
---------------------------------------------------------------------------
-
-Call permissions on incoming calls are semantically different from the other scenarios
-since the extension that you add to the permission will match the extension of the
-caller (i.e. the caller number) and *not* the extension that the caller dialed (i.e.
-the callee number).
-
-* Add the extension in the extensions list.
-* In the :guilabel:`Incoming calls` tab, select the incoming call
