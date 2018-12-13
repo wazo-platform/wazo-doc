@@ -11,7 +11,7 @@ Upgrade notes
   have to be restarted before entering the provisioning code.
 * All agents will have to log out and log back in to receive calls from queues
 * People using the xivo-aastra-2.6.0.2019 will have to upgrade to version 1.9.2 or later
-* the `xivo_service` backend in wazo-auth has been removed. All `xivo_service` users have been
+* The `xivo_service` backend in wazo-auth has been removed. All `xivo_service` users have been
   migrated to `wazo_user` backend.
 * The fail2ban jail was renamed from ``asterisk-xivo`` to ``asterisk-wazo``.
 * Wazo now uses res_pjsip instead of chan_sip.
@@ -20,7 +20,7 @@ Upgrade notes
   * All custom dialplan using the ``SIP_HEADER`` dialplan function must be changed to ``PJSIP_HEADER`` function
   * The ``SIPAddHeader`` and ``SIPRemoveHeader`` dialplan application must be changed to ``PJSIP_HEADER`` function
 
-Consult the `18.14 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?version=10003&projectId=10011>`_ for more information.
+Consult the `18.14 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10003>`_ for more information.
 
 
 18.13
