@@ -4,6 +4,15 @@
 Upgrade notes
 *************
 
+19.01
+=====
+
+* The `xivo_admin` backend in wazo-auth has been removed. All `xivo_admin` users have been
+  migrated to `wazo_user` backend.
+
+Consult the `19.01 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10007>`_ for more information.
+
+
 18.14
 =====
 
