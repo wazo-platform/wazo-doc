@@ -20,7 +20,7 @@ Upgrade notes
   * All custom dialplan using the ``SIP_HEADER`` dialplan function must be changed to ``PJSIP_HEADER`` function
   * The ``SIPAddHeader`` and ``SIPRemoveHeader`` dialplan application must be changed to ``PJSIP_HEADER`` function
 
-Consult the `18.14 Roadmap <https://wazo-dev.atlassian.net/browse/WAZO-407?jql=project%20%3D%20%22WAZO%22%20AND%20fixVersion%20%3D%20%2218.14%22>`_ for more information.
+Consult the `18.14 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?version=10003&projectId=10011>`_ for more information.
 
 
 18.13
