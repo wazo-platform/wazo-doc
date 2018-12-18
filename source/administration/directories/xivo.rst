@@ -8,7 +8,7 @@ This type of directory is used to query the users of a XiVO. On a fresh install,
 already configured. The URI field for this type of directory should be the base URL of a
 `xivo-confd` server.
 
-This directory type matches the :ref:`dird-backend-xivo` backend in `wazo-dird`.
+This directory type matches the :ref:`dird-backend-wazo` backend in `wazo-dird`.
 
 
 Available fields

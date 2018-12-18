@@ -4,6 +4,12 @@
 Upgrade notes
 *************
 
+19.01
+=====
+
+* The `xivo` `wazo-dird` backend was rename `wazo`. Custom directory configuration files will have to be updated.
+
+
 18.14
 =====
 
@@ -107,7 +113,7 @@ Consult the `18.06 Roadmap <https://projects.wazo.community/versions/276>`_ for 
 
 * wazo-dird now uses a token to authenticate when doing searches on xivo-confd
 
-  * See :ref:`dird-backend-xivo` if you have customized configuration files in
+  * See :ref:`dird-backend-wazo` if you have customized configuration files in
     `/etc/wazo-dird/sources.d` or `/etc/wazo-dird/conf.d` for a source of type `xivo`
   * If you are using custom certificates you will have to modify your directory configuration to add
     your certificate. See :ref:`https_certificate` for more information in the `Use your own

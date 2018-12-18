@@ -236,7 +236,7 @@ Example:
 
 .. code-block:: yaml
 
-    type: xivo
+    type: wazo
     name: wazo-{{ uuid }}
     searched_columns:
     - firstname
@@ -627,12 +627,12 @@ Example (a file inside ``source_config_dir``):
 ``unique_column`` is not configurable, its value is always ``id``.
 
 
-.. _dird-backend-xivo:
+.. _dird-backend-wazo:
 
-xivo
+wazo
 ----
 
-Back-end name: xivo
+Back-end name: wazo
 
 Purpose: add users from a Wazo (may be remote) as directory entries
 
@@ -655,16 +655,16 @@ Example (a file inside ``source_config_dir``):
 .. code-block:: yaml
    :linenos:
 
-   type: xivo
-   name: my_xivo
+   type: wazo
+   name: my_wazo
    auth:
-      host: xivo.example.com
+      host: wazo.example.com
       port: 9497
       username: admin
       password: password
       verify_certificate: "/usr/share/xivo-certs/server.crt"
    confd:
-       host: xivo.example.com
+       host: wazo.example.com
        port: 9486
        version: 1.1
        timeout: 3
