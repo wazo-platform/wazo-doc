@@ -9,8 +9,11 @@ Upgrade notes
 
 * The `xivo` `wazo-dird` backend was rename `wazo`. Custom directory configuration files will have to be updated.
 * The procedure for custom certificates, especially for Let's Encrypt certificates, has been simplified. See :ref:`https_certificate`.
+* The `xivo_admin` backend in wazo-auth has been removed. All `xivo_admin` users have been
+  migrated to `wazo_user` backend.
 
-Consult the `19.01 Roadmap <https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20%22WAZO%22%20AND%20fixVersion%20%3D%20%2219.01%22>`_ for more information.
+Consult the `19.01 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10007>`_ for more information.
+
 
 18.14
 =====
