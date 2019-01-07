@@ -104,5 +104,6 @@ Here is the removal procedure::
 Then, the last steps:
 
 * update your directories of type ``wazo`` to use:
+
   - the domain ``localhost``
   - the certificate located in :file:`/usr/share/xivo-certs/server.crt`
