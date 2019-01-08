@@ -4,6 +4,16 @@
 Upgrade notes
 *************
 
+19.02
+=====
+
+* For wazo-auth backend developers: The API to implement a wazo-auth backend has been changed in
+  18.02.
+  The compatibility code that allowed old backends to keep working has been removed.
+
+  * The `get_ids` method has been removed.
+
+
 19.01
 =====
 
@@ -201,7 +211,7 @@ Consult the `18.03 Roadmap <https://projects.wazo.community/versions/272>`_ for 
   as a base class for the backend the `get_metadata` method from the base class will use
   `get_ids` to generate the result of `get_metadata`.
 
-  * The `get_ids` method has been remove.
+  * The `get_ids` method has been removed.
   * The `get_metadata` method has been added.
 
 Consult the `18.02 Roadmap <https://projects.wazo.community/versions/264>`_ for more information.
