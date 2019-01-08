@@ -150,10 +150,12 @@ With the following ACL templates:
 .. code-block:: none
 
     confd.users.{{ uuid }}.read
-    {% for line in lines %}confd.lines.{{ line }}.#\n{% endfor %}
+    {% for line in lines %}confd.lines.{{ line }}.#:{% endfor %}
     dird.me.#
     {% if agent %}agentd.agents.by-id.{{ agent.id }}.read{% endif %}
 
+.. note:: When using ``for`` loops to create ACL, make sure to add a ``:`` separator at the end of
+          each ACL
 
 Would create tokens with the following ACL:
 

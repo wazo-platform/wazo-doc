@@ -12,6 +12,7 @@ Upgrade notes
   The compatibility code that allowed old backends to keep working has been removed.
 
   * The `get_ids` method has been removed.
+* ACL templating has been modified: when generating multiple ACLs with one template, ACL were separated with ``\n``. They are now separated with ``:`` (colon). ``\n`` is not interpreted anymore. You should hence replace any ``\n`` with ``:`` in your ACLs.
 
 
 19.01
