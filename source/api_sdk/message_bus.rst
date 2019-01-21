@@ -99,6 +99,8 @@ Changelog
 
   * :ref:`conference_participant_joined <bus-conference-participant-joined>`
   * :ref:`conference_participant_left <bus-conference-participant-left>`
+  * :ref:`conference_participant_muted <bus-conference-participant-muted>`
+  * :ref:`conference_participant_unmuted <bus-conference-participant-unmuted>`
 
 
 18.04
@@ -616,6 +618,52 @@ Example:
            "id": "1547576420.11",
            "language": "fr_FR",
            "muted": false
+       }
+   }
+
+.. _bus-conference-participant-muted:
+.. _bus-conference-participant-unmuted:
+
+conference_participant_muted, conference_participant_unmuted
+------------------------------------------------------------
+
+Those events are send when a participant joins or leaves a conference room.
+
+* routing key for both events:
+
+  * ``conferences.<conference_id>.participants.mute``
+
+* required ACL for both events:
+
+  * ``events.conferences.<conference_id>.participants.mute``
+
+* event specific data:
+
+  * ``id``: The ID of the participant inside the conference
+  * ``caller_id_name``: The CallerID name of the participant
+  * ``caller_id_num``: The CallerID number of the participant
+  * ``muted``: Is the participant muted?
+  * ``admin``: Is the participant and admin of the conference?
+  * ``language``: The language of the participant
+  * ``call_id``: The ID of the call, usable in the ``/calls`` endpoints of ``xivo-ctid-ng``
+  * ``conference_id``: The ID of the conference
+
+Example:
+
+.. code-block:: javascript
+
+   {
+       "name": "conference_participant_muted",
+       "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
+       "required_acl": "events.conferences.participants.mute",
+       "data": {
+           "admin": false,
+           "call_id": "1547576420.11",
+           "caller_id_name": "Bernard Marx",
+           "conference_id": 1,
+           "id": "1547576420.11",
+           "language": "fr_FR",
+           "muted": true
        }
    }
 
