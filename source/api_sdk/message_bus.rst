@@ -594,7 +594,7 @@ Those events are send when a participant joins or leaves a conference room.
   * ``caller_id_num``: The CallerID number of the participant
   * ``muted``: Is the participant muted?
   * ``answered_time``: Elapsed seconds since the participant joined the conference
-  * ``muted``: Is the participant and admin of the conference?
+  * ``admin``: Is the participant and admin of the conference?
   * ``language``: The language of the participant
   * ``call_id``: The ID of the call, usable in the ``/calls`` endpoints of ``xivo-ctid-ng``
   * ``conference_id``: The ID of the conference
