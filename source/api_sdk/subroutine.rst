@@ -123,7 +123,11 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   The default value is ``from-wazo``. If you write scripts using originates to place new calls, you
   should set ``WAZO_CHANNEL_DIRECTION`` to ``to-wazo`` on the originator channel.
 
-* ``WAZO_TENANT_UUID``: the tenant UUID of the line that placed the call or receives the call
+* ``WAZO_DST_UUID``: the UUID of the user destination of the call. Only available when calling a user.
+
+* ``WAZO_DST_TENANT_UUID``: the tenant UUID of the user destination of the call. Only available when calling a user.
+
+* ``WAZO_TENANT_UUID``: the tenant UUID of the line that placed the call or receives the call.
 
 * ``XIVO_CALLOPTIONS``: the value is a list of options to be passed to the Dial application, e.g.
   ``hHtT``. This variable is available in agent, user and outgoing call subroutines. Please note
