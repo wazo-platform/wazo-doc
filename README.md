@@ -9,10 +9,10 @@ The live version is hosted at http://documentation.wazo.community
 Dependencies
 ------------
 
-* Sphinx (package python-sphinx on Debian)
-* sphinx-git modified (for git changelog). To install it:
+With python2 and virtualenvwrapper :
 
-   pushd /tmp && sudo pip install git+git://github.com/wazo-pbx/sphinx-git.git@tagtitles && popd
+`mkvirtualenv -p /usr/bin/python2 doc`
+`pip install -r requirements.txt`
 
 
 Build
