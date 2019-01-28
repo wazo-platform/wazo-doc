@@ -13,10 +13,16 @@ Upgrade notes
 
   * The `get_ids` method has been removed.
 
-* ACL templating has been modified: when generating multiple ACLs with one template, ACL were separated with ``\n``. They are now separated with ``:`` (colon). ``\n`` is not interpreted anymore. You should hence replace any ``\n`` with ``:`` in your ACLs.
-* `xivo-provisioning` now uses `wazo-auth` to authenticate all requests and uses HTTPS. It is no longer possible to deactivate authentication. Therefore, all calls to the REST API will need to
+* ACL templating has been modified: when generating multiple ACLs with one template, ACL were
+  separated with ``\n``. They are now separated with ``:`` (colon). ``\n`` is not interpreted
+  anymore. You should hence replace any ``\n`` with ``:`` in your ACLs.
+* `xivo-provisioning` now uses `wazo-auth` to authenticate all requests and uses HTTPS. It is no
+  longer possible to deactivate authentication. Therefore, all calls to the REST API will need to
   be made using HTTPS and a token generated with `wazo-auth`.
-* `xivo-provd-cli` has been updated to remove the username and password command line arguments since they are no longer used.
+* `xivo-provd-cli` has been updated to remove the username and password command line arguments since
+  they are no longer used.
+
+Consult the `19.02 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10009>`_ for more information
 
 
 19.01
