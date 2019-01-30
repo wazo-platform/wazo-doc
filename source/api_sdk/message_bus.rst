@@ -97,8 +97,8 @@ Changelog
 
 * The following messages have been added:
 
-  * :ref:`conference_started_recording <bus-conference-started-recording>`
-  * :ref:`conference_stopped_recording <bus-conference-stopped-recording>`
+  * :ref:`conference_record_started <bus-conference-record-started>`
+  * :ref:`conference_record_stopped <bus-conference-record-stopped>`
 
 
 19.02
@@ -677,11 +677,11 @@ Example:
    }
 
 
-.. _bus-conference-started-recording:
-.. _bus-conference-stopped-recording:
+.. _bus-conference-record-started:
+.. _bus-conference-record-stopped:
 
-conference_started_recording, conference_stopped_recording
-----------------------------------------------------------
+conference_record_started, conference_record_stopped
+----------------------------------------------------
 
 Those events are send when a participant joins or leaves a conference room.
 
@@ -702,9 +702,9 @@ Example:
 .. code-block:: javascript
 
    {
-       "name": "conference_started_recording",
+       "name": "conference_record_started",
        "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
-       "required_acl": "events.conferences.participants.record",
+       "required_acl": "events.conferences.1.record",
        "data": {
            "id": 1
        }
