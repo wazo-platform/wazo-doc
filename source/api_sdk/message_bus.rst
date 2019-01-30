@@ -655,7 +655,7 @@ Example:
    {
        "name": "conference_participant_muted",
        "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
-       "required_acl": "events.conferences.participants.mute",
+       "required_acl": "events.conferences.1.participants.mute",
        "data": {
            "admin": false,
            "call_id": "1547576420.11",
