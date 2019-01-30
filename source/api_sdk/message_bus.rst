@@ -99,6 +99,8 @@ Changelog
 
   * :ref:`conference_record_started <bus-conference-record-started>`
   * :ref:`conference_record_stopped <bus-conference-record-stopped>`
+  * :ref:`conference_participant_talk_started <bus-conference-participant-talk-started>`
+  * :ref:`conference_participant_talk_stopped <bus-conference-participant-talk-stopped>`
 
 
 19.02
@@ -707,6 +709,45 @@ Example:
        "required_acl": "events.conferences.1.record",
        "data": {
            "id": 1
+       }
+   }
+
+.. _bus-conference-participant-talk-started:
+.. _bus-conference-participant-talk-stopped:
+
+conference_participant_talk_started, conference_participant_talk_stopped
+------------------------------------------------------------------------
+
+Those events are send when a participant joins or leaves a conference room.
+
+* routing key for both events:
+
+  * ``conferences.<conference_id>.participants.talk``
+
+* required ACL for both events:
+
+  * ``events.conferences.<conference_id>.participants.talk``
+
+* event specific data:
+
+  * ``id``: The ID of the conference
+
+Example:
+
+.. code-block:: javascript
+
+   {
+       "name": "conference_participant_talk_started",
+       "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
+       "required_acl": "events.conferences.1.participants.talk",
+       "data": {
+           "admin": false,
+           "call_id": "1547576420.11",
+           "caller_id_name": "Bernard Marx",
+           "conference_id": 1,
+           "id": "1547576420.11",
+           "language": "fr_FR",
+           "muted": false
        }
    }
 
