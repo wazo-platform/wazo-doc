@@ -92,6 +92,15 @@ Things to be aware when writing a client/consumer:
 Changelog
 =========
 
+19.03
+-----
+
+* The following messages have been added:
+
+  * :ref:`conference_record_started <bus-conference-record-started>`
+  * :ref:`conference_record_stopped <bus-conference-record-stopped>`
+
+
 19.02
 -----
 
@@ -667,6 +676,39 @@ Example:
        }
    }
 
+
+.. _bus-conference-record-started:
+.. _bus-conference-record-stopped:
+
+conference_record_started, conference_record_stopped
+----------------------------------------------------
+
+Those events are send when a participant joins or leaves a conference room.
+
+* routing key for both events:
+
+  * ``conferences.<conference_id>.record``
+
+* required ACL for both events:
+
+  * ``events.conferences.<conference_id>.record``
+
+* event specific data:
+
+  * ``id``: The ID of the conference
+
+Example:
+
+.. code-block:: javascript
+
+   {
+       "name": "conference_record_started",
+       "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
+       "required_acl": "events.conferences.1.record",
+       "data": {
+           "id": 1
+       }
+   }
 
 .. _bus-endpoint_status_update:
 
