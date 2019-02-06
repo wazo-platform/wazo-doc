@@ -4,6 +4,18 @@
 Upgrade notes
 *************
 
+19.03
+=====
+
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   19.03/sounds
+
+Consult the `19.03 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10013>`_ for more information
+
 19.02
 =====
 
