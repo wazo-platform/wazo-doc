@@ -76,8 +76,7 @@ will then be rsync'ed every hour:
 * /var/lib/asterisk/agi-bin
 * /var/lib/asterisk/moh
 * /var/lib/xivo/certificates
-* /var/lib/xivo/sounds/acd
-* /var/lib/xivo/sounds/playback
+* /var/lib/xivo/sounds/tenants
 
 .. warning:: When the HA is configured, some changes will be automatically
    made to the configuration of Wazo.
