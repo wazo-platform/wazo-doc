@@ -115,8 +115,15 @@ xivo-dird-phoned
 * Default configuration file: :file:`/etc/xivo-dird-phoned/config.yml`
 
 
+xivo-provisioning
+=================
+
+* Default configuration directory: :file:`/etc/xivo-provd/conf.d`
+* Default configuration file: :file:`/etc/xivo-provd/config.yml`
+
+
 xivo-websocketd
-================
+===============
 
 * Default configuration directory: :file:`/etc/xivo-websocketd/conf.d`
 * Default configuration file: :file:`/etc/xivo-websocketd/config.yml`

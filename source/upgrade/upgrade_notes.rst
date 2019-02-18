@@ -7,6 +7,8 @@ Upgrade notes
 19.03
 =====
 
+* `xivo-provisioning` now uses YAML configuration. The defaults can be overriden in the `/etc/xivo-provd/conf.d/` directory. See :ref:`configuration-files`.
+
 Please consult the following detailed upgrade notes for more information:
 
 .. toctree::
