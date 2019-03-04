@@ -7,12 +7,11 @@ Upgrade notes
 19.04
 =====
 
-* `xivo-provisioning` and `xivo-confd` now implement multi-tenant devices. The default tenant for a
-  new device is set to the tenant of the token used internally by provd. 
-  Devices are migrated automatically to the tenant of their first associated line. If a device is
+* `xivo-provisioning` and `xivo-confd` now implement multi-tenant devices.
+  Existing devices are migrated automatically to the tenant of their first associated line. If a device is
   in autoprov mode, it will be migrated to the default tenant.
-  It is possible to change a device's tenant as long as the token used has access to the requested
-  tenant.
+
+  See :ref:`intro-provisioning` for more information on how device tenants are handled.
 
 Consult the `19.04 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10014>`_ for more information
 

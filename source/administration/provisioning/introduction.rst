@@ -30,11 +30,25 @@ And *voila*, once the phone has rebooted, your user is ready to make and receive
 No manual editing of configuration files nor fiddling in the phone's web interface.
 
 
+Tenant assignation
+==================
+
+On initial insertion into provd, devices are assigned to the tenant of the token used internally by
+provd, which is the master tenant. When a device is provisioned, it is transferred to the tenant of
+the line to which it is being associated. When the device is reset to autoprov, the device stays in
+its tenant. If you wish to change the tenant to which the device is assigned, you must either use a
+token that has the rights to both tenants (the originating tenant and the destination tenant), or
+delete the phone and restart it manually.
+
+
 Limitations
 ===========
 
 * Device synchronisation does not work in the situation where multiple devices are connected from
   behind a NAPT network equipment. The devices must be resynchronised manually.
+* There may be an issue if you are using an analog gateway with lines that are not in the same
+  tenant. Indeed, in the case that the gateway is only one device and each port is a separate line,
+  the device will only be seen by the tenant of the first line that was added.
 
 
 External links
