@@ -64,6 +64,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/systemd/`
 * :file:`/etc/wanpipe/`
 * :file:`/etc/wazo-auth/`
+* :file:`/etc/wazo-chatd/`
 * :file:`/etc/wazo-call-logd/`
 * :file:`/etc/wazo-dird/`
 * :file:`/etc/wazo-plugind/`
