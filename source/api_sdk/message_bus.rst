@@ -786,7 +786,7 @@ Example::
 favorite_added
 --------------
 
-The `favorite_added` event is published when a contact is marked as a favorite by a user.
+The ``favorite_added`` event is published when a contact is marked as a favorite by a user.
 
 * routing key: directory.<user_uuid>.favorite.created
 * required ACL: events.directory.<user_uuid>.favorite.created
@@ -817,7 +817,7 @@ Example:
 favorite_deleted
 ----------------
 
-The `favorite_deleted` event is published when a favorited contact is marked a not
+The ``favorite_deleted`` event is published when a favorited contact is marked a not
 favorite by a user
 
 * routing key: directory.<user_uuid>.favorite.deleted
