@@ -92,6 +92,19 @@ Things to be aware when writing a client/consumer:
 Changelog
 =========
 
+19.04
+-----
+
+* The following messages have been added:
+
+  * :ref:`fax_outbound_created <fax-outbound-created>`
+  * :ref:`fax_outbound_user_created <fax-outbound-user-created>`
+  * :ref:`fax_outbound_succeeded <fax-outbound-succeeded>`
+  * :ref:`fax_outbound_user_succeeded <fax-outbound-user-succeeded>`
+  * :ref:`fax_outbound_failed <fax-outbound-failed>`
+  * :ref:`fax_outbound_user_failed <fax-outbound-user-failed>`
+
+
 19.03
 -----
 
@@ -844,6 +857,125 @@ Example:
         }
     }
 
+.. _fax-outbound-created:
+.. _fax-outbound-user-created:
+
+fax_outbound_created, fax_outbound_user_created
+-----------------------------------------------
+
+Those event are published when a fax is being sent. ``fax_outbound_user_created`` is only sent if the fax was sent by a user.
+
+* routing key: ``faxes.outbound.created`` and ``faxes.outbound.users.{user_uuid}.created``
+* required ACL: ``events.faxes.outbound.created`` and ``events.faxes.outbound.users.{user_uuid}.created``
+* event specific data:
+
+    * ``id``: The fax ID
+    * ``call_id``: The ID of the call that sent the fax
+    * ``extension``: The extension where the fax was sent
+    * ``context``: The context where the fax was sent
+    * ``caller_id``: The Caller ID presented to the fax recipient
+    * ``user_uuid``: The UUID of the user that sent the fax
+    * ``tenant_uuid``: The tenant UUID from where the fax was sent
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "name": "fax_outbound_created",
+        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+        "data": {
+            "id": "1234567.89",
+            "call_id": "1234567.89",
+            "context": "internal",
+            "extension": "1234",
+            "caller_id": "fax sender <5551234>",
+            "user_uuid": "3c616e3a-611b-4703-bea8-9be4fc4c9fe4",
+            "tenant_uuid": "bd72b051-fd14-40be-9c3d-6b5fe65271ca",
+        }
+    }
+
+
+.. _fax-outbound-succeeded:
+.. _fax-outbound-user-succeeded:
+
+fax_outbound_succeeded, fax_outbound_user_succeeded
+---------------------------------------------------
+
+This event is published when a fax was successfully sent. ``fax_outbound_user_succeeded`` is only sent if the fax was sent by a user.
+
+
+* routing key: ``faxes.outbound.succeeded`` and ``faxes.outbound.users.{user_uuid}.succeeded``
+* required ACL: ``events.faxes.outbound.succeeded`` and ``events.faxes.outbound.users.{user_uuid}.succeeded``
+* event specific data:
+
+    * ``id``: The fax ID
+    * ``call_id``: The ID of the call that sent the fax
+    * ``extension``: The extension where the fax was sent
+    * ``context``: The context where the fax was sent
+    * ``caller_id``: The Caller ID presented to the fax recipient
+    * ``user_uuid``: The UUID of the user that sent the fax
+    * ``tenant_uuid``: The tenant UUID from where the fax was sent
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "name": "fax_outbound_succeeded",
+        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+        "data": {
+            "id": "1234567.89",
+            "call_id": "1234567.89",
+            "context": "internal",
+            "extension": "1234",
+            "caller_id": "fax sender <5551234>",
+            "user_uuid": "3c616e3a-611b-4703-bea8-9be4fc4c9fe4",
+            "tenant_uuid": "bd72b051-fd14-40be-9c3d-6b5fe65271ca"
+        }
+    }
+
+
+.. _fax-outbound-failed:
+.. _fax-outbound-user-failed:
+
+fax_outbound_failed, fax_outbound_user_failed
+---------------------------------------------------
+
+This event is published when a fax was successfully sent. ``fax_outbound_user_created`` is only sent if the fax was sent by a user.
+
+
+* routing key: ``faxes.outbound.failed`` and ``faxes.outbound.users.{user_uuid}.failed``
+* required ACL: ``events.faxes.outbound.failed`` and ``events.faxes.outbound.users.{user_uuid}.failed``
+* event specific data:
+
+    * ``id``: The fax ID
+    * ``call_id``: The ID of the call that sent the fax
+    * ``extension``: The extension where the fax was sent
+    * ``context``: The context where the fax was sent
+    * ``caller_id``: The Caller ID presented to the fax recipient
+    * ``user_uuid``: The UUID of the user that sent the fax
+    * ``tenant_uuid``: The tenant UUID from where the fax was sent
+    * ``error``: An explanation of the fax failure
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "name": "fax_outbound_failed",
+        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+        "data": {
+            "id": "1234567.89",
+            "call_id": "1234567.89",
+            "context": "internal",
+            "extension": "1234",
+            "caller_id": "fax sender <5551234>",
+            "user_uuid": "3c616e3a-611b-4703-bea8-9be4fc4c9fe4",
+            "tenant_uuid": "bd72b051-fd14-40be-9c3d-6b5fe65271ca",
+            "error": "recipient did not answer"
+        }
+    }
 
 .. _bus-plugin_install_progress:
 
