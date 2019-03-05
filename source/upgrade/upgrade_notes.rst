@@ -13,6 +13,11 @@ Upgrade notes
 
   See :ref:`intro-provisioning` for more information on how device tenants are handled.
 
+* Call pickups that have been created using the REST API or wazo-admin-ui have the interceptors
+  and targets mixed up. Since call pickups created using the "normal" web interface did not have
+  that bug, we could not fix the existing configuration automatically. Faulty call pickups will
+  have to be edited and users moved from interceptors to targets and vice versa.
+
 Consult the `19.04 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10014>`_ for more information
 
 
