@@ -7,6 +7,9 @@ Upgrade notes
 19.04
 =====
 
+* `wazo-dird` is now configured using its REST API. The previous configuration have been removed and
+  a new configuration has been automatically generated based on the current tenants and internal contexts.
+
 * `xivo-provisioning` and `xivo-confd` now implement multi-tenant devices.
   Existing devices are migrated automatically to the tenant of their first associated line. If a device is
   in autoprov mode, it will be migrated to the default tenant.
