@@ -36,9 +36,8 @@ Tenant assignation
 On initial insertion into provd, devices are assigned to the tenant of the token used internally by
 provd, which is the master tenant. When a device is provisioned, it is transferred to the tenant of
 the line to which it is being associated. When the device is reset to autoprov, the device stays in
-its tenant. If you wish to change the tenant to which the device is assigned, you must either use a
-token that has the rights to both tenants (the originating tenant and the destination tenant), or
-delete the phone and restart it manually.
+its tenant. It is not possible to change the tenant of the device once it is set. If you wish to do
+it anyway, you must delete the device and restart it manually.
 
 
 Limitations
