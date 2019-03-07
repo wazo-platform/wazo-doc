@@ -21,6 +21,8 @@ Upgrade notes
   that bug, we could not fix the existing configuration automatically. Faulty call pickups will
   have to be edited and users moved from interceptors to targets and vice versa.
 
+* The provisioning option :ref:`dhcp-integration` is now enabled by default. There is no REST API to disable this feature.
+
 Consult the `19.04 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10014>`_ for more information
 
 
