@@ -7,10 +7,10 @@ Upgrade notes
 19.04
 =====
 
-* `wazo-dird` is now configured using its REST API. The previous configuration have been removed and
+* ``wazo-dird`` is now configured using its REST API. The previous configuration have been removed and
   a new configuration has been automatically generated based on the current tenants and internal contexts.
 
-* `xivo-provisioning` and `xivo-confd` now implement multi-tenant devices.
+* ``xivo-provisioning`` and ``xivo-confd`` now implement multi-tenant devices.
   Existing devices are migrated automatically to the tenant of their first associated line. If a device is
   in autoprov mode, it will be migrated to the default tenant.
 
@@ -22,6 +22,10 @@ Upgrade notes
   have to be edited and users moved from interceptors to targets and vice versa.
 
 * The provisioning option :ref:`dhcp-integration` is now enabled by default. There is no REST API to disable this feature.
+
+* User and device presences are now handled by ``wazo-chatd`` instead of ``xivo-ctid-ng``.
+
+* ``xivo-ctid`` has been removed, therefore the ``wazoclient`` will not connect anymore.
 
 Consult the `19.04 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10014>`_ for more information
 
