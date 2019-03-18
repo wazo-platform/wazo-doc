@@ -4,6 +4,14 @@
 Upgrade notes
 *************
 
+19.05
+-----
+
+* ``xivo-provd-client`` is now deprecated. You must use ``wazo-provd-client`` instead.
+
+Consult the `19.05 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10017>`_ for more information
+
+
 19.04
 =====
 
