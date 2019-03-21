@@ -106,6 +106,9 @@ forward
 group
     A group
 
+groupmember
+    Join or leave a group
+
 onlinerec
     Record a conversation during a call
 
@@ -189,6 +192,16 @@ Group
 +==========+=========+============+
 | group_id | numeric | Group's id |
 +----------+---------+------------+
+
+Group Member
+------------
+
++----------+-------------------+----------------------------+
+| Field    | Type              | Value                      |
++==========+===================+============================+
+| group_id | numeric           | Group's id                 |
+| action   | join/leave/toggle | What to do with this group |
++----------+-------------------+----------------------------+
 
 Online call recording
 ---------------------
