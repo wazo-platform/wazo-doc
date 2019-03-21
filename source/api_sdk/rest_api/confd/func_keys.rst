@@ -140,11 +140,12 @@ Here are the parameters required for each destination:
 Agent
 -----
 
-+----------+---------+-------------+
-| Field    | Type    | Value       |
-+==========+=========+=============+
-| agent_id | numeric | Agents's id |
-+----------+---------+-------------+
++----------+----------------------+----------------------------+
+| Field    | Type                 | Value                      |
++==========+======================+============================+
+| agent_id | numeric              | Agents's id                |
+| action   | login/logout/toggle  | What to do with this agent |
++----------+----------------------+----------------------------+
 
 BSFilter
 --------
