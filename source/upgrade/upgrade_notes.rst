@@ -10,6 +10,8 @@ Upgrade notes
 * ``xivo-provd-client`` is now deprecated. You must use ``wazo-provd-client`` instead.
 * The ``tenant_name`` variable has been removed from the call recording templates in favor of the ``tenant_uuid``.
   If the ``tenant_name`` was used in the directory name, a symlink can be used to keep the same name.
+* All chat messages will be deleted after the upgrade. There are now handled by ``wazo-chatd``
+  instead of ``xivo-ctid-ng`` and ``MongooseIM``.
 
 Consult the `19.05 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10017>`_ for more information
 
