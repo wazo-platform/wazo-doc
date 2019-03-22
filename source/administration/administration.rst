@@ -19,7 +19,6 @@ Administration
    devices/devices
    directories/directories
    directed_pickup
-   entities
    fax/fax
    graphics/graphics
    groups

@@ -78,7 +78,7 @@ The following variables can be used in the file name:
 * local_time: The formated date in the server's timezone
 * utc_time: The formated date in UTC
 * base_context: The context in which this call entered the Wazo dialplan
-* tenant_name: The originating context's entity
+* tenant_uuid: The tenant UUID of the user or the outgoing call
 
 .. note::
   You **must** restart xivo-agid to take any config change into effect::
@@ -94,10 +94,10 @@ A file with the following content in `/etc/xivo-agid/conf.d/call_recording.yml`:
 .. code-block:: yaml
 
    call_recording:
-     filename_template: "{{ tenant_name }}/{{ utc_time }}-{{ srcnum }}-{{ dstnum }}"
+     filename_template: "{{ tenant_uuid }}/{{ utc_time }}-{{ srcnum }}-{{ dstnum }}"
 
 
-This configuration would write the files in `/var/spool/asterisk/monitor/<tenant_name/`. The
+This configuration would write the files in `/var/spool/asterisk/monitor/<tenant_uuid>/`. The
 name of the files would be `<utc_time>-<srcnum>-<dstnum>.wav`
 
 Example 2:

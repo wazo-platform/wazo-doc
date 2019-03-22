@@ -37,9 +37,6 @@ User
 +--------------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
 | Field                    | Type   | Required | Values                            | Description                                               |
 +==========================+========+==========+===================================+===========================================================+
-| entity_id                | int    | Yes      |                                   | Entity ID (Defined in menu :menuselection:`Configuration  |
-|                          |        |          |                                   | --> Management --> Entities`)                             |
-+--------------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
 | firstname                | string | Yes      |                                   | User's firstname                                          |
 +--------------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
 | lastname                 | string |          |                                   | User's lastname                                           |
@@ -161,21 +158,21 @@ Examples
 The following example defines 3 users who each have a phone number. The first 2 users have a SIP
 line, where as the last one uses SCCP::
 
-    entity_id,firstname,lastname,exten,context,line_protocol
-    1,John,Doe,1000,default,sip
-    1,George,Clinton,1001,default,sip
-    1,Bill,Bush,1002,default,sccp
+    firstname,lastname,exten,context,line_protocol
+    John,Doe,1000,default,sip
+    George,Clinton,1001,default,sip
+    Bill,Bush,1002,default,sccp
 
 The following example imports a user with a phone number and a voicemail::
 
-    entity_id,firstname,lastname,exten,context,line_protocol,voicemail_name,voicemail_number,voicemail_context
-    1,John,Doe,1000,default,sip,Voicemail for John Doe,1000,default
+    firstname,lastname,exten,context,line_protocol,voicemail_name,voicemail_number,voicemail_context
+    John,Doe,1000,default,sip,Voicemail for John Doe,1000,default
 
 The following exmple imports a user with both an internal and external phone number (e.g. incoming
 call)::
 
-    entity_id,firstname,lastname,exten,context,line_protocol,incall_exten,incall_context
-    1,John,Doe,1000,default,sip,2050,from-extern
+    firstname,lastname,exten,context,line_protocol,incall_exten,incall_context
+    John,Doe,1000,default,sip,2050,from-extern
 
 
 CSV Update
