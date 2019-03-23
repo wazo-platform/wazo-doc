@@ -54,7 +54,6 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/hostname`
 * :file:`/etc/hosts`
 * :file:`/etc/ldap/`
-* :file:`/etc/mongooseim/`
 * :file:`/etc/network/if-up.d/xivo-routes`
 * :file:`/etc/network/interfaces`
 * :file:`/etc/ntp.conf`
@@ -129,7 +128,6 @@ The following databases from PostgreSQL are backed up:
 
 * ``asterisk``: all the configuration done via the web interface (exceptions: High Availability,
   Provisioning, Certificates)
-* ``mongooseim``: chat history
 
 
 .. _manual_backup:
@@ -241,11 +239,6 @@ Drop the asterisk database and restore it with the one from the backup::
    sudo -u postgres dropdb asterisk
    sudo -u postgres pg_restore -C -d postgres asterisk-*.dump
 
-Drop the mongooseim database and restore it with the one from the backup::
-
-   sudo -u postgres dropdb mongooseim
-   sudo -u postgres pg_restore -C -d postgres mongooseim-*.dump
-
 Once the database and files have been restored, you can :ref:`finalize the restore <after_restore>`
 
 
@@ -283,11 +276,6 @@ Drop the asterisk_previous database::
 .. warning:: Restoring the data.tgz file also restores system files such as host
    hostname, network interfaces, etc. You will need to reapply the network
    configuration if you restore the data.tgz file.
-
-Drop the mongooseim database and restore it with the one from the backup::
-
-   sudo -u postgres dropdb mongooseim
-   sudo -u postgres pg_restore -C -d postgres mongooseim-*.dump
 
 Once the database and files have been restored, you can :ref:`finalize the restore <after_restore>`
 
