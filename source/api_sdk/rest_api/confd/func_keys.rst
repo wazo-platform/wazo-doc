@@ -106,6 +106,9 @@ forward
 group
     A group
 
+groupmember
+    Join or leave a group
+
 onlinerec
     Record a conversation during a call
 
@@ -137,11 +140,12 @@ Here are the parameters required for each destination:
 Agent
 -----
 
-+----------+---------+-------------+
-| Field    | Type    | Value       |
-+==========+=========+=============+
-| agent_id | numeric | Agents's id |
-+----------+---------+-------------+
++----------+----------------------+----------------------------+
+| Field    | Type                 | Value                      |
++==========+======================+============================+
+| agent_id | numeric              | Agents's id                |
+| action   | login/logout/toggle  | What to do with this agent |
++----------+----------------------+----------------------------+
 
 BSFilter
 --------
@@ -189,6 +193,16 @@ Group
 +==========+=========+============+
 | group_id | numeric | Group's id |
 +----------+---------+------------+
+
+Group Member
+------------
+
++----------+-------------------+----------------------------+
+| Field    | Type              | Value                      |
++==========+===================+============================+
+| group_id | numeric           | Group's id                 |
+| action   | join/leave/toggle | What to do with this group |
++----------+-------------------+----------------------------+
 
 Online call recording
 ---------------------
