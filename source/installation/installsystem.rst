@@ -34,7 +34,7 @@ Installing from the ISO image
 * At the end of the installation, if you are installing version 16.13 or before, you need to
   configure your system to :ref:`use the Wazo infrastructure <using-wazo-infrastructure>`, otherwise
   some errors might occur.
-* Continue by running the :ref:`configuration wizard. <configuration_wizard>`
+* Continue by running the configuration wizard.
 
 .. _all versions: http://mirror.wazo.community/iso/archives
 .. _latest version: http://mirror.wazo.community/iso/wazo-current
@@ -73,8 +73,7 @@ And run it::
 
    ./wazo_install.sh
 
-At the end of the installation, you can continue by running the :ref:`configuration
-wizard. <configuration_wizard>`
+At the end of the installation, you can continue by running the configuration wizard.
 
 
 Alternatives versions

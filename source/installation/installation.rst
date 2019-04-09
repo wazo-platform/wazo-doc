@@ -8,5 +8,4 @@ Installation
    :maxdepth: 2
 
    installsystem
-   configuration_wizard/configuration_wizard
    postinstall

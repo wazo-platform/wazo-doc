@@ -188,8 +188,7 @@ Before Restoring the System
 
 .. warning::
 
-    Before restoring a Wazo on a fresh install you have to setup Wazo using the wizard (see
-    :ref:`configuration_wizard` section).
+    Before restoring a Wazo on a fresh install you have to setup Wazo using the wizard.
 
 Stop monit and all the Wazo services::
 
