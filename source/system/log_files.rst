@@ -181,15 +181,6 @@ xivo-sysconfd
 * Rotation frequence: Daily
 
 
-xivo-web-interface
-------------------
-
-* File location: :file:`/var/log/xivo-web-interface/\*.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-web-interface`
-* Number of archived files: 21
-* Rotation frequence: Daily
-
-
 xivo-websocketd
 ---------------
 
