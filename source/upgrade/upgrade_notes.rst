@@ -233,7 +233,7 @@ Consult the `18.05 Roadmap <https://projects.wazo.community/versions/275>`_ for 
   to add a configuration file to store the username and password. See :ref:`switchboard_device_snom`
 * Creating user using the REST API now requires the Wazo-Tenant HTTP header when the created user is
   not in the same tenant has its creator.
-* Tenants have automatically created to match configured entities.
+* Tenants have been automatically created to match configured entities.
 
 Consult the `18.04 Roadmap <https://projects.wazo.community/versions/274>`_ for more information.
 
