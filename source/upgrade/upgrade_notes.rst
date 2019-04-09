@@ -182,8 +182,7 @@ Consult the `18.06 Roadmap <https://projects.wazo.community/versions/276>`_ for 
   * The custom configuration has been moved to ``/etc/wazo-dird/conf.d/``.
   * The log file has been renamed to ``wazo-dird.log``.
   * The NGINX proxy has been recreated in ``/etc/nginx/locations/https-enabled/wazo-dird``
-  * Entrypoint for custom plugin has been renamed to ``wazo_dird.*``. See
-    :ref:`wazo-dird-integration`.
+  * Entrypoint for custom plugin has been renamed to ``wazo_dird.*``.
 
 * ``xivo-dird-client`` has been renamed ``wazo-dird-client``
 

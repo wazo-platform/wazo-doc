@@ -44,7 +44,7 @@ Consult the `15.19 Roadmap <https://projects.wazo.community/versions/236>`_
   * restart xivo-dird
 
 * It is now possible to send an email to a user with a configured email address in the
-  *people* xlet. See :ref:`dird-integration-views`  to add the appropriate field to your
+  *people* xlet. See dird-integration-views to add the appropriate field to your
   configured displays.
 * The *Contacts* xlet (aka. *Search*) has been removed in favor of the :ref:`people-xlet`. You may
   need to do some manual configuration in the directories for the People Xlet to be fully
@@ -206,7 +206,7 @@ Consult the `15.15 Roadmap <https://projects.wazo.community/versions/231>`_
  * Most of the configuration for xivo-dird is now generated from xivo-confgen using the values in the web interface.
  * The `remote directory` xlet has been removed in favor of the new `people` xlet.
 
-See :ref:`directories` and :ref:`wazo-dird-integration` for more details
+See :ref:`directories` and `wazo-dird-integration` for more details
 
 
 15.14

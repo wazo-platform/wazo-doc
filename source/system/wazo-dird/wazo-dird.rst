@@ -13,7 +13,6 @@ directories that are configured. wazo-dird is extendable with plugins.
    configuration
    developer
    stock_plugins
-   integration
 
 
 .. _wazo-dird-usage:

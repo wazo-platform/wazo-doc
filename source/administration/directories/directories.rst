@@ -168,8 +168,7 @@ Directories --> Display filters`.
 Each line in the display filter will result in a header in your Wazo Client.
 
 * :guilabel:`Field title`: text displayed in the header.
-* :guilabel:`Field type`: type of the column, this information is used by the Wazo Client. (see
-  :ref:`type description<dird-integration-views>`)
+* :guilabel:`Field type`: type of the column, this information is used by the Wazo Client.
 * :guilabel:`Default value`: value that will be used if this field is empty for one of the
   configured sources.
 * :guilabel:`Field name`: name of the field in the directory definitions. The specified names
