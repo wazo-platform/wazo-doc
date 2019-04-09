@@ -15,7 +15,6 @@ services to be used:
 * The telephony service interface (xivo-ctid-ng)
 * The directory service (wazo-dird)
 * The AMI HTTP interface (xivo-amid)
-* web interface (xivo-web-interface)
 * API documentation (xivo-swagger-doc)
 * The websocket interface (xivo-websocketd)
 * Asterisk WebSocket (xivo-config)
@@ -36,6 +35,4 @@ For example, to enable all the available services::
 To disable all the services other than the web interface::
 
    rm /etc/nginx/locations/http-enabled/* /etc/nginx/locations/https-enabled/*
-   ln -s /etc/nginx/locations/http-available/xivo-web-interface /etc/nginx/locations/http-enabled
-   ln -s /etc/nginx/locations/https-available/xivo-web-interface /etc/nginx/locations/https-enabled
    systemctl reload nginx
