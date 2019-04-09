@@ -5,7 +5,7 @@ Upgrade notes
 *************
 
 19.05
------
+=====
 
 * ``xivo-provd-client`` is now deprecated. You must use ``wazo-provd-client`` instead.
 * The ``tenant_name`` variable has been removed from the call recording templates in favor of the ``tenant_uuid``.
