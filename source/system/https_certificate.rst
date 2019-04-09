@@ -7,8 +7,7 @@ Certificates for HTTPS
 X.509 certificates are used to authorize and secure communications with the server. They are mainly
 used for HTTPS, but can also be used for SIPS, CTIS, WSS, etc.
 
-This article is about the certificate used for HTTPS. For the certificate used for telephony data,
-see :ref:`telephony_certificates`.
+This article is about the certificate used for HTTPS.
 
 
 Wazo and HTTPS

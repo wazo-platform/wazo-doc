@@ -5,7 +5,6 @@ Administration
 .. toctree::
    :maxdepth: 2
 
-   advanced_configuration/advanced_configuration
    boss_secretary_filter
    call_completion/call_completion
    call_permissions
