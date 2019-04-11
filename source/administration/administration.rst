@@ -16,7 +16,6 @@ All configurations are done via the ``xivo-confd`` REST API
    directed_pickup
    fax/fax
    graphics/graphics
-   groups
    group_pickup/group_pickup
    Hardware <hardware/hardware>
    incall
