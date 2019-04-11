@@ -14,8 +14,7 @@ This brings a few changes for the administrators, the biggest one being that loo
 Wazo Client and phones are now configured at the same place, namely the (incorrectly named)
 :menuselection:`Services --> CTI Server --> Directories` section, with some advanced configuration
 only available in the configuration files. This means that lookup from the phones can now also
-display results from CSV or web services directories. For details on how to configure directories,
-refer to the :ref:`directories` page.
+display results from CSV or web services directories
 
 For users, the biggest change is that they can now consult their personal contacts (that they added
 from their Wazo Client) when doing a search from their phone.

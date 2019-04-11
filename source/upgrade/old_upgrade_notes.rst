@@ -206,7 +206,7 @@ Consult the `15.15 Roadmap <https://projects.wazo.community/versions/231>`_
  * Most of the configuration for xivo-dird is now generated from xivo-confgen using the values in the web interface.
  * The `remote directory` xlet has been removed in favor of the new `people` xlet.
 
-See :ref:`directories` and `wazo-dird-integration` for more details
+See `wazo-dird-integration` for more details
 
 
 15.14

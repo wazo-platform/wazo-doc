@@ -84,7 +84,7 @@ Reverse Lookup
 ^^^^^^^^^^^^^^
 
 Reverse lookup is the operation of finding the CallerID name from the CallerID number. Wazo can
-lookup this information in multiple sources, see :ref:`directories` for more details.
+lookup this information in multiple sources.
 
 This operation is only triggered when the incoming CallerID has no CallerID name or when the
 CallerID name equals the CallerID number.

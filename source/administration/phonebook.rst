@@ -10,7 +10,6 @@ the phone is compatible and are used to set the Caller ID for incoming calls.
 
 You can add entries one by one or you can mass-import from a CSV file.
 
-.. note:: To configure phonebook, see :ref:`directories`.
 
 Mass-import contacts
 ====================
