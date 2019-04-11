@@ -6,7 +6,6 @@ Administration
    :maxdepth: 2
 
    boss_secretary_filter
-   call_completion/call_completion
    call_permissions
    call_recording/call_recording
    call_logs/call_logs
