@@ -17,7 +17,7 @@ use the same conventions.
 Open Phonebook Access
 =====================
 
-On each Wazo, you must have a :ref:`Web Services User <web_services_access>` that authorizes access
+On each Wazo, you must have a wazo-auth user that authorizes access
 from another host (not by login/password). The phonebook access does not support login/password
 authorization.
 

@@ -15,7 +15,7 @@ Call flow
 Here is the call flow to access a REST resource of a Wazo service:
 
 1. Create a username/password (also called service_id/service_key) with the right :ref:`ACLs
-   <rest-api-acl>`, via :ref:`web_services_access`.
+   <rest-api-acl>`, via wazo-auth.
 2. :ref:`Create a token <wazo-auth>` with these credentials.
 3. :ref:`Use this token <rest-api-authentication>` to access the REST resource defined by the
    :ref:`ACL <rest-api-acl>`.

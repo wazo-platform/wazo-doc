@@ -32,4 +32,3 @@ All configurations are done via the ``xivo-confd`` REST API
    switchboards/switchboards
    users/users
    voicemails
-   web_services/web_services_access
