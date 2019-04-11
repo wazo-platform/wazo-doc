@@ -2,19 +2,6 @@
 Fax
 ***
 
-Fax transmission
-================
-
-It's possible to send faxes from Wazo using the fax Xlet in the Wazo Client.
-
-.. figure:: images/cti-client-fax.png
-
-   The fax Xlet in the Wazo Client
-
-
-The file to send must be in PDF format.
-
-
 Fax reception
 =============
 
@@ -22,16 +9,11 @@ Adding a fax reception DID
 --------------------------
 
 If you want to receive faxes from Wazo, you need to add incoming calls definition with the
-`Application` destination and the `FaxToMail` application for every DID you want to receive faxes
-from.
+``Application`` destination and the ``fax_to_mail`` application for every DID you want to receive
+faxes from.
 
 This applies even if you want the action to be different from sending an email, like putting it on a
 FTP server. You'll still need to enter an email address in these cases even though it won't be used.
-
-Note that, as usual when adding incoming call definitions, you must first define the incoming call
-range in the used context.
-
-.. figure:: images/Fax_recv_adding.png
 
 
 Changing the email body
@@ -327,10 +309,10 @@ bandwith. Here's a way to be able to receive a fax in this configuration.
     exten = s,n(g711),Set(__SIP_CODEC_OUTBOUND=alaw,ulaw)
     exten = s,n(end),Return()
 
-#. For each Fax users' DID add the following string in the ``Preprocess subroutine`` field::
+#. For each Fax users' DID add the following string in the ``preprocess_subroutine`` field::
 
     pre-incall-fax
 
-#. For each Outgoing call rule add the the following string in the ``Preprocess subroutine`` field::
+#. For each Outgoing call rule add the following string in the ``preprocess_subroutine`` field::
 
     pre-outcall-fax
