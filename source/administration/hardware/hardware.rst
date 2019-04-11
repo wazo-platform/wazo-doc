@@ -114,7 +114,7 @@ If the *IRQ misses* counter increments, it's not good::
      3 WCTDM/0/2 FXOKS (In use)
      4 WCTDM/0/3 FXOKS (In use)
 
-Digium gives some hints in their *Knowledge Base* here : http://kb.digium.com/entry/1/63/
+Digium gives some hints in their *Knowledge Base* here : https://support.digium.com/community/s/search/All/Home/IRQ
 
 PRI Digium cards needs 1000 interruption per seconds. If the system cannot supply them,
 it increment the IRQ missed counter.
