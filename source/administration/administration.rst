@@ -13,7 +13,6 @@ All configurations are done via the ``xivo-confd`` REST API
    call_logs/call_logs
    callerid
    cli_tools/cli_tools
-   devices/devices
    directories/directories
    directed_pickup
    fax/fax

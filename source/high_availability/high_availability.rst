@@ -103,8 +103,7 @@ phones to switch from Wazo power failure.
    These values will be reset to blank when the HA is disabled.
 
 .. important:: For the telephony devices to take the new proxy/registrar settings
-   into account, you must :ref:`resynchronize the devices <synchronize-device>`
-   or restart them manually.
+   into account, you must resynchronize the devices or restart them manually.
 
 
 Disable node
