@@ -13,7 +13,6 @@ All configurations are done via the ``xivo-confd`` REST API
    call_logs/call_logs
    callerid
    cli_tools/cli_tools
-   conference_room/conference_room
    ctiserver/ctiserver
    customer_informations/customer_informations
    devices/devices
