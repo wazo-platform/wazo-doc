@@ -298,7 +298,7 @@ You can configure Wazo to have the following scenario:
 * He comes back to his office and set his presence to 'Available'
 * The pause will be automatically cancelled
 
-You can :ref:`configure the presence states <presence-actions>` of CTI profiles
+You can `configure the presence states` of CTI profiles
 and attach ``Actions`` to them, such as `Set in pause` or `Enable DND`.
 
 You can then attach an action `Set in pause` for multiple presence states and

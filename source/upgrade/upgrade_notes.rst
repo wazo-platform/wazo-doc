@@ -819,7 +819,7 @@ Consult the `16.03 Roadmap <https://projects.wazo.community/versions/239>`_ for 
 * Bus messages in the *xivo* exchange are now sent with the content-type `application/json`.
   Some libraries already do the message conversion based the content-type. Kombu users will
   receive a python dictionnary instead of a string containing json when a message is received.
-* :ref:`xivo-ctid encryption <ctid-encryption>` is automatically switched on for every XiVO server
+* `xivo-ctid encryption` is automatically switched on for every XiVO server
   and Wazo Client >= 16.02. If you really don't want encryption, you must disable it manually on
   the server after the upgrade. In that case, Wazo Clients will ask whether to accept the connection
   the first time.
@@ -839,7 +839,7 @@ Consult the `16.02 Roadmap <https://projects.wazo.community/versions/238>`_ for 
   installations from the ISO and PXE. In the (rare) case you manually configured the ca-certificates
   package to trust no CA certificates at all, you'll need to manually reconfigure it via
   ``dpkg-reconfigure ca-certificates`` after the upgrade.
-* *xivo-ctid* uses *xivo-auth* to authenticate users. See :ref:`authentication`.
+* *xivo-ctid* uses *xivo-auth* to authenticate users.
 * the `service_discovery` section of the *xivo-ctid* configuration has changed. If you have set up
   :ref:`contact_and_presence_sharing`, you should update your xivo-ctid configuration.
 * the :ref:`cti-protocol` is now versioned and a message will be displayed if the server and a

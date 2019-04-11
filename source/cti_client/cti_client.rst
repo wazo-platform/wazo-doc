@@ -96,7 +96,7 @@ Xlets
 =====
 
 Xlets are features of the Wazo Client. It is the contraction of XiVO applets. To select which xlets
-are displayed in your client, see :ref:`cti-profiles`.
+are displayed in your client.
 
 .. toctree::
    :maxdepth: 1
@@ -128,10 +128,6 @@ This page allows the user to set his network information to connect to the xivo-
 * `Backup server` is the IP address of the backup server.
 * `Port` is the port on which xivo-ctid is listening for connections. (default: 5003)
 * `STARTTLS` is used to specify that a secure connect should be used
-
-.. note::
-
-   To use STARTTLS, the server needs to be configured to :ref:`accept encrypted connection <ctid-encryption>`.
 
 
 Handling callto: and tel: URLs

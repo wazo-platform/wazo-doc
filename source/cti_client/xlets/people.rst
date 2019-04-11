@@ -37,7 +37,7 @@ phone, status and other information configured by the administrator.
 
 .. figure:: /cti_client/xlets/images/cti_client-people-status.png
 
-1. Wazo Client status (see :ref:`presence_option`)
+1. Wazo Client status
 2. Phone status (see :menuselection:`Services --> CTI Server --> Status --> Phone hints` page)
 3. Agent status (logged in or logged out)
 
