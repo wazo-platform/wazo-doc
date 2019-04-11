@@ -166,36 +166,22 @@ It enables call from the PBX :
 Create the to-pabx context
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the webi, create a context named ``to-pabx``:
+Create a context named ``to-pabx``:
 
-* Name : to-pabx
-* Display Name : TO PBX
-* Context type : Outcall
-* Include sub-contexts : No context inclusion
-
-This context will permit to route incoming calls from the Wazo to the PBX.
-
-.. figure:: images/context-to-extern.png
-   :align: center
-   :scale: 85%
+* ``POST /contexts {"name": "to-pabx", "type": "outcall"}``
 
 
 Route incoming calls to PBX
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In our example, incoming calls on spans 1 and 2 (spans pluged to the provider) are routed by
+In our example, incoming calls on spans 1 and 2 (spans plugged to the provider) are routed by
 from-extern context. We are going to create a default route to redirect incoming calls to the PBX.
 
-Create an incoming call as below :
+* ``POST /extensions {"exten": "_XXXX", "context": "from-extern"}`` (according to the number of digits sent by the provider)
+* ``POST /incalls {"destination": {"type": "customiz", "command": "Goto(to-pabx,${XIVO_DSTNUM},1)}}``
 
-* DID : XXXX (according to the number of digits sent by the provider)
-* Context : Incoming calls
-* Destination : Customized
-* Command : Goto(to-pabx,${XIVO_DSTNUM},1)
+* ``PUT /incalls/{incall_id}/extensions/{extension_id}``
 
-.. figure:: images/incoming_call.png
-   :align: center
-   :scale: 85%
 
 
 Create the interconnections
@@ -206,26 +192,17 @@ You have to create two interconnections :
 * provider side : dahdi/g0
 * PBX side : dahdi/g2
 
-In the menu :menuselection:`Services --> IPBX --> Trunk management --> Customized` page :
+The first interconnection :
 
-* Name : t2-operateur
-* Interface : dahdi/g0
-* Context : to-extern
-
-.. figure:: images/interco1.png
-   :align: center
-   :scale: 85%
-
+* ``POST /trunks {'name': "t2-operatoeur", "context": "to-extern"}``
+* ``POST /endpoints/custom {"interface": "dahdi/g0"}``
+* ``PUT /trunks/{trunk_id}/endpoints/custom/{custom_id}``
 
 The second interconnection :
 
-* Name : t2-pabx
-* Interface : dahdi/g2
-* Context : to-pabx
-
-.. figure:: images/interco2.png
-   :align: center
-   :scale: 85%
+* ``POST /trunks {"name": "t2-pabx", "context": "to-pabx"}``
+* ``POST /endpoints/custom {"interface": "dahdi/g2"}``
+* ``PUT /trunks/{trunk_id}/endpoints/custom/{custom_id}``
 
 
 Create outgoing calls
@@ -236,30 +213,14 @@ management --> Outgoing calls` page :
 
 1. Redirect calls to the PBX :
 
-* Name : fsc-pabx
-* Context : to-pabx
-* Trunks : choose the *t2-pabx* interconnection
-
-.. figure:: images/outgoing_call_general.png
-   :align: center
-   :scale: 80%
-
-
-In the extensions tab :
-
-* Exten : XXXX
-
-.. figure:: images/outgoing_call_exten.png
-   :align: center
-   :scale: 75%
-
+* ``POST /outcalls {"name": "fsc-pabx"}``
+* ``PUT /outcalls/{outcall_id}/trunks``
+* ``POST /extensions {"exten": "_XXXX", "context": "to-pabx"}``
+* ``PUT /outcalls/{outcall_id}/extensions/{extension_id}``
 
 2. Create a rule "fsc-operateur":
 
-* Name : fsc-operateur
-* Context : to-extern
-* Trunks : choose the "t2-operateur" interconnection
-
-In the extensions tab::
-
-    exten = X.
+* ``POST /outcalls {"name": "fsc-operateur"}``
+* ``PUT /outcalls/{outcall_id}/trunks``
+* ``POST /extensions {"exten": "_X.", "context": "to-extern"}``
+* ``PUT /outcalls/{outcall_id}/extensions/{extension_id}``

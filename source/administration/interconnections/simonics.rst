@@ -15,14 +15,7 @@ The following configuration is based on the example found `here <http://support.
 General SIP configuration
 =========================
 
-Under :menuselection:`Services --> IPBX --> General settings --> SIP Protocol`.
-
-* General
-
-  * Match users with 'username' field: *checked*
-
-.. figure:: images/simonics_sip_general.png
-    :scale: 85%
+* ``PUT /asterisk/sip/general {..., "match_auth_username": "yes", ...}``
 
 
 Trunk settings
@@ -30,42 +23,14 @@ Trunk settings
 
 Under :menuselection:`Services --> IPBX --> Trunk management --> SIP Protocol`.
 
-* General
+* ``POST /trunks {"context": "from-extern"}``
+* ``POST /endpoints/sip {"username": "GV18005551212", "secret": "password", "type": "friend", "host":
+  "gvgw.simonics.com", options=[["qualify", "yes"], ["callerid", "18005551212"]]``
+* ``PUT /trunks/{trunk_id}/endpoints/sip/{sip_id}``
 
-  * Name: ``GV18005551212``
-  * Authentication username: ``GV18005551212``
-  * Password: ``password``
-  * Caller ID: ``18005551212``
-  * Connection type: ``Friend``
-  * IP Addressing type: ``static``
-
-    * ``gvgw.simonics.com``
-
-  * Context: ``<your incoming call context>``
-
-.. figure:: images/simonics_trunk_general.png
-    :scale: 85%
-
-
-* Register
-
-  * Register: ``checked``
-  * Transport: ``UDP``
-  * Name: ``GV18005551212``
-  * Password: ``password``
-  * Remote Server: ``GV18005551212``
-  * Contact: ``18005551212``
-
-.. figure:: images/simonics_trunk_register.png
-    :scale: 85%
-
-
-* Signaling
-
-  * Monitoring: ``Yes``
-
-.. figure:: images/simonics_trunk_signaling.png
-    :scale: 85%
+* ``POST /registers/sip {"auth_username": "GV18005551212", "auth_password": "password", "transport":
+  "udp", "remote_host": "GV18005551212", "callback_extension": "18005551212"}``
+* ``PUT /trunks/{trunk_id}/registers/sip/{sip_id}``
 
 
 Outgoing calls
