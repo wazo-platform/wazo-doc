@@ -32,9 +32,7 @@ Configuration File and Dialplan
 -------------------------------
 
 First step, you need to create a configuration file, that contain an asterisk context and your IVR
-dialpan. In our example, both (file and context) are named dp-ivr-example.
-
-.. figure:: images/ivr1.png
+dialpan. In our example, both (file and context) are named :file:`/etc/asterisk/extensions_extra.d/dp-ivr-example.conf`.
 
 
 Copy all these lines in the newly created configuration file (in our case, dp-ivr-example) :
@@ -104,12 +102,9 @@ IVR external dial
 To call the script dp-ivr-example from an external phone, you must create an incoming
 call and redirect the call to the script dp-ivr-example with the command :
 
-::
-
-   Goto(dp-ivr-example,s,1)
-
-
-.. figure:: images/ivr4.png
+* ``POST /extensions {"exten": <DID>, "context": "from-extern"}``
+* ``POST /incalls {"destination": {"type": "custom", "command": "Goto(dp-ivr-example,s,1)"}}``
+* ``PUT /incalls/{incall_id}/extensions/{extension_id}``
 
 
 IVR internal dial
@@ -117,9 +112,7 @@ IVR internal dial
 
 To call the script dp-ivr-example from an internal phone you must create an entry in the default
 context (``xivo-extrafeatures`` is included in ``default``). The best way is to add the extension in
-the file :file:`xivo-extrafeatures.conf`.
-
-.. figure:: images/ivr3.png
+the file :file:`/etc/asterisk/extensions_extra.d/xivo-extrafeatures.conf`.
 
 ::
 
@@ -140,24 +133,16 @@ Flowchart
 Create Schedule
 ---------------
 
-First step, create your schedule (1) from the menu :menuselection:`Call management --> Schedules`.
-In the General tab, give a name (3) to your schedule and configure the open hours (4) and select
-the sound which is played when the company is closed.
+First step, create your schedule. Give a name to your schedule and configure the open hours and
+select the sound which is played when the company is closed.
 
-In the Closed hours tab (6), configure all special closed days (7) and select the sound that
-indicate to the caller that the company is exceptionally closed.
+In the Closed hours tab, configure all special closed days and select the sound that indicate to the
+caller that the company is exceptionally closed.
 
 The IVR script is now only available during workdays.
 
-.. figure:: images/ivr6.png
-
-Assign Schedule to Incall
--------------------------
-
-Return editing your Incall (:menuselection:`Call management --> Incoming calls`) and assign the
-newly created schedule in the "Schedules" tab
-
-.. figure:: images/ivr6-2.png
+* ``POST /schedules``
+* ``PUT /incalls/{incall_id}/schedules/{schedule_id}``
 
 
 Use Case: IVR with submenu
