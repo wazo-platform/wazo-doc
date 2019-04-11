@@ -19,8 +19,7 @@ Administrator
 
 The administrator can enable call recording from the user form in the web interface.
 
-.. figure:: images/webi_call_recording.png
-   :scale: 85%
+* With ``PUT /users/{user_uuid} {"call_record_enabled": True}``
 
 
 User
@@ -39,8 +38,7 @@ Extensions
 The extensions for call recording and online call recording are available in the web interface
 in the extension form.
 
-.. figure:: images/webi_call_recording_extensions.png
-   :scale: 85%
+* With ``/extensions/features`` endpoint and ``feature: callrecord``
 
 
 Disable user call control management
@@ -50,19 +48,15 @@ To disable call recording for user, disable the `Call recording` extension in th
 
 To disable online call recording, uncheck the `Enable online call recording` option in the user form.
 
-.. figure:: images/webi_online_call_recording.png
-   :scale: 85%
+* With ``PUT /users/{user_uuid} {"online_call_record_enabled": False}``
 
 
 Files
 -----
 
-Recorded files are available in the web interface in the `Audio files`, `monitor` menu.
+Recorded files are not available for the now with REST API.
 
-.. figure:: images/webi_call_recording_files.png
-   :scale: 85%
-
-Recordings are located in `/var/spool/asterisk/monitor`
+Recordings are located in :file:`/var/spool/asterisk/monitor`
 
 
 File names
@@ -89,7 +83,7 @@ Example 1:
 
 Creating recording in a sub-directory for each entity
 
-A file with the following content in `/etc/xivo-agid/conf.d/call_recording.yml`:
+A file with the following content in :file:`/etc/xivo-agid/conf.d/call_recording.yml`:
 
 .. code-block:: yaml
 
@@ -97,25 +91,25 @@ A file with the following content in `/etc/xivo-agid/conf.d/call_recording.yml`:
      filename_template: "{{ tenant_uuid }}/{{ utc_time }}-{{ srcnum }}-{{ dstnum }}"
 
 
-This configuration would write the files in `/var/spool/asterisk/monitor/<tenant_uuid>/`. The
-name of the files would be `<utc_time>-<srcnum>-<dstnum>.wav`
+This configuration would write the files in :file:`/var/spool/asterisk/monitor/<tenant_uuid>/`. The
+name of the files would be :file:`<utc_time>-<srcnum>-<dstnum>.wav`
 
 Example 2:
 
 Creating recording in another directory
 
-A file with the following content in `/etc/xivo-agid/conf.d/call_recording.yml`:
+A file with the following content in :file:`/etc/xivo-agid/conf.d/call_recording.yml`:
 
 .. code-block:: yaml
 
    call_recording:
      filename_template: "/home/pcm/call/user-{{ srcnum }}-{{ dstnum }}-{{ timestamp }}"
 
-This configuration would write the files in the `/home/pcm/call` directory. The name of the
-files would be `user-<srcnum>-<dstnum>-<timestamp>.wav`. Which is the default with another
+This configuration would write the files in the :file:`/home/pcm/call` directory. The name of the
+files would be :file:`user-<srcnum>-<dstnum>-<timestamp>.wav`. Which is the default with another
 location.
 
-.. note:: recording that are not directly in `/var/spool/asterisk/monitor` will not be shown
+.. note:: recording that are not directly in :file:`/var/spool/asterisk/monitor` will not be shown
    in the web interface.
 
 .. note:: Asterisk needs write permission to be able to write the recordings in the configured
@@ -124,21 +118,21 @@ location.
 The filename for online call recording cannot be configured from the configuration file but
 can be modified using a pre-process subroutine.
 
-The file format is always `auto-timestamp-<TOUCH_MIXMONITOR>.wav`. TOUCH_MIXMONITOR is a
+The file format is always :file:`auto-timestamp-<TOUCH_MIXMONITOR>.wav`. ``TOUCH_MIXMONITOR`` is a
 channel variable that can be set before the call starts.
 
 
 File extensions
 ^^^^^^^^^^^^^^^
 
-For online call recording, the file format can be modified using the `TOUCH_MIXMONITOR_FORMAT`
+For online call recording, the file format can be modified using the ``TOUCH_MIXMONITOR_FORMAT``
 channel variable.
 
-For call recording the default value is `wav` and can be modified with a configuration file.
+For call recording the default value is ``wav`` and can be modified with a configuration file.
 
 Example:
 
-Add a file names `/etc/xivo-agid/conf.d/recording.yml` with the following content:
+Add a file names :file:`/etc/xivo-agid/conf.d/recording.yml` with the following content:
 
 .. code-block:: yaml
 
