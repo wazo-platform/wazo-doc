@@ -629,7 +629,7 @@ is also the first release of Wazo under the "phoenix" codename.
 
 * A :ref:`special procedure <xivo-to-wazo>` is required to upgrade from XiVO to Wazo.
 * Asterisk has been upgraded from version 13.11.2 to 14.2.1, which is a major Asterisk upgrade.
-* If you are using :ref:`custom sheets <custom-call-form>` that are stored locally, they *must* now
+* If you are using `custom sheets` that are stored locally, they *must* now
   be readable by the system user ``xivo-ctid``. Make sure that this user has read access to the UI
   file of your custom sheets.
 * Switchboard statistics have been removed. The existing statistics data remain in the database for

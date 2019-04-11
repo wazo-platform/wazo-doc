@@ -437,7 +437,7 @@ Example:
 call_form_result
 ----------------
 
-The call_form_result event is sent when a :ref:`custom call form <custom-call-form>`
+The call_form_result event is sent when a custom call form
 is submitted by a CTI client.
 
 * routing key: call_form_result
