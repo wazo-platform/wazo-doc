@@ -24,7 +24,6 @@ All configurations are done via the ``xivo-confd`` REST API
    music_on_hold
    paging
    parking
-   phonebook
    provisioning/provisioning
    security
    sccp/sccp

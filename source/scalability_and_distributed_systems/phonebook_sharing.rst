@@ -5,7 +5,7 @@ Phonebook Sharing
 *****************
 
 Sharing phonebooks allows users of different Wazo servers to access the contacts in the
-:ref:`phonebooks <phonebook>` of the other Wazo servers.
+phonebooks of the other Wazo servers.
 
 .. figure:: images/phonebook_sharing_diagram.png
 
