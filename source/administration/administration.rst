@@ -21,7 +21,6 @@ All configurations are done via the ``xivo-confd`` REST API
    incall
    interconnections/interconnections
    ivr/ivr
-   monitoring/monitoring
    music_on_hold
    paging
    parking
