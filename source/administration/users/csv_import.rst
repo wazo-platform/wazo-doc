@@ -141,15 +141,7 @@ Call permissions
 Importing a file
 ----------------
 
-Once your file is ready, you can import it via :menuselection:`Services --> IPBX --> IPBX settings
---> Users`. At the top of the page there is a plus button. A submenu will appear when the mouse is
-on top. Click on Import a file.
-
-.. figure:: images/Import_user_menu.png
-   :scale: 80%
-   :alt: Import users
-
-   Import Users
+Once your file is ready, you can import it via ``POST /users/import``
 
 
 Examples
@@ -193,15 +185,7 @@ The following restrictions must also be respected during update:
 * A line’s protocol cannot be changed (i.e you cannot go from “sip” to “sccp” or vice-versa).
 * An incall cannot be updated if the user has more than one incall associated.
 
-Updating is done through the same menu as importing (:menuselection:`Services --> IPBX --> IPBX
-settings --> Users`). A submenu will appear when the mouse is on top. Click on `Update from file` in
-the submenu.
-
-.. figure:: images/Update_user_menu.jpg
-   :scale: 80%
-   :alt: Update users
-
-   :menuselection:`Services --> IPBX --> IPBX settings --> Users --> Update from file`
+Updating is done through the ``PUT /users/import`` endpoint
 
 
 CSV Export
@@ -211,12 +195,4 @@ CSV exports can be used as a scaffold for updating users, or as a means of impor
 another system. An export will generate a CSV file with the same list of columns as an import, with
 the addition of uuid and provisioning_code.
 
-Exports are done through the same menu as importing (:menuselection:`Services --> IPBX --> IPBX
-settings --> Users`).  Click on `Export to CSV` in the submenu. You will be asked to download a
-file.
-
-.. figure:: images/Export_user_menu.jpg
-   :scale: 80%
-   :alt: Export users
-
-   :menuselection:`Services --> IPBX --> IPBX settings --> Users --> Export to CSV`
+Exports are done through the ``GET /users/export``
