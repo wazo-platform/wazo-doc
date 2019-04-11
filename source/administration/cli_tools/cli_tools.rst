@@ -79,7 +79,7 @@ wazo-dist is the wazo repository sources manager. It is used to switch between d
 * switch to production repository : ``wazo-dist phoenix``
 * switch to development repository : ``wazo-dist wazo-dev-stretch``
 * switch to release candidate repository : ``wazo-dist wazo-rc-stretch``
-* switch to an archived version's repository (here 14.18) : ``wazo-dist wazo-18.02``
+* switch to an archived version's repository: ``wazo-dist wazo-18.02``
 
 
 xivo-provd-cli
