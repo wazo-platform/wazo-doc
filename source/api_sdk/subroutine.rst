@@ -7,14 +7,15 @@ Subroutine
 What is it ?
 ============
 
-The preprocess subroutine allows you to enhance Wazo features through the Asterisk dialplan. Features that can be enhanced are :
+The ``preprocess_subroutine`` allows you to enhance Wazo features through the Asterisk dialplan.
+Features that can be enhanced are :
 
-* User
-* Group
-* Queue
-* Meetme
-* Incoming call
-* Outgoing call
+* ``/users``
+* ``/groups``
+* ``/queues``
+* ``/conferences``
+* ``/incalls``
+* ``/outcalls``
 
 There are three possible categories :
 
@@ -22,7 +23,9 @@ There are three possible categories :
 * Subroutine for global forwarding
 * Subroutine for global incoming call to an object
 
-Subroutines are called at the latest possible moment in the dialplan, so that the maximum of variables have already been set: this way, the variables can be read and modified at will before they are used.
+Subroutines are called at the latest possible moment in the dialplan, so that the maximum of
+variables have already been set: this way, the variables can be read and modified at will before
+they are used.
 
 Here is an example of the dialplan execution flow when an external incoming call to a user being
 forwarded to another external number (like a forward to a mobile phone):
@@ -39,14 +42,13 @@ Adding new subroutine
 Where
 -----
 
-You can write the subroutine in two locations, depending on what you prefer:
+You can write the subroutine:
 
-* add or edit a file in the web interface :menuselection:`Services --> IPBX --> IPBX Configuration --> Configuration files`
 * add/edit a file directly on the server in :file:`/etc/asterisk/extensions_extra.d`
 
-The two operations are strictly equivalent.
-
-.. note:: Since all configuration files will be merged together in the end, it does not matter in which file you write your subroutine. The different files are only here to find your way back more quickly than one big configuration file. So don't be afraid to create new files!
+.. note:: Since all configuration files will be merged together in the end, it does not matter in
+          which file you write your subroutine. The different files are only here to find your way
+          back more quickly than one big configuration file. So don't be afraid to create new files!
 
 What
 ----
@@ -60,15 +62,15 @@ An example::
 Subroutines should always end with a ``Return()``. You may replace ``Return()`` by a ``Goto()`` if
 you want to completely bypass the Wazo dialplan, but this is not recommended.
 
-To plug your subroutine into the Wazo dialplan, you must add ``myexample`` in the subroutine field
-in the web interface, e.g. :menuselection:`Services --> IPBX --> PBX Settings --> Users --> Edit --> tab General --> Preprocess subroutine`.
+To plug your subroutine into the Wazo dialplan, you must add ``myexample`` in the
+``preprocess_subroutine`` subroutine field of your object.
 
 
 Global subroutine
 =================
 
-There is predefined subroutine for this feature, you can find the name and the activation in the :file:`/etc/xivo/asterisk/xivo_globals.conf`.
-The variables are::
+There is predefined subroutine for this feature, you can find the name and the activation in the
+:file:`/etc/xivo/asterisk/xivo_globals.conf`. The variables are::
 
    ; Global Preprocess subroutine
    XIVO_PRESUBR_GLOBAL_ENABLE = 1
@@ -117,8 +119,10 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
 
 * ``WAZO_CHANNEL_DIRECTION``: can have two values:
 
-  * ``from-wazo`` when the channel was initiated by Wazo: the channel links Wazo to the called party. From Asterisk, this is an outbound channel. From the peer, this is an incoming call
-  * ``to-wazo`` when the channel was initiated by the user: the channel links Wazo to the calling party. From Asterisk, this is an inbound channel. From the peer, this is an outgoing call.
+  * ``from-wazo`` when the channel was initiated by Wazo: the channel links Wazo to the called
+    party. From Asterisk, this is an outbound channel. From the peer, this is an incoming call
+  * ``to-wazo`` when the channel was initiated by the user: the channel links Wazo to the calling
+    party. From Asterisk, this is an inbound channel. From the peer, this is an outgoing call.
 
   The default value is ``from-wazo``. If you write scripts using originates to place new calls, you
   should set ``WAZO_CHANNEL_DIRECTION`` to ``to-wazo`` on the originator channel.
