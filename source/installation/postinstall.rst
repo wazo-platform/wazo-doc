@@ -13,10 +13,10 @@ When you call internally another phone of the system you would like your phone t
 of the called person (instead of the dialed number only).
 To achieve this you must change the following SIP options:
 
-* :menuselection:`Services --> IPBX --> General settings --> SIP Protocol --> Default`:
+* ``PUT /asterisk/sip/general``
 
-    * Trust the Remote-Party-ID: yes,
-    * Send the Remote-Party-ID: select ``PAI``
+    * ``trustrpid``: ``yes`
+    * ``sendrpid``: ``pai``
 
 
 .. _callerid_num_normalization:
@@ -32,8 +32,10 @@ You can modify it via the file :file:`/etc/xivo/asterisk/xivo_in_callerid.conf`.
 
 Examples:
 
-* If you use a prefix to dial outgoing numbers (like a 0) you should add a 0 to all the ``add =`` sections,
-* You may want to display incoming numbers in E.164 format. For example, you can change the ``[national1]`` section to::
+* If you use a prefix to dial outgoing numbers (like a 0) you should add a 0 to all the ``add =``
+  sections,
+* You may want to display incoming numbers in E.164 format. For example, you can change the
+  ``[national1]`` section to::
 
     callerid = ^0[1-9]\d{8}$
     strip = 1
@@ -47,9 +49,8 @@ To enable the changes you have to restart xivo-agid::
 Time and date
 =============
 
-* Configure your locale and default time zone device template => :menuselection:`Configuration --> Provisioning --> Template Device`
-  by editing the default template
-* Configure the timezone in => :menuselection:`Services --> IPBX --> General settings --> Advanced --> Timezone`
+* Configure your locale and default time zone device template with ``xivo-provd`` endpoint
+  ``/provd/cfg_mgr/config`` by editing the default template
 * If needed, reconfigure your timezone for the system::
 
     dpkg-reconfigure tzdata
@@ -58,25 +59,15 @@ Time and date
 Codecs
 ======
 
-You should also select default codecs. It obviously depends on the telco links, the country, the phones, the usage, etc.
-Here is a typical example for Europe (the main goal in this example is to select *only* G.711 A-Law instead of both G.711 A-Law and G.711 µ-Law by default):
+You should also select default codecs. It obviously depends on the telco links, the country, the
+phones, the usage, etc.
+Here is a typical example for Europe (the main goal in this example is to select *only* ``alaw``
+instead of both ``alaw`` and ``ulaw`` by default):
 
-* SIP : :menuselection:`Services --> IPBX --> General settings --> SIP Protocol --> Signaling`:
+* ``PUT /asterisk/sip/general``
 
-    * Customize codec : enabled
-    * Codec list::
+    * ``allow``: ``alaw,g722,g729,h264``
 
-        G.711 A-Law
-        G.722
-        G.729A
-        H.264
+* ``PUT /asterisk/iax/general``
 
-* IAX2 : :menuselection:`Services --> IPBX --> General settings -->  IAX Protocol --> Default`:
-
-    * Customize : enabled
-    * Codec list::
-
-        G.711 A-Law
-        G.722
-        G.729A
-        H.264
+    * ``allow``: ``alaw,g722,g729,h264``
