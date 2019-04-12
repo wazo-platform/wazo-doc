@@ -30,4 +30,3 @@ Component specific information:
    diagrams
    provisioning/provisioning
    sccp
-   webi
