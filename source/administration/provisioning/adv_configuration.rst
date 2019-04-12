@@ -7,9 +7,7 @@ Advanced Configuration
 DHCP Integration
 ================
 
-If your phones are getting their network configuration from your Wazo's DHCP server,
-it's possible to activate the DHCP integration on the
-:menuselection:`Configuration --> Provisioning --> General` page.
+DHCP integration is enabled by default without possibility to disable it.
 
 What DHCP integration does is that, on every DHCP request made by one of your
 phones, the DHCP server sends information about the request to ``provd``, which
@@ -176,8 +174,7 @@ Let's suppose we have the old ``xivo-aastra-3.2.2.1136`` plugin installed on our
 Wazo and want to use the newer ``xivo-aastra-3.3.1-SP2`` plugin.
 
 Both these plugins can be installed at the same time, and you can manually change
-the plugin used by a phone by editing it via the :menuselection:`Services --> IPBX --> Devices`
-page.
+the plugin used by a phone with ``PUT /devices/{device_id}``.
 
 If you are using custom templates in your old plugin, you should copy
 them to the new plugin and make sure that they are still compatible.
@@ -191,7 +188,7 @@ Or, if you also want to synchronize (i.e. reboot) them at the same time::
 
    xivo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2", synchronize=True)'
 
-You can check that all went well by looking at the :menuselection:`Services --> IPBX --> Devices`
+You can check that all went well by looking at ``GET /devices``
 page.
 
 
@@ -209,8 +206,7 @@ behaviour when the provisioning server is used in a NAT environment, since in th
 that more than 1 devices have the same source IP address (from the point of view of the server).
 
 If *all* your devices used on your Wazo are behind a NAT, you should disable this behaviour by
-setting the ``NAT`` option to 1 via the :menuselection:`Configuration --> Provisioning --> General`
-page.
+setting the ``nat`` option to ``yes`` with ``PUT /asterisk/sip/general``.
 
 Enabling the NAT option will also improve the performance of the provisioning server in this scenario.
 
@@ -229,9 +225,9 @@ Limitations
 
 * All your devices must be behind a NAT equipment (the devices may be grouped behind different NAT
   equipments, not necessarily the same one)
-* You must provision the devices via the Web interface, i.e. associate the devices from the user
-  form. Using the 6-digit provisioning code on the phone will produce unexpected results (i.e. the
-  wrong device will be provisioned)
+* You must provision the devices via REST API ``PUT /lines/{line_id}/devices/{device_id}``. Using
+  the 6-digit provisioning code on the phone will produce unexpected results (i.e. the wrong device
+  will be provisioned)
 
 For technical information about why other devices are not supported, you can look at `this issue
 <https://projects.wazo.community/issues/5107>`_  on the Wazo bug tracker.
