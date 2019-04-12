@@ -34,8 +34,7 @@ Getting Started
 * Apply the skills to the agents
 * Create the skill rule sets
 * Assign the skill rule sets using a configuration file
-* Apply the skill rule sets to call qualification, i.e. incoming calls by using the preprocess
-  subroutine field
+* Apply the skill rule sets to call qualification
 
 Note that you shouldn't use skill based routing on a queue with queue members of type user because
 the behaviour is not defined and might change in a future Wazo version.
@@ -44,24 +43,15 @@ the behaviour is not defined and might change in a future Wazo version.
 Skills
 ======
 
-Skills are created using the menu :menuselection:`Services --> Call center --> Skills`. Each skill
-belongs to a category.  First create the category, and in this category create different skills.
+Skills are created using:
 
-Note that a skill name can't contain upper case letters and must be globally unique (i.e. the
-same name can't be used in two different categories).
+* ``POST /agents/skills``
 
-.. figure:: images/sbr_skills.png
+Once all the skills are created you may apply them to agents. Agents may have one or more skills.
 
-   Skills Creation
+* ``PUT /agents/{agent_id}/skills/{skill_id} {"skill_weight": 55}``
 
-Once all the skills are created you may apply them to agents. Agents may have one or more skills
-from different categories.
-
-.. figure:: images/sbr_agent_skills.png
-
-   Apply Skills to Agents
-
-It is typical to use a value between 0 and 100 inclusively as the weight of a skill, although
+It is typical to use a value between 0 and 100 inclusively as the ``skill_weight``, although
 any integer is accepted.
 
 
@@ -69,6 +59,8 @@ Skill Rule Sets
 ===============
 
 Once skills are created, rule sets can be defined.
+
+* ``POST /queues/skillrules``
 
 A rule set is a list of rules. Here's an example of a rule set containing 2 rules:
 
@@ -84,9 +76,9 @@ And the second rule can be read as:
 
    Only try to call agents which have the skill "english" set to a value higher than 0.
 
-Let's examine some simple scenarios, because there's actually
-some subtilities on how calls are distributed. We will suppose that we have a queue with the default
-settings and the following members:
+Let's examine some simple scenarios, because there's actually some subtleties on how calls are
+distributed. We will suppose that we have a queue with the default settings and the following
+members:
 
 * Agent A, with skill english set to 75
 * Agent B, with skill english set to 25
@@ -195,10 +187,6 @@ Queue() call. For example, if you call Queue() with the skill rule set argument 
 
 Then every ``$lang`` occurrence will be replaced by 'german'.
 
-.. figure:: images/sbr_rule_set.png
-
-   Create Skill Rule Sets
-
 :Examples:
 
 * english > 50
@@ -258,38 +246,10 @@ constant. This means the following expressions are not accepted:
 Apply Skill Rule Sets
 =====================
 
-A skill rule set is attached to a call using a bit of dialplan.  This dialplan is stored in a
-configuration file you may edit using menu :menuselection:`Services --> IPBX --> Configuration
-Files`.
+A skill rule set is attached to a call using an incoming call.
 
-.. figure:: images/sbr_configuration_file.png
-   :scale: 85%
-
-   Use Rule Set In Dialplan
-
-In the figure above, 3 different languages are selected using three different subroutines.
-
-Each of this different selections of subroutines can be applied to the call qualifying object.
-In the following example language selection is applied to incoming calls.
-
-.. figure:: images/sbr_apply_incoming_call.png
-   :scale: 85%
-
-   Apply Rule Set to Incoming Call
-
-:Example:
-
-Configuration file for simple skill selection :
-
-::
-
-   [simple_skill_english]
-   exten = s,1,Set(XIVO_QUEUESKILLRULESET=english_rule_set)
-   same  =   n,Return()
-
-   [simple_skill_french]
-   exten = s,1,Set(XIVO_QUEUESKILLRULESET=french_rule_set)
-   same  =   n,Return()
+* ``POST incalls {"destination": {"type": "queue", "skill_rule_id": <id>, "skill_rule_variables": {"lang": "english"}}}``
+* ``POST incalls {"destination": {"type": "queue", "skill_rule_id": <id>, "skill_rule_variables": {"lang": "french"}}}``
 
 
 Monitoring
