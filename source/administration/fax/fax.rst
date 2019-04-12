@@ -78,7 +78,7 @@ Using the advanced features
 ---------------------------
 
 The following features are only available via the :file:`/etc/xivo/asterisk/xivo_fax.conf`
-configuration file. They are not available from the web-interface.
+configuration file.
 
 The way it works is the following:
 
