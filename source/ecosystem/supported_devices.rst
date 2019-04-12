@@ -1006,9 +1006,8 @@ There's the following known limitations/issues with the provisioning of Snom pho
 * When using a D7 expansion module, the function key label will not be shown on the first reboot or
   resynchronization. You'll need to reboot or resynchronize the phone a second time for the label to be
   shown properly.
-* After a factory reset of a phone, if no language and timezone are set for the "default config device"
-  in :menuselection:`Wazo --> Configuration --> Provisioning --> Template device`, you will be forced to
-  select a default language and timezone on the phone UI.
+* After a factory reset of a phone, if no language and timezone are set for the "default config
+  device", you will be forced to select a default language and timezone on the phone UI.
 
 
 Technicolor

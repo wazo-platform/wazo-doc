@@ -164,7 +164,7 @@ Use the following roles when applicable:
 
    The :file:`/dev/null` file.
 
-* ``:menuselection:`` for the web interface menu::
+* ``:menuselection:`` for interface menu::
 
    The :menuselection:`Configuration --> Management --> Certificates` page.
 

@@ -65,6 +65,6 @@ legend can also be used:
 * HK = HardKey
 * MN = Menu
 
-Function keys work using the extensions in :menuselection:`Services --> Extensions`. It is important
-to enable the function keys you want to use.  Also, the enable transfer option in the user
-configuration services tab must be enabled to use transfer function keys.
+Function keys work using the extensions. It is important to enable the function keys you want to
+use. Also, the enable transfer option in the user configuration must be enabled to use transfer
+function keys.

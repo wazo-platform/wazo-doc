@@ -24,24 +24,6 @@ Also, your token needs to have the right ACLs to give you access to the resource
 
 See also :ref:`service-authentication` for details about the token-based authentication process.
 
-Other methods (xivo-confd)
---------------------------
-
-.. warning:: **DEPRECATED**
-
-For compatibility reason, xivo-confd may accept requests without an access token. For this, you must
-create a webservices user in the web interface (:menuselection:`Configuration --> Management --> Web
-Services Access`):
-
-* if an IP address is specified for the user, no authentication is needed
-* if you choose not to specify an IP address for the user, you can connect to the REST API with a
-  HTTP Digest authentication, using the user name and password you provided. For instance, the
-  following command line allows to retrieve Wazo users through the REST API, using the login
-  **admin** and the password **passadmin**::
-
-     curl <options...> --digest --cookie '' -u admin:passadmin https://<wazo_address>:9486/1.1/users
-
-
 HTTP status codes
 =================
 

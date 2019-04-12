@@ -16,8 +16,8 @@ extension.
 The workaround to this problem is to create a preprocess subroutine and assign it to the destinations
 where you have the problem.
 
-Under :menuselection:`Services --> IPBX --> IPBX configuration --> Configuration files` add a new file
-containing the following dialplan::
+Add new file :file:`/etc/asterisk/extensions_extra.d/transfer-dtmf.conf` containing the following
+dialplan::
 
     [allow-transfer]
     exten = s,1,NoOp(## Setting transfer context ##)
@@ -47,8 +47,7 @@ this example) : if a fax is detected, receive it otherwise route the call normal
 
     Be aware that this workaround will probably not survive any upgrade.
 
-#. In the Web Interface and under :menuselection:`Services --> IPBX --> IPBX configuration -->
-   Configuration files` add a new file named *fax-detection.conf* containing the following
+#. Add new file :file:`/etc/asterisk/extensions_extra.d/fax-detection.conf` containing the following
    dialplan::
 
     ;; Fax Detection

@@ -21,8 +21,6 @@ General SIP configuration
 Trunk settings
 ==============
 
-Under :menuselection:`Services --> IPBX --> Trunk management --> SIP Protocol`.
-
 * ``POST /trunks {"context": "from-extern"}``
 * ``POST /endpoints/sip {"username": "GV18005551212", "secret": "password", "type": "friend", "host":
   "gvgw.simonics.com", options=[["qualify", "yes"], ["callerid", "18005551212"]]``

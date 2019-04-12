@@ -17,8 +17,7 @@ Create the :file:`/etc/apt/apt.conf.d/90proxy` file with the following content::
 provd
 =====
 
-Proxy information is set via the :menuselection:`Configuration --> Provisioning --> General`
-page.
+Proxy information is set with ``xivo-provd`` endpoint ``/provd/configuration/http_proxy``.
 
 
 dhcp-update

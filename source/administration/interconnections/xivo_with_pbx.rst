@@ -208,8 +208,7 @@ The second interconnection :
 Create outgoing calls
 ^^^^^^^^^^^^^^^^^^^^^
 
-You must create two rules of outgoing calls in the menu :menuselection:`Services --> IPBX --> Call
-management --> Outgoing calls` page :
+You must create two rules of outgoing calls:
 
 1. Redirect calls to the PBX :
 

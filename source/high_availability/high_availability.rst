@@ -131,10 +131,8 @@ Replication can be started manually by running the replication scripts on the ma
 The replication does not copy the full Wazo configuration of the master. Notably, these
 are excluded:
 
-* All the network configuration (i.e. everything under the
-  :menuselection:`Configuration --> Network` section)
-* All the support configuration (i.e. everything under the
-  :menuselection:`Configuration --> Support` section)
+* All the network configuration
+* All the support configuration
 * Call logs
 * Call center statistics
 * Certificates
