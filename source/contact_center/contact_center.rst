@@ -30,5 +30,4 @@ In Wazo, the contact center is implemented to fulfill the following objectives :
    agents/agents
    queues/queues
    skillbasedrouting/skillbasedrouting
-   statistics/statistics
    reporting/reporting
