@@ -35,7 +35,6 @@ Table of Contents
    introduction/introduction
    installation/installation
    upgrade/upgrade
-   cti_client/cti_client
    system/system
    ecosystem/ecosystem
    administration/administration
