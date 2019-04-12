@@ -5,7 +5,7 @@ Incall
 General Configuration
 =====================
 
-You can configure incoming calls settings in :menuselection:`Services --> IPBX --> Call Management --> Incoming calls`.
+You can configure incoming calls with ``/incalls`` endpoints.
 
 
 :abbr:`DID (Direct Inward Dialing)` Configuration

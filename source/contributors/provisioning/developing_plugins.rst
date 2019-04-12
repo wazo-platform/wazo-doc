@@ -312,20 +312,20 @@ Then, the last piece: the generation of the phone configuration:
                        return defer.fail(Exception('Incompatible sync service: %s' % sync_service))
                    else:
                        return threads.deferToThread(sync_service.sip_notify, ip, 'check-sync')
-   
+
        def get_remote_state_trigger_filename(self, device):
            if u'mac' not in device:
                return None
-   
+
            return self._dev_specific_filename(device)
-   
+
        def is_sensitive_filename(self, filename):
            return bool(self._SENSITIVE_FILENAME_REGEX.match(filename))
-   
+
        def _check_device(self, device):
            if u'mac' not in device:
                raise Exception('MAC address needed to configure device')
-   
+
        def _get_main_proxy_ip(self, raw_config):
            if raw_config[u'sip_lines']:
                line_no = min(int(x) for x in raw_config[u'sip_lines'].keys())
@@ -333,21 +333,21 @@ Then, the last piece: the generation of the phone configuration:
                return raw_config[u'sip_lines'][line_no][u'proxy_ip']
            else:
                return raw_config[u'ip']
-   
-   
+
+
        def _format_mac(self, device):
             return format_mac(device[u'mac'], separator='', uppercase=False)
-   
+
        _SENSITIVE_FILENAME_REGEX = re.compile(r'^[0-9a-f]{12}\.cfg$')
-   
+
        def _dev_specific_filename(self, device):
            filename = '%s.cfg' % self._format_mac(device)
            return filename
-   
+
        def _dev_contact_filename(self, device):
            contact_filename = '%s-contacts.xml' % self._format_mac(device)
            return contact_filename
-   
+
        def _transform_funckeys(self, raw_config):
            return dict(
                (int(k), v) for k, v in raw_config['funckeys'].iteritems()
@@ -363,8 +363,7 @@ Then you can create the configuration templates with Jinja syntax. Here are some
 Upload the plugin on ``provd.wazo.community``
 =============================================
 
-First, change the source of your plugins in :menuselection:`Configuration -> Provisioning ->
-General` (cf. :ref:`alternative-plugins-repo`)
+First, change the source of your plugins (cf. :ref:`alternative-plugins-repo`)
 
 For a development version::
 

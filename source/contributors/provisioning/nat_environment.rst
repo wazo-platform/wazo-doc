@@ -119,7 +119,7 @@ Configuration
 
 #. Put all the phones in the "phones" VLAN on your switch
 
-#. Activate the ``NAT`` and ``Monitoring`` options on the :menuselection:`Services --> IPBX --> General settings --> SIP Protocol` page of your Wazo.
+#. Set the ``nat`` and ``qualify`` to ``yes`` with the ``xivo-confd`` endpoint ``/asterisk/sip/general``
 
 Note that the iptables rules and the IP forwarding setting are not persistent. If you don't make them
 persistent (not documented here), don't forget to reactivate them each time you want to recreate a NAT

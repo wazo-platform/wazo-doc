@@ -207,25 +207,3 @@ add a new file `/etc/asterisk/manager.d/my_new_user.conf` with the following con
  read = system
 
 The same logic applies to all Asterisk configuration files except `asterisk.conf` and `modules.conf`.
-
-
-ipbx.ini
-========
-
-* Path: :file:`/etc/xivo/web-interface/ipbx.ini`
-* Purpose: This file specifies various configuration options and paths related
-  to Asterisk and used by the web interface.
-
-Here is a partial glimpse of what can be configured in file :file:`ipbx.ini` :
-
-#. Enable/Disable modification of SIP line username and password::
-
-      [user]
-      readonly-idpwd = "true"
-
-  When editing a SIP line, the username and password fields cannot be modified
-  via the web interface. Set this option to false to enable the modification of
-  both fields. This option is set to "true" by default.
-
-.. warning:: This feature is not fully tested. It should be used only when
-  absolutely necessary and with great care.

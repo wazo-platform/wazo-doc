@@ -29,12 +29,5 @@ Wazo Client
 All translations are in `Transifex`_ (wazo-client). The source language is English. Translations are
 synchronised with the code before every release.
 
-
-Web Interface
-=============
-
-Translations are currently available in French and English. There are no plans to translate the Web
-interface in other languages.
-
 .. _xivo-sounds: https://github.com/wazo-pbx/xivo-sounds
 .. _Transifex: https://www.transifex.com/wazo/wazo/

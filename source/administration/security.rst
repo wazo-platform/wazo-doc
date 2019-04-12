@@ -64,8 +64,7 @@ Your devices, phones and VoIP gateways, should not be accessible from the Intern
 choice, then the passwords should be changed. Most phones have two different passwords: admin and user passwords.
 
 Some devices allow Wazo to change the password from the auto provisioning system. To change the
-default values from the web-interface go to :menuselection:`Configuration --> Provisioning -->
-Template device`.
+default values, use ``xivo-provd`` endpoint ``/provd/cfg_mgr/configs``.
 
 For other devices, you need to change the passwords manually.
 

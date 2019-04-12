@@ -2,34 +2,25 @@
 Queues
 ******
 
-Call queues are used to distribute calls to the agents subscribed to the queue.  Queues are managed on the
-:menuselection:`Services --> Call Center --> Queues` page.
-
-.. figure:: add-queue.png
-   :scale: 85%
-
-   :menuselection:`Services --> Call Center --> Queues --> Add`
+Call queues are used to distribute calls to the agents subscribed to the queue.  Queues are managed
+with the ``/queues`` endpoints
 
 A queue can be configured with the following options:
 
-   * Name: used as an unique id, cannot be ``general``
-   * Display name: Displayed on the supervisor screen
-   * On-Hold music: The music the caller will hear. The music is played when waiting and when the call is on hold.
-
-A ring strategy defines how queue members are called when a call enters the queue.
+A ``options: strategy`` defines how queue members are called when a call enters the queue.
 A queue can use one of the following ring strategies:
 
-   * Linear: For each call, in the same order, starting from the same member
+   * ``linear``: For each call, in the same order, starting from the same member
 
      * For agents: In login order
      * For static members: In definition order
 
-   * Least recent: call the member who least recently hung up a call
-   * Fewest calls: call the member with the fewest completed calls
-   * Round robin memory: call the "next" member after the one who answered last
-   * Random: call a member at random
-   * Weight random: same as random, but taking the member penalty into account
-   * Ring all: call all members at the same time
+   * ``leastrecent``: call the member who least recently hung up a call
+   * ``fewestcalls``: call the member with the fewest completed calls
+   * ``rrmemory`` (round robin with memory): call the "next" member after the one who answered last
+   * ``random``: call a member at random
+   * ``wrandom`` (weight random): same as random, but taking the member penalty into account
+   * ``ringall``: call all members at the same time
 
    .. warning::
 
@@ -49,65 +40,67 @@ Timers
 
 You may control how long a call will stay in a queue using different timers:
 
-   * Member reachabillity time out (Advanced tab): Maximum number of seconds a call will ring on an agent's phone. If a call is not answered within this time, the call will be forwarded to another agent.
-   * Time before retrying a call to a member (Advanced tab): Used once a call has reached the "Member reachability time out". The call will be put on hold for the number of seconds alloted before being redirected to another agent.
-   * Ringing time (Application tab): The total time the call will stay in the queue.
-   * Timeout priority (Application tab): Determines which timeout to use before ending a call. When set to "configuration", the call will use the "Member reachability time out". When set to "dialplan", the call will use the "Ringing time".
+   * ``options: timeout`` (Member reachabillity time out): Maximum number of seconds a call will
+     ring on an agent's phone. If a call is not answered within this time, the call will be
+     forwarded to another agent.
+   * ``retry_on_timeout`` (Time before retrying a call to a member): Used once a call has reached
+     the "Member reachability time out". The call will be put on hold for the number of seconds
+     allowed before being redirected to another agent.
+   * ``timeout`` (Ringing time): The total time the call will stay in the queue.
+   * ``options: timeoutpriority`` (Timeout priority): Determines which timeout to use before ending
+     a call. When set to "configuration", the call will use the "Member reachability time out". When
+     set to "dialplan", the call will use the "Ringing time".
 
 .. figure:: queue_timers.jpg
    :scale: 85%
 
-No Answer
+
+Fallbacks
 =========
 
-Calls can be diverted on no answer:
+Calls can be diverted on no answer with ``/queues/{queue_id}/fallbacks`` endpoints:
 
-.. figure:: noanswer.png
-    :scale: 85%
-
-* No answer: The call reached the "Ringing time" in Application tab and no agent answered the call
-* Congestion: The number of calls waiting has reached the "Maximum number of people allowed to wait" limit specified on the advanced tab
-* Fail: No agent was available to answer the call when the call entered the queue ("Join an empty queue" condition on the advanced tab) or
-  the call was queued and no agents were available to answer ("Remove callers if there are no agents" on the advanced tab)
+* ``noanswer_destination``: The call reached the ``timeout`` and no agent answered the call.
+* ``congestion_destination``: The number of calls waiting has reached the ``options: maxlen``.
+* ``fail_destination``: No agent was available to answer the call when the call entered the queue
+  (``options: joinempty``) or the call was queued and no agents were available to answer (``options:
+  leavewhenempty``).
 
 
 Diversions
 ==========
 
-Diversions can be used to redirect calls to another destination when a queue is very busy.
-Calls are redirected using one of the two following scenarios:
-
-.. figure:: diversions.png
-    :scale: 85%
+Diversions can be used to redirect calls to another destination when a queue is very busy.  Calls
+are redirected using one of the two threshold: ``wait_ratio_threshold`` and ``ẁait_time_threshold``
 
 The diversion check is done only once per call, before the :ref:`preprocess subroutine <subroutine>` is
 executed and before the call enters the queue.
 
-In the following sections, a waiting call is a call that has entered the queue but has not yet been
-answered by a queue member.
 
+``wait_time_threshold``
+-----------------------
 
-Estimated Wait Time Overrun
----------------------------
+When this scenario is used, the administrator can set a destination for calls to be sent to when the
+estimated waiting time is over the threshold ``wait_time_threshold``.
 
-When this scenario is used, the administrator can set a destination for calls to be sent to when the estimated waiting time is over the threshold.
-
-Note that if a new call arrives when there are no waiting calls in the queue, the call will **always** be allowed to enter the queue.
+Note that if a new call arrives when there are no waiting calls in the queue, the call will
+**always** be allowed to enter the queue.
 
 .. note:: 
   
-  * this *estimated* waiting time is computed from the **actual hold time** of all **answered** calls in the queue 
-    (since last asterisk restart) according to an `exponential smoothing formula <https://en.wikipedia.org/wiki/Exponential_smoothing>`_
+  * this *estimated* waiting time is computed from the **actual hold time** of all **answered**
+    calls in the queue (since last asterisk restart) according to an `exponential smoothing formula
+    <https://en.wikipedia.org/wiki/Exponential_smoothing>`_
   * the estimated waiting time of a queue is updated only when a queue member answers a call.
 
 
 .. _queue-diversion-waitratio:
 
-Number of Waiting Calls per Logged-In Agent Overrun
+``wait_ratio_threshold``
 ---------------------------------------------------
 
-When this scenario is used, the administrator can set a destination for calls to be sent to when the number of waiting
-calls per logged-in agent is over the threshold.
+When this scenario is used, the administrator can set a destination for calls to be sent to when the
+number of waiting calls per logged-in agent is over the ``wait_ratio_threshold``.
 
 The number of waiting calls includes the call for which the check is currently being performed.
 
@@ -119,41 +112,44 @@ The maximum number of waiting calls per logged-in agent can have a fractional pa
 
 Here are a few examples::
 
-    Maximum number of waiting calls per logged-in agent: 1
+    wait_ratio_threshold: 1
     Current number of waiting calls: 2
     Current number of logged-in agents: 2
     Number of waiting calls per logged-in agent when a new call arrives: 3 / 2 = 1.5
-    Call will be redirected
+    Call will be redirected to ``wait_ratio_destination``
 
-    Maximum number of waiting calls per logged-in agent: 0.5
+    wait_ratio_threshold: 0.5
     Number of waiting calls: 5
     Number of logged-in agents: 12
     Number of waiting calls per logged-in agent when a new call arrives: 6 / 12 = 0.5
-    Call will not be redirected
+    Call will not be redirected to ``wait_ratio_destination``
 
 Note that if a new call arrives when there are no waiting calls in the queue, the call will
 **always** be allowed to enter the queue.  For example, in the following scenario::
 
-    Maximum number of waiting calls per logged-in agent: 0.5
+    wait_ratio_threshold: 0.5
     Current number of waiting calls: 0
     Current number of logged-in agents: 1
     Number of waiting calls per logged-in agent when a new call arrives: 1 / 1 = 1
 
-Even if the number of waiting calls per logged-in agent (1) is greater than the maximum (0.5), the call
-will still be accepted since there are currently no waiting calls.
+Even if ``wait_ratio_time`` (1) is greater than the maximum (0.5), the call will still be accepted
+since there are currently no waiting calls.
 
 
 Music on Hold
 =============
 
-The music on hold of the queue will be played:
+The ``music_on_hold`` of the queue will be played:
 
 * When the caller is waiting to be answered.
 * When the caller is put on hold by an agent who already answered.
 
-If you want a different music to be played when the caller is put on hold after being answered, you need to make some more configuration:
+If you want a different music to be played when the caller is put on hold after being answered, you
+need to make some more configuration:
 
-#. Write an AGI script that will set the channel variable ``CHANNEL(musicclass)`` to the name of the music-on-hold class you want the caller to hear when he is put on hold by the agent. Save this script to e.g. ``/usr/local/bin/agi-agent-hold-moh``.
+#. Write an AGI script that will set the channel variable ``CHANNEL(musicclass)`` to the name of the
+   music-on-hold class you want the caller to hear when he is put on hold by the agent. Save this
+   script to e.g. ``/usr/local/bin/agi-agent-hold-moh``.
 #. Add the following :ref:`preprocess subroutine <subroutine>` on the queue::
 
     [setup-agent-hold-moh]

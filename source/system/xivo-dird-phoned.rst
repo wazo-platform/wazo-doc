@@ -20,8 +20,7 @@ need to send 2 informations:
 * `profile`: The profile that the user is associated. It's used to format results as configured.
 
 .. note:: Since most phones dont't support HTTPS, a small protection is to configure
-          authorized_subnets in :ref:`configuration-files` or in :menuselection:`Services -->
-          General settings --> Phonebook --> Hosts`
+          authorized_subnets in :ref:`configuration-files`
 
 
 Launching xivo-dird-phoned

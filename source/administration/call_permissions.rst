@@ -2,10 +2,6 @@
 Call Permissions
 ****************
 
-You can manage call permissions via the
-:menuselection:`Services --> IPBX --> Call management --> Call permissions`
-page.
-
 Call permissions can be used for:
 
 * denying a user from calling a specific extension
@@ -31,21 +27,15 @@ can be used to create fairly complex rules. That said, it is probably
 Examples
 ========
 
-Note that when creating or editing a call permission, you must at least:
-
-* fill the :guilabel:`Name` field
-* have one extension / extension pattern in the :guilabel:`Extensions` field
-
 
 Denying a user from calling a specific extension
 ------------------------------------------------
 
-* Add the extension in the extensions list
-* In the :guilabel:`Users` tab, select the user
+* Create with ``POST /callpermissions``
+* Associate with ``PUT /users/{user_uuid}/callpermissions/{callpermission_id}``
 
 .. note::
-    User's :guilabel:`Rightcall Code` (:menuselection:`Services -> IPBX -> IPBX Settings -> Users` under
-    :guilabel:`Services` tab) overwrite all password call permissions for the user.
+    User's ``call_permission_password`` overwrite all call permissions password for the user.
 
 .. warning::
    The extension can be anything but it will only work if it's the extension of a user or
@@ -61,15 +51,15 @@ aren't required to have a number.
 
 Then,
 
-* Add the extension in the extensions list
-* In the :guilabel:`Groups` tab, select the group
+* Create with ``POST /callpermissions``
+* Associate with ``PUT /groups/{group_id}/callpermissions/{callpermission_id}``
 
 
 Denying users from calling a specific extension on a specific outgoing call
 ---------------------------------------------------------------------------
 
-* Add the extension in the extensions list
-* In the :guilabel:`Outgoing calls` tab, select the outgoing call
+* Create with ``POST /callpermissions``
+* Associate with ``PUT /outcalls/{outcall_id}/callpermissions/{callpermission_id}``
 
 Note that selecting both a user and an outgoing call for the same call permission
 doesn't mean the call permission applies only to that user. In fact, it means that the

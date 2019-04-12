@@ -182,8 +182,7 @@ Consult the `18.06 Roadmap <https://projects.wazo.community/versions/276>`_ for 
   * The custom configuration has been moved to ``/etc/wazo-dird/conf.d/``.
   * The log file has been renamed to ``wazo-dird.log``.
   * The NGINX proxy has been recreated in ``/etc/nginx/locations/https-enabled/wazo-dird``
-  * Entrypoint for custom plugin has been renamed to ``wazo_dird.*``. See
-    :ref:`wazo-dird-integration`.
+  * Entrypoint for custom plugin has been renamed to ``wazo_dird.*``.
 
 * ``xivo-dird-client`` has been renamed ``wazo-dird-client``
 
@@ -230,7 +229,7 @@ Consult the `18.05 Roadmap <https://projects.wazo.community/versions/275>`_ for 
   * In xivo-ctid, the default authentication backend is now `wazo_user`.
 
 * Default phone passwords are now auto-generated. Switchboard users with a Snom device will now have
-  to add a configuration file to store the username and password. See :ref:`switchboard_device_snom`
+  to add a configuration file to store the username and password.
 * Creating user using the REST API now requires the Wazo-Tenant HTTP header when the created user is
   not in the same tenant has its creator.
 * Tenants have been automatically created to match configured entities.
@@ -630,7 +629,7 @@ is also the first release of Wazo under the "phoenix" codename.
 
 * A :ref:`special procedure <xivo-to-wazo>` is required to upgrade from XiVO to Wazo.
 * Asterisk has been upgraded from version 13.11.2 to 14.2.1, which is a major Asterisk upgrade.
-* If you are using :ref:`custom sheets <custom-call-form>` that are stored locally, they *must* now
+* If you are using `custom sheets` that are stored locally, they *must* now
   be readable by the system user ``xivo-ctid``. Make sure that this user has read access to the UI
   file of your custom sheets.
 * Switchboard statistics have been removed. The existing statistics data remain in the database for
@@ -801,7 +800,7 @@ Consult the `16.04 Roadmap <https://projects.wazo.community/versions/240>`_ for 
   only be visible by a non-root administrator after adding the corresponding permissions in the
   administrator configuration.
 * Update the switchboard configuration page for the statistics in
-  :ref:`switchboard_configuration_multi_queues`.
+  switchboard_configuration_multi_queues.
 * The API for associating a line to a device has been replaced. Consult the :ref:`xivo-confd
   changelog <rest-api_changelog>` for further details
 * The configuration parameters of *xivo_ldap_user* plugin of *xivo-auth* has been changed. See
@@ -820,7 +819,7 @@ Consult the `16.03 Roadmap <https://projects.wazo.community/versions/239>`_ for 
 * Bus messages in the *xivo* exchange are now sent with the content-type `application/json`.
   Some libraries already do the message conversion based the content-type. Kombu users will
   receive a python dictionnary instead of a string containing json when a message is received.
-* :ref:`xivo-ctid encryption <ctid-encryption>` is automatically switched on for every XiVO server
+* `xivo-ctid encryption` is automatically switched on for every XiVO server
   and Wazo Client >= 16.02. If you really don't want encryption, you must disable it manually on
   the server after the upgrade. In that case, Wazo Clients will ask whether to accept the connection
   the first time.
@@ -840,9 +839,9 @@ Consult the `16.02 Roadmap <https://projects.wazo.community/versions/238>`_ for 
   installations from the ISO and PXE. In the (rare) case you manually configured the ca-certificates
   package to trust no CA certificates at all, you'll need to manually reconfigure it via
   ``dpkg-reconfigure ca-certificates`` after the upgrade.
-* *xivo-ctid* uses *xivo-auth* to authenticate users. See :ref:`authentication`.
+* *xivo-ctid* uses *xivo-auth* to authenticate users.
 * the `service_discovery` section of the *xivo-ctid* configuration has changed. If you have set up
-  :ref:`contact_and_presence_sharing`, you should update your xivo-ctid configuration.
+  contact_and_presence_sharing, you should update your xivo-ctid configuration.
 * the :ref:`cti-protocol` is now versioned and a message will be displayed if the server and a
   client have incompatible protocol versions.
 

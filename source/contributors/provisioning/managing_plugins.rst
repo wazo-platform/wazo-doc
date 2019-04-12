@@ -116,8 +116,9 @@ uploading the plugins to ``provd.wazo.community``::
   git push  # this step is important: it validates that your build is up-to-date and will not remove anything
   make upload
 
-Afterwards, in the web-interface, you must modify the URL in section
-:menuselection:`Configuration --> Provisioning --> General` to::
+
+Afterwards, you must modify the ``plugin_server``. This can be changed with ``xivo-provd`` endpoint
+``/provd/configure/plugin_server``.
 
    `http://provd.wazo.community/plugins/1/testing/`
 

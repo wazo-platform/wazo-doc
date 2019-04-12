@@ -44,7 +44,7 @@ Consult the `15.19 Roadmap <https://projects.wazo.community/versions/236>`_
   * restart xivo-dird
 
 * It is now possible to send an email to a user with a configured email address in the
-  *people* xlet. See :ref:`dird-integration-views`  to add the appropriate field to your
+  *people* xlet. See dird-integration-views to add the appropriate field to your
   configured displays.
 * The *Contacts* xlet (aka. *Search*) has been removed in favor of the :ref:`people-xlet`. You may
   need to do some manual configuration in the directories for the People Xlet to be fully
@@ -206,7 +206,7 @@ Consult the `15.15 Roadmap <https://projects.wazo.community/versions/231>`_
  * Most of the configuration for xivo-dird is now generated from xivo-confgen using the values in the web interface.
  * The `remote directory` xlet has been removed in favor of the new `people` xlet.
 
-See :ref:`directories` and :ref:`wazo-dird-integration` for more details
+See `wazo-dird-integration` for more details
 
 
 15.14
@@ -434,7 +434,7 @@ If you have Aastra phones and are using the remote directory on them, consult th
   maintained manually. No action is needed upon upgrade but be aware that the upstream sample file
   is now available in :file:`/usr/share/dahdi/modules.sample`. See
   :ref:`dahdi modules documentation <load_dahdi_modules>` for detailed info.
-* The new :ref:`CCSS feature <ccss>` will not be enabled upon upgrade, you must explicitly enable it
+* The new `CCSS feature` will not be enabled upon upgrade, you must explicitly enable it
   in the :menuselection:`IPBX --> IPBX Services --> Extensions` menu.
 
 

@@ -23,38 +23,3 @@ Getting Started
 * Create a user with a SIP line and a provisioned device.
 * Create agents.
 * Create a queue adding created agent as member of queue.
-
-
-
-Creating agents
-================
-
-Service > Call center > Agents > General
-----------------------------------------
-
-These settings are specific for a given agent.
-
-
-Service > Call center > Agents > Users
---------------------------------------
-
-These settings are specific for a given agent.
-
-
-Service > Call center > Agents > Queues
----------------------------------------
-
-These settings are specific for a given agent.
-
-
-Service > Call center > Agents > Advanced
------------------------------------------
-
-These settings are specific for a given agent.
-
-
-Service > IPBX > General settings > Advanced > Agent
-----------------------------------------------------
-
-These settings are global for all agents.
-

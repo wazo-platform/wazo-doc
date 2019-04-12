@@ -22,7 +22,7 @@ Tables Purged
 The following features are impacted by xivo-purge-db:
 
 - :ref:`call_logs`
-- :ref:`Call center statistics <call_center_stats>`
+- Call center statistics
 
 More technically, the tables purged by ``xivo-purge-db`` are:
 

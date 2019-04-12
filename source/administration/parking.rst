@@ -9,16 +9,11 @@ see that some one is waiting for an answer, push the phone key and get the call 
 .. figure:: images/parking_intro.png
    :scale: 85%
 
-There is a default parking number, 700, which is already configured when you install Wazo,
-but you may change the default configuration by editing the parking extension in menu
-:menuselection:`Service --> IPBX --> IPBX Services --> Extensions --> Advanced --> Parking`
+You can manage parking with ``/parkinglots`` endpoints
 
-.. figure:: images/parking_extension.png
-   :scale: 90%
-
-Using this extension, you may define the parking number used to park call, the parking lots, wether the sytem is rotating over
-the parking lots to park the calls, enable parking hint if you want to be able to supervise the parking using phone keys and other
-system default parameters.
+Using this extension, you may define the parking number used to park call, the parking lots, whether
+the system is rotating over the parking lots to park the calls, enable parking hint if you want to be
+able to supervise the parking using phone keys and other system default parameters.
 
 You have two options in case of parking timeout :
 
@@ -28,11 +23,11 @@ You have two options in case of parking timeout :
 
 * Send park call to the dialplan
 
-  In case you don't want to call back the user who parked the call, you have the option to send the call to any other extension or application.
+  In case you don't want to call back the user who parked the call, you have the option to send the
+  call to any other extension or application.
   If the parking times out, the call is sent back to the dialplan in context ``[parkedcallstimeout]``.
-  You can define this context in a dialplan configuration file :menuselection:`Service --> IPBX --> Configuration Files` where you may
-  define this context with dialplan commands.
-
+  You can define this context in a dialplan configuration file located to
+  :file:`/etc/asterisk/extensions_extra.d/`
 
   Example::
 
@@ -40,10 +35,3 @@ You have two options in case of parking timeout :
    exten = s,1,Noop('park call time out')
    same  =   n,Playback(hello-world)
    same  =   n,Hangup()
-
-
-
-It is also usual to define supervised phone keys to be able to park and unpark calls as in the example below.
-
-.. figure:: images/parking_phone_keys.png
-   :scale: 90%

@@ -2,25 +2,21 @@
 Graphics
 ********
 
-The Services/Graphics section gives a historical overview of a Wazo system's
-activity based on snapshots recorded every 5 minutes.
+There are graphics, locate to :file:`/var/cache/munin/www/localdomain/localhost.localdomain/`, that
+give a historical overview of a Wazo system's activity based on snapshots recorded every 5 minutes.
 Graphics are available for the following resources :
 
-* CPU
-* Entropy
-* Interruptions
-* IRQ Stats
-* System Load
-* Memory Usage
-* Open Files
-* Open Inodes
-* Swap Usage
+* :file:`cpu-*.png`
+* :file:`entropy-*.png`
+* :file:`interrupts-*.png`
+* :file:`irqstats-*.png`
+* :file:`load-*.png`
+* :file:`memory-*.png`
+* :file:`open_files-*.png`
+* :file:`open_inodes-*.png`
+* :file:`swap-*.png`
 
-Each section is presented as a series of 4 graphics : daily, weekly, monthly
-and yearly history. Each graphic can be clicked on to zoom. All information presented is read only.
-
-.. figure:: graphics_overview.png
-   :scale: 85%
+Each graphic is available with different time range: ``day``, ``week``, ``month``, ``year``
 
 
 Troubleshooting

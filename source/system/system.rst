@@ -6,7 +6,6 @@ System
    :maxdepth: 2
 
    DHCP Server <dhcp/dhcp>
-   Mail <mail/mail>
    Network <network/network>
    backup_restore
    https_certificate

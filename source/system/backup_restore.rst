@@ -22,10 +22,7 @@ Logrotate cron:
 Retrieve the backup
 ===================
 
-You can retrieve the backup from the web-interface in
-:menuselection:`Services --> IPBX --> IPBX Configuration --> Backup Files` page.
-
-Otherwise, with shell access, you can retrieve them in :file:`/var/backups/xivo`.
+With shell access, you can retrieve them in :file:`/var/backups/xivo`.
 In this directory you will find :file:`db.tgz` and :file:`data.tgz` files for the database and data
 backups.
 
@@ -188,8 +185,7 @@ Before Restoring the System
 
 .. warning::
 
-    Before restoring a Wazo on a fresh install you have to setup Wazo using the wizard (see
-    :ref:`configuration_wizard` section).
+    Before restoring a Wazo on a fresh install you have to setup Wazo using the wizard.
 
 Stop monit and all the Wazo services::
 

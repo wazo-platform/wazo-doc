@@ -25,8 +25,6 @@ General Architecture
    Asterisk and by custom dialplan events
 #. *xivo-stat fill_db* is then used to read data from the *queue_log* table and
    generate the tables *stat_call_on_queue* and *stat_queue_periodic*
-#. The web interface generate tables and graphics from the *stat_call_on_queue*
-   and *stat_queue_periodic* tables depending on the selected configuration
 
 
 Statistic Data Table Content

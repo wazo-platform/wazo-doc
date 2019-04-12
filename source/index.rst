@@ -34,7 +34,6 @@ Table of Contents
 
    introduction/introduction
    installation/installation
-   getting_started/getting_started
    upgrade/upgrade
    cti_client/cti_client
    system/system
@@ -42,7 +41,6 @@ Table of Contents
    administration/administration
    contact_center/contact_center
    high_availability/high_availability
-   scalability_and_distributed_systems/scalability_and_distributed_systems
    api_sdk/api_sdk
    contributors/contributors
    quality_assurance/quality_assurance

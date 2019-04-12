@@ -18,16 +18,14 @@ to access the REST APIs of Wazo, you need:
 REST API Permissions
 ====================
 
-First of all, you must have permission to use the REST API. In your Wazo web interface, go to
-:menuselection:`Configuration --> Management --> Web Services Access` and create a new user:
+First of all, you must have permission to use the REST API. Create a `wazo-auth` user and policy:
 
-* Name: ``rest-api-test``
-* Login: ``rest-api-test``
-* Password: some secret password
-* Host: nothing
+``POST /users {"purpose": "external_api", "username": "rest-api-test", ...}``
+``POST /policies {"acl_templates": ["#"], ...}``
+``PUT /users/{user_uuid}/policies/{policy_uuid}``
 
-* ACL tab: add a line containing only ``#``. ``#`` is a wildcard that gives access to every REST
-  API. You may want to delete this account when you're done, to reduce risks of unauthorized access.
+* ``acl_templates``: ``#`` is a wildcard that gives access to every REST API. You may want to delete
+  this account when you're done, to reduce risks of unauthorized access.
 
 Save the form, and store the login/password somewhere for later use.
 
