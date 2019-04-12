@@ -29,8 +29,6 @@ In Wazo, the contact center is implemented to fulfill the following objectives :
 
    agents/agents
    queues/queues
-   supervision/supervision
-   supervision/dashboard
    skillbasedrouting/skillbasedrouting
    statistics/statistics
    reporting/reporting
