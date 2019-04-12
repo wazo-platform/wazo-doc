@@ -15,7 +15,7 @@ To achieve this you must change the following SIP options:
 
 * ``PUT /asterisk/sip/general``
 
-    * ``trustrpid``: ``yes`
+    * ``trustrpid``: ``yes``
     * ``sendrpid``: ``pai``
 
 
