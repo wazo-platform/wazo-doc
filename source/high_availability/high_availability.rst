@@ -42,7 +42,7 @@ Quick Summary
 * Configure one Wazo as a master -> setup the slave address (VoIP interface)
 * Restart services (wazo-service restart) on master
 * Configure the other Wazo as a slave -> setup the master address (VoIP interface)
-* Configure file synchronization by runnning the script ``xivo-sync -i`` on the master
+* Configure file synchronization by running the script ``xivo-sync -i`` on the master
 * Start configuration synchronization by running the script ``xivo-master-slave-db-replication
   <slave_ip>`` on the master
 * Resynchronize all your devices
@@ -61,8 +61,7 @@ First thing to do is to :ref:`install 2 Wazo <installation>`.
    they both are running the same version of Wazo. Otherwise, the replication might not work
    properly.
 
-You must configure the :abbr:`HA (High Availability)` in the Web interface
-(:menuselection:`Configuration --> Management --> High Availability` page).
+You must configure the :abbr:`HA (High Availability)` with ``PUT /ha``
 
 You can configure the master and slave in whatever order you want.
 
@@ -83,21 +82,19 @@ will then be rsync'ed every hour:
 
 SIP expiry value on master and slave will be automatically updated:
 
-* min: 3 minutes
-* max: 5 minutes
-* default: 4 minutes
+* ``GET /asterisk/sip/general``
 
-.. figure:: images/general_settings_sip_expiry.png
-
-   :menuselection:`Services --> IPBX --> General Settings --> SIP Protocol`
+  * ``minexpiry``: 3 minutes
+  * ``maxexpiry``: 5 minutes
+  * ``defaultexpiry``: 4 minutes
 
 The provisioning server configuration will be automatically updated in order to allow
 phones to switch from Wazo power failure.
 
-.. figure:: images/provd_config_registrar.png
+* ``GET /provd/cfg_mgr/configs?q={"X_type": "registrar"}``
 
-   :menuselection:`Configuration --> Provisioning --> Template Line --> Edit default`
-
+  ``registrar_backup``: <slave ip>
+  ``proxy_backup``: <slave ip>
 
 .. warning:: Do not change these values when the HA is configured, as this may cause problems.
    These values will be reset to blank when the HA is disabled.
@@ -106,28 +103,10 @@ phones to switch from Wazo power failure.
    into account, you must resynchronize the devices or restart them manually.
 
 
-Disable node
-------------
-
-Default status of :abbr:`High Availability (HA)` is disabled:
-
-.. note:: You can reset at any time by choosing a server mode (disabled)
-
-.. figure:: images/ha_dashboard_disabled.png
-
-   HA Dashboard Disabled (default state)
-
-.. important:: You have to restart services (wazo-service restart) once the master node is disabled.
-
-
 Master node
 -----------
 
-In choosing the method ``Master`` you must enter the IP address **of the VoIP interface** of the slave node.
-
-.. figure:: images/ha_dashboard_master.png
-
-   HA Dashboard Master
+In choosing the ``node_type: master`` you must enter the ``remote_address`` **of the VoIP interface** of the slave node.
 
 .. important:: You have to restart all services (wazo-service restart) once the master node is configured.
 
@@ -135,11 +114,7 @@ In choosing the method ``Master`` you must enter the IP address **of the VoIP in
 Slave node
 ----------
 
-In choosing the method ``Slave`` you must enter the IP address **of the VoIP interface** of the master node.
-
-.. figure:: images/ha_dashboard_slave.png
-
-   HA Dashboard Slave
+In choosing the ``node_type: slave`` you must enter the ``remote_address`` **of the VoIP interface** of the master node.
 
 
 Replication Configuration
@@ -171,20 +146,6 @@ Less importantly, these are also excluded:
 
 * Queue logs
 * CELs
-
-
-Wazo Client
------------
-
-You have to enter the master and slave address in the ``Connection`` tab of the
-Wazo Client configuration :
-
-.. figure:: images/cti-client-config_ha.png
-
-The main server is the master node and the backup server is the slave node.
-
-When connecting the Wazo Client with the main server down, the login screen will
-hang for 3 seconds before connecting to the backup server.
 
 
 Internals
