@@ -5,19 +5,22 @@ Skills-Based Routing
 Introduction
 ============
 
-   *Skills-based routing (SBR), or Skills-based call routing, is a call-assignment strategy used in call centres to assign incoming calls
-   to the most suitable agent, instead of simply choosing the next available agent.
-   It is an enhancement to the Automatic Call Distributor (ACD) systems found in most call centres.
-   The need for skills-based routing has arisen, as call centres have become larger and dealt with a wider variety of call types.*
+   *Skills-based routing (SBR), or Skills-based call routing, is a call-assignment strategy used in
+   call centres to assign incoming calls to the most suitable agent, instead of simply choosing the
+   next available agent.  It is an enhancement to the Automatic Call Distributor (ACD) systems found
+   in most call centres.  The need for skills-based routing has arisen, as call centres have become
+   larger and dealt with a wider variety of call types.*
 
    -- Wikipedia
 
-In this respect, skills-based routing is also based on call distribution to agents through waiting queues, but one or many skills can be
-assigned to each agent, and call can be distributed to the most suitable agent.
+In this respect, skills-based routing is also based on call distribution to agents through waiting
+queues, but one or many skills can be assigned to each agent, and call can be distributed to the
+most suitable agent.
 
-In skills-based routing, you will have to find a way to be able to tag the call for a specific skill need. This can be done for example
-by entering the call distribution system using different incoming call numbers, using an IVR to let the caller do his own choice, or by requesting
-to the information system database the customer profile.
+In skills-based routing, you will have to find a way to be able to tag the call for a specific skill
+need. This can be done for example by entering the call distribution system using different incoming
+call numbers, using an IVR to let the caller do his own choice, or by requesting to the information
+system database the customer profile.
 
 .. figure:: images/sbr_introduction.png
 
@@ -31,7 +34,8 @@ Getting Started
 * Apply the skills to the agents
 * Create the skill rule sets
 * Assign the skill rule sets using a configuration file
-* Apply the skill rule sets to call qualification, i.e. incoming calls by using the preprocess subroutine field
+* Apply the skill rule sets to call qualification, i.e. incoming calls by using the preprocess
+  subroutine field
 
 Note that you shouldn't use skill based routing on a queue with queue members of type user because
 the behaviour is not defined and might change in a future Wazo version.
@@ -40,8 +44,8 @@ the behaviour is not defined and might change in a future Wazo version.
 Skills
 ======
 
-Skills are created using the menu :menuselection:`Services --> Call center --> Skills`. Each skill belongs to a category.
-First create the category, and in this category create different skills.
+Skills are created using the menu :menuselection:`Services --> Call center --> Skills`. Each skill
+belongs to a category.  First create the category, and in this category create different skills.
 
 Note that a skill name can't contain upper case letters and must be globally unique (i.e. the
 same name can't be used in two different categories).
@@ -50,7 +54,8 @@ same name can't be used in two different categories).
 
    Skills Creation
 
-Once all the skills are created you may apply them to agents. Agents may have one or more skills from different categories.
+Once all the skills are created you may apply them to agents. Agents may have one or more skills
+from different categories.
 
 .. figure:: images/sbr_agent_skills.png
 
@@ -96,9 +101,9 @@ Given:
 * Agent B is logged and not in use
 * There is no call in the queue
 
-When a new call enters the queue, then it is distributed to Agent A. As long as Agent A is
-available and doesn't answer the call, the call will never be distributed to Agent B, even after 60
-seconds of waiting time.
+When a new call enters the queue, then it is distributed to Agent A. As long as Agent A is available
+and doesn't answer the call, the call will never be distributed to Agent B, even after 60 seconds of
+waiting time.
 
 When another call enters the queue, then after 60 seconds of waiting time, this call will be
 distributed to Agent B (and the first call will still be distributed only to Agent A).
@@ -222,11 +227,11 @@ Then, for an agent which has the skill english defined, the result of this expre
 true. For an agent which does not have the skill english defined, the result of this expression is
 always false.
 
-Said differently, an agent without a skill X is not the same as an agent with the skill X set to
-the value 0.
+Said differently, an agent without a skill X is not the same as an agent with the skill X set to the
+value 0.
 
-Technically, this is what is happening when evaluating the rule "english > 0" for an agent without the skill
-english::
+Technically, this is what is happening when evaluating the rule "english > 0" for an agent without
+the skill english::
 
      english > 0
    =     <Substituing english with the agent value>
