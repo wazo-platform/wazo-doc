@@ -841,7 +841,7 @@ Consult the `16.02 Roadmap <https://projects.wazo.community/versions/238>`_ for 
   ``dpkg-reconfigure ca-certificates`` after the upgrade.
 * *xivo-ctid* uses *xivo-auth* to authenticate users.
 * the `service_discovery` section of the *xivo-ctid* configuration has changed. If you have set up
-  :ref:`contact_and_presence_sharing`, you should update your xivo-ctid configuration.
+  contact_and_presence_sharing, you should update your xivo-ctid configuration.
 * the :ref:`cti-protocol` is now versioned and a message will be displayed if the server and a
   client have incompatible protocol versions.
 
