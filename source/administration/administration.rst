@@ -29,6 +29,5 @@ All configurations are done via the ``xivo-confd`` REST API
    sccp/sccp
    schedules/schedules
    sound_files
-   switchboards/switchboards
    users/users
    voicemails

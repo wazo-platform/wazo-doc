@@ -229,7 +229,7 @@ Consult the `18.05 Roadmap <https://projects.wazo.community/versions/275>`_ for 
   * In xivo-ctid, the default authentication backend is now `wazo_user`.
 
 * Default phone passwords are now auto-generated. Switchboard users with a Snom device will now have
-  to add a configuration file to store the username and password. See :ref:`switchboard_device_snom`
+  to add a configuration file to store the username and password.
 * Creating user using the REST API now requires the Wazo-Tenant HTTP header when the created user is
   not in the same tenant has its creator.
 * Tenants have been automatically created to match configured entities.
@@ -800,7 +800,7 @@ Consult the `16.04 Roadmap <https://projects.wazo.community/versions/240>`_ for 
   only be visible by a non-root administrator after adding the corresponding permissions in the
   administrator configuration.
 * Update the switchboard configuration page for the statistics in
-  :ref:`switchboard_configuration_multi_queues`.
+  switchboard_configuration_multi_queues.
 * The API for associating a line to a device has been replaced. Consult the :ref:`xivo-confd
   changelog <rest-api_changelog>` for further details
 * The configuration parameters of *xivo_ldap_user* plugin of *xivo-auth* has been changed. See

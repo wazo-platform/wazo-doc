@@ -30,7 +30,7 @@ the only difference being the different plugin name.
 #. Update the list of installable plugins.
 #. Install the latest xivo-aastra plugin, or upgrade it to the latest version if it is already installed.
 #. Install the needed language files and firmware files.
-#. For each phone used for the switchboard, :ref:`change the plugin and activate the switchboard option <switchboard_device_option>`:
+#. For each phone used for the switchboard, change the plugin and activate the switchboard option:
 
    * Select the generic xivo-aastra plugin.
    * Check the "switchboard" checkbox.
