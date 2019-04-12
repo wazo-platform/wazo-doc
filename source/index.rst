@@ -34,7 +34,6 @@ Table of Contents
 
    introduction/introduction
    installation/installation
-   getting_started/getting_started
    upgrade/upgrade
    cti_client/cti_client
    system/system
