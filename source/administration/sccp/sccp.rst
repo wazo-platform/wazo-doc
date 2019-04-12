@@ -12,12 +12,7 @@ To be able to provision SCCP phones you should :
 * activate the :ref:`dhcp_configuration`,
 * activate the :ref:`dhcp-integration`,
 
-Then install a plugin for SCCP Phone:
- :menuselection:`Configuration --> Provisioning --> Plugins`
-
-.. figure:: images/list_plugin.png
-
-   Installing xivo-cisco-sccp plugin
+Then install a plugin for SCCP Phone
 
 At this point you should have a fully functional DHCP server that provides IP address to your
 phones.  Depending on what type of CISCO phone you have, you need to install the plugin sccp-legacy,
@@ -29,54 +24,35 @@ sccp-9.4 or both.
 Once your plugin is installed, you'll be able to edit which firmwares and locales you need.
 If you are unsure, you can choose all without any problem.
 
-.. figure:: images/plugin_installed.png
-
-   Editing the xivo-cisco-sccp-legacy plugin
-
-Now if you connect your first SCCP phone, you should be able to see it in the device list.
-
-Listing the detected devices:
- :menuselection:`Services --> IPBX --> IPBX settings --> Devices`
-
-.. figure:: images/list_device_1.png
-
-   Device list
+Now if you connect your first SCCP phone, you should be able to see it with ``GET /devices``.
 
 When connecting a second SCCP phone, the device will be automatically detected as well.
-
-.. figure:: images/list_device_2.png
-
-   Device list
 
 
 Auto-provisioning support
 -------------------------
 
-Starting from Wazo 18.07, an SCCP device can be associated to a user by entering the user's provisioning code
-directly from the SCCP device while in autoprov mode.
+Starting from Wazo 18.07, an SCCP device can be associated to a user by entering the user's
+provisioning code directly from the SCCP device while in autoprov mode.
 
-There's two settings in :menuselection:`Services --> IPBX --> IPBX settings --> SCCP
-general settings` influencing the auto-provisioning behaviour:
+There's two settings in ``GET /asterisk/sccp/general`` influencing the auto-provisioning behaviour:
 
-* the :guilabel:`Allow guest connections` option must be enabled to allow SCCP devices to connect to
-  the server and allow a provisioning code from being dialed from them. Disabling this option can
-  provide some additional security if your Wazo is in an hostile environment, at the cost of making
-  auto-provisioning support unavailable for SCCP devices.
-* the :guilabel:`Maximum number of guest connections` option limits the number of SCCP devices that
-  can simultaneously connect to the server in autoprov mode. You should set this value to the
-  maximum number of SCCP devices you expect to be in autoprov mode at any moment, unless your
-  Wazo is in an hostile environment, where you should probably set it to a fairly low value.
+* the ``guest`` option must be enabled to allow SCCP devices to connect to the server and allow a
+  provisioning code from being dialed from them. Disabling this option can provide some additional
+  security if your Wazo is in an hostile environment, at the cost of making auto-provisioning
+  support unavailable for SCCP devices.
+* the ``max_guests`` option limits the number of SCCP devices that can simultaneously connect to the
+  server in autoprov mode. You should set this value to the maximum number of SCCP devices you
+  expect to be in autoprov mode at any moment, unless your Wazo is in an hostile environment, where
+  you should probably set it to a fairly low value.
 
 
 SCCP General Settings
 =====================
 
 Review SCCP general settings:
- :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
 
-.. figure:: images/general_settings.png
-
-   SCCP general settings
+  ``GET /asterisk/sccp/general``
 
 
 User creation
@@ -85,22 +61,13 @@ User creation
 The last step is to create a user with a **SCCP line**.
 
 Creating a user with a SCCP line:
- :menuselection:`Services --> IPBX --> IPBX settings --> Users`
 
-.. figure:: images/add_user.png
-
-   Add a new user
-
-.. figure:: images/edit_user.png
-
-   Edit user informations
-
-Before saving the newly configured user, you need to select the `Lines` menu and add a SCCP line.
-Now, you can save your new user.
-
-.. figure:: images/user_add_line.png
-
-   Add a line to a user
+* ``POST /users``
+* ``POST /lines``
+* ``PUT /users/{user_id}/lines/{line_id}``
+* ``POST /endpoints/sccp``
+* ``PUT /lines/{line_id}/endpoints/sccp/{sccp_id}``
+* ``PUT /lines/{line_id}/devices/{device_id}``
 
 Congratulations ! Your SCCP phone is now ready to be called !
 
@@ -108,20 +75,15 @@ Congratulations ! Your SCCP phone is now ready to be called !
 Function keys
 =============
 
-With SCCP phones, the only function keys that can be configured are:
-
-* :guilabel:`Key`: Only the order is important, not the number
-* :guilabel:`Type`: ``Customized``; Any other type doesn't work
-* :guilabel:`Destination`: Any valid extension
-* :guilabel:`Label`: Any label
-* :guilabel:`Supervision`: ``Enabled`` or ``Disabled``
+With SCCP phones, the only destination type of function keys that can be configured is ``custom``
 
 
 Direct Media
 ============
 
-SCCP Phones support directmedia (direct RTP). In order for SCCP phones to use directmedia, one must enable the directmedia option in SCCP general settings:
- :menuselection:`Services  --> IPBX --> IPBX settings --> SCCP general settings`
+SCCP Phones support directmedia (direct RTP).
+
+* ``PUT /asterisk/sccp/general`` options ``directmedia: yes``
 
 
 .. _sccp-features:
@@ -245,5 +207,5 @@ Models not listed in the table above won't be able to connect to Asterisk at all
 The "Timezone aware" column indicates if the device supports the timezone tag in its configuration
 file, i.e. in the file that the device request to the provisioning server when it boots.  If you
 have devices that don't support the timezone tag and these devices are in a different timezone than
-the one of the Wazo, you can look at `the issue #5161 <https://projects.wazo.community/issues/5161>`_ for
-a potential solution.
+the one of the Wazo, you can look at `the issue #5161
+<https://projects.wazo.community/issues/5161>`_ for a potential solution.
