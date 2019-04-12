@@ -460,6 +460,7 @@ Example::
    }
 
 
+
 .. _bus-agent_status_update:
 
 agent_status_update
@@ -765,36 +766,6 @@ Example:
            "muted": false
        }
    }
-
-.. _bus-endpoint_status_update:
-
-endpoint_status_update
-----------------------
-
-The endpoint_status_update is sent when an end point status changes. This information is
-based on asterisk hints.
-
-* routing key: status.endpoint
-* required ACL: events.statuses.endpoints
-* event specific data: a dictionary with 3 keys
-
-  * xivo_id: the uuid of the xivo
-  * endpoint_id: an integer corresponding to the endpoint ID
-  * status: an integer corresponding to the asterisk device state
-
-Example::
-
-   {
-       "name": "endpoint_status_update",
-       "required_acl": "events.statuses.endpoints",
-       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
-       "data": {
-           "endpoint_id": 67,
-           "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
-           "status": 0
-       }
-   }
-
 
 .. _bus-favorite_added:
 
@@ -1158,35 +1129,6 @@ Example:
             "uuid": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2"
         }
     }
-
-
-.. _bus-user_status_update:
-
-user_status_update
-------------------
-
-The user_status_update is sent when a user changes his CTI presence using the Wazo Client.
-
-* routing key: status.user
-* required ACL: events.statuses.users
-* event specific data: a dictionary with 3 keys
-
-  * xivo_id: the uuid of the xivo
-  * user_uuid: the user's UUID
-  * status: a string identifying the status
-
-Example::
-
-   {
-       "name": "user_status_update",
-       "required_acl": "events.statuses.users",
-       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
-       "data": {
-           "user_uuid": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
-           "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
-           "status": "busy"
-       }
-   }
 
 
 .. _bus-users_forwards_forward_updated:
