@@ -50,10 +50,6 @@ So There is a Problem with Asterisk. Now What ?
 
     cp -a /var/log/asterisk/full /var/local/`date +"%Y%m%d"`-`hostname`-asterisk-full.log
 
-#. Fetch xivo-ctid logs for the day of the crash (make sure file was not already logrotated)::
-
-    cp -a /var/log/xivo-ctid.log /var/local/`date +"%Y%m%d"`-`hostname`-xivo-ctid.log
-
 #. Open a new issue on the `bugtracker <https://projects.wazo.community/projects/xivo/issues/new>`_ with
    following information
 
@@ -224,7 +220,7 @@ Running Asterisk under Valgrind
       monit quit
       service asterisk stop
 
-#. Stop all unneeded Wazo services. For example, it can be useful to stop xivo-ctid, so that
+#. Stop all unneeded Wazo services. For example, it can be useful to stop xivo-ctid-ng, so that
    it won't interact with asterisk via the AMI.
 #. Copy the valgrind.supp file into /tmp. The valgrind.supp file is located in the contrib
    directory of the asterisk source code.

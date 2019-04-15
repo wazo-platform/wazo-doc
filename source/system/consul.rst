@@ -157,22 +157,3 @@ Restart your consul server.
 .. code-block:: sh
 
    service consul restart
-
-
-Updating the consul section of xivo-ctid
-----------------------------------------
-
-Add a file in :file:`/etc/xivo-ctid/conf.d/remote_consul.yml` with the following content
-
-.. code-block:: yaml
-
-    rest_api:
-      http:
-        listen: 0.0.0.0
-
-    service_discovery:
-      advertise_address: <xivo-ctid-host>
-      check_url: http://<xivo-ctid-host>:9495/0.1/infos
-
-* ``xivo-ctid-host``: Hostname to reach xivo-ctid
-

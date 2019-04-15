@@ -9,7 +9,7 @@ here's a non exhaustive list:
 * configuring high availability
 * staring/stopping/restarting services
 * reloading asterisk configuration
-* sending some events to components (xivo-agentd, xivo-agid and xivo-ctid)
+* sending some events to components (xivo-agentd)
 
 
 Configuration File
