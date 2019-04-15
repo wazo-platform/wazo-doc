@@ -91,6 +91,16 @@ Things to be aware when writing a client/consumer:
 Changelog
 =========
 
+19.06
+-----
+
+* The following messages have been deleted:
+
+  * ``chat_message_sent``
+  * ``chat_message_received``
+  * ``chat_message_event``
+
+
 19.04
 -----
 
@@ -562,40 +572,6 @@ Example:
    {"name": "call_resumed",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
     "data": {"call_id": "1465572129.31"}}
-
-
-.. _bus-chat_message:
-
-chat_message_received, chat_message_sent
-----------------------------------------
-
-* routing key: ``chat.message.<wazo-uuid>.<user_id>``. The ``wazo-uuid`` and ``user-uuid`` are the
-  sender for ``chat_message_sent`` and the recipient for ``chat_message_received``.
-* event specific data:
-
-  * alias: The nickname of the chatter
-  * to: The destination's Wazo UUID and user UUID
-  * from: The chatter's Wazo UUID and user UUID
-  * msg: The message
-
-Example:
-
-.. code-block:: javascript
-
-  {
-      "name": "chat_message_received",
-      "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
-      "data": {
-          "alias": "Alice"
-          "to": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "fcb36731-c50a-453e-92c7-571297d41616"],
-          "from": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "4f2e2249-ae2b-4bc2-b5fc-ad42ee01ddaf"],
-          "msg": "Hi!"
-      }
-  }
-
-.. note:: The message named ``chat_message_event`` is deprecated since Wazo 17.14. You should not
-          use it anymore. If you want to send a new chat message, you should use the :ref:`xivo-ctid-ng REST
-          API <rest-api_changelog>` instead.
 
 
 .. _bus-conference-participant-joined:
