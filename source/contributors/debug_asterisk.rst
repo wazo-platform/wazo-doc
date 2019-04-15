@@ -178,7 +178,7 @@ features include:
 
 * Queue skill-based routing
 * Voicemail message consultation via REST API
-* Call transfers via Wazo Client or REST API
+* Call transfers via REST API
 
 To install the vanilla version of Asterisk (replace 17.17 with your current version of Wazo)::
 

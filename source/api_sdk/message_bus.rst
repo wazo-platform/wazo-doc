@@ -437,7 +437,7 @@ call_form_result
 ----------------
 
 The call_form_result event is sent when a custom call form
-is submitted by a CTI client.
+is submitted via REST API.
 
 * routing key: call_form_result
 * event specific data: a dictionary with 2 keys:

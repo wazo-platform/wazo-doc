@@ -46,7 +46,6 @@ Quick Summary
 * Start configuration synchronization by running the script ``xivo-master-slave-db-replication
   <slave_ip>`` on the master
 * Resynchronize all your devices
-* Configure the Wazo Clients
 
 That's it, you now have a HA configuration, and every hour all the configuration done on the master
 will be reported to the slave.
@@ -177,9 +176,7 @@ Note that, on failover and on failback:
 
 * DND, call forwards, call filtering, ..., statuses may be lost if changed recently.
 * If you are connected as an agent, then you might need to reconnect as an agent
-  when the master goes down. Since it's hard to know when the master goes down,
-  if your CTI client disconnects and you can't reconnect it, then it's a sign
-  the master might be down.
+  when the master goes down.
 
 Additionally, only on failback:
 
