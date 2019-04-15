@@ -191,7 +191,7 @@ Changelog
 
 * The :ref:`bus-call_held_event` bus message has been added.
 * The :ref:`bus-call_resumed_event` bus message has been added.
-* The :ref:`bus-user_status_update` bus message now uses the user's UUID instead of the user's ID.
+* The bus-user_status_update bus message now uses the user's UUID instead of the user's ID.
 
 
 16.07

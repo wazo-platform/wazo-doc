@@ -46,7 +46,7 @@ Consult the `15.19 Roadmap <https://projects.wazo.community/versions/236>`_
 * It is now possible to send an email to a user with a configured email address in the
   *people* xlet. See dird-integration-views to add the appropriate field to your
   configured displays.
-* The *Contacts* xlet (aka. *Search*) has been removed in favor of the :ref:`people-xlet`. You may
+* The *Contacts* xlet (aka. *Search*) has been removed in favor of the people-xlet. You may
   need to do some manual configuration in the directories for the People Xlet to be fully
   functional. See :ref:`the detailed upgrade notes <15_19_people_xlet_upgrade_notes>` for more details.
 * If you need context separation in the People Xlet, you will have to **manually configure**
@@ -218,8 +218,7 @@ See `wazo-dird-integration` for more details
 * Default password for ``xivo-polycom-5.3.0`` plugin version >= 1.4 is now **9486**.
 * Caller id management for users in confd has changed. Consult the :ref:`xivo-confd changelog <rest-api_changelog>`.
 * The Local Directory Xlet is replaced with the People Xlet. Contacts are automatically migrated to
-  the server. Note that the CSV format for importing contacts has changed (see :ref:`people-xlet` for
-  more information).
+  the server. Note that the CSV format for importing contacts has changed.
 
 15.13
 -----
@@ -391,8 +390,7 @@ The following security vulnerability has been fixed:
   will still be possible to access the confd REST API via the 50051 and 50050 ports for the next
   year, but you are advised to update your confd REST API clients as soon as possible.
 * The old (unsupported) ami-proxy is now replaced by an ami-proxy built in xivo-ctid.
-  You must `uninstall the old ami-proxy <https://github.com/wazo-pbx/xivo-tools/tree/master/ami-proxy>`_ before activating the built-in version. See
-  :ref:`troubleshooting xivo-ctid <cti-ami-proxy>` to learn how to activate.
+  You must `uninstall the old ami-proxy <https://github.com/wazo-pbx/xivo-tools/tree/master/ami-proxy>`_ before activating the built-in version.
 
 
 14.20
@@ -564,14 +562,14 @@ Please consult the following detailed updated notes for more information:
 
 * Consult the `14.06 Roadmap <https://projects.wazo.community/versions/197>`_
 * The Wazo Client now uses Qt 5 instead of Qt 4. There is nothing to be aware of unless you
-  are :ref:`building your own version <build_wazoclient>` of it.
+  are building your own version of it.
 
 
 14.05
 -----
 
 * Consult the `14.05 Roadmap <https://projects.wazo.community/versions/196>`_
-* The :ref:`cti-protocol` has been updated.
+* The cti-protocol has been updated.
 * The specification of the 'answered-rate' queue statistic has changed to
   exclude calls on a closed queue
 * The switchboard can now choose which incoming call to answer
