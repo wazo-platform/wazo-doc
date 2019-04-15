@@ -4,6 +4,14 @@
 Upgrade notes
 *************
 
+19.06
+=====
+
+* All administration interfaces ``xivo-web-interface`` and ``wazo-admin-ui``  have been removed
+
+Consult the `19.06 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10020>`_ for more information
+
+
 19.05
 =====
 
