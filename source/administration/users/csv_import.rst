@@ -9,8 +9,8 @@ CSV Import
 
 Users can be imported and associated to other resources by use of a CSV file. CSV Importation can be
 used in situations where you need to modify many users at the same in an efficient manner, or for
-migrating users from one system to another. A CSV file can be created and edited by spreadsheet
-tools such as Excel, LibreOffice/OpenOffice Calc, etc.
+migrating users from one system or tenant to another. A CSV file can be created and edited by
+spreadsheet tools such as Excel, LibreOffice/OpenOffice Calc, etc.
 
 
 CSV file
@@ -141,7 +141,8 @@ Call permissions
 Importing a file
 ----------------
 
-Once your file is ready, you can import it via ``POST /users/import``
+Once your file is ready, you can import it via ``POST /users/import`` to create all users in the
+specified tenant using the `Wazo-Tenant` header.
 
 
 Examples
@@ -170,6 +171,9 @@ call)::
 CSV Update
 ==========
 
+
+.. note:: The CSV update has been disabled since it does not suport multi-tenants at the moment
+
 The field list for an update is the same as for an import with the addition of the column uuid,
 which is mandatory. For each line in the CSV file, the updater goes through the following steps:
 
@@ -192,7 +196,7 @@ CSV Export
 ==========
 
 CSV exports can be used as a scaffold for updating users, or as a means of importing users into
-another system. An export will generate a CSV file with the same list of columns as an import, with
-the addition of uuid and provisioning_code.
+another system or tenant. An export will generate a CSV file with the same list of columns as an
+import, with the addition of uuid and provisioning_code, for all users in the specified tenant.
 
 Exports are done through the ``GET /users/export``
