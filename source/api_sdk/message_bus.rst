@@ -91,14 +91,16 @@ Things to be aware when writing a client/consumer:
 Changelog
 =========
 
-19.06
+19.05
 -----
 
 * The following messages have been deleted:
 
-  * ``chat_message_sent``
-  * ``chat_message_received``
-  * ``chat_message_event``
+  * chat_message_event
+  * chat_message_received
+  * chat_message_sent
+  * endpoint_status_update
+  * user_status_update
 
 
 19.04
@@ -177,9 +179,9 @@ Changelog
 17.14
 -----
 
-* The :ref:`chat_message_sent <bus-chat_message>` bus message has been added.
-* The :ref:`chat_message_received <bus-chat_message>` bus message has been added.
-* The :ref:`chat_message_event <bus-chat_message>` bus message has been deprecated.
+* The chat_message_sent bus message has been added.
+* The chat_message_received bus message has been added.
+* The chat_message_event bus message has been deprecated.
 
 
 17.08
@@ -201,7 +203,7 @@ Changelog
 
 * The :ref:`bus-call_held_event` bus message has been added.
 * The :ref:`bus-call_resumed_event` bus message has been added.
-* The bus-user_status_update bus message now uses the user's UUID instead of the user's ID.
+* The user_status_update bus message now uses the user's UUID instead of the user's ID.
 
 
 16.07
@@ -215,7 +217,7 @@ Changelog
 15.20
 -----
 
-* The :ref:`chat_message_event <bus-chat_message>` bus message has been added.
+* The chat_message_event bus message has been added.
 
 
 15.17
