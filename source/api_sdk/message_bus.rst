@@ -39,15 +39,14 @@ Otherwise, the default connection information is:
 Example
 -------
 
-Here's an example of a simple client, in python, listening for the
-:ref:`bus-call_form_result` CTI events::
+Here's an example of a simple client, in python, listening for :ref:`bus-call_created` events::
 
     import kombu
 
     from kombu.mixins import ConsumerMixin
 
     EXCHANGE = kombu.Exchange('xivo', type='topic')
-    ROUTING_KEY = 'call_form_result'
+    ROUTING_KEY = 'events.calls.*'
 
 
     class C(ConsumerMixin):
@@ -91,6 +90,18 @@ Things to be aware when writing a client/consumer:
 
 Changelog
 =========
+
+19.05
+-----
+
+* The following messages have been deleted:
+
+  * chat_message_event
+  * chat_message_received
+  * chat_message_sent
+  * endpoint_status_update
+  * user_status_update
+
 
 19.04
 -----
@@ -168,9 +179,9 @@ Changelog
 17.14
 -----
 
-* The :ref:`chat_message_sent <bus-chat_message>` bus message has been added.
-* The :ref:`chat_message_received <bus-chat_message>` bus message has been added.
-* The :ref:`chat_message_event <bus-chat_message>` bus message has been deprecated.
+* The chat_message_sent bus message has been added.
+* The chat_message_received bus message has been added.
+* The chat_message_event bus message has been deprecated.
 
 
 17.08
@@ -192,7 +203,7 @@ Changelog
 
 * The :ref:`bus-call_held_event` bus message has been added.
 * The :ref:`bus-call_resumed_event` bus message has been added.
-* The :ref:`bus-user_status_update` bus message now uses the user's UUID instead of the user's ID.
+* The user_status_update bus message now uses the user's UUID instead of the user's ID.
 
 
 16.07
@@ -206,7 +217,7 @@ Changelog
 15.20
 -----
 
-* The :ref:`chat_message_event <bus-chat_message>` bus message has been added.
+* The chat_message_event bus message has been added.
 
 
 15.17
@@ -438,7 +449,7 @@ call_form_result
 ----------------
 
 The call_form_result event is sent when a custom call form
-is submitted by a CTI client.
+is submitted via REST API.
 
 * routing key: call_form_result
 * event specific data: a dictionary with 2 keys:
@@ -459,6 +470,7 @@ Example::
            }
        }
    }
+
 
 
 .. _bus-agent_status_update:
@@ -562,37 +574,6 @@ Example:
    {"name": "call_resumed",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
     "data": {"call_id": "1465572129.31"}}
-
-
-.. _bus-chat_message:
-
-chat_message_received, chat_message_sent
-----------------------------------------
-
-* routing key: ``chat.message.<wazo-uuid>.<user_id>``. The ``wazo-uuid`` and ``user-uuid`` are the sender for ``chat_message_sent`` and the recipient for ``chat_message_received``.
-* event specific data:
-
-  * alias: The nickname of the chatter
-  * to: The destination's Wazo UUID and user UUID
-  * from: The chatter's Wazo UUID and user UUID
-  * msg: The message
-
-Example:
-
-.. code-block:: javascript
-
-  {
-      "name": "chat_message_received",
-      "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
-      "data": {
-          "alias": "Alice"
-          "to": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "fcb36731-c50a-453e-92c7-571297d41616"],
-          "from": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "4f2e2249-ae2b-4bc2-b5fc-ad42ee01ddaf"],
-          "msg": "Hi!"
-      }
-  }
-
-.. note:: The message named ``chat_message_event`` is deprecated since Wazo 17.14. You should not use it anymore. If you want to send a new chat message, you should use the :ref:`xivo-ctid-ng REST API <rest-api_changelog>` instead.
 
 
 .. _bus-conference-participant-joined:
@@ -764,36 +745,6 @@ Example:
        }
    }
 
-.. _bus-endpoint_status_update:
-
-endpoint_status_update
-----------------------
-
-The endpoint_status_update is sent when an end point status changes. This information is
-based on asterisk hints.
-
-* routing key: status.endpoint
-* required ACL: events.statuses.endpoints
-* event specific data: a dictionary with 3 keys
-
-  * xivo_id: the uuid of the xivo
-  * endpoint_id: an integer corresponding to the endpoint ID
-  * status: an integer corresponding to the asterisk device state
-
-Example::
-
-   {
-       "name": "endpoint_status_update",
-       "required_acl": "events.statuses.endpoints",
-       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
-       "data": {
-           "endpoint_id": 67,
-           "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
-           "status": 0
-       }
-   }
-
-
 .. _bus-favorite_added:
 
 favorite_added
@@ -863,10 +814,12 @@ Example:
 fax_outbound_created, fax_outbound_user_created
 -----------------------------------------------
 
-Those event are published when a fax is being sent. ``fax_outbound_user_created`` is only sent if the fax was sent by a user.
+Those event are published when a fax is being sent. ``fax_outbound_user_created`` is only sent if
+the fax was sent by a user.
 
 * routing key: ``faxes.outbound.created`` and ``faxes.outbound.users.{user_uuid}.created``
-* required ACL: ``events.faxes.outbound.created`` and ``events.faxes.outbound.users.{user_uuid}.created``
+* required ACL: ``events.faxes.outbound.created`` and
+  ``events.faxes.outbound.users.{user_uuid}.created``
 * event specific data:
 
     * ``id``: The fax ID
@@ -902,11 +855,13 @@ Example:
 fax_outbound_succeeded, fax_outbound_user_succeeded
 ---------------------------------------------------
 
-This event is published when a fax was successfully sent. ``fax_outbound_user_succeeded`` is only sent if the fax was sent by a user.
+This event is published when a fax was successfully sent. ``fax_outbound_user_succeeded`` is only
+sent if the fax was sent by a user.
 
 
 * routing key: ``faxes.outbound.succeeded`` and ``faxes.outbound.users.{user_uuid}.succeeded``
-* required ACL: ``events.faxes.outbound.succeeded`` and ``events.faxes.outbound.users.{user_uuid}.succeeded``
+* required ACL: ``events.faxes.outbound.succeeded`` and
+  ``events.faxes.outbound.users.{user_uuid}.succeeded``
 * event specific data:
 
     * ``id``: The fax ID
@@ -942,11 +897,13 @@ Example:
 fax_outbound_failed, fax_outbound_user_failed
 ---------------------------------------------------
 
-This event is published when a fax was successfully sent. ``fax_outbound_user_created`` is only sent if the fax was sent by a user.
+This event is published when a fax was successfully sent. ``fax_outbound_user_created`` is only sent
+if the fax was sent by a user.
 
 
 * routing key: ``faxes.outbound.failed`` and ``faxes.outbound.users.{user_uuid}.failed``
-* required ACL: ``events.faxes.outbound.failed`` and ``events.faxes.outbound.users.{user_uuid}.failed``
+* required ACL: ``events.faxes.outbound.failed`` and
+  ``events.faxes.outbound.users.{user_uuid}.failed``
 * event specific data:
 
     * ``id``: The fax ID
@@ -1152,35 +1109,6 @@ Example:
     }
 
 
-.. _bus-user_status_update:
-
-user_status_update
-------------------
-
-The user_status_update is sent when a user changes his CTI presence using the Wazo Client.
-
-* routing key: status.user
-* required ACL: events.statuses.users
-* event specific data: a dictionary with 3 keys
-
-  * xivo_id: the uuid of the xivo
-  * user_uuid: the user's UUID
-  * status: a string identifying the status
-
-Example::
-
-   {
-       "name": "user_status_update",
-       "required_acl": "events.statuses.users",
-       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
-       "data": {
-           "user_uuid": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
-           "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
-           "status": "busy"
-       }
-   }
-
-
 .. _bus-users_forwards_forward_updated:
 
 users_forwards_<forward_name>_updated
@@ -1272,11 +1200,11 @@ Example:
         "name": "service_registered_event",
         "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
         "data": {
-            "service_name": "xivo-ctid",
+            "service_name": "wazo-dird",
             "service_id": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
             "address": "192.168.1.42",
             "port": 9495,
-            "tags": ["xivo-ctid", "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "Québec"]
+            "tags": ["wazo-dird", "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "Québec"]
         }
     }
 
@@ -1304,9 +1232,9 @@ Example:
         "name": "service_deregistered_event",
         "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
         "data": {
-            "service_name": "xivo-ctid",
+            "service_name": "wazo-dird",
             "service_id": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
-            "tags": ["xivo-ctid", "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "Québec"]
+            "tags": ["wazo-dird", "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "Québec"]
         }
     }
 
@@ -1321,8 +1249,8 @@ voicemail is not associated to any user, no message is generated.
 
 * routing key: voicemails.messages.created, voicemails.messages.updated, voicemails.messages.deleted
 * required ACL: events.users.<user_uuid>.voicemails
-* event specific data: a dictionary with the same fields as the REST API model of VoicemailMessage (See
-  http://api.wazo.community, section xivo-ctid-ng)
+* event specific data: a dictionary with the same fields as the REST API model of VoicemailMessage
+  (See http://api.wazo.community, section xivo-ctid-ng)
 
 Example::
 

@@ -91,13 +91,6 @@ xivo-confgend
 * Default templates directory: :file:`/etc/xivo-confgend/templates`
 
 
-xivo-ctid
-=========
-
-* Default configuration directory: :file:`/etc/xivo-ctid/conf.d`
-* Default configuration file: :file:`/etc/xivo-ctid/config.yml`
-
-
 xivo-dao
 ========
 

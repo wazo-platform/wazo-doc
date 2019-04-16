@@ -5,19 +5,19 @@ Profiling Python Programs
 Profiling CPU/Time Usage
 ========================
 
-Here's an example on how to profile xivo-ctid for CPU/time usage:
+Here's an example on how to profile wazo-auth for CPU/time usage:
 
 #. Stop the monit daemon::
 
       service monit stop
 
-#. Stop the process you want to profile, i.e. xivo-ctid::
+#. Stop the process you want to profile, i.e. wazo-auth::
 
-      service xivo-ctid stop
+      service wazo-auth stop
 
 #. Start the service in foreground mode running with the profiler::
 
-      python -m cProfile -o test.profile /usr/bin/xivo-ctid -f
+      python -m cProfile -o test.profile /usr/bin/xivo-auth -f
 
    This will create a file named ``test.profile`` when the process terminates.
 
@@ -44,7 +44,7 @@ Here's an example on how to profile xivo-ctid for CPU/time usage:
 Measuring Code Coverage
 =======================
 
-Here's an example on how to measure the code coverage of xivo-ctid.
+Here's an example on how to measure the code coverage of wazo-auth.
 
 This can be useful when you suspect a piece of code to be unused and you
 want to have additional information about it.
@@ -60,9 +60,9 @@ want to have additional information about it.
 #. Run the program in foreground mode with ``coverage run``::
 
       service monit stop
-      service xivo-ctid stop
+      service wazo-auth stop
       coverage erase
-      coverage run /usr/bin/xivo-ctid -f
+      coverage run /usr/bin/wazo-auth -f
 
    The :ref:`debug-daemons` section documents how to launch the various Wazo service
    in foreground/debug mode.

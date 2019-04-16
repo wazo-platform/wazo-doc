@@ -4,6 +4,14 @@
 Upgrade notes
 *************
 
+19.06
+=====
+
+* All administration interfaces ``xivo-web-interface`` and ``wazo-admin-ui``  have been removed
+
+Consult the `19.06 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10020>`_ for more information
+
+
 19.05
 =====
 
@@ -411,8 +419,7 @@ Consult the `17.17 Roadmap <https://projects.wazo.community/versions/270>`_ for 
 17.16
 =====
 
-* You must update the Wazo Client to 17.16. See the :ref:`Wazo Client compatibility table
-  <cti_client_compatibility>`.
+* You must update the Wazo Client to 17.16.
 
 * The *enabled_plugins* section of the ``wazo-auth`` service has been renamed
   *enabled_backend_plugins* and is now a dictionary.
@@ -476,8 +483,7 @@ Consult the `17.15 Roadmap <https://projects.wazo.community/versions/268>`_ for 
     for the ``wazo-auth`` service instead of ``xivo-auth``.
 
 * We released a new version of the CTI client, rebranded as `Wazo Client 17.14.1`. It is compatible
-  with all previous versions of Wazo (i.e. not before 16.16). See also the :ref:`compatibility table
-  <cti_client_compatibility>`.
+  with all previous versions of Wazo (i.e. not before 16.16).
 
 Consult the `17.14 Roadmap <https://projects.wazo.community/versions/267>`_ for more information.
 
@@ -732,7 +738,7 @@ Consult the `16.09 Roadmap <https://projects.wazo.community/versions/245>`_ for 
 16.08
 =====
 
-* :ref:`cti-protocol` is now in version *2.2*
+* cti-protocol is now in version *2.2*
 * Some :ref:`security features have been added to the XiVO provisioning server <provd-security>`.
   To benefit from these new features, you'll need to :ref:`update your xivo-provd plugins to meet
   the system requirements <provd-security-requirements>`.
@@ -784,7 +790,7 @@ Consult the `16.05 Roadmap <https://projects.wazo.community/versions/241>`_ for 
 16.04
 =====
 
-* :ref:`cti-protocol` is now in version *2.1*
+* cti-protocol is now in version *2.1*
 * The field :guilabel:`Rightcall Code` from :menuselection:`Services -> IPBX -> IPBX Settings ->
   Users` under :guilabel:`Services` tab  will overwrite all password call permissions for the user.
 * Faxes stored on FTP servers are now converted to PDF by default. See :ref:`fax-ftp` if you want
@@ -842,7 +848,7 @@ Consult the `16.02 Roadmap <https://projects.wazo.community/versions/238>`_ for 
 * *xivo-ctid* uses *xivo-auth* to authenticate users.
 * the `service_discovery` section of the *xivo-ctid* configuration has changed. If you have set up
   contact_and_presence_sharing, you should update your xivo-ctid configuration.
-* the :ref:`cti-protocol` is now versioned and a message will be displayed if the server and a
+* the cti-protocol is now versioned and a message will be displayed if the server and a
   client have incompatible protocol versions.
 
 Consult the `16.01 Roadmap <https://projects.wazo.community/versions/237>`_ for more information.

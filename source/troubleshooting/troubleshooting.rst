@@ -162,53 +162,6 @@ The following describes how to configure your Wazo and your Berofos.
     */1 * * * * root /usr/local/sbin/berofos-workaround
 
 
-.. _cti-ami-proxy:
-
-CTI server is unexpectedly terminating
---------------------------------------
-
-If you observes that your CTI server is sometimes unexpectedly terminating with the following
-message in :file:`/var/log/xivo-ctid.log`::
-
-    (WARNING) (main): AMI: CLOSING
-
-Then you might be in the case where asterisk generates lots of data in a short period of time on the
-AMI while the CTI server is busy processing other thing and is not actively reading from its AMI
-connection. If the CTI server takes too much time before consuming some data from the AMI
-connection, asterisk will close the AMI connection. The CTI server will terminate itself once it
-detects the connection to the AMI has been lost.
-
-There's a workaround to this problem called the ami-proxy, which is a process which buffers the AMI
-connection between the CTI server and asterisk. This should only be used as a last resort solution,
-since this increases the latency between the processes and does not fix the root issue.
-
-To enable the ami-proxy, you must:
-
-#. Add a file :file:`/etc/systemd/system/xivo-ctid.service.d/ami-proxy.conf`:
-
-   .. code-block:: sh
-
-      mkdir -p /etc/systemd/system/xivo-ctid.service.d
-      cat >/etc/systemd/system/xivo-ctid.service.d/ami-proxy.conf <<EOF
-      [Service]
-      Environment=XIVO_CTID_AMI_PROXY=1
-      EOF
-      systemctl daemon-reload
-
-#. Restart the CTI server::
-
-      systemctl restart xivo-ctid.service
-
-If you are on a Wazo cluster, you must do the same procedure on the slave if you want the ami-proxy
-to also be enabled on the slave.
-
-To disable the ami-proxy::
-
-   rm /etc/systemd/system/xivo-ctid.service.d/ami-proxy.conf
-   systemctl daemon-reload
-   systemctl restart xivo-ctid.service
-
-
 Agents receiving two ACD calls
 ------------------------------
 

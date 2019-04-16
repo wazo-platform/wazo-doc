@@ -98,7 +98,7 @@ Here's a non-exhaustive list of changes that comes with XiVO on Debian 8:
 * The virtual terminals (tty1 to tty6) now shows up earlier during the boot, before all services have
   been started.
 
-* The way the :ref:`ami-proxy is configured <cti-ami-proxy>` for xivo-ctid has changed. If your XiVO
+* The way the ami-proxy is configured for xivo-ctid has changed. If your XiVO
   was using the ami-proxy, the configuration will be automatically upgraded.
 
 * Customization to asterisk and consul startup is now done by customizing the systemd unit file (by
