@@ -8,6 +8,8 @@ Upgrade notes
 =====
 
 * All administration interfaces ``xivo-web-interface`` and ``wazo-admin-ui``  have been removed
+* Agents are now multi-tenant. Agents created using the rest API that were not logged into a queue
+  and that were not associated to a user have been deleted.
 
 Consult the `19.06 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10020>`_ for more information
 
