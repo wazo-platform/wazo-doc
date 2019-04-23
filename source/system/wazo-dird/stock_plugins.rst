@@ -599,17 +599,11 @@ personal
 
 Back-end name: personal
 
-Purpose: search directory entries among users' personal contacts
-
-You should only have one source of type ``personal``, because only one will be used to list personal
-contacts. The ``personal`` backend needs a working Consul installation. This backend works with the
-personal service, which allows users to add personal contacts.
+Purpose: Add search results from the user personal contacts
 
 
 Configuration
 ^^^^^^^^^^^^^
-
-Example (a file inside ``source_config_dir``):
 
 .. code-block:: yaml
    :linenos:
@@ -618,12 +612,16 @@ Example (a file inside ``source_config_dir``):
    name: personal
    first_matched_columns:
        - number
+       - mobile
+   searched_columns:
+       - firstname
+       - lastname
+       - mobile
+       - number
    format_columns:
-       firstname: "{firstname}"
-       lastname: "{lastname}"
+       reverse: "{firstname} {lastname}"
        number: "{number}"
-
-``unique_column`` is not configurable, its value is always ``id``.
+       phone_mobile: "{mobile}"
 
 
 .. _dird-backend-wazo:
