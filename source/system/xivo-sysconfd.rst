@@ -12,6 +12,8 @@ here's a non exhaustive list:
 * sending some events to components (xivo-agentd)
 
 
+.. _sysconfd-configuration:
+
 Configuration File
 ==================
 
@@ -55,7 +57,7 @@ Here's an example of the configuration file:
    monit_conf_dir = /etc/monit/conf.d
 
    [request_handlers]
-   synchronous = true
+   synchronous = false
 
    [bus]
    username = guest
