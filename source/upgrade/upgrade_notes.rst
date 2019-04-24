@@ -4,6 +4,13 @@
 Upgrade notes
 *************
 
+19.07
+=====
+
+* xivo-sysconfd is now async by default. If you rely on Asterisk being reloaded when configuring resources.
+  See :ref:`sysconfd-configuration` to set the `synchronous` option to `true`
+
+
 19.06
 =====
 
