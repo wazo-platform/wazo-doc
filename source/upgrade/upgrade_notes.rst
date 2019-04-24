@@ -9,6 +9,9 @@ Upgrade notes
 
 * xivo-sysconfd is now async by default. If you rely on Asterisk being reloaded when configuring resources.
   See :ref:`sysconfd-configuration` to set the `synchronous` option to `true`
+* The configuration of ``rest_api`` section for ``xivo-confd`` configuration file has changed. See
+  `xivo-confd changelog <https://github.com/wazo-pbx/xivo-confd/blob/master/CHANGELOG.md#1907>`_ for
+  more information.
 
 Consult the `19.07 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10022>`_ for more information
 
