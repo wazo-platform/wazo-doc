@@ -508,12 +508,12 @@ call_created, call_updated, call_ended
 --------------------------------------
 
 The events ``call_created``, ``call_updated``, ``call_ended`` are sent when a call handled by
-xivo-ctid-ng is received, connected or hung up.
+wazo-calld is received, connected or hung up.
 
 * routing key: calls.call.created, calls.call.updated, calls.call.ended
 * required ACL: events.calls.<user_uuid>
 * event specific data: a dictionary with the same fields as the REST API model of Call (See
-  http://api.wazo.community, section xivo-ctid-ng)
+  http://api.wazo.community, section wazo-calld)
 
 Example::
 
@@ -603,7 +603,7 @@ Those events are send when a participant joins or leaves a conference room.
   * ``answered_time``: Elapsed seconds since the participant joined the conference
   * ``admin``: Is the participant and admin of the conference?
   * ``language``: The language of the participant
-  * ``call_id``: The ID of the call, usable in the ``/calls`` endpoints of ``xivo-ctid-ng``
+  * ``call_id``: The ID of the call, usable in the ``/calls`` endpoints of ``wazo-calld``
   * ``conference_id``: The ID of the conference
 
 Example:
@@ -650,7 +650,7 @@ Those events are send when a participant joins or leaves a conference room.
   * ``muted``: Is the participant muted?
   * ``admin``: Is the participant and admin of the conference?
   * ``language``: The language of the participant
-  * ``call_id``: The ID of the call, usable in the ``/calls`` endpoints of ``xivo-ctid-ng``
+  * ``call_id``: The ID of the call, usable in the ``/calls`` endpoints of ``wazo-calld``
   * ``conference_id``: The ID of the conference
 
 Example:
@@ -1006,7 +1006,7 @@ Those events are published during the different steps of a relocate operation.
   * ``"user_uuid:XXX": True`` where ``XXX`` is the initiator's user UUID
 
 * required ACL: ``events.relocates.XXX`` where XXX is the initiator's user UUID
-* event specific data: a relocate object, see http://api.wazo.community, section ``xivo-ctid-ng``.
+* event specific data: a relocate object, see http://api.wazo.community, section ``wazo-calld``.
 
 Example:
 
@@ -1250,7 +1250,7 @@ voicemail is not associated to any user, no message is generated.
 * routing key: voicemails.messages.created, voicemails.messages.updated, voicemails.messages.deleted
 * required ACL: events.users.<user_uuid>.voicemails
 * event specific data: a dictionary with the same fields as the REST API model of VoicemailMessage
-  (See http://api.wazo.community, section xivo-ctid-ng)
+  (See http://api.wazo.community, section wazo-calld)
 
 Example::
 

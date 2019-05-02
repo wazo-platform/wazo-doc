@@ -220,7 +220,7 @@ Running Asterisk under Valgrind
       monit quit
       service asterisk stop
 
-#. Stop all unneeded Wazo services. For example, it can be useful to stop xivo-ctid-ng, so that
+#. Stop all unneeded Wazo services. For example, it can be useful to stop wazo-calld, so that
    it won't interact with asterisk via the AMI.
 #. Copy the valgrind.supp file into /tmp. The valgrind.supp file is located in the contrib
    directory of the asterisk source code.

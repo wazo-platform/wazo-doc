@@ -61,6 +61,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/wanpipe/`
 * :file:`/etc/wazo-auth/`
 * :file:`/etc/wazo-call-logd/`
+* :file:`/etc/wazo-calld/`
 * :file:`/etc/wazo-chatd/`
 * :file:`/etc/wazo-dird/`
 * :file:`/etc/wazo-plugind/`
@@ -70,7 +71,6 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/xivo-amid/`
 * :file:`/etc/xivo-confd/`
 * :file:`/etc/xivo-confgend-client/`
-* :file:`/etc/xivo-ctid-ng/`
 * :file:`/etc/xivo-dird-phoned/`
 * :file:`/etc/xivo-dxtora/`
 * :file:`/etc/xivo-purge-db/`

@@ -32,6 +32,15 @@ wazo-auth
 * Rotation frequence: Daily
 
 
+wazo-calld
+------------
+
+* File location: :file:`/var/log/wazo-calld.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-calld`
+* Number of archived files: 15
+* Rotation frequence: Daily
+
+
 wazo-dird
 ---------
 
@@ -105,15 +114,6 @@ The file location can be changed by customizing the xivo-confgend.service unit f
 
 * File location: :file:`/var/log/xivo-confgend.log`
 * Rotate configuration: :file:`/etc/logrotate.d/xivo-confgend`
-* Number of archived files: 15
-* Rotation frequence: Daily
-
-
-xivo-ctid-ng
-------------
-
-* File location: :file:`/var/log/xivo-ctid-ng.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-ctid-ng`
 * Number of archived files: 15
 * Rotation frequence: Daily
 

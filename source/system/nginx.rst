@@ -12,7 +12,7 @@ services to be used:
 * The agent management server (xivo-agentd)
 * The authentication server (wazo-auth)
 * The configuration server (xivo-confd)
-* The telephony service interface (xivo-ctid-ng)
+* The telephony service interface (wazo-calld)
 * The directory service (wazo-dird)
 * The AMI HTTP interface (xivo-amid)
 * API documentation (xivo-swagger-doc)

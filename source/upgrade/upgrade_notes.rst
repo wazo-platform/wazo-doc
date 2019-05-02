@@ -12,6 +12,8 @@ Upgrade notes
 * The configuration of ``rest_api`` section for ``xivo-confd`` configuration file has changed. See
   `xivo-confd changelog <https://github.com/wazo-pbx/xivo-confd/blob/master/CHANGELOG.md#1907>`_ for
   more information.
+* xivo-ctid-ng was renamed to wazo-calld. All users that are logged in Wazo must logout and log back
+  in, to apply the change of authorizations names (ACL).
 
 Consult the `19.07 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10022>`_ for more information
 
