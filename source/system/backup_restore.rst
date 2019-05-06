@@ -281,7 +281,7 @@ After Restoring The System
 ==========================
 
 
-.. If you modify this procedure, please update xivo-acceptance/data/assets/xivo-backup-manager
+.. If you modify this procedure, please update wazo-acceptance/wazo_acceptance/assets/xivo-backup-manager
    accordingly
 
 #. Restore the server UUID::
