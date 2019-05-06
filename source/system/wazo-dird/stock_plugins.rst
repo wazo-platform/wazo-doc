@@ -471,7 +471,6 @@ Configuration:
 
     type: dird_phonebook
     name: phonebook
-    db_uri: 'postgresql://asterisk:proformatique@localhost/asterisk'
     tenant: default
     phonebook_id: 42
     phonebook_name: main
@@ -482,9 +481,6 @@ Configuration:
       - lastname
     format_columns:
         name: "{firstname} {lastname}"
-
-db_uri
-    the URI of the DB used by wazo-dird to store the phonebook.
 
 tenant
     the tenant of the phonebook to query.
