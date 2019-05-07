@@ -7,6 +7,8 @@ Upgrade notes
 19.07
 =====
 
+* If a group or queue was named ``general``, then it has been renamed with one or more suffix ``_``
+  (e.i. ``general_``). The name ``general`` is no more allowed.
 * xivo-sysconfd is now async by default. If you rely on Asterisk being reloaded when configuring resources.
   See :ref:`sysconfd-configuration` to set the `synchronous` option to `true`
 * The configuration of ``rest_api`` section for ``xivo-confd`` configuration file has changed. See
