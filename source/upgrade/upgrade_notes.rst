@@ -21,6 +21,10 @@ Upgrade notes
   associated with an agent, is has been deleted.
 * All the existing skill rules have been associated to the tenant of the first queue found in the
   database. If no queue was found, meaning there was no queue, the skill rules were deleted.
+* The skill rules internal names have been changed to use the format ``skillrule-<id>``. If you were
+  using custom dialplan with a preprocess subroutine to handle your skill rules, we recommend
+  removing it and using the REST API (see :ref:`skill-apply`). If you really want to keep it, you
+  must change the name used in the variable ``XIVO_QUEUESKILLRULESET`` to use the new format.
 
 Consult the `19.07 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10022>`_ for more information
 
