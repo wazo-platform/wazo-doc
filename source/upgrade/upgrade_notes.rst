@@ -19,6 +19,8 @@ Upgrade notes
   in, to apply the change of authorizations names (ACL).
 * Skills are migrated to the tenant of the agent with whom they are associated. If a skill was not
   associated with an agent, is has been deleted.
+* All the existing skill rules have been associated to the tenant of the first queue found in the
+  database. If no queue was found, meaning there was no queue, the skill rules were deleted.
 
 Consult the `19.07 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10022>`_ for more information
 
