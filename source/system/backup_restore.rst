@@ -175,8 +175,6 @@ Limitations
 * You must restore a backup on the **same version** of Wazo that was backed up (though the
   architecture -- ``i386`` or ``amd64`` -- may differ)
 * You must restore a backup on a machine with the **same hostname and IP address**
-* Be aware that this procedure applies **only to XiVO/Wazo >= 14.08** (see
-  :ref:`upgrade_note_14.08`).
 
 
 Before Restoring the System
