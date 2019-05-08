@@ -7,5 +7,5 @@ Documentation changelog
 .. only:: html
 
     .. git_changelog::
-        :rev-list: xivo-13.25..
+        :rev-list: xivo-15.01..
         :show-tags: yes

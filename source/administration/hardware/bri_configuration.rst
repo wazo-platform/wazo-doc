@@ -95,7 +95,6 @@ These configurations were tested on different type of french BRI lines with succ
 
 .. note:: The pre-requisites are:
 
-  * XiVO/Wazo >= 14.12,
   * Use per-port dahdi interconnection (see the :ref:`interco_dahdi_conf` section)
 
 

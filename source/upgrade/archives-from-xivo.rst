@@ -1,7 +1,7 @@
 Upgrade an older xivo installation
 ==================================
 
-Those procedures are valid if your xivo installation is newer than 14.18 and older than 16.08.
+Those procedures are valid if your xivo installation is older than 16.08.
 
 
 Upgrade to Wazo < 18.01

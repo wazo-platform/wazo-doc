@@ -7,6 +7,7 @@ Upgrade notes
 19.07
 =====
 
+* Upgrade from version older than 15.01 are not supported anymore.
 * If a group or queue was named ``general``, then it has been renamed with one or more suffix ``_``
   (e.i. ``general_``). The name ``general`` is no more allowed.
 * xivo-sysconfd is now async by default. If you rely on Asterisk being reloaded when configuring resources.
