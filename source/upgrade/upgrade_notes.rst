@@ -16,6 +16,8 @@ Upgrade notes
   more information.
 * xivo-ctid-ng was renamed to wazo-calld. All users that are logged in Wazo must logout and log back
   in, to apply the change of authorizations names (ACL).
+* Skills are migrated to the tenant of the agent with whom they are associated. If a skill was not
+  associated with an agent, is has been deleted.
 
 Consult the `19.07 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10022>`_ for more information
 
