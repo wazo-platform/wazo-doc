@@ -2,6 +2,521 @@
 Archived Upgrade Notes
 **********************
 
+2017
+====
+
+17.17
+-----
+
+* The default NAT option has changed from ``no`` to ``auto_force_rport``. This makes NAT
+  configuration easier but has no impact on environments without NAT.
+
+  * In the rare cases where you want to keep ``nat=no`` you must explicitly change this value in the
+    administation interface :menuselection:`Services --> IPBX --> General Settings --> SIP Protocol`
+    in tab `Default`. See `Asterisk sip.conf sample
+    <https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869>`_ for
+    more informations.
+
+* The ``sources`` section of the ``xivo-dird`` service configuration has been changed to be a
+  key-value setting.
+
+  * If you have configured directories manually in ``/etc/xivo-dird`` you should update your manual
+    configuration:
+
+  .. code-block:: yaml
+     :emphasize-lines: 4-6
+     :caption: old.yml
+
+     services:
+       lookup:
+         default:
+           sources:
+             - source_one
+             - source_two
+           timeout: 2
+
+
+  .. code-block:: yaml
+     :emphasize-lines: 4-6
+     :caption: new.yml
+
+     services:
+       lookup:
+         default:
+           sources:
+             source_one: true
+             source_two: true
+           timeout: 2
+
+* The ``enabled_plugins`` section of the ``xivo-confd`` service configuration has been changed. If
+  you have configured enabled plugins manually you should update your manual configuration
+
+  * This section is now a key-value setting.
+
+  * All plugins have been renamed without the suffix ``_plugins``.
+
+  .. code-block:: yaml
+     :caption: old.yml
+
+     enabled_plugins:
+       - user_plugin
+       - conference_plugin
+
+
+  .. code-block:: yaml
+     :caption: new.yml
+
+     enabled_plugins:
+       user: true
+       conference: true
+
+* There is a new ``channelvars`` option in ``/etc/asterisk/manager.d/99-general.conf``. If you have
+  manually configured ``channelvars`` already, you will have to manually merge the Wazo version with
+  your version for them to work together.
+
+Consult the `17.17 Roadmap <https://projects.wazo.community/versions/270>`_ for more information.
+
+
+17.16
+-----
+
+* You must update the Wazo Client to 17.16.
+
+* The *enabled_plugins* section of the ``wazo-auth`` service has been renamed
+  *enabled_backend_plugins* and is now a dictionary.
+
+  * If you have hand made configuration to modify the list of enabled backends it should be modified
+    see ``/etc/wazo-auth/config.yml``
+
+* The *ldap_user* backend in ``wazo-auth`` is now disabled in the base configuration file.
+
+  * If you are using the ``ldap_user`` authentication backend a file with the following content
+    should be added to ``/etc/wazo-auth/conf.d``
+
+    .. code-block:: yaml
+
+       enabled_backend_plugins:
+         ldap_user: true
+
+* The *enabled_plugins* section of the ``xivo-dird`` service is now a dictionary.
+
+  * If you have hand made configuration to modify the list of enabled plugins, it should be modified
+    see ``/etc/xivo-dird/config.yml``
+
+* wazo-admin-ui has been upgraded to python3. All plugins by `Wazo Team` has been migrated, but if
+  you have installed a non-official/custom plugin that add something to the new interface, it
+  probably broken. To fix this, you must convert your plugin to python3 or wait an available upgrade
+  from the maintainer.
+
+* If you have setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), you have to
+  update your config in ``/etc/xivo/custom/custom-certificate.yml``, according to the :ref:`updated
+  documentation <https_certificate>`, namely for the config regarding ``websocketd``.
+
+Consult the `17.16 Roadmap <https://projects.wazo.community/versions/269>`_ for more information.
+
+
+17.15
+-----
+
+* ``xivo-call-logd`` has been renamed ``wazo-call-logd``
+
+  * The custom configuration has been moved to ``/etc/wazo-call-logd/conf.d/``.
+  * The log file has been renamed to ``wazo-call-logd.log``.
+  * The NGINX proxy has been recreated in ``/etc/nginx/locations/https-enabled/wazo-call-logd``
+
+* ``Asterisk`` has been upgraded to version 15.0.0
+
+  * If you have installed asterisk modules manually, you will have to install the asterisk 15
+    version, otherwise Asterisk will crash when starting.
+
+Consult the `17.15 Roadmap <https://projects.wazo.community/versions/268>`_ for more information.
+
+
+17.14
+-----
+
+* ``xivo-auth`` has been renamed ``wazo-auth``
+
+  * If you have developed a ``xivo-auth`` authentication backend the name of the entry point has
+    changed to ``wazo_auth.backends``. You should make this modification in your plugin's
+    ``setup.py`` file in the ``entry_point`` section.
+  * If your custom development use service discovery to find ``xivo-auth``, you will have to search
+    for the ``wazo-auth`` service instead of ``xivo-auth``.
+
+* We released a new version of the CTI client, rebranded as `Wazo Client 17.14.1`. It is compatible
+  with all previous versions of Wazo (i.e. not before 16.16).
+
+Consult the `17.14 Roadmap <https://projects.wazo.community/versions/267>`_ for more information.
+
+
+17.13
+-----
+
+Consult the `17.13 Roadmap <https://projects.wazo.community/versions/266>`_ for more information.
+
+
+17.12
+-----
+
+* Wazo has a new database named ``mongooseim``. The :ref:`backup-restore procedure<backup>` has been
+  updated to include this new database.
+
+Consult the `17.12 Roadmap <https://projects.wazo.community/versions/265>`_ for more information.
+
+
+17.11
+-----
+
+* wazo-plugind REST API version ``0.1`` has been deprecated and will be removed in Wazo ``18.02``.
+  See changelog for version :ref:`rest-api_changelog`
+
+Consult the `17.11 Roadmap <https://projects.wazo.community/versions/263>`_ for more information.
+
+
+17.10
+-----
+
+Consult the `17.10 Roadmap <https://projects.wazo.community/versions/262>`_ for more information.
+
+
+17.09
+-----
+
+* Codecs can now be customized in the `/etc/asterisk/codecs.d/` directory. If you had custom
+  configuration in `/etc/asterisk/codecs.conf` you will have to create a new file in `codecs.d` to
+  use your customized configuration. A file named `codecs.conf.dpkg-old` will be left in
+  `/etc/asterisk` if this operation is required.
+* Provd plugins from the addons repository have been merged into the main plugin repository. If you
+  were using the addons repository you can safely switch back to the stable repository. See
+  :ref:`alternative-plugins-repo` for more details.
+* The command ``xivo-call-logs`` has been deprecated in favor of ``wazo-call-logs``.
+* The command ``xivo-service`` has been deprecated in favor of ``wazo-service``.
+* If you have a :ref:`custom certificate configured<https_certificate>`, you will need to add a new
+  symlink for the new daemon wazo-webhookd::
+
+    ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-webhookd/conf.d/010-custom-certificate.yml"
+
+Consult the `17.09 Roadmap <https://projects.wazo.community/versions/261>`_ for more information.
+
+
+17.08
+-----
+
+* The call logs has been improved by adding ``date_end`` and ``date_answer`` informations. If you
+  want to add these new informations to the old call logs, you need to regenerate them. For example,
+  to regenerate the last month of call logs::
+
+    xivo-call-logs delete -d 30
+    xivo-call-logs generate -d 30
+
+  This is only useful if you plan to use the call logs REST API to read calls that have been placed
+  before the upgrade.
+* If you have setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), you have to
+  update your config in ``/etc/xivo/custom/custom-certificate.yml``, according to the :ref:`updated
+  documentation <https_certificate>`, namely for the config regarding ``plugind``.
+
+Consult the `17.08 Roadmap <https://projects.wazo.community/versions/260>`_ for more information.
+
+
+17.07
+-----
+
+Consult the `17.07 Roadmap <https://projects.wazo.community/versions/259>`_ for more information.
+
+
+17.06
+-----
+
+* Upgrade from version older than 13.01 are not supported anymore.
+
+Consult the `17.06 Roadmap <https://projects.wazo.community/versions/258>`_ for more information.
+
+
+17.05
+-----
+
+* `python-flask-cors` has been updated from 1.10.3 to 3.0.2. Configuration files with custom
+  `allow_headers` will have to be updated to the new syntax. The following command can be used to
+  see if you have a configuration file which needs to be updated.
+
+  .. code-block:: sh
+
+     for f in $(find /etc/*/conf.d -name '*.yml'); do grep -H allow_headers $f; done
+
+  The old config in ``/etc/xivo-*/conf.d`` looked like::
+
+     rest_api:
+       cors:
+         allow_headers: Content-Type, X-Auth-Token
+
+  The new config in ``/etc/xivo-*/conf.d`` looks like::
+
+     rest_api:
+       cors:
+         allow_headers: ["Content-Type", "X-Auth-Token"]
+
+  See also the reference ticket `#6617 <https://projects.wazo.community/issues/6617>`_.
+
+Consult the `17.05 Roadmap <https://projects.wazo.community/versions/257>`_ for more information.
+
+
+17.04
+-----
+
+Consult the `17.04 Roadmap <https://projects.wazo.community/versions/256>`_ for more information.
+
+
+17.03
+-----
+
+Consult the `17.03 Roadmap <https://projects.wazo.community/versions/255>`_ for more information.
+
+
+17.02
+-----
+
+* A few more services are now available by default on port TCP/443 (the complete list is documented
+  in the :ref:`nginx` section). This does not pose any additional security risk by default, but if
+  you have extra strict requirements about security, they can be manually disabled.
+
+Consult the `17.02 Roadmap <https://projects.wazo.community/versions/254>`_ for more information.
+
+
+17.01
+-----
+
+Consult the `17.01 Roadmap <https://projects.wazo.community/versions/253>`_ for more information.
+
+
+2016
+====
+
+16.16
+-----
+
+Wazo 16.16 is the *first public release* of the project under the Wazo name. It
+is also the first release of Wazo under the "phoenix" codename.
+
+* A :ref:`special procedure <xivo-to-wazo>` is required to upgrade from XiVO to Wazo.
+* Asterisk has been upgraded from version 13.11.2 to 14.2.1, which is a major Asterisk upgrade.
+* If you are using `custom sheets` that are stored locally, they *must* now
+  be readable by the system user ``xivo-ctid``. Make sure that this user has read access to the UI
+  file of your custom sheets.
+* Switchboard statistics have been removed. The existing statistics data remain in the database for
+  later migration but no more statistics will be collected.
+* The ``conference`` destination type in incalls REST API has been renamed to ``meetme``.
+* The phonebook has been migrated from the web interface to xivo-dird. The phonebook contacts from
+  the web interface have been moved to new dird-phonebooks. For users with many entities on the same
+  Wazo, this will create one phonebook for each entity. The configuration has been updated to keep
+  the previous behavior. No manual actions are required for installations with only one entity or if
+  one phonebook by entity is the desired configuration. If only one phonebook is desired for all
+  entities, some of the duplicate phonebooks can be deleted from the web interface and their
+  matching configuration can also be removed.
+
+  * The list of phonebooks can be modified in :menuselection:`Services --> IPBX --> IPBX services --> Phonebook`
+  * The list of phonebooks sources can be modified in:
+
+    * :menuselection:`Configuration --> Management --> Directories`
+    * :menuselection:`Services --> CTI Server --> Directories --> Definitions`
+
+  * The selected phonebooks for reverse lookups can be modified in :menuselection:`Services --> CTI Server --> Directories --> Reverse directories`
+  * Direct directories can be modified in :menuselection:`Services --> CTI Server --> Directories --> Direct directories`
+
+Please consult the following detailed upgrade notes for more information:
+
+.. toctree::
+   :maxdepth: 1
+
+   16.16/xivo_to_wazo
+   16.16/asterisk_14
+
+Consult the `16.16 Roadmap <https://projects.wazo.community/versions/252>`_ for more information.
+
+
+16.13
+-----
+
+XiVO 16.13 is the *last public release* of the project under the name XiVO.
+
+* Previously, a user's :abbr:`DND (Do Not Distrub)` was effective only if this user had DND enabled
+  *and* the DND extension (\*25 by default) was also enabled. Said differently, disabling the DND
+  extension meant that no user could effectively be in DND. Starting from XiVO 16.13, a user's DND
+  is effective regardless of the state of the DND extension. The following features are impacted in
+  the same way: call recording, incoming call filtering, forward on non-answer, forward on busy and
+  unconditional forward.
+* If you have manually added nginx configuration files to the :file:`/etc/nginx/locations/http`
+  directory, you'll need to move these files to :file:`/etc/nginx/locations/http-available` and then
+  create symlinks to them in the :file:`/etc/nginx/locations/http-enabled` directory. This also
+  applies to the https directory. See :ref:`nginx`.
+* A regression has been introduced in the switchboard statistics. See `issue 6443
+  <http://projects.wazo.community/issues/6443>`_.
+
+Consult the `16.13 Roadmap <https://projects.wazo.community/versions/249>`_ for more information.
+
+
+16.12
+-----
+
+Consult the `16.12 Roadmap <https://projects.wazo.community/versions/248>`_ for more information.
+
+
+16.11
+-----
+
+* Fax reception: the "log" backend type has been removed. You should remove references to it in your
+  :file:`/etc/xivo/asterisk/xivo_fax.conf` if you were using it. Now, every time a fax is processed,
+  a log line is added to :file:`/var/log/xivo-agid.log`.
+
+Consult the `16.11 Roadmap <https://projects.wazo.community/versions/247>`_ for more information.
+
+
+16.10
+-----
+
+* The config file ``/etc/xivo/xivo-confgend.conf`` has been replaced with
+  ``/etc/xivo-confgend/config.yml`` and ``/etc/xivo-confgend/conf.d``. Custom modifications to this
+  file are not migrated automatically, so manual intervention is required to migrate custom values
+  to the ``conf.d`` directory. The file ``/etc/xivo/xivo-confgend/asterisk/contexts.conf`` has been
+  moved to ``/etc/xivo-confgend/templates/contexts.conf``, but custom modification are left
+  untouched. See also :ref:`configuration-files` for more details about configuration files in XiVO.
+
+Consult the `16.10 Roadmap <https://projects.wazo.community/versions/246>`_ for more information.
+
+
+16.09
+-----
+
+* The Wazo Client now uses xivo-ctid-ng to do transfers. Those new transfers cannot be cancelled
+  with the ``*0`` DTMF sequence and there is no interface in the Wazo Client to cancel a transfer
+  for profiles other than the switchboard (bug `#6321`_). This will be addressed in a later version.
+
+* Transfers started from the Wazo Client do not respect the ``Dial timeout on transfer`` option
+  anymore (bug `#6322`_). This feature will be reintroduced in a later version.
+
+.. _#6321: http://projects.wazo.community/issues/6321
+.. _#6322: http://projects.wazo.community/issues/6322
+
+Consult the `16.09 Roadmap <https://projects.wazo.community/versions/245>`_ for more information.
+
+
+16.08
+-----
+
+* cti-protocol is now in version *2.2*
+* Some :ref:`security features have been added to the XiVO provisioning server <provd-security>`.
+  To benefit from these new features, you'll need to :ref:`update your xivo-provd plugins to meet
+  the system requirements <provd-security-requirements>`.
+
+  If you have many phones that are connected to your XiVO through a NAT equipment, you should review
+  the default configuration to make sure that the IP address of your NAT equipment don't get banned
+  unintentionally by your XiVO.
+
+* Newly created groups and queues now ignore call forward requests from members by default.
+  Previously, call forward requests from members were always followed. This only applies to call
+  forward configured directly on the member's phone: call forward configured via \*21 have always
+  been ignored in these cases.
+
+  Note that during the upgrade, the previous behaviour is kept for already existing queues and groups.
+
+  This behaviour is now configurable per queue/group, via the "Ignore call forward requests from
+  members" option under the "Application" tab. We recommend enabling this option.
+
+Consult the `16.08 Roadmap <https://projects.wazo.community/versions/244>`_ for more information.
+
+
+16.07
+-----
+
+* If you were affected by the `bug #6213 <http://projects.wazo.community/issues/6213>`_, i.e. if
+  your agent login time statistics were incorrect since your upgrade to XiVO 15.20 or later, and you
+  want to fix your statistics for that period of time, you'll need to `manually apply a fix
+  <http://projects.wazo.community/issues/6213#note-3>`_.
+
+Consult the `16.07 Roadmap <https://projects.wazo.community/versions/243>`_ for more information.
+
+
+16.06
+-----
+
+Consult the `16.06 Roadmap <https://projects.wazo.community/versions/242>`_ for more information.
+
+
+16.05
+-----
+
+* The ``view``, ``add``, ``edit``, ``delete`` and ``deleteall`` actions of the "lines" web service
+  provided by the web interface have been removed.  As a reminder, note that the web services
+  provided by the web interface are deprecated.
+
+Consult the `16.05 Roadmap <https://projects.wazo.community/versions/241>`_ for more information.
+
+
+16.04
+-----
+
+* cti-protocol is now in version *2.1*
+* The field :guilabel:`Rightcall Code` from :menuselection:`Services -> IPBX -> IPBX Settings ->
+  Users` under :guilabel:`Services` tab  will overwrite all password call permissions for the user.
+* Faxes stored on FTP servers are now converted to PDF by default. See :ref:`fax-ftp` if you want
+  to keep the old behavior of storing faxes as TIFF files.
+
+Consult the `16.04 Roadmap <https://projects.wazo.community/versions/240>`_ for more information.
+
+
+16.03
+-----
+
+* The new section :menuselection:`Services --> Statistics --> Switchboard` in the web interface will
+  only be visible by a non-root administrator after adding the corresponding permissions in the
+  administrator configuration.
+* Update the switchboard configuration page for the statistics in
+  switchboard_configuration_multi_queues.
+* The API for associating a line to a device has been replaced. Consult the :ref:`xivo-confd
+  changelog <rest-api_changelog>` for further details
+* The configuration parameters of *xivo_ldap_user* plugin of *xivo-auth* has been changed. See
+  :ref:`xivo_ldap plugin <auth-backends-ldap>`.
+* The user's email is now a unique constraint. Every duplicate email will be deleted during
+  the migration. (This does not apply to the voicemail's email)
+
+Consult the `16.03 Roadmap <https://projects.wazo.community/versions/239>`_ for more information.
+
+
+16.02
+-----
+
+* The experimental *xivo_ldap_voicemail* plugin of *xivo-auth* has been removed. Use the new
+  :ref:`xivo_ldap plugin <auth-backends-ldap>`.
+* Bus messages in the *xivo* exchange are now sent with the content-type `application/json`.
+  Some libraries already do the message conversion based the content-type. Kombu users will
+  receive a python dictionnary instead of a string containing json when a message is received.
+* `xivo-ctid encryption` is automatically switched on for every XiVO server
+  and Wazo Client >= 16.02. If you really don't want encryption, you must disable it manually on
+  the server after the upgrade. In that case, Wazo Clients will ask whether to accept the connection
+  the first time.
+
+Consult the `16.02 Roadmap <https://projects.wazo.community/versions/238>`_ for more information.
+
+
+16.01
+-----
+
+* The page :menuselection:`Configuration --> Management --> Web Services Access --> Acces rights`
+  has been removed. Consequently, every Web Services Access has now all access rights on the web
+  services provided by the web interface. These web services are deprecated and will be removed
+  soon.
+* During the upgrade, if no CA certificates were trusted at the system level, all the CA
+  certificates from the ca-certificates package will be added. This is done to resolve an issue with
+  installations from the ISO and PXE. In the (rare) case you manually configured the ca-certificates
+  package to trust no CA certificates at all, you'll need to manually reconfigure it via
+  ``dpkg-reconfigure ca-certificates`` after the upgrade.
+* *xivo-ctid* uses *xivo-auth* to authenticate users.
+* the `service_discovery` section of the *xivo-ctid* configuration has changed. If you have set up
+  contact_and_presence_sharing, you should update your xivo-ctid configuration.
+* the cti-protocol is now versioned and a message will be displayed if the server and a
+  client have incompatible protocol versions.
+
+Consult the `16.01 Roadmap <https://projects.wazo.community/versions/237>`_ for more information.
+
 
 2015
 ====
@@ -348,287 +863,3 @@ Please consult the following detailed upgrade notes for more information:
   * :file:`/etc/xivo-call-logd/config.yml`
   * :file:`/etc/xivo-amid/config.yml`
   * :file:`/etc/xivo-agentd/config.yml`
-
-
-2014
-====
-
-14.24
------
-
-* Consult the `14.24 Roadmap <https://projects.wazo.community/versions/216>`_
-
-The following security vulnerability has been fixed:
-
-* `XIVO-2014-01 <http://mirror.wazo.community/security/XIVO-2014-01.pdf>`_: Queues and groups permit callers to make unwanted calls
-
-
-14.23
------
-
-* Consult the `14.23 Roadmap <https://projects.wazo.community/versions/215>`_
-* The "waiting calls / logged agents ratio" :ref:`queue diversion scenario <queue-diversion-waitratio>`
-  has been renamed to "number of waiting calls per logged agents".
-* A new :ref:`community <community-documentation>` section was added to the official documentation for all user-contributed documentation.
-
-
-14.22
------
-
-* Consult the `14.22 Roadmap <https://projects.wazo.community/versions/213>`_
-* The sheet event *Dial* on queues is now only sent to the ringing agent. The
-  sheet is also sent a little later during the call, when the ringing agent is
-  known.
-
-
-14.21
------
-
-* Consult the `14.21 Roadmap <https://projects.wazo.community/versions/212>`_
-* The :ref:`confd REST API <confd-api>` is now accessible via HTTPS on port 9486 and via HTTP on
-  port 9487 (localhost only). These ports are replacing the 50051 and 50050 ports respectively.  It
-  will still be possible to access the confd REST API via the 50051 and 50050 ports for the next
-  year, but you are advised to update your confd REST API clients as soon as possible.
-* The old (unsupported) ami-proxy is now replaced by an ami-proxy built in xivo-ctid.
-  You must `uninstall the old ami-proxy <https://github.com/wazo-pbx/xivo-tools/tree/master/ami-proxy>`_ before activating the built-in version.
-
-
-14.20
------
-
-* Consult the `14.20 Roadmap <https://projects.wazo.community/versions/211>`_
-* Default parameters for all Cisco SPA ATA plugins have changed to be better suited for european faxes.
-* Following the `POODLE attack <https://www.openssl.org/~bodo/ssl-poodle.pdf>`_ (CVE-2014-3566), SSL 3.0
-  has been disabled for the web interface and the xivo-confd REST API.
-
-If you have Aastra phones and are using the remote directory on them, consult the following detailed upgrade notes:
-
-.. toctree::
-   :maxdepth: 1
-
-   14.20/aastra_remote_directory
-
-
-14.19
------
-
-* Consult the `14.19 Roadmap <https://projects.wazo.community/versions/210>`_
-
-
-14.18
------
-
-* Consult the `14.18 Roadmap <https://projects.wazo.community/versions/209>`_
-* xivo-fai packages were replaced with xivo-dist : a new tool to handle repositories sources.
-  Upon upgrade, xivo-dist is installed and run and all xivo-fai packages are purged.
-  :ref:`Consult xivo-dist use cases <wazo_dist>`
-
-
-14.17
------
-
-* Consult the `14.17 Roadmap <https://projects.wazo.community/versions/208>`_
-* DAHDI configuration file :file:`/etc/dahdi/modules` is no more created by default and must now be
-  maintained manually. No action is needed upon upgrade but be aware that the upstream sample file
-  is now available in :file:`/usr/share/dahdi/modules.sample`. See
-  :ref:`dahdi modules documentation <load_dahdi_modules>` for detailed info.
-* The new `CCSS feature` will not be enabled upon upgrade, you must explicitly enable it
-  in the :menuselection:`IPBX --> IPBX Services --> Extensions` menu.
-
-
-14.16
------
-
-* Consult the `14.16 Roadmap <https://projects.wazo.community/versions/207>`_
-* See the :ref:`changelog <rest-api_changelog>` for xivo-confd's REST API
-* DAHDI is upgraded to 2.10.0. If the upgrade process asks about :file:`/etc/dahdi/modules`, we
-  recommend that you keep the old version of the file.
-* Asterisk now inserts CEL and queue log entries via the ODBC asterisk modules instead of
-  the pgsql modules.
-
-
-14.15
------
-
-* Consult the `14.15 Roadmap <https://projects.wazo.community/versions/206>`_
-* Duplicate function keys will be deleted upon upgrade. If multiple function keys pointing to
-  the same destination are detected for a given user, only the one with the lowest position will
-  be kept. To see the list of deleted function keys, check the xivo-upgrade log file such as::
-
-     grep MIGRATE_FK /var/log/xivo-upgrade.log
-
-.. toctree::
-   :maxdepth: 1
-
-   14.15/dahdi_2.9.2
-
-
-14.14
------
-
-* Consult the `14.14 Roadmap <https://projects.wazo.community/versions/205>`_
-* See the :ref:`changelog <rest-api_changelog>` for REST API
-* Upon an important freeze of Asterisk, Asterisk will be restarted. See the `associated ticket
-  <https://projects.wazo.community/issues/5165>`_ for more information.
-
-
-14.13
------
-
-* Consult the `14.13 Roadmap <https://projects.wazo.community/versions/204>`_
-* See the :ref:`changelog <rest-api_changelog>` for REST API
-* Skills-based routing: for an agent which doesn't have the skill X, the rule X < 10 was
-  previously evaluated to true, since not having the skill X was equivalent to having it with a
-  value of 0. This behaviour has changed, and the same expression is now evaluated to false. If you
-  are using skills-based routing, you'll need to check that your rules are still doing what you
-  expect. See :ref:`skill evaluation <skill-evaluation>` for more information.
-
-
-14.12
------
-
-* Consult the `14.12 Roadmap <https://projects.wazo.community/versions/203>`_
-* All provisioning plugins were modified. Although not mandatory, it is strongly advised to update
-  all used plugins.
-* The function key 'Activate voicemail' was removed as it was a duplicate of existing function key
-  'Enable voicemail'. All users having the 'Activate voicemail' function key will have to be
-  reconfigured with a 'Enable voicemail' function key in order to keep the equivalent feature.
-* Log files have changed for the following daemons (previously in :file:`/var/log/daemon.log`):
-
-  * xivo-provd: :file:`/var/log/xivo-provd.log`
-  * xivo-agid: :file:`/var/log/xivo-agid.log`
-  * xivo-sysconfd: :file:`/var/log/xivo-sysconfd.log`
-
-
-14.11
------
-
-* Consult the `14.11 Roadmap <https://projects.wazo.community/versions/202>`_
-* The API URL ``/lines/<id>/extension`` is now deprecated. Use ``/lines/<id>/extensions``
-  instead.
-
-
-14.10
------
-
-* Consult the `14.10 Roadmap <https://projects.wazo.community/versions/201>`_
-* Custom MOH have been `fixed`_, but can not be used for playing uploaded files anymore. See
-  :ref:`moh`.
-
-.. _fixed: https://projects.wazo.community/issues/5038
-
-
-14.09
------
-
-* Consult the `14.09 Roadmap <https://projects.wazo.community/versions/200>`_
-* REST API 1.0 is no more. All code, tests and documentation was removed from XiVO.
-  All code developped for REST API 1.0 must now be adapted to use REST API 1.1.
-
-.. _upgrade_note_14.08:
-
-14.08
------
-
-* Consult the `14.08 Roadmap <https://projects.wazo.community/versions/199>`_
-* The ``xivo`` database has been merged into the ``asterisk`` database. The database
-  schema has also been altered in a way that it might make the upgrade longer than
-  usual.
-
-Please consult the following detailed updated notes for more information:
-
-.. toctree::
-   :maxdepth: 1
-
-   14.08/database_merge
-
-
-14.07
------
-
-* Consult the `14.07 Roadmap <https://projects.wazo.community/versions/198>`_
-* Configuration for phones used for the switchboard has changed.
-
-Please consult the following detailed updated notes for more information:
-
-.. toctree::
-   :maxdepth: 1
-
-   14.07/switchboard_plugin
-
-
-14.06
------
-
-* Consult the `14.06 Roadmap <https://projects.wazo.community/versions/197>`_
-* The Wazo Client now uses Qt 5 instead of Qt 4. There is nothing to be aware of unless you
-  are building your own version of it.
-
-
-14.05
------
-
-* Consult the `14.05 Roadmap <https://projects.wazo.community/versions/196>`_
-* The cti-protocol has been updated.
-* The specification of the 'answered-rate' queue statistic has changed to
-  exclude calls on a closed queue
-* The switchboard can now choose which incoming call to answer
-* The package versions do not necessarily contain the current XiVO version, it may contain older
-  versions. Only the package ``xivo`` is guaranteed to have the current XiVO version.
-
-Please consult the following detailed updated notes for more information:
-
-.. toctree::
-   :maxdepth: 1
-
-   14.05/dahdi_2.9.0
-   14.05/sccp_next
-
-
-14.04
------
-
-* Consult the `14.04 Roadmap <https://projects.wazo.community/versions/195>`_
-* Live reload of the configuration can be enabled and disabled using the REST API
-* The generation of call logs for unanswered calls from the Wazo Client have
-  been improved.
-
-
-14.03
------
-
-* Consult the `14.03 Roadmap <https://projects.wazo.community/versions/194>`_
-* A migration script adds an index on the linkedid field in the cel table.
-  Tests have shown that this operation can last up to 11.5 minutes on a XiVO
-  Corporate with 18 millions CELs. xivo-upgrade will thus be slightly longer.
-* Two new daemons are now operationnal, xivo-amid and xivo-call-logd:
-
-  * xivo-amid constantly reads the AMI and sends AMI events to the RabbitMQ bus
-  * xivo-call-logd generates call-logs in real time based on AMI LINKEDID_END
-    events read on the bus
-* An increase in load average is expected with the addition of these two new
-  daemons.
-* The cron job calling xivo-call-logs now runs once a day at 4:25 instead of
-  every 5 minutes.
-
-
-14.02
------
-
-* Consult the `14.02 Roadmap <https://projects.wazo.community/versions/193>`_
-* PHP Web services has been removed from documentation
-* REST API 1.0 Web services has been removed from documentation
-* REST API 1.1 User-Line-Extension service is replaced by User-Line and Line-Extension services
-
-
-14.01
------
-
-* Consult the `14.01 Roadmap <https://projects.wazo.community/versions/192>`_
-* The following paths have been renamed:
-
-  * :file:`/etc/pf-xivo` to :file:`/etc/xivo`
-  * :file:`/var/lib/pf-xivo` to :file:`/var/lib/xivo`
-  * :file:`/usr/share/pf-xivo` to :file:`/usr/share/xivo`
-
-You must update any dialplan or configuration file using these paths
