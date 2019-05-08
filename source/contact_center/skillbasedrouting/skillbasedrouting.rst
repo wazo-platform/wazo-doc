@@ -243,6 +243,8 @@ constant. This means the following expressions are not accepted:
 * 10 < 11 (the first operand must be a variable name)
 
 
+.. _skill-apply:
+
 Apply Skill Rule Sets
 =====================
 
