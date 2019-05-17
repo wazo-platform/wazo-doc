@@ -1,17 +1,17 @@
-.. _xivo-dird-phoned:
+.. _wazo-dird-phoned:
 
 ================
-xivo-dird-phoned
+wazo-dird-phoned
 ================
 
-xivo-dird-phoned is an interface to use directory service with phone. It offers a simple REST
+wazo-dird-phoned is an interface to use directory service with phone. It offers a simple REST
 interface to authenticate a phone and search result from :ref:`wazo-dird`.
 
 
 Usage
 =====
 
-xivo-dird-phoned is used through HTTP requests, using HTTP and HTTPS. Its default port is 9498
+wazo-dird-phoned is used through HTTP requests, using HTTP and HTTPS. Its default port is 9498
 and 9499. As a user, the common operation is to search through directory from a phone. The phone
 need to send 2 informations:
 
@@ -23,7 +23,7 @@ need to send 2 informations:
           authorized_subnets in :ref:`configuration-files`
 
 
-Launching xivo-dird-phoned
+Launching wazo-dird-phoned
 ==========================
 
-On command line, type ``xivo-dird-phoned -h`` to see how to use it.
+On command line, type ``wazo-dird-phoned -h`` to see how to use it.

@@ -101,11 +101,11 @@ This configuration is read by many Wazo programs in order to connect to the Post
 Wazo.
 
 
-xivo-dird-phoned
+wazo-dird-phoned
 ================
 
-* Default configuration directory: :file:`/etc/xivo-dird-phoned/conf.d`
-* Default configuration file: :file:`/etc/xivo-dird-phoned/config.yml`
+* Default configuration directory: :file:`/etc/wazo-dird-phoned/conf.d`
+* Default configuration file: :file:`/etc/wazo-dird-phoned/config.yml`
 
 
 xivo-provisioning

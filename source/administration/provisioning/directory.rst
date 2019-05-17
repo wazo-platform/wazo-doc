@@ -15,7 +15,7 @@ Configuration
 =============
 
 For the remote directory to work on your phones, the first thing to do is to create a custom
-xivo-dird-phoned configuration file :file:`/etc/xivo-dird-phoned/conf.d/custom.yml`
+wazo-dird-phoned configuration file :file:`/etc/wazo-dird-phoned/conf.d/custom.yml`
 
 You then have to add the range of IP addresses that will be allowed to access the directory.
 So if you know that your phone's IP addresses are all in the 192.168.1.0/24 subnet, add::
@@ -24,9 +24,9 @@ So if you know that your phone's IP addresses are all in the 192.168.1.0/24 subn
     authorized_subnets: [192.168.1.0/24]
 
 
-You must then restart ``xivo-dird-phoned``::
+You must then restart ``wazo-dird-phoned``::
 
-  systemctl restart xivo-dird-phoned
+  systemctl restart wazo-dird-phoned
 
 Once this is done, on your phone, just click on the "remote directory" function key and
 you'll be able to do a search in the Wazo directory from it.

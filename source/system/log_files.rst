@@ -118,11 +118,11 @@ The file location can be changed by customizing the xivo-confgend.service unit f
 * Rotation frequence: Daily
 
 
-xivo-dird-phoned
+wazo-dird-phoned
 ----------------
 
-* File location: :file:`/var/log/xivo-dird-phoned.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-dird-phoned`
+* File location: :file:`/var/log/wazo-dird-phoned.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-dird-phoned`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
