@@ -8,7 +8,7 @@ Wazo offers a service to receive messages published on the :ref:`bus (e.g. Rabbi
 over an encrypted `WebSocket <https://en.wikipedia.org/wiki/WebSocket>`_ connection. This ease in
 building dynamic web applications that are using events from your Wazo.
 
-The service is provided by the ``xivo-websocketd`` component.
+The service is provided by the ``wazo-websocketd`` component.
 
 
 Getting Started
@@ -196,10 +196,10 @@ receives will be logged to the console.
 Reference
 =========
 
-The WebSocket service is provided by ``xivo-websocketd``, and its behaviour can be configured via
-its :ref:`configuration files <configuration-files>` located under the :file:`/etc/xivo-websocketd`
-directory. After modifying the configuration files, you need to restart ``xivo-websocketd`` with
-``systemctl restart xivo-websocketd``.
+The WebSocket service is provided by ``wazo-websocketd``, and its behaviour can be configured via
+its :ref:`configuration files <configuration-files>` located under the :file:`/etc/wazo-websocketd`
+directory. After modifying the configuration files, you need to restart ``wazo-websocketd`` with
+``systemctl restart wazo-websocketd``.
 
 
 .. _ws-connection:
@@ -241,11 +241,11 @@ the token expires.
 Events Access Control
 ---------------------
 
-Clients connected to ``xivo-websocketd`` only receive events that they are authorized to receive.
+Clients connected to ``wazo-websocketd`` only receive events that they are authorized to receive.
 For example, a client connected with a token obtained from the "wazo_user" ``wazo-auth`` backend
 will *not* receive call events of other users.
 
-When a message is received from the bus by ``xivo-websocketd``, it extracts the ACL from the
+When a message is received from the bus by ``wazo-websocketd``, it extracts the ACL from the
 ``required_acl`` key of the event. If the field is missing, no clients will receive the event. If
 the value is null, all subscribed clients will receive the event. If the value is a string, then all
 subscribed clients which have a matching ACL will receive the event.

@@ -115,11 +115,11 @@ xivo-provisioning
 * Default configuration file: :file:`/etc/xivo-provd/config.yml`
 
 
-xivo-websocketd
+wazo-websocketd
 ===============
 
-* Default configuration directory: :file:`/etc/xivo-websocketd/conf.d`
-* Default configuration file: :file:`/etc/xivo-websocketd/config.yml`
+* Default configuration directory: :file:`/etc/wazo-websocketd/conf.d`
+* Default configuration file: :file:`/etc/wazo-websocketd/config.yml`
 
 
 .. _xivo_ring.conf:

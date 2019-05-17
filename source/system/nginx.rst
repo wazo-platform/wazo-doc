@@ -16,7 +16,7 @@ services to be used:
 * The directory service (wazo-dird)
 * The AMI HTTP interface (xivo-amid)
 * API documentation (xivo-swagger-doc)
-* The websocket interface (xivo-websocketd)
+* The websocket interface (wazo-websocketd)
 * Asterisk WebSocket (xivo-config)
 
 An administrator can easily modify the configuration to allow or disallow some services.

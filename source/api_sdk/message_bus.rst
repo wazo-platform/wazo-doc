@@ -245,7 +245,7 @@ name
     A string representing the name of the event. Each event type has a unique name.
 
 required_acl (optional)
-    Either a string or null. Currently used by xivo-websocketd to determine if
+    Either a string or null. Currently used by wazo-websocketd to determine if
     a client can receive the event or not. See the :ref:`ws-events-acl` section for
     more information.
 

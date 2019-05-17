@@ -172,10 +172,10 @@ xivo-sysconfd
 * Rotation frequence: Daily
 
 
-xivo-websocketd
+wazo-websocketd
 ---------------
 
-* File location: :file:`/var/log/xivo-websocketd.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-websocketd`
+* File location: :file:`/var/log/wazo-websocketd.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-websocketd`
 * Number of archived files: 15
 * Rotation frequence: Daily
