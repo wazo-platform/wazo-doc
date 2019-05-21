@@ -4,6 +4,15 @@
 Upgrade notes
 *************
 
+19.08
+=====
+
+* The `/var/lib/xivo/sounds` directory has been migrated to `/var/lib/wazo/sounds` and the directory
+  `/var/lib/xivo` is considered deprecated. Please update all custom references to this path.
+
+Consult the `19.08 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10023>`_ for more information
+
+
 19.07
 =====
 
