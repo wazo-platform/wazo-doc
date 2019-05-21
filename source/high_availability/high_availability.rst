@@ -73,7 +73,6 @@ will then be rsync'ed every hour:
 * /etc/xivo/asterisk
 * /var/lib/asterisk/agi-bin
 * /var/lib/asterisk/moh
-* /var/lib/xivo/certificates
 * /var/lib/wazo/sounds/tenants
 
 .. warning:: When the HA is configured, some changes will be automatically
