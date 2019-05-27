@@ -648,8 +648,7 @@ Consult the `15.17 Roadmap <https://projects.wazo.community/versions/233>`_
   option instead.
 * The remote directory service available from :ref:`supported phones <supported-devices>` is now
   provided by the new unified directory service, i.e. xivo-dird. Additional upgrade steps are
-  required to get the full benefit of the new directory service; see the :ref:`detailed upgrade
-  notes <upgrade-notes-webi-to-dird>`.
+  required to get the full benefit of the new directory service.
 * The field ``enableautomon`` has been renamed to ``enableonlinerec`` in the users web services provided
   by the web-interface (these web services are deprecated).
 * The agent status dashboard now shows that an agent is calling or receiving a non ACD call while in
@@ -658,14 +657,6 @@ Consult the `15.17 Roadmap <https://projects.wazo.community/versions/233>`_
   been associated with a line
 * Due to limitations in the database, only a limited number of optional parameters can be configured
   on a SIP endpoint. Consult the :ref:`xivo-confd changelog <rest-api_changelog>` for further details
-
-
-Please consult the following detailed upgrade notes for more information:
-
-.. toctree::
-   :maxdepth: 1
-
-   15.17/webi_to_dird
 
 
 15.16
