@@ -14,6 +14,8 @@ Upgrade notes
   not backup or synchronized anymore.
 * The `/var/lib/xivo/sounds` directory has been migrated to `/var/lib/wazo/sounds` and the directory
   `/var/lib/xivo` is considered deprecated. Please update all custom references to this path.
+* `xivo-provisioning` API URL has been updated to remove the `provd` prefix and add the API version
+  number, which is `0.2`. All affected services and `wazo-provd-client` have been updated.
 
 Consult the `19.08 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10023>`_ for more information
 
