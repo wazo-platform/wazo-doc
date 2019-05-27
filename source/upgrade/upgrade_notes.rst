@@ -7,6 +7,8 @@ Upgrade notes
 19.08
 =====
 
+* All API related to `cti profile` have been removed `xivo-confd changelog
+  <https://github.com/wazo-pbx/xivo-confd/blob/master/CHANGELOG.md#1908>`_ for more information.
 * xivo-confd has been updated to Python 3. If you have written or installed a custom plugin, you
   must ensure that the plugins are compatible with Python 3.
 * Since the feature to manage certificates from web-interface is gone, all certificates must now be
