@@ -7,6 +7,8 @@ Upgrade notes
 19.08
 =====
 
+* xivo-confd has been updated to Python 3. If you have written or installed a custom plugin, you
+  must ensure that the plugins are compatible with Python 3.
 * Since the feature to manage certificates from web-interface is gone, all certificates must now be
   managed manually. The directory to access to certificates is `/var/lib/xivo/certificates` and is
   not backup or synchronized anymore.
