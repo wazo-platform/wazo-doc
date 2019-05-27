@@ -7,6 +7,9 @@ Upgrade notes
 19.08
 =====
 
+* Since the feature to manage certificates from web-interface is gone, all certificates must now be
+  managed manually. The directory to access to certificates is `/var/lib/xivo/certificates` and is
+  not backup or synchronized anymore.
 * The `/var/lib/xivo/sounds` directory has been migrated to `/var/lib/wazo/sounds` and the directory
   `/var/lib/xivo` is considered deprecated. Please update all custom references to this path.
 
