@@ -120,8 +120,7 @@ Implementation details
       * key ``token_infos``: data associated to the authentication token (see :ref:`wazo-auth`)
 
 
-See :ref:`dird-sources_configuration`. The implementation of the back-end should take these values into
-account and return results accordingly.
+The implementation of the back-end should take these values into account and return results accordingly.
 
 
 Example

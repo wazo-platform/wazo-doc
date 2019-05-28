@@ -9,6 +9,9 @@ Upgrade notes
 
 * xivo-confd has been updated to Python 3. If you have written or installed a custom plugin, you
   must ensure that the plugins are compatible with Python 3.
+* wazo-dird now create a profile named `default` for each new tenant. This profile should be used instead of the
+  profiles matching the internal context names. Old profiles are still there and can be deleted after confirming that
+  the `default` profile works as expected.
 * Since the feature to manage certificates from web-interface is gone, all certificates must now be
   managed manually. The directory to access to certificates is `/var/lib/xivo/certificates` and is
   not backup or synchronized anymore.
@@ -243,8 +246,8 @@ Consult the `18.06 Roadmap <https://projects.wazo.community/versions/276>`_ for 
 
 * wazo-dird now uses a token to authenticate when doing searches on xivo-confd
 
-  * See :ref:`dird-backend-wazo` if you have customized configuration files in
-    `/etc/wazo-dird/sources.d` or `/etc/wazo-dird/conf.d` for a source of type `xivo`
+  * If you have customized configuration files in `/etc/wazo-dird/sources.d` or `/etc/wazo-dird/conf.d`
+    for a source of type `xivo`. Then you must have to configure the `key_file` field in you source configuration.
   * If you are using custom certificates you will have to modify your directory configuration to add
     your certificate. See :ref:`https_certificate` for more information in the `Use your own
     certificate` section.
