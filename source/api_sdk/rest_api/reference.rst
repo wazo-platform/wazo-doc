@@ -18,7 +18,6 @@ API reference
 
    webhookd/api
    confd/api
-   provd/api
    sysconfd/api
 
 For other services, see http://api.wazo.community. See also the :ref:`rest-api-quickstart` for an
