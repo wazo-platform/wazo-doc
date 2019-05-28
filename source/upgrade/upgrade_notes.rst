@@ -247,7 +247,7 @@ Consult the `18.06 Roadmap <https://projects.wazo.community/versions/276>`_ for 
 * wazo-dird now uses a token to authenticate when doing searches on xivo-confd
 
   * If you have customized configuration files in `/etc/wazo-dird/sources.d` or `/etc/wazo-dird/conf.d`
-    for a source of type `xivo`
+    for a source of type `xivo`. Then you must have to configure the `key_file` field in you source configuration.
   * If you are using custom certificates you will have to modify your directory configuration to add
     your certificate. See :ref:`https_certificate` for more information in the `Use your own
     certificate` section.
