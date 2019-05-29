@@ -7,8 +7,8 @@ Upgrade notes
 19.08
 =====
 
-* All API related to `cti profile` have been removed `xivo-confd changelog
-  <https://github.com/wazo-pbx/xivo-confd/blob/master/CHANGELOG.md#1908>`_ for more information.
+* All API related to `cti profile` have been removed. See `xivo-confd changelog
+  <https://github.com/wazo-pbx/xivo-confd/blob/master/CHANGELOG.md#1908>`__ for more information.
 * xivo-confd has been updated to Python 3. If you have written or installed a custom plugin, you
   must ensure that the plugins are compatible with Python 3.
 * wazo-dird now create a profile named `default` for each new tenant. This profile should be used instead of the
