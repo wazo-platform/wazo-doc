@@ -11,12 +11,12 @@ Upgrade notes
   <https://github.com/wazo-pbx/xivo-confd/blob/master/CHANGELOG.md#1908>`__ for more information.
 * xivo-confd has been updated to Python 3. If you have written or installed a custom plugin, you
   must ensure that the plugins are compatible with Python 3.
-* wazo-dird now create a profile named `default` for each new tenant. This profile should be used instead of the
+* wazo-dird now creates a profile named `default` for each new tenant. This profile should be used instead of the
   profiles matching the internal context names. Old profiles are still there and can be deleted after confirming that
   the `default` profile works as expected.
-* Since the feature to manage certificates from web-interface is gone, all certificates must now be
+* Since the feature for managing certificates from web-interface is gone, all certificates must now be
   managed manually. The directory to access to certificates is `/var/lib/xivo/certificates` and is
-  not backup or synchronized anymore.
+  not backuped or synchronized for HA anymore.
 * The `/var/lib/xivo/sounds` directory has been migrated to `/var/lib/wazo/sounds` and the directory
   `/var/lib/xivo` is considered deprecated. Please update all custom references to this path.
 * `xivo-provisioning` API URL has been updated to remove the `provd` prefix when present and add the
