@@ -4,6 +4,17 @@
 Upgrade notes
 *************
 
+19.09
+=====
+
+* ``xivo-confd-client`` has been renamed ``wazo-confd-client``
+
+  * If you were using the xivo-confd-client in your python code you should use the wazo-confd-client
+    which has the same interface at the moment.
+
+Consult the `19.09 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10024>`_ for more information
+
+
 19.08
 =====
 
