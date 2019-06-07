@@ -819,7 +819,7 @@ Particularities:
   (~650 MiB). For this reason, these files are explicitly excluded from the Wazo backups.
 
 * For directed call pickup to work via the BLF function keys, you need to make sure that the option
-  ``notifycid`` is ``yes`` for ``xivo-confd`` endpoint ``/asterisk/sip/general``
+  ``notifycid`` is ``yes`` for ``wazo-confd`` endpoint ``/asterisk/sip/general``
 
   Also, directed call pickup via a BLF function key will not work if the extension number of the
   supervised user is different from its caller ID number.

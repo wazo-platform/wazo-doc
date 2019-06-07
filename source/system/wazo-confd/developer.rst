@@ -1,10 +1,10 @@
-.. _xivo-confd-developer:
+.. _wazo-confd-developer:
 
 ==============================
-Developer's Guide (xivo-confd)
+Developer's Guide (wazo-confd)
 ==============================
 
-xivo-confd resources are organised through a plugin mechanism. There are 2 main plugin categories:
+wazo-confd resources are organised through a plugin mechanism. There are 2 main plugin categories:
 
 Resource plugins
     A plugin that manages a resource (e.g. users, extensions, voicemails, etc). A resource plugin
@@ -18,9 +18,9 @@ Association plugins
 
 The following diagram outlines the most important parts of a plugin:
 
-.. figure:: images/xivo-confd-plugin-architecture.png
+.. figure:: images/wazo-confd-plugin-architecture.png
 
-   Plugin architecture of xivo-confd
+   Plugin architecture of wazo-confd
 
 
 Resource

@@ -29,7 +29,7 @@ There are 2 options you can pass to wazo-upgrade:
 
 ``wazo-upgrade`` uses the following environment variables:
 
-* ``XIVO_CONFD_PORT`` to set the port used to query the :ref:`HTTP API of xivo-confd <confd-api>`
+* ``WAZO_CONFD_PORT`` to set the port used to query the :ref:`HTTP API of wazo-confd <confd-api>`
   (default is 9486)
 
 

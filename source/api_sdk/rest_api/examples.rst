@@ -4,7 +4,7 @@
 REST API Examples
 *****************
 
-CURL Examples (xivo-confd)
+CURL Examples (wazo-confd)
 ==========================
 
 ::
@@ -26,7 +26,7 @@ CURL Examples (xivo-confd)
    https://wazo:9486/1.1/users
 
 
-Create a user with a phone and a voicemail (xivo-confd)
+Create a user with a phone and a voicemail (wazo-confd)
 =======================================================
 
 .. figure:: images/rest-api-example-user-voicemail.png

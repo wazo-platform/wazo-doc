@@ -95,11 +95,11 @@ wazo-call-logd
 * Rotation frequence: Daily
 
 
-xivo-confd
+wazo-confd
 ----------
 
-* File location: :file:`/var/log/xivo-confd.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-confd`
+* File location: :file:`/var/log/wazo-confd.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-confd`
 * Number of archived files: 15
 * Rotation frequence: Daily
 

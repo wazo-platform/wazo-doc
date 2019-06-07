@@ -47,5 +47,5 @@ Google TTS service.
 Note that this last modification may be erased after running ``wazo-upgrade``.
 
 And that's it, you can configure a user to use your new language and he will hear the prompts in
-your language. You may also want to use the :ref:`xivo-confd HTTP API <rest-api>` to mass-update
+your language. You may also want to use the :ref:`wazo-confd HTTP API <rest-api>` to mass-update
 your users.

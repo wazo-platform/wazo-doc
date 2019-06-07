@@ -5,17 +5,17 @@ Wazo Package File Structure
 Package naming
 ==============
 
-Let's assume we want to organise the files for xivo-confd.
+Let's assume we want to organise the files for wazo-confd.
 
-* Git repo name: ``xivo-confd``
-* Binary file name: ``xivo-confd``
-* Python package name: ``xivo_confd``
+* Git repo name: ``wazo-confd``
+* Binary file name: ``wazo-confd``
+* Python package name: ``wazo_confd``
 
 ::
 
-   xivo-confd
+   wazo-confd
    |-- bin
-   |   `-- xivo-confd
+   |   `-- wazo-confd
    |-- contribs
    |   `-- docker
    |       |-- ...
@@ -37,7 +37,7 @@ Let's assume we want to organise the files for xivo-confd.
    |-- setup.py
    |-- test-requirements.txt
    |-- .travis.yml
-   `-- xivo_confd
+   `-- wazo_confd
        `-- ...
 
 Sources
@@ -76,7 +76,7 @@ Standard files:
 * setup.cfg
 * requirements.txt
 * test-requirements.txt
-* xivo_confd/ (the main sources)
+* wazo_confd/ (the main sources)
 
 
 Debian
@@ -93,18 +93,18 @@ Docker
    Used to build a docker image for a working production version
 
 ``contribs/docker/prod/``
-   Contains the files necessary for running xivo-confd inside a production Docker image
+   Contains the files necessary for running wazo-confd inside a production Docker image
 
 ``contribs/docker/other/``
-   Contains the Dockerfile and other files to run xivo-confd inside Docker with specific configuration
+   Contains the Dockerfile and other files to run wazo-confd inside Docker with specific configuration
 
 
 File naming
 ===========
 
-* PID file: ``/var/run/xivo-confd/xivo-confd.pid``
-* WSGI socket file: ``/var/run/xivo-confd/xivo-confd.sock``
-* Config file: ``/etc/xivo-confd/config.yml``
-* Log file: ``/var/log/xivo-confd.log``
-* Static data files: ``/usr/share/xivo-confd``
-* Storage data files: ``/var/lib/xivo-confd``
+* PID file: ``/var/run/wazo-confd/wazo-confd.pid``
+* WSGI socket file: ``/var/run/wazo-confd/wazo-confd.sock``
+* Config file: ``/etc/wazo-confd/config.yml``
+* Log file: ``/var/log/wazo-confd.log``
+* Static data files: ``/usr/share/wazo-confd``
+* Storage data files: ``/var/lib/wazo-confd``
