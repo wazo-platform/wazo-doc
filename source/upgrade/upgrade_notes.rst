@@ -7,6 +7,15 @@ Upgrade notes
 19.09
 =====
 
+* ``xivo-confd`` has been renamed ``wazo-confd``
+
+  * The custom configuration has been moved to ``/etc/wazo-confd/conf.d/``.
+  * The log file has been renamed to ``wazo-confd.log``.
+  * The NGINX proxy has been recreated in ``/etc/nginx/locations/https-enabled/wazo-confd``.
+  * Entrypoint for custom plugin has been renamed to ``wazo_confd.*``.
+  * Environment variable for ``wazo-upgrade`` has been renamed from ``XIVO_CONFD_PORT` to
+    ``WAZO_CONFD_PORT``.
+
 * ``xivo-confd-client`` has been renamed ``wazo-confd-client``
 
   * If you were using the xivo-confd-client in your python code you should use the wazo-confd-client
