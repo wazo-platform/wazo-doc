@@ -2,7 +2,7 @@
 Administration
 **************
 
-All configurations are done via the ``xivo-confd`` REST API
+All configurations are done via the ``wazo-confd`` REST API
 
 .. toctree::
    :maxdepth: 2

@@ -32,7 +32,7 @@ Here's a non exhaustive list of what can be done with plugins
     * wazo-auth
     * wazo-calld
     * wazo-dird
-    * xivo-confd
+    * wazo-confd
     * xivo-confgend
 
 

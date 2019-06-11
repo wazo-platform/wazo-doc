@@ -49,10 +49,10 @@ only when it is consulted from an internal context.
 Advanced configuration
 ======================
 
-Remote *xivo-confd*
+Remote *wazo-confd*
 -------------------
 
-If *xivo-confd* is on a remote host, *wazo-confd-client* configuration will be
+If *wazo-confd* is on a remote host, *wazo-confd-client* configuration will be
 required to be able to change the voicemail passwords using a phone.
 
 This configuration should be done:

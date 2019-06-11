@@ -79,6 +79,6 @@ synchronous
    When this option is false, xivo-sysconfd reply to the request immediately.
 
    Setting this option to false will speed up some operation (for example, editing a user from the
-   web interface or from xivo-confd), but this means that there will be a small delay (up to a few
+   web interface or from wazo-confd), but this means that there will be a small delay (up to a few
    seconds in the worst case) between the time you create your user and the time you can dial
    successfully its extension.

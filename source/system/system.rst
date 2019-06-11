@@ -20,7 +20,7 @@ System
    wazo-auth <wazo-auth/wazo-auth>
    wazo-service <service>
    wazo-webhookd <wazo-webhookd>
-   xivo-confd <xivo-confd/xivo-confd>
+   wazo-confd <wazo-confd/wazo-confd>
    xivo-confgend <xivo-confgend/xivo-confgend>
    wazo-dird <wazo-dird/wazo-dird>
    wazo-dird-phoned <wazo-dird-phoned>

@@ -1,7 +1,7 @@
 .. _confd-api:
 
 *******************
-xivo-confd REST API
+wazo-confd REST API
 *******************
 
 API reference

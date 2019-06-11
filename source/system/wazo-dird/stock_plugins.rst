@@ -220,7 +220,7 @@ To configure new sources, the service needs the following things:
 #. A set of service and profile that will use the new source.
 
 
-.. note:: Service discovery is limited to a single service being discovered. This means that discovering a xivo-confd server will assume that wazo-auth resides on the same host or that the template is already configured with the appropriate hostname.
+.. note:: Service discovery is limited to a single service being discovered. This means that discovering a wazo-confd server will assume that wazo-auth resides on the same host or that the template is already configured with the appropriate hostname.
 
 
 Template
@@ -270,11 +270,11 @@ Example:
       service_discovery:
         template_path: /etc/wazo-dird/templates.d
         services:
-          xivo-confd:
+          wazo-confd:
             template: confd.yml
 
 In this example, the file */etc/wazo-dird/templates.d/confd.yml* would
-be used to create a new source configuration when a new *xivo-confd* service
+be used to create a new source configuration when a new *wazo-confd* service
 is registered.
 
 The following keys are available to use in the templates:
@@ -282,8 +282,8 @@ The following keys are available to use in the templates:
 * uuid: The Wazo uuid that was in the service registry notification
 * hostname: The advertised host from the remote service
 * port: The advertised port from the remote service
-* service_id: The login used to query xivo-confd
-* service_key: The password used to query xivo-confd
+* service_id: The login used to query wazo-confd
+* service_key: The password used to query wazo-confd
 
 All other fields are configured in the *hosts* section of the service_discovery
 service.

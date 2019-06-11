@@ -15,7 +15,7 @@ Syntax
 
 An ACL contains 3 parts separated by dot (``.``)
 
-* `service`: name of service, without prefix ``xivo-`` (e.g. ``xivo-confd`` -> ``confd``).
+* `service`: name of service, without prefix ``xivo-`` (e.g. ``wazo-confd`` -> ``confd``).
 * `resource`: name of resource separated by dot (``.``) (e.g. ``/users/17/lines`` ->
   ``users.17.lines``).
 * `action`: action performed on resource. Generally, this is the following schema:

@@ -1,10 +1,10 @@
-.. _xivo-confd:
+.. _wazo-confd:
 
 ==========
-xivo-confd
+wazo-confd
 ==========
 
-xivo-confd is a HTTP server that provides a RESTful API service for configuring and managing basic
+wazo-confd is a HTTP server that provides a RESTful API service for configuring and managing basic
 resources on a Wazo server.
 
 The HTTP API reference is available at http://api.wazo.community.
