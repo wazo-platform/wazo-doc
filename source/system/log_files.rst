@@ -59,11 +59,11 @@ wazo-upgrade
 * Rotation frequence: Daily
 
 
-xivo-agentd
+wazo-agentd
 -----------
 
-* File location: :file:`/var/log/xivo-agentd.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-agentd`
+* File location: :file:`/var/log/wazo-agentd.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-agentd`
 * Number of archived files: 15
 * Rotation frequence: Daily
 

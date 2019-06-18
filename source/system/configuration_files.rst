@@ -52,9 +52,9 @@ File configuration structure
 Configuration files for every service running on a Wazo server will respect these rules:
 
 * Default configuration directory in :file:`/etc/xivo-{{service}}/conf.d` (e.g.
-  :file:`/etc/xivo-agentd/conf.d/`)
+  :file:`/etc/wazo-agentd/conf.d/`)
 * Default configuration file in :file:`/etc/xivo-{{service}}/config.yml` (e.g.
-  :file:`/etc/xivo-agentd/config.yml`)
+  :file:`/etc/wazo-agentd/config.yml`)
 
 The files :file:`/etc/xivo-{{service}}/config.yml` should not be modified because **they will be
 overridden during upgrades**. However, they may be used as examples for creating additional
@@ -69,11 +69,11 @@ wazo-auth
 * Default configuration file: :file:`/etc/wazo-auth/config.yml`
 
 
-xivo-agentd
+wazo-agentd
 ===========
 
-* Default configuration directory: :file:`/etc/xivo-agentd/conf.d`
-* Default configuration file: :file:`/etc/xivo-agentd/config.yml`
+* Default configuration directory: :file:`/etc/wazo-agentd/conf.d`
+* Default configuration file: :file:`/etc/wazo-agentd/config.yml`
 
 
 xivo-amid

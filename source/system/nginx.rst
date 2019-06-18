@@ -9,7 +9,7 @@ Wazo use nginx as a web server and reverse proxy.
 In its default configuration, the nginx server listens on port TCP/80 and TCP/443 and allows these
 services to be used:
 
-* The agent management server (xivo-agentd)
+* The agent management server (wazo-agentd)
 * The authentication server (wazo-auth)
 * The configuration server (wazo-confd)
 * The telephony service interface (wazo-calld)
