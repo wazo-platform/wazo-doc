@@ -7,6 +7,12 @@ Upgrade notes
 19.09
 =====
 
+* ``xivo-agentd`` has been renamed ``wazo-agentd``
+
+  * The custom configuration has been moved to ``/etc/wazo-agentd/conf.d/``.
+  * The log file has been renamed to ``wazo-agentd.log``.
+  * The NGINX proxy has been recreated in ``/etc/nginx/locations/https-enabled/wazo-agentd``.
+
 * ``xivo-confd`` has been renamed ``wazo-confd``
 
   * The custom configuration has been moved to ``/etc/wazo-confd/conf.d/``.
