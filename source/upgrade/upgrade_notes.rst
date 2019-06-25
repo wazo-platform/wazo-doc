@@ -4,6 +4,16 @@
 Upgrade notes
 *************
 
+19.10
+=====
+
+* ``xivo-agentd-cli`` has been renamed ``wazo-agentd-cli``
+
+* ``xivo-agentd-client`` has been renamed ``wazo-agentd-client``
+
+  * If you were using the xivo-agentd-client in your python code you should use the wazo-agentd-client
+    which has the same interface at the moment.
+
 19.09
 =====
 
