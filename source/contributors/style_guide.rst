@@ -52,7 +52,7 @@ errors are ignored :
 
 Example::
 
-    pep8 --ignore=E501 xivo_cti
+    pep8 --ignore=E501 wazo_calld
 
 
 When possible, avoid using backslashes to separate lines.
