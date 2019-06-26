@@ -57,14 +57,14 @@ wazo-upgrade
 ``wazo-dist-upgrade``.
 
 
-xivo-agentd-cli
+wazo-agentd-cli
 ---------------
 
-``xivo-agentd-cli`` is a command-line interface to interact with the REST API of ``xivo-agentd``.
+``wazo-agentd-cli`` is a command-line interface to interact with the REST API of ``wazo-agentd``.
 It provides mainly agent-related features.
 
-``xivo-agentd-cli`` has an interactive REPL mode. You can access it with the command
-``xivo-agentd-cli``. It should prompt you for a password that is empty by default. Once in the
+``wazo-agentd-cli`` has an interactive REPL mode. You can access it with the command
+``wazo-agentd-cli``. It should prompt you for a password that is empty by default. Once in the
 interactive mode, enter ``help`` for a list of available operations.
 
 
