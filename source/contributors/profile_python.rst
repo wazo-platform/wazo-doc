@@ -70,7 +70,7 @@ want to have additional information about it.
 #. After the process terminates, use ``coverage html`` to generate
    an HTML coverage report::
 
-      coverage html --include='*xivo_cti*'
+      coverage html --include='*wazo_calld*'
 
    This will generate an :file:`htlmcov` directory in the current directory.
 
