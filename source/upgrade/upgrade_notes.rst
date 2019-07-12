@@ -14,6 +14,9 @@ Upgrade notes
   * If you were using the xivo-agentd-client in your python code you should use the wazo-agentd-client
     which has the same interface at the moment.
 
+Consult the `19.10 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10026>`_ for more information
+
+
 19.09
 =====
 
