@@ -4,6 +4,14 @@
 Upgrade notes
 *************
 
+19.11
+=====
+
+* The ``wazo-microsoft`` plugin has been copied to the ``wazo-auth`` and ``wazo-dird`` repo. You **must**
+  uninstall that plugin if you installed it from its source to avoid conflicts between the supported
+  version and the legacy version.
+
+
 19.10
 =====
 
