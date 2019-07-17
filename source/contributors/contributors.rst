@@ -10,6 +10,7 @@ General information:
    contributing_doc
    debug_asterisk
    debug_daemon
+   development_environment
    generate_custom_prompts
    guidelines
    network
