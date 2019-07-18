@@ -18,14 +18,16 @@ The `Wazo developers page <http://developers.wazo.io/>`_ can help you find which
 repository you should be working on. :ref:`asking_for_help` is always an option
 when looking at the less popular corners of the source code.
 
-You can the clone the desired repositories on you hard drive to start coding.
+You can then `clone <https://help.github.com/en/articles/cloning-a-repository>`_
+the desired repositories on you hard drive and start coding.
 
 
 Editing the code
 ================
 
-Most of the Wazo Platform is written in Python, our code follows the PEP8
-conventions. You can use a tool such as flake8 to validate that you code
+Most of the Wazo Platform is written in Python, our code follows the `PEP8
+<https://www.python.org/dev/peps/pep-0008/>`_ conventions. You can use a tool
+such as `flake8 <http://flake8.pycqa.org/en/latest/>`_ to validate that you code
 respects the standards. Some repositories also include the appropriate
 configuration to check your code using the tox command `tox -e linters`.
 
@@ -96,7 +98,8 @@ Contributing your code
 Once you are satisfied with your modifications, you can submit a `pull request
 <https://help.github.com/en/articles/creating-a-pull-request-from-a-fork>`_. At
 this point you should watch your pull request to see if anyone or anything
-comments on it.
+comments on it and respond to comments to eventually get your contribution
+merged.
 
 
 .. _asking_for_help:
