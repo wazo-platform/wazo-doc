@@ -85,7 +85,8 @@ outage for you and your users. To install your test engine follow the
 Now that you have a test engine, you want to try your code on it. Before
 starting I suggest you make a snapshot of your virtual machine to be able to
 come back to a clean install whenever needed. Then you can use `wdk
-<http://github.com/wazo-sdk>`_ to update the code running on your test platform.
+<http://github.com/wazo-pbx/wazo-sdk>`_ to update the code running on your test
+platform.
 
 The installation instructions for wdk are contained in its `README
 <https://github.com/wazo-pbx/wazo-sdk/blob/master/README.md>`_ as well as its
