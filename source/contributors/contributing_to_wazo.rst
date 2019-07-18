@@ -1,5 +1,3 @@
-.. _development_environment:
-
 **************************************
 How to contribute to the Wazo Platform
 **************************************
