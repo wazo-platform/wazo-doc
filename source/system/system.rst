@@ -24,5 +24,5 @@ System
    xivo-confgend <xivo-confgend/xivo-confgend>
    wazo-dird <wazo-dird/wazo-dird>
    wazo-dird-phoned <wazo-dird-phoned>
-   xivo-purge-db <purge_logs>
+   wazo-purge-db <purge_logs>
    xivo-sysconfd <xivo-sysconfd>

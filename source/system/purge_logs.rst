@@ -1,15 +1,15 @@
 .. _purge_logs:
 
 *************
-xivo-purge-db
+wazo-purge-db
 *************
 
 Keeping records of personal communications for long periods may be subject to local legislation, to
 avoid personal data retention. Also, keeping too many records may become resource intensive for the
-server. To ease the removal of such records, ``xivo-purge-db`` is a process that removes old log
+server. To ease the removal of such records, ``wazo-purge-db`` is a process that removes old log
 entries from the database. This allows keeping records for a maximum period and deleting older ones.
 
-By default, xivo-purge-db removes all logs older than a year (365 days). xivo-purge-db is run
+By default, wazo-purge-db removes all logs older than a year (365 days). wazo-purge-db is run
 nightly.
 
 .. note:: Please check the laws applicable to your country and modify ``days_to_keep`` (see below)
@@ -19,12 +19,12 @@ nightly.
 Tables Purged
 -------------
 
-The following features are impacted by xivo-purge-db:
+The following features are impacted by wazo-purge-db:
 
 - :ref:`call_logs`
 - Call center statistics
 
-More technically, the tables purged by ``xivo-purge-db`` are:
+More technically, the tables purged by ``wazo-purge-db`` are:
 
 -  ``call_log``
 -  ``cel``
@@ -40,13 +40,13 @@ More technically, the tables purged by ``xivo-purge-db`` are:
 Configuration File
 ------------------
 
-We recommend to override the setting ``days_to_keep`` from ``/etc/xivo-purge-db/config.yml`` in a
-new file in ``/etc/xivo-purge-db/conf.d/``.
+We recommend to override the setting ``days_to_keep`` from ``/etc/wazo-purge-db/config.yml`` in a
+new file in ``/etc/wazo-purge-db/conf.d/``.
 
-.. warning:: Setting ``days_to_keep`` to 0 will NOT disable ``xivo-purge-db``, and will remove ALL
+.. warning:: Setting ``days_to_keep`` to 0 will NOT disable ``wazo-purge-db``, and will remove ALL
              logs from your system.
 
-See :ref:`configuration-priority` and ``/etc/xivo-purge-db/config.yml`` for more details.
+See :ref:`configuration-priority` and ``/etc/wazo-purge-db/config.yml`` for more details.
 
 
 Manual Purge
@@ -54,16 +54,16 @@ Manual Purge
 
 It is possible to purge logs manually. To do so, log on to the target Wazo server and run::
 
-    xivo-purge-db
+    wazo-purge-db
 
 You can specify the number of days of logs to keep. For example, to purge entries older than 365
 days::
 
-    xivo-purge-db -d 365
+    wazo-purge-db -d 365
 
-Usage of ``xivo-purge-db``::
+Usage of ``wazo-purge-db``::
 
-    usage: xivo-purge-db [-h] [-d DAYS_TO_KEEP]
+    usage: wazo-purge-db [-h] [-d DAYS_TO_KEEP]
 
     optional arguments:
       -h, --help            show this help message and exit
@@ -74,10 +74,10 @@ Usage of ``xivo-purge-db``::
 Maintenance
 -----------
 
-After an execution of ``xivo-purge-db``, postgresql's `Autovacuum Daemon`_ should perform a
+After an execution of ``wazo-purge-db``, postgresql's `Autovacuum Daemon`_ should perform a
 `VACUUM`_ ANALYZE automatically (after 1 minute). This command marks memory as reusable but does
 not actually free disk space, which is fine if your disk is not getting full. In the case when
-``xivo-purge-db`` hasn't run for a long time (e.g. upgrading to 15.11 or when
+``wazo-purge-db`` hasn't run for a long time (e.g. upgrading to 15.11 or when
 :ref:`days_to_keep <purge_logs_config_file>` is decreased), some administrator may want to perform
 a `VACUUM`_ FULL to recover disk space.
 
@@ -96,13 +96,13 @@ You need to::
 Archive Plugins
 ---------------
 
-In the case you want to keep archives of the logs removed by xivo-purge-db, you may install plugins
-to xivo-purge-db that will be run before the purge.
+In the case you want to keep archives of the logs removed by wazo-purge-db, you may install plugins
+to wazo-purge-db that will be run before the purge.
 
 Wazo does not provide any archive plugin. You will need to develop plugins for your own need. If you
 want to share your plugins, please open a `pull request`_.
 
-.. _pull request: https://github.com/wazo-pbx/xivo-purge-db/pulls
+.. _pull request: https://github.com/wazo-pbx/wazo-purge-db/pulls
 
 
 Archive Plugins (for Developers)
@@ -110,11 +110,11 @@ Archive Plugins (for Developers)
 
 Each plugin is a Python callable (function or class constructor), that takes a dictionary of
 configuration as argument. The keys of this dictionary are the keys taken from the configuration
-file. This allows you to add plugin-specific configuration in ``/etc/xivo-purge-db/conf.d/``.
+file. This allows you to add plugin-specific configuration in ``/etc/wazo-purge-db/conf.d/``.
 
-There is an example plugin in the `xivo-purge-db git repo`_.
+There is an example plugin in the `wazo-purge-db git repo`_.
 
-.. _xivo-purge-db git repo: https://github.com/wazo-pbx/xivo-purge-db/tree/master/contribs
+.. _wazo-purge-db git repo: https://github.com/wazo-pbx/wazo-purge-db/tree/master/contribs
 
 
 Example
@@ -128,8 +128,8 @@ Purpose: demonstrate how to create your own archive plugin.
 Activate Plugin
 ^^^^^^^^^^^^^^^
 
-Each plugin needs to be explicitly enabled in the configuration of ``xivo-purge-db``. Here is an
-example of file added in ``/etc/xivo-purge-db/conf.d/``:
+Each plugin needs to be explicitly enabled in the configuration of ``wazo-purge-db``. Here is an
+example of file added in ``/etc/wazo-purge-db/conf.d/``:
 
 .. code-block:: yaml
    :linenos:
@@ -142,7 +142,7 @@ example of file added in ``/etc/xivo-purge-db/conf.d/``:
 sample.py
 ^^^^^^^^^
 
-The following example will be save a file in ``/tmp/xivo_purge_db.sample`` with the following
+The following example will be save a file in ``/tmp/wazo_purge_db.sample`` with the following
 content::
 
    Save tables before purge. 365 days to keep!
@@ -150,7 +150,7 @@ content::
 .. code-block:: python
    :linenos:
 
-    sample_file = '/tmp/xivo_purge_db.sample'
+    sample_file = '/tmp/wazo_purge_db.sample'
 
    def sample_plugin(config):
        with open(sample_file, 'w') as output:
@@ -160,7 +160,7 @@ content::
 Install sample plugin
 ^^^^^^^^^^^^^^^^^^^^^
 
-The following ``setup.py`` shows an example of a python library that adds a plugin to xivo-purge-db:
+The following ``setup.py`` shows an example of a python library that adds a plugin to wazo-purge-db:
 
 .. code-block:: python
    :linenos:
@@ -174,14 +174,14 @@ The following ``setup.py`` shows an example of a python library that adds a plug
 
 
     setup(
-        name='xivo-purge-db-sample-plugin',
+        name='wazo-purge-db-sample-plugin',
         version='0.0.1',
 
         description='An example program',
         packages=find_packages(),
         entry_points={
-            'xivo_purge_db.archives': [
-                'sample = xivo_purge_db_sample.sample:sample_plugin',
+            'wazo_purge_db.archives': [
+                'sample = wazo_purge_db_sample.sample:sample_plugin',
             ],
         }
     )

@@ -74,7 +74,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/xivo-amid/`
 * :file:`/etc/xivo-confgend-client/`
 * :file:`/etc/xivo-dxtora/`
-* :file:`/etc/xivo-purge-db/`
+* :file:`/etc/wazo-purge-db/`
 * :file:`/etc/xivo/`
 * :file:`/root/.config/wazo-auth-cli/`
 * :file:`/usr/local/bin/`
