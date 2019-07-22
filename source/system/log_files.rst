@@ -145,11 +145,11 @@ xivo-provd
 * Rotation frequence: Daily
 
 
-xivo-purge-db
+wazo-purge-db
 -------------
 
-* File location: :file:`/var/log/xivo-purge-db.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-purge-db`
+* File location: :file:`/var/log/wazo-purge-db.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-purge-db`
 * Number of archived files: 15
 * Rotation frequence: Daily
 

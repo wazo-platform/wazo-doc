@@ -11,6 +11,10 @@ Upgrade notes
   uninstall that plugin if you installed it from its source to avoid conflicts between the supported
   version and the legacy version.
 
+* ``xivo-purge-db`` has been renamed ``wazo-purge-db``
+
+* ``wazo-purge-db`` archives plugins namespace have been renamed from
+  ``xivo_purge_db.archives`` to ``wazo_purge_db.archives``
 
 19.10
 =====
