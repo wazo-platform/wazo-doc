@@ -1,4 +1,4 @@
 git+git://github.com/wazo-platform/sphinx-git.git@tagtitles
-sphinx_rtd_theme==0.2.5b1
+sphinx_rtd_theme==0.4.3
 gitpython
-sphinx==1.6.4
+sphinx==0.2.2
