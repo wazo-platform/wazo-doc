@@ -80,6 +80,8 @@ Consult the `19.11 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.js
 19.10
 =====
 
+.. 19.10
+
 * ``xivo-agentd-cli`` has been renamed ``wazo-agentd-cli``
 
 * ``xivo-agentd-client`` has been renamed ``wazo-agentd-client``
@@ -87,11 +89,7 @@ Consult the `19.11 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.js
   * If you were using the xivo-agentd-client in your python code you should use the wazo-agentd-client
     which has the same interface at the moment.
 
-Consult the `19.10 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10026>`_ for more information
-
-
-19.09
-=====
+.. 19.09
 
 * ``xivo-agentd`` has been renamed ``wazo-agentd``
 
@@ -113,11 +111,7 @@ Consult the `19.10 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.js
   * If you were using the xivo-confd-client in your python code you should use the wazo-confd-client
     which has the same interface at the moment.
 
-Consult the `19.09 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10024>`_ for more information
-
-
-19.08
-=====
+.. 19.08
 
 * All API related to `cti profile` have been removed. See `xivo-confd changelog
   <https://github.com/wazo-platform/xivo-confd/blob/master/CHANGELOG.md#1908>`__ for more information.
@@ -135,11 +129,7 @@ Consult the `19.09 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.js
   API version number, which is `0.2`. All affected services and `wazo-provd-client` have been updated.
   Example: `/provd/dev_mgr` is now `/0.2/dev_mgr` and `/api/api.yml` is now `/0.2/api/api.yml`
 
-Consult the `19.08 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10023>`_ for more information
-
-
-19.07
-=====
+.. 19.07
 
 * Upgrade from version older than 15.01 are not supported anymore.
 * If a group or queue was named ``general``, then it has been renamed with one or more suffix ``_``
@@ -160,21 +150,13 @@ Consult the `19.08 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.js
   removing it and using the REST API (see :ref:`skill-apply`). If you really want to keep it, you
   must change the name used in the variable ``XIVO_QUEUESKILLRULESET`` to use the new format.
 
-Consult the `19.07 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10022>`_ for more information
-
-
-19.06
-=====
+.. 19.06
 
 * All administration interfaces ``xivo-web-interface`` and ``wazo-admin-ui``  have been removed
 * Agents are now multi-tenant. Agents created using the rest API that were not logged into a queue
   and that were not associated to a user have been deleted.
 
-Consult the `19.06 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10020>`_ for more information
-
-
-19.05
-=====
+.. 19.05
 
 * ``xivo-provd-client`` is now deprecated. You must use ``wazo-provd-client`` instead.
 * The ``tenant_name`` variable has been removed from the call recording templates in favor of the ``tenant_uuid``.
@@ -182,11 +164,7 @@ Consult the `19.06 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.js
 * All chat messages will be deleted after the upgrade. There are now handled by ``wazo-chatd``
   instead of ``xivo-ctid-ng`` and ``MongooseIM``.
 
-Consult the `19.05 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10017>`_ for more information
-
-
-19.04
-=====
+.. 19.04
 
 * ``wazo-dird`` is now configured using its REST API. The previous configuration have been removed and
   a new configuration has been automatically generated based on the current tenants and internal contexts.
@@ -208,13 +186,10 @@ Consult the `19.05 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.js
 
 * ``xivo-ctid`` has been removed, therefore the ``wazoclient`` will not connect anymore.
 
-Consult the `19.04 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10014>`_ for more information
+.. 19.03
 
-
-19.03
-=====
-
-* `xivo-provisioning` now uses YAML configuration. The defaults can be overriden in the `/etc/xivo-provd/conf.d/` directory. See :ref:`configuration-files`.
+* `xivo-provisioning` now uses YAML configuration. The defaults can be overriden in the
+  `/etc/xivo-provd/conf.d/` directory. See :ref:`configuration-files`.
 
 Please consult the following detailed upgrade notes for more information:
 
@@ -223,11 +198,7 @@ Please consult the following detailed upgrade notes for more information:
 
    19.03/sounds
 
-Consult the `19.03 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10013>`_ for more information
-
-
-19.02
-=====
+.. 19.02
 
 * For wazo-auth backend developers: The API to implement a wazo-auth backend has been changed in
   18.02.
@@ -244,22 +215,14 @@ Consult the `19.03 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.js
 * `xivo-provd-cli` has been updated to remove the username and password command line arguments since
   they are no longer used.
 
-Consult the `19.02 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10009>`_ for more information
-
-
-19.01
-=====
+.. 19.01
 
 * The `xivo` `wazo-dird` backend has been renamed `wazo`. Custom directory configuration files will have to be updated.
 * The procedure for custom certificates, especially for Let's Encrypt certificates, has been simplified. See :ref:`https_certificate`.
 * The `xivo_admin` backend in wazo-auth has been removed. All `xivo_admin` users have been
   migrated to `wazo_user` backend.
 
-Consult the `19.01 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10007>`_ for more information.
-
-
-18.14
-=====
+.. 18.14
 
 * The username for all SIP devices in autoprov mode has been changed. Devices in autoprov mode will
   have to be restarted before entering the provisioning code.
@@ -274,11 +237,7 @@ Consult the `19.01 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.js
   * All custom dialplan using the ``SIP_HEADER`` dialplan function must be changed to ``PJSIP_HEADER`` function
   * The ``SIPAddHeader`` and ``SIPRemoveHeader`` dialplan application must be changed to ``PJSIP_HEADER`` function
 
-Consult the `18.14 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10003>`_ for more information.
-
-
-18.13
-=====
+.. 18.13
 
 * The following daemons have been updated to Python 3. If you have written or installed a custom
   plugin for those daemons, you must ensure that the plugins are compatible with Python 3.
@@ -287,11 +246,7 @@ Consult the `18.14 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.js
   * wazo-dird
   * xivo-ctid-ng
 
-Consult the `18.13 Roadmap <https://projects.wazo.community/versions/285>`_ for more information.
-
-
-18.12
-=====
+.. 18.12
 
 Please consult the following detailed upgrade notes for more information:
 
@@ -300,51 +255,15 @@ Please consult the following detailed upgrade notes for more information:
 
    18.12/asterisk_16
 
-Consult the `18.12 Roadmap <https://projects.wazo.community/versions/283>`_ for more information.
-
-
-18.11
-=====
+.. 18.11
 
 * Asterisk logs (``/var/log/asterisk/full``) now contain milliseconds
 
-Consult the `18.11 Roadmap <https://projects.wazo.community/versions/282>`_ for more information.
-
-
-18.10
-=====
-
-Consult the `18.10 Roadmap <https://projects.wazo.community/versions/281>`_ for more information.
-
-
-18.09
-=====
-
-Consult the `18.09 Roadmap <https://projects.wazo.community/versions/280>`_ for more information.
-
-
-18.08
-=====
-
-Consult the `18.08 Roadmap <https://projects.wazo.community/versions/279>`_ for more information.
-
-
-18.07
-=====
+.. 18.07
 
 * Upgrade from version older than 14.01 are not supported anymore.
 
-Consult the `18.07 Roadmap <https://projects.wazo.community/versions/278>`_ for more information.
-
-
-18.06
-=====
-
-Consult the `18.06 Roadmap <https://projects.wazo.community/versions/276>`_ for more information.
-
-
-18.05
-=====
+.. 18.05
 
 * ``xivo-dird`` has been renamed ``wazo-dird``
 
@@ -358,7 +277,7 @@ Consult the `18.06 Roadmap <https://projects.wazo.community/versions/276>`_ for 
   * If you were using the xivo-dird-client in your python code you should use the wazo-dird-client which
     has the same interface at the moment.
 
-* wazo-dird now uses a token to authenticate when doing searches on xivo-confd
+* wazo-dird now uses a token to authenticate when doing searches on wazo-confd
 
   * If you have customized configuration files in `/etc/wazo-dird/sources.d` or `/etc/wazo-dird/conf.d`
     for a source of type `xivo`. Then you must have to configure the `key_file` field in you source configuration.
@@ -370,11 +289,7 @@ Consult the `18.06 Roadmap <https://projects.wazo.community/versions/276>`_ for 
   has been removed. If you did use policies with tenant association, the policy is now associated to
   one of its tenant. This feature is not used yet in Wazo, so most likely you are not affected.
 
-Consult the `18.05 Roadmap <https://projects.wazo.community/versions/275>`_ for more information.
-
-
-18.04
-=====
+.. 18.04
 
 * Invalid user email will be deleted automatically during upgrade.
 * Asterisk configuration files can now be customized in the :file:`/etc/asterisk/*.d/` directories.
@@ -403,7 +318,29 @@ Consult the `18.05 Roadmap <https://projects.wazo.community/versions/275>`_ for 
   not in the same tenant has its creator.
 * Tenants have been automatically created to match configured entities.
 
-Consult the `18.04 Roadmap <https://projects.wazo.community/versions/274>`_ for more information.
+Consult the roadmaps for more information:
+
+   * `18.04 <https://projects.wazo.community/versions/274>`_
+   * `18.05 <https://projects.wazo.community/versions/275>`_
+   * `18.06 <https://projects.wazo.community/versions/276>`_
+   * `18.07 <https://projects.wazo.community/versions/278>`_
+   * `18.08 <https://projects.wazo.community/versions/279>`_
+   * `18.09 <https://projects.wazo.community/versions/280>`_
+   * `18.10 <https://projects.wazo.community/versions/281>`_
+   * `18.11 <https://projects.wazo.community/versions/282>`_
+   * `18.12 <https://projects.wazo.community/versions/283>`_
+   * `18.13 <https://projects.wazo.community/versions/285>`_
+   * `18.14 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10003>`_
+   * `19.01 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10007>`_
+   * `19.02 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10009>`_
+   * `19.03 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10013>`_
+   * `19.04 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10014>`_
+   * `19.05 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10017>`_
+   * `19.06 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10020>`_
+   * `19.07 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10022>`_
+   * `19.08 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10023>`_
+   * `19.09 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10024>`_
+   * `19.10 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10026>`_
 
 
 18.03
