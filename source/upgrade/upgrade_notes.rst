@@ -83,10 +83,43 @@ Consult the `19.11 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.js
 General
 -------
 
+.. Major changes
+
 * All administration interfaces ``xivo-web-interface`` and ``wazo-admin-ui`` have been removed
 * ``xivo-ctid`` has been removed, therefore the ``wazoclient`` will not connect anymore.
 * ``wazo-dird`` is now configured using its REST API. The previous configuration have been removed
   and a new profile ``default`` is now created for each new tenant.
+* `Entity` concept has been replaced by `tenant`. The previous concept was not completely sealed and
+  we have fixed it with the `tenant`.
+
+  * Existing devices are migrated automatically to the tenant of their first associated line. If a
+    device is in autoprov mode, it will be migrated to the default tenant.  See
+    :ref:`intro-provisioning` for more information on how device tenants are handled.
+  * Agents are now multi-tenant. Agents created using the rest API that were not logged into a queue
+    and that were not associated to a user have been deleted.
+  * Skills are migrated to the tenant of the agent with whom they are associated. If a skill was not
+    associated with an agent, is has been deleted.
+  * All the existing skill rules have been associated to the tenant of the first queue found in the
+    database. If no queue was found, meaning there was no queue, the skill rules were deleted.
+
+  .. toctree::
+     :maxdepth: 1
+
+     19.03/sounds
+
+  * we needed to do some supposition for ambiguous resources that shared other resources from
+    different entities. These resource has been migrated to the first entity/tenant created. But
+    they still associated to resource from other tenants, if was configured like this. You need to
+    fix it manually and ensure to remove or recreate the resource in the right tenant. Since it
+    continue to work, these configurations are invalid and can be removed automatically in future
+    upgrade. Review the following resources:
+
+      * call permissions
+      * ivr
+      * moh
+      * pagings
+
+.. Minor changes
 
 * The user authentication has been updated with the following impacts:
 
@@ -240,30 +273,11 @@ Developers
 * All API related to ``cti profile`` have been removed. See `wazo-confd changelog 19.08
   <https://github.com/wazo-pbx/wazo-confd/blob/master/CHANGELOG.md#1908>`_ for more information.
 
-* Tenants
-
-  * Creating user using the REST API now requires the Wazo-Tenant HTTP header when the created user is
-    not in the same tenant has its creator.
-  * Tenants have been automatically created to match configured entities.
-  * Authentication policies now have a `tenant_uuid` and the relationship between tenants and policies
-    has been removed. If you did use policies with tenant association, the policy is now associated to
-    one of its tenant. This feature is not used yet in Wazo, so most likely you are not affected.
-  * ``xivo-provisioning`` and ``wazo-confd`` now implement multi-tenant devices.
-    Existing devices are migrated automatically to the tenant of their first associated line. If a device is
-    in autoprov mode, it will be migrated to the default tenant.
-
-    See :ref:`intro-provisioning` for more information on how device tenants are handled.
-  * Agents are now multi-tenant. Agents created using the rest API that were not logged into a queue
-    and that were not associated to a user have been deleted.
-  * Skills are migrated to the tenant of the agent with whom they are associated. If a skill was not
-    associated with an agent, is has been deleted.
-  * All the existing skill rules have been associated to the tenant of the first queue found in the
-    database. If no queue was found, meaning there was no queue, the skill rules were deleted.
-
-  .. toctree::
-    :maxdepth: 1
-  
-    19.03/sounds
+* Creating a resource using the REST API now requires the Wazo-Tenant HTTP header when the created
+  resource is not in the same tenant has its creator.
+* Authentication policies now have a `tenant_uuid` and the relationship between tenants and policies
+  has been removed. If you did use policies with tenant association, the policy is now associated to
+  one of its tenant. This feature is not used yet in Wazo, so most likely you are not affected.
 
 .. TODO validate
 
