@@ -27,16 +27,16 @@ The following features are impacted by wazo-purge-db:
 More technically, ``wazo-purge-db`` have a set of plugins, each plugin are
 responsible of certain type of record (usually a postgresql table).
 
+The format of the following list is ``plugin-name`` (``associated table``) :
 
--  ``plugin-name (associated table)``
--  ``call-log (call_log)``
--  ``cel (cel)``
--  ``queue-log (queue_log)``
--  ``stat-agent (stat_agent_periodic)``
--  ``stat-call (stat_call_on_queue)``
--  ``stat-queue (stat_queue_periodic)``
--  ``stat-switchboard (stat_switchboard_queue)``
--  ``webhookd-logs (webhookd_subscription_log)``
+-  ``call-log`` (``call_log``)
+-  ``cel`` (``cel``)
+-  ``queue-log`` (``queue_log``)
+-  ``stat-agent`` (``stat_agent_periodic``)
+-  ``stat-call`` (``stat_call_on_queue``)
+-  ``stat-queue`` (``stat_queue_periodic``)
+-  ``stat-switchboard`` (``stat_switchboard_queue``)
+-  ``webhookd-logs`` (``webhookd_subscription_log``)
 
 .. _purge_logs_config_file:
 
@@ -47,7 +47,7 @@ We recommend to override the setting ``days_to_keep`` from ``/etc/wazo-purge-db/
 new file in ``/etc/wazo-purge-db/conf.d/``.
 
 The ``days_to_keep`` configuration can be done per plugin if needed, by
-setting for example::
+setting ``days_to_keep_per_plugin`` for example::
 
     days_to_keep_per_plugin:
         webhookd-logs: 30
