@@ -9,31 +9,34 @@ avoid personal data retention. Also, keeping too many records may become resourc
 server. To ease the removal of such records, ``wazo-purge-db`` is a process that removes old log
 entries from the database. This allows keeping records for a maximum period and deleting older ones.
 
-By default, wazo-purge-db removes all logs older than a year (365 days). wazo-purge-db is run
-nightly.
+By default, wazo-purge-db removes all logs older than a year (365 days), except for webhookd
+logs where only 30 days are kept. wazo-purge-db is run nightly.
 
 .. note:: Please check the laws applicable to your country and modify ``days_to_keep`` (see below)
           in the configuration file accordingly.
 
 
-Tables Purged
--------------
+Records Purged
+--------------
 
 The following features are impacted by wazo-purge-db:
 
 - :ref:`call_logs`
 - Call center statistics
 
-More technically, the tables purged by ``wazo-purge-db`` are:
+More technically, ``wazo-purge-db`` have a set of plugins, each plugin are
+responsible of certain type of record (usually a postgresql table).
 
--  ``call_log``
--  ``cel``
--  ``queue_log``
--  ``stat_agent_periodic``
--  ``stat_call_on_queue``
--  ``stat_queue_periodic``
--  ``stat_switchboard_queue``
 
+-  ``plugin-name (associated table)``
+-  ``call-log (call_log)``
+-  ``cel (cel)``
+-  ``queue-log (queue_log)``
+-  ``stat-agent (stat_agent_periodic)``
+-  ``stat-call (stat_call_on_queue)``
+-  ``stat-queue (stat_queue_periodic)``
+-  ``stat-switchboard (stat_switchboard_queue)``
+-  ``webhookd-logs (webhookd_subscription_log)``
 
 .. _purge_logs_config_file:
 
@@ -42,6 +45,13 @@ Configuration File
 
 We recommend to override the setting ``days_to_keep`` from ``/etc/wazo-purge-db/config.yml`` in a
 new file in ``/etc/wazo-purge-db/conf.d/``.
+
+The ``days_to_keep`` configuration can be done per plugin if needed, by
+setting for example::
+
+    days_to_keep_per_plugin:
+        webhookd-logs: 30
+
 
 .. warning:: Setting ``days_to_keep`` to 0 will NOT disable ``wazo-purge-db``, and will remove ALL
              logs from your system.
