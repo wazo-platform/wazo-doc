@@ -20,6 +20,9 @@ Upgrade notes
 * ``wazo-purge-db`` archives plugins namespace have been renamed from
   ``xivo_purge_db.archives`` to ``wazo_purge_db.archives``
 
+Consult the `19.11 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10027>`_ for more information
+
+
 19.10
 =====
 
