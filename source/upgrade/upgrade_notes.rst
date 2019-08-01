@@ -7,6 +7,10 @@ Upgrade notes
 19.11
 =====
 
+* ``wazo-call-logd`` are now multi-tenant. Each call log that cannot be associated to a tenant has been
+  associated to the ``master`` tenant. Also each new call log that cannot extract tenant from call
+  informations, will be associated to the master tenant.
+
 * The ``wazo-microsoft`` plugin has been copied to the ``wazo-auth`` and ``wazo-dird`` repo. You **must**
   uninstall that plugin if you installed it from its source to avoid conflicts between the supported
   version and the legacy version.
