@@ -32,6 +32,15 @@ wazo-auth
 * Rotation frequence: Daily
 
 
+wazo-agid
+---------
+
+* File location: :file:`/var/log/wazo-agid.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-agid`
+* Number of archived files: 15
+* Rotation frequence: Daily
+
+
 wazo-calld
 ------------
 
@@ -64,15 +73,6 @@ wazo-agentd
 
 * File location: :file:`/var/log/wazo-agentd.log`
 * Rotate configuration: :file:`/etc/logrotate.d/wazo-agentd`
-* Number of archived files: 15
-* Rotation frequence: Daily
-
-
-xivo-agid
----------
-
-* File location: :file:`/var/log/xivo-agid.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-agid`
 * Number of archived files: 15
 * Rotation frequence: Daily
 

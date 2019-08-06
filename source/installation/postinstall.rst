@@ -41,9 +41,9 @@ Examples:
     strip = 1
     add = +33
 
-To enable the changes you have to restart xivo-agid::
+To enable the changes you have to restart wazo-agid::
 
-    service xivo-agid restart
+    service wazo-agid restart
 
 
 Time and date

@@ -75,15 +75,15 @@ The following variables can be used in the file name:
 * tenant_uuid: The tenant UUID of the user or the outgoing call
 
 .. note::
-  You **must** restart xivo-agid to take any config change into effect::
+  You **must** restart wazo-agid to take any config change into effect::
 
-     systemctl restart xivo-agid
+     systemctl restart wazo-agid
 
 Example 1:
 
 Creating recording in a sub-directory for each entity
 
-A file with the following content in :file:`/etc/xivo-agid/conf.d/call_recording.yml`:
+A file with the following content in :file:`/etc/wazo-agid/conf.d/call_recording.yml`:
 
 .. code-block:: yaml
 
@@ -98,7 +98,7 @@ Example 2:
 
 Creating recording in another directory
 
-A file with the following content in :file:`/etc/xivo-agid/conf.d/call_recording.yml`:
+A file with the following content in :file:`/etc/wazo-agid/conf.d/call_recording.yml`:
 
 .. code-block:: yaml
 
@@ -132,7 +132,7 @@ For call recording the default value is ``wav`` and can be modified with a confi
 
 Example:
 
-Add a file names :file:`/etc/xivo-agid/conf.d/recording.yml` with the following content:
+Add a file names :file:`/etc/wazo-agid/conf.d/recording.yml` with the following content:
 
 .. code-block:: yaml
 

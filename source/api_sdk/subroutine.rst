@@ -143,7 +143,7 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
     or one phone and its voicemail
   * ``extern`` when the call is received via a DID or emitted through an Outgoing Call
 
-  This variable is used by xivo-agid when :ref:`selecting the ringtone <xivo_ring.conf>` for ringing
+  This variable is used by wazo-agid when :ref:`selecting the ringtone <xivo_ring.conf>` for ringing
   a user. This variable is available only in user subroutines.
 
 * ``XIVO_DSTNUM``: the value is the extension dialed, as received by Wazo (e.g. an internal
