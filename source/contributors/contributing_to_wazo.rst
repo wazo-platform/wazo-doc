@@ -45,6 +45,12 @@ tests should be fast and should not depend on other services running on your
 system, such as a database. It should also leave your environment in the same
 state, no files laying around.
 
+You can execute unittests with the following command
+
+.. code-block:: sh
+
+   tox -epy35
+
 
 Integration tests
 -----------------
@@ -53,13 +59,21 @@ Integration tests exercise a service as a black box. It uses the public API of
 the service and use the API to assert that the test passes. Our integration
 tests use docker to avoid installing too many dependencies on your system. You
 can find the integration tests in the `integration_tests` directory of most
-repository. Executing the following command from that directory should execute
-all tests.
+repository. Executing the following command from the root directory of a project
+should execute all integration tests.
 
 .. code-block:: sh
 
-    make test-setup
-    make test
+  tox -eintegration
+
+If `tox` is not configured to execute integration tests, you can execute the
+following commands.
+
+.. code-block:: sh
+
+   cd integration_tests
+   make test-setup
+   make test
 
 
 Acceptance tests
