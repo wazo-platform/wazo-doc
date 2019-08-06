@@ -15,6 +15,8 @@ Upgrade notes
 19.11
 =====
 
+* ``wazo-confd`` REST API does not allow to manage ``call-logs`` anymore.
+
 * ``wazo-call-logd`` are now multi-tenant. Each call log that cannot be associated to a tenant has been
   associated to the ``master`` tenant. Also each new call log that cannot extract tenant from call
   informations, will be associated to the master tenant.
