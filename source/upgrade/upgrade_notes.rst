@@ -7,6 +7,8 @@ Upgrade notes
 19.12
 =====
 
+* ``wazo-confd`` REST API does not allow to manage ``call-logs`` anymore.
+
 * The ``wazo-google`` plugin has been copied to the ``wazo-auth`` and ``wazo-dird`` repo. You **must**
   uninstall that plugin if you installed it from its source to avoid conflicts between the supported
   version and the legacy version.
@@ -14,8 +16,6 @@ Upgrade notes
 
 19.11
 =====
-
-* ``wazo-confd`` REST API does not allow to manage ``call-logs`` anymore.
 
 * ``wazo-call-logd`` are now multi-tenant. Each call log that cannot be associated to a tenant has been
   associated to the ``master`` tenant. Also each new call log that cannot extract tenant from call
