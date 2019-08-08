@@ -49,7 +49,7 @@ To enable the changes you have to restart wazo-agid::
 Time and date
 =============
 
-* Configure your locale and default time zone device template with ``xivo-provd`` endpoint
+* Configure your locale and default time zone device template with ``wazo-provd`` endpoint
   ``/provd/cfg_mgr/config`` by editing the default template
 * If needed, reconfigure your timezone for the system::
 

@@ -211,7 +211,7 @@ modifies several parameters.
 
 #. Create a custom template for the SPA3102 base template::
 
-    cd /var/lib/xivo-provd/plugins/xivo-cisco-spa3102-5.1.10/var/templates/
+    cd /var/lib/wazo-provd/plugins/xivo-cisco-spa3102-5.1.10/var/templates/
     cp ../../templates/base.tpl .
 
 #. Add the following content before the ``</flat-profile>`` tag::

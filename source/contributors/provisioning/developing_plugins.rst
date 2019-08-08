@@ -165,17 +165,17 @@ In ``common/common.py``, put the code needed to extract informations about the p
 .. code-block:: python
 
    class DigiumDHCPDeviceInfoExtractor(object):
-   
+
        _VDI_REGEX = re.compile(r'^digium_(D\d\d)_([\d_]+)$')
-   
+
        def extract(self, request, request_type):
            return defer.succeed(self._do_extract(request))
-   
+
        def _do_extract(self, request):
            options = request['options']
            if 60 in options:
                return self._extract_from_vdi(options[60])
-   
+
        def _extract_from_vdi(self, vdi):
            # Vendor Class Identifier:
            #   digium_D40_1_0_5_46476
@@ -190,15 +190,15 @@ In ``common/common.py``, put the code needed to extract informations about the p
                            u'model': model,
                            u'version': fw_version}
                return dev_info
-   
-   
+
+
    class DigiumHTTPDeviceInfoExtractor(object):
-   
+
        _PATH_REGEX = re.compile(r'^/Digium/(?:([a-fA-F\d]{12})\.cfg)?')
-   
+
        def extract(self, request, request_type):
            return defer.succeed(self._do_extract(request))
-   
+
        def _do_extract(self, request):
            match = self._PATH_REGEX.match(request.path)
            if match:
@@ -209,7 +209,7 @@ In ``common/common.py``, put the code needed to extract informations about the p
                    dev_info[u'mac'] = mac
                return dev_info
 
-You should see in the logs (``/var/log/xivo-provd.log``)::
+You should see in the logs (``/var/log/wazo-provd.log``)::
 
    provd[1090]: Processing HTTP request: /Digium/000fd3054848.cfg
    provd[1090]: <11> Extracted device info: {u'ip': u'10.42.1.100', u'mac': u'00:0f:d3:05:48:48', u'vendor': u'Digium'}
@@ -222,13 +222,13 @@ Still in ``common/common.py``, put the code needed to associate the phone with t
 .. code-block:: python
 
    class DigiumPgAssociator(BasePgAssociator):
-   
+
        _MODELS = [u'D40', u'D50', u'D70']
-   
+
        def __init__(self, version):
            BasePgAssociator.__init__(self)
            self._version = version
-   
+
        def _do_associate(self, vendor, model, version):
            if vendor == u'Digium':
                if model in self._MODELS:
@@ -243,64 +243,64 @@ Then, the last piece: the generation of the phone configuration:
 .. code-block:: python
 
    class BaseDigiumPlugin(StandardPlugin):
-   
+
        _ENCODING = 'UTF-8'
        _CONTACT_TEMPLATE = 'contact.tpl'
-   
+
        def __init__(self, app, plugin_dir, gen_cfg, spec_cfg):
            StandardPlugin.__init__(self, app, plugin_dir, gen_cfg, spec_cfg)
-   
+
            self._tpl_helper = TemplatePluginHelper(plugin_dir)
            self._digium_dir = os.path.join(self._tftpboot_dir, 'Digium')
-   
+
            downloaders = FetchfwPluginHelper.new_downloaders(gen_cfg.get('proxies'))
            fetchfw_helper = FetchfwPluginHelper(plugin_dir, downloaders)
-   
+
            self.services = fetchfw_helper.services()
            self.http_service = HTTPNoListingFileService(self._tftpboot_dir)
-   
+
        dhcp_dev_info_extractor = DigiumDHCPDeviceInfoExtractor()
-   
+
        http_dev_info_extractor = DigiumHTTPDeviceInfoExtractor()
-   
+
        def configure(self, device, raw_config):
            self._check_device(device)
-   
+
            filename = self._dev_specific_filename(device)
            contact_filename = self._dev_contact_filename(device)
-   
+
            tpl = self._tpl_helper.get_dev_template(filename, device)
            contact_tpl = self._tpl_helper.get_template(self._CONTACT_TEMPLATE)
-   
+
            raw_config['XX_mac'] = self._format_mac(device)
            raw_config['XX_main_proxy_ip'] = self._get_main_proxy_ip(raw_config)
            raw_config['XX_funckeys'] = self._transform_funckeys(raw_config)
            raw_config['XX_lang'] = raw_config.get(u'locale')
-   
+
            path = os.path.join(self._digium_dir, filename)
            contact_path = os.path.join(self._digium_dir, contact_filename)
            self._tpl_helper.dump(tpl, raw_config, path, self._ENCODING)
            self._tpl_helper.dump(contact_tpl, raw_config, contact_path, self._ENCODING)
-   
+
        def deconfigure(self, device):
            filenames = [
                self._dev_specific_filename(device),
                self._dev_contact_filename(device)
            ]
-   
+
            for filename in filenames:
                path = os.path.join(self._digium_dir, filename)
                try:
                    os.remove(path)
                except OSError as e:
                    logger.info('error while removing file %s: %s', path, e)
-   
+
        if hasattr(synchronize, 'standard_sip_synchronize'):
            def synchronize(self, device, raw_config):
                return synchronize.standard_sip_synchronize(device)
-   
+
        else:
-           # backward compatibility with older xivo-provd server
+           # backward compatibility with older wazo-provd server
            def synchronize(self, device, raw_config):
                try:
                    ip = device[u'ip'].encode('ascii')

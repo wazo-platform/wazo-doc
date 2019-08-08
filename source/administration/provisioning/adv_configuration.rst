@@ -45,7 +45,7 @@ want to write some custom templates for it.
 
 First thing to do is to go into the directory where the plugin is installed::
 
-   cd /var/lib/xivo-provd/plugins/xivo-aastra-3.3.1-SP2
+   cd /var/lib/wazo-provd/plugins/xivo-aastra-3.3.1-SP2
 
 Once you are there, you can see there's quite a few files and directories::
 
@@ -253,7 +253,7 @@ By design, the auto-provisioning process is vulnerable to:
 That said, starting from XiVO 16.08, XiVO adds `Fail2ban <http://www.fail2ban.org/>`_ support to the
 provisioning server to drastically lower the likelihood of such attacks. Every time a request for a
 file potentially containing sensitive information is requested, a log line is appended to the
-:file:`/var/log/xivo-provd-fail2ban.log` file, which is monitored by fail2ban. The same thing
+:file:`/var/log/wazo-provd-fail2ban.log` file, which is monitored by fail2ban. The same thing
 happens when a new device is automatically created by the provisioning server.
 
 The fail2ban configuration for the provisioning server is located at
@@ -271,7 +271,7 @@ of fail2ban. See the fail2ban(1) man page for more information.
 System Requirements
 -------------------
 
-XiVO/Wazo 16.08 or later is required. You also need to use compatible xivo-provd plugins. Here's the list
+XiVO/Wazo 16.08 or later is required. You also need to use compatible wazo-provd plugins. Here's the list
 of official plugins which are compatible:
 
 +------------------+---------+

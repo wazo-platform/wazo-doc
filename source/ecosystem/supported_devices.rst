@@ -3,7 +3,7 @@
 Supported Devices
 =================
 
-``xivo-provd`` plugins for these devices can be installed from the
+``wazo-provd`` plugins for these devices can be installed from the
 :ref:`"Supported devices" repository <alternative-plugins-repo>`.
 
 
@@ -473,12 +473,12 @@ Cisco 7900 Series
 
 To install firmware for xivo-cisco-sccp plugins, you need to manually download
 the firmware files from the Cisco website and save them in the
-:file:`/var/lib/xivo-provd/plugins/$plugin-name/var/cache` directory.
+:file:`/var/lib/wazo-provd/plugins/$plugin-name/var/cache` directory.
 
-File permissions should be modified to make the files readable to `xivo-provd`:
+File permissions should be modified to make the files readable to `wazo-provd`:
 
 * `chmod 640 <filename>`
-* `chown xivo-provd:xivo-provd <filename>`
+* `chown wazo-provd:wazo-provd <filename>`
 
 This directory is created by Wazo when you install the plugin (i.e. xivo-cisco-sccp-legacy).
 If you create the directory manually, the installation will fail.
@@ -506,7 +506,7 @@ The procedure is similar for the network locale and the user locale package, but
 * Choose the same version of the one shown in the plugin
 * For the network locale, download the file named "po-locale-combined-network.cop.sgn"
 * For the user locale, download the file named "po-locale-$locale-name.cop.sgn, for example "po-locale-fr_FR.cop.sgn" for the "fr_FR" locale
-* Both files must be placed in :file:`/var/lib/xivo-provd/plugins/$plugin-name/var/cache` directory. Then install them in the Wazo Web Interface.
+* Both files must be placed in :file:`/var/lib/wazo-provd/plugins/$plugin-name/var/cache` directory. Then install them in the Wazo Web Interface.
 
 .. note:: Currently user and network locale 11.5.1 should be used for plugins xivo-sccp-legacy and xivo-cisco-sccp-9.4
 

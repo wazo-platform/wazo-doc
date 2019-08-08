@@ -27,12 +27,12 @@ xivo-confgend
 No debug mode in confgend.
 
 
-xivo-provd
+wazo-provd
 ==========
 
 ::
 
-   twistd -no -u xivo-provd -g xivo-provd -r epoll --logger provd.main.twistd_logs xivo-provd -s -v
+   twistd -no -u wazo-provd -g wazo-provd -r epoll --logger provd.main.twistd_logs wazo-provd -s -v
 
 * -s for logging to stderr
 * -v for verbose

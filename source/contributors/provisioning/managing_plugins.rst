@@ -83,7 +83,7 @@ finished making changes, change the version to 0.5 and upload one last time.
 Edit directly on Wazo
 ^^^^^^^^^^^^^^^^^^^^^
 
-Edit the files in :file:`/var/lib/xivo-provd/plugins`.
+Edit the files in :file:`/var/lib/wazo-provd/plugins`.
 
 To apply your changes, go in ``xivo-provd-cli`` and run::
 
@@ -97,7 +97,7 @@ Edit :file:`/etc/xivo/provd/provd.conf` and add the line::
 
     cache_plugin: True
 
-Empty :file:`/var/cache/xivo-provd` and restart provd.
+Empty :file:`/var/cache/wazo-provd` and restart provd.
 
 Make your changes in provd-plugins, update the plugin version to the new one and upload to testing (see below). Now, every time you uninstall/install the plugin, the new plugin will be fetched from testing, instead of being cached, even without changing the version.
 
@@ -117,7 +117,7 @@ uploading the plugins to ``provd.wazo.community``::
   make upload
 
 
-Afterwards, you must modify the ``plugin_server``. This can be changed with ``xivo-provd`` endpoint
+Afterwards, you must modify the ``plugin_server``. This can be changed with ``wazo-provd`` endpoint
 ``/provd/configure/plugin_server``.
 
    `http://provd.wazo.community/plugins/1/testing/`

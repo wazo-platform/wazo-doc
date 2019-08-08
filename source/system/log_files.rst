@@ -136,11 +136,11 @@ xivo-dxtora
 * Rotation frequence: Daily
 
 
-xivo-provd
+wazo-provd
 ----------
 
-* File location: :file:`/var/log/xivo-provd.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-provd`
+* File location: :file:`/var/log/wazo-provd.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-provd`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
