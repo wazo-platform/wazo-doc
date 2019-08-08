@@ -17,6 +17,8 @@ Upgrade notes
   * The custom configuration has been moved to ``/etc/wazo-agid/conf.d/``.
   * The log file has been renamed to ``wazo-agid.log``.
 
+* ``xivo-provd`` has been renamed to ``wazo-provd``
+
 Consult the `19.12 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10028>`_ for more information
 
 
