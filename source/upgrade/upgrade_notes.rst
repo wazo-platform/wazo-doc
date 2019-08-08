@@ -19,6 +19,8 @@ Upgrade notes
 
 * ``xivo-provd`` has been renamed to ``wazo-provd``
 
+* ``xivo-provd-cli`` has been renamed to ``wazo-provd-cli``
+
 Consult the `19.12 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10028>`_ for more information
 
 
