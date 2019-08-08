@@ -261,11 +261,11 @@ modifies several parameters.
 
 #. Reconfigure the devices with::
 
-    xivo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").reconfigure()'
+    wazo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").reconfigure()'
 
 #. Then reboot the devices::
 
-    xivo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").synchronize()'
+    wazo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").synchronize()'
 
 
 Most of this template can be copy/pasted for a SPA2102 or SPA8000.

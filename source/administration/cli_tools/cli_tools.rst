@@ -82,12 +82,12 @@ wazo-dist is the wazo repository sources manager. It is used to switch between d
 * switch to an archived version's repository: ``wazo-dist wazo-18.02``
 
 
-xivo-provd-cli
+wazo-provd-cli
 --------------
 
-``xivo-provd-cli`` is a command-line interface to interact with the REST API of ``wazo-provd``. It
+``wazo-provd-cli`` is a command-line interface to interact with the REST API of ``wazo-provd``. It
 provides mainly provisioning-related features.
 
-``xivo-provd-cli`` has an interactive REPL mode. You can access it with the command
-``xivo-provd-cli``. It should prompt you for a password that is empty by default. Once in the
+``wazo-provd-cli`` has an interactive REPL mode. You can access it with the command
+``wazo-provd-cli``. It should prompt you for a password that is empty by default. Once in the
 interactive mode, enter ``help`` for a list of available operations.

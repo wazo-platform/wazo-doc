@@ -85,7 +85,7 @@ Edit directly on Wazo
 
 Edit the files in :file:`/var/lib/wazo-provd/plugins`.
 
-To apply your changes, go in ``xivo-provd-cli`` and run::
+To apply your changes, go in ``wazo-provd-cli`` and run::
 
     plugins.reload('xivo-cisco-spa-7.5.4')
 
@@ -129,11 +129,11 @@ Don't forget to install the plugin to test it.
 Mass-install all firmwares related to a given plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Using xivo-provd-cli on a Wazo server, one can mass-install firmwares. Following
+Using wazo-provd-cli on a Wazo server, one can mass-install firmwares. Following
 example installs all firmwares for xivo-snom 8.7.3.25.5 plugin
 (note the auto-completion)::
 
-    xivo-provd-cli> plugins.installed().keys()
+    wazo-provd-cli> plugins.installed().keys()
     [u'xivo-snom-8.7.3.15',
      u'xivo-cisco-sccp-legacy',
      u'xivo-snom-8.4.35',
@@ -144,8 +144,8 @@ example installs all firmwares for xivo-snom 8.7.3.25.5 plugin
      u'xivo-cisco-sccp-9.0.3',
      u'null',
      u'xivo-snom-8.7.3.25.5']
-    xivo-provd-cli> p = plugins['xivo-snom-8.7.3.25.5']
-    xivo-provd-cli> p.install_all()
+    wazo-provd-cli> p = plugins['xivo-snom-8.7.3.25.5']
+    wazo-provd-cli> p.install_all()
 
 
 Uploading to stable
