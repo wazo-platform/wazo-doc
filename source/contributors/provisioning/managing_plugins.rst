@@ -8,7 +8,7 @@ Git Repository
 ==============
 
 Most plugin-related files are available in the
-`xivo-provd-plugins repository <https://github.com/wazo-pbx/xivo-provd-plugins.git>`_.
+`wazo-provd-plugins repository <https://github.com/wazo-pbx/wazo-provd-plugins.git>`_.
 Following examples are relative to the repository directory tree. Any modifications
 should be preceeded by a `git pull`.
 
@@ -107,7 +107,7 @@ Uploading to testing
 Before updating a plugin, it must be passed through the testing phase. Once it has been approved it
 can be uploaded to the production server.
 
-In the ``xivo-provd-plugins`` repo, you must merge your changes in the ``testing`` branch before
+In the ``wazo-provd-plugins`` repo, you must merge your changes in the ``testing`` branch before
 uploading the plugins to ``provd.wazo.community``::
 
   git checkout testing

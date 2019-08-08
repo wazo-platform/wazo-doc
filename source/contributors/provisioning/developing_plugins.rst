@@ -3,7 +3,7 @@ Developing Provisioning Plugins
 *******************************
 
 Here is an example of how to develop a provisioning plugin for Digium phones. You can find all the
-code `on Github <https://github.com/wazo-pbx/xivo-provd-plugins/tree/master/plugins/xivo-digium>`_.
+code `on Github <https://github.com/wazo-pbx/wazo-provd-plugins/tree/master/plugins/xivo-digium>`_.
 
 Phone Analysis
 ==============
@@ -31,7 +31,7 @@ Here's a non-exhaustive list of what a phone may or may not support:
 DHCP Configuration
 ==================
 
-In ``xivo-provd-plugins/provisioning/dhcpd-update/dhcp/dhcpd_update``::
+In ``wazo-provd-plugins/provisioning/dhcpd-update/dhcp/dhcpd_update``::
 
    group {
        option tftp-server-name = concat(config-option VOIP.http-server-uri, "/Digium");
@@ -49,7 +49,7 @@ In ``xivo-provd-plugins/provisioning/dhcpd-update/dhcp/dhcpd_update``::
        }
    }
 
-In ``xivo-provd-plugins/provisioning/dhcpd-update/dhcp/dhcpd_subnet.conf.middle``::
+In ``wazo-provd-plugins/provisioning/dhcpd-update/dhcp/dhcpd_subnet.conf.middle``::
 
     # Digium
     allow members of "DigiumD40";
@@ -73,7 +73,7 @@ You can check the logs in ``/var/log/syslog``::
 Update the DHCP configuration
 =============================
 
-To upload the new DHCP configuration on ``provd.wazo.community``, in ``xivo-provd-plugins/dhcpd-update``::
+To upload the new DHCP configuration on ``provd.wazo.community``, in ``wazo-provd-plugins/dhcpd-update``::
 
    make upload
 
@@ -85,7 +85,7 @@ To download the DHCP configuration on the Wazo server, run::
 Plugin creation
 ===============
 
-In ``xivo-provd-plugins/plugins``, create the directory tree::
+In ``wazo-provd-plugins/plugins``, create the directory tree::
 
    xivo-digium/
        build.py
@@ -355,9 +355,9 @@ Then, the last piece: the generation of the phone configuration:
 
 Then you can create the configuration templates with Jinja syntax. Here are some examples:
 
-* `base.tpl <https://github.com/wazo-pbx/xivo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/base.tpl>`_
-* `contact.tpl <https://github.com/wazo-pbx/xivo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/contact.tpl>`_
-* `D40.tpl <https://github.com/wazo-pbx/xivo-provd-plugins/blob/master/plugins/xivo-digium/1.4.0.0/templates/D40.tpl>`_
+* `base.tpl <https://github.com/wazo-pbx/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/base.tpl>`_
+* `contact.tpl <https://github.com/wazo-pbx/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/contact.tpl>`_
+* `D40.tpl <https://github.com/wazo-pbx/wazo-provd-plugins/blob/master/plugins/xivo-digium/1.4.0.0/templates/D40.tpl>`_
 
 
 Upload the plugin on ``provd.wazo.community``
