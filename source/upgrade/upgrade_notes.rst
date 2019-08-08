@@ -12,6 +12,12 @@ Upgrade notes
 * The ``wazo-google`` plugin has been copied to the ``wazo-auth`` and ``wazo-dird`` repo. You **must**
   uninstall that plugin if you installed it from its source to avoid conflicts between the supported
   version and the legacy version.
+* ``xivo-agid`` has been renamed ``wazo-agid``
+
+  * The custom configuration has been moved to ``/etc/wazo-agid/conf.d/``.
+  * The log file has been renamed to ``wazo-agid.log``.
+
+Consult the `19.12 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10028>`_ for more information
 
 
 19.11

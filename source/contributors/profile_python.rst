@@ -25,7 +25,7 @@ Here's an example on how to profile wazo-auth for CPU/time usage:
 
       twistd -p test.profile --profiler=cprofile --savestats -no --python=/usr/bin/xivo-confgend
 
-   Note that profiling multi-threaded program (xivo-agid, wazo-confd) doesn't work reliably.
+   Note that profiling multi-threaded program (wazo-agid, wazo-confd) doesn't work reliably.
 
    The :ref:`debug-daemons` section documents how to launch the various Wazo services
    in foreground/debug mode.

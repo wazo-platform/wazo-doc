@@ -172,9 +172,9 @@ Here is the process you should follow if you want to use/customize this feature 
 
      @default = myprofile-aastra
 
-5. Restart ``xivo-agid`` service::
+5. Restart ``wazo-agid`` service::
 
-    service xivo-agid restart
+    service wazo-agid restart
 
 
 .. _asterisk-configuration:
