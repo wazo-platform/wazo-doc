@@ -2,7 +2,7 @@
 Provisioning
 ************
 
-This section describes the informations and tools for xivo-provd.
+This section describes the informations and tools for wazo-provd.
 
 .. toctree::
    :maxdepth: 1

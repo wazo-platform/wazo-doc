@@ -25,10 +25,10 @@ This jail protects against brute force attacks attempting to guess SIP accounts 
 password.
 
 
-xivo-provd
+wazo-provd
 ----------
 
-The ``xivo-provd`` jail will block attempts to create new devices and request for configuration
+The ``wazo-provd`` jail will block attempts to create new devices and request for configuration
 files.
 
 This jail has two goals:
@@ -64,7 +64,7 @@ Your devices, phones and VoIP gateways, should not be accessible from the Intern
 choice, then the passwords should be changed. Most phones have two different passwords: admin and user passwords.
 
 Some devices allow Wazo to change the password from the auto provisioning system. To change the
-default values, use ``xivo-provd`` endpoint ``/provd/cfg_mgr/configs``.
+default values, use ``wazo-provd`` endpoint ``/provd/cfg_mgr/configs``.
 
 For other devices, you need to change the passwords manually.
 

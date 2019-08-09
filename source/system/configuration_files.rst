@@ -108,11 +108,11 @@ wazo-dird-phoned
 * Default configuration file: :file:`/etc/wazo-dird-phoned/config.yml`
 
 
-xivo-provisioning
-=================
+wazo-provd
+==========
 
-* Default configuration directory: :file:`/etc/xivo-provd/conf.d`
-* Default configuration file: :file:`/etc/xivo-provd/config.yml`
+* Default configuration directory: :file:`/etc/wazo-provd/conf.d`
+* Default configuration file: :file:`/etc/wazo-provd/config.yml`
 
 
 wazo-websocketd

@@ -84,7 +84,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/var/lib/consul/`
 * :file:`/var/lib/wazo/`
 * :file:`/var/lib/wazo-auth-keys/`
-* :file:`/var/lib/xivo-provd/`
+* :file:`/var/lib/wazo-provd/`
 * :file:`/var/log/asterisk/`
 * :file:`/var/spool/asterisk/`
 * :file:`/var/spool/cron/crontabs/`
@@ -97,13 +97,13 @@ The following files/folders are excluded from this backup:
   * :file:`/var/lib/consul/raft`
   * :file:`/var/lib/consul/serf`
   * :file:`/var/lib/consul/services`
-  * :file:`/var/lib/xivo-provd/plugins/*/var/cache/*`
+  * :file:`/var/lib/wazo-provd/plugins/*/var/cache/*`
   * :file:`/var/spool/asterisk/monitor/`
   * :file:`/var/spool/asterisk/meetme/`
 
 * files
 
-  * :file:`/var/lib/xivo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld`
+  * :file:`/var/lib/wazo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld`
 
 * log files, coredump files
 * audio recordings
@@ -300,4 +300,3 @@ After Restoring The System
 #. Restart the services you stopped in the first step::
 
     wazo-service start
-

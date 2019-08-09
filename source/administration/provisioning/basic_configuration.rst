@@ -39,7 +39,7 @@ The DHCP server is configured via ``PUT /dhcp``
 Installing ``provd`` Plugins
 ============================
 
-The installation and management of ``provd`` plugins is done via ``xivo-provd`` endpoint
+The installation and management of ``provd`` plugins is done via ``wazo-provd`` endpoint
 ``/provd/pg_mgr/install``
 
 .. warning::
@@ -63,7 +63,7 @@ Alternative plugins repository
 By default, the list of plugins available for installation are the stable plugins for the
 officially supported devices.
 
-This can be changed with ``xivo-provd`` endpoint ``/provd/configure/plugin_server``
+This can be changed with ``wazo-provd`` endpoint ``/provd/configure/plugin_server``
 
 * ``http://provd.wazo.community/plugins/1/stable/`` -- :ref:`community supported devices
   <supported-devices>` "stable" repository
@@ -115,7 +115,7 @@ Snom
 
 First, you need to run the following command on the Wazo server::
 
-   sed -i 's/dhcp:stop/dhcp:proceed/' /var/lib/xivo-provd/plugins/xivo-snom-8.7.5.35/var/tftpboot/snom-general.xml
+   sed -i 's/dhcp:stop/dhcp:proceed/' /var/lib/wazo-provd/plugins/xivo-snom-8.7.5.35/var/tftpboot/snom-general.xml
 
 On the web interface of your phone, go to :menuselection:`Setup --> Advanced --> Update` and enter
 the following settings:
