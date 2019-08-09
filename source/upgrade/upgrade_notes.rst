@@ -7,6 +7,19 @@ Upgrade notes
 19.12
 =====
 
+* If a custom context (created using the REST API or wazo-admin-ui) was named with the following
+  names, then it has been renamed with one or more suffix ``_``. Also if the context name had
+  invalid characters (i.e. space), then invalid characters are replaced by ``_``. All custom
+  configuration should be updated to reflect the changes.
+
+  * `authentication`
+  * `general`
+  * `global`
+  * `globals`
+  * `parkedcalls`
+  * `xivo-features`
+  * `zonemessages`
+
 * ``wazo-confd`` REST API does not allow to manage ``call-logs`` anymore.
 
 * The ``wazo-google`` plugin has been copied to the ``wazo-auth`` and ``wazo-dird`` repo. You **must**
