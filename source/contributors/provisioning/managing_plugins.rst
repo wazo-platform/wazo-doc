@@ -93,8 +93,11 @@ To apply your changes, go in ``wazo-provd-cli`` and run::
 Disable plugin caching
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Edit :file:`/etc/xivo/provd/provd.conf` and add the line::
+Edit :file:`/etc/wazo-provd/config.yml` and add the line:
 
+.. code-block:: yaml
+
+  general:
     cache_plugin: True
 
 Empty :file:`/var/cache/wazo-provd` and restart provd.
