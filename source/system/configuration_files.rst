@@ -102,7 +102,7 @@ Wazo.
 
 
 wazo-phoned
-================
+===========
 
 * Default configuration directory: :file:`/etc/wazo-phoned/conf.d`
 * Default configuration file: :file:`/etc/wazo-phoned/config.yml`

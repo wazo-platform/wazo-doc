@@ -119,7 +119,7 @@ The file location can be changed by customizing the xivo-confgend.service unit f
 
 
 wazo-phoned
-----------------
+-----------
 
 * File location: :file:`/var/log/wazo-phoned.log`
 * Rotate configuration: :file:`/etc/logrotate.d/wazo-phoned`
