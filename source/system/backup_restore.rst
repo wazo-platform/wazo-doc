@@ -66,7 +66,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/wazo-calld/`
 * :file:`/etc/wazo-chatd/`
 * :file:`/etc/wazo-confd/`
-* :file:`/etc/wazo-dird-phoned/`
+* :file:`/etc/wazo-phoned/`
 * :file:`/etc/wazo-dird/`
 * :file:`/etc/wazo-plugind/`
 * :file:`/etc/wazo-purge-db/`
