@@ -40,6 +40,12 @@ Upgrade notes
 
 * ``xivo-provd-plugins`` has been renamed to ``wazo-provd-plugins``
 
+* ``wazo-dird-phoned`` has been renamed to ``wazo-phoned``
+
+* ``xivo-nginx`` has been renamed to ``wazo-nginx``
+
+* ``xivo-dhcpd-update`` has been renamed to ``wazo-dhcpd-update``
+
 Consult the `19.12 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10028>`_ for more information
 
 
