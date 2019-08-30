@@ -21,4 +21,4 @@ Legend:
 * xivo-test and xivo-test-slave are used for manual tests we run before each release
 * xivo-premium (not yet installed) will allow us to test the new xivo-premium hardware
 
-.. _wazo-acceptance: https://github.com/wazo-pbx/wazo-acceptance
+.. _wazo-acceptance: https://github.com/wazo-platform/wazo-acceptance

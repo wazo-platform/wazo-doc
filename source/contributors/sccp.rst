@@ -26,7 +26,7 @@ The following packages are required to compile wazo-libsccp on Debian.
 
 ::
 
-   git clone https://github.com/wazo-pbx/wazo-libsccp.git
+   git clone https://github.com/wazo-platform/wazo-libsccp.git
    cd wazo-libsccp
    make
    make install
@@ -40,7 +40,7 @@ Configuration
 
 See `sccp.conf.sample`_ for a configuration file example.
 
-.. _sccp.conf.sample: https://raw.github.com/wazo-pbx/wazo-libsccp/master/configs/sccp.conf.sample
+.. _sccp.conf.sample: https://raw.github.com/wazo-platform/wazo-libsccp/master/configs/sccp.conf.sample
 
 
 FAQ

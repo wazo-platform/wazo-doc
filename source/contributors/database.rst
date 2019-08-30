@@ -9,7 +9,7 @@ Strating with XiVO 14.08, the database migration is handled by
 `alembic <http://alembic.readthedocs.org>`_.
 
 The Wazo migration scripts can be found in the
-`xivo-manage-db <https://github.com/wazo-pbx/xivo-manage-db>`_ repository.
+`xivo-manage-db <https://github.com/wazo-platform/xivo-manage-db>`_ repository.
 
 On a XiVO, they are located in the :file:`/usr/share/xivo-manage-db` directory.
 

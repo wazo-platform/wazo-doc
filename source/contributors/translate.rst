@@ -23,5 +23,5 @@ The prompts used in Wazo are stored in `xivo-sounds`_ git repository. You may al
 :ref:`generate your own sound files <generate_custom_prompts>`.
 
 
-.. _xivo-sounds: https://github.com/wazo-pbx/xivo-sounds
+.. _xivo-sounds: https://github.com/wazo-platform/xivo-sounds
 .. _Transifex: https://www.transifex.com/wazo/wazo/

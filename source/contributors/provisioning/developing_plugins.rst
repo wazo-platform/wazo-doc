@@ -3,7 +3,7 @@ Developing Provisioning Plugins
 *******************************
 
 Here is an example of how to develop a provisioning plugin for Digium phones. You can find all the
-code `on Github <https://github.com/wazo-pbx/wazo-provd-plugins/tree/master/plugins/xivo-digium>`_.
+code `on Github <https://github.com/wazo-platform/wazo-provd-plugins/tree/master/plugins/xivo-digium>`_.
 
 Phone Analysis
 ==============
@@ -355,9 +355,9 @@ Then, the last piece: the generation of the phone configuration:
 
 Then you can create the configuration templates with Jinja syntax. Here are some examples:
 
-* `base.tpl <https://github.com/wazo-pbx/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/base.tpl>`_
-* `contact.tpl <https://github.com/wazo-pbx/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/contact.tpl>`_
-* `D40.tpl <https://github.com/wazo-pbx/wazo-provd-plugins/blob/master/plugins/xivo-digium/1.4.0.0/templates/D40.tpl>`_
+* `base.tpl <https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/base.tpl>`_
+* `contact.tpl <https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/contact.tpl>`_
+* `D40.tpl <https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/1.4.0.0/templates/D40.tpl>`_
 
 
 Upload the plugin on ``provd.wazo.community``

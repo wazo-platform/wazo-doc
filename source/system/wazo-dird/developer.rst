@@ -86,7 +86,7 @@ Implementation details
 ----------------------
 
 * Namespace: ``wazo_dird.backends``
-* Abstract source plugin: `BaseSourcePlugin <https://github.com/wazo-pbx/wazo-dird/blob/master/wazo_dird/plugins/base_plugins.py#L67>`_
+* Abstract source plugin: `BaseSourcePlugin <https://github.com/wazo-platform/wazo-dird/blob/master/wazo_dird/plugins/base_plugins.py#L67>`_
 * Methods:
 
   * ``name``: the name of the source, typically retrieved from the configuration injected to
@@ -192,7 +192,7 @@ Implementation details
 ----------------------
 
 * Namespace: ``wazo_dird.services``
-* Abstract service plugin: `BaseServicePlugin <https://github.com/wazo-pbx/wazo-dird/blob/master/wazo_dird/plugins/base_plugins.py#L21>`_
+* Abstract service plugin: `BaseServicePlugin <https://github.com/wazo-platform/wazo-dird/blob/master/wazo_dird/plugins/base_plugins.py#L21>`_
 
 * Methods:
 
@@ -277,7 +277,7 @@ Implementation details
 ----------------------
 
 * Namespace: ``wazo_dird.views``
-* Abstract view plugin: `BaseViewPlugin <https://github.com/wazo-pbx/wazo-dird/blob/master/wazo_dird/plugins/base_plugins.py#L52>`_
+* Abstract view plugin: `BaseViewPlugin <https://github.com/wazo-platform/wazo-dird/blob/master/wazo_dird/plugins/base_plugins.py#L52>`_
 
 * Methods:
 

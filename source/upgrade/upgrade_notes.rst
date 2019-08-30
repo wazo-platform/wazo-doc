@@ -111,7 +111,7 @@ Consult the `19.09 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.js
 =====
 
 * All API related to `cti profile` have been removed. See `xivo-confd changelog
-  <https://github.com/wazo-pbx/xivo-confd/blob/master/CHANGELOG.md#1908>`__ for more information.
+  <https://github.com/wazo-platform/xivo-confd/blob/master/CHANGELOG.md#1908>`__ for more information.
 * xivo-confd has been updated to Python 3. If you have written or installed a custom plugin, you
   must ensure that the plugins are compatible with Python 3.
 * wazo-dird now creates a profile named `default` for each new tenant. This profile should be used instead of the
@@ -138,7 +138,7 @@ Consult the `19.08 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.js
 * xivo-sysconfd is now async by default. If you rely on Asterisk being reloaded when configuring resources.
   See :ref:`sysconfd-configuration` to set the `synchronous` option to `true`
 * The configuration of ``rest_api`` section for ``xivo-confd`` configuration file has changed. See
-  `xivo-confd changelog <https://github.com/wazo-pbx/xivo-confd/blob/master/CHANGELOG.md#1907>`_ for
+  `xivo-confd changelog <https://github.com/wazo-platform/xivo-confd/blob/master/CHANGELOG.md#1907>`_ for
   more information.
 * xivo-ctid-ng was renamed to wazo-calld. All users that are logged in Wazo must logout and log back
   in, to apply the change of authorizations names (ACL).

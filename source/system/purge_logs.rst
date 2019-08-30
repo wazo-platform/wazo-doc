@@ -112,7 +112,7 @@ to wazo-purge-db that will be run before the purge.
 Wazo does not provide any archive plugin. You will need to develop plugins for your own need. If you
 want to share your plugins, please open a `pull request`_.
 
-.. _pull request: https://github.com/wazo-pbx/wazo-purge-db/pulls
+.. _pull request: https://github.com/wazo-platform/wazo-purge-db/pulls
 
 
 Archive Plugins (for Developers)
@@ -124,7 +124,7 @@ file. This allows you to add plugin-specific configuration in ``/etc/wazo-purge-
 
 There is an example plugin in the `wazo-purge-db git repo`_.
 
-.. _wazo-purge-db git repo: https://github.com/wazo-pbx/wazo-purge-db/tree/master/contribs
+.. _wazo-purge-db git repo: https://github.com/wazo-platform/wazo-purge-db/tree/master/contribs
 
 
 Example

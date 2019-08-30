@@ -77,7 +77,7 @@ Contribute
 
 We gladly accept new contributions. There are two ways to contribute:
 
-* The preferred way: open a pull request on `Github <https://github.com/wazo-pbx/wazo-doc>`_ and add
+* The preferred way: open a pull request on `Github <https://github.com/wazo-platform/wazo-doc>`_ and add
   a line to this page (see: :ref:`contributing_to_the_documentation`).
 * You can also open a contribution ticket on the `bug tracker <https://projects.wazo.community/projects/xivo/issues>`_.
 
