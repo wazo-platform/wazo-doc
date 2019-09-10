@@ -4,7 +4,7 @@ Berofos Integration
 
 Wazo offers the possibility to integrate a `berofos failover switch`_ within a HA cluster.
 
-.. _berofos failover switch: http://www.beronet.com/product/failover-switch/
+.. _berofos failover switch: http://www.beronet.com/gateway/failover-switch/
 
 This is useful if you have one or more ISDN lines (i.e. T1/E1 or T0 lines) that you want to use
 whatever the state of your Wazo HA cluster. To use a berofos within your Wazo HA
