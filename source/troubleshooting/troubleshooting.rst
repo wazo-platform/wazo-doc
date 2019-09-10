@@ -210,7 +210,7 @@ configuration. The locale used by the database and the database cluster is set w
 installed. If you change your system locale without particular attention to PostgreSQL, you might
 make the database and database cluster temporarily unusable.
 
-.. _database cluster: http://www.postgresql.org/docs/11/interactive/creating-cluster.html
+.. _database cluster: https://www.postgresql.org/docs/11/interactive/creating-cluster.html
 
 When working with locale and PostgreSQL, there's a few useful commands and things to know:
 
@@ -335,7 +335,7 @@ You should also modify the :file:`/etc/postgresql/11/main/postgresql.conf` file 
 ``lc_*`` options to the new locale value.
 
 For more information, consult the `official documentation on PostgreSQL localization support
-<http://www.postgresql.org/docs/11/interactive/charset.html>`_.
+<https://www.postgresql.org/docs/11/interactive/charset.html>`_.
 
 
 Originate a call from the Asterisk console
