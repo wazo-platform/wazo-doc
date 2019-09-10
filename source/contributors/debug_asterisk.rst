@@ -162,7 +162,7 @@ When installing a vanilla version of Asterisk on a XiVO 16.08 or earlier, you'll
 otherwise it will restart asterisk every few minutes.
 
 
-Recompiling a vanilla version of Asterisk (Wazo >= 17.17)
+Recompiling a vanilla version of Asterisk (Wazo >= 19.13)
 ---------------------------------------------------------
 
 It is sometimes useful to produce a "vanilla" version of Asterisk, i.e. a version of Asterisk that
@@ -180,26 +180,26 @@ features include:
 * Voicemail message consultation via REST API
 * Call transfers via REST API
 
-To install the vanilla version of Asterisk (replace 17.17 with your current version of Wazo)::
+To install the vanilla version of Asterisk (replace 19.13 with your current version of Wazo)::
 
-   xivo-dist wazo-17.17
+   wazo-dist -a wazo-19.13
    apt-get update
-   apt-get install -t wazo-17.17 asterisk-vanilla asterisk-vanilla-dbg
+   apt-get install -t wazo-19.13 asterisk-vanilla asterisk-vanilla-dbg
    xivo-fix-paths-rights
-   xivo-dist phoenix
+   wazo-dist -m pelican-buster
 
 This command should replace the ``asterisk`` package with ``asterisk-vanilla``.
 
 Once the packages are installed, you can reproduce the crash and extract the backtrace logs from the
 core dump file. Those file may then be used to file a bug report to Asterisk.
 
-To revert this modification, reinstall ``asterisk`` (replace 17.17 with your current version of Wazo)::
+To revert this modification, reinstall ``asterisk`` (replace 19.13 with your current version of Wazo)::
 
-   xivo-dist wazo-17.17
+   wazo-dist -a wazo-19.13
    apt-get update
-   apt-get install -t wazo-17.17 asterisk
+   apt-get install -t wazo-19.13 asterisk
    xivo-fix-paths-rights
-   xivo-dist phoenix
+   wazo-dist -m pelican-buster
 
 
 Running Asterisk under Valgrind
