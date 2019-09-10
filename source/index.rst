@@ -42,7 +42,6 @@ Table of Contents
    high_availability/high_availability
    api_sdk/api_sdk
    contributors/contributors
-   quality_assurance/quality_assurance
    troubleshooting/troubleshooting
    community/community
    changelog
