@@ -38,7 +38,7 @@ To create a new certificate for your Wazo Engine via Let's Encrypt for the domai
    systemctl restart nginx
 
 For more details, see the official `Certbot documentation
-<https://certbot.eff.org/lets-encrypt/debianstretch-nginx.html>`_.
+<https://certbot.eff.org/lets-encrypt/debianbuster-nginx.html>`_.
 
 
 Use your own certificate
