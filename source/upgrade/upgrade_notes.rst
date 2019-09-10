@@ -4,6 +4,15 @@
 Upgrade notes
 *************
 
+19.13
+=====
+
+* ``xivo-amid`` has been renamed ``wazo-amid``
+
+  * The custom configuration has been moved to ``/etc/wazo-amid/conf.d/``.
+  * The log file has been renamed to ``wazo-amid.log``.
+  * The NGINX proxy has been recreated in ``/etc/nginx/locations/https-enabled/wazo-amid``.
+
 19.12
 =====
 
