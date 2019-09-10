@@ -267,11 +267,11 @@ Developers
   they are no longer used.
 
 * The configuration of ``rest_api`` section for ``wazo-confd`` configuration file has changed. See
-  `wazo-confd changelog 19.07 <https://github.com/wazo-pbx/wazo-confd/blob/master/CHANGELOG.md#1907>`_ for
+  `wazo-confd changelog 19.07 <https://github.com/wazo-platform/wazo-confd/blob/master/CHANGELOG.md#1907>`_ for
   more information.
 
 * All API related to ``cti profile`` have been removed. See `wazo-confd changelog 19.08
-  <https://github.com/wazo-pbx/wazo-confd/blob/master/CHANGELOG.md#1908>`_ for more information.
+  <https://github.com/wazo-platform/wazo-confd/blob/master/CHANGELOG.md#1908>`_ for more information.
 
 * Creating a resource using the REST API now requires the Wazo-Tenant HTTP header when the created
   resource is not in the same tenant has its creator.
