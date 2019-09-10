@@ -77,11 +77,11 @@ wazo-agentd
 * Rotation frequence: Daily
 
 
-xivo-amid
+wazo-amid
 ---------
 
-* File location: :file:`/var/log/xivo-amid.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-amid`
+* File location: :file:`/var/log/wazo-amid.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-amid`
 * Number of archived files: 15
 * Rotation frequence: Daily
 

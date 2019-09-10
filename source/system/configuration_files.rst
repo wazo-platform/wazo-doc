@@ -76,11 +76,11 @@ wazo-agentd
 * Default configuration file: :file:`/etc/wazo-agentd/config.yml`
 
 
-xivo-amid
+wazo-amid
 =========
 
-* Default configuration directory: :file:`/etc/xivo-amid/conf.d`
-* Default configuration file: :file:`/etc/xivo-amid/config.yml`
+* Default configuration directory: :file:`/etc/wazo-amid/conf.d`
+* Default configuration file: :file:`/etc/wazo-amid/config.yml`
 
 
 xivo-confgend
