@@ -25,3 +25,4 @@ Before starting the upgrade, you must have a xivo or Wazo version greater than 1
    archives-from-xivo
    archives-from-wazo-jessie
    archives-from-wazo-stretch
+   archives-from-wazo-pelican-stretch

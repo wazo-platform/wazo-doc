@@ -76,7 +76,7 @@ wazo-dist
 wazo-dist is the wazo repository sources manager. It is used to switch between distributions
 (production, development, release candidate, archived version). Example use cases :
 
-* switch to production repository : ``wazo-dist -m phoenix``
+* switch to production repository : ``wazo-dist -m pelican-buster``
 * switch to development repository : ``wazo-dist -m wazo-dev-buster``
 * switch to release candidate repository : ``wazo-dist -m wazo-rc-buster``
 * switch to an archived version's repository: ``wazo-dist -a wazo-18.02``

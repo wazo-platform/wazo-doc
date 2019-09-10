@@ -1,18 +1,7 @@
-Upgrade from Wazo < 19.04
+Upgrade from Wazo < 19.13
 =========================
 
-Those procedures are valid if your Wazo installation is newer than 18.01 and older than 19.04.
-
-Upgrade to Wazo < 19.04
------------------------
-
-Example to upgrade to Wazo 18.03::
-
-  wazo-dist -a wazo-18.03
-  apt-get update
-  apt-get install xivo-upgrade/wazo-18.03
-  wazo-upgrade
-  wazo-dist -m phoenix-stretch
+Those procedures are valid if your Wazo installation is newer than 19.03 and older than 19.10.
 
 
 Upgrade to Wazo < 19.13
@@ -46,8 +35,7 @@ This will upgrade your Wazo to 19.12. From there:
 My Wazo is stuck in a specific version
 --------------------------------------
 
-Procedures for upgrading to specific versions may freeze the version of your Wazo. Run the following
-commands to get the latest updates::
+Procedures for upgrading to specific versions may freeze the version of your Wazo. Run the following commands to get the latest updates::
 
-  wazo-dist phoenix-stretch
+  wazo-dist -m pelican-stretch
   wazo-upgrade
