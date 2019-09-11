@@ -107,12 +107,13 @@ General
 
      19.03/sounds
 
-  * we needed to do some supposition for ambiguous resources that shared other resources from
-    different entities. These resource has been migrated to the first entity/tenant created. But
-    they still associated to resource from other tenants, if was configured like this. You need to
-    fix it manually and ensure to remove or recreate the resource in the right tenant. Since it
-    continue to work, these configurations are invalid and can be removed automatically in future
-    upgrade. Review the following resources:
+  * We needed to do some guesswork for ambiguous resources that shared other resources from
+    different entities. These resources have been migrated to the most logical tenants. However, it
+    may be possible that they are still associated to resources that were migrated to different
+    tenants. When this happens, you need to fix them manually and to make sure to remove the
+    affected resources or to recreate them in the right tenants. Even if they still work, these
+    configurations are invalid and can be removed automatically in future upgrades. Therefore,
+    you should review the following resources:
 
       * call permissions
       * ivr
@@ -121,10 +122,10 @@ General
 
 .. Minor changes
 
-* The user authentication has been updated with the following impacts:
+* User authentication has been updated with the following impacts:
 
-  * User's password cannot be returned in plain text anymore.
-  * Users export (export CSV) cannot export password anymore.
+  * User passwords cannot be returned in plain text anymore.
+  * Users export (export CSV) cannot export passwords anymore.
   * Time to import users (import CSV) has been increased significantly if the field ``password`` is
     provided.
   * Fields ``username`` and ``password`` in ``wazo-confd`` API ``/users`` don't have impact anymore on
@@ -165,7 +166,7 @@ Asterisk related
 
   .. toctree::
      :maxdepth: 1
-  
+
      18.12/asterisk_16
 
 * Wazo now uses ``res_pjsip`` instead of ``chan_sip``.
@@ -198,7 +199,7 @@ Renaming
   * ``xivo-ctid-ng`` to ``wazo-calld``
   * ``xivo-dird`` to ``wazo-dird``
 
-  Each service as the following changes:
+* Each service has the following changes:
 
   * The custom configuration has been moved to :file:`/etc/<new-service-name>/conf.d/`.
   * The log file has been renamed to :file:`<new-service-name>.log`.
@@ -210,7 +211,7 @@ Renaming
   * All users that are logged in Wazo must logout and log back in, to apply the change of
     authorizations names (ACL).
 
-* The following client python have been renamed.If you were using the old one in your
+* The following python clients have been renamed. If you were using the old one in your
   python code you should use the new one.
 
   * ``xivo-agentd-client`` to ``wazo-agentd-client``
@@ -220,7 +221,7 @@ Renaming
 
 * ``xivo-agentd-cli`` has been renamed ``wazo-agentd-cli``
 * The fail2ban jail was renamed from ``asterisk-xivo`` to ``asterisk-wazo``.
-* Chat message, user and device presences are now handled by ``wazo-chatd`` instead of
+* Chat messages, user and device presences are now handled by ``wazo-chatd`` instead of
   ``wazo-calld`` and ``MongooseIM``.
 
    * All chat messages will be deleted after the upgrade.
