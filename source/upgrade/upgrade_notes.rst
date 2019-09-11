@@ -7,78 +7,6 @@ Upgrade notes
 19.13
 =====
 
-* ``xivo-amid`` has been renamed ``wazo-amid``
-
-  * The custom configuration has been moved to ``/etc/wazo-amid/conf.d/``.
-  * The log file has been renamed to ``wazo-amid.log``.
-  * The NGINX proxy has been recreated in ``/etc/nginx/locations/https-enabled/wazo-amid``.
-
-19.12
-=====
-
-* If a custom context (created using the REST API or wazo-admin-ui) was named with the following
-  names, then it has been renamed with one or more suffix ``_``. Also if the context name had
-  invalid characters (i.e. space), then invalid characters are replaced by ``_``. All custom
-  configuration should be updated to reflect the changes.
-
-  * `authentication`
-  * `general`
-  * `global`
-  * `globals`
-  * `parkedcalls`
-  * `xivo-features`
-  * `zonemessages`
-
-* ``wazo-confd`` REST API does not allow to manage ``call-logs`` anymore.
-
-* The ``wazo-google`` plugin has been copied to the ``wazo-auth`` and ``wazo-dird`` repo. You **must**
-  uninstall that plugin if you installed it from its source to avoid conflicts between the supported
-  version and the legacy version.
-* ``xivo-agid`` has been renamed ``wazo-agid``
-
-  * The custom configuration has been moved to ``/etc/wazo-agid/conf.d/``.
-  * The log file has been renamed to ``wazo-agid.log``.
-
-* ``xivo-provd`` has been renamed to ``wazo-provd``
-
-  * The custom configuration has been moved to ``/etc/wazo-provd/conf.d/``.
-  * The log file has been renamed to ``wazo-provd.log``.
-  * The NGINX proxy has been recreated in ``/etc/nginx/locations/https-enabled/wazo-provd``.
-
-* ``xivo-provd-cli`` has been renamed to ``wazo-provd-cli``
-
-* ``xivo-provd-plugins`` has been renamed to ``wazo-provd-plugins``
-
-* ``wazo-dird-phoned`` has been renamed to ``wazo-phoned``
-
-* ``xivo-nginx`` has been renamed to ``wazo-nginx``
-
-* ``xivo-dhcpd-update`` has been renamed to ``wazo-dhcpd-update``
-
-Consult the `19.12 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10028>`_ for more information
-
-
-19.11
-=====
-
-* ``wazo-call-logd`` are now multi-tenant. Each call log that cannot be associated to a tenant has been
-  associated to the ``master`` tenant. Also each new call log that cannot extract tenant from call
-  informations, will be associated to the master tenant.
-
-* The ``wazo-microsoft`` plugin has been copied to the ``wazo-auth`` and ``wazo-dird`` repo. You **must**
-  uninstall that plugin if you installed it from its source to avoid conflicts between the supported
-  version and the legacy version.
-
-* ``xivo-purge-db`` has been renamed ``wazo-purge-db``
-
-* ``wazo-purge-db`` archives plugins namespace have been renamed from
-  ``xivo_purge_db.archives`` to ``wazo_purge_db.archives``
-
-Consult the `19.11 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10027>`_ for more information
-
-
-19.10
-=====
 
 General
 -------
@@ -101,6 +29,9 @@ General
     associated with an agent, is has been deleted.
   * All the existing skill rules have been associated to the tenant of the first queue found in the
     database. If no queue was found, meaning there was no queue, the skill rules were deleted.
+  * Call logs are now multi-tenant. Each call log that cannot be associated to a tenant has been
+    associated to the ``master`` tenant. Also each new call log that cannot extract tenant from call
+    informations, will be associated to the master tenant.
 
   .. toctree::
      :maxdepth: 1
@@ -141,8 +72,8 @@ General
 * The procedure for custom certificates, especially for Let's Encrypt certificates, has been
   simplified. See :ref:`https_certificate`.
 * People using the ``xivo-aastra-2.6.0.2019`` will have to upgrade to version 1.9.2 or later
-* ``xivo-provisioning`` now uses YAML configuration. The defaults can be overridden in the
-  :file:`/etc/xivo-provd/conf.d/` directory. See :ref:`configuration-files`.
+* ``wazo-provd`` now uses YAML configuration. The defaults can be overridden in the
+  :file:`/etc/wazo-provd/conf.d/` directory. See :ref:`configuration-files`.
 * The provisioning option :ref:`dhcp-integration` is now enabled by default. There is no REST API to
   disable this feature.
 * Call pickups that have been created using the REST API or ``wazo-admin-ui`` have the interceptors
@@ -157,6 +88,24 @@ General
 * ``xivo-sysconfd`` is now async by default. If you rely on Asterisk being reloaded when configuring resources.
   See :ref:`sysconfd-configuration` to set the ``synchronous`` option to ``true``
 * Upgrade from version older than 15.01 are not supported anymore.
+* If a custom context (created using the REST API or wazo-admin-ui) was named with the following
+  names, then it has been renamed with one or more suffix ``_``. Also if the context name had
+  invalid characters (i.e. space), then invalid characters are replaced by ``_``. All custom
+  configuration should be updated to reflect the changes.
+
+  * `authentication`
+  * `general`
+  * `global`
+  * `globals`
+  * `parkedcalls`
+  * `xivo-features`
+  * `zonemessages`
+* The ``wazo-google`` plugin has been copied to the ``wazo-auth`` and ``wazo-dird`` repo. You **must**
+  uninstall that plugin if you installed it from its source to avoid conflicts between the supported
+  version and the legacy version.
+* The ``wazo-microsoft`` plugin has been copied to the ``wazo-auth`` and ``wazo-dird`` repo. You **must**
+  uninstall that plugin if you installed it from its source to avoid conflicts between the supported
+  version and the legacy version.
 
 
 Asterisk related
@@ -195,9 +144,14 @@ Renaming
 * The following services have been renamed:
 
   * ``xivo-agentd`` to ``wazo-agentd``
+  * ``xivo-agid`` to ``wazo-agid``
+  * ``xivo-amid`` to ``wazo-amid``
   * ``xivo-confd`` to ``wazo-confd``
   * ``xivo-ctid-ng`` to ``wazo-calld``
   * ``xivo-dird`` to ``wazo-dird``
+  * ``wazo-dird-phoned`` to ``wazo-phoned``
+  * ``xivo-provd`` to ``wazo-provd``
+  * ``xivo-nginx`` to ``wazo-nginx``
 
 * Each service has the following changes:
 
@@ -219,14 +173,16 @@ Renaming
   * ``xivo-dird-client`` to ``wazo-dird-client``
   * ``xivo-provd-client`` to ``wazo-provd-client``
 
-* ``xivo-agentd-cli`` has been renamed ``wazo-agentd-cli``
+* ``xivo-agentd-cli`` has been renamed to ``wazo-agentd-cli``
+* ``xivo-provd-cli`` has been renamed to ``wazo-provd-cli``
+* ``xivo-dhcpd-update`` has been renamed to ``wazo-dhcpd-update``
 * The fail2ban jail was renamed from ``asterisk-xivo`` to ``asterisk-wazo``.
 * Chat messages, user and device presences are now handled by ``wazo-chatd`` instead of
   ``wazo-calld`` and ``MongooseIM``.
 
    * All chat messages will be deleted after the upgrade.
 
-* ``xivo-provisioning`` API URL has been updated to remove the ``provd`` prefix when present and add
+* ``wazo-provd`` API URL has been updated to remove the ``provd`` prefix when present and add
   the API version number, which is ``0.2``. All affected services and ``wazo-provd-client`` have
   been updated.  Example: ``/provd/dev_mgr`` is now ``/0.2/dev_mgr`` and ``/api/api.yml`` is now
   ``/0.2/api/api.yml``
@@ -261,10 +217,10 @@ Developers
 * ACL templating has been modified: when generating multiple ACLs with one template, ACL were
   separated with ``\n``. They are now separated with ``:`` (colon). ``\n`` is not interpreted
   anymore. You should hence replace any ``\n`` with ``:`` in your ACLs.
-* ``xivo-provisioning`` now uses ``wazo-auth`` to authenticate all requests and uses HTTPS. It is no
+* ``wazo-provd`` now uses ``wazo-auth`` to authenticate all requests and uses HTTPS. It is no
   longer possible to deactivate authentication. Therefore, all calls to the REST API will need to
   be made using HTTPS and a token generated with ``wazo-auth``.
-* ``xivo-provd-cli`` has been updated to remove the username and password command line arguments since
+* ``wazo-provd-cli`` has been updated to remove the username and password command line arguments since
   they are no longer used.
 
 * The configuration of ``rest_api`` section for ``wazo-confd`` configuration file has changed. See
@@ -279,6 +235,7 @@ Developers
 * Authentication policies now have a `tenant_uuid` and the relationship between tenants and policies
   has been removed. If you did use policies with tenant association, the policy is now associated to
   one of its tenant. This feature is not used yet in Wazo, so most likely you are not affected.
+* ``wazo-confd`` REST API does not allow to manage ``call-logs`` anymore.
 
 .. TODO validate
 
@@ -309,6 +266,9 @@ Consult the roadmaps for more information:
    * `19.08 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10023>`_
    * `19.09 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10024>`_
    * `19.10 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10026>`_
+   * `19.11 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10027>`_
+   * `19.12 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10028>`_
+   * `19.13 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10029>`_
 
 
 18.03
