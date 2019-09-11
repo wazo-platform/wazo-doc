@@ -182,10 +182,6 @@ Renaming
 
    * All chat messages will be deleted after the upgrade.
 
-* ``wazo-provd`` API URL has been updated to remove the ``provd`` prefix when present and add
-  the API version number, which is ``0.2``. All affected services and ``wazo-provd-client`` have
-  been updated.  Example: ``/provd/dev_mgr`` is now ``/0.2/dev_mgr`` and ``/api/api.yml`` is now
-  ``/0.2/api/api.yml``
 * The :file:`/var/lib/xivo/sounds` directory has been migrated to :file:`/var/lib/wazo/sounds` and
   the directory :file:`/var/lib/xivo` is considered deprecated. Please update all custom references
   to this path.
@@ -236,6 +232,11 @@ Developers
   has been removed. If you did use policies with tenant association, the policy is now associated to
   one of its tenant. This feature is not used yet in Wazo, so most likely you are not affected.
 * ``wazo-confd`` REST API does not allow to manage ``call-logs`` anymore.
+
+* ``wazo-provd`` API URL has been updated to remove the ``provd`` prefix when present and add
+  the API version number, which is ``0.2``. All affected services and ``wazo-provd-client`` have
+  been updated.  Example: ``/provd/dev_mgr`` is now ``/0.2/dev_mgr`` and ``/api/api.yml`` is now
+  ``/0.2/api/api.yml``
 
 .. TODO validate
 
