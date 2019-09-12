@@ -236,7 +236,7 @@ Developers
   since they are no longer used.
 
 * The configuration of ``rest_api`` section for ``wazo-confd`` configuration file has changed. See
-  `wazo-confd changelog 19.07
+  `wazo-confd changelog 19.06
   <https://github.com/wazo-platform/wazo-confd/blob/master/CHANGELOG.md#1906>`_ for more
   information.
 
