@@ -7,6 +7,15 @@ Upgrade notes
 19.13
 =====
 
+* **Debian has been upgraded from version 9 (stretch) to 10 (buster).**
+  Please consult the following detailed upgrade notes for more information:
+
+ .. toctree::
+    :maxdepth: 1
+
+    19.13/buster
+
+
 * ``xivo-amid`` has been renamed to ``wazo-amid``
 
   * The custom configuration has been moved to ``/etc/wazo-amid/conf.d/``.
@@ -18,7 +27,6 @@ Consult the  `19.13 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.j
 
 19.12
 =====
-
 
 General
 -------
