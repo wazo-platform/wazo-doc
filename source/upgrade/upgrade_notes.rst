@@ -4,6 +4,18 @@
 Upgrade notes
 *************
 
+19.13
+=====
+
+* ``xivo-amid`` has been renamed to ``wazo-amid``
+
+  * The custom configuration has been moved to ``/etc/wazo-amid/conf.d/``.
+  * The log file has been renamed to ``wazo-amid.log``.
+  * The NGINX proxy has been recreated in ``/etc/nginx/locations/https-enabled/wazo-amid``.
+
+Consult the  `19.13 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10029>`_ for more information.
+
+
 19.12
 =====
 
@@ -147,7 +159,6 @@ Renaming
 
   * ``xivo-agentd`` to ``wazo-agentd``
   * ``xivo-agid`` to ``wazo-agid``
-  * ``xivo-amid`` to ``wazo-amid``
   * ``xivo-confd`` to ``wazo-confd``
   * ``xivo-ctid-ng`` to ``wazo-calld``
   * ``xivo-dird`` to ``wazo-dird``
@@ -265,7 +276,6 @@ Consult the roadmaps for more information:
    * `19.10 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10026>`_
    * `19.11 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10027>`_
    * `19.12 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10028>`_
-   * `19.13 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10029>`_
 
 
 18.03
