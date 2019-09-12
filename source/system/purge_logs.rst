@@ -93,8 +93,8 @@ a `VACUUM`_ FULL to recover disk space.
 
 .. warning:: VACUUM FULL will require a service interruption. This may take several hours depending
              on the size of purged database.
-.. _VACUUM: http://www.postgresql.org/docs/9.6/static/sql-vacuum.html
-.. _Autovacuum Daemon: http://www.postgresql.org/docs/9.6/static/routine-vacuuming.html#AUTOVACUUM
+.. _VACUUM: https://www.postgresql.org/docs/11/static/sql-vacuum.html
+.. _Autovacuum Daemon: https://www.postgresql.org/docs/11/static/routine-vacuuming.html#AUTOVACUUM
 
 You need to::
 
