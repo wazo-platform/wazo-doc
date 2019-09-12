@@ -24,6 +24,11 @@ Before the upgrade
 * Make sure your have sufficient space for the upgrade. You might run into trouble if you have less
   than 2 GiB available in the file system that holds the :file:`/var` and :file:`/` directories.
 
+* Remove the ``freeradius`` package. If you have recompiled Asterisk on  you server you most likely
+  installed the ``libfreeradius-dev`` package, which pulled ``freeradius``. This package cannot be
+  confiugred on Debian Buster under some circunstances that are not under our control. You can
+  remove it with the following command ``apt purge freeradius``
+
 * If you have customized the Debian system of your Wazo in some nontrivial way, you might want to
   review the `official Debian release notes <https://www.debian.org/releases/buster/releasenotes>`_
   before the upgrade. Most importantly, you should:
