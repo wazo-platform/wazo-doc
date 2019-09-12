@@ -79,7 +79,8 @@ General
     authentication and must be considered invalid. It has been replaced by ``wazo-auth`` API.
 
 * Invalid user email address (e.g. ``invalid@``) have been deleted automatically during upgrade.
-* All agents will have to log out and log back in to receive calls from queues. You may use the command ``wazo-agentd-cli -c "relog all"`` to do this.
+* All agents will have to log out and log back in to receive calls from queues. You may use the
+  command ``wazo-agentd-cli -c "relog all"`` to do this.
 * The procedure for custom certificates, especially for Let's Encrypt certificates, has been
   simplified. See :ref:`https_certificate`.
 * People using the ``xivo-aastra-2.6.0.2019`` will have to upgrade to plugin version 1.9.2 or later
@@ -132,11 +133,13 @@ Asterisk related
 * Wazo now uses ``res_pjsip`` instead of ``chan_sip``.
 
   * All custom lines with interface ``SIP/something`` must be changed to ``PJSIP/something``
-  * All custom dialplan using the ``SIP_HEADER`` dialplan function must be changed to ``PJSIP_HEADER`` function
-  * The ``SIPAddHeader`` and ``SIPRemoveHeader`` dialplan application must be changed to ``PJSIP_HEADER`` function
+  * All custom dialplan using the ``SIP_HEADER`` dialplan function must be changed to
+    ``PJSIP_HEADER`` function
+  * The ``SIPAddHeader`` and ``SIPRemoveHeader`` dialplan application must be changed to
+    ``PJSIP_HEADER`` function
 
-* The username for all SIP devices in ``autoprov`` mode has been changed. Devices in ``autoprov`` mode will
-  have to be restarted before entering the provisioning code.
+* The username for all SIP devices in ``autoprov`` mode has been changed. Devices in ``autoprov``
+  mode will have to be restarted before entering the provisioning code.
 * Asterisk configuration files can now be customized in the :file:`/etc/asterisk/*.d/` directories.
   If you had custom configuration in :file:`/etc/asterisk/*.conf` you will have to create a new file
   in the corresponding :file:`*.d` directory to use your customized configuration. Files named
@@ -226,29 +229,32 @@ Developers
 * ACL templating has been modified: when generating multiple ACLs with one template, ACL were
   separated with ``\n``. They are now separated with ``:`` (colon). ``\n`` is not interpreted
   anymore. You should hence replace any ``\n`` with ``:`` in your ACLs.
-* ``wazo-provd`` now uses ``wazo-auth`` to authenticate all requests and uses HTTPS. It is no
-  longer possible to deactivate authentication. Therefore, all calls to the REST API will need to
-  be made using HTTPS and a token generated with ``wazo-auth``.
-* ``wazo-provd-cli`` has been updated to remove the username and password command line arguments since
-  they are no longer used.
+* ``wazo-provd`` now uses ``wazo-auth`` to authenticate all requests and uses HTTPS. It is no longer
+  possible to deactivate authentication. Therefore, all calls to the REST API will need to be made
+  using HTTPS and a token generated with ``wazo-auth``.
+* ``wazo-provd-cli`` has been updated to remove the username and password command line arguments
+  since they are no longer used.
 
 * The configuration of ``rest_api`` section for ``wazo-confd`` configuration file has changed. See
-  `wazo-confd changelog 19.07 <https://github.com/wazo-platform/wazo-confd/blob/master/CHANGELOG.md#1906>`_ for
-  more information.
+  `wazo-confd changelog 19.07
+  <https://github.com/wazo-platform/wazo-confd/blob/master/CHANGELOG.md#1906>`_ for more
+  information.
 
 * All API related to ``cti profile`` have been removed. See `wazo-confd changelog 19.08
-  <https://github.com/wazo-platform/wazo-confd/blob/master/CHANGELOG.md#1908>`_ for more information.
+  <https://github.com/wazo-platform/wazo-confd/blob/master/CHANGELOG.md#1908>`_ for more
+  information.
 
-* Creating a resource using the REST API now requires the ``Wazo-Tenant`` HTTP header when the created
-  resource is not in the same tenant as its creator.
-* Authentication policies now have a ``tenant_uuid`` and the relationship between tenants and policies
-  has been removed. If you did use policies with tenant association, the policy is now associated to
-  one of its tenant. This feature is not used yet in Wazo, so most likely you are not affected.
+* Creating a resource using the REST API now requires the ``Wazo-Tenant`` HTTP header when the
+  created resource is not in the same tenant as its creator.
+* Authentication policies now have a ``tenant_uuid`` and the relationship between tenants and
+  policies has been removed. If you did use policies with tenant association, the policy is now
+  associated to one of its tenant. This feature is not used yet in Wazo, so most likely you are not
+  affected.
 * ``wazo-confd`` REST API does not allow to manage ``call-logs`` anymore.
 
-* ``wazo-provd`` API URL has been updated to remove the ``provd`` prefix when present and add
-  the API version number, which is ``0.2``. All affected services and ``wazo-provd-client`` have
-  been updated.  Example: ``/provd/dev_mgr`` is now ``/0.2/dev_mgr`` and ``/api/api.yml`` is now
+* ``wazo-provd`` API URL has been updated to remove the ``provd`` prefix when present and add the
+  API version number, which is ``0.2``. All affected services and ``wazo-provd-client`` have been
+  updated.  Example: ``/provd/dev_mgr`` is now ``/0.2/dev_mgr`` and ``/api/api.yml`` is now
   ``/0.2/api/api.yml``
 
 Consult the roadmaps for more information:
