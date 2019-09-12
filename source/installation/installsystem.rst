@@ -25,21 +25,6 @@ For a small install of about 20 users, less than 20 calls per day:
 * Storage: 2.5 GiB of storage is a very tight minimum, 8 GiB is comfortable
 
 
-Installing from the ISO image
-=============================
-
-* Download the ISO image. (`latest version`_) (`all versions`_)
-* Boot from the ISO image, select ``Install`` and follow the instructions. You must select a locale
-  with charset UTF-8.
-* At the end of the installation, if you are installing version 16.13 or before, you need to
-  configure your system to :ref:`use the Wazo infrastructure <using-wazo-infrastructure>`, otherwise
-  some errors might occur.
-* Continue by running the configuration wizard.
-
-.. _all versions: http://mirror.wazo.community/iso/archives
-.. _latest version: http://mirror.wazo.community/iso/wazo-current
-
-
 Installing from a minimal Debian installation
 =============================================
 
