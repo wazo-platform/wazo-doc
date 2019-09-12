@@ -62,8 +62,8 @@ wazo-dird
 wazo-upgrade
 ------------
 
-* File location: :file:`/var/log/xivo-upgrade.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-upgrade`
+* File location: :file:`/var/log/wazo-upgrade.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-upgrade`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
