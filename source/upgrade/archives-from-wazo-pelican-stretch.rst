@@ -25,7 +25,7 @@ Example to upgrade to Wazo 19.13::
 
 This will upgrade your Wazo to 19.12. From there:
 
-1. Read the :ref:`upgrade notes<upgrade-notes-buster>`
+1. Read the :ref:`upgrade notes<upgrade_notes_buster>`
 2. Upgrade to Wazo 19.13::
 
      wazo-dist-upgrade -t wazo-19.13
