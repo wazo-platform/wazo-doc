@@ -4,7 +4,7 @@
 Upgrade notes
 *************
 
-19.13
+19.12
 =====
 
 
@@ -13,25 +13,27 @@ General
 
 .. Major changes
 
-* All administration interfaces ``xivo-web-interface`` and ``wazo-admin-ui`` have been removed
-* ``xivo-ctid`` has been removed, therefore the ``wazoclient`` will not connect anymore.
-* ``wazo-dird`` is now configured using its REST API. The previous configuration have been removed
-  and a new profile ``default`` is now created for each new tenant.
-* `Entity` concept has been replaced by `tenant`. The previous concept was not completely sealed and
+* All administration interfaces ``xivo-web-interface`` and ``wazo-admin-ui`` have been removed. They
+  are replaced by ``wazo-ui``. To install it, run the following command after the upgrade: ``apt
+  install wazo-ui``.
+* The Wazo Client and ``xivo-ctid`` have been removed.
+* ``wazo-dird`` is now configured using its REST API. The previous configuration files have been
+  removed and a new profile ``default`` is now created for each new tenant.
+* `Entity` concept has been replaced by `Tenant`. The previous concept was not completely sealed and
   we have fixed it with the `tenant`.
 
   * Existing devices are migrated automatically to the tenant of their first associated line. If a
-    device is in autoprov mode, it will be migrated to the default tenant.  See
+    device is in autoprov mode, it will be migrated to the default tenant. See
     :ref:`intro-provisioning` for more information on how device tenants are handled.
   * Agents are now multi-tenant. Agents created using the rest API that were not logged into a queue
     and that were not associated to a user have been deleted.
   * Skills are migrated to the tenant of the agent with whom they are associated. If a skill was not
-    associated with an agent, is has been deleted.
+    associated with an agent, it has been deleted.
   * All the existing skill rules have been associated to the tenant of the first queue found in the
-    database. If no queue was found, meaning there was no queue, the skill rules were deleted.
+    database. If there were no queue configured in the system, the skill rules have been deleted.
   * Call logs are now multi-tenant. Each call log that cannot be associated to a tenant has been
-    associated to the ``master`` tenant. Also each new call log that cannot extract tenant from call
-    informations, will be associated to the master tenant.
+    associated to the ``master`` tenant. Also for all call logs created after the upgrade, if the
+    tenant cannot be extracted from call informations, they will be associated to the master tenant.
 
   .. toctree::
      :maxdepth: 1
@@ -43,7 +45,7 @@ General
     may be possible that they are still associated to resources that were migrated to different
     tenants. When this happens, you need to fix them manually and to make sure to remove the
     affected resources or to recreate them in the right tenants. Even if they still work, these
-    configurations are invalid and can be removed automatically in future upgrades. Therefore,
+    configurations are invalid and shall be removed automatically in future upgrades. Therefore,
     you should review the following resources:
 
       * call permissions
@@ -53,40 +55,39 @@ General
 
 .. Minor changes
 
-* User authentication has been updated with the following impacts:
+* User authentication has been updated with the following changes:
 
   * User passwords cannot be returned in plain text anymore.
   * Users export (export CSV) cannot export passwords anymore.
-  * Time to import users (import CSV) has been increased significantly if the field ``password`` is
-    provided.
-  * Fields ``username`` and ``password`` in ``wazo-confd`` API ``/users`` don't have impact anymore on
-    authentication and must be considered as invalid. To change these values, use ``wazo-auth`` API
-    instead.
-  * Fields ``enabled`` for ``wazo-confd`` API ``/users/<user_id>/cti`` don't have impact anymore on
-    authentication and must be considered as invalid. To change this value, use ``wazo-auth`` API
-    instead.
-* Invalid user email will be deleted automatically during upgrade.
-* Default phone passwords are now auto-generated. Switchboard users with a Snom device will now have
-  to add a configuration file to store the username and password.
-* All agents will have to log out and log back in to receive calls from queues
+  * Processing time to import users (import CSV) has been increased significantly if the field
+    ``password`` is provided.
+  * Fields ``username`` and ``password`` in ``wazo-confd`` API ``/users`` are now ignored for
+    authentication and must be considered invalid. They have been replaced by ``wazo-auth`` API.
+  * Field ``enabled`` for ``wazo-confd`` API ``/users/<user_id>/cti`` is now ignored for
+    authentication and must be considered invalid. It has been replaced by ``wazo-auth`` API.
+
+* Invalid user email address (e.g. ``invalid@``) have been deleted automatically during upgrade.
+* All agents will have to log out and log back in to receive calls from queues. You may use the command ``wazo-agentd-cli -c "relog all"`` to do this.
 * The procedure for custom certificates, especially for Let's Encrypt certificates, has been
   simplified. See :ref:`https_certificate`.
-* People using the ``xivo-aastra-2.6.0.2019`` will have to upgrade to version 1.9.2 or later
+* People using the ``xivo-aastra-2.6.0.2019`` will have to upgrade to plugin version 1.9.2 or later
 * ``wazo-provd`` now uses YAML configuration. The defaults can be overridden in the
   :file:`/etc/wazo-provd/conf.d/` directory. See :ref:`configuration-files`.
 * The provisioning option :ref:`dhcp-integration` is now enabled by default. There is no REST API to
   disable this feature.
 * Call pickups that have been created using the REST API or ``wazo-admin-ui`` have the interceptors
   and targets mixed up. Since call pickups created using the "orange" web-interface did not have
-  that bug, we could not fix the existing configuration automatically. Faulty call pickups will
-  have to be edited and users moved from interceptors to targets and vice versa.
-* Since the feature for managing certificates from web-interface is gone, all certificates must now be
-  managed manually. The directory to access to certificates is :file:`/var/lib/xivo/certificates` and is
-  not backuped or synchronized for HA anymore.
+  that bug, we could not fix the existing configuration automatically. Faulty call pickups have to
+  be edited and users moved from interceptors to targets and vice versa.
+* Since the feature for managing certificates from the "orange" web-interface is gone, all
+  certificates must now be managed manually. The directory to access to certificates is
+  :file:`/var/lib/xivo/certificates` and is not backuped or synchronized for HA anymore.
 * If a group or queue was named ``general``, then it has been renamed with one or more suffix ``_``
-  (e.i. ``general_``). The name ``general`` is no more allowed.
-* ``xivo-sysconfd`` is now async by default. If you rely on Asterisk being reloaded when configuring resources.
-  See :ref:`sysconfd-configuration` to set the ``synchronous`` option to ``true``
+  (e.g. ``general_``). The name ``general`` is not allowed anymore.
+* ``xivo-sysconfd`` is now asynchronous by default. This implies that changes made via the API or
+  via a web interface may take some time to take effect after the action. If you rely on Asterisk
+  being reloaded when configuring resources. See :ref:`sysconfd-configuration` to set the
+  ``synchronous`` option to ``true``.
 * Upgrade from version older than 15.01 are not supported anymore.
 * If a custom context (created using the REST API or wazo-admin-ui) was named with the following
   names, then it has been renamed with one or more suffix ``_``. Also if the context name had
@@ -100,12 +101,10 @@ General
   * `parkedcalls`
   * `xivo-features`
   * `zonemessages`
-* The ``wazo-google`` plugin has been copied to the ``wazo-auth`` and ``wazo-dird`` repo. You **must**
-  uninstall that plugin if you installed it from its source to avoid conflicts between the supported
-  version and the legacy version.
-* The ``wazo-microsoft`` plugin has been copied to the ``wazo-auth`` and ``wazo-dird`` repo. You **must**
-  uninstall that plugin if you installed it from its source to avoid conflicts between the supported
-  version and the legacy version.
+
+* The ``wazo-google`` and ``wazo-microsoft`` plugins have been copied to the ``wazo-auth`` and
+  ``wazo-dird`` repo. You **must** uninstall that plugin if you installed it manually from source to
+  avoid conflicts between the supported version and the legacy version.
 
 
 Asterisk related
@@ -136,6 +135,9 @@ Asterisk related
   removing it and using the REST API (see :ref:`skill-apply`). If you really want to keep it, you
   must change the name used in the variable ``XIVO_QUEUESKILLRULESET`` to use the new format.
 * Asterisk logs (:file:`/var/log/asterisk/full`) now contain milliseconds
+* The ``tenant_name`` variable has been removed from the call recording templates in favor of the
+  ``tenant_uuid``. If the ``tenant_name`` was used in the directory name, a symlink can be used to
+  keep the same name.
 
 
 Renaming
@@ -159,14 +161,14 @@ Renaming
   * The log file has been renamed to :file:`<new-service-name>.log`.
   * The NGINX proxy has been recreated in
     :file:`/etc/nginx/locations/https-enabled/<new-service-name>`
-  * Entrypoint for custom plugin has been renamed to :file:`<new_service_name.*`.
+  * Entrypoints for custom Python plugins have been renamed to :file:`<new_service_name.*`.
   * Environment variable for ``wazo-upgrade`` has been renamed from ``XIVO_CONFD_PORT`` to
     ``WAZO_CONFD_PORT``.
-  * All users that are logged in Wazo must logout and log back in, to apply the change of
-    authorizations names (ACL).
+  * All users that are logged in Wazo, i.e. who have an authentication token, must logout and log
+    back in, to apply the change of authorizations names (ACL).
 
-* The following python clients have been renamed. If you were using the old one in your
-  python code you should use the new one.
+* The following Python clients have been renamed. If you were using the old one in your
+  Python code you should use the new one.
 
   * ``xivo-agentd-client`` to ``wazo-agentd-client``
   * ``xivo-confd-client`` to ``wazo-confd-client``
@@ -208,7 +210,7 @@ Developers
 * ``wazo-auth`` API to implement a ``wazo-auth`` backend has been changed in 18.02.
   The compatibility code that allowed old backends to keep working has been removed.
 
-  * The `get_ids` method has been removed.
+  * The ``get_ids`` method has been removed.
 
 * ACL templating has been modified: when generating multiple ACLs with one template, ACL were
   separated with ``\n``. They are now separated with ``:`` (colon). ``\n`` is not interpreted
@@ -226,9 +228,9 @@ Developers
 * All API related to ``cti profile`` have been removed. See `wazo-confd changelog 19.08
   <https://github.com/wazo-platform/wazo-confd/blob/master/CHANGELOG.md#1908>`_ for more information.
 
-* Creating a resource using the REST API now requires the Wazo-Tenant HTTP header when the created
-  resource is not in the same tenant has its creator.
-* Authentication policies now have a `tenant_uuid` and the relationship between tenants and policies
+* Creating a resource using the REST API now requires the ``Wazo-Tenant`` HTTP header when the created
+  resource is not in the same tenant as its creator.
+* Authentication policies now have a ``tenant_uuid`` and the relationship between tenants and policies
   has been removed. If you did use policies with tenant association, the policy is now associated to
   one of its tenant. This feature is not used yet in Wazo, so most likely you are not affected.
 * ``wazo-confd`` REST API does not allow to manage ``call-logs`` anymore.
@@ -237,12 +239,6 @@ Developers
   the API version number, which is ``0.2``. All affected services and ``wazo-provd-client`` have
   been updated.  Example: ``/provd/dev_mgr`` is now ``/0.2/dev_mgr`` and ``/api/api.yml`` is now
   ``/0.2/api/api.yml``
-
-.. TODO validate
-
-* The ``tenant_name`` variable has been removed from the call recording templates in favor of the ``tenant_uuid``.
-  If the ``tenant_name`` was used in the directory name, a symlink can be used to keep the same name.
-
 
 Consult the roadmaps for more information:
 
