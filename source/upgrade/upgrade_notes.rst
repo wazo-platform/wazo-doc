@@ -4,6 +4,21 @@
 Upgrade notes
 *************
 
+19.14
+=====
+
+* ``xivo-confgend`` has been renamed to ``wazo-confgend``
+
+  * The custom configuration files have been moved to
+    ``/etc/wazo-confgend/conf.d``
+  * The log file has been renamed to ``wazo-confgend``
+  * The plugin entry points have been renamed from ``xivo`` to ``wazo`` enabled
+    plugins in custom configuration file should use the new name.
+  * The entry point identifier have been changed from ``xivo_confgend`` to
+    ``wazo_confgend`` if you have custom plugins developper for confgend you
+    should use the new identifier in you ``setup.py``
+
+
 19.13
 =====
 
