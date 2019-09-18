@@ -1,15 +1,15 @@
-.. _xivo-confgend-developer:
+.. _wazo-confgend-developer:
 
 ===============================
-XiVO confgend developer's guide
+Wazo confgend developer's guide
 ===============================
 
-xivo-confgend uses drivers to implement the logic required to generate
+wazo-confgend uses drivers to implement the logic required to generate
 configuration files.  It uses `stevedore <http://docs.openstack.org/developer/stevedore/>`_
 to do the driver instantiation and discovery.
 
-Plugins in xivo-confgend use setuptools' entry points. That means that
-installing a new plugin to xivo-confgend requires an entry point in the plugin's
+Plugins in wazo-confgend use setuptools' entry points. That means that
+installing a new plugin to wazo-confgend requires an entry point in the plugin's
 *setup.py*.
 
 
@@ -27,8 +27,8 @@ The implementation of a plugin should have the following properties.
 
 
 The ``__init__`` method argument is the content of the configuration of
-xivo-confgend. This allows the driver implementor to add values to the
-configuration in ``/etc/xivo-confgend/conf.d/*.yml`` and these values will be
+wazo-confgend. This allows the driver implementor to add values to the
+configuration in ``/etc/wazo-confgend/conf.d/*.yml`` and these values will be
 available in the driver.
 
 The generate method has no argument, the configuration provided to the
@@ -36,13 +36,13 @@ The generate method has no argument, the configuration provided to the
 ``scoped_session`` of xivo-dao, allowing the usage of xivo-dao without prior setup
 in the driver.
 
-The namespaces used for entry points in xivo-confgend have the following form:
+The namespaces used for entry points in wazo-confgend have the following form:
 
-    xivo_confgend.<resource>.<filename>
+    wazo_confgend.<resource>.<filename>
 
 as an example, a generator for sip.conf would have the following namespace:
 
-    xivo_confgend.asterisk.sip.conf
+    wazo_confgend.asterisk.sip.conf
 
 Example
 -------
@@ -70,7 +70,7 @@ Here is a typical ``setup.py``:
        packages=find_packages(),
 
        entry_points={
-           'xivo_confgend.asterisk.sip.conf': [
+           'wazo_confgend.asterisk.sip.conf': [
                'my_driver = src.driver:MyDriver',
            ],
        }
@@ -109,11 +109,11 @@ To enable this plugin, you need to:
 
     python setup.py install
 
-#. Create a config file in ``/etc/xivo-confgend/conf.d``::
+#. Create a config file in ``/etc/wazo-confgend/conf.d``::
 
     plugins:
       asterisk.sip.conf: my_driver
 
-#. Restart xivo-confgend::
+#. Restart wazo-confgend::
 
-    systemctl restart xivo-confgend
+    systemctl restart wazo-confgend.service

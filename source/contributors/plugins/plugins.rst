@@ -33,7 +33,7 @@ Here's a non exhaustive list of what can be done with plugins
     * wazo-calld
     * wazo-dird
     * wazo-confd
-    * xivo-confgend
+    * wazo-confgend
 
 
 Creating a plugin
