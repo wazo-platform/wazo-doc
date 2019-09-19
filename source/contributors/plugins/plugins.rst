@@ -8,8 +8,6 @@ This section cover the preferred way to extend the functionalities of a
 Wazo server. There are many extension point in Wazo, all of them can be used
 in combination to add complete features to you favorite PBX.
 
-For more information about installing, updating and removing plugins see the :ref:`admin_ui_plugins` section.
-
 
 What is a plugin
 ================
@@ -32,10 +30,10 @@ Here's a non exhaustive list of what can be done with plugins
 * Extend wazo services using the available extension points
 
     * wazo-auth
-    * xivo-confd
+    * wazo-calld
+    * wazo-dird
+    * wazo-confd
     * xivo-confgend
-    * xivo-ctid-ng
-    * xivo-dird
 
 
 Creating a plugin

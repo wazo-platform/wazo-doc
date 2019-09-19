@@ -35,8 +35,8 @@ SIP interconnections
 SIP interconnections are used to connect to a SIP provider to to another PBX that is part
 of your telecom infrastructure.
 
-General SIP configurations are available in :menuselection:`General Settings --> SIP Protocol`
-and trunk configurations are in :menuselection:`Trunk Management --> SIP Protocol`
+General SIP configurations are available with ``/asterisk/sip/general`` endpoint
+and trunk configurations are available with ``/endpoints/sip`` and ``/trunks`` endpoints
 
 
 Environment with NAT
@@ -45,23 +45,18 @@ Environment with NAT
 There are some configuration steps that are required when connecting to a SIP provider
 from a NAT environment.
 
-In :menuselection:`General Settings --> SIP Protocol --> Network` set your *External IP address*
-and your *Local network*.
+* ``PUT /asterisk/sip/general {..., "externip": "69.70.94.94", "localnet": "192.168.0.0/16", ...}``
 
-* External IP address: This is your public IP address
-* Local network: Your internal network range
+* ``externip``: This is your public IP address
+* ``localnet``: Your internal network range
 
-.. figure:: images/sip_protocol_network.png
-   :scale: 85%
 
-In :menuselection:`Trunk Management --> SIP Protocol` set the *NAT* option to *Yes* and the
-*Monitoring* option to *Yes*.
+* ``PUT /endpoints/sip/{endpoint_sip_id} {"options": [["nat", "yes"], ["qualify", "yes"]]}``
 
-.. figure:: images/sip_trunk_nat.png
-   :scale: 85%
+.. warning::
 
-.. figure:: images/sip_trunk_monitoring.png
-   :scale: 85%
+   When changing the `externip`, the `media_address` or the `externhost` Asterisk
+   has to be restarted using the `wazo-service restart` command for the changes to take effect.
 
 
 
@@ -109,16 +104,6 @@ To use your DAHDI links you must create a customized interconnection.
     You should not use a group like g0 which spans over several spans.
     
 
-For example, add an interconnection to the menu :menuselection:`Services --> IPBX --> Trunk management --> Customized` ::
-
-     Name : interconnection name
-     Interface : dahdi/g0
-
-
-.. figure:: images/interco_t2.png
-   :scale: 85%
-
-
 
 Debug
 =====
@@ -144,32 +129,25 @@ cases.
 Outgoing call caller ID
 =======================
 
-When you create an outgoing call, it's possible to set the it to internal, using the check box in
-the outgoing call configuration menu. When this option is activated, the caller's caller ID will be
-forwarded to the trunk. This option is use full when the other side of the trunk can reach the user
-with it's caller ID number.
-
-.. figure:: images/outgoing_call_internal.png
-   :scale: 85%
+When you create an outgoing call, it's possible to set the ``internal_caller_id``. When this option
+is activated, the caller's caller ID will be forwarded to the trunk. This option is use full when
+the other side of the trunk can reach the user with it's caller ID number.
 
 When the caller's caller ID is not usable to the called party, the outgoing call's caller id can
 be fixed to a given value that is more use full to the outside world. Giving the public number here
 might be a good idea.
 
-.. figure:: images/outgoing_call_callerid.png
-   :scale: 85%
+``PUT /outcalls/{outcall_id}/extensions/{extension_id} {"caller_id": "\"XIVO\" <555>"}``
 
 A user can also have a forced caller ID for outgoing calls. This can be use full for someone who has
-his own public number. This option can be set in the user's configuration page. The Outgoing
-Caller ID id option must be set to Customize. The user can also set his outgoing caller ID to
-anonymous.
+his own public number. This option can be set by user. The ``outgoing_caller_id`` option must be set
+to the caller ID. The user can also set his ``outgoing_caller_id`` to ``anonymous``.
 
-.. figure:: images/user_custom_callerid.png
-   :scale: 85%
+``PUT /users/{user_uuid} {"outgoing_caller_id": "\"Bob\" <555>"}``
 
 The order of precedence when setting the caller ID in multiple place is the following.
 
-#. Internal
-#. User's outgoing caller ID
+#. ``internal_caller_id``
+#. User's ``outgoing_caller_id``
 #. Outgoing call
 #. Default caller ID

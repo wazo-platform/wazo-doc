@@ -9,15 +9,14 @@ Wazo use nginx as a web server and reverse proxy.
 In its default configuration, the nginx server listens on port TCP/80 and TCP/443 and allows these
 services to be used:
 
-* The agent management server (xivo-agentd)
+* The agent management server (wazo-agentd)
 * The authentication server (wazo-auth)
-* The configuration server (xivo-confd)
-* The telephony service interface (xivo-ctid-ng)
-* The directory service (xivo-dird)
-* The AMI HTTP interface (xivo-amid)
-* web interface (xivo-web-interface)
+* The configuration server (wazo-confd)
+* The telephony service interface (wazo-calld)
+* The directory service (wazo-dird)
+* The AMI HTTP interface (wazo-amid)
 * API documentation (xivo-swagger-doc)
-* The websocket interface (xivo-websocketd)
+* The websocket interface (wazo-websocketd)
 * Asterisk WebSocket (xivo-config)
 
 An administrator can easily modify the configuration to allow or disallow some services.
@@ -36,6 +35,4 @@ For example, to enable all the available services::
 To disable all the services other than the web interface::
 
    rm /etc/nginx/locations/http-enabled/* /etc/nginx/locations/https-enabled/*
-   ln -s /etc/nginx/locations/http-available/xivo-web-interface /etc/nginx/locations/http-enabled
-   ln -s /etc/nginx/locations/https-available/xivo-web-interface /etc/nginx/locations/https-enabled
    systemctl reload nginx

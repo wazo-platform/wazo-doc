@@ -4,10 +4,6 @@
 Music on Hold
 *************
 
-The menu :menuselection:`Services --> IPBX --> IPBX services --> On-hold Music` leads to the list of
-available on-hold musics.
-
-
 Categories
 ==========
 

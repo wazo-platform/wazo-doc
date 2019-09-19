@@ -18,8 +18,7 @@ This how to needs :
 Add Jitsi plugin on Wazo
 ========================
 
-Open Wazo Web interface, and go to Configuration tab,
-Then chose :menuselection:`Provisioning --> Plugins menu`, Install the Jitsi plugin you want to use : e.g.::
+Install the Jitsi plugin you want to use : e.g.::
 
     xivo-jitsi-1
 

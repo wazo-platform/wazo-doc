@@ -10,6 +10,7 @@ General information:
    contributing_doc
    debug_asterisk
    debug_daemon
+   contributing_to_wazo
    generate_custom_prompts
    guidelines
    network
@@ -24,10 +25,7 @@ Component specific information:
 .. toctree::
    :maxdepth: 2
 
-   cti_client/cti_client
-   cti_server/cti_server
    database
    diagrams
    provisioning/provisioning
    sccp
-   webi

@@ -1,3 +1,5 @@
+.. _debugging_asterisk:
+
 ******************
 Debugging Asterisk
 ******************
@@ -7,21 +9,21 @@ Precondition
 
 To debug asterisk crashes or freezes, you need the following debug packages on your Wazo:
 
-+----------------+---------------------------------------------------------------+---------------------------------------------------------------+---------------------------------------------------------------+
-|General rule    |XiVO < 14.18                                                   |XiVO >= 14.18                                                  |Wazo >= 16.16                                                  |
-|                |                                                               |                                                               |                                                               |
-+================+===============================================================+===============================================================+===============================================================+
-|Example version |14.12                                                          |14.18                                                          |17.15                                                          |
-+----------------+---------------------------------------------------------------+---------------------------------------------------------------+---------------------------------------------------------------+
-|Commands        |::                                                             |::                                                             |::                                                             |
-|                |                                                               |                                                               |                                                               |
-|                |   apt-get install xivo-fai-14.12                              |   xivo-dist xivo-14.18                                        |   xivo-dist wazo-17.15                                        |
-|                |   apt-get update                                              |   apt-get update                                              |   apt-get update                                              |
-|                |   apt-get install gdb                                         |   apt-get install gdb                                         |   apt-get install gdb libc6-dbg                               |
-|                |   apt-get install -t xivo-14.12 asterisk-dbg xivo-libsccp-dbg |   apt-get install -t xivo-14.18 asterisk-dbg xivo-libsccp-dbg |   apt-get install -t wazo-17.15 asterisk-dbg xivo-libsccp-dbg |
-|                |                                                               |   xivo-dist xivo-five                                         |   xivo-dist phoenix                                           |
-|                |                                                               |                                                               |                                                               |
-+----------------+---------------------------------------------------------------+---------------------------------------------------------------+---------------------------------------------------------------+
++----------------+---------------------------------------------------------------+---------------------------------------------------------------+---------------------------------------------------------------+---------------------------------------------------------------+---------------------------------------------------------------+
+|General rule    |XiVO >= 15.01                                                  |Wazo >= 16.16                                                  |Wazo >= 18.13                                                  |Wazo >= 19.04                                                  |Wazo >= 19.13                                                  |
+|                |                                                               |                                                               |                                                               |                                                               |                                                               |
++================+===============================================================+===============================================================+===============================================================+===============================================================+===============================================================+
+|Example version |15.01                                                          |17.15                                                          |18.13                                                          |19.04                                                          |19.13                                                          |
++----------------+---------------------------------------------------------------+---------------------------------------------------------------+---------------------------------------------------------------+---------------------------------------------------------------+---------------------------------------------------------------+
+|Commands        |::                                                             |::                                                             |::                                                             |::                                                             |::                                                             |
+|                |                                                               |                                                               |                                                               |                                                               |                                                               |
+|                |   xivo-dist xivo-15.01                                        |   xivo-dist wazo-17.15                                        |   wazo-dist wazo-18.13                                        |   wazo-dist -a wazo-19.04                                     |   wazo-dist -a wazo-19.13                                     |
+|                |   apt-get update                                              |   apt-get update                                              |   apt-get update                                              |   apt-get update                                              |   apt-get update                                              |
+|                |   apt-get install gdb                                         |   apt-get install gdb libc6-dbg                               |   apt-get install gdb libc6-dbg                               |   apt-get install gdb libc6-dbg                               |   apt-get install gdb libc6-dbg                               |
+|                |   apt-get install -t xivo-15.01 asterisk-dbg xivo-libsccp-dbg |   apt-get install -t wazo-17.15 asterisk-dbg xivo-libsccp-dbg |   apt-get install -t wazo-18.13 asterisk-dbg wazo-libsccp-dbg |   apt-get install -t wazo-19.04 asterisk-dbg wazo-libsccp-dbg |   apt-get install -t wazo-19.13 asterisk-dbg wazo-libsccp-dbg |
+|                |   xivo-dist xivo-five                                         |   xivo-dist phoenix                                           |   wazo-dist phoenix-stretch                                   |   wazo-dist -m pelican-stretch                                |   wazo-dist -m pelican-buster                                 |
+|                |                                                               |                                                               |                                                               |                                                               |                                                               |
++----------------+---------------------------------------------------------------+---------------------------------------------------------------+---------------------------------------------------------------+---------------------------------------------------------------+---------------------------------------------------------------+
 
 
 So There is a Problem with Asterisk. Now What ?
@@ -48,10 +50,6 @@ So There is a Problem with Asterisk. Now What ?
 
     cp -a /var/log/asterisk/full /var/local/`date +"%Y%m%d"`-`hostname`-asterisk-full.log
 
-#. Fetch xivo-ctid logs for the day of the crash (make sure file was not already logrotated)::
-
-    cp -a /var/log/xivo-ctid.log /var/local/`date +"%Y%m%d"`-`hostname`-xivo-ctid.log
-
 #. Open a new issue on the `bugtracker <https://projects.wazo.community/projects/xivo/issues/new>`_ with
    following information
 
@@ -64,6 +62,8 @@ So There is a Problem with Asterisk. Now What ?
      the date and time of issue, where we can fetch logs and backtrace
    * Attach logs and backtrace (if available) to the ticket (issue must be saved, then edited and
      files attached to a comment).
+   * **DO NOT** attach the core file publicly! It may contain sensitive information like passwords
+     and should only be shared with people you trust.
 
 
 Debugging Asterisk Crash
@@ -162,7 +162,7 @@ When installing a vanilla version of Asterisk on a XiVO 16.08 or earlier, you'll
 otherwise it will restart asterisk every few minutes.
 
 
-Recompiling a vanilla version of Asterisk (Wazo >= 17.17)
+Recompiling a vanilla version of Asterisk (Wazo >= 19.13)
 ---------------------------------------------------------
 
 It is sometimes useful to produce a "vanilla" version of Asterisk, i.e. a version of Asterisk that
@@ -178,28 +178,28 @@ features include:
 
 * Queue skill-based routing
 * Voicemail message consultation via REST API
-* Call transfers via Wazo Client or REST API
+* Call transfers via REST API
 
-To install the vanilla version of Asterisk (replace 17.17 with your current version of Wazo)::
+To install the vanilla version of Asterisk (replace 19.13 with your current version of Wazo)::
 
-   xivo-dist wazo-17.17
+   wazo-dist -a wazo-19.13
    apt-get update
-   apt-get install -t wazo-17.17 asterisk-vanilla asterisk-vanilla-dbg
+   apt-get install -t wazo-19.13 asterisk-vanilla asterisk-vanilla-dbg
    xivo-fix-paths-rights
-   xivo-dist phoenix
+   wazo-dist -m pelican-buster
 
 This command should replace the ``asterisk`` package with ``asterisk-vanilla``.
 
 Once the packages are installed, you can reproduce the crash and extract the backtrace logs from the
 core dump file. Those file may then be used to file a bug report to Asterisk.
 
-To revert this modification, reinstall ``asterisk`` (replace 17.17 with your current version of Wazo)::
+To revert this modification, reinstall ``asterisk`` (replace 19.13 with your current version of Wazo)::
 
-   xivo-dist wazo-17.17
+   wazo-dist -a wazo-19.13
    apt-get update
-   apt-get install -t wazo-17.17 asterisk
+   apt-get install -t wazo-19.13 asterisk
    xivo-fix-paths-rights
-   xivo-dist phoenix
+   wazo-dist -m pelican-buster
 
 
 Running Asterisk under Valgrind
@@ -220,7 +220,7 @@ Running Asterisk under Valgrind
       monit quit
       service asterisk stop
 
-#. Stop all unneeded Wazo services. For example, it can be useful to stop xivo-ctid, so that
+#. Stop all unneeded Wazo services. For example, it can be useful to stop wazo-calld, so that
    it won't interact with asterisk via the AMI.
 #. Copy the valgrind.supp file into /tmp. The valgrind.supp file is located in the contrib
    directory of the asterisk source code.

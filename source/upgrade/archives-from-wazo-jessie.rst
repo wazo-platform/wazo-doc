@@ -24,7 +24,7 @@ Example to upgrade to Wazo 18.02::
 
 This will upgrade your xivo to Wazo 17.17. From there:
 
-1. Read the :ref:`upgrade notes<upgrade_notes_stretch>`
+1. Read the :ref:`upgrade notes<upgrade-notes-stretch>`
 2. upgrade to Wazo 18.02::
 
 

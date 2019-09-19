@@ -18,16 +18,14 @@ to access the REST APIs of Wazo, you need:
 REST API Permissions
 ====================
 
-First of all, you must have permission to use the REST API. In your Wazo web interface, go to
-:menuselection:`Configuration --> Management --> Web Services Access` and create a new user:
+First of all, you must have permission to use the REST API. Create a `wazo-auth` user and policy:
 
-* Name: ``rest-api-test``
-* Login: ``rest-api-test``
-* Password: some secret password
-* Host: nothing
+``POST /users {"purpose": "external_api", "username": "rest-api-test", ...}``
+``POST /policies {"acl_templates": ["#"], ...}``
+``PUT /users/{user_uuid}/policies/{policy_uuid}``
 
-* ACL tab: add a line containing only ``#``. ``#`` is a wildcard that gives access to every REST
-  API. You may want to delete this account when you're done, to reduce risks of unauthorized access.
+* ``acl_templates``: ``#`` is a wildcard that gives access to every REST API. You may want to delete
+  this account when you're done, to reduce risks of unauthorized access.
 
 Save the form, and store the login/password somewhere for later use.
 
@@ -47,16 +45,16 @@ The list of available APIs reflects the different modules of Wazo. Each module i
 that serves its own REST API. We will concentrate on two of them:
 
 * wazo-auth
-* xivo-confd
+* wazo-confd
 
 wazo-auth is the daemon responsible for authentication. Every API is protected by a token-based
 authentication mechanism. In order to use any REST API, we will need a valid authentication token,
 obtained from wazo-auth.
 
-xivo-confd is the daemon responsible for Wazo configuration. Its REST API allows you to read and
+wazo-confd is the daemon responsible for Wazo configuration. Its REST API allows you to read and
 modify users, lines, extensions, groups, etc. This is the programatic equivalent of the Wazo web
-interface. However, the xivo-confd REST API is not yet complete, and not all aspects of Wazo
-configuration are available in xivo-confd.
+interface. However, the wazo-confd REST API is not yet complete, and not all aspects of Wazo
+configuration are available in wazo-confd.
 
 
 HTTPS certificates
@@ -76,11 +74,11 @@ To that end:
 #. Copy the URL you see in the text box at the top of the page, something like:
    ``https://wazo:9497/1.1/api/api.yml`` and paste it in your browser.
 #. Accept the HTTPS certificate validation exception.
-#. You should see a YAML text file describing the xivo-confd API.
+#. You should see a YAML text file describing the wazo-confd API.
 #. Go back to ``http://wazo/api``.
 #. Click on wazo-auth again.
 #. Now you should see a list of sections for the wazo-auth REST API, like ``backends`` or ``token``
-#. Repeat the whole procedure for xivo-confd (the port in the URL will be different, and the REST
+#. Repeat the whole procedure for wazo-confd (the port in the URL will be different, and the REST
    API description will take longer to load), and you should be ready to go.
 
 
@@ -97,7 +95,6 @@ Let's ask wazo-auth for an authentication token:
    parameter. This will pre-fill the ``body`` parameter.
 #. In the ``body`` parameter, set:
 
-   * ``backend`` to ``xivo_service``
    * ``expiration`` to the number of seconds for the token to be valid (e.g. 3600 for one hour). After
      the expiration time, you will need to re-authenticate to get a new token.
 
@@ -110,12 +107,12 @@ Let's ask wazo-auth for an authentication token:
    change of token.
 
 
-Use the xivo-confd REST API
+Use the wazo-confd REST API
 ===========================
 
 Now that we have an authentication token, we are ready to use the REST API.
 
-#. Click on xivo-confd in the left menu
+#. Click on wazo-confd in the left menu
 #. Choose a REST API endpoint, like :menuselection:`users --> GET /users` and click ``Try it out``
 
 

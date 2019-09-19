@@ -7,9 +7,7 @@ Advanced Configuration
 DHCP Integration
 ================
 
-If your phones are getting their network configuration from your Wazo's DHCP server,
-it's possible to activate the DHCP integration on the
-:menuselection:`Configuration --> Provisioning --> General` page.
+DHCP integration is enabled by default without possibility to disable it.
 
 What DHCP integration does is that, on every DHCP request made by one of your
 phones, the DHCP server sends information about the request to ``provd``, which
@@ -47,7 +45,7 @@ want to write some custom templates for it.
 
 First thing to do is to go into the directory where the plugin is installed::
 
-   cd /var/lib/xivo-provd/plugins/xivo-aastra-3.3.1-SP2
+   cd /var/lib/wazo-provd/plugins/xivo-aastra-3.3.1-SP2
 
 Once you are there, you can see there's quite a few files and directories::
 
@@ -111,11 +109,11 @@ Custom template for every devices
 
    cp templates/base.tpl var/templates
    vi var/templates/base.tpl
-   xivo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
+   wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
 
 Once this is done, if you want to synchronize all the affected devices, use the following command::
 
-    xivo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").synchronize()'
+    wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").synchronize()'
 
 
 Custom template for a specific model
@@ -125,7 +123,7 @@ Let's supose we want to customize the template for our 6739i::
 
    cp templates/6739i.tpl var/templates
    vi var/templates/6739i.tpl
-   xivo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
+   wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
 
 
 Custom template for a specific device
@@ -147,7 +145,7 @@ we need to create a template named :file:`00085D2EECFB.cfg.tpl`::
 
    cp templates/6739i.tpl var/templates/00085D2EECFB.cfg.tpl
    vi var/templates/00085D2EECFB.cfg.tpl
-   xivo-provd-cli -c 'devices.using_mac("00085D2EECFB").reconfigure()'
+   wazo-provd-cli -c 'devices.using_mac("00085D2EECFB").reconfigure()'
 
 .. note::
    The choice to use this syntax comes from the fact that ``provd`` supports devices that do not have MAC addresses,
@@ -176,8 +174,7 @@ Let's suppose we have the old ``xivo-aastra-3.2.2.1136`` plugin installed on our
 Wazo and want to use the newer ``xivo-aastra-3.3.1-SP2`` plugin.
 
 Both these plugins can be installed at the same time, and you can manually change
-the plugin used by a phone by editing it via the :menuselection:`Services --> IPBX --> Devices`
-page.
+the plugin used by a phone with ``PUT /devices/{device_id}``.
 
 If you are using custom templates in your old plugin, you should copy
 them to the new plugin and make sure that they are still compatible.
@@ -185,13 +182,13 @@ them to the new plugin and make sure that they are still compatible.
 Once you take the decision to migrate all your phones to the new plugin, you can
 use the following command::
 
-   xivo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2")'
+   wazo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2")'
 
 Or, if you also want to synchronize (i.e. reboot) them at the same time::
 
-   xivo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2", synchronize=True)'
+   wazo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2", synchronize=True)'
 
-You can check that all went well by looking at the :menuselection:`Services --> IPBX --> Devices`
+You can check that all went well by looking at ``GET /devices``
 page.
 
 
@@ -209,8 +206,7 @@ behaviour when the provisioning server is used in a NAT environment, since in th
 that more than 1 devices have the same source IP address (from the point of view of the server).
 
 If *all* your devices used on your Wazo are behind a NAT, you should disable this behaviour by
-setting the ``NAT`` option to 1 via the :menuselection:`Configuration --> Provisioning --> General`
-page.
+setting the ``nat`` option to ``yes`` with ``PUT /asterisk/sip/general``.
 
 Enabling the NAT option will also improve the performance of the provisioning server in this scenario.
 
@@ -229,9 +225,9 @@ Limitations
 
 * All your devices must be behind a NAT equipment (the devices may be grouped behind different NAT
   equipments, not necessarily the same one)
-* You must provision the devices via the Web interface, i.e. associate the devices from the user
-  form. Using the 6-digit provisioning code on the phone will produce unexpected results (i.e. the
-  wrong device will be provisioned)
+* You must provision the devices via REST API ``PUT /lines/{line_id}/devices/{device_id}``. Using
+  the 6-digit provisioning code on the phone will produce unexpected results (i.e. the wrong device
+  will be provisioned)
 
 For technical information about why other devices are not supported, you can look at `this issue
 <https://projects.wazo.community/issues/5107>`_  on the Wazo bug tracker.
@@ -257,11 +253,11 @@ By design, the auto-provisioning process is vulnerable to:
 That said, starting from XiVO 16.08, XiVO adds `Fail2ban <http://www.fail2ban.org/>`_ support to the
 provisioning server to drastically lower the likelihood of such attacks. Every time a request for a
 file potentially containing sensitive information is requested, a log line is appended to the
-:file:`/var/log/xivo-provd-fail2ban.log` file, which is monitored by fail2ban. The same thing
+:file:`/var/log/wazo-provd-fail2ban.log` file, which is monitored by fail2ban. The same thing
 happens when a new device is automatically created by the provisioning server.
 
 The fail2ban configuration for the provisioning server is located at
-:file:`/etc/fail2ban/jail.d/xivo.conf`. You may want to adjust the ``findtime`` / ``maxretry`` value
+:file:`/etc/fail2ban/jail.d/wazo.conf`. You may want to adjust the ``findtime`` / ``maxretry`` value
 if you have special requirements. In particular, if you have many phones behind a NAT equipment,
 you'll probably have to adjust these values, since every request coming from your phones behind your
 NAT will appear to the provisioning server as coming from the same source IP address, and this IP
@@ -275,7 +271,7 @@ of fail2ban. See the fail2ban(1) man page for more information.
 System Requirements
 -------------------
 
-XiVO/Wazo 16.08 or later is required. You also need to use compatible xivo-provd plugins. Here's the list
+XiVO/Wazo 16.08 or later is required. You also need to use compatible wazo-provd plugins. Here's the list
 of official plugins which are compatible:
 
 +------------------+---------+

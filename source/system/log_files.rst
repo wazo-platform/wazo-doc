@@ -32,38 +32,56 @@ wazo-auth
 * Rotation frequence: Daily
 
 
+wazo-agid
+---------
+
+* File location: :file:`/var/log/wazo-agid.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-agid`
+* Number of archived files: 15
+* Rotation frequence: Daily
+
+
+wazo-calld
+------------
+
+* File location: :file:`/var/log/wazo-calld.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-calld`
+* Number of archived files: 15
+* Rotation frequence: Daily
+
+
+wazo-dird
+---------
+
+* File location: :file:`/var/log/wazo-dird.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-dird`
+* Number of archived files: 15
+* Rotation frequence: Daily
+
+
 wazo-upgrade
 ------------
 
-* File location: :file:`/var/log/xivo-upgrade.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-upgrade`
+* File location: :file:`/var/log/wazo-upgrade.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-upgrade`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
 
-xivo-agentd
+wazo-agentd
 -----------
 
-* File location: :file:`/var/log/xivo-agentd.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-agentd`
+* File location: :file:`/var/log/wazo-agentd.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-agentd`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
 
-xivo-agid
+wazo-amid
 ---------
 
-* File location: :file:`/var/log/xivo-agid.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-agid`
-* Number of archived files: 15
-* Rotation frequence: Daily
-
-
-xivo-amid
----------
-
-* File location: :file:`/var/log/xivo-amid.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-amid`
+* File location: :file:`/var/log/wazo-amid.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-amid`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
@@ -77,11 +95,11 @@ wazo-call-logd
 * Rotation frequence: Daily
 
 
-xivo-confd
+wazo-confd
 ----------
 
-* File location: :file:`/var/log/xivo-confd.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-confd`
+* File location: :file:`/var/log/wazo-confd.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-confd`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
@@ -100,38 +118,11 @@ The file location can be changed by customizing the xivo-confgend.service unit f
 * Rotation frequence: Daily
 
 
-xivo-ctid
----------
+wazo-phoned
+-----------
 
-* File location: :file:`/var/log/xivo-ctid.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-ctid`
-* Number of archived log files: 15
-* Rotation frequence: Daily
-
-
-xivo-ctid-ng
-------------
-
-* File location: :file:`/var/log/xivo-ctid-ng.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-ctid-ng`
-* Number of archived files: 15
-* Rotation frequence: Daily
-
-
-xivo-dird
----------
-
-* File location: :file:`/var/log/xivo-dird.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-dird`
-* Number of archived files: 15
-* Rotation frequence: Daily
-
-
-xivo-dird-phoned
-----------------
-
-* File location: :file:`/var/log/xivo-dird-phoned.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-dird-phoned`
+* File location: :file:`/var/log/wazo-phoned.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-phoned`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
@@ -145,20 +136,20 @@ xivo-dxtora
 * Rotation frequence: Daily
 
 
-xivo-provd
+wazo-provd
 ----------
 
-* File location: :file:`/var/log/xivo-provd.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-provd`
+* File location: :file:`/var/log/wazo-provd.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-provd`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
 
-xivo-purge-db
+wazo-purge-db
 -------------
 
-* File location: :file:`/var/log/xivo-purge-db.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-purge-db`
+* File location: :file:`/var/log/wazo-purge-db.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-purge-db`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
@@ -181,19 +172,10 @@ xivo-sysconfd
 * Rotation frequence: Daily
 
 
-xivo-web-interface
-------------------
-
-* File location: :file:`/var/log/xivo-web-interface/\*.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-web-interface`
-* Number of archived files: 21
-* Rotation frequence: Daily
-
-
-xivo-websocketd
+wazo-websocketd
 ---------------
 
-* File location: :file:`/var/log/xivo-websocketd.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-websocketd`
+* File location: :file:`/var/log/wazo-websocketd.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-websocketd`
 * Number of archived files: 15
 * Rotation frequence: Daily

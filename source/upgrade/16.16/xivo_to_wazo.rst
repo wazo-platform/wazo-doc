@@ -29,7 +29,7 @@ The features needing ``*.xivo.io`` are:
 In this case, you'll need to run the following commands::
 
    # --no-check-certificate is needed only if you are affected by http://projects.wazo.community/issues/6024
-   wget --no-check-certificate https://raw.githubusercontent.com/wazo-pbx/xivo-upgrade/master/bin/use-wazo-infrastructure
+   wget --no-check-certificate https://raw.githubusercontent.com/wazo-platform/wazo-upgrade/master/bin/use-wazo-infrastructure
    chmod +x use-wazo-infrastructure
    ./use-wazo-infrastructure
 
@@ -51,7 +51,7 @@ Upgrading to Wazo
 To upgrade your XiVO to Wazo, run the following commands::
 
    # --no-check-certificate is needed only if you are affected by http://projects.wazo.community/issues/6024
-   wget --no-check-certificate https://raw.githubusercontent.com/wazo-pbx/xivo-upgrade/master/bin/xivo-to-wazo-upgrade
+   wget --no-check-certificate https://raw.githubusercontent.com/wazo-platform/wazo-upgrade/master/bin/xivo-to-wazo-upgrade
    chmod +x xivo-to-wazo-upgrade
    ./xivo-to-wazo-upgrade
 

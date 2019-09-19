@@ -9,8 +9,8 @@ CSV Import
 
 Users can be imported and associated to other resources by use of a CSV file. CSV Importation can be
 used in situations where you need to modify many users at the same in an efficient manner, or for
-migrating users from one system to another. A CSV file can be created and edited by spreadsheet
-tools such as Excel, LibreOffice/OpenOffice Calc, etc.
+migrating users from one system or tenant to another. A CSV file can be created and edited by
+spreadsheet tools such as Excel, LibreOffice/OpenOffice Calc, etc.
 
 
 CSV file
@@ -37,9 +37,6 @@ User
 +--------------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
 | Field                    | Type   | Required | Values                            | Description                                               |
 +==========================+========+==========+===================================+===========================================================+
-| entity_id                | int    | Yes      |                                   | Entity ID (Defined in menu :menuselection:`Configuration  |
-|                          |        |          |                                   | --> Management --> Entities`)                             |
-+--------------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
 | firstname                | string | Yes      |                                   | User's firstname                                          |
 +--------------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
 | lastname                 | string |          |                                   | User's lastname                                           |
@@ -68,23 +65,10 @@ User
 | call_permission_password | string |          |                                   | Overwrite all passwords set in call permissions           |
 |                          |        |          |                                   | associated to the user                                    |
 +--------------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
-
-
-CTI Profile
-~~~~~~~~~~~
-
-+---------------------+--------+-------------------------+--------+------------------------------------------------------------------------+
-| Field               | Type   | Required                | Values | Description                                                            |
-+=====================+========+=========================+========+========================================================================+
-| cti_profile_enabled | bool   | No                      |        | Activates the Wazo Client account for this user                        |
-+---------------------+--------+-------------------------+--------+------------------------------------------------------------------------+
-| username            | string | Yes, if profile enabled |        | Wazo Client username                                                   |
-+---------------------+--------+-------------------------+--------+------------------------------------------------------------------------+
-| password            | string | Yes, if profile enabled |        | Wazo Client password                                                   |
-+---------------------+--------+-------------------------+--------+------------------------------------------------------------------------+
-| cti_profile_name    | string | Yes, if profile enabled |        | Wazo Client profile (Defined in menu :menuselection:`Services -->      |
-|                     |        |                         |        | CTI server --> Profiles`)                                              |
-+---------------------+--------+-------------------------+--------+------------------------------------------------------------------------+
+| username                 | string |          |                                   | User's username to log into applications                  |
++--------------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
+| password                 | string |          |                                   | User's password to log into applications                  |
++--------------------------+--------+----------+-----------------------------------+-----------------------------------------------------------+
 
 
 Phone
@@ -157,15 +141,8 @@ Call permissions
 Importing a file
 ----------------
 
-Once your file is ready, you can import it via :menuselection:`Services --> IPBX --> IPBX settings
---> Users`. At the top of the page there is a plus button. A submenu will appear when the mouse is
-on top. Click on Import a file.
-
-.. figure:: images/Import_user_menu.png
-   :scale: 80%
-   :alt: Import users
-
-   Import Users
+Once your file is ready, you can import it via ``POST /users/import`` to create all users in the
+specified tenant using the `Wazo-Tenant` header.
 
 
 Examples
@@ -174,25 +151,28 @@ Examples
 The following example defines 3 users who each have a phone number. The first 2 users have a SIP
 line, where as the last one uses SCCP::
 
-    entity_id,firstname,lastname,exten,context,line_protocol
-    1,John,Doe,1000,default,sip
-    1,George,Clinton,1001,default,sip
-    1,Bill,Bush,1002,default,sccp
+    firstname,lastname,exten,context,line_protocol
+    John,Doe,1000,default,sip
+    George,Clinton,1001,default,sip
+    Bill,Bush,1002,default,sccp
 
 The following example imports a user with a phone number and a voicemail::
 
-    entity_id,firstname,lastname,exten,context,line_protocol,voicemail_name,voicemail_number,voicemail_context
-    1,John,Doe,1000,default,sip,Voicemail for John Doe,1000,default
+    firstname,lastname,exten,context,line_protocol,voicemail_name,voicemail_number,voicemail_context
+    John,Doe,1000,default,sip,Voicemail for John Doe,1000,default
 
 The following exmple imports a user with both an internal and external phone number (e.g. incoming
 call)::
 
-    entity_id,firstname,lastname,exten,context,line_protocol,incall_exten,incall_context
-    1,John,Doe,1000,default,sip,2050,from-extern
+    firstname,lastname,exten,context,line_protocol,incall_exten,incall_context
+    John,Doe,1000,default,sip,2050,from-extern
 
 
 CSV Update
 ==========
+
+
+.. note:: The CSV update has been disabled since it does not suport multi-tenants at the moment
 
 The field list for an update is the same as for an import with the addition of the column uuid,
 which is mandatory. For each line in the CSV file, the updater goes through the following steps:
@@ -209,30 +189,14 @@ The following restrictions must also be respected during update:
 * A line’s protocol cannot be changed (i.e you cannot go from “sip” to “sccp” or vice-versa).
 * An incall cannot be updated if the user has more than one incall associated.
 
-Updating is done through the same menu as importing (:menuselection:`Services --> IPBX --> IPBX
-settings --> Users`). A submenu will appear when the mouse is on top. Click on `Update from file` in
-the submenu.
-
-.. figure:: images/Update_user_menu.jpg
-   :scale: 80%
-   :alt: Update users
-
-   :menuselection:`Services --> IPBX --> IPBX settings --> Users --> Update from file`
+Updating is done through the ``PUT /users/import`` endpoint
 
 
 CSV Export
 ==========
 
 CSV exports can be used as a scaffold for updating users, or as a means of importing users into
-another system. An export will generate a CSV file with the same list of columns as an import, with
-the addition of uuid and provisioning_code.
+another system or tenant. An export will generate a CSV file with the same list of columns as an
+import, with the addition of uuid and provisioning_code, for all users in the specified tenant.
 
-Exports are done through the same menu as importing (:menuselection:`Services --> IPBX --> IPBX
-settings --> Users`).  Click on `Export to CSV` in the submenu. You will be asked to download a
-file.
-
-.. figure:: images/Export_user_menu.jpg
-   :scale: 80%
-   :alt: Export users
-
-   :menuselection:`Services --> IPBX --> IPBX settings --> Users --> Export to CSV`
+Exports are done through the ``GET /users/export``

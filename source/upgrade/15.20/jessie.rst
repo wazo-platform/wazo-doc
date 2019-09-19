@@ -15,16 +15,6 @@ After the upgrade, the system will need to be rebooted.
 Before the upgrade
 ==================
 
-* If you are upgrading from XiVO 13.24 or earlier, you'll need to first upgrade to Debian 7 (wheezy)
-  before being able to upgrade to Debian 8 (jessie). To do so, you'll have to:
-
-  * Run ``xivo-upgrade`` a first time, which will upgrade your XiVO to version 15.19 (Debian 7)
-  * Reboot your system
-  * Run ``xivo-upgrade`` a second time, which will upgrade your XiVO to the latest version (Debian 8)
-  * Reboot your system
-
-  Consult the :ref:`wheezy` for more information on the first upgrade.
-
 * Make sure your have sufficient space for the upgrade. You might run into trouble if you have less
   than 2 GiB available in the file system that holds the /var and / directories.
 
@@ -108,7 +98,7 @@ Here's a non-exhaustive list of changes that comes with XiVO on Debian 8:
 * The virtual terminals (tty1 to tty6) now shows up earlier during the boot, before all services have
   been started.
 
-* The way the :ref:`ami-proxy is configured <cti-ami-proxy>` for xivo-ctid has changed. If your XiVO
+* The way the ami-proxy is configured for xivo-ctid has changed. If your XiVO
   was using the ami-proxy, the configuration will be automatically upgraded.
 
 * Customization to asterisk and consul startup is now done by customizing the systemd unit file (by

@@ -6,7 +6,6 @@ System
    :maxdepth: 2
 
    DHCP Server <dhcp/dhcp>
-   Mail <mail/mail>
    Network <network/network>
    backup_restore
    https_certificate
@@ -21,9 +20,9 @@ System
    wazo-auth <wazo-auth/wazo-auth>
    wazo-service <service>
    wazo-webhookd <wazo-webhookd>
-   xivo-confd <xivo-confd/xivo-confd>
+   wazo-confd <wazo-confd/wazo-confd>
    xivo-confgend <xivo-confgend/xivo-confgend>
-   xivo-dird <xivo-dird/xivo-dird>
-   xivo-dird-phoned <xivo-dird-phoned>
-   xivo-purge-db <purge_logs>
+   wazo-dird <wazo-dird/wazo-dird>
+   wazo-phoned <wazo-phoned>
+   wazo-purge-db <purge_logs>
    xivo-sysconfd <xivo-sysconfd>

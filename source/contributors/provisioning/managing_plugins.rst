@@ -8,7 +8,7 @@ Git Repository
 ==============
 
 Most plugin-related files are available in the
-`xivo-provd-plugins repository <https://github.com/wazo-pbx/xivo-provd-plugins.git>`_.
+`wazo-provd-plugins repository <https://github.com/wazo-platform/wazo-provd-plugins.git>`_.
 Following examples are relative to the repository directory tree. Any modifications
 should be preceeded by a `git pull`.
 
@@ -83,9 +83,9 @@ finished making changes, change the version to 0.5 and upload one last time.
 Edit directly on Wazo
 ^^^^^^^^^^^^^^^^^^^^^
 
-Edit the files in :file:`/var/lib/xivo-provd/plugins`.
+Edit the files in :file:`/var/lib/wazo-provd/plugins`.
 
-To apply your changes, go in ``xivo-provd-cli`` and run::
+To apply your changes, go in ``wazo-provd-cli`` and run::
 
     plugins.reload('xivo-cisco-spa-7.5.4')
 
@@ -93,11 +93,14 @@ To apply your changes, go in ``xivo-provd-cli`` and run::
 Disable plugin caching
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Edit :file:`/etc/xivo/provd/provd.conf` and add the line::
+Edit :file:`/etc/wazo-provd/config.yml` and add the line:
 
+.. code-block:: yaml
+
+  general:
     cache_plugin: True
 
-Empty :file:`/var/cache/xivo-provd` and restart provd.
+Empty :file:`/var/cache/wazo-provd` and restart provd.
 
 Make your changes in provd-plugins, update the plugin version to the new one and upload to testing (see below). Now, every time you uninstall/install the plugin, the new plugin will be fetched from testing, instead of being cached, even without changing the version.
 
@@ -107,7 +110,7 @@ Uploading to testing
 Before updating a plugin, it must be passed through the testing phase. Once it has been approved it
 can be uploaded to the production server.
 
-In the ``xivo-provd-plugins`` repo, you must merge your changes in the ``testing`` branch before
+In the ``wazo-provd-plugins`` repo, you must merge your changes in the ``testing`` branch before
 uploading the plugins to ``provd.wazo.community``::
 
   git checkout testing
@@ -116,8 +119,9 @@ uploading the plugins to ``provd.wazo.community``::
   git push  # this step is important: it validates that your build is up-to-date and will not remove anything
   make upload
 
-Afterwards, in the web-interface, you must modify the URL in section
-:menuselection:`Configuration --> Provisioning --> General` to::
+
+Afterwards, you must modify the ``plugin_server``. This can be changed with ``wazo-provd`` endpoint
+``/provd/configure/plugin_server``.
 
    `http://provd.wazo.community/plugins/1/testing/`
 
@@ -128,11 +132,11 @@ Don't forget to install the plugin to test it.
 Mass-install all firmwares related to a given plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Using xivo-provd-cli on a Wazo server, one can mass-install firmwares. Following
+Using wazo-provd-cli on a Wazo server, one can mass-install firmwares. Following
 example installs all firmwares for xivo-snom 8.7.3.25.5 plugin
 (note the auto-completion)::
 
-    xivo-provd-cli> plugins.installed().keys()
+    wazo-provd-cli> plugins.installed().keys()
     [u'xivo-snom-8.7.3.15',
      u'xivo-cisco-sccp-legacy',
      u'xivo-snom-8.4.35',
@@ -143,8 +147,8 @@ example installs all firmwares for xivo-snom 8.7.3.25.5 plugin
      u'xivo-cisco-sccp-9.0.3',
      u'null',
      u'xivo-snom-8.7.3.25.5']
-    xivo-provd-cli> p = plugins['xivo-snom-8.7.3.25.5']
-    xivo-provd-cli> p.install_all()
+    wazo-provd-cli> p = plugins['xivo-snom-8.7.3.25.5']
+    wazo-provd-cli> p.install_all()
 
 
 Uploading to stable

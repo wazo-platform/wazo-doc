@@ -39,15 +39,14 @@ Otherwise, the default connection information is:
 Example
 -------
 
-Here's an example of a simple client, in python, listening for the
-:ref:`bus-call_form_result` CTI events::
+Here's an example of a simple client, in python, listening for :ref:`bus-call_created` events::
 
     import kombu
 
     from kombu.mixins import ConsumerMixin
 
     EXCHANGE = kombu.Exchange('xivo', type='topic')
-    ROUTING_KEY = 'call_form_result'
+    ROUTING_KEY = 'events.calls.*'
 
 
     class C(ConsumerMixin):
@@ -92,6 +91,63 @@ Things to be aware when writing a client/consumer:
 Changelog
 =========
 
+19.05
+-----
+
+* The following messages have been deleted:
+
+  * chat_message_event
+  * chat_message_received
+  * chat_message_sent
+  * endpoint_status_update
+  * user_status_update
+
+
+19.04
+-----
+
+* The following messages have been added:
+
+  * :ref:`fax_outbound_created <fax-outbound-created>`
+  * :ref:`fax_outbound_user_created <fax-outbound-user-created>`
+  * :ref:`fax_outbound_succeeded <fax-outbound-succeeded>`
+  * :ref:`fax_outbound_user_succeeded <fax-outbound-user-succeeded>`
+  * :ref:`fax_outbound_failed <fax-outbound-failed>`
+  * :ref:`fax_outbound_user_failed <fax-outbound-user-failed>`
+
+
+19.03
+-----
+
+* The following messages have been added:
+
+  * :ref:`conference_record_started <bus-conference-record-started>`
+  * :ref:`conference_record_stopped <bus-conference-record-stopped>`
+  * :ref:`conference_participant_talk_started <bus-conference-participant-talk-started>`
+  * :ref:`conference_participant_talk_stopped <bus-conference-participant-talk-stopped>`
+
+
+19.02
+-----
+
+* The following messages have been added:
+
+  * :ref:`conference_participant_joined <bus-conference-participant-joined>`
+  * :ref:`conference_participant_left <bus-conference-participant-left>`
+  * :ref:`conference_participant_muted <bus-conference-participant-muted>`
+  * :ref:`conference_participant_unmuted <bus-conference-participant-unmuted>`
+
+
+18.04
+-----
+
+* The following messages have been added:
+
+  * :ref:`auth_tenant_created <bus-auth-tenant-created>`
+  * :ref:`auth_tenant_deleted <bus-auth-tenant-deleted>`
+  * :ref:`auth_tenant_updated <bus-auth-tenant-updated>`
+
+
 18.02
 -----
 
@@ -123,9 +179,9 @@ Changelog
 17.14
 -----
 
-* The :ref:`chat_message_sent <bus-chat_message>` bus message has been added.
-* The :ref:`chat_message_received <bus-chat_message>` bus message has been added.
-* The :ref:`chat_message_event <bus-chat_message>` bus message has been deprecated.
+* The chat_message_sent bus message has been added.
+* The chat_message_received bus message has been added.
+* The chat_message_event bus message has been deprecated.
 
 
 17.08
@@ -147,7 +203,7 @@ Changelog
 
 * The :ref:`bus-call_held_event` bus message has been added.
 * The :ref:`bus-call_resumed_event` bus message has been added.
-* The :ref:`bus-user_status_update` bus message now uses the user's UUID instead of the user's ID.
+* The user_status_update bus message now uses the user's UUID instead of the user's ID.
 
 
 16.07
@@ -161,7 +217,7 @@ Changelog
 15.20
 -----
 
-* The :ref:`chat_message_event <bus-chat_message>` bus message has been added.
+* The chat_message_event bus message has been added.
 
 
 15.17
@@ -189,7 +245,7 @@ name
     A string representing the name of the event. Each event type has a unique name.
 
 required_acl (optional)
-    Either a string or null. Currently used by xivo-websocketd to determine if
+    Either a string or null. Currently used by wazo-websocketd to determine if
     a client can receive the event or not. See the :ref:`ws-events-acl` section for
     more information.
 
@@ -308,13 +364,92 @@ Example::
   }
 
 
+.. _bus-auth-tenant-created:
+
+auth_tenant_created
+-------------------
+
+This event is published when a tenant is created
+
+* routing_key: auth.tenants.{tenant_uuid}.created
+* event specific data:
+
+  * uuid: The tenant's UUID
+  * name: The name of the tenant
+
+Example:
+
+.. code-block:: javascript
+
+  {
+    "name": "auth_tenant_created",
+    "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+    "data": {
+      "uuid": "a1e05585-1421-4397-bd59-9cf9725888e9",
+      "name": "<name>"
+    }
+  }
+
+
+.. _bus-auth-tenant-deleted:
+
+auth_tenant_deleted
+-------------------
+
+This event is published when a tenant is deleted
+
+* routing_key: auth.tenants.{tenant_uuid}.deleted
+* event specific data:
+
+  * uuid: The tenant's UUID
+
+Example:
+
+.. code-block:: javascript
+
+  {
+    "name": "auth_tenant_deleted",
+    "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+    "data": {
+      "uuid": "a1e05585-1421-4397-bd59-9cf9725888e9",
+    }
+  }
+
+
+.. _bus-auth-tenant-updated:
+
+auth_tenant_updated
+-------------------
+
+This event is published when a tenant is updated
+
+* routing_key: auth.tenants.{tenant_uuid}.updated
+* event specific data:
+
+  * uuid: The tenant's UUID
+  * name: The name of the tenant
+
+Example:
+
+.. code-block:: javascript
+
+  {
+    "name": "auth_tenant_updated",
+    "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+    "data": {
+      "uuid": "a1e05585-1421-4397-bd59-9cf9725888e9",
+      "name": "<name>"
+    }
+  }
+
+
 .. _bus-call_form_result:
 
 call_form_result
 ----------------
 
-The call_form_result event is sent when a :ref:`custom call form <custom-call-form>`
-is submitted by a CTI client.
+The call_form_result event is sent when a custom call form
+is submitted via REST API.
 
 * routing key: call_form_result
 * event specific data: a dictionary with 2 keys:
@@ -335,6 +470,7 @@ Example::
            }
        }
    }
+
 
 
 .. _bus-agent_status_update:
@@ -372,12 +508,12 @@ call_created, call_updated, call_ended
 --------------------------------------
 
 The events ``call_created``, ``call_updated``, ``call_ended`` are sent when a call handled by
-xivo-ctid-ng is received, connected or hung up.
+wazo-calld is received, connected or hung up.
 
 * routing key: calls.call.created, calls.call.updated, calls.call.ended
 * required ACL: events.calls.<user_uuid>
 * event specific data: a dictionary with the same fields as the REST API model of Call (See
-  http://api.wazo.community, section xivo-ctid-ng)
+  http://api.wazo.community, section wazo-calld)
 
 Example::
 
@@ -440,73 +576,181 @@ Example:
     "data": {"call_id": "1465572129.31"}}
 
 
-.. _bus-chat_message:
+.. _bus-conference-participant-joined:
+.. _bus-conference-participant-left:
 
-chat_message_received, chat_message_sent
-----------------------------------------
+conference_participant_joined, conference_participant_left
+----------------------------------------------------------
 
-* routing key: ``chat.message.<wazo-uuid>.<user_id>``. The ``wazo-uuid`` and ``user-uuid`` are the sender for ``chat_message_sent`` and the recipient for ``chat_message_received``.
+Those events are send when a participant joins or leaves a conference room.
+
+* routing keys:
+
+  * ``conferences.<conference_id>.participants.joined``
+  * ``conferences.<conference_id>.participants.left``
+
+* required ACLs:
+
+  * ``events.conferences.<conference_id>.participants.joined``
+  * ``events.conferences.<conference_id>.participants.left``
+
 * event specific data:
 
-  * alias: The nickname of the chatter
-  * to: The destination's Wazo UUID and user UUID
-  * from: The chatter's Wazo UUID and user UUID
-  * msg: The message
+  * ``id``: The ID of the participant inside the conference
+  * ``caller_id_name``: The CallerID name of the participant
+  * ``caller_id_num``: The CallerID number of the participant
+  * ``muted``: Is the participant muted?
+  * ``answered_time``: Elapsed seconds since the participant joined the conference
+  * ``admin``: Is the participant and admin of the conference?
+  * ``language``: The language of the participant
+  * ``call_id``: The ID of the call, usable in the ``/calls`` endpoints of ``wazo-calld``
+  * ``conference_id``: The ID of the conference
 
 Example:
 
 .. code-block:: javascript
 
-  {
-      "name": "chat_message_received",
-      "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
-      "data": {
-          "alias": "Alice"
-          "to": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "fcb36731-c50a-453e-92c7-571297d41616"],
-          "from": ["ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "4f2e2249-ae2b-4bc2-b5fc-ad42ee01ddaf"],
-          "msg": "Hi!"
-      }
-  }
-
-.. note:: The message named ``chat_message_event`` is deprecated since Wazo 17.14. You should not use it anymore. If you want to send a new chat message, you should use the :ref:`xivo-ctid-ng REST API <rest-api_changelog>` instead.
-
-
-.. _bus-endpoint_status_update:
-
-endpoint_status_update
-----------------------
-
-The endpoint_status_update is sent when an end point status changes. This information is
-based on asterisk hints.
-
-* routing key: status.endpoint
-* required ACL: events.statuses.endpoints
-* event specific data: a dictionary with 3 keys
-
-  * xivo_id: the uuid of the xivo
-  * endpoint_id: an integer corresponding to the endpoint ID
-  * status: an integer corresponding to the asterisk device state
-
-Example::
-
    {
-       "name": "endpoint_status_update",
-       "required_acl": "events.statuses.endpoints",
-       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+       "name": "conference_participant_joined",
+       "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
+       "required_acl": "events.conferences.1.participants.joined",
        "data": {
-           "endpoint_id": 67,
-           "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
-           "status": 0
+           "admin": false,
+           "answered_time": 0,
+           "call_id": "1547576420.11",
+           "caller_id_name": "Bernard Marx",
+           "conference_id": 1,
+           "id": "1547576420.11",
+           "language": "fr_FR",
+           "muted": false
        }
    }
 
+.. _bus-conference-participant-muted:
+.. _bus-conference-participant-unmuted:
+
+conference_participant_muted, conference_participant_unmuted
+------------------------------------------------------------
+
+Those events are send when a participant joins or leaves a conference room.
+
+* routing key for both events:
+
+  * ``conferences.<conference_id>.participants.mute``
+
+* required ACL for both events:
+
+  * ``events.conferences.<conference_id>.participants.mute``
+
+* event specific data:
+
+  * ``id``: The ID of the participant inside the conference
+  * ``caller_id_name``: The CallerID name of the participant
+  * ``caller_id_num``: The CallerID number of the participant
+  * ``muted``: Is the participant muted?
+  * ``admin``: Is the participant and admin of the conference?
+  * ``language``: The language of the participant
+  * ``call_id``: The ID of the call, usable in the ``/calls`` endpoints of ``wazo-calld``
+  * ``conference_id``: The ID of the conference
+
+Example:
+
+.. code-block:: javascript
+
+   {
+       "name": "conference_participant_muted",
+       "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
+       "required_acl": "events.conferences.1.participants.mute",
+       "data": {
+           "admin": false,
+           "call_id": "1547576420.11",
+           "caller_id_name": "Bernard Marx",
+           "conference_id": 1,
+           "id": "1547576420.11",
+           "language": "fr_FR",
+           "muted": true
+       }
+   }
+
+
+.. _bus-conference-record-started:
+.. _bus-conference-record-stopped:
+
+conference_record_started, conference_record_stopped
+----------------------------------------------------
+
+Those events are send when a participant joins or leaves a conference room.
+
+* routing key for both events:
+
+  * ``conferences.<conference_id>.record``
+
+* required ACL for both events:
+
+  * ``events.conferences.<conference_id>.record``
+
+* event specific data:
+
+  * ``id``: The ID of the conference
+
+Example:
+
+.. code-block:: javascript
+
+   {
+       "name": "conference_record_started",
+       "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
+       "required_acl": "events.conferences.1.record",
+       "data": {
+           "id": 1
+       }
+   }
+
+.. _bus-conference-participant-talk-started:
+.. _bus-conference-participant-talk-stopped:
+
+conference_participant_talk_started, conference_participant_talk_stopped
+------------------------------------------------------------------------
+
+Those events are send when a participant joins or leaves a conference room.
+
+* routing key for both events:
+
+  * ``conferences.<conference_id>.participants.talk``
+
+* required ACL for both events:
+
+  * ``events.conferences.<conference_id>.participants.talk``
+
+* event specific data:
+
+  * ``id``: The ID of the conference
+
+Example:
+
+.. code-block:: javascript
+
+   {
+       "name": "conference_participant_talk_started",
+       "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
+       "required_acl": "events.conferences.1.participants.talk",
+       "data": {
+           "admin": false,
+           "call_id": "1547576420.11",
+           "caller_id_name": "Bernard Marx",
+           "conference_id": 1,
+           "id": "1547576420.11",
+           "language": "fr_FR",
+           "muted": false
+       }
+   }
 
 .. _bus-favorite_added:
 
 favorite_added
 --------------
 
-The `favorite_added` event is published when a contact is marked as a favorite by a user.
+The ``favorite_added`` event is published when a contact is marked as a favorite by a user.
 
 * routing key: directory.<user_uuid>.favorite.created
 * required ACL: events.directory.<user_uuid>.favorite.created
@@ -537,7 +781,7 @@ Example:
 favorite_deleted
 ----------------
 
-The `favorite_deleted` event is published when a favorited contact is marked a not
+The ``favorite_deleted`` event is published when a favorited contact is marked a not
 favorite by a user
 
 * routing key: directory.<user_uuid>.favorite.deleted
@@ -564,6 +808,131 @@ Example:
         }
     }
 
+.. _fax-outbound-created:
+.. _fax-outbound-user-created:
+
+fax_outbound_created, fax_outbound_user_created
+-----------------------------------------------
+
+Those event are published when a fax is being sent. ``fax_outbound_user_created`` is only sent if
+the fax was sent by a user.
+
+* routing key: ``faxes.outbound.created`` and ``faxes.outbound.users.{user_uuid}.created``
+* required ACL: ``events.faxes.outbound.created`` and
+  ``events.faxes.outbound.users.{user_uuid}.created``
+* event specific data:
+
+    * ``id``: The fax ID
+    * ``call_id``: The ID of the call that sent the fax
+    * ``extension``: The extension where the fax was sent
+    * ``context``: The context where the fax was sent
+    * ``caller_id``: The Caller ID presented to the fax recipient
+    * ``user_uuid``: The UUID of the user that sent the fax
+    * ``tenant_uuid``: The tenant UUID from where the fax was sent
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "name": "fax_outbound_created",
+        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+        "data": {
+            "id": "1234567.89",
+            "call_id": "1234567.89",
+            "context": "internal",
+            "extension": "1234",
+            "caller_id": "fax sender <5551234>",
+            "user_uuid": "3c616e3a-611b-4703-bea8-9be4fc4c9fe4",
+            "tenant_uuid": "bd72b051-fd14-40be-9c3d-6b5fe65271ca",
+        }
+    }
+
+
+.. _fax-outbound-succeeded:
+.. _fax-outbound-user-succeeded:
+
+fax_outbound_succeeded, fax_outbound_user_succeeded
+---------------------------------------------------
+
+This event is published when a fax was successfully sent. ``fax_outbound_user_succeeded`` is only
+sent if the fax was sent by a user.
+
+
+* routing key: ``faxes.outbound.succeeded`` and ``faxes.outbound.users.{user_uuid}.succeeded``
+* required ACL: ``events.faxes.outbound.succeeded`` and
+  ``events.faxes.outbound.users.{user_uuid}.succeeded``
+* event specific data:
+
+    * ``id``: The fax ID
+    * ``call_id``: The ID of the call that sent the fax
+    * ``extension``: The extension where the fax was sent
+    * ``context``: The context where the fax was sent
+    * ``caller_id``: The Caller ID presented to the fax recipient
+    * ``user_uuid``: The UUID of the user that sent the fax
+    * ``tenant_uuid``: The tenant UUID from where the fax was sent
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "name": "fax_outbound_succeeded",
+        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+        "data": {
+            "id": "1234567.89",
+            "call_id": "1234567.89",
+            "context": "internal",
+            "extension": "1234",
+            "caller_id": "fax sender <5551234>",
+            "user_uuid": "3c616e3a-611b-4703-bea8-9be4fc4c9fe4",
+            "tenant_uuid": "bd72b051-fd14-40be-9c3d-6b5fe65271ca"
+        }
+    }
+
+
+.. _fax-outbound-failed:
+.. _fax-outbound-user-failed:
+
+fax_outbound_failed, fax_outbound_user_failed
+---------------------------------------------------
+
+This event is published when a fax was successfully sent. ``fax_outbound_user_created`` is only sent
+if the fax was sent by a user.
+
+
+* routing key: ``faxes.outbound.failed`` and ``faxes.outbound.users.{user_uuid}.failed``
+* required ACL: ``events.faxes.outbound.failed`` and
+  ``events.faxes.outbound.users.{user_uuid}.failed``
+* event specific data:
+
+    * ``id``: The fax ID
+    * ``call_id``: The ID of the call that sent the fax
+    * ``extension``: The extension where the fax was sent
+    * ``context``: The context where the fax was sent
+    * ``caller_id``: The Caller ID presented to the fax recipient
+    * ``user_uuid``: The UUID of the user that sent the fax
+    * ``tenant_uuid``: The tenant UUID from where the fax was sent
+    * ``error``: An explanation of the fax failure
+
+Example:
+
+.. code-block:: javascript
+
+    {
+        "name": "fax_outbound_failed",
+        "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
+        "data": {
+            "id": "1234567.89",
+            "call_id": "1234567.89",
+            "context": "internal",
+            "extension": "1234",
+            "caller_id": "fax sender <5551234>",
+            "user_uuid": "3c616e3a-611b-4703-bea8-9be4fc4c9fe4",
+            "tenant_uuid": "bd72b051-fd14-40be-9c3d-6b5fe65271ca",
+            "error": "recipient did not answer"
+        }
+    }
 
 .. _bus-plugin_install_progress:
 
@@ -637,7 +1006,7 @@ Those events are published during the different steps of a relocate operation.
   * ``"user_uuid:XXX": True`` where ``XXX`` is the initiator's user UUID
 
 * required ACL: ``events.relocates.XXX`` where XXX is the initiator's user UUID
-* event specific data: a relocate object, see http://api.wazo.community, section ``xivo-ctid-ng``.
+* event specific data: a relocate object, see http://api.wazo.community, section ``wazo-calld``.
 
 Example:
 
@@ -740,35 +1109,6 @@ Example:
     }
 
 
-.. _bus-user_status_update:
-
-user_status_update
-------------------
-
-The user_status_update is sent when a user changes his CTI presence using the Wazo Client.
-
-* routing key: status.user
-* required ACL: events.statuses.users
-* event specific data: a dictionary with 3 keys
-
-  * xivo_id: the uuid of the xivo
-  * user_uuid: the user's UUID
-  * status: a string identifying the status
-
-Example::
-
-   {
-       "name": "user_status_update",
-       "required_acl": "events.statuses.users",
-       "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
-       "data": {
-           "user_uuid": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
-           "xivo_id": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
-           "status": "busy"
-       }
-   }
-
-
 .. _bus-users_forwards_forward_updated:
 
 users_forwards_<forward_name>_updated
@@ -860,11 +1200,11 @@ Example:
         "name": "service_registered_event",
         "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
         "data": {
-            "service_name": "xivo-ctid",
+            "service_name": "wazo-dird",
             "service_id": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
             "address": "192.168.1.42",
             "port": 9495,
-            "tags": ["xivo-ctid", "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "Québec"]
+            "tags": ["wazo-dird", "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "Québec"]
         }
     }
 
@@ -892,9 +1232,9 @@ Example:
         "name": "service_deregistered_event",
         "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
         "data": {
-            "service_name": "xivo-ctid",
+            "service_name": "wazo-dird",
             "service_id": "8e58d2a7-cfed-4c2e-ac72-14e0b5c26dc2",
-            "tags": ["xivo-ctid", "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "Québec"]
+            "tags": ["wazo-dird", "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3", "Québec"]
         }
     }
 
@@ -909,8 +1249,8 @@ voicemail is not associated to any user, no message is generated.
 
 * routing key: voicemails.messages.created, voicemails.messages.updated, voicemails.messages.deleted
 * required ACL: events.users.<user_uuid>.voicemails
-* event specific data: a dictionary with the same fields as the REST API model of VoicemailMessage (See
-  http://api.wazo.community, section xivo-ctid-ng)
+* event specific data: a dictionary with the same fields as the REST API model of VoicemailMessage
+  (See http://api.wazo.community, section wazo-calld)
 
 Example::
 

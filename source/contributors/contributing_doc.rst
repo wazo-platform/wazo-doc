@@ -5,7 +5,7 @@ Contributing to the Documentation
 *********************************
 
 Wazo documentation is generated with Sphinx. The source code is available on
-GitHub at https://github.com/wazo-pbx/xivo-doc
+GitHub at https://github.com/wazo-platform/wazo-doc
 
 Provided you already have Python installed on your system. You need first to install Sphinx_ : ``easy_install -U Sphinx`` [1]_.
 
@@ -164,7 +164,7 @@ Use the following roles when applicable:
 
    The :file:`/dev/null` file.
 
-* ``:menuselection:`` for the web interface menu::
+* ``:menuselection:`` for interface menu::
 
    The :menuselection:`Configuration --> Management --> Certificates` page.
 

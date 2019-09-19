@@ -5,7 +5,7 @@ Debugging Daemons
 *****************
 
 To activate debug mode, add ``debug: true`` in the daemon :ref:`configuration file
-<configuration-files>`). The output will be available in the daemon's :ref:`log file <log-files>`.
+<configuration-files>`. The output will be available in the daemon's :ref:`log file <log-files>`.
 
 It is also possible to run the Wazo daemon, in command line. This will allow to run in foreground
 and debug mode. To see how to use it, type::
@@ -27,12 +27,12 @@ xivo-confgend
 No debug mode in confgend.
 
 
-xivo-provd
+wazo-provd
 ==========
 
 ::
 
-   twistd -no -u xivo-provd -g xivo-provd -r epoll --logger provd.main.twistd_logs xivo-provd -s -v
+   twistd -no -u wazo-provd -g wazo-provd -r epoll --logger provd.main.twistd_logs wazo-provd -s -v
 
 * -s for logging to stderr
 * -v for verbose
@@ -57,18 +57,3 @@ Consul logs its output to ``/var/log/syslog`` to get the output of consul only u
    2015/08/03 11:04:08 [INFO] agent.rpc: Accepted client: 127.0.0.1:41545
 
 .. note:: The ca-file can be different when using custom HTTPS certificates
-
-mongooseim
-==========
-
-::
-
-   echo "{loglevel, 5}." >> /etc/mongooseim/wazo.cfg
-   systemctl restart mongooseim
-
-Log file: ``/var/log/mongooseim/ejabberd.log``. This file contains almost nothing before the loglevel is set.
-
-You should not leave the loglevel enabled in production for too long. To disable it::
-
-   sed -i '/loglevel, 5/d' /etc/mongooseim/wazo.cfg
-   systemctl restart mongooseim

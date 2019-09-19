@@ -8,7 +8,7 @@ Wazo offers a service to receive messages published on the :ref:`bus (e.g. Rabbi
 over an encrypted `WebSocket <https://en.wikipedia.org/wiki/WebSocket>`_ connection. This ease in
 building dynamic web applications that are using events from your Wazo.
 
-The service is provided by the ``xivo-websocketd`` component.
+The service is provided by the ``wazo-websocketd`` component.
 
 
 Getting Started
@@ -45,10 +45,10 @@ the client/server interaction.
 
 To receive events on your WebSocket connection, you need to tell the server which type of events you
 are interested in, and then tell it to start sending you these events. For example, if you are
-interested in the :ref:`"endpoint_status_update" events <bus-endpoint_status_update>`, you send the
+interested in the :ref:`"call_created" events <bus-call_created>`, you send the
 following command::
 
-   {"op": "subscribe", "data": {"event_name": "endpoint_status_update"}}
+   {"op": "subscribe", "data": {"event_name": "call_created"}}
 
 If all goes well, the server will respond with::
 
@@ -175,8 +175,8 @@ Then, at line 23, a ``onmessage`` callback is set on the WebSocket object:
        var msg = JSON.parse(event.data);
        switch (msg.op) {
            case "init":
-               subscribe("endpoint_status_update");
-               subscribe("user_status_update");
+               subscribe("call_created");
+               subscribe("call_updated");
                start();
                break;
            case "start":
@@ -188,7 +188,7 @@ Then, at line 23, a ``onmessage`` callback is set on the WebSocket object:
 
 After a successful connection to the service, an "init" message will be received by the client. When
 the client receives this message, it sends two subscribe commands (e.g.
-``subscribe("endpoint_status_update")``) and a start command (e.g. ``start()``).  When the client
+``subscribe("call_created")``) and a start command (e.g. ``start()``).  When the client
 receives the "start" message, it sets the ``started`` flag. After that, all the other messages it
 receives will be logged to the console.
 
@@ -196,10 +196,10 @@ receives will be logged to the console.
 Reference
 =========
 
-The WebSocket service is provided by ``xivo-websocketd``, and its behaviour can be configured via
-its :ref:`configuration files <configuration-files>` located under the :file:`/etc/xivo-websocketd`
-directory. After modifying the configuration files, you need to restart ``xivo-websocketd`` with
-``systemctl restart xivo-websocketd``.
+The WebSocket service is provided by ``wazo-websocketd``, and its behaviour can be configured via
+its :ref:`configuration files <configuration-files>` located under the :file:`/etc/wazo-websocketd`
+directory. After modifying the configuration files, you need to restart ``wazo-websocketd`` with
+``systemctl restart wazo-websocketd``.
 
 
 .. _ws-connection:
@@ -241,11 +241,11 @@ the token expires.
 Events Access Control
 ---------------------
 
-Clients connected to ``xivo-websocketd`` only receive events that they are authorized to receive.
-For example, a client connected with a token obtained from the "xivo_user" ``wazo-auth`` backend
+Clients connected to ``wazo-websocketd`` only receive events that they are authorized to receive.
+For example, a client connected with a token obtained from the "wazo_user" ``wazo-auth`` backend
 will *not* receive call events of other users.
 
-When a message is received from the bus by ``xivo-websocketd``, it extracts the ACL from the
+When a message is received from the bus by ``wazo-websocketd``, it extracts the ACL from the
 ``required_acl`` key of the event. If the field is missing, no clients will receive the event. If
 the value is null, all subscribed clients will receive the event. If the value is a string, then all
 subscribed clients which have a matching ACL will receive the event.

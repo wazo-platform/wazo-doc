@@ -25,28 +25,13 @@ For a small install of about 20 users, less than 20 calls per day:
 * Storage: 2.5 GiB of storage is a very tight minimum, 8 GiB is comfortable
 
 
-Installing from the ISO image
-=============================
-
-* Download the ISO image. (`latest version`_) (`all versions`_)
-* Boot from the ISO image, select ``Install`` and follow the instructions. You must select a locale
-  with charset UTF-8.
-* At the end of the installation, if you are installing version 16.13 or before, you need to
-  configure your system to :ref:`use the Wazo infrastructure <using-wazo-infrastructure>`, otherwise
-  some errors might occur.
-* Continue by running the :ref:`configuration wizard. <configuration_wizard>`
-
-.. _all versions: http://mirror.wazo.community/iso/archives
-.. _latest version: http://mirror.wazo.community/iso/wazo-current
-
-
 Installing from a minimal Debian installation
 =============================================
 
-Wazo can be installed directly over a **32-bit** or a **64-bit** Debian stretch. When doing so, you are strongly
-advised to start with a clean and minimal installation of Debian stretch.
+Wazo can be installed directly over a **32-bit** or a **64-bit** Debian 10 Buster. When doing so, you are strongly
+advised to start with a clean and minimal installation of Debian 10 Buster.
 
-The latest installation image for Debian stretch can be found at https://www.debian.org/releases/stretch/debian-installer.
+The latest installation image for Debian 10 Buster can be found at https://www.debian.org/releases/buster/debian-installer.
 
 
 Requirements
@@ -63,7 +48,7 @@ In case you want to migrate a Wazo from ``i386`` to ``amd64``, see :ref:`migrate
 Installation
 ^^^^^^^^^^^^
 
-Once you have your Debian stretch properly installed, download the Wazo installation script and make
+Once you have your Debian 10 Buster properly installed, download the Wazo installation script and make
 it executable::
 
    wget http://mirror.wazo.community/fai/xivo-migration/wazo_install.sh
@@ -73,8 +58,7 @@ And run it::
 
    ./wazo_install.sh
 
-At the end of the installation, you can continue by running the :ref:`configuration
-wizard. <configuration_wizard>`
+At the end of the installation, you can continue by running the configuration wizard.
 
 
 Alternatives versions

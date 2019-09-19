@@ -16,8 +16,8 @@ extension.
 The workaround to this problem is to create a preprocess subroutine and assign it to the destinations
 where you have the problem.
 
-Under :menuselection:`Services --> IPBX --> IPBX configuration --> Configuration files` add a new file
-containing the following dialplan::
+Add new file :file:`/etc/asterisk/extensions_extra.d/transfer-dtmf.conf` containing the following
+dialplan::
 
     [allow-transfer]
     exten = s,1,NoOp(## Setting transfer context ##)
@@ -44,12 +44,10 @@ this example) : if a fax is detected, receive it otherwise route the call normal
     * on incoming calls towards an User (and an User only),
     * if the incoming trunk is a DAHDI or a SIP trunk,
     * if the user has a voicemail which is activated and with the email field filled
-    * XiVO/Wazo >= 13.08 (needs asterisk 11)
 
     Be aware that this workaround will probably not survive any upgrade.
 
-#. In the Web Interface and under :menuselection:`Services --> IPBX --> IPBX configuration -->
-   Configuration files` add a new file named *fax-detection.conf* containing the following
+#. Add new file :file:`/etc/asterisk/extensions_extra.d/fax-detection.conf` containing the following
    dialplan::
 
     ;; Fax Detection
@@ -164,53 +162,6 @@ The following describes how to configure your Wazo and your Berofos.
     */1 * * * * root /usr/local/sbin/berofos-workaround
 
 
-.. _cti-ami-proxy:
-
-CTI server is unexpectedly terminating
---------------------------------------
-
-If you observes that your CTI server is sometimes unexpectedly terminating with the following
-message in :file:`/var/log/xivo-ctid.log`::
-
-    (WARNING) (main): AMI: CLOSING
-
-Then you might be in the case where asterisk generates lots of data in a short period of time on the
-AMI while the CTI server is busy processing other thing and is not actively reading from its AMI
-connection. If the CTI server takes too much time before consuming some data from the AMI
-connection, asterisk will close the AMI connection. The CTI server will terminate itself once it
-detects the connection to the AMI has been lost.
-
-There's a workaround to this problem called the ami-proxy, which is a process which buffers the AMI
-connection between the CTI server and asterisk. This should only be used as a last resort solution,
-since this increases the latency between the processes and does not fix the root issue.
-
-To enable the ami-proxy, you must:
-
-#. Add a file :file:`/etc/systemd/system/xivo-ctid.service.d/ami-proxy.conf`:
-
-   .. code-block:: sh
-
-      mkdir -p /etc/systemd/system/xivo-ctid.service.d
-      cat >/etc/systemd/system/xivo-ctid.service.d/ami-proxy.conf <<EOF
-      [Service]
-      Environment=XIVO_CTID_AMI_PROXY=1
-      EOF
-      systemctl daemon-reload
-
-#. Restart the CTI server::
-
-      systemctl restart xivo-ctid.service
-
-If you are on a Wazo cluster, you must do the same procedure on the slave if you want the ami-proxy
-to also be enabled on the slave.
-
-To disable the ami-proxy::
-
-   rm /etc/systemd/system/xivo-ctid.service.d/ami-proxy.conf
-   systemctl daemon-reload
-   systemctl restart xivo-ctid.service
-
-
 Agents receiving two ACD calls
 ------------------------------
 
@@ -259,19 +210,19 @@ configuration. The locale used by the database and the database cluster is set w
 installed. If you change your system locale without particular attention to PostgreSQL, you might
 make the database and database cluster temporarily unusable.
 
-.. _database cluster: http://www.postgresql.org/docs/9.6/interactive/creating-cluster.html
+.. _database cluster: https://www.postgresql.org/docs/11/interactive/creating-cluster.html
 
 When working with locale and PostgreSQL, there's a few useful commands and things to know:
 
 * ``locale -a`` to see the list of currently available locales on your system
 * ``locale`` to display information about the current locale of your shell
-* ``grep ^lc_ /etc/postgresql/9.6/main/postgresql.conf`` to see the locale configuration of your
+* ``grep ^lc_ /etc/postgresql/11/main/postgresql.conf`` to see the locale configuration of your
   database cluster
 * ``sudo -u postgres psql -l`` to see the locale of your databases
 * the :file:`/etc/locale.gen` file and the associated ``locale-gen`` command to configure the
   available system locales
 * ``systemctl restart postgresql.service`` to restart your database cluster
-* the PostgreSQL log file located at :file:`/var/log/postgresql/postgresql-9.6-main.log`
+* the PostgreSQL log file located at :file:`/var/log/postgresql/postgresql-11-main.log`
 
 .. note:: You can use any locale with Wazo as long as it uses an UTF-8 encoding.
 
@@ -285,7 +236,7 @@ If the database cluster doesn't start and you have the following errors in your 
    LOG:  invalid value for parameter "lc_monetary": "en_US.UTF-8"
    LOG:  invalid value for parameter "lc_numeric": "en_US.UTF-8"
    LOG:  invalid value for parameter "lc_time": "en_US.UTF-8"
-   FATAL:  configuration file "/etc/postgresql/9.6/main/postgresql.conf" contains errors
+   FATAL:  configuration file "/etc/postgresql/11/main/postgresql.conf" contains errors
 
 Then this usually means that the locale that is configured in :file:`postgresql.conf` (here ``en_US.UTF-8``)
 is not currently available on your system, i.e. does not show up the output of ``locale -a``. You
@@ -293,7 +244,7 @@ have two choices to fix this issue:
 
 * either make the locale available by uncommenting it in the :file:`/etc/locale.gen` file and running
   ``locale-gen``
-* or modify the :file:`/etc/postgresql/9.6/main/postgresql.conf` file to set the various ``lc_*``
+* or modify the :file:`/etc/postgresql/11/main/postgresql.conf` file to set the various ``lc_*``
   options to a locale that is available on your system
 
 Once this is done, restart your database cluster.
@@ -380,11 +331,11 @@ Then use the following commands (replacing ``fr_FR.UTF-8`` by your locale)::
    EOF
    wazo-service start
 
-You should also modify the :file:`/etc/postgresql/9.6/main/postgresql.conf` file to set the various
+You should also modify the :file:`/etc/postgresql/11/main/postgresql.conf` file to set the various
 ``lc_*`` options to the new locale value.
 
 For more information, consult the `official documentation on PostgreSQL localization support
-<http://www.postgresql.org/docs/9.6/interactive/charset.html>`_.
+<https://www.postgresql.org/docs/11/interactive/charset.html>`_.
 
 
 Originate a call from the Asterisk console
@@ -513,3 +464,9 @@ When troubleshooting a problem, you may need to send logs for analysis.
 bundle them into a tarball. You may then send this tarball for analysis.
 
 .. warning:: Be careful before sending the logs in a public place: they may contain sensible information, that can be used to connect to your Wazo.
+
+
+Asterisk crash
+--------------
+
+See :ref:`debugging_asterisk`.

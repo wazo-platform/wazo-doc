@@ -15,7 +15,7 @@ Example::
 
     # -*- coding: utf-8 -*-
     # Copyright 2016 The Wazo Authors  (see the AUTHORS file)
-    # SPDX-License-Identifier: GPL-3.0+
+    # SPDX-License-Identifier: GPL-3.0-or-later
 
     import argparse
 
@@ -52,7 +52,7 @@ errors are ignored :
 
 Example::
 
-    pep8 --ignore=E501 xivo_cti
+    pep8 --ignore=E501 wazo_calld
 
 
 When possible, avoid using backslashes to separate lines.

@@ -22,10 +22,7 @@ Logrotate cron:
 Retrieve the backup
 ===================
 
-You can retrieve the backup from the web-interface in
-:menuselection:`Services --> IPBX --> IPBX Configuration --> Backup Files` page.
-
-Otherwise, with shell access, you can retrieve them in :file:`/var/backups/xivo`.
+With shell access, you can retrieve them in :file:`/var/backups/xivo`.
 In this directory you will find :file:`db.tgz` and :file:`data.tgz` files for the database and data
 backups.
 
@@ -54,7 +51,6 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/hostname`
 * :file:`/etc/hosts`
 * :file:`/etc/ldap/`
-* :file:`/etc/mongooseim/`
 * :file:`/etc/network/if-up.d/xivo-routes`
 * :file:`/etc/network/interfaces`
 * :file:`/etc/ntp.conf`
@@ -63,31 +59,32 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/ssl/`
 * :file:`/etc/systemd/`
 * :file:`/etc/wanpipe/`
-* :file:`/etc/wazo-admin-ui/`
+* :file:`/etc/wazo-agentd/`
+* :file:`/etc/wazo-agid/`
+* :file:`/etc/wazo-amid/`
 * :file:`/etc/wazo-auth/`
 * :file:`/etc/wazo-call-logd/`
+* :file:`/etc/wazo-calld/`
+* :file:`/etc/wazo-chatd/`
+* :file:`/etc/wazo-confd/`
+* :file:`/etc/wazo-phoned/`
+* :file:`/etc/wazo-dird/`
 * :file:`/etc/wazo-plugind/`
+* :file:`/etc/wazo-purge-db/`
 * :file:`/etc/wazo-webhookd/`
-* :file:`/etc/xivo-agentd/`
-* :file:`/etc/xivo-agid/`
-* :file:`/etc/xivo-amid/`
-* :file:`/etc/xivo-confd/`
+* :file:`/etc/wazo-websocketd/`
 * :file:`/etc/xivo-confgend-client/`
-* :file:`/etc/xivo-ctid/`
-* :file:`/etc/xivo-ctid-ng/`
-* :file:`/etc/xivo-dird/`
-* :file:`/etc/xivo-dird-phoned/`
 * :file:`/etc/xivo-dxtora/`
-* :file:`/etc/xivo-purge-db/`
-* :file:`/etc/xivo-websocketd/`
 * :file:`/etc/xivo/`
+* :file:`/root/.config/wazo-auth-cli/`
 * :file:`/usr/local/bin/`
 * :file:`/usr/local/sbin/`
-* :file:`/usr/share/xivo/XIVO-VERSION`
+* :file:`/usr/share/wazo/WAZO-VERSION`
 * :file:`/var/lib/asterisk/`
 * :file:`/var/lib/consul/`
-* :file:`/var/lib/xivo-provd/`
-* :file:`/var/lib/xivo/`
+* :file:`/var/lib/wazo/`
+* :file:`/var/lib/wazo-auth-keys/`
+* :file:`/var/lib/wazo-provd/`
 * :file:`/var/log/asterisk/`
 * :file:`/var/spool/asterisk/`
 * :file:`/var/spool/cron/crontabs/`
@@ -100,20 +97,20 @@ The following files/folders are excluded from this backup:
   * :file:`/var/lib/consul/raft`
   * :file:`/var/lib/consul/serf`
   * :file:`/var/lib/consul/services`
-  * :file:`/var/lib/xivo-provd/plugins/*/var/cache/*`
+  * :file:`/var/lib/wazo-provd/plugins/*/var/cache/*`
   * :file:`/var/spool/asterisk/monitor/`
   * :file:`/var/spool/asterisk/meetme/`
 
 * files
 
-  * :file:`/var/lib/xivo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld`
+  * :file:`/var/lib/wazo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld`
 
 * log files, coredump files
 * audio recordings
 * and, files greater than 10 MiB or folders containing more than 100 files if they belong to one of
   these folders:
 
-  * :file:`/var/lib/xivo/sounds/`
+  * :file:`/var/lib/wazo/sounds/`
   * :file:`/var/lib/asterisk/sounds/custom/`
   * :file:`/var/lib/asterisk/moh/`
   * :file:`/var/spool/asterisk/voicemail/`
@@ -127,7 +124,6 @@ The following databases from PostgreSQL are backed up:
 
 * ``asterisk``: all the configuration done via the web interface (exceptions: High Availability,
   Provisioning, Certificates)
-* ``mongooseim``: chat history
 
 
 .. _manual_backup:
@@ -179,8 +175,6 @@ Limitations
 * You must restore a backup on the **same version** of Wazo that was backed up (though the
   architecture -- ``i386`` or ``amd64`` -- may differ)
 * You must restore a backup on a machine with the **same hostname and IP address**
-* Be aware that this procedure applies **only to XiVO/Wazo >= 14.08** (see
-  :ref:`upgrade_note_14.08`).
 
 
 Before Restoring the System
@@ -188,8 +182,7 @@ Before Restoring the System
 
 .. warning::
 
-    Before restoring a Wazo on a fresh install you have to setup Wazo using the wizard (see
-    :ref:`configuration_wizard` section).
+    Before restoring a Wazo on a fresh install you have to setup Wazo using the wizard.
 
 Stop monit and all the Wazo services::
 
@@ -239,11 +232,6 @@ Drop the asterisk database and restore it with the one from the backup::
    sudo -u postgres dropdb asterisk
    sudo -u postgres pg_restore -C -d postgres asterisk-*.dump
 
-Drop the mongooseim database and restore it with the one from the backup::
-
-   sudo -u postgres dropdb mongooseim
-   sudo -u postgres pg_restore -C -d postgres mongooseim-*.dump
-
 Once the database and files have been restored, you can :ref:`finalize the restore <after_restore>`
 
 
@@ -282,11 +270,6 @@ Drop the asterisk_previous database::
    hostname, network interfaces, etc. You will need to reapply the network
    configuration if you restore the data.tgz file.
 
-Drop the mongooseim database and restore it with the one from the backup::
-
-   sudo -u postgres dropdb mongooseim
-   sudo -u postgres pg_restore -C -d postgres mongooseim-*.dump
-
 Once the database and files have been restored, you can :ref:`finalize the restore <after_restore>`
 
 
@@ -296,12 +279,8 @@ After Restoring The System
 ==========================
 
 
-.. If you modify this procedure, please update xivo-acceptance/data/assets/xivo-backup-manager
+.. If you modify this procedure, please update wazo-acceptance/wazo_acceptance/assets/xivo-backup-manager
    accordingly
-
-#. Resynchronize the xivo-auth keys::
-
-    xivo-update-keys
 
 #. Restore the server UUID::
 
@@ -321,4 +300,3 @@ After Restoring The System
 #. Restart the services you stopped in the first step::
 
     wazo-service start
-

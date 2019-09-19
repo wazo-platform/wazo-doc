@@ -17,9 +17,6 @@ You might be impacted by the upgrade to Asterisk 13 if you have:
 If you find yourself in one of these cases, you should make sure that your customizations still work
 with Asterisk 13.
 
-If you are upgrading from Asterisk 1.8, you should also check the :ref:`Asterisk 1.8 to 11 upgrade notes
-<asterisk-1.8-to-11>`.
-
 
 Changes Between Asterisk 11 and 13
 ==================================

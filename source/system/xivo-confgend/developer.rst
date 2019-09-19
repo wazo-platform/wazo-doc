@@ -55,7 +55,7 @@ Here is a typical ``setup.py``:
    #!/usr/bin/env python
    # -*- coding: utf-8 -*-
    # Copyright 2016 The Wazo Authors  (see the AUTHORS file)
-   # SPDX-License-Identifier: GPL-3.0+
+   # SPDX-License-Identifier: GPL-3.0-or-later
 
    from setuptools import setup
    from setuptools import find_packages
@@ -91,7 +91,7 @@ With the following package structure::
 
    # -*- coding: utf-8 -*-
    # Copyright 2016 The Wazo Authors  (see the AUTHORS file)
-   # SPDX-License-Identifier: GPL-3.0+
+   # SPDX-License-Identifier: GPL-3.0-or-later
 
 
    class MyDriver(object):

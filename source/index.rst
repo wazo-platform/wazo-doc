@@ -34,19 +34,14 @@ Table of Contents
 
    introduction/introduction
    installation/installation
-   getting_started/getting_started
    upgrade/upgrade
-   admin_ui/admin_ui
-   cti_client/cti_client
    system/system
    ecosystem/ecosystem
    administration/administration
    contact_center/contact_center
    high_availability/high_availability
-   scalability_and_distributed_systems/scalability_and_distributed_systems
    api_sdk/api_sdk
    contributors/contributors
-   quality_assurance/quality_assurance
    troubleshooting/troubleshooting
    community/community
    changelog

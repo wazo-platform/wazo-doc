@@ -9,28 +9,17 @@ Quick Summary
 
 In order to be able to use the boss secretary filter you have to :
  * Select a boss role for one the users
- * Select a secretary role for one ot the users
+ * Select a secretary role for one to the users
  * Create a filter to set a strategy for this boss secretary filter
  * Add a function key for the user boss and the user secretary
-
-Defining a Role
-***************
-
-The secretary or boss role can be set in the user's configuration page under the service tab. To use
-this feature, at least one boss and one secretary must be defined.
-
-.. figure:: images/user_bs_role.png
-   :scale: 85%
 
 
 Creating a Filter
 *****************
 
-The filter is used to associate a boss to one or many secretaries and to set a ring strategy. The call
-filter is added in the :menuselection:`Services --> IPBX --> Call management --> Call filters` page.
+The filter is used to associate a boss to one or many secretaries and to set a ring strategy.
 
-.. figure:: images/user_bs_filter.png
-   :scale: 85%
+* Create with ``POST /callfilters``
 
 Different ringing strategies can be applied :
  * Boss rings first then all secretaries one by one
@@ -48,7 +37,7 @@ Usage
 *****
 
 The call filter function can be activated and deactivated by the boss or the secretary using the
-\*37 extension. The extension is defined in :menuselection:`IPBX services > Extensions`.
+\*37 extension. The extension is defined with ``/extensions/features`` endpoint.
 
 The call filter has to be activated for each secretary if more than one is defined for a given boss.
 
@@ -59,9 +48,6 @@ In this example, you would set 2 ``Func Keys`` ``*373`` and ``*374`` on the Boss
 On the secretary ``Jina LaPlante`` you would set ``*373``.
 
 On the secretary ``Ptit Nouveau`` you would set ``*374``.
-
-.. figure:: images/sec_bs_filter_id.png
-   :scale: 85%
 
 
 Function Keys

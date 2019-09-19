@@ -21,6 +21,3 @@ This will give you a Xlet People looking like this:
 
 .. figure:: images/people_xlet_after_15_19_1.png
 .. figure:: images/people_xlet_after_15_19_2.png
-
-
-You can find more details about the field types in :ref:`xivo-dird-integration`.

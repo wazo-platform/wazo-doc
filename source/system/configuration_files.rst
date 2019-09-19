@@ -52,9 +52,9 @@ File configuration structure
 Configuration files for every service running on a Wazo server will respect these rules:
 
 * Default configuration directory in :file:`/etc/xivo-{{service}}/conf.d` (e.g.
-  :file:`/etc/xivo-agentd/conf.d/`)
+  :file:`/etc/wazo-agentd/conf.d/`)
 * Default configuration file in :file:`/etc/xivo-{{service}}/config.yml` (e.g.
-  :file:`/etc/xivo-agentd/config.yml`)
+  :file:`/etc/wazo-agentd/config.yml`)
 
 The files :file:`/etc/xivo-{{service}}/config.yml` should not be modified because **they will be
 overridden during upgrades**. However, they may be used as examples for creating additional
@@ -69,18 +69,18 @@ wazo-auth
 * Default configuration file: :file:`/etc/wazo-auth/config.yml`
 
 
-xivo-agentd
+wazo-agentd
 ===========
 
-* Default configuration directory: :file:`/etc/xivo-agentd/conf.d`
-* Default configuration file: :file:`/etc/xivo-agentd/config.yml`
+* Default configuration directory: :file:`/etc/wazo-agentd/conf.d`
+* Default configuration file: :file:`/etc/wazo-agentd/config.yml`
 
 
-xivo-amid
+wazo-amid
 =========
 
-* Default configuration directory: :file:`/etc/xivo-amid/conf.d`
-* Default configuration file: :file:`/etc/xivo-amid/config.yml`
+* Default configuration directory: :file:`/etc/wazo-amid/conf.d`
+* Default configuration file: :file:`/etc/wazo-amid/config.yml`
 
 
 xivo-confgend
@@ -89,13 +89,6 @@ xivo-confgend
 * Default configuration directory: :file:`/etc/xivo-confgend/conf.d`
 * Default configuration file: :file:`/etc/xivo-confgend/config.yml`
 * Default templates directory: :file:`/etc/xivo-confgend/templates`
-
-
-xivo-ctid
-=========
-
-* Default configuration directory: :file:`/etc/xivo-ctid/conf.d`
-* Default configuration file: :file:`/etc/xivo-ctid/config.yml`
 
 
 xivo-dao
@@ -108,18 +101,25 @@ This configuration is read by many Wazo programs in order to connect to the Post
 Wazo.
 
 
-xivo-dird-phoned
-================
+wazo-phoned
+===========
 
-* Default configuration directory: :file:`/etc/xivo-dird-phoned/conf.d`
-* Default configuration file: :file:`/etc/xivo-dird-phoned/config.yml`
+* Default configuration directory: :file:`/etc/wazo-phoned/conf.d`
+* Default configuration file: :file:`/etc/wazo-phoned/config.yml`
 
 
-xivo-websocketd
-================
+wazo-provd
+==========
 
-* Default configuration directory: :file:`/etc/xivo-websocketd/conf.d`
-* Default configuration file: :file:`/etc/xivo-websocketd/config.yml`
+* Default configuration directory: :file:`/etc/wazo-provd/conf.d`
+* Default configuration file: :file:`/etc/wazo-provd/config.yml`
+
+
+wazo-websocketd
+===============
+
+* Default configuration directory: :file:`/etc/wazo-websocketd/conf.d`
+* Default configuration file: :file:`/etc/wazo-websocketd/config.yml`
 
 
 .. _xivo_ring.conf:
@@ -172,28 +172,31 @@ Here is the process you should follow if you want to use/customize this feature 
 
      @default = myprofile-aastra
 
-5. Restart ``xivo-agid`` service::
+5. Restart ``wazo-agid`` service::
 
-    service xivo-agid restart
+    service wazo-agid restart
 
 
-ipbx.ini
-========
+.. _asterisk-configuration:
 
-* Path: :file:`/etc/xivo/web-interface/ipbx.ini`
-* Purpose: This file specifies various configuration options and paths related
-  to Asterisk and used by the web interface.
+Asterisk configuration files
+============================
 
-Here is a partial glimpse of what can be configured in file :file:`ipbx.ini` :
+Asterisk configuration files are located at `/etc/asterisk`. These files are packaged with
+Wazo and you should not modify files that are located at the root of this directory.
 
-#. Enable/Disable modification of SIP line username and password::
+To add you own configurations, you must add a new configuration file in the corresponding `.d`
+directory.
 
-      [user]
-      readonly-idpwd = "true"
+For example, if you need to add a new user to the `manager.conf` configuration file, you would
+add a new file `/etc/asterisk/manager.d/my_new_user.conf` with the following content::
 
-  When editing a SIP line, the username and password fields cannot be modified
-  via the web interface. Set this option to false to enable the modification of
-  both fields. This option is set to "true" by default.
+.. code-block: ini
 
-.. warning:: This feature is not fully tested. It should be used only when
-  absolutely necessary and with great care.
+ [my_new_user]
+ secret=v3ry5ecre7
+ deny=0.0.0.0/0.0.0.0
+ permit=127.0.0.1/255.255.255.0
+ read = system
+
+The same logic applies to all Asterisk configuration files except `asterisk.conf` and `modules.conf`.

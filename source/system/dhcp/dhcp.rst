@@ -13,21 +13,11 @@ different VOIP subnets.
 Activating DHCP on another interface
 ====================================
 
-DHCP Server can be activated through the Wazo Web Interface :menuselection:`Configuration -->
-Network --> DHCP` :
+DHCP Server can be activated through ``/dhcp`` endpoint
 
-.. figure:: img/dhcp.png
-   :scale: 85%
-
-   :menuselection:`Configuration --> Network --> DHCP`
-
-By default, it will only answer to DHCP requests coming from the VoIP subnet (defined in the
-:menuselection:`Configuration --> Network --> Interfaces` section). If you need to activate DHCP on
-an other interface, you have to fill in the *Extra network interfaces* field with the interface name
-, for example : ``eth0``
-
-After saving your modifications, click on *Apply system configuration* so that the new settings can
-take effect.
+By default, it will only answer to DHCP requests coming from the VoIP subnet. If you need to
+activate DHCP on an other interface, you have to fill in the ``network_interfaces`` field with
+the interface name , for example : ``eth0``
 
 
 Changing default DHCP gateway 

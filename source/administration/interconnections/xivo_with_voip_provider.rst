@@ -29,39 +29,23 @@ You need the following information from your provider:
 * the name of the provider VoIP server
 * a public phone number
 
-On your Wazo, go on page :menuselection:`Services --> IPBX --> Trunk management -->
-SIP Protocol`, and create a SIP/IAX trunk::
+* ``POST /trunks {"context": "from-extern"}`` (or another incoming call context)
+* ``POST /endpoints/sip {"username": <username>, "secret": <password>, "type": "peer", "host": "voip.provider.example.com"}``
+* ``PUT /trunks/{trunk_id}/endpoints/sip/{sip_id}``
 
-    Name : provider_username
-    Username: provider_username
-    Password: provider_password
-    Connection type: Peer
-    IP addressing type: voip.provider.example.com
-    Context: Incalls (or another incoming call context)
-
-Register tab::
-
-    Register: checked
-    Transport: udp
-    Name: provider_username
-    Username: provider_username
-    Password: provider_password
-    Remote server: voip.provider.example.com
-
-.. note::
-
-   For the moment, Name and Username need to be the same value.
+* ``POST /registers/sip {"auth_username": <username>, "auth_password": <password>, "transport": "udp", "remote_host": "voip.provider.example.com"}``
+* ``PUT /trunks/{trunk_id}/registers/sip/{sip_id}``
 
 If your Wazo is behind a NAT device or a firewall, you should set the
 following::
 
-    Monitoring: Yes
+* ``PUT /endpoints/sip {"options": [..., ["qualify", "yes"], ...]}``
 
 This option will make Asterisk send a signal to the VoIP provider server every 60 seconds (default
 settings), so that NATs and firewall know the connection is still alive. If you want to change the
 value of this cycle period, you have to select the appropriate value of the following parameter::
 
-    Qualify Frequency:
+* ``PUT /endpoints/sip {"options": [..., ["qualifyfreq", <value>], ...]}``
 
 At that point, the Asterisk command ``sip show registry`` should print a line
 showing that you are registered, meaning your trunk is established.
@@ -75,19 +59,13 @@ Set the outgoing calls
 The outgoing calls configuration will allow Wazo to know which extensions will
 be called through the trunk.
 
-Go on the page :menuselection:`Services --> IPBX --> Call management -->
-Outgoing calls` and add an outgoing call.
-
-Tab General::
-
-   Trunks: provider_username
-
-Tab Exten::
-
-    Exten: 418. (note the period at the end)
+* ``POST /outcalls``
+* ``PUT /outcalls/{outcall_id}/trunks``
+* ``POST /extensions {"exten": "418.", "context": "to-extern"}``
+* ``PUT /outcalls/{outcall_id}/extensions/{extension_id}``
 
 This will tell Wazo: if an internal user dials a number beginning with ``418``,
-then try to dial it on the trunk ``provider_username``.
+then try to dial it on the trunk associated.
 
 The most useful special characters to match extensions are::
 
@@ -106,17 +84,13 @@ Set the incoming calls
 Now that we have calls going out, we need to route incoming calls.
 
 To route an incoming call to the right destination in the right context, we will
-create an incoming call in :menuselection:`Services --> IPBX --> Call management
---> Incoming calls`.
+create an incoming call.
 
-Tab General::
-
-    DID: your_public_phone_number
-    Context: Incalls (the same than configured in the trunk)
-    Destination: User
-    Redirect to: the_front_desk_guy
+* ``POST /extensions {"exten": <public_phone_number>, "context": "from-extern"}``
+* ``POST /incalls {"destination": {"type": "user", "user_id": <the_front_desk_guy_id>}}``
+* ``PUT /incalls/{incall_id}/extensions/{extension_id}``
 
 This will tell Wazo: if you receive an incoming call to the public phone number
-in the context ``Incalls``, then route it to the user
-``the_front_desk_guy``. The destination context will be found automatically,
+in the context ``from_extern``, then route it to the user
+``the_front_desk_guy_id``. The destination context will be found automatically,
 depending on the context of the line of the given user.

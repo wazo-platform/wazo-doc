@@ -35,51 +35,6 @@ Supported policy variables
   * tenant.uuid: The tenant UUID
   * tenant.name: The tenant name
 
-
-xivo_admin
-----------
-
-Backend name: ``xivo_admin``
-
-Purpose: Authenticate a Wazo administrator. The login/password is configured in
-:menuselection:`Configuration --> Management --> Users`.
-
-
-Supported policy variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-* entity: The entity of the administrator
-
-.. note::
-
-    The `entity` variable can be `None` which usually mean that this administrator
-    has access to all entities.
-
-
-.. _auth-backends-service:
-
-xivo_service
-------------
-
-Backend name: ``xivo_service``
-
-Purpose: Authenticate a Wazo :ref:`Web Services Access <web_services_access>`. The login/password is
-configured in :menuselection:`Configuration --> Management --> Web Service Access`.
-
-
-xivo_user
----------
-
-Backend name: ``xivo_user``
-
-Purpose: Authenticate a Wazo user. The login/password is configured in :menuselection:`IPBX -->
-Services --> PBX Settings --> Users` in the CTI client section.
-
-
-Supported policy variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-* id: The ID of the user authenticating
 * uuid: The UUID of the user authenticating
 * voicemails: a list of voicemail ID associated to this user
 * lines: a list of line ID associated to this user
@@ -90,6 +45,7 @@ Supported policy variables
 * agent: a dictionnary containing the agent's property, may be none and should be tested with an if before accessing its fields
 * agent.id: an agent id if the user is an agent
 * agent.number: an agent number if the user is an agent
+
 
 .. _auth-backends-ldap:
 

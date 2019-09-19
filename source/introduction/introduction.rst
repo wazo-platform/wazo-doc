@@ -2,7 +2,7 @@
 Introduction
 ************
 
-Wazo is a PABX application based on several free existant components including Asterisk and our own
+Wazo is a PABX application based on several free existing components including Asterisk and our own
 developments. Wazo provides a solution for enterprises who wish to replace or add telephone services
 (PABX).
 

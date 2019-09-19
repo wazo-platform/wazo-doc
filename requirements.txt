@@ -1,4 +1,4 @@
-git+git://github.com/wazo-pbx/sphinx-git.git@tagtitles
-sphinx_rtd_theme==0.2.5b1
+https://github.com/wazo-platform/sphinx-git/archive/tagtitles-v11.zip
+sphinx_rtd_theme==0.4.3
 gitpython
-sphinx==1.6.4
+sphinx==1.8.4

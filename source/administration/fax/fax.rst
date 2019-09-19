@@ -2,19 +2,6 @@
 Fax
 ***
 
-Fax transmission
-================
-
-It's possible to send faxes from Wazo using the fax Xlet in the Wazo Client.
-
-.. figure:: images/cti-client-fax.png
-
-   The fax Xlet in the Wazo Client
-
-
-The file to send must be in PDF format.
-
-
 Fax reception
 =============
 
@@ -22,16 +9,11 @@ Adding a fax reception DID
 --------------------------
 
 If you want to receive faxes from Wazo, you need to add incoming calls definition with the
-`Application` destination and the `FaxToMail` application for every DID you want to receive faxes
-from.
+``Application`` destination and the ``fax_to_mail`` application for every DID you want to receive
+faxes from.
 
 This applies even if you want the action to be different from sending an email, like putting it on a
 FTP server. You'll still need to enter an email address in these cases even though it won't be used.
-
-Note that, as usual when adding incoming call definitions, you must first define the incoming call
-range in the used context.
-
-.. figure:: images/Fax_recv_adding.png
 
 
 Changing the email body
@@ -48,7 +30,7 @@ If you want to include a regular percent character, i.e. ``%``, you must write i
 
 The ``agid`` service must be restarted to apply changes::
 
-   service xivo-agid restart
+   service wazo-agid restart
 
 
 Changing the email subject
@@ -63,7 +45,7 @@ The available variable substitution are the same as for the email body.
 
 The ``agid`` service must be restarted to apply changes::
 
-   service xivo-agid restart
+   service wazo-agid restart
 
 
 Changing the email from
@@ -76,7 +58,7 @@ Look for the ``[mail]`` section, and in this section, modify the value of the ``
 
 The ``agid`` service must be restarted to apply changes::
 
-   service xivo-agid restart
+   service wazo-agid restart
 
 
 Changing the email realname
@@ -89,14 +71,14 @@ Look for the ``[mail]`` section, and in this section, modify the value of the ``
 
 The ``agid`` service must be restarted to apply changes::
 
-   service xivo-agid restart
+   service wazo-agid restart
 
 
 Using the advanced features
 ---------------------------
 
 The following features are only available via the :file:`/etc/xivo/asterisk/xivo_fax.conf`
-configuration file. They are not available from the web-interface.
+configuration file.
 
 The way it works is the following:
 
@@ -136,7 +118,7 @@ The section named ``dstnum_default`` will be used only if no DID-specific action
 After editing :file:`/etc/xivo/asterisk/xivo_fax.conf`, you need to restart the agid server
 for the changes to be applied::
 
-   service xivo-agid restart
+   service wazo-agid restart
 
 
 .. _fax-ftp:
@@ -229,7 +211,7 @@ modifies several parameters.
 
 #. Create a custom template for the SPA3102 base template::
 
-    cd /var/lib/xivo-provd/plugins/xivo-cisco-spa3102-5.1.10/var/templates/
+    cd /var/lib/wazo-provd/plugins/xivo-cisco-spa3102-5.1.10/var/templates/
     cp ../../templates/base.tpl .
 
 #. Add the following content before the ``</flat-profile>`` tag::
@@ -279,58 +261,11 @@ modifies several parameters.
 
 #. Reconfigure the devices with::
 
-    xivo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").reconfigure()'
+    wazo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").reconfigure()'
 
 #. Then reboot the devices::
 
-    xivo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").synchronize()'
+    wazo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").synchronize()'
 
 
 Most of this template can be copy/pasted for a SPA2102 or SPA8000.
-
-
-Using a SIP Trunk
-=================
-
-Fax transmission, to be successful, *MUST* use G.711 codec. Fax streams cannot be encoded with
-lossy compression codecs (like G.729a).
-
-That said, you may want to establish a SIP trunk using G.729a for all other communications to save
-bandwith. Here's a way to be able to receive a fax in this configuration.
-
-.. note:: There are some prerequisites:
-
-     * your SIP Trunk must offer both G.729a and G.711 codecs
-     * your fax users must have a customized outgoing calleridnum (for the codec change is based on
-       this variable)
-
-#. We assume that outgoing call rules and fax users with their DID are created
-#. Create the file :file:`/etc/asterisk/extensions_extra.d/fax.conf` with the following content::
-
-    ;; For faxes :
-    ; The following subroutine forces inbound and outbound codec to alaw or ulaw.
-    ; For outbound codec selection we must set the variable with inheritance.
-    ; Must be set on each Fax DID
-    [pre-incall-fax]
-    exten = s,1,NoOp(### Force alaw,ulaw codec on both inbound (operator side) and outbound (analog gw side) when calling a Fax ###)
-    exten = s,n,Set(SIP_CODEC_INBOUND=alaw,ulaw)
-    exten = s,n,Set(__SIP_CODEC_OUTBOUND=alaw,ulaw)
-    exten = s,n,Return()
-
-    ; The following subroutine forces outbound codec to alaw or ulaw based on outgoing callerid number
-    ; For outbound codec selection we must set the variable with inheritance.
-    ; Must be set on each outgoing call rule
-    [pre-outcall-fax]
-    exten = s,1,NoOp(### Force alaw,ulaw codec if caller is a Fax ###)
-    exten = s,n,GotoIf($["${CALLERID(num)}" = "0112697845"]?g711:)
-    exten = s,n,GotoIf($["${CALLERID(num)}" = "0112697846"]?g711:end)
-    exten = s,n(g711),Set(__SIP_CODEC_OUTBOUND=alaw,ulaw)
-    exten = s,n(end),Return()
-
-#. For each Fax users' DID add the following string in the ``Preprocess subroutine`` field::
-
-    pre-incall-fax
-
-#. For each Outgoing call rule add the the following string in the ``Preprocess subroutine`` field::
-
-    pre-outcall-fax

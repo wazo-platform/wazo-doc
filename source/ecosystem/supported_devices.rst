@@ -3,7 +3,7 @@
 Supported Devices
 =================
 
-``xivo-provd`` plugins for these devices can be installed from the
+``wazo-provd`` plugins for these devices can be installed from the
 :ref:`"Supported devices" repository <alternative-plugins-repo>`.
 
 
@@ -473,12 +473,12 @@ Cisco 7900 Series
 
 To install firmware for xivo-cisco-sccp plugins, you need to manually download
 the firmware files from the Cisco website and save them in the
-:file:`/var/lib/xivo-provd/plugins/$plugin-name/var/cache` directory.
+:file:`/var/lib/wazo-provd/plugins/$plugin-name/var/cache` directory.
 
-File permissions should be modified to make the files readable to `xivo-provd`:
+File permissions should be modified to make the files readable to `wazo-provd`:
 
 * `chmod 640 <filename>`
-* `chown xivo-provd:xivo-provd <filename>`
+* `chown wazo-provd:wazo-provd <filename>`
 
 This directory is created by Wazo when you install the plugin (i.e. xivo-cisco-sccp-legacy).
 If you create the directory manually, the installation will fail.
@@ -506,7 +506,7 @@ The procedure is similar for the network locale and the user locale package, but
 * Choose the same version of the one shown in the plugin
 * For the network locale, download the file named "po-locale-combined-network.cop.sgn"
 * For the user locale, download the file named "po-locale-$locale-name.cop.sgn, for example "po-locale-fr_FR.cop.sgn" for the "fr_FR" locale
-* Both files must be placed in :file:`/var/lib/xivo-provd/plugins/$plugin-name/var/cache` directory. Then install them in the Wazo Web Interface.
+* Both files must be placed in :file:`/var/lib/wazo-provd/plugins/$plugin-name/var/cache` directory. Then install them in the Wazo Web Interface.
 
 .. note:: Currently user and network locale 11.5.1 should be used for plugins xivo-sccp-legacy and xivo-cisco-sccp-9.4
 
@@ -819,9 +819,7 @@ Particularities:
   (~650 MiB). For this reason, these files are explicitly excluded from the Wazo backups.
 
 * For directed call pickup to work via the BLF function keys, you need to make sure that the option
-  :guilabel:`Set caller-id in dialog-info+xml notify` is enabled on your Wazo. This option is located on
-  the :menuselection:`Services --> IPBX --> General settings --> SIP Protocol` page, in the
-  :guilabel:`Signaling` tab.
+  ``notifycid`` is ``yes`` for ``wazo-confd`` endpoint ``/asterisk/sip/general``
 
   Also, directed call pickup via a BLF function key will not work if the extension number of the
   supervised user is different from its caller ID number.
@@ -901,7 +899,9 @@ PA1      |n|         0          |y|
 
 There's a known issue with the provisioning of Snom phones in Wazo:
 
-* After a factory reset of a phone, if no language and timezone are set for the "default config device" in :menuselection:`Wazo --> Configuration --> Provisioning --> Template device`, you will be forced to select a default language and timezone on the phone UI.
+* After a factory reset of a phone, if no language and timezone are set for the "default config
+  device" (``/provd/cfg_mgr/configs``), you will
+  be forced to select a default language and timezone on the phone UI.
 
 
 +--------------------------------------------+--------+-------+-------+-------+-------+------+------+------+-------+-------+
@@ -1006,9 +1006,8 @@ There's the following known limitations/issues with the provisioning of Snom pho
 * When using a D7 expansion module, the function key label will not be shown on the first reboot or
   resynchronization. You'll need to reboot or resynchronize the phone a second time for the label to be
   shown properly.
-* After a factory reset of a phone, if no language and timezone are set for the "default config device"
-  in :menuselection:`Wazo --> Configuration --> Provisioning --> Template device`, you will be forced to
-  select a default language and timezone on the phone UI.
+* After a factory reset of a phone, if no language and timezone are set for the "default config
+  device", you will be forced to select a default language and timezone on the phone UI.
 
 
 Technicolor

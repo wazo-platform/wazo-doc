@@ -26,7 +26,7 @@ Ensure your modifications are working
 Edit the files
 --------------
 
-* Edit the files in the Git repo ``xivo-provd-plugins``, directory :file:`dhcp/`
+* Edit the files in the Git repo ``wazo-provd-plugins``, directory :file:`dhcp/`
 * Push your modifications
 * Go in :file:`dhcp/`
 * Run ``make upload`` to push your modifications to ``provd.wazo.community``. There is no ``testing`` version of these files. Once the files are uploaded, they are available for all Wazo installations.
