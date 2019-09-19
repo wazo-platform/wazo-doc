@@ -67,13 +67,13 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/wazo-calld/`
 * :file:`/etc/wazo-chatd/`
 * :file:`/etc/wazo-confd/`
+* :file:`/etc/wazo-confgend-client/`
 * :file:`/etc/wazo-phoned/`
 * :file:`/etc/wazo-dird/`
 * :file:`/etc/wazo-plugind/`
 * :file:`/etc/wazo-purge-db/`
 * :file:`/etc/wazo-webhookd/`
 * :file:`/etc/wazo-websocketd/`
-* :file:`/etc/xivo-confgend-client/`
 * :file:`/etc/wazo-dxtora/`
 * :file:`/etc/xivo/`
 * :file:`/root/.config/wazo-auth-cli/`

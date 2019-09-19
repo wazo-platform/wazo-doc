@@ -18,6 +18,10 @@ Upgrade notes
     ``wazo_confgend`` if you have custom plugins developper for confgend you
     should use the new identifier in you ``setup.py``
 
+* ``xivo-confgend-client`` has been renamed to ``wazo-confgend-client``
+
+  * If you used the ``xivo-confgen`` CLI tool you will now have to the ``wazo-confgen``
+
 
 19.13
 =====
