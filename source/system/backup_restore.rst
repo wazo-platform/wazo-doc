@@ -74,7 +74,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/etc/wazo-webhookd/`
 * :file:`/etc/wazo-websocketd/`
 * :file:`/etc/xivo-confgend-client/`
-* :file:`/etc/xivo-dxtora/`
+* :file:`/etc/wazo-dxtora/`
 * :file:`/etc/xivo/`
 * :file:`/root/.config/wazo-auth-cli/`
 * :file:`/usr/local/bin/`
