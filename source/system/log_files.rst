@@ -127,11 +127,11 @@ wazo-phoned
 * Rotation frequence: Daily
 
 
-xivo-dxtora
+wazo-dxtora
 -----------
 
-* File location: :file:`/var/log/xivo-dxtora.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-dxtora`
+* File location: :file:`/var/log/wazo-dxtora.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-dxtora`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
