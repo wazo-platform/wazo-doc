@@ -17,12 +17,12 @@ Note that it's usually a good idea to stop monit before running a daemon in fore
    systemctl stop monit.service
 
 
-xivo-confgend
+wazo-confgend
 =============
 
 ::
 
-   twistd -no -u xivo-confgend -g xivo-confgend --python=/usr/bin/xivo-confgend --logger xivo_confgen.bin.daemon.twistd_logs
+   twistd -no -u wazo-confgend -g wazo-confgend --python=/usr/bin/wazo-confgend --logger wazo_confgend.bin.daemon.twistd_logs
 
 No debug mode in confgend.
 

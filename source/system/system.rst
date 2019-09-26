@@ -21,7 +21,7 @@ System
    wazo-service <service>
    wazo-webhookd <wazo-webhookd>
    wazo-confd <wazo-confd/wazo-confd>
-   xivo-confgend <xivo-confgend/xivo-confgend>
+   wazo-confgend <wazo-confgend/wazo-confgend>
    wazo-dird <wazo-dird/wazo-dird>
    wazo-phoned <wazo-phoned>
    wazo-purge-db <purge_logs>
