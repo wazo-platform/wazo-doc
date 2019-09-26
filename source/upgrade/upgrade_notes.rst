@@ -20,7 +20,7 @@ Upgrade notes
 
 * ``xivo-confgend-client`` has been renamed to ``wazo-confgend-client``
 
-  * If you used the ``xivo-confgen`` CLI tool you will now have to the ``wazo-confgen``
+  * If you used the ``xivo-confgen`` CLI tool you will now have to use ``wazo-confgen``
 
 
 19.13
