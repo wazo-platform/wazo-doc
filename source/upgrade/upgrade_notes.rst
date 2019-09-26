@@ -27,6 +27,12 @@ Upgrade notes
 
   * If you used the ``xivo-confgen`` CLI tool you will now have to use ``wazo-confgen``
 
+* If you are upgrading from wazo 18.03 or earlier, The old directory sources
+  have removed since the configuration is now done in dird. Before deleting the
+  information from the DB a extract of the old configuration file has been done
+  in ``/var/lib/wazo-upgrade/dird_sources.yml`` to allow administrators to
+  recreate there sources.
+
 
 19.13
 =====
