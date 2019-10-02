@@ -7,9 +7,11 @@ Upgrade notes
 19.14
 =====
 
-* A new version (v2) of websocket protocol have been created.
-  The v1 protocol does not return the attribute `msg` in all payloads as it
-  was always empty.
+* A new version (v2) of websocket protocol have been created. See :ref:`Wazo WebSocket
+  <wazo-websocketd>` for more information
+
+  The v1 is now deprecated and should not by used anymore. Also it does not return the attribute
+  ``msg`` in all payloads as it was always empty.
 
 * ``xivo-confgend`` has been renamed to ``wazo-confgend``
 
