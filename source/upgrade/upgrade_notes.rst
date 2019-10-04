@@ -7,10 +7,10 @@ Upgrade notes
 19.14
 =====
 
-* A new version (v2) of websocket protocol have been created. See :ref:`Wazo WebSocket
+* A new version (v2) of websocket protocol has been created. See :ref:`Wazo WebSocket
   <wazo-websocketd>` for more information
 
-  The v1 is now deprecated and should not by used anymore. Also it does not return the attribute
+  The v1 is now deprecated and should not be used anymore. Also it does not return the attribute
   ``msg`` in all payloads as it was always empty.
 
 * ``xivo-confgend`` has been renamed to ``wazo-confgend``
@@ -26,12 +26,6 @@ Upgrade notes
 * ``xivo-confgend-client`` has been renamed to ``wazo-confgend-client``
 
   * If you used the ``xivo-confgen`` CLI tool you will now have to use ``wazo-confgen``
-
-* If you are upgrading from wazo 18.03 or earlier, The old directory sources
-  have removed since the configuration is now done in dird. Before deleting the
-  information from the DB a extract of the old configuration file has been done
-  in ``/var/lib/wazo-upgrade/dird_sources.yml`` to allow administrators to
-  recreate there sources.
 
 * If you are upgrading a Wazo that was originally installed in 18.03 or earlier, the old directory
   configuration is now replaced with a new profile ``default`` for each tenant. The migration of the
