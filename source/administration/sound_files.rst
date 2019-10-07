@@ -9,11 +9,11 @@ On a fresh install, only en_US and fr_FR sounds are installed. Canadian French a
 
 To install Canadian French sounds you have to execute the following command::
 
-    apt-get install asterisk-sounds-wav-fr-ca xivo-sounds-fr-ca
+    apt-get install asterisk-sounds-wav-fr-ca wazo-sounds-fr-ca
 
 To install German sounds you have to execute the following command::
 
-    apt-get install asterisk-sounds-wav-de-de xivo-sounds-de-de
+    apt-get install asterisk-sounds-wav-de-de wazo-sounds-de-de
 
 Now you may select the newly installed language for your users.
 

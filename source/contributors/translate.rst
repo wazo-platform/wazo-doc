@@ -19,9 +19,9 @@ Languages and prompts are recorded by several studios. The information for those
 
 Prompts transcripts are listed in `Transifex`_ (\*-prompts). You may translate them there.
 
-The prompts used in Wazo are stored in `xivo-sounds`_ git repository. You may also want to
+The prompts used in Wazo are stored in `wazo-sounds`_ git repository. You may also want to
 :ref:`generate your own sound files <generate_custom_prompts>`.
 
 
-.. _xivo-sounds: https://github.com/wazo-platform/xivo-sounds
+.. _wazo-sounds: https://github.com/wazo-platform/wazo-sounds
 .. _Transifex: https://www.transifex.com/wazo/wazo/

@@ -11,7 +11,7 @@ Getting the code
 ================
 
 The source code for the Wazo Platform is available on `GitHub
-<https://github.com/wazo-pbx>`_. Our GitHub organization contains over 200
+<https://github.com/wazo-platform>`_. Our GitHub organization contains over 200
 repositories. Finding the one you want to contribute can be a daunting task.
 
 The `Wazo developers page <http://developers.wazo.io/>`_ can help you find which
@@ -83,7 +83,7 @@ Acceptance tests are longer tests that uses the Wazo to test a feature from
 end-to-end. These tests are usually longer to execute and require a dedicated
 Wazo Platform. As a contributor you are not expected to execute these tests if
 you are not contributing to them. Some of the acceptance tests are automatic
-`wazo-acceptance <http://github.com/wazo-pbx/wazo-acceptance>`_ and other are
+`wazo-acceptance <http://github.com/wazo-platform/wazo-acceptance>`_ and other are
 executed manually at the end of each sprint.
 
 
@@ -99,11 +99,11 @@ outage for you and your users. To install your test engine follow the
 Now that you have a test engine, you want to try your code on it. Before
 starting I suggest you make a snapshot of your virtual machine to be able to
 come back to a clean install whenever needed. Then you can use `wdk
-<http://github.com/wazo-pbx/wazo-sdk>`_ to update the code running on your test
+<http://github.com/wazo-platform/wazo-sdk>`_ to update the code running on your test
 platform.
 
 The installation instructions for wdk are contained in its `README
-<https://github.com/wazo-pbx/wazo-sdk/blob/master/README.md>`_ as well as its
+<https://github.com/wazo-platform/wazo-sdk/blob/master/README.md>`_ as well as its
 usage instructions.
 
 

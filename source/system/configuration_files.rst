@@ -83,12 +83,12 @@ wazo-amid
 * Default configuration file: :file:`/etc/wazo-amid/config.yml`
 
 
-xivo-confgend
+wazo-confgend
 =============
 
-* Default configuration directory: :file:`/etc/xivo-confgend/conf.d`
-* Default configuration file: :file:`/etc/xivo-confgend/config.yml`
-* Default templates directory: :file:`/etc/xivo-confgend/templates`
+* Default configuration directory: :file:`/etc/wazo-confgend/conf.d`
+* Default configuration file: :file:`/etc/wazo-confgend/config.yml`
+* Default templates directory: :file:`/etc/wazo-confgend/templates`
 
 
 xivo-dao

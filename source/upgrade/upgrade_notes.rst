@@ -4,6 +4,38 @@
 Upgrade notes
 *************
 
+19.14
+=====
+
+* A new version (v2) of websocket protocol has been created. See :ref:`Wazo WebSocket
+  <wazo-websocketd>` for more information
+
+  The v1 is now deprecated and should not be used anymore. Also it does not return the attribute
+  ``msg`` in all payloads as it was always empty.
+
+* ``xivo-confgend`` has been renamed to ``wazo-confgend``
+
+  * The custom configuration files have been moved to :file:`/etc/wazo-confgend/conf.d`
+  * The log file has been renamed to :file:`wazo-confgend.log`
+  * The plugin entry points have been renamed from ``xivo`` to ``wazo``. Plugins enabled in custom
+    configuration files should use the new name.
+  * The entry point identifier has been changed from ``xivo_confgend`` to ``wazo_confgend``. If you
+    have developed custom plugins for confgend you should use the new identifier in your
+    :file:`setup.py`.
+
+* ``xivo-confgend-client`` has been renamed to ``wazo-confgend-client``
+
+  * If you used the ``xivo-confgen`` CLI tool you will now have to use ``wazo-confgen``
+
+* If you are upgrading a Wazo that was originally installed in 18.03 or earlier, the old directory
+  configuration is now replaced with a new profile ``default`` for each tenant. The migration of the
+  old directory configuration must be done manually, since there is no way to automatically detect
+  the tenant for each directory configuration. To allow this migration, the old configuration is
+  dumped in ``/var/backups/xivo/dird_sources.yml`` during the upgrade to Wazo Platform 19.14. The
+  administrator must then recreate the directory configuration manually using the API or web
+  interface.
+
+
 19.13
 =====
 

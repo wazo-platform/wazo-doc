@@ -22,7 +22,7 @@ To use the service, you need to:
    wazo-auth <wazo-auth>`.
 
 For example, if you want to use the service located at ``example.org`` with the token
-``some-token-id``, you would use the URL ``wss://example.org:9502/?token=some-token-id``.
+``some-token-id``, you would use the URL ``wss://example.org:9502/?token=some-token-id&version=2``.
 
 The :ref:`SSL/TLS certificate <https_certificate>` that is used by the WebSocket server is the same
 as the one used by the Wazo web interface and the REST APIs. By default, this is a self-signed
@@ -34,7 +34,7 @@ described in the :ref:`connection section <ws-connection>`.
 After a succesful connection and authentication to the service, the server will send the following
 message::
 
-   {"op": "init", "code": 0, "msg": ""}
+   {"op": "init", "code": 0, "data": {"version": 2}}
 
 This indicate that the server is ready to accept more commands from the client. Had an error
 happened, the server would have closed the connection, possibly with one of the :ref:`service
@@ -52,7 +52,7 @@ following command::
 
 If all goes well, the server will respond with::
 
-   {"op": "subscribe", "code": 0, "msg": ""}
+   {"op": "subscribe", "code": 0}
 
 Once you have subscribed to all the events you are interested in, you ask the server to start
 sending you the matching events by sending the following command::
@@ -61,10 +61,12 @@ sending you the matching events by sending the following command::
 
 The server will respond with::
 
-   {"op": "start", "code": 0, "msg": ""}
+   {"op": "start", "code": 0}
 
-Once you have received this message, all the other messages you'll receive will be messages
-originating from the bus, in the same format as they were on the bus.
+Once you have received this message, you will start to received events from the
+bus. All event will be surrounded by the following enveloppe::
+
+   {"op": "event": "code": 0, "event": <original-event-payload>}
 
 
 Example
@@ -92,17 +94,12 @@ Here's a rudimentary example of a web page accessing the service:
 
        var host = document.getElementById("host").value;
        var token_id = document.getElementById("token").value;
-       socket = new WebSocket("wss://" + host + ":9502/?token=" + token_id);
+       socket = new WebSocket("wss://" + host + ":9502/?version=2&token=" + token_id);
        socket.onclose = function(event) {
            socket = null;
            console.log("websocketd closed with code " + event.code + " and reason '" + event.reason + "'");
        };
        socket.onmessage = function(event) {
-           if (started) {
-               console.log("message received: " + event.data);
-               return;
-           }
-
            var msg = JSON.parse(event.data);
            switch (msg.op) {
                case "init":
@@ -110,8 +107,10 @@ Here's a rudimentary example of a web page accessing the service:
                    start();
                    break;
                case "start":
-                   started = true;
                    console.log("waiting for messages");
+                   break;
+               case "event":
+                   console.log("message received: " + msg.event);
                    break;
            }
        };
@@ -160,18 +159,13 @@ line 18 (using the `WebSocket API <https://developer.mozilla.org/en-US/docs/Web/
 
 .. code-block:: javascript
 
-   socket = new WebSocket("wss://" + host + ":9502/?token=" + token_id);
+   socket = new WebSocket("wss://" + host + ":9502/?version=2&token=" + token_id);
 
 Then, at line 23, a ``onmessage`` callback is set on the WebSocket object:
 
 .. code-block:: javascript
 
    socket.onmessage = function(event) {
-       if (started) {
-           console.log("message received: " + event.data);
-           return;
-       }
-
        var msg = JSON.parse(event.data);
        switch (msg.op) {
            case "init":
@@ -180,8 +174,10 @@ Then, at line 23, a ``onmessage`` callback is set on the WebSocket object:
                start();
                break;
            case "start":
-               started = true;
                console.log("waiting for messages");
+               break;
+           case "event":
+               console.log("message received: " + msg.event);
                break;
        }
    };
@@ -321,33 +317,27 @@ Server Messages
 
 The format of the messages sent by the server are all of the same format (until the server receives a "start" command)::
 
-   {"op": "<operation-name>", "code": <status-code>, "msg": "<error message>"}
+   {"op": "<operation-name>", "code": <status-code>, "data": "<data>"}
 
 The 3 keys are always present. The value of the "op" key can be one of "init", "subscribe" or
 "start". The value of the "code" key is an integer representing the status of the operation, 0
-meaning there was no error, other values meaning there was an error. The "msg" is an empty string
-unless "code" is non-zero, in which case it's a human-readable message of the error.
+meaning there was no error, other values meaning there was an error.
 
 The "init" message is only sent after the connection is successfully established between the client
 and the server. It's code is always zero; if the connection could not be established, the connection is
 simply closed. Example::
 
-   {"op": "init", "code": 0, "msg": ""}
+   {"op": "init", "code": 0, "data": {"version": 2}}
 
 The "subscribe" message is sent as a response to a client "subscribe" message. The code is always
 zero. Example::
 
-   {"op": "subscribe", "code": 0, "msg": ""}
+   {"op": "subscribe", "code": 0}
 
 The "start" message is sent as a response to a client "start" message. The code is always zero.
 Example::
 
-   {"op": "start", "code": 0, "msg": ""}
+   {"op": "start", "code": 0}
 
 After receiving the "start" message, the server switch into the "bus/started" mode, where all messages that the server will ever sent
 will be the body of the messages it received on the bus on behalf of the client.
-
-Note that a client can subscribe to more events after sending its "start" message, but it won't
-receive any response from the server, e.g. the server won't send a corresponding "subscribe"
-message. Said differently, once the client has sent a "start" message, every message the client will
-ever receive are messages coming from the bus.

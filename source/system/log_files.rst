@@ -104,16 +104,16 @@ wazo-confd
 * Rotation frequence: Daily
 
 
-xivo-confgend
+wazo-confgend
 -------------
 
-The xivo-confgend daemon output is sent to the file specified with the ``--logfile`` parameter when
+The wazo-confgend daemon output is sent to the file specified with the ``--logfile`` parameter when
 launched with twistd.
 
-The file location can be changed by customizing the xivo-confgend.service unit file.
+The file location can be changed by customizing the wazo-confgend.service unit file.
 
-* File location: :file:`/var/log/xivo-confgend.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-confgend`
+* File location: :file:`/var/log/wazo-confgend.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-confgend`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
@@ -127,11 +127,11 @@ wazo-phoned
 * Rotation frequence: Daily
 
 
-xivo-dxtora
+wazo-dxtora
 -----------
 
-* File location: :file:`/var/log/xivo-dxtora.log`
-* Rotate configuration: :file:`/etc/logrotate.d/xivo-dxtora`
+* File location: :file:`/var/log/wazo-dxtora.log`
+* Rotate configuration: :file:`/etc/logrotate.d/wazo-dxtora`
 * Number of archived files: 15
 * Rotation frequence: Daily
 
