@@ -52,5 +52,5 @@ My Wazo is stuck in a specific version
 Procedures for upgrading to specific versions may freeze the version of your Wazo. Run the following
 commands to get the latest updates::
 
-  wazo-dist phoenix-stretch
+  wazo-dist pelican-stretch
   wazo-upgrade
