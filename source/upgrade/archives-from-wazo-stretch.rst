@@ -3,8 +3,9 @@ Upgrade from Wazo < 19.04
 
 Those procedures are valid if your Wazo installation is newer than 18.01 and older than 19.04.
 
-Upgrade to Wazo < 19.04
------------------------
+
+Upgrade to Wazo <= 18.03
+------------------------
 
 Example to upgrade to Wazo 18.03::
 
