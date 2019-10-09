@@ -49,7 +49,7 @@ You can execute unittests with the following command
 
 .. code-block:: sh
 
-   tox -epy35
+   tox -e py37
 
 
 Integration tests
