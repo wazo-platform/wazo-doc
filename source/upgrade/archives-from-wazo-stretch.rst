@@ -15,16 +15,18 @@ Example to upgrade to Wazo 18.03::
   wazo-dist -m phoenix-stretch
 
 
+Upgrade to Wazo < 19.12
+-----------------------
+
+Not supported
+
+
 Upgrade to Wazo < 19.13
 -----------------------
 
-Example to upgrade to Wazo 19.05::
+Example to upgrade to Wazo 19.12::
 
-  wazo-dist -a wazo-19.05
-  apt-get update
-  apt-get install xivo-upgrade/wazo-19.05
   wazo-upgrade
-  wazo-dist -m pelican-stretch
 
 
 Upgrade to Wazo >= 19.13

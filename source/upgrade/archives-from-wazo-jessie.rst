@@ -32,6 +32,9 @@ This will upgrade your xivo to Wazo 17.17. From there:
      wazo-dist phoenix-stretch
 
 
+.. note:: Upgrading to a specific version between 18.03 and 19.12 is not supported
+
+
 My Wazo is stuck in a specific version
 --------------------------------------
 
