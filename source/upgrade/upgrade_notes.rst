@@ -35,6 +35,8 @@ Upgrade notes
   administrator must then recreate the directory configuration manually using the API or web
   interface.
 
+Consult the  `19.14 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10045>`_ for more information.
+
 
 19.13
 =====
