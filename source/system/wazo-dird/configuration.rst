@@ -29,7 +29,7 @@ Here's an example of the main configuration file:
    foreground: False
    log_filename: /var/log/wazo-dird.log
    log_level: info
-   pid_filename: /var/run/wazo-dird/wazo-dird.pid
+   pid_filename: /run/wazo-dird/wazo-dird.pid
    user: www-data
 
    enabled_plugins:
@@ -62,7 +62,7 @@ log_level
 
 pid_filename
    File used as lock to avoid multiple wazo-dird instances. Default:
-   ``/var/run/wazo-dird/wazo-dird.pid``.
+   ``/run/wazo-dird/wazo-dird.pid``.
 
 user
    The owner of the process. Default: ``www-data``.
