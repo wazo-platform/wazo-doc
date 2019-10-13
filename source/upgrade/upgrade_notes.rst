@@ -4,6 +4,16 @@
 Upgrade notes
 *************
 
+19.15
+=====
+
+* We have standardize the stevedore entry point namespace for our python client. If you have custom
+  plugins, Be sure to use the full client name for the namespace. (e.g. ``auth_client.commands`` -->
+  ``wazo_auth_client.commands``)
+
+Consult the  `19.15 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10046>`_ for more information.
+
+
 19.14
 =====
 
