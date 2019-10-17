@@ -1,0 +1,23 @@
+- job:
+    name: wazo-tox-docs
+    description: Generate wazo doc
+    vars:
+      tox_envlist: docs
+    parent: wazo-tox
+    post-run: fetch-docs.yml
+
+- project-template:
+    name: wazo-tox-docs
+    description: Project template for tox -e py37
+    check:
+      jobs:
+        - wazo-tox-docs:
+            nodeset: debian10-vm
+    gate:
+      jobs:
+        - wazo-tox-docs:
+            nodeset: debian10-vm
+
+- project:
+    templates:
+      - wazo-tox-docs
