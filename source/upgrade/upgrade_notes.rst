@@ -4,17 +4,33 @@
 Upgrade notes
 *************
 
+19.16
+=====
+
+* ``wazo-auth`` http configuration section have been moved onto the rest_api
+  section, eg::
+
+    rest_api:
+      https:
+        listen: <ip>
+        port: <port>
+        certificate: </path/to/cert>
+        private_key: </path/to/key>
+
+  become::
+
+    rest_api:
+      listen: <ip>
+      port: <port>
+      certificate: </path/to/cert>
+      private_key: </path/to/key>
+
 19.15
 =====
 
 * We have standardize the stevedore entry point namespace for our python client. If you have custom
   plugins, Be sure to use the full client name for the namespace. (e.g. ``auth_client.commands`` -->
   ``wazo_auth_client.commands``)
-
-* The directed call pickup extension ``*8XXXX`` has been disabled by default on new installations,
-  because it made it possible for any user to pickup any other user, including users for whom it
-  should not be possible. This does not apply to upgrades, but if you wish to disable this feature,
-  you can do it with ``wazo-confd`` ``/extensions/features`` API endpoint.
 
 Consult the  `19.15 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10046>`_ for more information.
 
