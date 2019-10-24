@@ -50,6 +50,13 @@ Consult the  `19.15 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.j
   administrator must then recreate the directory configuration manually using the API or web
   interface.
 
+* There is a `known bug <https://wazo-dev.atlassian.net/browse/WAZO-1254>`_ that will remove
+  pre-recorded sound files provided by the ``xivo-sounds-*``, .e.g ``xivo-sounds-fr-fr``. If you had
+  installed one of these packages manually, you need to install the corresponding ``wazo-sounds-*``
+  package manually, e.g. ``wazo-sounds-fr-fr``. Upgrades to Wazo >= 19.15 are not affected by this
+  bug.
+
+
 Consult the  `19.14 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10045>`_ for more information.
 
 
