@@ -51,9 +51,9 @@ Consult the  `19.15 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.j
   interface.
 
 * There is a `known bug <https://wazo-dev.atlassian.net/browse/WAZO-1254>`_ that will remove
-  pre-recorded sound files provided by the ``xivo-sounds-*``, .e.g ``xivo-sounds-fr-fr``. If you had
+  pre-recorded sound files provided by the ``xivo-sounds-*``, .e.g ``xivo-sounds-fr-ca``. If you had
   installed one of these packages manually, you need to install the corresponding ``wazo-sounds-*``
-  package manually, e.g. ``wazo-sounds-fr-fr``. Upgrades to Wazo >= 19.15 are not affected by this
+  package manually, e.g. ``wazo-sounds-fr-ca``. Upgrades to Wazo >= 19.15 are not affected by this
   bug.
 
 
