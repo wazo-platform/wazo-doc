@@ -30,11 +30,16 @@ Enabling an Interception Extension
 
 The pickup extension can be defined with:
 
-* ``/extensions/features`` endpoint and ``features: pickup``
+* ``/asterisk/features/general`` endpoint and the option key ``pickupexten``
 
 The default value for group pickup is *\*8*.
 
-.. warning:: The extension must be enabled even if a function key is used.
+.. warning:: The directed pickup extension must be enabled when a function key is used.
+
+If you decide to not use a directed pickup extension, only *\*8* alone will work (without specifying
+the extension to pickup). In this case, you *must* have at least a pickup group with the targets and
+interceptors you want for the interception to work. This will also make it impossible for the
+function keys to work. See :ref:`directed_pickup` for more information.
 
 
 Adding a Function Key to an Interceptor

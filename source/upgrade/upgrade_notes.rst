@@ -4,6 +4,21 @@
 Upgrade notes
 *************
 
+19.15
+=====
+
+* We have standardized the Python entry points namespace for our Python client. If you have custom
+  plugins, be sure to use the full client name for the namespace. (e.g. ``auth_client.commands`` -->
+  ``wazo_auth_client.commands``)
+
+* The directed call pickup extension ``*8XXXX`` has been disabled by default on new installations,
+  because it made it possible for any user to pickup any other user, including users for whom it
+  should not be possible. This does not apply to upgrades, but if you wish to disable this feature,
+  you can do it with ``wazo-confd`` ``/extensions/features`` API endpoint.
+
+Consult the  `19.15 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10046>`_ for more information.
+
+
 19.14
 =====
 
@@ -34,6 +49,15 @@ Upgrade notes
   dumped in ``/var/backups/xivo/dird_sources.yml`` during the upgrade to Wazo Platform 19.14. The
   administrator must then recreate the directory configuration manually using the API or web
   interface.
+
+* There is a `known bug <https://wazo-dev.atlassian.net/browse/WAZO-1254>`_ that will remove
+  pre-recorded sound files provided by the ``xivo-sounds-*``, .e.g ``xivo-sounds-fr-ca``. If you had
+  installed one of these packages manually, you need to install the corresponding ``wazo-sounds-*``
+  package manually, e.g. ``wazo-sounds-fr-ca``. Upgrades to Wazo >= 19.15 are not affected by this
+  bug.
+
+
+Consult the  `19.14 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10045>`_ for more information.
 
 
 19.13

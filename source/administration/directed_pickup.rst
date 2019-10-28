@@ -1,3 +1,5 @@
+.. _directed_pickup:
+
 ***************
 Directed Pickup
 ***************
@@ -7,7 +9,12 @@ Directed pickup allows a user to intercept calls made to another user.
 For example, if a user with number 1001 is ringing, you can dial \*81001 from
 your phone and it will intercept (i.e. pickup) the call to this user.
 
-The extension prefix used to pickup calls can be changed via the ``/extensions/features`` endpoint.
+This feature is disabled by default. The reason behind this choice is based on the fact that it is
+possible for any user to pickup any other user, including users for whom it should not be possible
+(e.g. directors). It can be enabled via the ``/extensions/features`` endpoint.
+
+The extension prefix used for directed pickup can be changed via the ``/extensions/features``
+endpoint.
 
 
 Custom Line Limitation
