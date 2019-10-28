@@ -7,8 +7,8 @@ Upgrade notes
 19.15
 =====
 
-* We have standardize the stevedore entry point namespace for our python client. If you have custom
-  plugins, Be sure to use the full client name for the namespace. (e.g. ``auth_client.commands`` -->
+* We have standardized the Python entry points namespace for our Python client. If you have custom
+  plugins, be sure to use the full client name for the namespace. (e.g. ``auth_client.commands`` -->
   ``wazo_auth_client.commands``)
 
 * The directed call pickup extension ``*8XXXX`` has been disabled by default on new installations,
