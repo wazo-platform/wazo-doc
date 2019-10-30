@@ -7,6 +7,8 @@ Upgrade notes
 19.15
 =====
 
+* ``xivo-amid-client`` has been renamed to ``wazo-amid-client``
+
 * ``wazo-auth`` http configuration section have been moved onto the rest_api
   section, eg::
 
