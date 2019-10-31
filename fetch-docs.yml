@@ -1,0 +1,12 @@
+- hosts: all
+  tasks:
+    - name: Upload site
+      synchronize:
+        src: '{{ zuul.project.src_dir }}/build/html'
+        dest: '{{ zuul.executor.log_root }}/html'
+        mode: pull
+        copy_links: true
+        verify_host: true
+        rsync_opts:
+          - --prune-empty-dirs
+
