@@ -35,13 +35,3 @@ Query
 ::
 
     POST /swap_ethernet_interfaces
-
-Routes
-======
-
-Query
------
-
-::
-
-    POST /routes
