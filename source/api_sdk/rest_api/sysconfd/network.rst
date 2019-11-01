@@ -13,15 +13,3 @@ Query
 ::
 
     GET /network_config
-
-
-
-Rename ethernet interface
-=========================
-
-Query
------
-
-::
-
-    POST /rename_ethernet_interface
