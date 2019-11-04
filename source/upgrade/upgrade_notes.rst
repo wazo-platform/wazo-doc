@@ -4,7 +4,7 @@
 Upgrade notes
 *************
 
-19.15
+19.16
 =====
 
 * ``xivo-amid-client`` has been renamed to ``wazo-amid-client``
@@ -26,6 +26,10 @@ Upgrade notes
       port: <port>
       certificate: </path/to/cert>
       private_key: </path/to/key>
+
+
+19.15
+=====
 
 * We have standardize the stevedore entry point namespace for our python client. If you have custom
   plugins, Be sure to use the full client name for the namespace. (e.g. ``auth_client.commands`` -->
