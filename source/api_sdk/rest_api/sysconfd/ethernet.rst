@@ -137,27 +137,3 @@ Example response
            "options": null
        }
     }
-
-
-Change state
-============
-
-Query
------
-
-::
-
-    PUT /change_state_eth_ipv4
-
-Example request
----------------
-
-::
-
-    PUT /change_state_eth_ipv4 HTTP/1.1
-    Host: wazoserver
-    Content-Type: application/json
-    {
-        'ifname' : 'eth0',
-        'state': True
-    }
