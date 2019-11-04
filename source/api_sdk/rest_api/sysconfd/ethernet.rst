@@ -139,31 +139,6 @@ Example response
     }
 
 
-Replace virtual interface
-=========================
-
-Query
------
-
-::
-
-    PUT /replace_virtual_eth_ipv4
-
-Example request
----------------
-
-::
-
-    PUT /replace_virtual_eth_ipv4 HTTP/1.1
-    Host: wazoserver
-    Content-Type: application/json
-    {
-        "ifname": "eth0:0",
-        "new_ifname": "eth0:1",
-        "method": "dhcp",
-        "auto": "True"
-    }
-
 Modify interface
 ================
 
