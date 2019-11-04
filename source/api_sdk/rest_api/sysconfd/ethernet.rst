@@ -161,22 +161,3 @@ Example request
         'ifname' : 'eth0',
         'state': True
     }
-
-Delete interface ipv4
-=====================
-
-Query
------
-
-::
-
-    GET /delete_eth_ipv4/<interface>
-
-Example request
----------------
-
-::
-
-    GET /delete_eth_ipv4/eth0 HTTP/1.1
-    Host: wazoserver
-    Content-Type: application/json
