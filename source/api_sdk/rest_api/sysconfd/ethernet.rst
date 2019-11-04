@@ -139,37 +139,6 @@ Example response
     }
 
 
-Modify interface
-================
-
-Query
------
-
-::
-
-    PUT /modify_eth_ipv4
-
-Example request
----------------
-
-::
-
-    PUT /modify_eth_ipv4 HTTP/1.1
-    Host: wazoserver
-    Content-Type: application/json
-    {
-        'ifname' : 'eth0'
-        'address': '192.168.0.1',
-        'netmask': '255.255.255.0',
-        'broadcast': '192.168.0.255',
-        'gateway': '192.168.0.254',
-        'mtu': 1500,
-        'auto': True,
-        'up': True,
-        'options': [['dns-search', 'toto.tld tutu.tld'],
-                   ['dns-nameservers', '127.0.0.1 192.168.0.254']]
-    }
-
 Change state
 ============
 
