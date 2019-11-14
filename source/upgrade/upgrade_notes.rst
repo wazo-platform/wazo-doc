@@ -19,7 +19,7 @@ Upgrade notes
         certificate: </path/to/cert>
         private_key: </path/to/key>
 
-  become::
+  becomes::
 
     rest_api:
       listen: <ip>
@@ -27,10 +27,10 @@ Upgrade notes
       certificate: </path/to/cert>
       private_key: </path/to/key>
 
-* The default value for asterisk pjsip configuration parameter ``rtptimeout`` has been set to 7200
+* The default value for Asterisk PJSIP configuration parameter ``rtptimeout`` has been set to 7200
   seconds on new installs only. The change was done to automatically delete ghost calls that might
-  get stuck. If you wish to modify this value, use the ``/asterisk/sip/general`` ``wazo-confd`` API
-  endpoint.
+  get stuck. If you wish to modify this value, use the ``/asterisk/sip/general`` endpoint in
+  ``wazo-confd`` API.
 
 
 19.15
