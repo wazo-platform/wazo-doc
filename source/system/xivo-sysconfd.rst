@@ -5,7 +5,7 @@ xivo-sysconfd
 xivo-sysconfd is the system configuration server for Wazo. It does quite a few different things;
 here's a non exhaustive list:
 
-* configuring network (interfaces, hostname, DNS)
+* configuring network (hostname, DNS)
 * configuring high availability
 * staring/stopping/restarting services
 * reloading asterisk configuration
@@ -37,9 +37,6 @@ Here's an example of the configuration file:
    hosts_file = /etc/hosts
    resolvconf_file = /etc/resolv.conf
 
-   [network]
-   interfaces_file = /etc/network/interfaces
-
    [wizard]
    templates_path = /usr/share/xivo-config/templates
    custom_templates_path = /etc/xivo/custom-templates
@@ -48,9 +45,6 @@ Here's an example of the configuration file:
    commonconf_file = /etc/xivo/common.conf
    commonconf_cmd = /usr/sbin/xivo-update-config
    commonconf_monit = /usr/sbin/xivo-monitoring-update
-
-   [openssl]
-   certsdir = /var/lib/xivo/certificates
 
    [monit]
    monit_checks_dir = /usr/share/xivo-monitoring/checks
