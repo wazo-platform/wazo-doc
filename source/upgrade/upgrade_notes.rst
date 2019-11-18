@@ -10,6 +10,15 @@ Upgrade notes
 * ``wazo-dird`` Aastra plugin has been migrated to ``wazo-phoned``. If you used the Aastra route
   directly, you must use the new route in ``wazo-phoned``.
 
+* ``dahdi`` is not longer a dependency on Wazo. Upgraded engines will include all dependencies to
+  have a working dahdi installation. If you do not want dahdi installed on your system execute the
+  following steps::
+
+    rm -f /etc/wazo-confgend/conf.d/50_enable_chan_dahdi.yml
+    systemctl restart wazo-confgend
+    # THIS WILL RESTART ASTERISK
+    apt remove wazo-asterisk-extra-modules
+
 Consult the  `19.17 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10061>`_ for more information.
 
 
