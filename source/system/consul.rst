@@ -134,7 +134,7 @@ Create the file :file:`/etc/consul/agent/config.json` with the following content
 
 * ``node_name``: Arbitrary name to give this node, ``wazo-paris`` for example.
 * ``remote_host``: IP address of your new consul. Be sure the host is accessible from your Wazo and
-  check the firewall. See the documentation :ref:`here <network>`.
+  check the firewall. See the documentation :ref:`here <network_ports>`.
 * ``wazo_address``: IP address of your Wazo.
 
 This file should be owned by consul user.

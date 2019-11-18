@@ -20,10 +20,7 @@ API reference
    asterisk_voicemail
    common_configuration
    dhcpd_configuration
-   ethernet
    ha
-   network
-   openssl
    dns
    services
    xivo_services
