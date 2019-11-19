@@ -4,6 +4,15 @@
 Upgrade notes
 *************
 
+19.17
+=====
+
+* ``wazo-dird`` Aastra plugin has been migrated to ``wazo-phoned``. If you used the Aastra route
+  directly, you must use the new route in ``wazo-phoned``.
+
+Consult the  `19.17 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10061>`_ for more information.
+
+
 19.16
 =====
 
