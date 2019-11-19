@@ -79,6 +79,7 @@ Here is the list of folders and files that are backed-up:
 * :file:`/root/.config/wazo-auth-cli/`
 * :file:`/usr/local/bin/`
 * :file:`/usr/local/sbin/`
+* :file:`/usr/local/share/`
 * :file:`/usr/share/wazo/WAZO-VERSION`
 * :file:`/var/lib/asterisk/`
 * :file:`/var/lib/consul/`
