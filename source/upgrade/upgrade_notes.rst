@@ -32,6 +32,8 @@ Upgrade notes
   get stuck. If you wish to modify this value, use the ``/asterisk/sip/general`` endpoint in
   ``wazo-confd`` API.
 
+Consult the  `19.16 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10054>`_ for more information.
+
 
 19.15
 =====
