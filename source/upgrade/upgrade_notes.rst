@@ -4,6 +4,13 @@
 Upgrade notes
 *************
 
+19.17
+=====
+
+* ``wazo-dird`` Aastra plugin has been migrated to ``wazo-phoned``. If you used the Aastra route
+  directly, you must use the new route in ``wazo-phoned``.
+
+
 19.16
 =====
 
