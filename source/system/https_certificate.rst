@@ -57,7 +57,7 @@ You will need:
 
     sudo -u www-data cat /usr/local/share/*.pem > /dev/null
 
-Edit the file :file:`/etc/nginx/sites-available/xivo` and replace the following keys::
+Edit the file :file:`/etc/nginx/sites-available/wazo` and replace the following keys::
 
    ssl_certificate /usr/share/xivo-certs/server.crt;
    ssl_certificate_key /usr/share/xivo-certs/server.key;
