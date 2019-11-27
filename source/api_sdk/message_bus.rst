@@ -46,7 +46,7 @@ Here's an example of a simple client, in python, listening for :ref:`bus-call_cr
     from kombu.mixins import ConsumerMixin
 
     EXCHANGE = kombu.Exchange('xivo', type='topic')
-    ROUTING_KEY = 'events.calls.*'
+    ROUTING_KEY = 'calls.*'
 
 
     class C(ConsumerMixin):
