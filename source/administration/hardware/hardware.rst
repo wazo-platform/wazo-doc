@@ -11,10 +11,11 @@ The configuration process is the following :
 .. toctree::
    :maxdepth: 1
 
-   first, load the correct DAHDI modules, <load_modules>
-   then, configure and install the echo-canceller, <echo_canceller>
+   chan_dahdi
+   load the correct DAHDI modules <load_modules>
+   configure and install the echo-canceller <echo_canceller>
    configure the card, <card_configuration>
-   and finally, apply the configuration. <apply_configuration>
+   apply the configuration. <apply_configuration>
 
 At the end of this page you will also find some general notes and DAHDI.
 
