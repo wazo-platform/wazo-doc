@@ -22,13 +22,13 @@ To use the service, you need to:
    wazo-auth <wazo-auth>`.
 
 For example, if you want to use the service located at ``example.org`` with the token
-``some-token-id``, you would use the URL ``wss://example.org:9502/?token=some-token-id&version=2``.
+``some-token-id``, you would use the URL ``wss://example.org/api/websocketd/?token=some-token-id&version=2``.
 
 The :ref:`SSL/TLS certificate <https_certificate>` that is used by the WebSocket server is the same
 as the one used by the Wazo web interface and the REST APIs. By default, this is a self-signed
 certificate, and web browsers will prevent connections from being successfully established for
 security reasons. On most web browsers, this can be circumvented by first visiting the
-``https://<wazo-ip>:9502/`` URL and adding a security exception. Other solutions to this problem are
+``https://<wazo-ip>/api/websocketd/`` URL and adding a security exception. Other solutions to this problem are
 described in the :ref:`connection section <ws-connection>`.
 
 After a succesful connection and authentication to the service, the server will send the following
@@ -94,7 +94,7 @@ Here's a rudimentary example of a web page accessing the service:
 
        var host = document.getElementById("host").value;
        var token_id = document.getElementById("token").value;
-       socket = new WebSocket("wss://" + host + ":9502/?version=2&token=" + token_id);
+       socket = new WebSocket("wss://" + host + "/api/websocketd/?version=2&token=" + token_id);
        socket.onclose = function(event) {
            socket = null;
            console.log("websocketd closed with code " + event.code + " and reason '" + event.reason + "'");
@@ -159,7 +159,7 @@ line 18 (using the `WebSocket API <https://developer.mozilla.org/en-US/docs/Web/
 
 .. code-block:: javascript
 
-   socket = new WebSocket("wss://" + host + ":9502/?version=2&token=" + token_id);
+   socket = new WebSocket("wss://" + host + "/api/websocketd/?version=2&token=" + token_id);
 
 Then, at line 23, a ``onmessage`` callback is set on the WebSocket object:
 
@@ -206,7 +206,7 @@ Connection
 The service is available on port 9502 on all network interfaces by default. This can be changed in
 the configuration file.
 
-The canonical URL to reach the service is ``wss://<host>:9502/``.
+The canonical URL to reach the service is ``wss://<host>/api/websocketd/``.
 
 The connection is always encrypted. The certificate and private key used by the server can be
 changed in the configuration file. By default, since the certificate is self-signed, you'll have to
