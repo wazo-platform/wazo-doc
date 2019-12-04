@@ -7,11 +7,15 @@ Upgrade notes
 19.17
 =====
 
-* The default ansible installation before 19.17 set the wazo version to the development version. If
-  you have not changed the ``wazo_distribution_upgrade`` variable, all your upgrade will be on the
-  development version. To set your wazo on the stable version, use the following command::
+* The default Ansible installation installs the development version of Wazo Platform. If
+  you have not changed the ``wazo_distribution_upgrade`` variable, all the subsequent upgrades will
+  stay on the development version. This is the expected behavior, but it was not visible in the
+  installation procedure. To make your Wazo Platform use the stable version, use the following
+  command::
 
     wazo-dist -m pelican-buster
+
+  This command will take effect at the next Wazo Platform upgrade.
 
 * ``wazo-dird`` Aastra plugin has been migrated to ``wazo-phoned``. If you used the Aastra route
   directly, you must use the new route in ``wazo-phoned``.
