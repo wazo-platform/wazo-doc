@@ -20,18 +20,37 @@ Upgrade notes
 * ``wazo-dird`` phone plugins have been migrated to ``wazo-phoned``. If you used the phone routes
   from ``wazo-dird`` directly, you must use the new routes in ``wazo-phoned``.
 
-* The conference rooms created with the old orange web interface (using asterisk ``meetme`` module)
-  will not work anymore because they rely on Dahdi. If you were still using them, you must create
-  new conference rooms using the conferences API of the ``wazo-ui`` interface.
+* The conference rooms created in Wazo 18.03 or before (using asterisk ``meetme`` module) will not
+  work anymore because they rely on DAHDI. If you were still using those conference rooms, you must
+  create new conference rooms using the conferences API or the ``wazo-ui`` interface.
 
-* ``dahdi`` is not longer a dependency on Wazo. Upgraded engines will include all dependencies to
-  have a working dahdi installation. If you do not want dahdi installed on your system execute the
-  following steps::
+* ``DAHDI`` is not longer a mandatory dependency of Wazo: it will not be installed on new installs
+  anymore. Upgraded Wazo Platform will keep DAHDI installed if it was configured in
+  ``/etc/asterisk/dahdi_channels.conf``. Otherwise, DAHDI will be removed. To install or remove
+  DAHDI manually, see :ref:`chan_dahdi`. Other disabled Asterisk modules:
 
-    rm -f /etc/wazo-confgend/conf.d/50_enable_chan_dahdi.yml
-    systemctl restart wazo-confgend
-    # THIS WILL RESTART ASTERISK
-    apt remove wazo-asterisk-extra-modules
+  * ``app_jack``
+  * ``cdr_pgsql``
+  * ``cdr_radius``
+  * ``cdr_tds``
+  * ``cel_radius``
+  * ``cel_tds``
+  * ``chan_also``
+  * ``chan_console``
+  * ``chan_mgcp``
+  * ``chan_motif``
+  * ``chan_oss``
+  * ``chan_phone``
+  * ``chan_skinny``
+  * ``chan_unistim``
+  * ``res_calendar_caldav``
+  * ``res_calendar_ews``
+  * ``res_calendar_exchange``
+  * ``res_calendar_icalendar``
+  * ``res_calendar``
+  * ``res_snmp``
+  * ``res_xmpp``
+
 
 Consult the  `19.17 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10061>`_ for more information.
 
