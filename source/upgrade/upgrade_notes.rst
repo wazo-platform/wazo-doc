@@ -20,6 +20,10 @@ Upgrade notes
 * ``wazo-dird`` Aastra plugin has been migrated to ``wazo-phoned``. If you used the Aastra route
   directly, you must use the new route in ``wazo-phoned``.
 
+* The conference rooms created with the old orange web interface (using asterisk ``meetme`` module)
+  will not work anymore because they rely on Dahdi. If you were still using them, you must create
+  new conference rooms using the conferences API of the ``wazo-ui`` interface.
+
 * ``dahdi`` is not longer a dependency on Wazo. Upgraded engines will include all dependencies to
   have a working dahdi installation. If you do not want dahdi installed on your system execute the
   following steps::
