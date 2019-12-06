@@ -17,8 +17,8 @@ Upgrade notes
 
   This command will take effect at the next Wazo Platform upgrade.
 
-* ``wazo-dird`` Aastra plugin has been migrated to ``wazo-phoned``. If you used the Aastra route
-  directly, you must use the new route in ``wazo-phoned``.
+* ``wazo-dird`` phone plugins have been migrated to ``wazo-phoned``. If you used the phone routes
+  from ``wazo-dird`` directly, you must use the new routes in ``wazo-phoned``.
 
 * The conference rooms created with the old orange web interface (using asterisk ``meetme`` module)
   will not work anymore because they rely on Dahdi. If you were still using them, you must create
