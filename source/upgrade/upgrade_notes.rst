@@ -27,7 +27,12 @@ Upgrade notes
 * ``DAHDI`` is not longer a mandatory dependency of Wazo: it will not be installed on new installs
   anymore. Upgraded Wazo Platform will keep DAHDI installed if it was configured in
   ``/etc/asterisk/dahdi_channels.conf``. Otherwise, DAHDI will be removed. To install or remove
-  DAHDI manually, see :ref:`chan_dahdi`. Other disabled Asterisk modules:
+  DAHDI manually, see :ref:`chan_dahdi`.
+
+* Some dependencies have been remove from the ``asterisk`` package. If you used one of the following
+  modules you must install the ``wazo-asterisk-extra-modules`` to keep using those modules. Note that
+  all modules listed here are disabled by default on Wazo. You had to manually modify
+  ``/etc/asterisk/modules.conf`` to use them.
 
   * ``app_jack``
   * ``cdr_pgsql``
