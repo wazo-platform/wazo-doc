@@ -29,9 +29,9 @@ Upgrade notes
   ``/etc/asterisk/dahdi_channels.conf``. Otherwise, DAHDI will be removed. To install or remove
   DAHDI manually, see :ref:`chan_dahdi`.
 
-* Some dependencies have been remove from the ``asterisk`` package. If you used one of the following
+* Some dependencies have been removed from the ``asterisk`` package. If you used one of the following
   modules you must install the ``wazo-asterisk-extra-modules`` to keep using those modules. Note that
-  all modules listed here are disabled by default on Wazo. You had to manually modify
+  all modules listed here are disabled by default on Wazo. You have to manually modify
   ``/etc/asterisk/modules.conf`` to use them.
 
   * ``app_jack``
