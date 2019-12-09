@@ -218,7 +218,7 @@ Enabling res_cli_aliases
 
 1. Enable `res_cli_aliases.so` in the `wazo-confgend` configuration::
 
-     cat <<EOF > /etc/wazo-confgend/conf.d/chan_dahdi.yml
+     cat <<EOF > /etc/wazo-confgend/conf.d/res_cli_aliases.yml
      enabled_asterisk_modules:
          res_cli_aliases.so: true
      EOF
