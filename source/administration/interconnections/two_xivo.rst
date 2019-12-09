@@ -75,7 +75,7 @@ On the call emitting server(s), add outgoing call.
 
 * ``POST /outcalls``
 * ``PUT /outcalls/{outcall_id}/trunks``
-* ``POST /extensions {"exten": "**99.", "context": "to-extern"}``
+* ``POST /extensions {"exten": "_**99.", "context": "to-extern"}``
 * ``PUT /outcalls/{outcall_id}/extensions/{extension_id} {"strip_digits": 4}``
 
 This will tell Wazo: if any extension begins with ``**99``, then try to dial it
@@ -84,6 +84,7 @@ prefix).
 
 The most useful special characters to match extensions are::
 
+   _ (underscore): tells Asterisk that this is a pattern
    . (period): will match one or more characters
    X: will match only one character
 

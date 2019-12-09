@@ -4,6 +4,62 @@
 Upgrade notes
 *************
 
+19.17
+=====
+
+* The default Ansible installation installs the development version of Wazo Platform. If
+  you have not changed the ``wazo_distribution_upgrade`` variable, all the subsequent upgrades will
+  stay on the development version. This is the expected behavior, but it was not visible in the
+  installation procedure. To make your Wazo Platform use the stable version, use the following
+  command::
+
+    wazo-dist -m pelican-buster
+
+  This command will take effect at the next Wazo Platform upgrade.
+
+* ``wazo-dird`` phone plugins have been migrated to ``wazo-phoned``. If you used the phone routes
+  from ``wazo-dird`` directly, you must use the new routes in ``wazo-phoned``.
+
+* The conference rooms created in Wazo 18.03 or before (using asterisk ``meetme`` module) will not
+  work anymore because they rely on DAHDI. If you were still using those conference rooms, you must
+  create new conference rooms using the conferences API or the ``wazo-ui`` interface.
+
+* ``DAHDI`` is not longer a mandatory dependency of Wazo: it will not be installed on new installs
+  anymore. Upgraded Wazo Platform will keep DAHDI installed if it was configured in
+  ``/etc/asterisk/dahdi_channels.conf``. Otherwise, DAHDI will be removed. To install or remove
+  DAHDI manually, see :ref:`chan_dahdi`.
+
+* Some dependencies have been removed from the ``asterisk`` package. If you used one of the following
+  modules you must install the ``wazo-asterisk-extra-modules`` to keep using those modules. Note that
+  all modules listed here are disabled by default on Wazo. You have to manually modify
+  ``/etc/asterisk/modules.conf`` to use them.
+
+  * ``app_jack``
+  * ``cdr_pgsql``
+  * ``cdr_radius``
+  * ``cdr_tds``
+  * ``cel_radius``
+  * ``cel_tds``
+  * ``chan_also``
+  * ``chan_console``
+  * ``chan_mgcp``
+  * ``chan_motif``
+  * ``chan_oss``
+  * ``chan_phone``
+  * ``chan_skinny``
+  * ``chan_unistim``
+  * ``res_calendar_caldav``
+  * ``res_calendar_ews``
+  * ``res_calendar_exchange``
+  * ``res_calendar_icalendar``
+  * ``res_calendar``
+  * ``res_snmp``
+  * ``res_xmpp``
+
+
+Consult the  `19.17 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10061>`_ for more information.
+
+
 19.16
 =====
 
@@ -31,6 +87,8 @@ Upgrade notes
   seconds on new installs only. The change was done to automatically delete ghost calls that might
   get stuck. If you wish to modify this value, use the ``/asterisk/sip/general`` endpoint in
   ``wazo-confd`` API.
+
+Consult the  `19.16 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10054>`_ for more information.
 
 
 19.15

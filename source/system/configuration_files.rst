@@ -200,3 +200,37 @@ add a new file `/etc/asterisk/manager.d/my_new_user.conf` with the following con
  read = system
 
 The same logic applies to all Asterisk configuration files except `asterisk.conf` and `modules.conf`.
+
+
+Modifying the modules.conf
+--------------------------
+
+The ``/etc/asterisk/modules.conf`` file is automatically generated before Asterisk starts. Modifying
+its content will do nothing as it's going to be overritten on the next Asterisk restart.
+
+To enable modules in the ``modules.conf`` file the administrator has to configure :ref:`wazo-confgend`
+to add the required modules to the content of the generated file.
+
+This is done by adding the module name to the `enabled_asterisk_modules` section of the configuration.
+
+Enabling res_cli_aliases
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Enable `res_cli_aliases.so` in the `wazo-confgend` configuration::
+
+     cat <<EOF > /etc/wazo-confgend/conf.d/res_cli_aliases.yml
+     enabled_asterisk_modules:
+         res_cli_aliases.so: true
+     EOF
+
+2. Restart `wazo-confgend`::
+
+     systemctl restart wazo-confgend
+
+3. Check that your changes work by looking at the generated `modules.conf`::
+
+     wazo-confgen asterisk/modules.conf
+
+4. Restart Asterisk::
+
+     systemctl restart asterisk
