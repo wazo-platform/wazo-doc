@@ -38,3 +38,15 @@ xivo-fetchfw
 Proxy information is set via the :file:`/etc/xivo/xivo-fetchfw.conf` file.
 
 Edit the file and look for the ``[proxy]`` section.
+
+wazo-auth, wazo-dird
+====================
+
+*This step is needed for external contacts integration, like Google or Microsoft Office 356, or any other external source of contacts*
+
+Add two files ``/etc/systemd/system/wazo-auth.service.d/proxy.conf`` and ``/etc/systemd/system/wazo-dird.service.d/proxy.conf`` with the same content::
+
+   [Service]
+   Environment=HTTP_PROXY=myproxy:8000  # replace myproxy with your proxy host and 8000 with your proxy port
+   Environment=HTTPS_PROXY=myproxy:8000  # replace myproxy with your proxy host and 8000 with your proxy port for HTTPS
+   Environment=NO_PROXY=localhost,127.0.0.1,127.0.1.1
