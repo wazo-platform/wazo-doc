@@ -4,6 +4,15 @@
 Upgrade notes
 *************
 
+20.01
+=====
+
+* The default protocol configured for consul is now ``HTTP`` instead of ``HTTPS`` since it's only
+  available on ``localhost``. The ``HTTPS`` remains available via the port ``8501``.
+
+Consult the  `20.01 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10065>`_ for more information.
+
+
 19.17
 =====
 
