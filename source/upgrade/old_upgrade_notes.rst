@@ -74,8 +74,6 @@ Archived Upgrade Notes
   manually configured ``channelvars`` already, you will have to manually merge the Wazo version with
   your version for them to work together.
 
-Consult the `17.17 Roadmap <https://projects.wazo.community/versions/270>`_ for more information.
-
 
 17.16
 -----
@@ -111,8 +109,6 @@ Consult the `17.17 Roadmap <https://projects.wazo.community/versions/270>`_ for 
 * If you have setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), you have to
   update your config in ``/etc/xivo/custom/custom-certificate.yml``, according to the :ref:`updated
   documentation <https_certificate>`, namely for the config regarding ``websocketd``.
-
-Consult the `17.16 Roadmap <https://projects.wazo.community/versions/269>`_ for more information.
 
 
 17.15

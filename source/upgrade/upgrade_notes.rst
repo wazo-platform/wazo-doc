@@ -419,16 +419,6 @@ Developers
 
 Consult the roadmaps for more information:
 
-   * `18.04 <https://projects.wazo.community/versions/274>`_
-   * `18.05 <https://projects.wazo.community/versions/275>`_
-   * `18.06 <https://projects.wazo.community/versions/276>`_
-   * `18.07 <https://projects.wazo.community/versions/278>`_
-   * `18.08 <https://projects.wazo.community/versions/279>`_
-   * `18.09 <https://projects.wazo.community/versions/280>`_
-   * `18.10 <https://projects.wazo.community/versions/281>`_
-   * `18.11 <https://projects.wazo.community/versions/282>`_
-   * `18.12 <https://projects.wazo.community/versions/283>`_
-   * `18.13 <https://projects.wazo.community/versions/285>`_
    * `18.14 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10003>`_
    * `19.01 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10007>`_
    * `19.02 <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10009>`_
@@ -470,8 +460,6 @@ Consult the roadmaps for more information:
   ``nat=auto_force_rport`` to nothing, so that they inherit this setting from the General SIP
   settings.
 
-Consult the `18.03 Roadmap <https://projects.wazo.community/versions/272>`_ for more information.
-
 
 18.02
 =====
@@ -483,8 +471,6 @@ Consult the `18.03 Roadmap <https://projects.wazo.community/versions/272>`_ for 
 
   * The `get_ids` method has been removed.
   * The `get_metadata` method has been added.
-
-Consult the `18.02 Roadmap <https://projects.wazo.community/versions/264>`_ for more information.
 
 
 18.01
@@ -539,8 +525,6 @@ Consult the `18.02 Roadmap <https://projects.wazo.community/versions/264>`_ for 
 * The web interface no longer validates the queue skill rules fields added in
   :menuselection:`Services --> Call Center --> Configuration --> Skill rules`. If a rule is wrong,
   it will appear in the Asterisk console.
-
-Consult the `18.01 Roadmap <https://projects.wazo.community/versions/271>`_ for more information.
 
 
 Archives
