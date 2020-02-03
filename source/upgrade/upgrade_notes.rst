@@ -4,6 +4,12 @@
 Upgrade notes
 *************
 
+20.02
+=====
+
+Consult the  `20.02 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10067>`_ for more information.
+
+
 20.01
 =====
 
