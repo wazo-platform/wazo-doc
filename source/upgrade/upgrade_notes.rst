@@ -12,6 +12,10 @@ Upgrade notes
   a customized template that inconditionally uses the port it should be modified
   for cases where the port is not used.
 
+* The ``emails`` field of the Google contacts backend in ``wazo-dird`` has changed format. Instead
+  of being a simple e-mail address list, it is now a list of objects containing both the e-mail
+  address and a label.
+
 Consult the  `20.03 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10069>`_ for more information.
 
 
