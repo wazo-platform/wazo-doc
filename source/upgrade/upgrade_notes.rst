@@ -4,6 +4,17 @@
 Upgrade notes
 *************
 
+20.03
+=====
+
+The email template in wazo-auth now use the incoming HTTP request host and port
+to fill the template instead of the service discovery configuration. If you have
+a customized template that inconditionally uses the port it should be modified
+for cases where the port is not used.
+
+Consult the  `20.03 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10069>`_ for more information.
+
+
 20.02
 =====
 
