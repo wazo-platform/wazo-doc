@@ -16,6 +16,10 @@ Upgrade notes
   of being a simple e-mail address list, it is now a list of objects containing both the e-mail
   address and a label.
 
+* The ``xivo-aastra-2.6.0.2019`` phone provisioning plugin has been removed. The decision was made
+  after it was discovered that the firmware was nowhere to be found. If you still want to use it,
+  it is in the ``archive`` phone plugin repository.
+
 Consult the  `20.03 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10069>`_ for more information.
 
 
