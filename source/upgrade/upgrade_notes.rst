@@ -12,10 +12,6 @@ Upgrade notes
   a customized template that inconditionally uses the port it should be modified
   for cases where the port is not used.
 
-* The ``emails`` field of the Google contacts backend in ``wazo-dird`` has changed format. Instead
-  of being a simple e-mail address list, it is now a list of objects containing both the e-mail
-  address and a label.
-
 * The ``xivo-aastra-2.6.0.2019`` phone provisioning plugin has been removed. The decision was made
   after it was discovered that the firmware was nowhere to be found. If you still want to use it,
   it is in the ``archive`` phone plugin repository.
