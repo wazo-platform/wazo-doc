@@ -4,6 +4,21 @@
 Upgrade notes
 *************
 
+20.03
+=====
+
+* The email template in wazo-auth now use the incoming HTTP request host and port
+  to fill the template instead of the service discovery configuration. If you have
+  a customized template that inconditionally uses the port it should be modified
+  for cases where the port is not used.
+
+* The ``xivo-aastra-2.6.0.2019`` phone provisioning plugin has been removed. The decision was made
+  after it was discovered that the firmware was nowhere to be found. If you still want to use it,
+  it is in the ``archive`` phone plugin repository.
+
+Consult the  `20.03 Roadmap <https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10069>`_ for more information.
+
+
 20.02
 =====
 
