@@ -1,3 +1,8 @@
+__Important: This repositories has been replaced by https://github.com/wazo-platform/wazo-platform.org. You can
+find the moved content into `content/uc-doc/`.__
+
+---------------------------------
+
 wazo-doc
 ========
 
